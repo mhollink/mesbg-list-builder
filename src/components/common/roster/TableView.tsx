@@ -35,6 +35,9 @@ const UnitRow = ({
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  if (!isDefinedUnit(unit)) return null;
+
   return (
     <TableRow sx={rowStyle}>
       {!isMobile && <TableCell>{warbandNum} </TableCell>}
