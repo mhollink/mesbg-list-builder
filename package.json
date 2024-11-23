@@ -18,7 +18,7 @@
     "version": "sh changelog-version-update.sh %npm_package_version%",
     "postversion": "git push && git push --tags && npm run deploy",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh workflow run Manual Build and Deploy --repo mhollink/mesbg-list-builder"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
