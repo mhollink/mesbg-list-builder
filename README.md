@@ -78,10 +78,8 @@ Game reference data is generated from a maintained Excel workbook and bundled wi
 │
 ├── data/
 │   ├── raw/                 # Source Excel game data
-│   ├── model/               # Game-data model definitions
 │   ├── scripts/             # Import and transformation pipeline
 │   ├── schema/              # Validation schemas
-│   ├── generated/           # Generated JSON consumed by the frontend
 │   └── tests/               # Data-pipeline tests
 │
 ├── contracts/
@@ -92,11 +90,8 @@ Game reference data is generated from a maintained Excel workbook and bundled wi
 │
 ├── docs/
 │   ├── architecture/        # System architecture
-│   ├── domain/              # Domain documentation
 │   ├── adr/                 # Architecture Decision Records
-│   ├── development/         # Developer documentation
-│   ├── operations/          # Deployment and operations
-│   └── security/            # Security and privacy documentation
+│   └── development/         # Developer documentation
 │
 ├── infra/                   # Docker and deployment configuration
 ├── scripts/                 # Repository-level automation
