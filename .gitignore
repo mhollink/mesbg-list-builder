@@ -725,9 +725,6 @@ FodyWeavers.xsd
 *.log.*
 *.sig
 
-pkg/
-src/
-
 ### Vim template
 # Swap
 [._]*.s[a-v][a-z]
