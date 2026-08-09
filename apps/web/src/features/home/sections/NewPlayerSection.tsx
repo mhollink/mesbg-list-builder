@@ -19,7 +19,7 @@ const quickActions = [
 		label: "Build your first roster",
 		description:
 			"Choose an army, add warbands and check points, bows, warriors and validation warnings as you build.",
-		href: "/rosters/new",
+		href: "/armies/rosters/new",
 		icon: <FactCheckOutlinedIcon />,
 		action: "Create roster",
 	},

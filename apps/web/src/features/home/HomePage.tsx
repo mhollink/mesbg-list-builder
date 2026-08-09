@@ -6,6 +6,7 @@ import {NewPlayerSection} from "./sections/NewPlayerSection.tsx";
 import {PreviewSection} from "./sections/PreviewSection.tsx";
 import {type RecentRoster, ReturningPlayerSection,} from "./sections/ReturningPlayerSection.tsx";
 import {StatusAndCommunitySection} from "./sections/StatusAndComunitySection.tsx";
+import {HowItWorksSection} from "./sections/HowItWorksSection.tsx";
 
 type HomePageProps = {
     isReturningUser?: boolean;
@@ -18,21 +19,21 @@ const demoRecentRosters: RecentRoster[] = [
         name: "Minas Tirith 750",
         army: "Minas Tirith",
         points: 750,
-        href: "/rosters/1",
+        href: "/armies/rosters/1",
     },
     {
         id: "2",
         name: "Mordor pressure list",
         army: "Legions of Mordor",
         points: 650,
-        href: "/rosters/2",
+        href: "/armies/rosters/2",
     },
     {
         id: "3",
         name: "Riders of Théoden",
         army: "Rohan",
         points: 800,
-        href: "/rosters/3",
+        href: "/armies/rosters/3",
     },
 ];
 
@@ -54,6 +55,7 @@ export function HomePage({
 
                     <FeatureSection/>
                     <PreviewSection/>
+                    <HowItWorksSection />
                     <StatusAndCommunitySection/>
                     <LinkStrip/>
                 </Stack>

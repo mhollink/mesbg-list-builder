@@ -33,10 +33,10 @@ export function RosterPreviewCard() {
 							Roster preview
 						</Typography>
 						<Typography variant="h5" sx={{ fontWeight: 800 }}>
-							Minas Tirith
+							Moria
 						</Typography>
 					</Box>
-					<Chip label="750 pts" color="primary" />
+					<Chip label="650 pts" color="primary" />
 				</Stack>
 
 				<Divider />
@@ -44,15 +44,16 @@ export function RosterPreviewCard() {
 				<Stack spacing={1.25}>
 					<PreviewRow
 						label="Leader"
-						value="Boromir, Captain of the White Tower"
+						value="Durburz, Goblin-King of Moria"
 					/>
-					<PreviewRow label="Warbands" value="3" />
-					<PreviewRow label="Models" value="36" />
-					<PreviewRow label="Bows" value="8 / 12" />
+					<PreviewRow label="Warbands" value="5" />
+					<PreviewRow label="Models" value="56" />
+					<PreviewRow label="Bows" value="9 / 17" />
+					<PreviewRow label="Throwing weapons" value="12 / 17" />
 					<PreviewRow label="Warnings" value="None" />
 				</Stack>
 
-				<Button href="/rosters/new" variant="contained" fullWidth>
+				<Button href="/armies/rosters/new" variant="contained" fullWidth>
 					Start building
 				</Button>
 			</Stack>

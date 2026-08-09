@@ -43,6 +43,24 @@ export const router = createBrowserRouter([
                         ),
                     },
                     {
+                        path: "rosters/new",
+                        element: (
+                            <FeaturePagePlaceholder
+                                title="New roster"
+                                description="Create a new army list"
+                            />
+                        ),
+                    },
+                    {
+                        path: "rosters/:rosterId",
+                        element: (
+                            <FeaturePagePlaceholder
+                                title="Roster"
+                                description="See and update a roster"
+                            />
+                        ),
+                    },
+                    {
                         path: "collection",
                         element: (
                             <FeaturePagePlaceholder

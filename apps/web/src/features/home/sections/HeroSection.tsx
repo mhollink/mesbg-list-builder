@@ -50,14 +50,14 @@ export function HeroSection({returningUser}: { returningUser: boolean }) {
                                 {returningUser ? (
                                     <>
                                         <Button
-                                            href="/rosters/new"
+                                            href="/armies/rosters/new"
                                             size="large"
                                             variant="contained"
                                             endIcon={<ArrowForwardIcon/>}
                                         >
                                             Create roster
                                         </Button>
-                                        <Button href="/rosters" size="large" variant="outlined">
+                                        <Button href="/armies/rosters" size="large" variant="outlined">
                                             View my rosters
                                         </Button>
                                     </>

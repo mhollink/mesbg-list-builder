@@ -82,7 +82,7 @@ export function ReturningPlayerSection({
 						</CardContent>
 
 						<CardActions sx={{ px: 2, pb: 2 }}>
-							<Button href="/rosters" endIcon={<ArrowForwardIcon />}>
+							<Button href="/armies/rosters" endIcon={<ArrowForwardIcon />}>
 								Open all rosters
 							</Button>
 						</CardActions>
@@ -94,7 +94,7 @@ export function ReturningPlayerSection({
 						<DashboardActionCard
 							title="Resume ongoing game"
 							description="Continue tracking Might, Will, Fate, wounds and casualties."
-							href="/games/current"
+							href="/play/games/current"
 							icon={<SportsEsportsOutlinedIcon />}
 							action="Open tracker"
 						/>
@@ -102,7 +102,7 @@ export function ReturningPlayerSection({
 						<DashboardActionCard
 							title="Add match result"
 							description="Log your latest game and keep your match history complete."
-							href="/match-history/new"
+							href="/play/games/new"
 							icon={<HistoryOutlinedIcon />}
 							action="Add result"
 						/>
