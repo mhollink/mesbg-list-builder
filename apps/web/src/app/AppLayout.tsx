@@ -24,7 +24,7 @@ export const AppLayout = () => {
 
     const drawer = (
         <>
-            <Toolbar>
+            <Toolbar >
                 <Typography variant="h6" component="div">
                     MESBG List Builder
                 </Typography>
