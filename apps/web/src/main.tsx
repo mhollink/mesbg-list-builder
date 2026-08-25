@@ -1,8 +1,11 @@
 import {StrictMode} from "react";
 import {createRoot} from "react-dom/client";
-import {CssBaseline} from "@mui/material";
 import {RouterProvider} from "react-router/dom";
 import {router} from "./app/router";
+import {AppThemeProvider} from "./theme/AppThemeProvider.tsx";
+import {PersistGate} from "redux-persist/integration/react";
+import {Provider} from "react-redux";
+import {persistor, store} from "./app/store.ts";
 
 const container = document.getElementById("root");
 
@@ -12,7 +15,12 @@ if (!container) {
 
 createRoot(container).render(
     <StrictMode>
-        <CssBaseline/>
-        <RouterProvider router={router}/>
+        <Provider store={store}>
+            <PersistGate persistor={persistor}>
+                <AppThemeProvider>
+                    <RouterProvider router={router}/>
+                </AppThemeProvider>
+            </PersistGate>
+        </Provider>
     </StrictMode>,
 );

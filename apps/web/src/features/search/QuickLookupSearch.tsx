@@ -1,11 +1,9 @@
-import {type SubmitEvent, useState } from "react";
-import {
-    Box,
-    IconButton,
-    InputAdornment,
-    TextField,
-} from "@mui/material";
-import { SearchOutlined } from "@mui/icons-material";
+import {type SubmitEvent, useState} from "react";
+import SearchIcon from '@mui/icons-material/Search';
+import {Search} from "./Search.tsx";
+import {SearchIconWrapper} from "./SearchIconWrapper.tsx";
+import {StyledInputBase} from "./StyledInputBase.tsx";
+
 
 interface QuickLookupSearchProps {
     onSearch: (query: string) => void;
@@ -29,44 +27,21 @@ export const QuickLookupSearch = ({
     };
 
     return (
-        <Box
-            component="form"
-            role="search"
-            onSubmit={handleSubmit}
-            sx={{
-                width: {
-                    sm: 280,
-                    md: 360,
-                },
-            }}
-        >
-            <TextField
-                fullWidth
-                size="small"
-                type="search"
+        <Search onSubmit={handleSubmit}>
+            <SearchIconWrapper>
+                <SearchIcon/>
+            </SearchIconWrapper>
+            <StyledInputBase
+                placeholder="Quick lookup…"
+                inputProps={{'aria-label': 'search'}}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Quick lookup..."
                 slotProps={{
-                    htmlInput: {
-                        "aria-label": "Quick lookup rules and profiles",
-                    },
                     input: {
-                        endAdornment: (
-                            <InputAdornment position="end">
-                                <IconButton
-                                    type="submit"
-                                    edge="end"
-                                    aria-label="Search"
-                                    disabled={!query.trim()}
-                                >
-                                    <SearchOutlined />
-                                </IconButton>
-                            </InputAdornment>
-                        ),
-                    },
+                        "aria-label": "Quick lookup rules and profiles",
+                    }
                 }}
             />
-        </Box>
+        </Search>
     );
 };
