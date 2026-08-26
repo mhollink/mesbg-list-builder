@@ -3,7 +3,8 @@ import {createThemeTokens} from "../../../../../theme/createThemeTokens.ts";
 
 export const tabletopAllianceTheme: ThemePreset = {
     id: "tabletop-alliance",
-    name: "Tabletop Alliance",
+    name: "The Tabletop Alliance",
+    description: "Creating MESBG & 40k Content on YouTube",
     category: "creator",
     creator: {
         name: "The Tabletop Alliance",

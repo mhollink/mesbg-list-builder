@@ -7,7 +7,7 @@ import {SupportPage} from "../features/about-help/SupportPage.tsx";
 import {PoliciesPage} from "../features/about-help/PoliciesPage.tsx";
 import {NotFoundPage} from "../components/NotFoundPage.tsx";
 import {SettingsPage} from "../features/settings/SettingsPage.tsx";
-import {AppearanceSettings} from "../features/settings/theme/components/appearance/AppearanceSettings.tsx";
+import {AppearanceSettings} from "../features/settings/components/appearance/AppearanceSettings.tsx";
 
 export const router = createBrowserRouter([
     {

@@ -10,10 +10,10 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
 
-import {useAppDispatch, useAppSelector,} from "../../../../../app/hooks.ts";
-import {setCustomPrimaryColor, setPreset, setThemeMode,} from "../../themeSlice.ts";
-import type {ThemeMode} from "../../theme.types.ts";
-import {THEME_PRESETS} from "../../themePresets.ts";
+import {useAppDispatch, useAppSelector,} from "../../../../app/hooks.ts";
+import {setCustomPrimaryColor, setPreset, setThemeMode,} from "../../theme/themeSlice.ts";
+import type {ThemeMode} from "../../theme/theme.types.ts";
+import {THEME_PRESETS} from "../../theme/themePresets.ts";
 import {ThemePresetCard} from "./ThemePresetCard.tsx";
 import {CustomThemeCard} from "./CustomThemeCard.tsx";
 

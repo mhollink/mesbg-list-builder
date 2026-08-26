@@ -1,6 +1,6 @@
 import {Box, Stack, Typography} from "@mui/material";
 import {Outlet} from "react-router";
-import {SettingsNavigation} from "./theme/components/SettingsNavigation.tsx";
+import {SettingsNavigation} from "./components/SettingsNavigation.tsx";
 
 export const SettingsPage = () => (
     <Stack spacing={3}>

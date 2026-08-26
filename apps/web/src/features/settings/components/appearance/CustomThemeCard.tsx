@@ -8,10 +8,10 @@ interface CustomThemeCardProps {
 }
 
 export function CustomThemeCard({
-                             selected,
-                             primaryColor,
-                             onChange,
-                         }: CustomThemeCardProps) {
+                                    selected,
+                                    primaryColor,
+                                    onChange,
+                                }: CustomThemeCardProps) {
     return (
         <Card
             variant="outlined"
@@ -24,25 +24,27 @@ export function CustomThemeCard({
         >
             <Box sx={{p: 2}}>
                 <Stack spacing={2}>
-                    <Stack
-                        direction="row"
-                        spacing={1}
-                        sx={{alignItems: "center"}}
-                    >
-                        <AutoAwesomeRoundedIcon/>
+                    <Box>
+                        <Stack
+                            direction="row"
+                            spacing={1}
+                            sx={{alignItems: "center"}}
+                        >
+                            <AutoAwesomeRoundedIcon sx={{fontSize: "1rem"}}/>
 
-                        <Typography sx={{fontWeight: 600}}>
-                            Custom
+                            <Typography sx={{fontWeight: 600}}>
+                                Custom
+                            </Typography>
+                        </Stack>
+
+                        <Typography
+                            variant="body2"
+                            color="textSecondary"
+                        >
+                            Create a theme from your own
+                            primary color.
                         </Typography>
-                    </Stack>
-
-                    <Typography
-                        variant="body2"
-                        color="textSecondary"
-                    >
-                        Create a theme from your own
-                        primary color.
-                    </Typography>
+                    </Box>
 
                     <Stack
                         direction="row"
@@ -60,8 +62,8 @@ export function CustomThemeCard({
                                 )
                             }
                             sx={{
-                                width: 48,
-                                height: 40,
+                                width: 38,
+                                height: 30,
                                 p: 0,
                                 border: 0,
                                 bgcolor: "transparent",
@@ -69,8 +71,7 @@ export function CustomThemeCard({
                             }}
                         />
 
-                        <Typography sx={{fontFamily: "monospace"}}
-                        >
+                        <Typography sx={{fontFamily: "monospace"}}>
                             {primaryColor.toUpperCase()}
                         </Typography>
                     </Stack>

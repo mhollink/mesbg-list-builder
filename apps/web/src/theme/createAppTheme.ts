@@ -60,8 +60,31 @@ export function createAppTheme(
             surfaceSubtle: colors.surface.subtle,
         },
 
+        components: {
+            MuiDrawer: {
+                styleOverrides: {
+                    paper: {
+                        backgroundColor: colors.surface.background,
+                        color: colors.text.primary,
+                        borderColor: colors.divider,
+                    },
+                },
+            },
+
+            MuiAppBar: {
+                styleOverrides: {
+                    root: {
+                        backgroundColor: colors.surface.background,
+                        color: colors.text.primary,
+                        borderBottom: `1px solid ${colors.divider}`,
+                        boxShadow: "none",
+                    },
+                },
+            },
+        },
+
         shape: {
-            borderRadius: 8,
+            borderRadius: 4,
         },
     };
 
