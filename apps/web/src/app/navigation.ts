@@ -7,7 +7,6 @@ import {
     Inventory2Outlined,
     MenuBookOutlined,
     PersonSearchOutlined,
-    SettingsOutlined,
     ShieldOutlined,
     SportsEsportsOutlined,
 } from "@mui/icons-material";
@@ -99,16 +98,7 @@ export const navigation: NavigationSection[] = [
                 icon: CollectionsBookmarkOutlined,
             },
         ],
-    },
-    {
-        items: [
-            {
-                label: "Settings",
-                path: "/settings",
-                icon: SettingsOutlined,
-            },
-        ],
-    },
+    }
 ];
 
 export const featuredNavigation = navigation
