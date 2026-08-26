@@ -86,7 +86,7 @@ export const AppLayout = () => {
 
     return (
         <Box sx={{display: "flex", minHeight: "100vh"}}>
-            <AppBar position="fixed" color="default">
+            <AppBar position="fixed" color="inherit">
                 <Toolbar sx={{display: "flex", justifyContent: "space-between"}}>
                     <Box sx={{display: "flex", alignItems: "center"}}>
                         <IconButton

@@ -1,18 +1,26 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type {ColorVisionMode, ThemePresetId, ThemeState} from "./theme.types.ts";
+import type {ColorVisionMode, ThemeMode, ThemePresetId, ThemeState} from "./theme.types.ts";
 
 const initialState: ThemeState = {
     selection: {
         type: "preset",
-        preset: "middle-earth",
+        preset: "default",
     },
     colorVisionMode: "standard",
+    mode: "light"
 };
 
 const themeSlice = createSlice({
     name: "theme",
     initialState,
     reducers: {
+        setThemeMode(
+            state,
+            action: PayloadAction<ThemeMode>,
+        ) {
+            state.mode = action.payload;
+        },
+
         setPreset(state, action: PayloadAction<ThemePresetId>) {
             state.selection = {
                 type: "preset",
@@ -40,6 +48,7 @@ const themeSlice = createSlice({
 });
 
 export const {
+    setThemeMode,
     setPreset,
     setCustomPrimaryColor,
     setColorVisionMode,

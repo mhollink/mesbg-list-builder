@@ -1,5 +1,10 @@
 import type {ThemeColorTokens} from "../../../theme/theme.types.ts";
 
+export type ThemeMode =
+    | "light"
+    | "dark"
+    | "system";
+
 export type ThemePresetId =
     | "default"
     | "gondor"
@@ -36,4 +41,5 @@ export type ThemeSelection =
 export interface ThemeState {
     selection: ThemeSelection;
     colorVisionMode: ColorVisionMode;
+    mode: ThemeMode;
 }

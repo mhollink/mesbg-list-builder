@@ -1,18 +1,20 @@
 import {
     createTheme,
+    type PaletteMode,
     type ThemeOptions,
 } from "@mui/material/styles";
 
-import type { ThemeColorTokens } from "./theme.types.ts";
+import type { ThemeColorTokens } from "./theme.types";
 
 export function createAppTheme(
     colors: ThemeColorTokens,
+    mode: PaletteMode,
 ) {
     const options: ThemeOptions = {
         cssVariables: true,
 
         palette: {
-            mode: "light",
+            mode,
 
             contrastThreshold: 4.5,
 

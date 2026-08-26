@@ -2,7 +2,6 @@ import {clampChroma, converter, formatHex,} from "culori";
 
 import {THEME_PRESETS} from "../features/settings/theme/themePresets.ts";
 import type {BrandColorTokens, ThemeColorTokens,} from "./theme.types.ts";
-import type {ThemeState} from "../features/settings/theme/theme.types.ts";
 
 const toOklch = converter("oklch");
 
@@ -79,17 +78,4 @@ export function createCustomThemeColors(
 
         brand: createBrandColors(primaryColor),
     };
-}
-
-export function resolveThemeColors(
-    {selection}: ThemeState,
-): ThemeColorTokens {
-    if (selection.type === "custom") {
-        return createCustomThemeColors(
-            selection.primaryColor,
-        );
-    }
-
-    const preset = THEME_PRESETS[selection.preset] ?? THEME_PRESETS["default"];
-    return preset.colors;
 }
