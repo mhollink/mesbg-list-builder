@@ -30,7 +30,7 @@ const supportOptions = [
   {
     key: "code",
     icon: <CodeOutlinedIcon fontSize="large" />,
-    href: "https://github.com/mhollink/mesbg-list-builder-v2",
+    href: "https://github.com/mhollink/mesbg-list-builder",
   },
   {
     key: "financial",
