@@ -6,6 +6,8 @@ import {tabletopAllianceTheme} from "./presets/creators/tabletop-alliance.ts";
 import {lothlorienTheme} from "./presets/lothlorien.ts";
 import {isengardTheme} from "./presets/isengard.ts";
 import {amethystTheme} from "./presets/patreons/amethystTheme.ts";
+import {conquestCreationsTheme} from "./presets/creators/conquest-creations.ts";
+import {gondorCallsForAleTheme} from "./presets/creators/gondor-calls-for-ale.ts";
 
 export const THEME_PRESETS: Record<
     ThemePresetId,
@@ -19,6 +21,8 @@ export const THEME_PRESETS: Record<
 
     // Creator Packs
     "tabletop-alliance": tabletopAllianceTheme,
+    "gondor-calls-for-ale": gondorCallsForAleTheme,
+    "conquest-creations": conquestCreationsTheme,
 
     // Patreon / Community Packs
     amethyst: amethystTheme

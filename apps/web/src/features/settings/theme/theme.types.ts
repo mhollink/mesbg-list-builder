@@ -12,6 +12,8 @@ export type ThemePresetId =
     | "lothlorien"
     | "isengard"
     | "tabletop-alliance"
+    | "gondor-calls-for-ale"
+    | "conquest-creations"
     | "amethyst";
 
 export type ThemePresetCategory =
