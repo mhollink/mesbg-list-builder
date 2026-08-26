@@ -6,6 +6,8 @@ import {AppThemeProvider} from "./theme/AppThemeProvider.tsx";
 import {PersistGate} from "redux-persist/integration/react";
 import {Provider} from "react-redux";
 import {persistor, store} from "./app/store.ts";
+import "./i18n/i18n";
+import {LocalizationProvider} from "./i18n/LocalizationProvider.tsx";
 
 const container = document.getElementById("root");
 
@@ -17,9 +19,11 @@ createRoot(container).render(
     <StrictMode>
         <Provider store={store}>
             <PersistGate persistor={persistor}>
-                <AppThemeProvider>
-                    <RouterProvider router={router}/>
-                </AppThemeProvider>
+                <LocalizationProvider>
+                    <AppThemeProvider>
+                        <RouterProvider router={router}/>
+                    </AppThemeProvider>
+                </LocalizationProvider>
             </PersistGate>
         </Provider>
     </StrictMode>,

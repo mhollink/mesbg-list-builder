@@ -37,24 +37,24 @@ export function SettingsPreviewPage({
                     color="textSecondary"
                     gutterBottom
                 >
-                    Planned
+                    Coming soon
                 </Typography>
 
                 <List dense disablePadding>
                     {notes.map((note) => (
                         <ListItem
                             key={note}
-                            sx={{ py: 0.25 }}
+                            sx={{py: 0.25}}
                         >
                             <ListItemIcon
-                                sx={{ minWidth: 28 }}
+                                sx={{minWidth: 28}}
                             >
                                 <FiberManualRecordIcon
-                                    sx={{ fontSize: 6 }}
+                                    sx={{fontSize: 6}}
                                 />
                             </ListItemIcon>
 
-                            <ListItemText primary={note} />
+                            <ListItemText primary={note}/>
                         </ListItem>
                     ))}
                 </List>

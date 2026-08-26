@@ -16,6 +16,7 @@ import type {ThemeMode} from "../../theme/theme.types.ts";
 import {THEME_PRESETS} from "../../theme/themePresets.ts";
 import {ThemePresetCard} from "./ThemePresetCard.tsx";
 import {CustomThemeCard} from "./CustomThemeCard.tsx";
+import {useTranslation} from "react-i18next";
 
 const allPresets = Object.values(THEME_PRESETS);
 
@@ -23,6 +24,7 @@ const allPresets = Object.values(THEME_PRESETS);
 export function AppearanceSettings() {
     const dispatch = useAppDispatch();
     const {mode, selection} = useAppSelector((state) => state.theme,);
+    const {t} = useTranslation("settings")
 
     function handleModeChange(_: MouseEvent<HTMLElement>, value: ThemeMode | null) {
         if (value) {
@@ -42,11 +44,11 @@ export function AppearanceSettings() {
                     component="h2"
                     gutterBottom
                 >
-                    Appearance
+                    {t("appearance.title")}
                 </Typography>
 
                 <Typography color="textSecondary">
-                    Customize how MESBG List Builder looks.
+                    {t("appearance.description")}
                 </Typography>
             </Box>
 
@@ -56,37 +58,37 @@ export function AppearanceSettings() {
                     component="h3"
                     gutterBottom
                 >
-                    Color mode
+                    {t("appearance.mode.title")}
                 </Typography>
 
                 <ToggleButtonGroup
                     exclusive
                     value={mode}
                     onChange={handleModeChange}
-                    aria-label="Color mode"
+                    aria-label={t("appearance.mode.title")}
                 >
                     <ToggleButton
                         value="light"
-                        aria-label="Light"
+                        aria-label={t("appearance.mode.light")}
                     >
                         <LightModeRoundedIcon sx={{mr: 1}}/>
-                        Light
+                        {t("appearance.mode.light")}
                     </ToggleButton>
 
                     <ToggleButton
                         value="dark"
-                        aria-label="Dark"
+                        aria-label={t("appearance.mode.dark")}
                     >
                         <DarkModeRoundedIcon sx={{mr: 1}}/>
-                        Dark
+                        {t("appearance.mode.dark")}
                     </ToggleButton>
 
                     <ToggleButton
                         value="system"
-                        aria-label="System"
+                        aria-label={t("appearance.mode.system")}
                     >
                         <SettingsBrightnessRoundedIcon sx={{mr: 1}}/>
-                        System
+                        {t("appearance.mode.system")}
                     </ToggleButton>
                 </ToggleButtonGroup>
             </Box>
@@ -99,11 +101,11 @@ export function AppearanceSettings() {
                     component="h3"
                     gutterBottom
                 >
-                    Theme
+                    {t("appearance.theme.title")}
                 </Typography>
 
                 <Typography color="textSecondary" sx={{mb: 2}}>
-                    Choose from themes designed for MESBG List Builder.
+                    {t("appearance.theme.builtIn")}
                 </Typography>
 
                 <Box
@@ -143,7 +145,7 @@ export function AppearanceSettings() {
                 </Box>
 
                 <Typography color="textSecondary" sx={{my: 2}}>
-                    Use a theme inspired by our favorite MESBG content creators.
+                    {t("appearance.theme.creatorPacks")}
                 </Typography>
 
                 <Box
@@ -171,7 +173,7 @@ export function AppearanceSettings() {
                 </Box>
 
                 <Typography color="textSecondary" sx={{my: 2}}>
-                    Community-made themes created and shared by supporters.
+                    {t("appearance.theme.patreonPacks")}
                 </Typography>
 
                 <Box

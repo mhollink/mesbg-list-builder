@@ -16,11 +16,13 @@ import {MenuOutlined, SettingsOutlined} from "@mui/icons-material";
 import {NavLink, Outlet} from "react-router";
 import {navigation} from "./navigation";
 import {QuickLookupSearch} from "../features/search/QuickLookupSearch.tsx";
+import {useTranslation} from "react-i18next";
 
 const drawerWidth = 260;
 
 export const AppLayout = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const {t} = useTranslation("navigation");
 
     const drawer = (
         <Box
@@ -53,7 +55,7 @@ export const AppLayout = () => {
                                     pb: 0.5,
                                 }}
                             >
-                                {section.label}
+                                {t(section.label)}
                             </Typography>
                         )}
 
@@ -80,7 +82,7 @@ export const AppLayout = () => {
                                             <Icon />
                                         </ListItemIcon>
 
-                                        <ListItemText primary={item.label} />
+                                        <ListItemText primary={t(item.label)} />
                                     </ListItemButton>
                                 );
                             })}
@@ -113,7 +115,7 @@ export const AppLayout = () => {
                             <SettingsOutlined />
                         </ListItemIcon>
 
-                        <ListItemText primary="Settings" />
+                        <ListItemText primary={t("settings")} />
                     </ListItemButton>
                 </List>
             </Box>
