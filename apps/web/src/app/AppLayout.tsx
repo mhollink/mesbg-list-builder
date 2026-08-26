@@ -12,7 +12,7 @@ import {
     Toolbar,
     Typography,
 } from "@mui/material";
-import {MenuOutlined} from "@mui/icons-material";
+import {MenuOutlined, SettingsOutlined} from "@mui/icons-material";
 import {NavLink, Outlet} from "react-router";
 import {navigation} from "./navigation";
 import {QuickLookupSearch} from "../features/search/QuickLookupSearch.tsx";
@@ -23,65 +23,101 @@ export const AppLayout = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const drawer = (
-        <>
-            <Toolbar >
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+                overflowY: "auto",
+            }}
+        >
+            <Toolbar>
                 <Typography variant="h6" component="div">
                     MESBG List Builder
                 </Typography>
             </Toolbar>
 
-            <Divider/>
+            <Divider />
 
-            {navigation.map((section, sectionIndex) => (
-                <Box key={section.label ?? sectionIndex}>
-                    {section.label && (
-                        <Typography
-                            variant="overline"
-                            color="textSecondary"
-                            sx={{
-                                display: "block",
-                                px: 2,
-                                pt: 2,
-                                pb: 0.5,
-                            }}
-                        >
-                            {section.label}
-                        </Typography>
-                    )}
+            <Box>
+                {navigation.map((section, sectionIndex) => (
+                    <Box key={section.label ?? sectionIndex}>
+                        {section.label && (
+                            <Typography
+                                variant="overline"
+                                color="textSecondary"
+                                sx={{
+                                    display: "block",
+                                    px: 2,
+                                    pt: 2,
+                                    pb: 0.5,
+                                }}
+                            >
+                                {section.label}
+                            </Typography>
+                        )}
 
-                    <List disablePadding>
-                        {section.items.map((item) => {
-                            const Icon = item.icon;
+                        <List disablePadding>
+                            {section.items.map((item) => {
+                                const Icon = item.icon;
 
-                            return (
-                                <ListItemButton
-                                    key={item.path}
-                                    component={NavLink}
-                                    to={item.path}
-                                    end={item.path === "/"}
-                                    onClick={() => setMobileOpen(false)}
-                                    sx={{
-                                        px: 2,
-                                        borderRadius: 1,
-                                        "&[aria-current='page']": {
-                                            bgcolor: "action.selected",
-                                        },
-                                    }}
-                                >
-                                    <ListItemIcon>
-                                        <Icon/>
-                                    </ListItemIcon>
+                                return (
+                                    <ListItemButton
+                                        key={item.path}
+                                        component={NavLink}
+                                        to={item.path}
+                                        end={item.path === "/"}
+                                        onClick={() => setMobileOpen(false)}
+                                        sx={{
+                                            px: 2,
+                                            borderRadius: 1,
+                                            "&[aria-current='page']": {
+                                                bgcolor: "action.selected",
+                                            },
+                                        }}
+                                    >
+                                        <ListItemIcon>
+                                            <Icon />
+                                        </ListItemIcon>
 
-                                    <ListItemText primary={item.label}/>
-                                </ListItemButton>
-                            );
-                        })}
-                    </List>
+                                        <ListItemText primary={item.label} />
+                                    </ListItemButton>
+                                );
+                            })}
+                        </List>
 
-                    <Divider/>
-                </Box>
-            ))}
-        </>
+                        <Divider />
+                    </Box>
+                ))}
+            </Box>
+
+            <Box
+                sx={{
+                    mt: "auto",
+                }}
+            >
+                <List disablePadding>
+                    <ListItemButton
+                        component={NavLink}
+                        to="/settings"
+                        onClick={() => setMobileOpen(false)}
+                        sx={{
+                            px: 2,
+                            borderRadius: 1,
+                            "&[aria-current='page']": {
+                                bgcolor: "action.selected",
+                            },
+                        }}
+                    >
+                        <ListItemIcon>
+                            <SettingsOutlined />
+                        </ListItemIcon>
+
+                        <ListItemText primary="Settings" />
+                    </ListItemButton>
+                </List>
+            </Box>
+        </Box>
     );
 
     return (

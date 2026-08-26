@@ -8,8 +8,10 @@ export const gondorTheme: ThemePreset = {
     description: "Steel, stone and the White City.",
 
     colors: createThemeTokens({
-        primary: "#344A5E",
-        secondary: "#667785",
-        accent: "#C2A65A",
+        primary: "#244B73",
+        secondary: "#71899D",
+        tertiary: "#D7DDE1",
+        accent: "#C7A54A",
+        highlight: "#F1F3F4",
     }),
 };

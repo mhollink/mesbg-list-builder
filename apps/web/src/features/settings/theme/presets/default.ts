@@ -8,9 +8,11 @@ export const defaultTheme: ThemePreset = {
 
     colors: {
         brand: {
-            primary: "#1976D2",
-            secondary: "#9C27B0",
-            accent: "#1976D2",
+            primary: "#2867A8",
+            secondary: "#3E914D",
+            tertiary: "#965D2E",
+            accent: "#E0AE22",
+            highlight: "#D04432",
         },
 
         surface: {
@@ -25,10 +27,10 @@ export const defaultTheme: ThemePreset = {
         },
 
         semantic: {
-            success: "#2E7D32",
-            warning: "#ED6C02",
-            error: "#D32F2F",
-            info: "#0288D1",
+            success: "#1F7A6D",
+            warning: "#C97818",
+            error: "#A92F55",
+            info: "#2B7FA3",
         },
 
         divider: "rgba(0, 0, 0, 0.12)",

@@ -35,8 +35,14 @@ export function applyThemeMode(
             secondary: adaptBrandColorForDarkMode(
                 colors.brand.secondary,
             ),
+            tertiary: adaptBrandColorForDarkMode(
+                colors.brand.tertiary,
+            ),
             accent: adaptBrandColorForDarkMode(
                 colors.brand.accent,
+            ),
+            highlight: adaptBrandColorForDarkMode(
+                colors.brand.highlight,
             ),
         },
 

@@ -1,29 +1,22 @@
-import {
-    clampChroma,
-    converter,
-    formatHex,
-    type Oklch,
-} from "culori";
+import {clampChroma, converter, formatHex, type Oklch,} from "culori";
 
-import type {
-    BrandColorTokens,
-    SemanticColorTokens,
-    ThemeColorTokens,
-} from "./theme.types";
+import type {BrandColorTokens, SemanticColorTokens, ThemeColorTokens,} from "./theme.types";
 
 const toOklch = converter("oklch");
 
 const DEFAULT_SEMANTIC_COLORS: SemanticColorTokens = {
-    success: "#2E7D32",
-    warning: "#ED6C02",
-    error: "#D32F2F",
-    info: "#0288D1",
+    success: "#1F7A6D",
+    warning: "#C97818",
+    error: "#A92F55",
+    info: "#2B7FA3",
 };
 
 export interface CreateThemeTokensOptions {
     primary: string;
     secondary: string;
+    tertiary: string;
     accent: string;
+    highlight: string;
 
     semantic?: Partial<SemanticColorTokens>;
 }
@@ -31,7 +24,9 @@ export interface CreateThemeTokensOptions {
 export function createThemeTokens({
                                       primary,
                                       secondary,
+                                      tertiary,
                                       accent,
+                                      highlight,
                                       semantic,
                                   }: CreateThemeTokensOptions): ThemeColorTokens {
     const primaryColor = parseOklch(primary);
@@ -39,7 +34,9 @@ export function createThemeTokens({
     const brand: BrandColorTokens = {
         primary: normalizeColor(primary),
         secondary: normalizeColor(secondary),
+        tertiary: normalizeColor(tertiary),
         accent: normalizeColor(accent),
+        highlight: normalizeColor(highlight),
     };
 
     return {

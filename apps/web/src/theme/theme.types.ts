@@ -1,7 +1,9 @@
 export interface BrandColorTokens {
     primary: string;
     secondary: string;
+    tertiary: string;
     accent: string;
+    highlight: string;
 }
 
 export interface SurfaceColorTokens {
