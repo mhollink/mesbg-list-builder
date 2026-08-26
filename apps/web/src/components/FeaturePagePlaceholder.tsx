@@ -1,23 +1,22 @@
-import {Box, Typography} from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 interface FeaturePagePlaceholderProps {
-    title: string;
-    description?: string;
+  title: string;
+  description?: string;
 }
 
 export const FeaturePagePlaceholder = ({
-                                           title,
-                                           description,
-                                       }: FeaturePagePlaceholderProps) => (
-    <Box>
-        <Typography variant="h4" component="h1" gutterBottom>
-            {title}
-        </Typography>
+  title,
+  description,
+}: FeaturePagePlaceholderProps) => (
+  <Box>
+    <Typography variant="h4" component="h1" gutterBottom>
+      {title}
+    </Typography>
 
-        {description && (
-            <Typography color="text.secondary">
-                {description}
-            </Typography>
-        )}
-    </Box>
+    {description && (
+      <Typography color="text.secondary">{description}</Typography>
+    )}
+  </Box>
 );

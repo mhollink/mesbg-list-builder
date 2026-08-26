@@ -4,6 +4,6 @@ import generalSettingsReducer from "../features/settings/general/generalSettings
 import themeReducer from "../features/settings/theme/themeSlice";
 
 export const rootReducer = combineReducers({
-    settings: generalSettingsReducer,
-    theme: themeReducer,
+  settings: generalSettingsReducer,
+  theme: themeReducer,
 });
