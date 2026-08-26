@@ -1,3 +1,4 @@
+import { Trans, useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -12,9 +13,15 @@ import { PolicyDocument } from "./components/PolicyDocument";
 import { PolicySection } from "./components/PolicySection";
 
 const CONTACT_EMAIL = "support@mesbg-list-builder.com";
-const LAST_UPDATED = "July 2026";
 
 export function PoliciesPage() {
+  const { t } = useTranslation("policies");
+
+  const items = (key: string) =>
+    t(key, {
+      returnObjects: true,
+    }) as string[];
+
   return (
     <Box
       component="main"
@@ -56,7 +63,7 @@ export function PoliciesPage() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Clear policies for a free and sustainable list builder
+              {t("hero.title")}
             </Typography>
 
             <Typography
@@ -70,8 +77,7 @@ export function PoliciesPage() {
                 lineHeight: 1.7,
               }}
             >
-              These policies explain what information is stored, how it is used,
-              and how we keep the service available for the entire community.
+              {t("hero.description")}
             </Typography>
 
             <Stack
@@ -87,7 +93,7 @@ export function PoliciesPage() {
                 variant="contained"
                 size="large"
               >
-                Read privacy policy
+                {t("hero.privacyButton")}
               </Button>
 
               <Button
@@ -96,18 +102,14 @@ export function PoliciesPage() {
                 variant="outlined"
                 size="large"
               >
-                Read fair use policy
+                {t("hero.fairUseButton")}
               </Button>
             </Stack>
 
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                pt: 1,
-              }}
-            >
-              Last updated: {LAST_UPDATED}
+            <Typography variant="body2" color="text.secondary" sx={{ pt: 1 }}>
+              {t("hero.lastUpdated", {
+                date: t("hero.lastUpdatedDate"),
+              })}
             </Typography>
           </Stack>
         </Container>
@@ -124,74 +126,51 @@ export function PoliciesPage() {
       >
         <Stack spacing={5}>
           <PolicyDocument
-            eyebrow="Your data"
-            title="Privacy Policy"
-            introduction="We only collect and process information that is needed to provide, secure, maintain, and improve the list builder. This policy explains what information may be stored and how it is used."
+            eyebrow={t("privacy.eyebrow")}
+            title={t("privacy.title")}
+            introduction={t("privacy.introduction")}
           >
             <PolicySection
               id="privacy"
-              title="Information we store"
-              description="The information associated with your account may include:"
-              items={[
-                "Your account identifier, email address, display name, and profile image when these are provided by your authentication provider.",
-                "Rosters, roster groups, collections, match history, ongoing games, tags, notes, and other content you choose to create.",
-                "Account creation, login, and synchronisation information needed to operate your account.",
-                "Technical information such as request timestamps, application errors, browser information, IP addresses, and security logs.",
-              ]}
+              title={t("privacy.information.title")}
+              description={t("privacy.information.description")}
+              items={items("privacy.information.items")}
             />
 
             <PolicySection
-              title="How we use your information"
-              items={[
-                "To create, authenticate, and manage your account.",
-                "To store and synchronise your rosters and other user-created content.",
-                "To restore your information when you sign in on another device.",
-                "To provide support and investigate technical problems.",
-                "To protect the application and its users against misuse, fraud, and unauthorised access.",
-                "To understand application reliability and improve the service using aggregated or anonymised information.",
-              ]}
+              title={t("privacy.usage.title")}
+              items={items("privacy.usage.items")}
             />
 
             <PolicySection
-              title="User-created content"
-              description="You decide which information you enter into the application. Roster names, tags, notes, opponent names, and similar fields should not be used to store sensitive personal information."
+              title={t("privacy.userContent.title")}
+              description={t("privacy.userContent.description")}
             />
 
             <PolicySection
-              title="Sharing information"
-              description="We do not sell your personal information or use the contents of your private rosters for advertising. Information may be processed by trusted service providers where this is necessary to operate the application."
-              items={[
-                "Authentication providers used to sign users in.",
-                "Hosting and database providers used to run the application and store data.",
-                "Monitoring, logging, or error-reporting providers used to keep the application reliable and secure.",
-                "Email or support providers when you contact the project.",
-              ]}
+              title={t("privacy.sharing.title")}
+              description={t("privacy.sharing.description")}
+              items={items("privacy.sharing.items")}
             />
 
             <PolicySection
-              title="Access to private data"
-              description="Private roster and account data is not intentionally accessed except when this is necessary for technical maintenance, security investigations, legal obligations, or support requested by the user."
+              title={t("privacy.privateData.title")}
+              description={t("privacy.privateData.description")}
             />
 
             <PolicySection
-              title="Data retention and deletion"
-              items={[
-                "Account information and user-created content are retained while your account remains active.",
-                "When an account is deleted, its associated data will be removed from active systems within a reasonable period.",
-                "Deleted data may remain temporarily in encrypted backups until those backups are rotated.",
-                "Technical and security logs may be retained for a limited period to investigate incidents and maintain application security.",
-                "Some information may be retained longer where this is required by law or necessary to establish, exercise, or defend legal claims.",
-              ]}
+              title={t("privacy.retention.title")}
+              items={items("privacy.retention.items")}
             />
 
             <PolicySection
-              title="Security"
-              description="Reasonable technical and organisational safeguards are used to protect stored information. No online service can guarantee absolute security, but access to production systems and databases is restricted to what is necessary to operate the service."
+              title={t("privacy.security.title")}
+              description={t("privacy.security.description")}
             />
 
             <PolicySection
-              title="Your rights"
-              description="Depending on your location, you may have the right to access, correct, export, restrict, or delete your personal information. You may also have the right to object to certain processing activities."
+              title={t("privacy.rights.title")}
+              description={t("privacy.rights.description")}
             >
               <Typography
                 color="text.secondary"
@@ -200,36 +179,35 @@ export function PoliciesPage() {
                   lineHeight: 1.75,
                 }}
               >
-                Requests can be sent to{" "}
-                <Link href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</Link>.
-                We may need to verify that the request relates to your account
-                before providing or deleting information.
+                <Trans
+                  ns="policies"
+                  i18nKey="privacy.rights.request"
+                  values={{
+                    email: CONTACT_EMAIL,
+                  }}
+                  components={{
+                    email: <Link href={`mailto:${CONTACT_EMAIL}`} />,
+                  }}
+                />
               </Typography>
             </PolicySection>
 
             <PolicySection
-              title="Changes to this policy"
-              description="This policy may be updated when the application, its infrastructure, or its legal obligations change. The most recent version will always be published on this page together with its last-updated date."
+              title={t("privacy.changes.title")}
+              description={t("privacy.changes.description")}
             />
           </PolicyDocument>
 
           <PolicyDocument
-            eyebrow="Shared infrastructure"
-            title="Fair Use & Sustainability Policy"
-            introduction="The list builder is available without a subscription. To keep it fast, reliable, and affordable for everyone, users are expected to use its shared infrastructure responsibly."
+            eyebrow={t("fairUse.eyebrow")}
+            title={t("fairUse.title")}
+            introduction={t("fairUse.introduction")}
           >
             <PolicySection
               id="fair-use"
-              title="Normal use is encouraged"
-              description="The application is intended to support active players and hobbyists. Normal use includes:"
-              items={[
-                "Creating and maintaining personal rosters.",
-                "Organising armies, collections, groups, and related hobby information.",
-                "Recording matches and maintaining a personal match history.",
-                "Using the application regularly during games, events, and hobby sessions.",
-                "Printing, exporting, or sharing rosters through the features provided by the application.",
-                "Keeping a large collection of legitimate rosters that are meaningfully used or maintained.",
-              ]}
+              title={t("fairUse.normalUse.title")}
+              description={t("fairUse.normalUse.description")}
+              items={items("fairUse.normalUse.items")}
             />
 
             <Paper
@@ -247,7 +225,7 @@ export function PoliciesPage() {
                   lineHeight: 1.6,
                 }}
               >
-                Frequent use is not automatically excessive use.
+                {t("fairUse.frequentUse.title")}
               </Typography>
 
               <Typography
@@ -257,54 +235,34 @@ export function PoliciesPage() {
                   lineHeight: 1.7,
                 }}
               >
-                Players should feel comfortable using the application as part of
-                their normal hobby. This policy is intended to prevent
-                deliberate misuse and disproportionate automated usage, not to
-                discourage enthusiastic users.
+                {t("fairUse.frequentUse.description")}
               </Typography>
             </Paper>
 
             <PolicySection
-              title="Excessive or abusive use"
-              description="Usage may be considered excessive or abusive when it unreasonably consumes shared resources, disrupts the service, or uses the application for a purpose it was not designed for."
-              items={[
-                "Automated creation of accounts, rosters, games, or requests without prior permission.",
-                "Scraping, mirroring, or bulk-downloading application data or datasets.",
-                "Using the application as general-purpose file, document, or text storage.",
-                "Creating excessive duplicate or meaningless content primarily to consume storage.",
-                "Circumventing rate limits, storage limits, access controls, or other technical protections.",
-                "Creating multiple accounts to avoid restrictions.",
-                "Generating traffic that negatively affects application performance or availability.",
-                "Attempting to access, alter, or extract another user's private information.",
-                "Reselling access to the hosted application or operating a commercial service through it without permission.",
-                "Uploading or storing unlawful, harmful, or malicious content.",
-              ]}
+              title={t("fairUse.excessiveUse.title")}
+              description={t("fairUse.excessiveUse.description")}
+              items={items("fairUse.excessiveUse.items")}
             />
 
             <PolicySection
-              title="Reasonable limits"
-              description="Technical limits may be introduced when needed to protect application stability and control operating costs. These limits may apply to storage, request frequency, exports, automated access, or other resource-intensive features."
+              title={t("fairUse.limits.title")}
+              description={t("fairUse.limits.description")}
             />
 
             <PolicySection
-              title="How we respond to unusual usage"
-              items={[
-                "We may contact users to understand unusual activity or unusually high resource usage.",
-                "We may ask users to reduce, archive, export, or remove unnecessary data.",
-                "Automated or excessive traffic may be rate-limited or temporarily blocked.",
-                "Accounts may be temporarily restricted when their activity threatens security or availability.",
-                "Serious, malicious, or repeated violations may result in account suspension or deletion.",
-              ]}
+              title={t("fairUse.response.title")}
+              items={items("fairUse.response.items")}
             />
 
             <PolicySection
-              title="Communication before restriction"
-              description="Where practical, we will contact the affected user before restricting an account. Immediate action may be taken when necessary to protect user data, application security, infrastructure stability, or other users."
+              title={t("fairUse.communication.title")}
+              description={t("fairUse.communication.description")}
             />
 
             <PolicySection
-              title="Supporting the project"
-              description="Hosting, databases, backups, monitoring, development, and maintenance all have ongoing costs. Users who store unusually large amounts of data or use the application extensively are encouraged to support the project financially when they are able to do so."
+              title={t("fairUse.support.title")}
+              description={t("fairUse.support.description")}
             />
 
             <Paper
@@ -323,7 +281,7 @@ export function PoliciesPage() {
                   lineHeight: 1.6,
                 }}
               >
-                Financial support is voluntary.
+                {t("fairUse.voluntarySupport.title")}
               </Typography>
 
               <Typography
@@ -333,27 +291,22 @@ export function PoliciesPage() {
                   lineHeight: 1.7,
                 }}
               >
-                Supporting the project does not purchase unlimited storage,
-                unlimited automated access, or an exemption from this policy.
-                Contributions help keep the application available to the wider
-                community.
+                {t("fairUse.voluntarySupport.description")}
               </Typography>
 
               <Button
                 component={RouterLink}
                 to="/support"
                 variant="outlined"
-                sx={{
-                  mt: 2.5,
-                }}
+                sx={{ mt: 2.5 }}
               >
-                Support the project
+                {t("fairUse.voluntarySupport.button")}
               </Button>
             </Paper>
 
             <PolicySection
-              title="Changes to this policy"
-              description="This policy may change as the application grows and its infrastructure requirements evolve. Material changes will be published on this page."
+              title={t("fairUse.changes.title")}
+              description={t("fairUse.changes.description")}
             />
           </PolicyDocument>
 
@@ -376,7 +329,7 @@ export function PoliciesPage() {
                 fontWeight: 700,
               }}
             >
-              Questions about these policies?
+              {t("contact.title")}
             </Typography>
 
             <Typography
@@ -388,9 +341,7 @@ export function PoliciesPage() {
                 lineHeight: 1.7,
               }}
             >
-              Contact the project when something is unclear, when you want to
-              request access to your data, or when you believe your account has
-              been affected incorrectly.
+              {t("contact.description")}
             </Typography>
 
             <Stack
@@ -409,11 +360,11 @@ export function PoliciesPage() {
                 href={`mailto:${CONTACT_EMAIL}`}
                 variant="contained"
               >
-                Contact us
+                {t("contact.button")}
               </Button>
 
               <Button component={RouterLink} to="/" variant="text">
-                Return to homepage
+                {t("contact.homeButton")}
               </Button>
             </Stack>
           </Paper>
