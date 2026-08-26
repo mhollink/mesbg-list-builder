@@ -154,7 +154,7 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         index: true,
-                        element: <Navigate to="appearance" replace />,
+                        element: <Navigate to="general" replace />,
                     },
                     {
                         path: "general",

@@ -5,8 +5,9 @@
     "description": "Customize how MESBG List Builder looks and feels.",
     "theme": {
       "title": "Theme",
-      "builtIn": "Built-in themes",
-      "creatorPacks": "Creator packs"
+      "builtIn": "Choose from themes designed for MESBG List Builder.",
+      "creatorPacks": "Use a theme inspired by our favorite MESBG content creators.",
+      "patreonPacks": "Community-made themes created and shared by supporters."
     },
     "mode": {
       "title": "Color mode",

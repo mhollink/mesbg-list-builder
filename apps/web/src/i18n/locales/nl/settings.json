@@ -1,18 +1,19 @@
 {
   "title": "Settings",
   "appearance": {
-    "title": "Appearance",
-    "description": "Customize how MESBG List Builder looks and feels.",
+    "title": "Weergave",
+    "description": "Pas de vormgeving van de MESBG List Builder naar eigen wens aan.",
     "theme": {
-      "title": "Theme",
-      "builtIn": "Built-in themes",
-      "creatorPacks": "Creator packs"
+      "title": "Thema",
+      "builtIn": "Kies een van de themas ontwikkeld voor MESBG List Builder",
+      "creatorPacks": "Gebruik een theme afkomstig van een van onze favoriete content creators",
+      "patreonPacks": "Door de community gemaakte thema's."
     },
     "mode": {
-      "title": "Color mode",
-      "light": "Light",
-      "dark": "Dark",
-      "system": "System"
+      "title": "Kleurmodus",
+      "light": "Licht",
+      "dark": "Donker",
+      "system": "Systeem"
     }
   },
   "general": {

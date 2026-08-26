@@ -9,6 +9,7 @@ import {
     PersonSearchOutlined,
     ShieldOutlined,
     SportsEsportsOutlined,
+    ListAltOutlined,
 } from "@mui/icons-material";
 
 export interface NavigationItem {
@@ -28,24 +29,24 @@ export const navigation: NavigationSection[] = [
     {
         items: [
             {
-                label: "Home",
+                label: "home",
                 path: "/",
                 icon: HomeOutlined,
             }
         ],
     },
     {
-        label: "Armies",
+        label: "armies",
         items: [
             {
-                label: "Rosters",
+                label: "rosters",
                 path: "/armies/rosters",
                 icon: ShieldOutlined,
                 description: "Create and manage your army lists.",
                 featured: true,
             },
             {
-                label: "Collection",
+                label: "collection",
                 path: "/armies/collection",
                 icon: Inventory2Outlined,
                 description: "Keep track of the miniatures in your collection.",
@@ -54,53 +55,54 @@ export const navigation: NavigationSection[] = [
         ],
     },
     {
-        label: "Play",
+        label: "play",
         items: [
             {
-                label: "Find a game",
+                label: "find-a-game",
                 path: "/play/find-game",
                 icon: PersonSearchOutlined,
                 description: "Find players and games in your area.",
                 featured: true,
             },
             {
-                label: "Games",
+                label: "games",
                 path: "/play/games",
                 icon: SportsEsportsOutlined,
                 description: "Track the games you play.",
                 featured: true,
             },
             {
-                label: "Battle Companies",
+                label: "battle-companies",
                 path: "/play/battle-companies",
                 icon: GroupsOutlined,
             },
             {
-                label: "Tournaments",
+                label: "tournaments",
                 path: "/play/tournaments",
                 icon: EmojiEventsOutlined,
             },
         ],
     },
     {
-        label: "Reference",
+        label: "reference",
         items: [
             {
-                label: "Rules",
+                label: "rules",
                 path: "/reference/rules",
                 icon: MenuBookOutlined,
                 description: "Quickly find rules and game references.",
                 featured: true,
             },
             {
-                label: "Profiles",
+                label: "profiles",
                 path: "/reference/profiles",
                 icon: CollectionsBookmarkOutlined,
+            },
+            {
+                label: "army-lists",
+                path: "/reference/armylists",
+                icon: ListAltOutlined,
             },
         ],
     }
 ];
-
-export const featuredNavigation = navigation
-    .flatMap((section) => section.items)
-    .filter((item) => item.featured);
