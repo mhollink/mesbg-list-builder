@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Pagina niet gevonden"
+  },
+  "badge": "Pagina niet gevonden",
+  "title": "Deze pagina kon niet worden gevonden",
+  "description": "De link is mogelijk verouderd, de pagina is verplaatst of het adres bevat een fout. Je legerlijsten en accountgegevens zijn niet beïnvloed.",
+  "requestedLocation": "Opgevraagde locatie",
+  "actions": {
+    "home": "Ga naar de homepage",
+    "rosters": "Bekijk mijn legerlijsten",
+    "back": "Ga terug"
+  },
+  "error": {
+    "label": "Pad niet gevonden"
+  },
+  "footer": "Als je deze pagina herhaaldelijk vanuit de applicatie bereikt, kan dit wijzen op een kapotte link."
+}

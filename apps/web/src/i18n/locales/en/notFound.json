@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Page not found"
+  },
+  "badge": "Page not found",
+  "title": "This page could not be found",
+  "description": "The link may be outdated, the page may have moved, or the address may contain a mistake. Your rosters and account data have not been affected.",
+  "requestedLocation": "Requested location",
+  "actions": {
+    "home": "Go to homepage",
+    "rosters": "View my rosters",
+    "back": "Go back"
+  },
+  "error": {
+    "label": "Path not found"
+  },
+  "footer": "Repeatedly reaching this page from inside the application may indicate a broken link."
+}
