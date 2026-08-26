@@ -11,13 +11,13 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
 
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks.ts";
-import type { ThemeMode } from "../../theme/theme.types.ts";
-import { THEME_PRESETS } from "../../theme/themePresets.ts";
+import type { ThemeMode } from "../../../../theme/theme.types.ts";
+import { THEME_PRESETS } from "../../../../theme/themePresets.ts";
 import {
   setCustomPrimaryColor,
   setPreset,
   setThemeMode,
-} from "../../theme/themeSlice.ts";
+} from "../../state/theme/themeSlice.ts";
 import { CustomThemeCard } from "./CustomThemeCard.tsx";
 import { ThemePresetCard } from "./ThemePresetCard.tsx";
 
