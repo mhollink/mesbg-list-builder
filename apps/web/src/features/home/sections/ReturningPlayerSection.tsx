@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
@@ -28,11 +29,12 @@ export function ReturningPlayerSection({
 }: {
   recentRosters: RecentRoster[];
 }) {
+  const { t } = useTranslation("home", { keyPrefix: "returning-player" });
   return (
     <PageSection
-      eyebrow="Continue"
-      title="Pick up where you left off"
-      description="Jump back into your latest rosters, continue an active game, or record your most recent result."
+      eyebrow={t("eyebrow")}
+      title={t("title")}
+      description={t("description")}
     >
       <Grid container spacing={3}>
         <Grid size={{ xs: 12, md: 7 }}>
@@ -73,7 +75,10 @@ export function ReturningPlayerSection({
                           {roster.army}
                         </Typography>
                       </Box>
-                      <Chip label={`${roster.points} pts`} size="small" />
+                      <Chip
+                        label={`${roster.points} ${t("rosters.points")}`}
+                        size="small"
+                      />
                     </Stack>
                   </Paper>
                 ))}
@@ -82,7 +87,7 @@ export function ReturningPlayerSection({
 
             <CardActions sx={{ px: 2, pb: 2 }}>
               <Button href="/armies/rosters" endIcon={<ArrowForwardIcon />}>
-                Open all rosters
+                {t("rosters.open-all")}
               </Button>
             </CardActions>
           </Card>
@@ -91,19 +96,19 @@ export function ReturningPlayerSection({
         <Grid size={{ xs: 12, md: 5 }}>
           <Stack spacing={3}>
             <DashboardActionCard
-              title="Resume ongoing game"
-              description="Continue tracking Might, Will, Fate, wounds and casualties."
+              title={t("games.title")}
+              description={t("games.description")}
               href="/play/games/current"
               icon={<SportsEsportsOutlinedIcon />}
-              action="Open tracker"
+              action={t("games.cta")}
             />
 
             <DashboardActionCard
-              title="Add match result"
-              description="Log your latest game and keep your match history complete."
+              title={t("results.title")}
+              description={t("results.description")}
               href="/play/games/new"
               icon={<HistoryOutlinedIcon />}
-              action="Add result"
+              action={t("results.cta")}
             />
           </Stack>
         </Grid>

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -10,6 +11,8 @@ import Typography from "@mui/material/Typography";
 import { RosterPreviewCard } from "../components/RosterPreviewCard.tsx";
 
 export function HeroSection({ returningUser }: { returningUser: boolean }) {
+  const { t } = useTranslation("home");
+
   return (
     <Box>
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 14 } }}>
@@ -38,17 +41,15 @@ export function HeroSection({ returningUser }: { returningUser: boolean }) {
                     fontSize: { xs: "2.5rem", md: "4.25rem" },
                   }}
                 >
-                  Build, manage and play your MESBG army lists.
+                  {t("hero.title")}
                 </Typography>
 
                 <Typography
                   variant="h6"
-                  color="text.secondary"
+                  color="textSecondary"
                   sx={{ mt: 2, maxWidth: 680, lineHeight: 1.6 }}
                 >
-                  A fast list builder for Middle-earth Strategy Battle Game
-                  players, with roster validation, printable cards, digital
-                  trackers, match history and collection tools.
+                  {t("hero.description")}
                 </Typography>
               </Box>
 
@@ -61,14 +62,14 @@ export function HeroSection({ returningUser }: { returningUser: boolean }) {
                       variant="contained"
                       endIcon={<ArrowForwardIcon />}
                     >
-                      Create roster
+                      {t("hero.cta.create-roster")}
                     </Button>
                     <Button
                       href="/armies/rosters"
                       size="large"
                       variant="outlined"
                     >
-                      View my rosters
+                      {t("hero.cta.view-rosters")}
                     </Button>
                   </>
                 ) : (
@@ -79,10 +80,11 @@ export function HeroSection({ returningUser }: { returningUser: boolean }) {
                       variant="contained"
                       endIcon={<ArrowForwardIcon />}
                     >
-                      Sign in
+                      {" "}
+                      {t("hero.cta.sign-in")}
                     </Button>
                     <Button href="/register" size="large" variant="outlined">
-                      Create account
+                      {t("hero.cta.create-account")}
                     </Button>
                   </>
                 )}

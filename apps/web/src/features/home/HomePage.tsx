@@ -13,11 +13,6 @@ import {
 } from "./sections/ReturningPlayerSection.tsx";
 import { StatusAndCommunitySection } from "./sections/StatusAndComunitySection.tsx";
 
-type HomePageProps = {
-  isReturningUser?: boolean;
-  recentRosters?: RecentRoster[];
-};
-
 const demoRecentRosters: RecentRoster[] = [
   {
     id: "1",
@@ -42,10 +37,10 @@ const demoRecentRosters: RecentRoster[] = [
   },
 ];
 
-export function HomePage({
-  isReturningUser = true,
-  recentRosters = demoRecentRosters,
-}: HomePageProps) {
+export function HomePage() {
+  const isReturningUser = true;
+  const recentRosters = demoRecentRosters;
+
   return (
     <>
       <HeroSection returningUser={isReturningUser} />

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
@@ -10,6 +11,8 @@ import Typography from "@mui/material/Typography";
 import { PreviewRow } from "./PreviewRow.tsx";
 
 export function RosterPreviewCard() {
+  const { t } = useTranslation("home", { keyPrefix: "hero.roster-preview" });
+
   return (
     <Paper
       elevation={0}
@@ -29,28 +32,31 @@ export function RosterPreviewCard() {
         >
           <Box>
             <Typography variant="overline" color="text.secondary">
-              Roster preview
+              {t("eyebrow")}
             </Typography>
             <Typography variant="h5" sx={{ fontWeight: 800 }}>
               Moria
             </Typography>
           </Box>
-          <Chip label="650 pts" color="primary" />
+          <Chip label={`650 ${t("points")}`} color="primary" />
         </Stack>
 
         <Divider />
 
         <Stack spacing={1.25}>
-          <PreviewRow label="Leader" value="Durburz, Goblin-King of Moria" />
-          <PreviewRow label="Warbands" value="5" />
-          <PreviewRow label="Models" value="56" />
-          <PreviewRow label="Bows" value="9 / 17" />
-          <PreviewRow label="Throwing weapons" value="12 / 17" />
-          <PreviewRow label="Warnings" value="None" />
+          <PreviewRow
+            label={t("leader")}
+            value="Durburz, Goblin-King of Moria"
+          />
+          <PreviewRow label={t("warbands")} value="5" />
+          <PreviewRow label={t("models")} value="56" />
+          <PreviewRow label={t("bows")} value="9 / 17" />
+          <PreviewRow label={t("throwing-weapons")} value="12 / 17" />
+          <PreviewRow label={t("warnings")} value={t("none")} />
         </Stack>
 
         <Button href="/armies/rosters/new" variant="contained" fullWidth>
-          Start building
+          {t("cta")}
         </Button>
       </Stack>
     </Paper>

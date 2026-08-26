@@ -1,0 +1,66 @@
+{
+  "hero": {
+    "title": "Build, manage and play your MESBG army lists.",
+    "description": "A fast list builder for Middle-earth Strategy Battle Game players, with roster validation, printable cards, digital trackers, match history and collection tools.",
+    "cta": {
+      "create-roster": "Create roster",
+      "view-rosters": "View my rosters",
+      "sign-in": "Sign in",
+      "create-account": "Create account"
+    },
+    "roster-preview": {
+      "eyebrow": "Roster preview",
+      "leader": "Leader",
+      "warbands": "Warbands",
+      "models": "Models",
+      "bows": "Bows",
+      "throwing-weapons": "Throwing weapons",
+      "warnings": "Warnings",
+      "none": "None",
+      "cta": "Start building",
+      "points": "pts"
+    }
+  },
+  "new-player": {
+    "eyebrow": "Start",
+    "title": "Everything you need before, during and after a game",
+    "description": "Sign in to create your first roster, manage your collection and keep everything stored safely with your account.",
+    "cards": {
+      "account": {
+        "title": "Create your account",
+        "description": "Keep your rosters, match history, ongoing games and collection stored safely in one place.",
+        "action": "Get started"
+      },
+      "build": {
+        "title": "Build your first roster",
+        "description": "Choose an army, add warbands and check points, bows, warriors and validation warnings as you build.",
+        "action": "Create roster"
+      },
+      "data": {
+        "title": "Bring your hobby data together",
+        "description": "Track games, manage your collection and build a history around the armies you play most.",
+        "action": "Explore tools"
+      }
+    }
+  },
+  "returning-player": {
+    "eyebrow": "Continue",
+    "title": "Pick up where you left off",
+    "description": "Jump back into your latest rosters, continue an active game, or record your most recent result.",
+    "rosters": {
+      "title": "Recent rosters",
+      "points": "pts",
+      "open-all": "Open all rosters"
+    },
+    "games": {
+      "title": "Resume ongoing game",
+      "description": "Continue tracking Might, Will, Fate, wounds and casualties.",
+      "cta": "Open tracker"
+    },
+    "results": {
+      "title": "Add match result",
+      "description": "Log your latest game and keep your match history complete.",
+      "cta": "Add result"
+    }
+  }
+}
