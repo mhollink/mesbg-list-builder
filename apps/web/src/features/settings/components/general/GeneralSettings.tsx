@@ -15,9 +15,7 @@ import { setLanguage } from "../../state/general//generalSettingsSlice";
 
 export function GeneralSettings() {
   const { t } = useTranslation("settings");
-
   const dispatch = useAppDispatch();
-
   const language = useAppSelector((state) => state.settings.language);
 
   return (

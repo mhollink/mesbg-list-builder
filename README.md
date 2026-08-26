@@ -4,6 +4,37 @@ A web application for building and managing armies for the **Middle-earth Strate
 
 The project started as a roster builder and is being expanded into a broader companion application for MESBG players.
 
+<!-- TOC -->
+* [MESBG List Builder](#mesbg-list-builder)
+  * [Features](#features)
+    * [Armies](#armies)
+    * [Play](#play)
+    * [Reference](#reference)
+  * [Technology](#technology)
+    * [Web](#web)
+    * [API](#api)
+    * [Database](#database)
+    * [Testing](#testing)
+    * [Infrastructure](#infrastructure)
+  * [Repository structure](#repository-structure)
+  * [Architecture](#architecture)
+    * [Game data](#game-data)
+    * [User data](#user-data)
+  * [Application areas](#application-areas)
+  * [Local development](#local-development)
+    * [Requirements](#requirements)
+    * [Setup](#setup)
+  * [Game-data pipeline](#game-data-pipeline)
+  * [API](#api-1)
+  * [Testing](#testing-1)
+  * [Documentation](#documentation)
+  * [Privacy](#privacy)
+  * [Contributing](#contributing)
+    * [Translating](#translating)
+      * [How to add a new language](#how-to-add-a-new-language)
+  * [Disclaimer](#disclaimer)
+<!-- TOC -->
+
 ## Features
 
 ### Armies
@@ -174,10 +205,9 @@ Play
 Reference
 ├── Profiles
 ├── Rules
-└── Dice Charts
+└── Army lists
 
 Settings
-Help & About
 ```
 
 ## Local development
@@ -325,6 +355,18 @@ See the location privacy ADR and security documentation for the detailed design.
 Issues and pull requests are welcome.
 
 For larger changes, prefer creating an issue first so the intended behavior and architecture can be discussed before implementation.
+
+### Translating
+
+One of the main parts that could use support is the translation to other languages. I am only fluent in english and dutch. 
+Other languages on the page are either AI-generated or created with help of the community.
+
+#### How to add a new language
+
+* Create a fresh copy from apps/web/src/i18n/locales/en into the language of choice
+* Add the language tag to the supported languages in apps/web/src/i18n/i18n.ts (`supportedLngs`)
+* Update the list of supported (`SUPPORTED_LANGUAGES`) languages in apps/web/src/features/settings/state/general/generalSettings.constants.ts
+* Translate any (or all) keys inside the initially created locale files. 
 
 ## Disclaimer
 
