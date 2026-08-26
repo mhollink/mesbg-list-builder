@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "eyebrow": "Feedback",
+    "title": "Help improve the List Builder",
+    "description": "This project is shaped by real players using it for real games. Whether you found a bug, noticed incorrect data, or have an idea that would make list building easier, your feedback helps decide what gets improved next."
+  },
+
+  "cards": {
+    "bugs": {
+      "title": "Report bugs",
+      "description": "Found something that does not work as expected? Share what happened, what you expected, and where you noticed the issue."
+    },
+    "data": {
+      "title": "Improve data accuracy",
+      "description": "Missing options, incorrect profiles, or outdated information can be reported here so the list builder becomes more reliable for everyone."
+    },
+    "features": {
+      "title": "Suggest features",
+      "description": "Have an idea that would make list building, roster management, or game preparation easier? Describe the problem you want solved."
+    },
+    "general": {
+      "title": "Share general thoughts",
+      "description": "Not every piece of feedback has to be a bug or feature request. If something feels confusing, slow, awkward, or useful, that matters too."
+    }
+  },
+
+  "form": {
+    "title": "Send feedback",
+    "description": "Try to include enough context to make the feedback easy to understand. For bug reports, the page, list, army, unit, or action you were using is especially helpful.",
+
+    "rulebookNotice": "Please avoid copying full rulebook text. A short description of the issue, the affected unit or option, and the source you are comparing against is enough.",
+
+    "languageNotice": {
+      "title": "Please write your feedback in English.",
+      "description": "This allows the development team to understand your message and respond when needed."
+    },
+
+    "type": {
+      "label": "Feedback type",
+      "options": {
+        "bug": "Bug report",
+        "incorrectData": "Missing or incorrect data",
+        "featureRequest": "Feature idea",
+        "usability": "Usability feedback",
+        "general": "General feedback"
+      }
+    },
+
+    "fields": {
+      "title": {
+        "label": "Title",
+        "placeholder": "Short summary of your feedback"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Describe what happened, what you expected, or what you would like to improve."
+      },
+      "contactEmail": {
+        "label": "Contact email",
+        "placeholder": "Optional, only needed if you want a reply"
+      }
+    },
+
+    "reviewNotice": "Feedback is reviewed manually and helps prioritize future improvements.",
+    "submit": "Submit feedback"
+  }
+}

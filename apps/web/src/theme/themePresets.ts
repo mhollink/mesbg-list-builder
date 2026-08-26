@@ -1,3 +1,4 @@
+import { angmarTheme } from "./presets/angmar.ts";
 import { conquestCreationsTheme } from "./presets/creators/conquest-creations.ts";
 import { gondorCallsForAleTheme } from "./presets/creators/gondor-calls-for-ale.ts";
 import { tabletopAllianceTheme } from "./presets/creators/tabletop-alliance.ts";
@@ -8,9 +9,8 @@ import { isengardTheme } from "./presets/isengard.ts";
 import { lothlorienTheme } from "./presets/lothlorien.ts";
 import { mordorTheme } from "./presets/mordor.ts";
 import { amethystTheme } from "./presets/patreons/amethystTheme.ts";
+import { rohanTheme } from "./presets/rohan.ts";
 import type { ThemePreset, ThemePresetId } from "./theme.types.ts";
-import {rohanTheme} from "./presets/rohan.ts";
-import {angmarTheme} from "./presets/angmar.ts";
 
 export const THEME_PRESETS: Record<ThemePresetId, ThemePreset> = {
   default: defaultTheme,

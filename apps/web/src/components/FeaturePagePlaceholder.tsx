@@ -16,7 +16,7 @@ export const FeaturePagePlaceholder = ({
     </Typography>
 
     {description && (
-      <Typography color="text.secondary">{description}</Typography>
+      <Typography color="textSecondary">{description}</Typography>
     )}
   </Box>
 );

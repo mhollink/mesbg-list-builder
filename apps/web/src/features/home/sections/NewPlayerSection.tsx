@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAlt1Outlined";
@@ -8,48 +9,40 @@ import { PageSection } from "../components/PageSection";
 
 const quickActions = [
   {
-    label: "Create your account",
-    description:
-      "Keep your rosters, match history, ongoing games and collection stored safely in one place.",
+    key: "account",
     href: "/register",
     icon: <PersonAddAltOutlinedIcon />,
-    action: "Get started",
     primary: true,
   },
   {
-    label: "Build your first roster",
-    description:
-      "Choose an army, add warbands and check points, bows, warriors and validation warnings as you build.",
+    key: "build",
     href: "/armies/rosters/new",
     icon: <FactCheckOutlinedIcon />,
-    action: "Create roster",
   },
   {
-    label: "Bring your hobby data together",
-    description:
-      "Track games, manage your collection and build a history around the armies you play most.",
+    key: "data",
     href: "/features",
     icon: <Inventory2OutlinedIcon />,
-    action: "Explore tools",
   },
 ];
 
 export function NewPlayerSection() {
+  const { t } = useTranslation("home", { keyPrefix: "new-player" });
   return (
     <PageSection
-      eyebrow="Start"
-      title="Everything you need before, during and after a game"
-      description="Sign in to create your first roster, manage your collection and keep everything stored safely with your account."
+      eyebrow={t("eyebrow")}
+      title={t("title")}
+      description={t("description")}
     >
       <Grid container spacing={3}>
         {quickActions.map((action) => (
-          <Grid key={action.label} size={{ xs: 12, md: 4 }}>
+          <Grid key={action.key} size={{ xs: 12, md: 4 }}>
             <DashboardActionCard
-              title={action.label}
-              description={action.description}
+              title={t(`cards.${action.key}.title`)}
+              description={t(`cards.${action.key}.description`)}
               href={action.href}
               icon={action.icon}
-              action={action.primary ? "Start now" : "Open"}
+              action={t(`cards.${action.key}.action`)}
               primary={action.primary}
             />
           </Grid>

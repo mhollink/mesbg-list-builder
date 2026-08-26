@@ -1,4 +1,5 @@
 import { type SubmitEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
 import SearchIcon from "@mui/icons-material/Search";
 
 import { Search } from "./Search.tsx";
@@ -10,6 +11,7 @@ interface QuickLookupSearchProps {
 }
 
 export const QuickLookupSearch = ({ onSearch }: QuickLookupSearchProps) => {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
 
   const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
@@ -30,15 +32,10 @@ export const QuickLookupSearch = ({ onSearch }: QuickLookupSearchProps) => {
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
-        placeholder="Quick lookup…"
-        inputProps={{ "aria-label": "search" }}
+        placeholder={t("search")}
+        inputProps={{ "aria-label": t("search-aria") }}
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        slotProps={{
-          input: {
-            "aria-label": "Quick lookup rules and profiles",
-          },
-        }}
       />
     </Search>
   );

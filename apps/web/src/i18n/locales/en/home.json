@@ -1,0 +1,156 @@
+{
+  "hero": {
+    "title": "Build, manage and play your MESBG army lists.",
+    "description": "A fast list builder for Middle-earth Strategy Battle Game players, with roster validation, printable cards, digital trackers, match history and collection tools.",
+    "cta": {
+      "create-roster": "Create roster",
+      "view-rosters": "View my rosters",
+      "sign-in": "Sign in",
+      "create-account": "Create account"
+    },
+    "roster-preview": {
+      "eyebrow": "Roster preview",
+      "leader": "Leader",
+      "warbands": "Warbands",
+      "models": "Models",
+      "bows": "Bows",
+      "throwing-weapons": "Throwing weapons",
+      "warnings": "Warnings",
+      "none": "None",
+      "cta": "Start building",
+      "points": "pts"
+    }
+  },
+  "new-player": {
+    "eyebrow": "Start",
+    "title": "Everything you need before, during and after a game",
+    "description": "Sign in to create your first roster, manage your collection and keep everything stored safely with your account.",
+    "cards": {
+      "account": {
+        "title": "Create your account",
+        "description": "Keep your rosters, match history, ongoing games and collection stored safely in one place.",
+        "action": "Get started"
+      },
+      "build": {
+        "title": "Build your first roster",
+        "description": "Choose an army, add warbands and check points, bows, warriors and validation warnings as you build.",
+        "action": "Create roster"
+      },
+      "data": {
+        "title": "Bring your hobby data together",
+        "description": "Track games, manage your collection and build a history around the armies you play most.",
+        "action": "Explore tools"
+      }
+    }
+  },
+  "returning-player": {
+    "eyebrow": "Continue",
+    "title": "Pick up where you left off",
+    "description": "Jump back into your latest rosters, continue an active game, or record your most recent result.",
+    "rosters": {
+      "title": "Recent rosters",
+      "points": "pts",
+      "open-all": "Open all rosters"
+    },
+    "games": {
+      "title": "Resume ongoing game",
+      "description": "Continue tracking Might, Will, Fate, wounds and casualties.",
+      "cta": "Open tracker"
+    },
+    "results": {
+      "title": "Add match result",
+      "description": "Log your latest game and keep your match history complete.",
+      "cta": "Add result"
+    }
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Built around the actual tabletop flow",
+    "description": "Your rosters, match history, ongoing games and collection are tied to your account, so the List Builder can stay consistent across devices without manual syncing.",
+    "features": {
+      "build": {
+        "title": "Build valid army lists",
+        "description": "Create warbands, add heroes and warriors, track points, bows, throwing weapons and validation warnings."
+      },
+      "profiles": {
+        "title": "Use profile cards",
+        "description": "Open clean profile cards while building, printing or playing at the table."
+      },
+      "play": {
+        "title": "Play with digital trackers",
+        "description": "Track Might, Will, Fate, wounds, break points and casualties during a game."
+      },
+      "collect": {
+        "title": "Manage your collection",
+        "description": "Enable collection checks so lists can warn you when models or loadouts are missing."
+      },
+      "track": {
+        "title": "Track match history",
+        "description": "Record results by army, opponent, scenario and points level to learn from your games."
+      },
+      "community": {
+        "title": "Made for the community",
+        "description": "Report data issues, suggest improvements and help keep the builder accurate."
+      }
+    }
+  },
+  "preview": {
+    "eyebrow": "Preview",
+    "title": "Prepare, play, review",
+    "description": "The List Builder follows the full tabletop flow: prepare your roster, use it during the battle, then review your results afterwards.",
+    "cards": {
+      "build": {
+        "title": "Build",
+        "subtitle": "Create legal lists with clear validation.",
+        "lines": ["Warbands", "Points", "Bows", "Army bonus"]
+      },
+      "play": {
+        "title": "Play",
+        "subtitle": "Use your roster during the battle.",
+        "lines": ["Might / Will / Fate", "Wounds", "Break point", "Casualties"]
+      },
+      "improve": {
+        "title": "Improve",
+        "subtitle": "Learn from previous games.",
+        "lines": ["Match history", "Scenarios", "Opponents", "Army results"]
+      }
+    }
+  },
+  "flow": {
+    "eyebrow": "Flow",
+    "title": "How it works",
+    "description": "Create an account once, then build rosters, use them at the table and keep your results and collection data together over time.",
+    "cards": {
+      "choose": "Choose an army",
+      "build": "Build your roster",
+      "play": "Use it at the table",
+      "track": "Record the result"
+    }
+  },
+  "status": {
+    "data": {
+      "description": "The builder is only useful when the data is reliable. Check the current edition status, review known issues, and report anything that looks incorrect.",
+      "edition": "Edition",
+      "last-update": "Last update",
+      "version": "App version",
+      "known-issues": "Known issues",
+      "view-issues": "View list"
+    },
+    "community": {
+      "tags": {
+        "report": "Report issues",
+        "pwa": "Installable app"
+      },
+      "title": "Help improve the List Builder",
+      "description": "The List Builder improves through player feedback. Share missing options, data mistakes or ideas that would make the tool better at the table.",
+      "report": "Report issue",
+      "support": "Support development"
+    },
+    "disclaimer": "MESBG List Builder is an unofficial fan-made utility for the Middle-earth Strategy Battle Game. It is not affiliated with or endorsed by Games Workshop, Middle-earth Enterprises or their partners."
+  },
+  "links": {
+    "privacy": "Privacy",
+    "fair-use": "Fair use",
+    "support": "Support"
+  }
+}

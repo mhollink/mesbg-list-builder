@@ -1,0 +1,156 @@
+{
+  "hero": {
+    "title": "Bouw, beheer en speel met je MESBG-legerlijsten.",
+    "description": "Een snelle list builder voor spelers van Middle-earth Strategy Battle Game, met validatie van legerlijsten, printbare kaarten, digitale trackers, wedstrijdgeschiedenis en collectiebeheer.",
+    "cta": {
+      "create-roster": "Maak legerlijst",
+      "view-rosters": "Bekijk mijn legerlijsten",
+      "sign-in": "Inloggen",
+      "create-account": "Account aanmaken"
+    },
+    "roster-preview": {
+      "eyebrow": "Voorbeeld legerlijst",
+      "leader": "Leider",
+      "warbands": "Warbands",
+      "models": "Miniaturen",
+      "bows": "Bogen",
+      "throwing-weapons": "Werpwapens",
+      "warnings": "Waarschuwingen",
+      "none": "Geen",
+      "cta": "Begin met bouwen",
+      "points": "pts"
+    }
+  },
+  "new-player": {
+    "eyebrow": "Start",
+    "title": "Alles wat je nodig hebt voor, tijdens en na een spel",
+    "description": "Log in om je eerste legerlijst te maken, je collectie te beheren en alles veilig bij je account op te slaan.",
+    "cards": {
+      "account": {
+        "title": "Maak je account aan",
+        "description": "Bewaar je legerlijsten, wedstrijdgeschiedenis, lopende spellen en collectie veilig op één plek.",
+        "action": "Aan de slag"
+      },
+      "build": {
+        "title": "Bouw je eerste legerlijst",
+        "description": "Kies een leger, voeg warbands toe en controleer tijdens het bouwen je punten, bogen, krijgers en validatiewaarschuwingen.",
+        "action": "Maak legerlijst"
+      },
+      "data": {
+        "title": "Breng je hobbygegevens samen",
+        "description": "Houd spellen bij, beheer je collectie en bouw een geschiedenis op rond de legers waarmee je het meest speelt.",
+        "action": "Ontdek de tools"
+      }
+    }
+  },
+  "returning-player": {
+    "eyebrow": "Verdergaan",
+    "title": "Ga verder waar je gebleven was",
+    "description": "Open je meest recente legerlijsten, ga verder met een lopend spel of registreer je laatste resultaat.",
+    "rosters": {
+      "title": "Recente legerlijsten",
+      "points": "pts",
+      "open-all": "Bekijk alle legerlijsten"
+    },
+    "games": {
+      "title": "Ga verder met een lopend spel",
+      "description": "Blijf Might, Will, Fate, wounds en verliezen bijhouden.",
+      "cta": "Open tracker"
+    },
+    "results": {
+      "title": "Voeg wedstrijdresultaat toe",
+      "description": "Registreer je laatste spel en houd je wedstrijdgeschiedenis compleet.",
+      "cta": "Voeg resultaat toe"
+    }
+  },
+  "features": {
+    "eyebrow": "Functies",
+    "title": "Gebouwd rond het echte spelverloop",
+    "description": "Je legerlijsten, wedstrijdgeschiedenis, lopende spellen en collectie zijn gekoppeld aan je account, zodat de List Builder op al je apparaten consistent blijft zonder handmatig synchroniseren.",
+    "features": {
+      "build": {
+        "title": "Bouw geldige legerlijsten",
+        "description": "Maak warbands, voeg helden en krijgers toe en houd punten, bogen, werpwapens en validatiewaarschuwingen bij."
+      },
+      "profiles": {
+        "title": "Gebruik profielkaarten",
+        "description": "Open overzichtelijke profielkaarten tijdens het bouwen, printen of spelen aan tafel."
+      },
+      "play": {
+        "title": "Speel met digitale trackers",
+        "description": "Houd tijdens een spel Might, Will, Fate, wounds, breekpunten en verliezen bij."
+      },
+      "collect": {
+        "title": "Beheer je collectie",
+        "description": "Schakel collectiecontroles in zodat legerlijsten je kunnen waarschuwen wanneer miniaturen of uitrustingsopties ontbreken."
+      },
+      "track": {
+        "title": "Houd je wedstrijdgeschiedenis bij",
+        "description": "Registreer resultaten per leger, tegenstander, scenario en puntenniveau om van je spellen te leren."
+      },
+      "community": {
+        "title": "Gemaakt voor de community",
+        "description": "Meld fouten in de gegevens, stel verbeteringen voor en help de List Builder nauwkeurig te houden."
+      }
+    }
+  },
+  "preview": {
+    "eyebrow": "Voorbeeld",
+    "title": "Voorbereiden, spelen, terugkijken",
+    "description": "De List Builder volgt het volledige spelverloop: bereid je legerlijst voor, gebruik hem tijdens de strijd en bekijk daarna je resultaten.",
+    "cards": {
+      "build": {
+        "title": "Bouwen",
+        "subtitle": "Maak geldige legerlijsten met validatie.",
+        "lines": ["Warbands", "Punten", "Bogen", "Legerbonus"]
+      },
+      "play": {
+        "title": "Spelen",
+        "subtitle": "Gebruik je legerlijst tijdens de strijd.",
+        "lines": ["Might / Will / Fate", "Wounds", "Breekpunt", "Verliezen"]
+      },
+      "improve": {
+        "title": "Verbeteren",
+        "subtitle": "Leer van eerdere spellen.",
+        "lines": ["Wedstrijdgeschiedenis", "Scenario's", "Tegenstanders", "Legerresultaten"]
+      }
+    }
+  },
+  "flow": {
+    "eyebrow": "Werkwijze",
+    "title": "Hoe het werkt",
+    "description": "Maak één keer een account aan en bouw daarna legerlijsten, gebruik ze aan tafel en bewaar je resultaten en collectiegegevens samen.",
+    "cards": {
+      "choose": "Kies een leger",
+      "build": "Bouw je legerlijst",
+      "play": "Gebruik hem aan tafel",
+      "track": "Registreer het resultaat"
+    }
+  },
+  "status": {
+    "data": {
+      "description": "De List Builder is alleen nuttig als de gegevens betrouwbaar zijn. Bekijk de status van de huidige editie, controleer bekende problemen en meld alles wat niet lijkt te kloppen.",
+      "edition": "Editie",
+      "last-update": "Laatst bijgewerkt",
+      "version": "Appversie",
+      "known-issues": "Bekende problemen",
+      "view-issues": "Bekijk lijst"
+    },
+    "community": {
+      "tags": {
+        "report": "Problemen melden",
+        "pwa": "Installeerbare app"
+      },
+      "title": "Help de List Builder verbeteren",
+      "description": "De List Builder wordt beter dankzij feedback van spelers. Meld ontbrekende opties, fouten in de gegevens of ideeën die de tool aan tafel beter zouden maken.",
+      "report": "Meld probleem",
+      "support": "Steun de ontwikkeling"
+    },
+    "disclaimer": "MESBG List Builder is een onofficiële, door fans gemaakte tool voor Middle-earth Strategy Battle Game. Het project is niet verbonden aan of goedgekeurd door Games Workshop, Middle-earth Enterprises of hun partners."
+  },
+  "links": {
+    "privacy": "Privacy",
+    "fair-use": "Fair use",
+    "support": "Steunen"
+  }
+}

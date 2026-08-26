@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "title": "Duidelijke voorwaarden voor een gratis en duurzame list builder",
+    "description": "Deze voorwaarden leggen uit welke informatie wordt opgeslagen, hoe deze wordt gebruikt en hoe we de dienst beschikbaar houden voor de hele community.",
+    "privacyButton": "Lees het privacybeleid",
+    "fairUseButton": "Lees het fair-usebeleid",
+    "lastUpdated": "Laatst bijgewerkt: {{date}}",
+    "lastUpdatedDate": "juli 2026"
+  },
+
+  "privacy": {
+    "eyebrow": "Jouw gegevens",
+    "title": "Privacybeleid",
+    "introduction": "We verzamelen en verwerken alleen informatie die nodig is om de list builder aan te bieden, te beveiligen, te onderhouden en te verbeteren. In dit beleid leggen we uit welke informatie kan worden opgeslagen en hoe deze wordt gebruikt.",
+
+    "information": {
+      "title": "Informatie die we opslaan",
+      "description": "De informatie die aan je account is gekoppeld kan onder andere bestaan uit:",
+      "items": [
+        "Je account-ID, e-mailadres, weergavenaam en profielfoto wanneer deze door je authenticatieprovider worden aangeleverd.",
+        "Legerlijsten, groepen, collecties, wedstrijdgeschiedenis, lopende spellen, tags, notities en andere inhoud die je zelf aanmaakt.",
+        "Informatie over het aanmaken van je account, aanmelden en synchronisatie die nodig is om je account te beheren.",
+        "Technische informatie zoals tijdstippen van verzoeken, applicatiefouten, browserinformatie, IP-adressen en beveiligingslogs."
+      ]
+    },
+
+    "usage": {
+      "title": "Hoe we je informatie gebruiken",
+      "items": [
+        "Om je account aan te maken, te authenticeren en te beheren.",
+        "Om je legerlijsten en andere zelfgemaakte inhoud op te slaan en te synchroniseren.",
+        "Om je informatie te herstellen wanneer je op een ander apparaat inlogt.",
+        "Om ondersteuning te bieden en technische problemen te onderzoeken.",
+        "Om de applicatie en haar gebruikers te beschermen tegen misbruik, fraude en ongeautoriseerde toegang.",
+        "Om de betrouwbaarheid van de applicatie te begrijpen en de dienst te verbeteren met geaggregeerde of geanonimiseerde informatie."
+      ]
+    },
+
+    "userContent": {
+      "title": "Door gebruikers gemaakte inhoud",
+      "description": "Je bepaalt zelf welke informatie je in de applicatie invoert. Namen van legerlijsten, tags, notities, namen van tegenstanders en vergelijkbare velden mogen niet worden gebruikt om gevoelige persoonsgegevens op te slaan."
+    },
+
+    "sharing": {
+      "title": "Informatie delen",
+      "description": "We verkopen je persoonsgegevens niet en gebruiken de inhoud van je privélegerlijsten niet voor advertenties. Informatie kan door betrouwbare dienstverleners worden verwerkt wanneer dit nodig is om de applicatie te laten functioneren.",
+      "items": [
+        "Authenticatieproviders die worden gebruikt om gebruikers aan te melden.",
+        "Hosting- en databaseproviders die worden gebruikt om de applicatie uit te voeren en gegevens op te slaan.",
+        "Monitoring-, logging- en foutrapportagediensten die worden gebruikt om de applicatie betrouwbaar en veilig te houden.",
+        "E-mail- of ondersteuningsdiensten wanneer je contact opneemt met het project."
+      ]
+    },
+
+    "privateData": {
+      "title": "Toegang tot privégegevens",
+      "description": "Privégegevens van legerlijsten en accounts worden niet bewust ingezien, behalve wanneer dit noodzakelijk is voor technisch onderhoud, beveiligingsonderzoek, wettelijke verplichtingen of ondersteuning waar de gebruiker zelf om heeft gevraagd."
+    },
+
+    "retention": {
+      "title": "Bewaartermijnen en verwijdering",
+      "items": [
+        "Accountgegevens en door gebruikers gemaakte inhoud worden bewaard zolang je account actief blijft.",
+        "Wanneer een account wordt verwijderd, worden de bijbehorende gegevens binnen een redelijke termijn uit actieve systemen verwijderd.",
+        "Verwijderde gegevens kunnen tijdelijk aanwezig blijven in versleutelde back-ups totdat deze back-ups worden vervangen.",
+        "Technische en beveiligingslogs kunnen gedurende een beperkte periode worden bewaard om incidenten te onderzoeken en de beveiliging van de applicatie te waarborgen.",
+        "Sommige informatie kan langer worden bewaard wanneer dit wettelijk verplicht is of noodzakelijk is voor het vaststellen, uitoefenen of verdedigen van juridische claims."
+      ]
+    },
+
+    "security": {
+      "title": "Beveiliging",
+      "description": "We gebruiken redelijke technische en organisatorische maatregelen om opgeslagen informatie te beschermen. Geen enkele online dienst kan absolute veiligheid garanderen, maar toegang tot productieomgevingen en databases wordt beperkt tot wat noodzakelijk is om de dienst te beheren."
+    },
+
+    "rights": {
+      "title": "Jouw rechten",
+      "description": "Afhankelijk van waar je woont, heb je mogelijk het recht om je persoonsgegevens in te zien, te corrigeren, te exporteren, de verwerking ervan te beperken of ze te laten verwijderen. Je kunt ook het recht hebben bezwaar te maken tegen bepaalde vormen van verwerking.",
+      "request": "Verzoeken kunnen worden gestuurd naar <email>{{email}}</email>. We moeten mogelijk controleren of het verzoek daadwerkelijk betrekking heeft op jouw account voordat we informatie verstrekken of verwijderen."
+    },
+
+    "changes": {
+      "title": "Wijzigingen in dit beleid",
+      "description": "Dit beleid kan worden aangepast wanneer de applicatie, de infrastructuur of wettelijke verplichtingen veranderen. De meest recente versie wordt altijd op deze pagina gepubliceerd, samen met de datum waarop deze voor het laatst is bijgewerkt."
+    }
+  },
+
+  "fairUse": {
+    "eyebrow": "Gedeelde infrastructuur",
+    "title": "Fair-use- en duurzaamheidsbeleid",
+    "introduction": "De list builder is beschikbaar zonder abonnement. Om de applicatie snel, betrouwbaar en betaalbaar te houden voor iedereen, verwachten we dat gebruikers verantwoord omgaan met de gedeelde infrastructuur.",
+
+    "normalUse": {
+      "title": "Normaal gebruik wordt aangemoedigd",
+      "description": "De applicatie is bedoeld ter ondersteuning van actieve spelers en hobbyisten. Normaal gebruik omvat onder andere:",
+      "items": [
+        "Het maken en onderhouden van persoonlijke legerlijsten.",
+        "Het organiseren van legers, collecties, groepen en andere hobbygerelateerde informatie.",
+        "Het registreren van wedstrijden en bijhouden van een persoonlijke wedstrijdgeschiedenis.",
+        "Regelmatig gebruik van de applicatie tijdens spellen, evenementen en hobbysessies.",
+        "Het afdrukken, exporteren of delen van legerlijsten via de functies die de applicatie hiervoor biedt.",
+        "Het onderhouden van een grote verzameling legitieme legerlijsten die daadwerkelijk worden gebruikt of bijgehouden."
+      ]
+    },
+
+    "frequentUse": {
+      "title": "Veelvuldig gebruik is niet automatisch overmatig gebruik.",
+      "description": "Spelers moeten de applicatie zonder zorgen kunnen gebruiken als onderdeel van hun normale hobby. Dit beleid is bedoeld om bewust misbruik en buitensporig geautomatiseerd gebruik te voorkomen, niet om enthousiaste gebruikers te ontmoedigen."
+    },
+
+    "excessiveUse": {
+      "title": "Overmatig of onjuist gebruik",
+      "description": "Gebruik kan als overmatig of onjuist worden beschouwd wanneer het onredelijk veel gedeelde middelen verbruikt, de dienst verstoort of de applicatie gebruikt voor doeleinden waarvoor deze niet is ontworpen.",
+      "items": [
+        "Geautomatiseerd aanmaken van accounts, legerlijsten, spellen of verzoeken zonder voorafgaande toestemming.",
+        "Scrapen, spiegelen of in bulk downloaden van applicatiegegevens of datasets.",
+        "De applicatie gebruiken als algemene opslag voor bestanden, documenten of tekst.",
+        "Overmatig veel dubbele of betekenisloze inhoud aanmaken met als belangrijkste doel opslagruimte te gebruiken.",
+        "Omzeilen van limieten voor verzoeken, opslag, toegangsbeheer of andere technische beveiligingen.",
+        "Meerdere accounts aanmaken om beperkingen te omzeilen.",
+        "Verkeer genereren dat de prestaties of beschikbaarheid van de applicatie negatief beïnvloedt.",
+        "Proberen privégegevens van andere gebruikers te bekijken, wijzigen of verkrijgen.",
+        "Toegang tot de gehoste applicatie doorverkopen of zonder toestemming een commerciële dienst via de applicatie aanbieden.",
+        "Onwettige, schadelijke of kwaadaardige inhoud uploaden of opslaan."
+      ]
+    },
+
+    "limits": {
+      "title": "Redelijke limieten",
+      "description": "Waar nodig kunnen technische limieten worden ingevoerd om de stabiliteit van de applicatie te beschermen en operationele kosten te beheersen. Deze limieten kunnen betrekking hebben op opslag, frequentie van verzoeken, exports, geautomatiseerde toegang of andere functies die veel middelen gebruiken."
+    },
+
+    "response": {
+      "title": "Hoe we omgaan met ongebruikelijk gebruik",
+      "items": [
+        "We kunnen contact opnemen met gebruikers om ongebruikelijke activiteiten of uitzonderlijk hoog gebruik van middelen te begrijpen.",
+        "We kunnen gebruikers vragen onnodige gegevens te verminderen, archiveren, exporteren of verwijderen.",
+        "Geautomatiseerd of overmatig verkeer kan worden beperkt of tijdelijk worden geblokkeerd.",
+        "Accounts kunnen tijdelijk worden beperkt wanneer hun activiteit de veiligheid of beschikbaarheid van de applicatie bedreigt.",
+        "Ernstige, kwaadwillende of herhaaldelijke overtredingen kunnen leiden tot schorsing of verwijdering van een account."
+      ]
+    },
+
+    "communication": {
+      "title": "Communicatie vóór een beperking",
+      "description": "Waar dit praktisch mogelijk is, nemen we contact op met de betreffende gebruiker voordat we een account beperken. Wanneer dit noodzakelijk is om gebruikersgegevens, applicatiebeveiliging, stabiliteit van de infrastructuur of andere gebruikers te beschermen, kunnen we direct maatregelen nemen."
+    },
+
+    "support": {
+      "title": "Het project ondersteunen",
+      "description": "Hosting, databases, back-ups, monitoring, ontwikkeling en onderhoud brengen doorlopende kosten met zich mee. Gebruikers die uitzonderlijk veel gegevens opslaan of de applicatie intensief gebruiken, worden aangemoedigd het project financieel te ondersteunen wanneer zij daartoe in staat zijn."
+    },
+
+    "voluntarySupport": {
+      "title": "Financiële ondersteuning is vrijwillig.",
+      "description": "Financiële ondersteuning geeft geen recht op onbeperkte opslag, onbeperkte geautomatiseerde toegang of vrijstelling van dit beleid. Bijdragen helpen de applicatie beschikbaar te houden voor de bredere community.",
+      "button": "Steun het project"
+    },
+
+    "changes": {
+      "title": "Wijzigingen in dit beleid",
+      "description": "Dit beleid kan veranderen naarmate de applicatie groeit en de eisen aan de infrastructuur veranderen. Belangrijke wijzigingen worden op deze pagina gepubliceerd."
+    }
+  },
+
+  "contact": {
+    "title": "Vragen over deze voorwaarden?",
+    "description": "Neem contact op met het project wanneer iets onduidelijk is, wanneer je toegang tot je gegevens wilt aanvragen of wanneer je denkt dat er ten onrechte maatregelen tegen je account zijn genomen.",
+    "button": "Neem contact op",
+    "homeButton": "Terug naar de homepage"
+  }
+}

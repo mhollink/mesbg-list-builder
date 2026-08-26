@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -13,10 +13,7 @@ import Typography from "@mui/material/Typography";
 export function NotFoundPage() {
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    document.title = "Page not found";
-  }, []);
+  const { t } = useTranslation("notFound");
 
   const handleGoBack = () => {
     if (window.history.length > 1) {
@@ -84,7 +81,7 @@ export function NotFoundPage() {
               }}
             >
               <Chip
-                label="Page not found"
+                label={t("badge")}
                 color="primary"
                 variant="outlined"
                 sx={{
@@ -104,11 +101,11 @@ export function NotFoundPage() {
                     letterSpacing: "-0.03em",
                   }}
                 >
-                  This page could not be found
+                  {t("title")}
                 </Typography>
 
                 <Typography
-                  color="text.secondary"
+                  color="textSecondary"
                   sx={{
                     maxWidth: 680,
                     fontSize: {
@@ -118,9 +115,7 @@ export function NotFoundPage() {
                     lineHeight: 1.75,
                   }}
                 >
-                  The link may be outdated, the page may have moved, or the
-                  address may contain a mistake. Your rosters and account data
-                  have not been affected.
+                  {t("description")}
                 </Typography>
               </Stack>
 
@@ -133,7 +128,7 @@ export function NotFoundPage() {
               >
                 <Typography
                   variant="caption"
-                  color="text.secondary"
+                  color="textSecondary"
                   sx={{
                     display: "block",
                     mb: 0.5,
@@ -142,7 +137,7 @@ export function NotFoundPage() {
                     letterSpacing: "0.08em",
                   }}
                 >
-                  Requested location
+                  {t("requestedLocation")}
                 </Typography>
 
                 <Typography
@@ -174,7 +169,7 @@ export function NotFoundPage() {
                   variant="contained"
                   size="large"
                 >
-                  Go to homepage
+                  {t("actions.home")}
                 </Button>
 
                 <Button
@@ -183,7 +178,7 @@ export function NotFoundPage() {
                   variant="outlined"
                   size="large"
                 >
-                  View my rosters
+                  {t("actions.rosters")}
                 </Button>
 
                 <Button
@@ -192,7 +187,7 @@ export function NotFoundPage() {
                   size="large"
                   onClick={handleGoBack}
                 >
-                  Go back
+                  {t("actions.back")}
                 </Button>
               </Stack>
             </Stack>
@@ -279,14 +274,14 @@ export function NotFoundPage() {
                 />
 
                 <Typography
-                  color="text.secondary"
+                  color="textSecondary"
                   sx={{
                     fontWeight: 600,
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                   }}
                 >
-                  Path not found
+                  {t("error.label")}
                 </Typography>
               </Stack>
             </Box>
@@ -295,15 +290,14 @@ export function NotFoundPage() {
 
         <Typography
           variant="body2"
-          color="text.secondary"
+          color="textSecondary"
           sx={{
             mt: 2.5,
             textAlign: "center",
             lineHeight: 1.7,
           }}
         >
-          Repeatedly reaching this page from inside the application may indicate
-          a broken link.
+          {t("footer")}
         </Typography>
       </Container>
     </Box>

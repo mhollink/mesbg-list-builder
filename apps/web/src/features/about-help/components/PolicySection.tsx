@@ -38,7 +38,7 @@ export function PolicySection({
 
       {description && (
         <Typography
-          color="text.secondary"
+          color="textSecondary"
           sx={{
             lineHeight: 1.75,
           }}
@@ -54,7 +54,7 @@ export function PolicySection({
             m: 0,
             mt: description ? 2 : 0,
             pl: 3,
-            color: "text.secondary",
+            color: "textSecondary",
             "& li": {
               pl: 0.5,
               mb: 1,

@@ -54,7 +54,7 @@ export function PolicyDocument({
         </Typography>
 
         <Typography
-          color="text.secondary"
+          color="textSecondary"
           sx={{
             maxWidth: 760,
             fontSize: {

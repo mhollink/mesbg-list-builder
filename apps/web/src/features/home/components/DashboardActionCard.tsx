@@ -44,7 +44,7 @@ export function DashboardActionCard({
             <Typography variant="h6" sx={{ fontWeight: 800 }}>
               {title}
             </Typography>
-            <Typography color="text.secondary" sx={{ mt: 0.75 }}>
+            <Typography color="textSecondary" sx={{ mt: 0.75 }}>
               {description}
             </Typography>
           </Box>

@@ -1,44 +1,34 @@
+import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
 
 import { PageSection } from "../components/PageSection.tsx";
 import { ProductPreview } from "../components/ProductPreview.tsx";
 
+const cards = ["build", "play", "improve"];
+
 export function PreviewSection() {
+  const { t } = useTranslation("home", { keyPrefix: "preview" });
+  const items = (key: string) =>
+    t(key, {
+      returnObjects: true,
+    }) as string[];
+
   return (
     <PageSection
-      eyebrow="Preview"
-      title="Prepare, play, review"
-      description="The List Builder follows the full tabletop flow: prepare your roster, use it during the battle, then review your results afterwards."
+      eyebrow={t("eyebrow")}
+      title={t("title")}
+      description={t("description")}
     >
       <Grid container spacing={3}>
-        <Grid size={{ xs: 12, md: 4 }}>
-          <ProductPreview
-            title="Build"
-            subtitle="Create legal lists with clear validation."
-            lines={["Warbands", "Points", "Bows", "Army bonus"]}
-          />
-        </Grid>
-
-        <Grid size={{ xs: 12, md: 4 }}>
-          <ProductPreview
-            title="Play"
-            subtitle="Use your roster during the battle."
-            lines={[
-              "Might / Will / Fate",
-              "Wounds",
-              "Break point",
-              "Casualties",
-            ]}
-          />
-        </Grid>
-
-        <Grid size={{ xs: 12, md: 4 }}>
-          <ProductPreview
-            title="Improve"
-            subtitle="Learn from previous games."
-            lines={["Match history", "Scenarios", "Opponents", "Army results"]}
-          />
-        </Grid>
+        {cards.map((card) => (
+          <Grid key={card} size={{ xs: 12, md: 4 }}>
+            <ProductPreview
+              title={t(`cards.${card}.title`)}
+              subtitle={t(`cards.${card}.subtitle`)}
+              lines={items(`cards.${card}.lines`)}
+            />
+          </Grid>
+        ))}
       </Grid>
     </PageSection>
   );

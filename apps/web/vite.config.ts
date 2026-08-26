@@ -3,17 +3,11 @@ import { defineConfig } from "vite";
 
 import path from "node:path";
 
-const currentDate = new Date().toLocaleDateString("en-UK", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
-
 export default defineConfig(({ command }) => ({
   plugins: [react()],
   define: {
     BUILD_VERSION: JSON.stringify(process.env.npm_package_version),
-    BUILD_DATE: JSON.stringify(currentDate),
+    BUILD_DATE: JSON.stringify(new Date().toISOString()),
     RESOURCES_URL: JSON.stringify(
       command === "build"
         ? "/static-resources"
