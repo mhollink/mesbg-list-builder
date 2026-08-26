@@ -1,5 +1,7 @@
-import { Box, Link, Stack } from "@mui/material";
 import { Link as RouterLink } from "react-router";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
 
 export const LinkStrip = () => {
   return (

@@ -1,11 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider } from "react-router/dom";
-import { router } from "./app/router";
-import { AppThemeProvider } from "./theme/AppThemeProvider.tsx";
-import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
+import { RouterProvider } from "react-router/dom";
+
+import { PersistGate } from "redux-persist/integration/react";
+
+import { router } from "./app/router";
 import { persistor, store } from "./app/store.ts";
+import { AppThemeProvider } from "./theme/AppThemeProvider.tsx";
 import "./i18n/i18n";
 import { LocalizationProvider } from "./i18n/LocalizationProvider.tsx";
 

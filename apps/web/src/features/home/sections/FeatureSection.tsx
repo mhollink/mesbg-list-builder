@@ -4,7 +4,13 @@ import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import PrintOutlinedIcon from "@mui/icons-material/PrintOutlined";
 import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
-import { Box, Card, CardContent, Grid, Stack, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
 import { IconSurface } from "../components/IconSurface.tsx";
 import { PageSection } from "../components/PageSection.tsx";
 

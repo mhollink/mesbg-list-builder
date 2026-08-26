@@ -3,15 +3,15 @@ import {
   FLUSH,
   PAUSE,
   PERSIST,
+  PURGE,
   persistReducer,
   persistStore,
-  PURGE,
   REGISTER,
   REHYDRATE,
 } from "redux-persist";
-import { storage } from "./storage";
 
 import { rootReducer } from "./rootReducer";
+import { storage } from "./storage";
 
 const persistedReducer = persistReducer(
   {

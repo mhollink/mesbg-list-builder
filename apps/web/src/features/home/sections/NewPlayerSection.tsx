@@ -1,7 +1,8 @@
 import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAlt1Outlined";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
+
 import { DashboardActionCard } from "../components/DashboardActionCard.tsx";
 import { PageSection } from "../components/PageSection";
 

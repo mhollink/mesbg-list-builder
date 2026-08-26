@@ -1,5 +1,5 @@
-import type { ThemePreset } from "../../theme.types.ts";
 import { createThemeTokens } from "../../../../../theme/createThemeTokens.ts";
+import type { ThemePreset } from "../../theme.types.ts";
 
 export const amethystTheme: ThemePreset = {
   id: "amethyst",

@@ -1,18 +1,18 @@
-import PaletteOutlinedIcon from "@mui/icons-material/PaletteOutlined";
-import PictureAsPdfOutlinedIcon from "@mui/icons-material/PictureAsPdfOutlined";
-import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
+import type { ReactElement } from "react";
+import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router";
 import AccessibilityNewOutlinedIcon from "@mui/icons-material/AccessibilityNewOutlined";
+import PaletteOutlinedIcon from "@mui/icons-material/PaletteOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
+import PictureAsPdfOutlinedIcon from "@mui/icons-material/PictureAsPdfOutlined";
 import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined";
+import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
+import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-import { Link, useLocation } from "react-router";
-import type { ReactElement } from "react";
-import { useTranslation } from "react-i18next";
 
 interface SettingsSection {
   path: string;

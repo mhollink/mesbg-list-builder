@@ -1,16 +1,14 @@
-import {
-  Box,
-  Button,
-  Chip,
-  Container,
-  Divider,
-  Paper,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { alpha } from "@mui/material/styles";
 import { useEffect } from "react";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
+import { alpha } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
 
 export function NotFoundPage() {
   const location = useLocation();

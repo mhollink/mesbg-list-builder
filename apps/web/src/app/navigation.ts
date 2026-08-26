@@ -1,16 +1,14 @@
 import type { SvgIconComponent } from "@mui/icons-material";
-import {
-  CollectionsBookmarkOutlined,
-  EmojiEventsOutlined,
-  GroupsOutlined,
-  HomeOutlined,
-  Inventory2Outlined,
-  MenuBookOutlined,
-  PersonSearchOutlined,
-  ShieldOutlined,
-  SportsEsportsOutlined,
-  ListAltOutlined,
-} from "@mui/icons-material";
+import CollectionsBookmarkOutlined from "@mui/icons-material/CollectionsBookmarkOutlined";
+import EmojiEventsOutlined from "@mui/icons-material/EmojiEventsOutlined";
+import GroupsOutlined from "@mui/icons-material/GroupsOutlined";
+import HomeOutlined from "@mui/icons-material/HomeOutlined";
+import Inventory2Outlined from "@mui/icons-material/Inventory2Outlined";
+import ListAltOutlined from "@mui/icons-material/ListAltOutlined";
+import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
+import PersonSearchOutlined from "@mui/icons-material/PersonSearchOutlined";
+import ShieldOutlined from "@mui/icons-material/ShieldOutlined";
+import SportsEsportsOutlined from "@mui/icons-material/SportsEsportsOutlined";
 
 export interface NavigationItem {
   label: string;

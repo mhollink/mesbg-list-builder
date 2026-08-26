@@ -1,5 +1,7 @@
-import { Button, Stack, Typography } from "@mui/material";
 import { Link } from "react-router";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
 export function PreviewRow({
   label,

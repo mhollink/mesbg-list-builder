@@ -1,11 +1,11 @@
-import CssBaseline from "@mui/material/CssBaseline";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { ThemeProvider } from "@mui/material/styles";
 import { type PropsWithChildren, useMemo } from "react";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useAppSelector } from "../app/hooks";
-import { createAppTheme } from "./createAppTheme";
 import { applyThemeMode } from "./applyThemeMode";
+import { createAppTheme } from "./createAppTheme";
 import { resolveThemeColors } from "./resolveThemeColors.ts";
 
 export function AppThemeProvider({ children }: PropsWithChildren) {

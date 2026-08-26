@@ -1,5 +1,6 @@
 import { type SubmitEvent, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+
 import { Search } from "./Search.tsx";
 import { SearchIconWrapper } from "./SearchIconWrapper.tsx";
 import { StyledInputBase } from "./StyledInputBase.tsx";

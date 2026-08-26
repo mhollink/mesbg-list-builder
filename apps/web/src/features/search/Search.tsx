@@ -1,4 +1,4 @@
-import { styled, alpha } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 
 export const Search = styled("form")(({ theme }) => ({
   position: "relative",

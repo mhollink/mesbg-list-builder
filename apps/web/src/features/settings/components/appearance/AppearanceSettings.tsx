@@ -1,8 +1,8 @@
 import { type MouseEvent, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import SettingsBrightnessRoundedIcon from "@mui/icons-material/SettingsBrightnessRounded";
-
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
@@ -11,16 +11,15 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
 
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks.ts";
+import type { ThemeMode } from "../../theme/theme.types.ts";
+import { THEME_PRESETS } from "../../theme/themePresets.ts";
 import {
   setCustomPrimaryColor,
   setPreset,
   setThemeMode,
 } from "../../theme/themeSlice.ts";
-import type { ThemeMode } from "../../theme/theme.types.ts";
-import { THEME_PRESETS } from "../../theme/themePresets.ts";
-import { ThemePresetCard } from "./ThemePresetCard.tsx";
 import { CustomThemeCard } from "./CustomThemeCard.tsx";
-import { useTranslation } from "react-i18next";
+import { ThemePresetCard } from "./ThemePresetCard.tsx";
 
 const allPresets = Object.values(THEME_PRESETS);
 

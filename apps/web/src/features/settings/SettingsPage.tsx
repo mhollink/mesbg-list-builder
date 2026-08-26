@@ -1,7 +1,10 @@
-import { Box, Stack, Typography } from "@mui/material";
-import { Outlet } from "react-router";
-import { SettingsNavigation } from "./components/SettingsNavigation.tsx";
 import { useTranslation } from "react-i18next";
+import { Outlet } from "react-router";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
+import { SettingsNavigation } from "./components/SettingsNavigation.tsx";
 
 export const SettingsPage = () => {
   const { t } = useTranslation("settings");

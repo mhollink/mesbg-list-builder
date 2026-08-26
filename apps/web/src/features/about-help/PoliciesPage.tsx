@@ -1,14 +1,13 @@
-import {
-  Box,
-  Button,
-  Container,
-  Link,
-  Paper,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { alpha } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
+import { alpha } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+
 import { PolicyDocument } from "./components/PolicyDocument";
 import { PolicySection } from "./components/PolicySection";
 

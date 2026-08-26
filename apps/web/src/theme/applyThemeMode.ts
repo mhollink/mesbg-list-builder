@@ -1,5 +1,6 @@
-import { clampChroma, converter, formatHex, type Oklch } from "culori";
 import type { PaletteMode } from "@mui/material/styles";
+
+import { clampChroma, converter, formatHex, type Oklch } from "culori";
 
 import type { SemanticColorTokens, ThemeColorTokens } from "./theme.types";
 

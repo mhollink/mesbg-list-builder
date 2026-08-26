@@ -1,5 +1,5 @@
-import type { ThemePreset } from "../theme.types";
 import { createThemeTokens } from "../../../../theme/createThemeTokens.ts";
+import type { ThemePreset } from "../theme.types";
 
 export const mordorTheme: ThemePreset = {
   id: "mordor",

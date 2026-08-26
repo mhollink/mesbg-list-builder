@@ -1,13 +1,12 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import {
-  Box,
-  Button,
-  Chip,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
 import { RosterPreviewCard } from "../components/RosterPreviewCard.tsx";
 
 export function HeroSection({ returningUser }: { returningUser: boolean }) {

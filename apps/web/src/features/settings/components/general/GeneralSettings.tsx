@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
@@ -7,15 +8,10 @@ import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { useTranslation } from "react-i18next";
-
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
-
 import { SUPPORTED_LANGUAGES } from "../../general/generalSettings.constants";
-
-import { setLanguage } from "../../general//generalSettingsSlice";
-
 import type { AppLanguage } from "../../general/generalSettings.types";
+import { setLanguage } from "../../general//generalSettingsSlice";
 
 export function GeneralSettings() {
   const { t } = useTranslation("settings");

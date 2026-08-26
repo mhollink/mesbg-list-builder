@@ -1,5 +1,8 @@
-import { Box, Card, Stack, Typography } from "@mui/material";
 import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
 interface CustomThemeCardProps {
   selected: boolean;

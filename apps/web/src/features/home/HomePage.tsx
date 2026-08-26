@@ -1,7 +1,10 @@
-import { Container, Stack } from "@mui/material";
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+
 import { LinkStrip } from "./components/LinkStrip.tsx";
 import { FeatureSection } from "./sections/FeatureSection.tsx";
 import { HeroSection } from "./sections/HeroSection.tsx";
+import { HowItWorksSection } from "./sections/HowItWorksSection.tsx";
 import { NewPlayerSection } from "./sections/NewPlayerSection.tsx";
 import { PreviewSection } from "./sections/PreviewSection.tsx";
 import {
@@ -9,7 +12,6 @@ import {
   ReturningPlayerSection,
 } from "./sections/ReturningPlayerSection.tsx";
 import { StatusAndCommunitySection } from "./sections/StatusAndComunitySection.tsx";
-import { HowItWorksSection } from "./sections/HowItWorksSection.tsx";
 
 type HomePageProps = {
   isReturningUser?: boolean;

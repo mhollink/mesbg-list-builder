@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "format": "biome format --write",
+    "format": "biome check --write .",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },

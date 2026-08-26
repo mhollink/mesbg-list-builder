@@ -1,4 +1,5 @@
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
+
 import { PageSection } from "../components/PageSection.tsx";
 import { ProductPreview } from "../components/ProductPreview.tsx";
 

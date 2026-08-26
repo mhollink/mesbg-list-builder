@@ -1,8 +1,11 @@
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 interface SettingsPreviewPageProps {
   title: string;
