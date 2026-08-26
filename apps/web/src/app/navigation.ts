@@ -1,5 +1,5 @@
+import type {SvgIconComponent} from "@mui/icons-material";
 import {
-    AccountCircleOutlined,
     CollectionsBookmarkOutlined,
     EmojiEventsOutlined,
     GroupsOutlined,
@@ -11,7 +11,6 @@ import {
     ShieldOutlined,
     SportsEsportsOutlined,
 } from "@mui/icons-material";
-import type { SvgIconComponent } from "@mui/icons-material";
 
 export interface NavigationItem {
     label: string;
@@ -103,11 +102,6 @@ export const navigation: NavigationSection[] = [
     },
     {
         items: [
-            {
-                label: "Account",
-                path: "/account",
-                icon: AccountCircleOutlined,
-            },
             {
                 label: "Settings",
                 path: "/settings",

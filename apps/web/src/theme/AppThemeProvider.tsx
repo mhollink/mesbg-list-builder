@@ -1,17 +1,11 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import {
-    ThemeProvider,
-    type PaletteMode,
-} from "@mui/material/styles";
-import {
-    type PropsWithChildren,
-    useMemo,
-} from "react";
+import {ThemeProvider,} from "@mui/material/styles";
+import {type PropsWithChildren, useMemo,} from "react";
 
-import { useAppSelector } from "../app/hooks";
-import { createAppTheme } from "./createAppTheme";
-import { applyThemeMode } from "./applyThemeMode";
+import {useAppSelector} from "../app/hooks";
+import {createAppTheme} from "./createAppTheme";
+import {applyThemeMode} from "./applyThemeMode";
 import {resolveThemeColors} from "./resolveThemeColors.ts";
 
 export function AppThemeProvider({
@@ -19,21 +13,23 @@ export function AppThemeProvider({
                                  }: PropsWithChildren) {
     const themeState = useAppSelector((state) => state.theme,);
     const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)",);
-    const mode: PaletteMode =
-        themeState.mode === "system"
+
+    const mode = useMemo(() => {
+        return themeState.mode === "system"
             ? prefersDarkMode ? "dark" : "light"
             : themeState.mode;
+    }, [themeState.mode, prefersDarkMode])
 
     const theme = useMemo(() => {
         const baseColors = resolveThemeColors(themeState.selection,);
         const colors = applyThemeMode(baseColors, mode,);
 
         return createAppTheme(colors, mode);
-    }, [themeState.selection]);
+    }, [themeState.selection, mode]);
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
+            <CssBaseline/>
             {children}
         </ThemeProvider>
     );

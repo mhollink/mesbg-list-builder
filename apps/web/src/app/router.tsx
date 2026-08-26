@@ -6,6 +6,8 @@ import {FeedbackPage} from "../features/about-help/FeedbackPage"
 import {SupportPage} from "../features/about-help/SupportPage.tsx";
 import {PoliciesPage} from "../features/about-help/PoliciesPage.tsx";
 import {NotFoundPage} from "../components/NotFoundPage.tsx";
+import {SettingsPage} from "../features/settings/SettingsPage.tsx";
+import {AppearanceSettings} from "../features/settings/theme/components/appearance/AppearanceSettings.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -141,12 +143,18 @@ export const router = createBrowserRouter([
             },
 
             {
-                path: "account",
-                element: <FeaturePagePlaceholder title="Account"/>,
-            },
-            {
                 path: "settings",
-                element: <FeaturePagePlaceholder title="Settings"/>,
+                element: <SettingsPage />,
+                children: [
+                    {
+                        index: true,
+                        element: <Navigate to="appearance" replace />,
+                    },
+                    {
+                        path: "appearance",
+                        element: <AppearanceSettings />,
+                    },
+                ],
             },
 
             {
