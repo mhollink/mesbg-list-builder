@@ -3,6 +3,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import {List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord"
+import {useTranslation} from "react-i18next";
 
 interface SettingsPreviewPageProps {
     title: string;
@@ -15,6 +16,7 @@ export function SettingsPreviewPage({
                                         description,
                                         notes,
                                     }: SettingsPreviewPageProps) {
+    const {t} = useTranslation();
     return (
         <Stack spacing={3}>
             <Box>
@@ -37,7 +39,7 @@ export function SettingsPreviewPage({
                     color="textSecondary"
                     gutterBottom
                 >
-                    Planned
+                    {t("comingSoon")}
                 </Typography>
 
                 <List dense disablePadding>

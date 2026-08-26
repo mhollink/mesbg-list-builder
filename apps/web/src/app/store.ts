@@ -11,6 +11,7 @@ const persistedReducer = persistReducer(
 
         whitelist: [
             "theme",
+            "settings"
         ],
     },
     rootReducer,

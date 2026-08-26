@@ -1,0 +1,10 @@
+{
+  "settings": "Settings",
+  "general": "General",
+  "appearance": "Appearance",
+  "accessibility": "Accessibility",
+  "export": "Export",
+  "account": "Account",
+  "dataAndSync": "Data & Sync",
+  "privacy": "Privacy"
+}

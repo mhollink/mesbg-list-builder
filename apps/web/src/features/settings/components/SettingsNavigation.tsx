@@ -12,62 +12,56 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import {useTheme} from "@mui/material/styles";
 import {Link, useLocation} from "react-router";
 import type {ReactElement} from "react";
+import {useTranslation} from "react-i18next";
 
 interface SettingsSection {
     path: string;
     label: string;
     icon: ReactElement;
-    enabled: boolean;
 }
 
 const SETTINGS_SECTIONS: SettingsSection[] = [
     {
         path: "/settings/general",
-        label: "General",
+        label: "general",
         icon: <TuneOutlinedIcon/>,
-        enabled: false,
     },
     {
         path: "/settings/appearance",
-        label: "Appearance",
+        label: "appearance",
         icon: <PaletteOutlinedIcon/>,
-        enabled: true,
     },
     {
         path: "/settings/accessibility",
-        label: "Accessibility",
+        label: "accessibility",
         icon: <AccessibilityNewOutlinedIcon/>,
-        enabled: false,
     },
     {
         path: "/settings/export",
-        label: "Export",
+        label: "export",
         icon: <PictureAsPdfOutlinedIcon/>,
-        enabled: false,
     },
     {
         path: "/settings/account",
-        label: "Account",
+        label: "account",
         icon: <PersonOutlineOutlinedIcon/>,
-        enabled: false,
     },
     {
         path: "/settings/data",
-        label: "Data & Sync",
+        label: "dataAndSync",
         icon: <SyncOutlinedIcon/>,
-        enabled: false,
     },
     {
         path: "/settings/privacy",
-        label: "Privacy",
+        label: "privacy",
         icon: <PrivacyTipOutlinedIcon/>,
-        enabled: false,
     },
 ];
 
 export function SettingsNavigation() {
     const location = useLocation();
     const theme = useTheme();
+    const { t } = useTranslation("navigation");
 
     const desktop = useMediaQuery(
         theme.breakpoints.up("md"),
@@ -112,9 +106,12 @@ export function SettingsNavigation() {
                             component={Link}
                             to={path}
                             value={path}
-                            label={label}
+                            label={t(label)}
                             icon={icon}
                             iconPosition="start"
+                            sx={{
+                                textAlign: "start"
+                            }}
                         />
                     ),
                 )}

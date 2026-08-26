@@ -1,0 +1,37 @@
+{
+  "title": "Settings",
+  "appearance": {
+    "title": "Appearance",
+    "description": "Customize how MESBG List Builder looks and feels.",
+    "theme": {
+      "title": "Theme",
+      "builtIn": "Built-in themes",
+      "creatorPacks": "Creator packs"
+    },
+    "mode": {
+      "title": "Color mode",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
+  },
+  "general": {
+    "title": "General",
+    "description": "Configure the default behaviour of MESBG List Builder.",
+    "language": {
+      "title": "Language",
+      "description": "Choose the language used throughout MESBG List Builder.",
+      "label": "Language",
+      "helperText": "The interface language changes immediately."
+    },
+    "planned": {
+      "title": "More settings will be added here",
+      "description": "General application preferences will be added as MESBG List Builder continues to grow.",
+      "items": {
+        "landingPage": "Default landing page",
+        "regional": "Regional preferences",
+        "other": "Other application-wide behaviour"
+      }
+    }
+  }
+}
