@@ -38,6 +38,9 @@ importers:
       i18next-http-backend:
         specifier: ^4.0.1
         version: 4.0.1
+      i18next-resources-to-backend:
+        specifier: ^1.2.3
+        version: 1.2.3
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -530,6 +533,9 @@ packages:
   i18next-http-backend@4.0.1:
     resolution: {integrity: sha512-O+7MwPCJIKCu68vho8JtD1HF8QHyMPzoChIDFfYCrpaDqX6oq3RqASujnpKEdnNCEOb+kLMOHTNTcGKpj7B1BA==}
     engines: {node: '>=18'}
+
+  i18next-resources-to-backend@1.2.3:
+    resolution: {integrity: sha512-8Y/LLAm5fqZc2ckQxtTWbu75ndjNLzF7mcYl6rhc4g+WBopIsG3YhdYqF5qhJy64tlYhlU2KSSnEgW3gGHLqwg==}
 
   i18next@26.4.0:
     resolution: {integrity: sha512-rsmK5bFqsD1AetSFSIa43wtNR4WpvvH4p0tLEsTxkC7QTrfdFm06nbQ95bh8Og4wwaCnUEcm9DVYL2cgxitiQg==}
@@ -1267,6 +1273,10 @@ snapshots:
       '@babel/runtime': 7.29.7
 
   i18next-http-backend@4.0.1: {}
+
+  i18next-resources-to-backend@1.2.3:
+    dependencies:
+      '@babel/runtime': 7.29.7
 
   i18next@26.4.0(typescript@6.0.3):
     optionalDependencies:
