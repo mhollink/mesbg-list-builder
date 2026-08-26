@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "eyebrow": "Feedback",
+    "title": "Help de List Builder verbeteren",
+    "description": "Dit project wordt gevormd door echte spelers die het tijdens echte spellen gebruiken. Of je nu een bug hebt gevonden, onjuiste gegevens hebt opgemerkt of een idee hebt waarmee het bouwen van een legerlijst makkelijker wordt: jouw feedback helpt bepalen wat we als volgende verbeteren."
+  },
+
+  "cards": {
+    "bugs": {
+      "title": "Meld bugs",
+      "description": "Werkt iets niet zoals verwacht? Laat ons weten wat er gebeurde, wat je verwachtte en waar je het probleem tegenkwam."
+    },
+    "data": {
+      "title": "Help gegevens verbeteren",
+      "description": "Ontbrekende opties, onjuiste profielen of verouderde informatie kunnen hier worden gemeld, zodat de list builder voor iedereen betrouwbaarder wordt."
+    },
+    "features": {
+      "title": "Stel functies voor",
+      "description": "Heb je een idee waarmee het bouwen van legerlijsten, beheren van rosters of voorbereiden van spellen makkelijker wordt? Beschrijf welk probleem je graag opgelost ziet."
+    },
+    "general": {
+      "title": "Deel je mening",
+      "description": "Niet alle feedback hoeft een bug of functieverzoek te zijn. Als iets verwarrend, traag, onhandig of juist erg nuttig voelt, horen we dat ook graag."
+    }
+  },
+
+  "form": {
+    "title": "Feedback versturen",
+    "description": "Geef voldoende context zodat de feedback goed te begrijpen is. Bij bugs helpt het vooral om te vermelden welke pagina, lijst, leger, eenheid of actie je gebruikte.",
+
+    "rulebookNotice": "Neem geen volledige teksten uit regelboeken over. Een korte beschrijving van het probleem, de betreffende eenheid of optie en de bron waarmee je vergelijkt is voldoende.",
+
+    "languageNotice": {
+      "title": "Schrijf je feedback in het Engels.",
+      "description": "Zo kan het ontwikkelteam je bericht begrijpen en indien nodig reageren."
+    },
+
+    "type": {
+      "label": "Type feedback",
+      "options": {
+        "bug": "Bug melden",
+        "incorrectData": "Ontbrekende of onjuiste gegevens",
+        "featureRequest": "Idee voor een functie",
+        "usability": "Feedback over gebruiksvriendelijkheid",
+        "general": "Algemene feedback"
+      }
+    },
+
+    "fields": {
+      "title": {
+        "label": "Titel",
+        "placeholder": "Korte samenvatting van je feedback"
+      },
+      "description": {
+        "label": "Beschrijving",
+        "placeholder": "Beschrijf in het Engels wat er gebeurde, wat je verwachtte of wat je graag verbeterd ziet."
+      },
+      "contactEmail": {
+        "label": "E-mailadres",
+        "placeholder": "Optioneel, alleen nodig als je een reactie wilt ontvangen"
+      }
+    },
+
+    "reviewNotice": "Feedback wordt handmatig bekeken en helpt ons prioriteiten bepalen.",
+    "submit": "Feedback versturen"
+  }
+}

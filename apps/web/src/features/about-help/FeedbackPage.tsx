@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
 import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
@@ -34,60 +35,43 @@ type FeedbackFormState = {
   contactEmail: string;
 };
 
-const feedbackOptions: Array<{
-  value: FeedbackType;
-  label: string;
-}> = [
-  {
-    value: "bug",
-    label: "Bug report",
-  },
-  {
-    value: "incorrect-data",
-    label: "Missing or incorrect data",
-  },
-  {
-    value: "feature-request",
-    label: "Feature idea",
-  },
-  {
-    value: "usability",
-    label: "Usability feedback",
-  },
-  {
-    value: "general",
-    label: "General feedback",
-  },
+const feedbackOptions: readonly FeedbackType[] = [
+  "bug",
+  "incorrect-data",
+  "feature-request",
+  "usability",
+  "general",
 ];
+
+const feedbackOptionKeys: Record<FeedbackType, string> = {
+  bug: "bug",
+  "incorrect-data": "incorrectData",
+  "feature-request": "featureRequest",
+  usability: "usability",
+  general: "general",
+};
 
 const feedbackCards = [
   {
-    title: "Report bugs",
-    description:
-      "Found something that does not work as expected? Share what happened, what you expected, and where you noticed the issue.",
+    key: "bugs",
     icon: <BugReportOutlinedIcon fontSize="large" />,
   },
   {
-    title: "Improve data accuracy",
-    description:
-      "Missing options, incorrect profiles, or outdated information can be reported here so the list builder becomes more reliable for everyone.",
+    key: "data",
     icon: <FactCheckOutlinedIcon fontSize="large" />,
   },
   {
-    title: "Suggest features",
-    description:
-      "Have an idea that would make list building, roster management, or game preparation easier? Describe the problem you want solved.",
+    key: "features",
     icon: <LightbulbOutlinedIcon fontSize="large" />,
   },
   {
-    title: "Share general thoughts",
-    description:
-      "Not every piece of feedback has to be a bug or feature request. If something feels confusing, slow, awkward, or useful, that matters too.",
+    key: "general",
     icon: <RateReviewOutlinedIcon fontSize="large" />,
   },
-];
+] as const;
 
 export function FeedbackPage() {
+  const { t } = useTranslation("feedback");
   const [form, setForm] = useState<FeedbackFormState>({
     type: "general",
     title: "",
@@ -134,7 +118,7 @@ export function FeedbackPage() {
               color="primary"
               sx={{ fontWeight: 700 }}
             >
-              Feedback
+              {t("hero.eyebrow")}
             </Typography>
 
             <Typography
@@ -145,7 +129,7 @@ export function FeedbackPage() {
                 letterSpacing: -1,
               }}
             >
-              Help improve the List Builder
+              {t("hero.title")}
             </Typography>
 
             <Typography
@@ -153,10 +137,7 @@ export function FeedbackPage() {
               color="text.secondary"
               sx={{ lineHeight: 1.7 }}
             >
-              This project is shaped by real players using it for real games.
-              Whether you found a bug, noticed incorrect data, or have an idea
-              that would make list building easier, your feedback helps decide
-              what gets improved next.
+              {t("hero.description")}
             </Typography>
           </Stack>
         </Container>
@@ -165,7 +146,7 @@ export function FeedbackPage() {
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
         <Grid container spacing={3}>
           {feedbackCards.map((card) => (
-            <Grid key={card.title} size={{ xs: 12, sm: 6, md: 3 }}>
+            <Grid key={card.key} size={{ xs: 12, sm: 6, md: 3 }}>
               <Card
                 variant="outlined"
                 sx={{
@@ -182,11 +163,11 @@ export function FeedbackPage() {
                       variant="h6"
                       sx={{ fontWeight: 700 }}
                     >
-                      {card.title}
+                      {t(`cards.${card.key}.title`)}
                     </Typography>
 
                     <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                      {card.description}
+                      {t(`cards.${card.key}.description`)}
                     </Typography>
                   </Stack>
                 </CardContent>
@@ -213,69 +194,75 @@ export function FeedbackPage() {
                     variant="h4"
                     sx={{ fontWeight: 800 }}
                   >
-                    Send feedback
+                    {t("form.title")}
                   </Typography>
 
                   <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                    Try to include enough context to make the feedback easy to
-                    understand. For bug reports, the page, list, army, unit, or
-                    action you were using is especially helpful.
+                    {t("form.description")}
                   </Typography>
                 </Stack>
 
-                <Alert severity="info">
-                  Please avoid copying full rulebook text. A short description
-                  of the issue, the affected unit or option, and the source you
-                  are comparing against is enough.
+                <Alert severity="info">{t("form.rulebookNotice")}</Alert>
+
+                <Alert severity="warning">
+                  <Typography sx={{ fontWeight: 700 }}>
+                    {t("form.languageNotice.title")}
+                  </Typography>
+
+                  <Typography variant="body2">
+                    {t("form.languageNotice.description")}
+                  </Typography>
                 </Alert>
 
                 <Box component="form" onSubmit={handleSubmit}>
                   <Stack spacing={3}>
                     <FormControl fullWidth>
                       <InputLabel id="feedback-type-label">
-                        Feedback type
+                        {t("form.type.label")}
                       </InputLabel>
                       <Select
                         labelId="feedback-type-label"
                         value={form.type}
-                        label="Feedback type"
+                        label={t("form.type.label")}
                         onChange={handleTypeChange}
                       >
                         {feedbackOptions.map((option) => (
-                          <MenuItem key={option.value} value={option.value}>
-                            {option.label}
+                          <MenuItem key={option} value={option}>
+                            {t(
+                              `form.type.options.${feedbackOptionKeys[option]}`,
+                            )}
                           </MenuItem>
                         ))}
                       </Select>
                     </FormControl>
 
                     <TextField
-                      label="Title"
+                      label={t("form.fields.title.label")}
                       value={form.title}
                       onChange={handleTextChange("title")}
                       required
                       fullWidth
-                      placeholder="Short summary of your feedback"
+                      placeholder={t("form.fields.title.placeholder")}
                     />
 
                     <TextField
-                      label="Description"
+                      label={t("form.fields.description.label")}
                       value={form.description}
                       onChange={handleTextChange("description")}
                       required
                       fullWidth
                       multiline
                       minRows={6}
-                      placeholder="Describe what happened, what you expected, or what you would like to improve."
+                      placeholder={t("form.fields.description.placeholder")}
                     />
 
                     <TextField
-                      label="Contact email"
+                      label={t("form.fields.contactEmail.label")}
                       value={form.contactEmail}
                       onChange={handleTextChange("contactEmail")}
                       fullWidth
                       type="email"
-                      placeholder="Optional, only needed if you want a reply"
+                      placeholder={t("form.fields.contactEmail.placeholder")}
                     />
 
                     <Stack
@@ -286,9 +273,8 @@ export function FeedbackPage() {
                         justifyContent: "space-between",
                       }}
                     >
-                      <Typography variant="body2" color="text.secondary">
-                        Feedback is reviewed manually and helps prioritize
-                        future improvements.
+                      <Typography variant="body2" color="textSecondary">
+                        {t("form.reviewNotice")}
                       </Typography>
 
                       <Button
@@ -297,7 +283,7 @@ export function FeedbackPage() {
                         size="large"
                         endIcon={<SendOutlinedIcon />}
                       >
-                        Submit feedback
+                        {t("form.submit")}
                       </Button>
                     </Stack>
                   </Stack>
