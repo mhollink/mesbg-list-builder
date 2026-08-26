@@ -8,6 +8,12 @@ import {PoliciesPage} from "../features/about-help/PoliciesPage.tsx";
 import {NotFoundPage} from "../components/NotFoundPage.tsx";
 import {SettingsPage} from "../features/settings/SettingsPage.tsx";
 import {AppearanceSettings} from "../features/settings/components/appearance/AppearanceSettings.tsx";
+import {GeneralSettings} from "../features/settings/components/general/GeneralSettings.tsx";
+import {AccessibilitySettings} from "../features/settings/components/accessibility/AccessibilitySettings.tsx";
+import {ExportSettings} from "../features/settings/components/export/ExportSettings.tsx";
+import {AccountSettings} from "../features/settings/components/account/AccountSettings.tsx";
+import {DataAndSyncSettings} from "../features/settings/components/data-sync/DataAndSyncSettings.tsx";
+import {PrivacySettings} from "../features/settings/components/privacy/PrivacySettings.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -151,8 +157,32 @@ export const router = createBrowserRouter([
                         element: <Navigate to="appearance" replace />,
                     },
                     {
+                        path: "general",
+                        element: <GeneralSettings />
+                    },
+                    {
                         path: "appearance",
                         element: <AppearanceSettings />,
+                    },
+                    {
+                        path: "accessibility",
+                        element: <AccessibilitySettings />
+                    },
+                    {
+                        path: "export",
+                        element: <ExportSettings />
+                    },
+                    {
+                        path: "account",
+                        element: <AccountSettings />
+                    },
+                    {
+                        path: "data",
+                        element: <DataAndSyncSettings />
+                    },
+                    {
+                        path: "privacy",
+                        element: <PrivacySettings />
                     },
                 ],
             },

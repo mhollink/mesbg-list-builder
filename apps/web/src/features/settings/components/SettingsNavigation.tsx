@@ -106,16 +106,15 @@ export function SettingsNavigation() {
                 }}
             >
                 {SETTINGS_SECTIONS.map(
-                    ({path, label, icon, enabled}) => (
+                    ({path, label, icon}) => (
                         <Tab
                             key={path}
-                            component={enabled ? Link : "div"}
-                            to={enabled ? path : undefined}
+                            component={Link}
+                            to={path}
                             value={path}
                             label={label}
                             icon={icon}
                             iconPosition="start"
-                            disabled={!enabled}
                         />
                     ),
                 )}
