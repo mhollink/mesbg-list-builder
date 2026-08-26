@@ -1,7 +1,6 @@
-import type { ThemeSelection } from "../features/settings/theme/theme.types.ts";
-import { THEME_PRESETS } from "../features/settings/theme/themePresets.ts";
 import { createCustomThemeColors } from "./createCustomTheme.ts";
-import type { ThemeColorTokens } from "./theme.types.ts";
+import type { ThemeColorTokens, ThemeSelection } from "./theme.types";
+import { THEME_PRESETS } from "./themePresets.ts";
 
 export function resolveThemeColors(
   selection: ThemeSelection,

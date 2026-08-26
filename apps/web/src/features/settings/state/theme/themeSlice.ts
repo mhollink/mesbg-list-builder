@@ -5,7 +5,7 @@ import type {
   ThemeMode,
   ThemePresetId,
   ThemeState,
-} from "./theme.types.ts";
+} from "../../../../theme/theme.types.ts";
 
 const initialState: ThemeState = {
   selection: {

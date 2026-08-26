@@ -4,7 +4,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import type { ThemePreset } from "../../theme/theme.types.ts";
+import type { ThemePreset } from "../../../../theme/theme.types";
 
 interface ThemePresetCardProps {
   preset: ThemePreset;

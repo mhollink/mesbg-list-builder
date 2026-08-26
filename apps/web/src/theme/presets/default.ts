@@ -1,4 +1,4 @@
-import type { ThemePreset } from "../theme.types.ts";
+import type { ThemePreset } from "../theme.types";
 
 export const defaultTheme: ThemePreset = {
   id: "default",

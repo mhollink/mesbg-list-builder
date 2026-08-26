@@ -1,4 +1,4 @@
-import type { AppLanguage } from "./generalSettings.types";
+import type { AppLanguage } from "./generalSettings.types.ts";
 
 interface LanguageDefinition {
   id: AppLanguage;

@@ -3,7 +3,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type {
   AppLanguage,
   GeneralSettingsState,
-} from "./generalSettings.types";
+} from "./generalSettings.types.ts";
 
 const initialState: GeneralSettingsState = {
   language: "en",

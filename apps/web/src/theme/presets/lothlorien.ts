@@ -1,5 +1,5 @@
-import { createThemeTokens } from "../../../../theme/createThemeTokens.ts";
-import type { ThemePreset } from "../theme.types.ts";
+import { createThemeTokens } from "../createThemeTokens.ts";
+import type { ThemePreset } from "../theme.types";
 
 export const lothlorienTheme: ThemePreset = {
   id: "lothlorien",

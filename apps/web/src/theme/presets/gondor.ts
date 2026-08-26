@@ -1,4 +1,4 @@
-import { createThemeTokens } from "../../../../theme/createThemeTokens";
+import { createThemeTokens } from "../createThemeTokens.ts";
 import type { ThemePreset } from "../theme.types";
 
 export const gondorTheme: ThemePreset = {
