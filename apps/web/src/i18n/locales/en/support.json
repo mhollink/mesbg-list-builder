@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "eyebrow": "Support the project",
+    "title": "Help keep the List Builder moving forward",
+    "description": "The List Builder takes time to build, maintain, host, and keep up to date. If you find it useful, there are several ways to support the project, from sharing it with other players to contributing code or helping financially.",
+    "feedbackButton": "Give feedback",
+    "homeButton": "Back to homepage"
+  },
+
+  "options": {
+    "share": {
+      "title": "Share the project",
+      "description": "One of the easiest ways to help is by sharing the List Builder with other players, local groups, Discord communities, and tournament organizers.",
+      "action": "Invite players"
+    },
+    "feedback": {
+      "title": "Give feedback",
+      "description": "Clear feedback helps improve the app faster. Bugs, missing data, confusing flows, and feature ideas are all useful.",
+      "action": "Give feedback"
+    },
+    "code": {
+      "title": "Contribute code",
+      "description": "If you are comfortable with development, focused pull requests are welcome. UI fixes, accessibility improvements, tests, documentation, and small features are great places to start.",
+      "action": "View repository"
+    },
+    "financial": {
+      "title": "Support financially",
+      "description": "Donations help cover hosting, tooling, maintenance, and the time needed to keep improving the project.",
+      "action": "Donate"
+    }
+  },
+
+  "contribute": {
+    "title": "Ways to contribute",
+    "description": "Contributions do not have to be large to be valuable. A clear bug report, a small accessibility fix, a missing test, or a well-described feature idea can all help the project become better.",
+
+    "guidelines": {
+      "focused": {
+        "title": "Keep changes focused",
+        "description": "Small, well-scoped improvements are easier to review, test, and merge than large changes touching many parts of the app."
+      },
+      "discussion": {
+        "title": "Open a discussion for bigger ideas",
+        "description": "Before starting larger features, it helps to align on the problem, design direction, and technical approach first."
+      },
+      "maintainability": {
+        "title": "Prioritize maintainability",
+        "description": "The project benefits most from changes that keep the app predictable, testable, accessible, and easy to evolve."
+      }
+    }
+  },
+
+  "closing": {
+    "title": "Every bit of support helps",
+    "description": "Whether you share the project, report an issue, help verify data, contribute code, or donate, you are helping make the List Builder more useful for the community.",
+    "feedbackButton": "Give feedback",
+    "financialButton": "Support financially"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "eyebrow": "Steun het project",
+    "title": "Help de List Builder verder te ontwikkelen",
+    "description": "Het kost tijd om de List Builder te ontwikkelen, te onderhouden, te hosten en actueel te houden. Als je de applicatie graag gebruikt, zijn er verschillende manieren waarop je het project kunt ondersteunen: van het delen met andere spelers tot het bijdragen van code of financiële ondersteuning.",
+    "feedbackButton": "Geef feedback",
+    "homeButton": "Terug naar de homepage"
+  },
+
+  "options": {
+    "share": {
+      "title": "Deel het project",
+      "description": "Een van de makkelijkste manieren om te helpen is door de List Builder te delen met andere spelers, lokale groepen, Discord-communities en toernooiorganisatoren.",
+      "action": "Nodig spelers uit"
+    },
+    "feedback": {
+      "title": "Geef feedback",
+      "description": "Duidelijke feedback helpt om de applicatie sneller te verbeteren. Bugs, ontbrekende gegevens, onduidelijke stappen en ideeën voor nieuwe functies zijn allemaal waardevol.",
+      "action": "Geef feedback"
+    },
+    "code": {
+      "title": "Draag code bij",
+      "description": "Als je ervaring hebt met softwareontwikkeling, zijn gerichte pull requests welkom. UI-verbeteringen, toegankelijkheid, tests, documentatie en kleine functies zijn goede plekken om te beginnen.",
+      "action": "Bekijk repository"
+    },
+    "financial": {
+      "title": "Steun financieel",
+      "description": "Donaties helpen bij het betalen van hosting, tooling, onderhoud en de tijd die nodig is om het project verder te verbeteren.",
+      "action": "Doneer"
+    }
+  },
+
+  "contribute": {
+    "title": "Manieren om bij te dragen",
+    "description": "Een bijdrage hoeft niet groot te zijn om waardevol te zijn. Een duidelijke bugmelding, een kleine toegankelijkheidsverbetering, een ontbrekende test of een goed beschreven idee kan het project al helpen verbeteren.",
+
+    "guidelines": {
+      "focused": {
+        "title": "Houd wijzigingen gericht",
+        "description": "Kleine, duidelijk afgebakende verbeteringen zijn makkelijker te beoordelen, testen en samen te voegen dan grote wijzigingen die veel onderdelen van de applicatie raken."
+      },
+      "discussion": {
+        "title": "Bespreek grotere ideeën eerst",
+        "description": "Voordat je aan een grotere functie begint, helpt het om eerst af te stemmen over het probleem, de ontwerprichting en de technische aanpak."
+      },
+      "maintainability": {
+        "title": "Geef onderhoudbaarheid prioriteit",
+        "description": "Het project heeft het meeste aan wijzigingen die de applicatie voorspelbaar, testbaar, toegankelijk en eenvoudig uitbreidbaar houden."
+      }
+    }
+  },
+
+  "closing": {
+    "title": "Elke vorm van steun helpt",
+    "description": "Of je het project nu deelt, een probleem meldt, helpt gegevens te controleren, code bijdraagt of doneert: je helpt de List Builder nuttiger te maken voor de hele community.",
+    "feedbackButton": "Geef feedback",
+    "financialButton": "Steun financieel"
+  }
+}
