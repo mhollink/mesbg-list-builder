@@ -8,8 +8,10 @@ export const mordorTheme: ThemePreset = {
     description: "Ash, iron and the fires of Mordor.",
 
     colors: createThemeTokens({
-        primary: "#542E2B",
-        secondary: "#3D4142",
-        accent: "#C66A32",
+        primary: "#592D32",
+        secondary: "#302D2D",
+        tertiary: "#76402D",
+        accent: "#D16A24",
+        highlight: "#B8322B",
     }),
 };

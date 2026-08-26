@@ -9,12 +9,16 @@ export type ThemePresetId =
     | "default"
     | "gondor"
     | "mordor"
-    | "tabletop-alliance";
+    | "lothlorien"
+    | "isengard"
+    | "tabletop-alliance"
+    | "amethyst";
 
 export type ThemePresetCategory =
     | "default"
     | "middle-earth"
-    | "creator";
+    | "creator"
+    | "patreon";
 
 export type ColorVisionMode =
     | "standard"

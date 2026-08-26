@@ -1,7 +1,6 @@
 import {clampChroma, converter, formatHex,} from "culori";
-
-import {THEME_PRESETS} from "../features/settings/theme/themePresets.ts";
 import type {BrandColorTokens, ThemeColorTokens,} from "./theme.types.ts";
+import {createThemeTokens} from "./createThemeTokens.ts";
 
 const toOklch = converter("oklch");
 
@@ -54,6 +53,13 @@ export function createBrandColors(
         h: normalizeHue(hue + 50),
     };
 
+    const tertiary = {
+        mode: "oklch" as const,
+        l: clamp(primary.l - 0.02, 0.35, 0.7),
+        c: clamp(chroma * 0.7, 0.05, 0.14),
+        h: normalizeHue(hue - 40),
+    };
+
     const accent = {
         mode: "oklch" as const,
         l: clamp(primary.l + 0.08, 0.5, 0.8),
@@ -61,21 +67,24 @@ export function createBrandColors(
         h: normalizeHue(hue + 150),
     };
 
+    const highlight = {
+        mode: "oklch" as const,
+        l: clamp(primary.l + 0.12, 0.55, 0.85),
+        c: clamp(chroma * 1.3, 0.1, 0.22),
+        h: normalizeHue(hue + 210),
+    };
+
     return {
         primary: formatHex(primary),
         secondary: toHex(secondary),
+        tertiary: toHex(tertiary),
         accent: toHex(accent),
+        highlight: toHex(highlight),
     };
 }
 
 export function createCustomThemeColors(
     primaryColor: string,
 ): ThemeColorTokens {
-    const base = THEME_PRESETS["default"].colors;
-
-    return {
-        ...base,
-
-        brand: createBrandColors(primaryColor),
-    };
+    return createThemeTokens(createBrandColors(primaryColor))
 }

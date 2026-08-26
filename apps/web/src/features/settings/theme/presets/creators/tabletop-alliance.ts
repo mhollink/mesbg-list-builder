@@ -12,8 +12,10 @@ export const tabletopAllianceTheme: ThemePreset = {
 
     // TODO: Align a fitting theme with the amazing people of the Tabletop Alliance.
     colors: createThemeTokens({
-        primary: "#FC7202",
-        secondary: "#1C2B26",
-        accent: "#337245",
+        primary: "#22445D",
+        secondary: "#327FA1",
+        tertiary: "#CCD7E4",
+        accent: "#5B4B5A",
+        highlight: "#9B6964",
     }),
 };

@@ -56,7 +56,11 @@ export function createAppTheme(
         },
 
         appColors: {
+            primary: colors.brand.primary,
+            secondary: colors.brand.secondary,
+            tertiary: colors.brand.tertiary,
             accent: colors.brand.accent,
+            highlight: colors.brand.highlight,
             surfaceSubtle: colors.surface.subtle,
         },
 
@@ -64,7 +68,7 @@ export function createAppTheme(
             MuiDrawer: {
                 styleOverrides: {
                     paper: {
-                        backgroundColor: colors.surface.background,
+                        backgroundColor: colors.surface.subtle,
                         color: colors.text.primary,
                         borderColor: colors.divider,
                     },
@@ -74,7 +78,7 @@ export function createAppTheme(
             MuiAppBar: {
                 styleOverrides: {
                     root: {
-                        backgroundColor: colors.surface.background,
+                        backgroundColor: colors.surface.subtle,
                         color: colors.text.primary,
                         borderBottom: `1px solid ${colors.divider}`,
                         boxShadow: "none",

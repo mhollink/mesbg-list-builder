@@ -56,7 +56,9 @@ export function ThemePresetCard({
                     >
                         <ColorPreview color={preset.colors.brand.primary}/>
                         <ColorPreview color={preset.colors.brand.secondary}/>
+                        <ColorPreview color={preset.colors.brand.tertiary}/>
                         <ColorPreview color={preset.colors.brand.accent}/>
+                        <ColorPreview color={preset.colors.brand.highlight}/>
                     </Stack>
                 </Stack>
             </CardActionArea>

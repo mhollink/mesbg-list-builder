@@ -1,4 +1,4 @@
-import type {MouseEvent} from "react";
+import {type MouseEvent, useMemo} from "react";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import SettingsBrightnessRoundedIcon from "@mui/icons-material/SettingsBrightnessRounded";
@@ -17,6 +17,9 @@ import {THEME_PRESETS} from "../../theme/themePresets.ts";
 import {ThemePresetCard} from "./ThemePresetCard.tsx";
 import {CustomThemeCard} from "./CustomThemeCard.tsx";
 
+const allPresets = Object.values(THEME_PRESETS);
+
+
 export function AppearanceSettings() {
     const dispatch = useAppDispatch();
     const {mode, selection} = useAppSelector((state) => state.theme,);
@@ -27,10 +30,12 @@ export function AppearanceSettings() {
         }
     }
 
-    const preset = Object.values(THEME_PRESETS);
+    const appPresets = useMemo(() => allPresets.filter(({category}) => category === "middle-earth" || category === "default"), []);
+    const creatorPresets = useMemo(() => allPresets.filter(({category}) => category === "creator"), []);
+    const patreonPresets = useMemo(() => allPresets.filter(({category}) => category === "patreon"), []);
 
     return (
-        <Stack spacing={4}>
+        <Stack spacing={4} sx={{pb: 4}}>
             <Box>
                 <Typography
                     variant="h5"
@@ -98,7 +103,7 @@ export function AppearanceSettings() {
                 </Typography>
 
                 <Typography color="textSecondary" sx={{mb: 2}}>
-                    Choose one of the available themes.
+                    Choose from themes designed for MESBG List Builder.
                 </Typography>
 
                 <Box
@@ -112,7 +117,7 @@ export function AppearanceSettings() {
                         gap: 2,
                     }}
                 >
-                    {preset.map((preset) => (
+                    {appPresets.map((preset) => (
                         <ThemePresetCard
                             key={preset.id}
                             preset={preset}
@@ -135,6 +140,62 @@ export function AppearanceSettings() {
                             dispatch(setCustomPrimaryColor(color),)
                         }
                     />
+                </Box>
+
+                <Typography color="textSecondary" sx={{my: 2}}>
+                    Use a theme inspired by our favorite MESBG content creators.
+                </Typography>
+
+                <Box
+                    sx={{
+                        display: "grid",
+                        gridTemplateColumns: {
+                            xs: "1fr",
+                            sm: "repeat(2, 1fr)",
+                            lg: "repeat(3, 1fr)",
+                        },
+                        gap: 2,
+                    }}
+                >
+                    {creatorPresets.map((preset) => (
+                        <ThemePresetCard
+                            key={preset.id}
+                            preset={preset}
+                            selected={
+                                selection.type === "preset" &&
+                                selection.preset === preset.id
+                            }
+                            onSelect={() => dispatch(setPreset(preset.id))}
+                        />
+                    ))}
+                </Box>
+
+                <Typography color="textSecondary" sx={{my: 2}}>
+                    Community-made themes created and shared by supporters.
+                </Typography>
+
+                <Box
+                    sx={{
+                        display: "grid",
+                        gridTemplateColumns: {
+                            xs: "1fr",
+                            sm: "repeat(2, 1fr)",
+                            lg: "repeat(3, 1fr)",
+                        },
+                        gap: 2,
+                    }}
+                >
+                    {patreonPresets.map((preset) => (
+                        <ThemePresetCard
+                            key={preset.id}
+                            preset={preset}
+                            selected={
+                                selection.type === "preset" &&
+                                selection.preset === preset.id
+                            }
+                            onSelect={() => dispatch(setPreset(preset.id))}
+                        />
+                    ))}
                 </Box>
             </Box>
         </Stack>
