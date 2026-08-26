@@ -39,7 +39,7 @@ export const AppLayout = () => {
                 </Typography>
             </Toolbar>
 
-            <Divider />
+            <Divider/>
 
             <Box>
                 {navigation.map((section, sectionIndex) => (
@@ -79,16 +79,16 @@ export const AppLayout = () => {
                                         }}
                                     >
                                         <ListItemIcon>
-                                            <Icon />
+                                            <Icon/>
                                         </ListItemIcon>
 
-                                        <ListItemText primary={t(item.label)} />
+                                        <ListItemText primary={t(item.label)}/>
                                     </ListItemButton>
                                 );
                             })}
                         </List>
 
-                        <Divider />
+                        <Divider/>
                     </Box>
                 ))}
             </Box>
@@ -112,10 +112,10 @@ export const AppLayout = () => {
                         }}
                     >
                         <ListItemIcon>
-                            <SettingsOutlined />
+                            <SettingsOutlined/>
                         </ListItemIcon>
 
-                        <ListItemText primary={t("settings")} />
+                        <ListItemText primary={t("settings")}/>
                     </ListItemButton>
                 </List>
             </Box>
@@ -143,7 +143,7 @@ export const AppLayout = () => {
                             MESBG
                         </Typography>
                     </Box>
-                    
+
                     <QuickLookupSearch onSearch={(query) => console.log(query)}/>
                 </Toolbar>
             </AppBar>

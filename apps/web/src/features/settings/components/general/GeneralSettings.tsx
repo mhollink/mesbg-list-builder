@@ -7,100 +7,77 @@ import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
-import {useAppDispatch, useAppSelector,} from "../../../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
 
-import {SUPPORTED_LANGUAGES,} from "../../general/generalSettings.constants";
+import { SUPPORTED_LANGUAGES } from "../../general/generalSettings.constants";
 
-import {setLanguage,} from "../../general//generalSettingsSlice";
+import { setLanguage } from "../../general//generalSettingsSlice";
 
-import type {AppLanguage,} from "../../general/generalSettings.types";
+import type { AppLanguage } from "../../general/generalSettings.types";
 
 export function GeneralSettings() {
-    const {t} = useTranslation("settings");
+  const { t } = useTranslation("settings");
 
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-    const language = useAppSelector(
-        (state) => state.settings.language,
-    );
+  const language = useAppSelector((state) => state.settings.language);
 
-    return (
-        <Stack spacing={4}>
-            <Box>
-                <Typography
-                    variant="h5"
-                    component="h2"
-                    gutterBottom
-                >
-                    {t("general.title")}
-                </Typography>
+  return (
+    <Stack spacing={4}>
+      <Box>
+        <Typography variant="h5" component="h2" gutterBottom>
+          {t("general.title")}
+        </Typography>
 
-                <Typography color="textSecondary">
-                    {t("general.description")}
-                </Typography>
-            </Box>
+        <Typography color="textSecondary">
+          {t("general.description")}
+        </Typography>
+      </Box>
 
-            <Stack
-                direction="row"
-                spacing={2}
-                sx={{alignItems: "flex-start"}}
+      <Stack direction="row" spacing={2} sx={{ alignItems: "flex-start" }}>
+        <Stack
+          spacing={2}
+          sx={{
+            width: "100%",
+            maxWidth: 480,
+          }}
+        >
+          <Box>
+            <Typography variant="h6" component="h3" gutterBottom>
+              {t("general.language.title")}
+            </Typography>
+
+            <Typography variant="body2" color="textSecondary">
+              {t("general.language.description")}
+            </Typography>
+          </Box>
+
+          <FormControl fullWidth>
+            <InputLabel id="language-label">
+              {t("general.language.label")}
+            </InputLabel>
+
+            <Select
+              labelId="language-label"
+              value={language}
+              label={t("general.language.label")}
+              onChange={(event) => {
+                dispatch(setLanguage(event.target.value as AppLanguage));
+              }}
             >
-                <Stack
-                    spacing={2}
-                    sx={{
-                        width: "100%",
-                        maxWidth: 480,
-                    }}
-                >
-                    <Box>
-                        <Typography
-                            variant="h6"
-                            component="h3"
-                            gutterBottom
-                        >
-                            {t("general.language.title")}
-                        </Typography>
+              {SUPPORTED_LANGUAGES.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                  {option.name}
+                </MenuItem>
+              ))}
+            </Select>
 
-                        <Typography
-                            variant="body2"
-                            color="textSecondary"
-                        >
-                            {t("general.language.description")}
-                        </Typography>
-                    </Box>
-
-                    <FormControl fullWidth>
-                        <InputLabel id="language-label">
-                            {t("general.language.label")}
-                        </InputLabel>
-
-                        <Select
-                            labelId="language-label"
-                            value={language}
-                            label={t(
-                                "general.language.label",
-                            )}
-                            onChange={(event) => {
-                                dispatch(setLanguage(event.target.value as AppLanguage));
-                            }}
-                        >
-                            {SUPPORTED_LANGUAGES.map(
-                                (option) => (
-                                    <MenuItem key={option.id} value={option.id}>
-                                        {option.name}
-                                    </MenuItem>
-                                ),
-                            )}
-                        </Select>
-
-                        <FormHelperText>
-                            {t("general.language.helperText")}
-                        </FormHelperText>
-                    </FormControl>
-                </Stack>
-            </Stack>
+            <FormHelperText>{t("general.language.helperText")}</FormHelperText>
+          </FormControl>
         </Stack>
-    );
+      </Stack>
+    </Stack>
+  );
 }

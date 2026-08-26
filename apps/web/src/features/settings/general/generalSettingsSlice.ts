@@ -1,32 +1,24 @@
-import {
-    createSlice,
-    type PayloadAction,
-} from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 import type {
-    AppLanguage,
-    GeneralSettingsState,
+  AppLanguage,
+  GeneralSettingsState,
 } from "./generalSettings.types";
 
 const initialState: GeneralSettingsState = {
-    language: "en",
+  language: "en",
 };
 
 const generalSettingsSlice = createSlice({
-    name: "generalSettings",
-    initialState,
-    reducers: {
-        setLanguage(
-            state,
-            action: PayloadAction<AppLanguage>,
-        ) {
-            state.language = action.payload;
-        },
+  name: "generalSettings",
+  initialState,
+  reducers: {
+    setLanguage(state, action: PayloadAction<AppLanguage>) {
+      state.language = action.payload;
     },
+  },
 });
 
-export const {
-    setLanguage,
-} = generalSettingsSlice.actions;
+export const { setLanguage } = generalSettingsSlice.actions;
 
 export default generalSettingsSlice.reducer;

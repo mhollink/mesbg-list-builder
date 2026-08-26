@@ -1,17 +1,15 @@
-import type {ThemeSelection} from "../features/settings/theme/theme.types.ts";
-import type {ThemeColorTokens} from "./theme.types.ts";
-import {createCustomThemeColors} from "./createCustomTheme.ts";
-import {THEME_PRESETS} from "../features/settings/theme/themePresets.ts";
+import type { ThemeSelection } from "../features/settings/theme/theme.types.ts";
+import type { ThemeColorTokens } from "./theme.types.ts";
+import { createCustomThemeColors } from "./createCustomTheme.ts";
+import { THEME_PRESETS } from "../features/settings/theme/themePresets.ts";
 
 export function resolveThemeColors(
-    selection: ThemeSelection,
+  selection: ThemeSelection,
 ): ThemeColorTokens {
-    if (selection.type === "custom") {
-        return createCustomThemeColors(
-            selection.primaryColor,
-        );
-    }
+  if (selection.type === "custom") {
+    return createCustomThemeColors(selection.primaryColor);
+  }
 
-    const preset = THEME_PRESETS[selection.preset] ?? THEME_PRESETS["default"];
-    return preset.colors;
+  const preset = THEME_PRESETS[selection.preset] ?? THEME_PRESETS["default"];
+  return preset.colors;
 }
