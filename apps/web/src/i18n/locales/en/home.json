@@ -147,5 +147,10 @@
       "support": "Support development"
     },
     "disclaimer": "MESBG List Builder is an unofficial fan-made utility for the Middle-earth Strategy Battle Game. It is not affiliated with or endorsed by Games Workshop, Middle-earth Enterprises or their partners."
+  },
+  "links": {
+    "privacy": "Privacy",
+    "fair-use": "Fair use",
+    "support": "Support"
   }
 }
