@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ancient-enemies",
+    "nameKey": "ancient-enemies.name",
+    "descriptionKey": "ancient-enemies.description",
+    "category": "special-rule",
+    "type": "active"
+  },
+  {
+    "id": "arcing-shot",
+    "nameKey": "arcing-shot.name",
+    "descriptionKey": "arcing-shot.description",
+    "category": "special-rule"
+  },
+  {
+    "id": "aura-of-command",
+    "nameKey": "aura-of-command.name",
+    "descriptionKey": "aura-of-command.description",
+    "category": "magical-power",
+    "type": "exhaustion"
+  },
+  {
+    "id": "heroic-march",
+    "nameKey": "heroic-march.name",
+    "descriptionKey": "heroic-march.description",
+    "category": "heroic-action",
+    "type": "fight-phase"
+  }
+]

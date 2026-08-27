@@ -112,7 +112,12 @@
       "improve": {
         "title": "Verbeteren",
         "subtitle": "Leer van eerdere spellen.",
-        "lines": ["Wedstrijdgeschiedenis", "Scenario's", "Tegenstanders", "Legerresultaten"]
+        "lines": [
+          "Wedstrijdgeschiedenis",
+          "Scenario's",
+          "Tegenstanders",
+          "Legerresultaten"
+        ]
       }
     }
   },

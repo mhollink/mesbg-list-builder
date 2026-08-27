@@ -1,7 +1,7 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 export default defineConfig(({ command }) => ({
   plugins: [react()],
@@ -16,8 +16,17 @@ export default defineConfig(({ command }) => ({
     API_URL: JSON.stringify("https://api.mesbg-list-builder.com/v2024"),
   },
   resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "src"),
-    },
+    alias: [
+      {
+        find: "~/generated",
+        replacement: fileURLToPath(
+          new URL("../../data/generated", import.meta.url),
+        ),
+      },
+      {
+        find: "~",
+        replacement: fileURLToPath(new URL("./src", import.meta.url)),
+      },
+    ],
   },
 }));
