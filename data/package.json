@@ -1,13 +1,18 @@
 {
-  "name": "data",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "biome check --write .",
+    "data:rules": "tsx scripts/rules/generate-rules.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.34.4"
+  "packageManager": "pnpm@10.34.4",
+  "devDependencies": {
+    "@biomejs/biome": "2.5.10",
+    "@types/node": "^26.4.0",
+    "tsx": "^4.23.12",
+    "xlsx": "^0.18.5",
+    "zod": "^4.4.3"
+  }
 }

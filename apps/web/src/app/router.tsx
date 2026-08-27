@@ -15,6 +15,7 @@ import { GeneralSettings } from "../features/settings/components/general/General
 import { PrivacySettings } from "../features/settings/components/privacy/PrivacySettings.tsx";
 import { SettingsPage } from "../features/settings/SettingsPage.tsx";
 import { AppLayout } from "./AppLayout";
+import { RulesPage } from "~/features/reference/rules/RulesPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -126,12 +127,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "rules",
-            element: (
-              <FeaturePagePlaceholder
-                title="Rules"
-                description="Browse game rules and reference material."
-              />
-            ),
+            element: <RulesPage />,
           },
           {
             path: "profiles",
