@@ -41,7 +41,7 @@ export function ReturningPlayerSection({
           <Card variant="outlined" sx={{ height: "100%" }}>
             <CardContent>
               <Typography variant="h5" gutterBottom sx={{ fontWeight: 800 }}>
-                Recent rosters
+                {t("rosters.title")}
               </Typography>
 
               <Stack spacing={1} sx={{ mt: 3 }}>

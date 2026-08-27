@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -6,19 +7,15 @@ import Typography from "@mui/material/Typography";
 
 import { PageSection } from "../components/PageSection.tsx";
 
-const workflow = [
-  "Choose an army",
-  "Build your roster",
-  "Use it at the table",
-  "Record the result",
-];
+const workflow = ["choose", "build", "play", "track"];
 
 export function HowItWorksSection() {
+  const { t } = useTranslation("home", { keyPrefix: "flow" });
   return (
     <PageSection
-      eyebrow="Flow"
-      title="How it works"
-      description="Create an account once, then build rosters, use them at the table and keep your results and collection data together over time."
+      eyebrow={t("eyebrow")}
+      title={t("title")}
+      description={t("description")}
     >
       <Grid container spacing={2}>
         {workflow.map((step, index) => (
@@ -27,7 +24,7 @@ export function HowItWorksSection() {
               <Stack spacing={1}>
                 <Chip label={index + 1} sx={{ alignSelf: "flex-start" }} />
                 <Typography variant="h6" sx={{ fontWeight: 800 }}>
-                  {step}
+                  {t(`cards.${step}`)}
                 </Typography>
               </Stack>
             </Paper>

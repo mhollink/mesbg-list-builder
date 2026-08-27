@@ -62,5 +62,69 @@
       "description": "Log your latest game and keep your match history complete.",
       "cta": "Add result"
     }
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Built around the actual tabletop flow",
+    "description": "Your rosters, match history, ongoing games and collection are tied to your account, so the List Builder can stay consistent across devices without manual syncing.",
+    "features": {
+      "build": {
+        "title": "Build valid army lists",
+        "description": "Create warbands, add heroes and warriors, track points, bows, throwing weapons and validation warnings."
+      },
+      "profiles": {
+        "title": "Use profile cards",
+        "description": "Open clean profile cards while building, printing or playing at the table."
+      },
+      "play": {
+        "title": "Play with digital trackers",
+        "description": "Track Might, Will, Fate, wounds, break points and casualties during a game."
+      },
+      "collect": {
+        "title": "Manage your collection",
+        "description": "Enable collection checks so lists can warn you when models or loadouts are missing."
+      },
+      "track": {
+        "title": "Track match history",
+        "description": "Record results by army, opponent, scenario and points level to learn from your games."
+      },
+      "community": {
+        "title": "Made for the community",
+        "description": "Report data issues, suggest improvements and help keep the builder accurate."
+      }
+    }
+  },
+  "preview": {
+    "eyebrow": "Preview",
+    "title": "Prepare, play, review",
+    "description": "The List Builder follows the full tabletop flow: prepare your roster, use it during the battle, then review your results afterwards.",
+    "cards": {
+      "build": {
+        "title": "Build",
+        "subtitle": "Create legal lists with clear validation.",
+        "lines": ["Warbands", "Points", "Bows", "Army bonus"]
+      },
+      "play": {
+        "title": "Play",
+        "subtitle": "Use your roster during the battle.",
+        "lines": ["Might / Will / Fate", "Wounds", "Break point", "Casualties"]
+      },
+      "improve": {
+        "title": "Improve",
+        "subtitle": "Learn from previous games.",
+        "lines": ["Match history", "Scenarios", "Opponents", "Army results"]
+      }
+    }
+  },
+  "flow": {
+    "eyebrow": "Flow",
+    "title": "How it works",
+    "description": "Create an account once, then build rosters, use them at the table and keep your results and collection data together over time.",
+    "cards": {
+      "choose": "Choose an army",
+      "build": "Build your roster",
+      "play": "Use it at the table",
+      "track": "Record the result"
+    }
   }
 }

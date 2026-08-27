@@ -12,6 +12,7 @@ export function IconSurface({ children }: { children: ReactNode }) {
         placeItems: "center",
         color: "primary.main",
         backgroundColor: alpha(theme.palette.primary.main, 0.12),
+        borderRadius: 2,
         "& svg": {
           fontSize: 24,
         },
