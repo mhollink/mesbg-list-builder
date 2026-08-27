@@ -67,7 +67,7 @@ export function PoliciesPage() {
             </Typography>
 
             <Typography
-              color="text.secondary"
+              color="textSecondary"
               sx={{
                 maxWidth: 740,
                 fontSize: {
@@ -106,7 +106,7 @@ export function PoliciesPage() {
               </Button>
             </Stack>
 
-            <Typography variant="body2" color="text.secondary" sx={{ pt: 1 }}>
+            <Typography variant="body2" color="textSecondary" sx={{ pt: 1 }}>
               {t("hero.lastUpdated", {
                 date: t("hero.lastUpdatedDate"),
               })}
@@ -173,7 +173,7 @@ export function PoliciesPage() {
               description={t("privacy.rights.description")}
             >
               <Typography
-                color="text.secondary"
+                color="textSecondary"
                 sx={{
                   mt: 2,
                   lineHeight: 1.75,
@@ -229,7 +229,7 @@ export function PoliciesPage() {
               </Typography>
 
               <Typography
-                color="text.secondary"
+                color="textSecondary"
                 sx={{
                   mt: 1,
                   lineHeight: 1.7,
@@ -285,7 +285,7 @@ export function PoliciesPage() {
               </Typography>
 
               <Typography
-                color="text.secondary"
+                color="textSecondary"
                 sx={{
                   mt: 1,
                   lineHeight: 1.7,
@@ -333,7 +333,7 @@ export function PoliciesPage() {
             </Typography>
 
             <Typography
-              color="text.secondary"
+              color="textSecondary"
               sx={{
                 mt: 1,
                 mx: "auto",

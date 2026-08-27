@@ -31,7 +31,7 @@ export function ProductPreview({
           <Typography variant="h5" sx={{ fontWeight: 900 }}>
             {title}
           </Typography>
-          <Typography color="text.secondary" sx={{ mt: 0.5 }}>
+          <Typography color="textSecondary" sx={{ mt: 0.5 }}>
             {subtitle}
           </Typography>
         </Box>

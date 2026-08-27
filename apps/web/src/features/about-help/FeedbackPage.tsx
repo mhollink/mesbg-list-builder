@@ -134,7 +134,7 @@ export function FeedbackPage() {
 
             <Typography
               variant="h6"
-              color="text.secondary"
+              color="textSecondary"
               sx={{ lineHeight: 1.7 }}
             >
               {t("hero.description")}
@@ -166,7 +166,7 @@ export function FeedbackPage() {
                       {t(`cards.${card.key}.title`)}
                     </Typography>
 
-                    <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                    <Typography color="textSecondary" sx={{ lineHeight: 1.7 }}>
                       {t(`cards.${card.key}.description`)}
                     </Typography>
                   </Stack>
@@ -197,7 +197,7 @@ export function FeedbackPage() {
                     {t("form.title")}
                   </Typography>
 
-                  <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                  <Typography color="textSecondary" sx={{ lineHeight: 1.7 }}>
                     {t("form.description")}
                   </Typography>
                 </Stack>

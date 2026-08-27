@@ -30,7 +30,7 @@ export function PageSection({
             {title}
           </Typography>
 
-          <Typography color="text.secondary" sx={{ mt: 1.25, lineHeight: 1.7 }}>
+          <Typography color="textSecondary" sx={{ mt: 1.25, lineHeight: 1.7 }}>
             {description}
           </Typography>
         </Box>

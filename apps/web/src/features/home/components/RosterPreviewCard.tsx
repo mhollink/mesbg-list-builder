@@ -31,7 +31,7 @@ export function RosterPreviewCard() {
           sx={{ justifyContent: "space-between" }}
         >
           <Box>
-            <Typography variant="overline" color="text.secondary">
+            <Typography variant="overline" color="textSecondary">
               {t("eyebrow")}
             </Typography>
             <Typography variant="h5" sx={{ fontWeight: 800 }}>

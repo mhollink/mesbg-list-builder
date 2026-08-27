@@ -124,7 +124,7 @@ export function SupportPage() {
                       {t(`options.${option.key}.title`)}
                     </Typography>
 
-                    <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                    <Typography color="textsecondary" sx={{ lineHeight: 1.7 }}>
                       {t(`options.${option.key}.description`)}
                     </Typography>
                   </Stack>

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
 import Button from "@mui/material/Button";
@@ -12,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import { PreviewRow } from "../components/PreviewRow.tsx";
 
 export function StatusAndCommunitySection() {
+  const { t } = useTranslation("home", { keyPrefix: "status" });
   return (
     <Grid container spacing={3}>
       <Grid size={{ xs: 12, md: 6 }}>
@@ -22,19 +24,17 @@ export function StatusAndCommunitySection() {
               <Typography variant="h5" sx={{ fontWeight: 800 }}>
                 MESBG 2024 data
               </Typography>
-              <Typography color="text.secondary">
-                The builder is only useful when the data is reliable. Check the
-                current edition status, review known issues, and report anything
-                that looks incorrect.
+              <Typography color="textSecondary">
+                {t("data.description")}
               </Typography>
 
               <Stack spacing={1}>
-                <PreviewRow label="Edition" value="2024" />
-                <PreviewRow label="Last data update" value={BUILD_DATE} />
-                <PreviewRow label="App version" value={BUILD_VERSION} />
+                <PreviewRow label={t("data.edition")} value="2024" />
+                <PreviewRow label={t("data.last-update")} value={BUILD_DATE} />
+                <PreviewRow label={t("data.version")} value={BUILD_VERSION} />
                 <PreviewRow
-                  label="Known issues"
-                  value="View list"
+                  label={t("data.known-issues")}
+                  value={t("data.view-issues")}
                   linkTo="https://github.com/mhollink/mesbg-list-builder/issues"
                   success
                 />
@@ -56,34 +56,33 @@ export function StatusAndCommunitySection() {
               >
                 <Chip
                   icon={<BugReportOutlinedIcon />}
-                  label="Report issues"
+                  label={t("community.tags.report")}
                   variant="outlined"
                 />
                 <Chip
                   icon={<PhoneIphoneOutlinedIcon />}
-                  label="Installable app"
+                  label={t("community.tags.pwa")}
                   variant="outlined"
                 />
               </Stack>
 
               <Typography variant="h5" sx={{ fontWeight: 800 }}>
-                Help improve the List Builder
+                {t("community.title")}
               </Typography>
 
-              <Typography color="text.secondary">
-                The List Builder improves through player feedback. Share missing
-                options, data mistakes or ideas that would make the tool better
-                at the table.
+              <Typography color="textSecondary">
+                {" "}
+                {t("community.description")}
               </Typography>
             </Stack>
           </CardContent>
 
           <CardActions sx={{ px: 2, pb: 2, gap: 1, flexWrap: "wrap" }}>
             <Button href="/feedback" variant="contained">
-              Report issue
+              {t("community.report")}
             </Button>
             <Button href="/support" variant="outlined">
-              Support development
+              {t("community.support")}
             </Button>
           </CardActions>
         </Card>
@@ -92,13 +91,10 @@ export function StatusAndCommunitySection() {
       <Grid size={{ xs: 12 }} sx={{ placeItems: "center" }}>
         <Typography
           variant="body2"
-          color="text.secondary"
+          color="textSecondary"
           sx={{ textAlign: "center", maxWidth: "100ch" }}
         >
-          MESBG List Builder is an unofficial fan-made utility for the
-          Middle-earth Strategy Battle Game. It is not affiliated with or
-          endorsed by Games Workshop, Middle-earth Enterprises or their
-          partners.
+          {t("disclaimer")}
         </Typography>
       </Grid>
     </Grid>

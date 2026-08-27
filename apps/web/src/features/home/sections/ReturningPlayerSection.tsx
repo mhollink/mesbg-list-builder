@@ -71,7 +71,7 @@ export function ReturningPlayerSection({
                         <Typography sx={{ fontWeight: 800 }}>
                           {roster.name}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="textSecondary">
                           {roster.army}
                         </Typography>
                       </Box>

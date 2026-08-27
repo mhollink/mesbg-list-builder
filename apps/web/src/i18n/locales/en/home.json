@@ -126,5 +126,26 @@
       "play": "Use it at the table",
       "track": "Record the result"
     }
+  },
+  "status": {
+    "data": {
+      "description": "The builder is only useful when the data is reliable. Check the current edition status, review known issues, and report anything that looks incorrect.",
+      "edition": "Edition",
+      "last-update": "Last update",
+      "version": "App version",
+      "known-issues": "Known issues",
+      "view-issues": "View list"
+    },
+    "community": {
+      "tags": {
+        "report": "Report issues",
+        "pwa": "Installable app"
+      },
+      "title": "Help improve the List Builder",
+      "description": "The List Builder improves through player feedback. Share missing options, data mistakes or ideas that would make the tool better at the table.",
+      "report": "Report issue",
+      "support": "Support development"
+    },
+    "disclaimer": "MESBG List Builder is an unofficial fan-made utility for the Middle-earth Strategy Battle Game. It is not affiliated with or endorsed by Games Workshop, Middle-earth Enterprises or their partners."
   }
 }
