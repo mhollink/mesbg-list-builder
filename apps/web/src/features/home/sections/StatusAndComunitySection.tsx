@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
@@ -13,7 +14,14 @@ import Typography from "@mui/material/Typography";
 import { PreviewRow } from "../components/PreviewRow.tsx";
 
 export function StatusAndCommunitySection() {
-  const { t } = useTranslation("home", { keyPrefix: "status" });
+  const { t, i18n } = useTranslation("home", { keyPrefix: "status" });
+
+  const lastUpdateDate = useMemo(() => {
+    return new Intl.DateTimeFormat(i18n.resolvedLanguage, {
+      dateStyle: "long",
+    }).format(new Date(BUILD_DATE));
+  }, [i18n.resolvedLanguage]);
+
   return (
     <Grid container spacing={3}>
       <Grid size={{ xs: 12, md: 6 }}>
@@ -30,7 +38,10 @@ export function StatusAndCommunitySection() {
 
               <Stack spacing={1}>
                 <PreviewRow label={t("data.edition")} value="2024" />
-                <PreviewRow label={t("data.last-update")} value={BUILD_DATE} />
+                <PreviewRow
+                  label={t("data.last-update")}
+                  value={lastUpdateDate}
+                />
                 <PreviewRow label={t("data.version")} value={BUILD_VERSION} />
                 <PreviewRow
                   label={t("data.known-issues")}
