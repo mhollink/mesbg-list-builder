@@ -11,20 +11,19 @@ export function RulesPage() {
   const {
     activeType,
     activeLetter,
+    registerLetter,
     search,
     availableLetters,
     rows,
     resultCount,
-    listRef,
     selectType,
     selectLetter,
     changeSearch,
-    handleRowsRendered,
   } = useRulesPage();
 
   function openRule(rule: Rule) {
     // Reference drawer navigator will go here.
-      console.log(rule);
+    console.log(rule);
   }
 
   return (
@@ -32,8 +31,8 @@ export function RulesPage() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100%",
-        minHeight: 0,
+        width: "100%",
+        minHeight: "100%",
       }}
     >
       <RulesHeader />
@@ -58,9 +57,8 @@ export function RulesPage() {
       >
         <RulesList
           rows={rows}
-          listRef={listRef}
-          onRowsRendered={handleRowsRendered}
           onOpenRule={openRule}
+          registerLetter={registerLetter}
         />
       </Box>
     </Box>

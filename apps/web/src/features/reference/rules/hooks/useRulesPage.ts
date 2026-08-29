@@ -1,28 +1,23 @@
-import {
-  useCallback,
-  useDeferredValue,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-import { useListRef } from "react-window";
+import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import type { RuleType, VisibleRows } from "../rules.types";
+import type { RuleType } from "../rules.types";
 import { createRuleRows, filterRules } from "../rules.utils";
+import { useAlphabetNavigation } from "./useAlphabetNavigation.ts";
 import { useGameRules } from "./useGameRules";
+
+export const RULES_TOOLBAR_HEIGHT = 160;
 
 export function useRulesPage() {
   const { rules, locale } = useGameRules();
 
   const [activeType, setActiveType] = useState<RuleType>("special-rule");
+
   const [search, setSearch] = useState("");
-  const [activeLetter, setActiveLetter] = useState<string | false>(false);
 
   const deferredSearch = useDeferredValue(search);
-  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
-  const listRef = useListRef(null);
+  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   const filteredRules = useMemo(
     () => filterRules(rules, activeType, deferredSearch, locale),
@@ -39,20 +34,13 @@ export function useRulesPage() {
     [letterIndexes],
   );
 
-  /*
-   * A new type or search result represents a different list.
-   * Start browsing that list from the beginning.
-   */
-  useEffect(() => {
-    setActiveLetter(rows[0]?.letter ?? false);
-
-    if (rows.length > 0) {
-      listRef.current?.scrollToRow({
-        index: 0,
-        align: "start",
-      });
-    }
-  }, [rows, listRef]);
+  const {
+    activeLetter,
+    registerLetter,
+    selectLetter: navigateToLetter,
+  } = useAlphabetNavigation({
+    stickyOffset: RULES_TOOLBAR_HEIGHT,
+  });
 
   const selectType = useCallback((type: RuleType) => {
     setActiveType(type);
@@ -64,52 +52,23 @@ export function useRulesPage() {
 
   const selectLetter = useCallback(
     (letter: string) => {
-      const index = letterIndexes.get(letter);
-
-      if (index === undefined) {
-        return;
-      }
-
-      setActiveLetter(letter);
-
-      listRef.current?.scrollToRow({
-        index,
-        align: "start",
-        behavior: reduceMotion ? "auto" : "smooth",
-      });
+      navigateToLetter(letter, reduceMotion ? "auto" : "smooth");
     },
-    [letterIndexes, listRef, reduceMotion],
-  );
-
-  const handleRowsRendered = useCallback(
-    ({ startIndex }: VisibleRows) => {
-      const firstVisibleRow = rows[startIndex];
-
-      if (!firstVisibleRow) {
-        return;
-      }
-
-      setActiveLetter((current) =>
-        current === firstVisibleRow.letter ? current : firstVisibleRow.letter,
-      );
-    },
-    [rows],
+    [navigateToLetter, reduceMotion],
   );
 
   return {
     activeType,
-    search,
     activeLetter,
+    search,
     availableLetters,
 
     rows,
     resultCount: filteredRules.length,
 
-    listRef,
-
     selectType,
-    changeSearch,
     selectLetter,
-    handleRowsRendered,
+    changeSearch,
+    registerLetter,
   };
 }

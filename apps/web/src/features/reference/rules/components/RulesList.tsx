@@ -1,24 +1,21 @@
-import type { RefObject } from "react";
-import { type ListImperativeAPI, List as VirtualList } from "react-window";
+import type { RefCallback } from "react";
 import Box from "@mui/material/Box";
+import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 
-import type { Rule, RuleRow, VisibleRows } from "../rules.types";
-import { getRuleRowHeight, getRuleRowKey } from "../rules.utils";
+import type { Rule, RuleRow } from "../rules.types";
 import { RuleListRow } from "./RuleListRow";
 
 interface RulesListProps {
   rows: RuleRow[];
-  listRef: RefObject<ListImperativeAPI | null>;
   onOpenRule: (rule: Rule) => void;
-  onRowsRendered: (rows: VisibleRows) => void;
+  registerLetter: (letter: string) => RefCallback<HTMLElement>;
 }
 
 export function RulesList({
   rows,
-  listRef,
   onOpenRule,
-  onRowsRendered,
+  registerLetter,
 }: RulesListProps) {
   if (rows.length === 0) {
     return (
@@ -50,21 +47,15 @@ export function RulesList({
   }
 
   return (
-    <VirtualList
-      listRef={listRef}
-      rowCount={rows.length}
-      rowHeight={getRuleRowHeight}
-      rowComponent={RuleListRow}
-      rowProps={{
-        rows,
-        onOpenRule,
-      }}
-      rowKey={getRuleRowKey}
-      overscanCount={6}
-      onRowsRendered={onRowsRendered}
-      style={{
-        height: "100%",
-      }}
-    />
+    <List disablePadding>
+      {rows.map((row) => (
+        <RuleListRow
+          key={row.key}
+          row={row}
+          onOpenRule={onOpenRule}
+          registerLetter={registerLetter}
+        />
+      ))}
+    </List>
   );
 }
