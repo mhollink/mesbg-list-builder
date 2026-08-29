@@ -1,14 +1,17 @@
 import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import type { RuleType } from "../rules.types";
+import type { Rule, RuleType } from "../rules.types";
 import { createRuleRows, filterRules } from "../rules.utils";
 import { useAlphabetNavigation } from "./useAlphabetNavigation.ts";
 import { useGameRules } from "./useGameRules";
+import { useAppDispatch } from "~/app/store/hooks.ts";
+import { openRuleDrawer } from "~/app/store/uiSlice.ts";
 
 export const RULES_TOOLBAR_HEIGHT = 160;
 
 export function useRulesPage() {
+  const dispatch = useAppDispatch();
   const { rules, locale } = useGameRules();
 
   const [activeType, setActiveType] = useState<RuleType>("special-rule");
@@ -57,6 +60,13 @@ export function useRulesPage() {
     [navigateToLetter, reduceMotion],
   );
 
+  const handleRuleClick = useCallback(
+    (rule: Rule) => {
+      dispatch(openRuleDrawer(rule));
+    },
+    [dispatch],
+  );
+
   return {
     activeType,
     activeLetter,
@@ -70,5 +80,6 @@ export function useRulesPage() {
     selectLetter,
     changeSearch,
     registerLetter,
+    handleRuleClick,
   };
 }

@@ -8,7 +8,7 @@ import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../app/store/hooks.ts";
 import { SUPPORTED_LANGUAGES } from "../../state/general/generalSettings.constants";
 import type { AppLanguage } from "../../state/general/generalSettings.types";
 import { setLanguage } from "../../state/general//generalSettingsSlice";

@@ -10,8 +10,8 @@ import {
   REHYDRATE,
 } from "redux-persist";
 
-import { rootReducer } from "./rootReducer";
-import { storage } from "./storage";
+import { rootReducer } from "./rootReducer.ts";
+import { storage } from "./storage.ts";
 
 const persistedReducer = persistReducer(
   {

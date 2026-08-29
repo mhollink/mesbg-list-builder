@@ -1,6 +1,6 @@
 import { type PropsWithChildren, useEffect } from "react";
 
-import { useAppSelector } from "../app/hooks";
+import { useAppSelector } from "../app/store/hooks.ts";
 import i18n from "./i18n";
 
 export function LocalizationProvider({ children }: PropsWithChildren) {

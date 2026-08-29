@@ -5,7 +5,7 @@ import { RulesList } from "./components/RulesList";
 import { RulesResultCount } from "./components/RulesResultCount";
 import { RulesToolbar } from "./components/RulesToolbar";
 import { useRulesPage } from "./hooks/useRulesPage";
-import type { Rule } from "./rules.types";
+import { RuleDrawer } from "~/features/reference/rules/components/RuleDrawer.tsx";
 
 export function RulesPage() {
   const {
@@ -19,12 +19,8 @@ export function RulesPage() {
     selectType,
     selectLetter,
     changeSearch,
+    handleRuleClick,
   } = useRulesPage();
-
-  function openRule(rule: Rule) {
-    // Reference drawer navigator will go here.
-    console.log(rule);
-  }
 
   return (
     <Box
@@ -57,10 +53,12 @@ export function RulesPage() {
       >
         <RulesList
           rows={rows}
-          onOpenRule={openRule}
+          onOpenRule={handleRuleClick}
           registerLetter={registerLetter}
         />
       </Box>
+
+      <RuleDrawer />
     </Box>
   );
 }

@@ -1,0 +1,194 @@
+import CloseIcon from "@mui/icons-material/Close";
+import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
+import { useRuleDrawer } from "../hooks/useRuleDrawer";
+import { RuleText } from "~/features/reference/rules/components/RuleText.tsx";
+import type { Rule } from "~/features/reference/rules/rules.types.ts";
+
+export function RuleDrawer() {
+  const { open, rule, close } = useRuleDrawer();
+
+  return (
+    <Drawer
+      anchor="right"
+      open={open}
+      onClose={close}
+      slotProps={{
+        paper: {
+          sx: {
+            width: {
+              xs: "100%",
+              sm: 620,
+              md: 760,
+            },
+            maxWidth: "100%",
+          },
+        },
+      }}
+    >
+      {rule && (
+        <Stack sx={{ minHeight: "100%" }}>
+          <RuleDrawerHeader rule={rule} onClose={close} />
+
+          <Divider />
+
+          <Box
+            sx={{
+              flex: 1,
+              px: {
+                xs: 2.5,
+                sm: 4,
+              },
+              py: 3,
+            }}
+          >
+            <RuleText>{rule.description}</RuleText>
+          </Box>
+
+          <Divider />
+
+          <RuleSource source={rule.source ?? "unknown source."} />
+        </Stack>
+      )}
+    </Drawer>
+  );
+}
+
+interface RuleDrawerHeaderProps {
+  rule: Rule;
+  onClose: () => void;
+}
+
+function RuleDrawerHeader({ rule, onClose }: RuleDrawerHeaderProps) {
+  return (
+    <Box
+      sx={{
+        px: {
+          xs: 2.5,
+          sm: 4,
+        },
+        pt: 3,
+        pb: 2.5,
+      }}
+    >
+      <Stack
+        direction="row"
+        sx={{
+          gap: 2,
+          alignItems: "flex-start",
+        }}
+      >
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+          <Typography
+            variant="overline"
+            color="textSecondary"
+            sx={{
+              display: "block",
+              mb: 0.5,
+              fontWeight: 700,
+            }}
+          >
+            {getCategoryLabel(rule.category)}
+          </Typography>
+
+          <Typography
+            variant="h4"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              lineHeight: 1.2,
+            }}
+          >
+            {rule.name}
+          </Typography>
+
+          {rule.type && (
+            <Chip
+              label={getTypeLabel(rule.type)}
+              size="small"
+              variant="outlined"
+              sx={{
+                mt: 1.5,
+              }}
+            />
+          )}
+        </Box>
+
+        <IconButton
+          onClick={onClose}
+          aria-label="Close rule details"
+          sx={{
+            mt: -0.5,
+            mr: -1,
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </Stack>
+    </Box>
+  );
+}
+
+interface RuleSourceProps {
+  source: string;
+}
+
+function RuleSource({ source }: RuleSourceProps) {
+  return (
+    <Box
+      sx={{
+        px: {
+          xs: 2.5,
+          sm: 4,
+        },
+        py: 2.5,
+        bgcolor: "action.hover",
+      }}
+    >
+      <Typography
+        variant="overline"
+        color="textSecondary"
+        sx={{
+          display: "block",
+          fontWeight: 700,
+          mb: 0.25,
+        }}
+      >
+        Source
+      </Typography>
+
+      <Typography variant="body2" color="textSecondary">
+        {source}
+      </Typography>
+    </Box>
+  );
+}
+
+function getCategoryLabel(category: Rule["category"]): string {
+  switch (category) {
+    case "special-rule":
+      return "Special Rule";
+
+    case "heroic-action":
+      return "Heroic Action";
+
+    case "magical-power":
+      return "Magical Power";
+
+    case "brutal-power-attack":
+      return "Brutal Power Attack";
+  }
+}
+
+function getTypeLabel(type: string): string {
+  return type
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}

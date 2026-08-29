@@ -3,7 +3,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { useAppSelector } from "../app/hooks";
+import { useAppSelector } from "../app/store/hooks.ts";
 import { applyThemeMode } from "./applyThemeMode";
 import { createAppTheme } from "./createAppTheme";
 import { resolveThemeColors } from "./resolveThemeColors.ts";
