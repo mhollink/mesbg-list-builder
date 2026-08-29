@@ -12,6 +12,7 @@ import { useAppDispatch, useAppSelector } from "../../../../app/store/hooks.ts";
 import { SUPPORTED_LANGUAGES } from "../../state/general/generalSettings.constants";
 import type { AppLanguage } from "../../state/general/generalSettings.types";
 import { setLanguage } from "../../state/general//generalSettingsSlice";
+import { RuleTranslationSetting } from "~/features/settings/components/general/RuleTranslationSetting.tsx";
 
 export function GeneralSettings() {
   const { t } = useTranslation("settings");
@@ -72,6 +73,7 @@ export function GeneralSettings() {
           </FormControl>
         </Stack>
       </Stack>
+      <RuleTranslationSetting />
     </Stack>
   );
 }

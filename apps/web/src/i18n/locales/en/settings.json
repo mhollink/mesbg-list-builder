@@ -35,5 +35,22 @@
         "other": "Other application-wide behaviour"
       }
     }
+  },
+  "rulesTranslation": {
+    "label": "Translate game rules",
+    "description": "Show game rules in the selected language.",
+    "englishDescription": "The official game rules are already displayed in English.",
+    "warning": {
+      "title": "Translations are unofficial",
+      "description": "Translated rules are provided as a convenience and may differ from the official English wording. Always use the official English rules for ambiguities, discussions and tournaments."
+    },
+    "confirmation": {
+      "title": "Enable translated rules?",
+      "description": "You are about to replace the official English rules text with a translation.",
+      "warning": "Translations may contain mistakes, differences in interpretation or different terminology. The English rules remain authoritative, especially for rules discussions and tournament play.",
+      "instruction": "Type \"{{phrase}}\" to confirm.",
+      "phrase": "I understand",
+      "confirm": "Enable translated rules"
+    }
   }
 }
