@@ -1,4 +1,5 @@
 import type { RefCallback } from "react";
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -17,6 +18,7 @@ export function RulesList({
   onOpenRule,
   registerLetter,
 }: RulesListProps) {
+  const { t } = useTranslation("rules");
   if (rows.length === 0) {
     return (
       <Box
@@ -31,7 +33,7 @@ export function RulesList({
             fontWeight: 600,
           }}
         >
-          No rules found
+          {t("search.noResults")}
         </Typography>
 
         <Typography
@@ -40,7 +42,7 @@ export function RulesList({
             mt: 0.5,
           }}
         >
-          Try a different search term.
+          {t("search.noResultsHelper")}
         </Typography>
       </Box>
     );

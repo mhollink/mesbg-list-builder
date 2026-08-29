@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -6,6 +7,8 @@ interface RulesResultCountProps {
 }
 
 export function RulesResultCount({ count }: RulesResultCountProps) {
+  const { t } = useTranslation("rules");
+
   return (
     <Box
       sx={{
@@ -21,7 +24,7 @@ export function RulesResultCount({ count }: RulesResultCountProps) {
       }}
     >
       <Typography variant="body2" color="textSecondary">
-        {count} {count === 1 ? "result" : "results"}
+        {count} {count === 1 ? t("search.result") : t("search.results")}
       </Typography>
     </Box>
   );

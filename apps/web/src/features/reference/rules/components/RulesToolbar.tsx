@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import Box from "@mui/material/Box";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -27,6 +28,7 @@ export function RulesToolbar({
   onLetterChange,
   onSearchChange,
 }: RulesToolbarProps) {
+  const { t } = useTranslation("rules");
   return (
     <Box
       sx={{
@@ -69,7 +71,7 @@ export function RulesToolbar({
         <TextField
           value={search}
           onChange={(event) => onSearchChange(event.target.value)}
-          placeholder="Search rules"
+          placeholder={t("search.placeholder")}
           fullWidth
           size="small"
           slotProps={{

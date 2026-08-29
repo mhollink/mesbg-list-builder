@@ -1,26 +1,13 @@
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 export function RulesHeader() {
+  const { t } = useTranslation("rules");
   return (
-    <Box
-      component="header"
-      sx={{
-        px: {
-          xs: 2,
-          md: 3,
-        },
-        pt: 3,
-      }}
-    >
-      <Typography
-        component="h1"
-        variant="h4"
-        sx={{
-          fontWeight: 700,
-        }}
-      >
-        Rules
+    <Box>
+      <Typography component="h1" variant="h4" gutterBottom>
+        {t("title")}
       </Typography>
 
       <Typography
@@ -29,7 +16,7 @@ export function RulesHeader() {
           mt: 0.5,
         }}
       >
-        Browse the rules and abilities used throughout the game.
+        {t("description")}
       </Typography>
     </Box>
   );

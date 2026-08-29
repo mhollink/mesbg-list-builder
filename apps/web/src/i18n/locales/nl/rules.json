@@ -1,0 +1,11 @@
+{
+  "title": "Regels",
+  "description": "Bekijk de regels en vaardigheden die in het spel worden gebruikt.",
+  "search": {
+    "placeholder": "Zoek regels, magische krachten en vaardigheden",
+    "result": "resultaat",
+    "results": "resultaten",
+    "noResults": "Geen regels gevonden",
+    "noResultsHelper": "Probeer een andere zoekterm."
+  }
+}
