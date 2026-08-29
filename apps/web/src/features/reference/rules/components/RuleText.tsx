@@ -14,9 +14,9 @@ export function RuleText({ children }: RuleTextProps) {
 
   return (
     <Stack spacing={1.5}>
-      {paragraphs.map((paragraph, index) => (
+      {paragraphs.map((paragraph) => (
         <Typography
-          key={index}
+          key={paragraph}
           component="p"
           color="textSecondary"
           sx={{ lineHeight: 1.7 }}
@@ -32,9 +32,9 @@ function renderInlineMarkup(text: string): ReactNode[] {
   return text
     .split(/(<b>.*?<\/b>)/g)
     .filter(Boolean)
-    .map((part, index) => {
+    .map((part) => {
       if (part.startsWith("<b>") && part.endsWith("</b>")) {
-        return <strong key={index}>{part.slice(3, -4)}</strong>;
+        return <strong key={part}>{part.slice(3, -4)}</strong>;
       }
 
       return part;

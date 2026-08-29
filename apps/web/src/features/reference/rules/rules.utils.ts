@@ -25,16 +25,11 @@ export function filterRules(
   });
 
   return rules
-    .filter((rule) => rule.category === category)
     .filter((rule) => {
-      if (!query) {
-        return true;
-      }
-
-      return (
-        rule.name.toLocaleLowerCase(locale).includes(query) ||
-        rule.description.toLocaleLowerCase(locale).includes(query)
-      );
+      return query
+        ? rule.name.toLocaleLowerCase(locale).includes(query) ||
+            rule.description.toLocaleLowerCase(locale).includes(query)
+        : rule.category === category;
     })
     .sort((left, right) => collator.compare(left.name, right.name));
 }
