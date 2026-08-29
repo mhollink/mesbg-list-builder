@@ -10,8 +10,8 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { formatDate } from "../../../i18n/formatDate.ts";
 import { PreviewRow } from "../components/PreviewRow.tsx";
+import { formatDate } from "~/i18n/formatDate.ts";
 
 export function StatusAndCommunitySection() {
   const { t } = useTranslation("home", { keyPrefix: "status" });

@@ -1,29 +1,603 @@
 [
   {
-    "id": "ancient-enemies",
-    "nameKey": "ancient-enemies.name",
-    "descriptionKey": "ancient-enemies.description",
-    "category": "special-rule",
-    "type": "active"
+    "id": "heroic-accuracy",
+    "category": "heroic-action",
+    "type": "shoot-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 83)"
   },
   {
-    "id": "arcing-shot",
-    "nameKey": "arcing-shot.name",
-    "descriptionKey": "arcing-shot.description",
-    "category": "special-rule"
+    "id": "heroic-challenge",
+    "category": "heroic-action",
+    "type": "fight-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 82)"
   },
   {
-    "id": "aura-of-command",
-    "nameKey": "aura-of-command.name",
-    "descriptionKey": "aura-of-command.description",
-    "category": "magical-power",
-    "type": "exhaustion"
+    "id": "heroic-channelling",
+    "category": "heroic-action",
+    "type": "move-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 84)"
+  },
+  {
+    "id": "heroic-combat",
+    "category": "heroic-action",
+    "type": "fight-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 81)"
+  },
+  {
+    "id": "heroic-defence",
+    "category": "heroic-action",
+    "type": "fight-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 85)"
   },
   {
     "id": "heroic-march",
-    "nameKey": "heroic-march.name",
-    "descriptionKey": "heroic-march.description",
     "category": "heroic-action",
-    "type": "fight-phase"
+    "type": "move-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 82)"
+  },
+  {
+    "id": "heroic-move",
+    "category": "heroic-action",
+    "type": "move-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 80)"
+  },
+  {
+    "id": "heroic-resolve",
+    "category": "heroic-action",
+    "type": "move-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 83)"
+  },
+  {
+    "id": "heroic-shoot",
+    "category": "heroic-action",
+    "type": "shoot-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 81)"
+  },
+  {
+    "id": "heroic-strength",
+    "category": "heroic-action",
+    "type": "fight-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 85)"
+  },
+  {
+    "id": "heroic-strike",
+    "category": "heroic-action",
+    "type": "fight-phase",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 85)"
+  },
+  {
+    "id": "aura-of-command",
+    "category": "magical-power",
+    "type": "exhaustion",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 116)"
+  },
+  {
+    "id": "aura-of-dismay",
+    "category": "magical-power",
+    "type": "exhaustion",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 116)"
+  },
+  {
+    "id": "banishment",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 116)"
+  },
+  {
+    "id": "black-dart",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 116)"
+  },
+  {
+    "id": "bladewrath",
+    "category": "magical-power",
+    "type": "temporary",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 116)"
+  },
+  {
+    "id": "blessing-of-the-valar",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 116)"
+  },
+  {
+    "id": "blinding-light",
+    "category": "magical-power",
+    "type": "temporary",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 116)"
+  },
+  {
+    "id": "call-winds",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 116)"
+  },
+  {
+    "id": "chill-soul",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 117)"
+  },
+  {
+    "id": "collapse-rocks",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 117)"
+  },
+  {
+    "id": "compel",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 117)"
+  },
+  {
+    "id": "curse",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 117)"
+  },
+  {
+    "id": "drain-courage",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 117)"
+  },
+  {
+    "id": "enchant-blades",
+    "category": "magical-power",
+    "type": "temporary",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 117)"
+  },
+  {
+    "id": "enrage-beast",
+    "category": "magical-power",
+    "type": "temporary",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 117)"
+  },
+  {
+    "id": "flameburst",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 117)"
+  },
+  {
+    "id": "fog-of-disarray",
+    "category": "magical-power",
+    "type": "exhaustion",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 118)"
+  },
+  {
+    "id": "foil-magic",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 118)"
+  },
+  {
+    "id": "fortify-spirit",
+    "category": "magical-power",
+    "type": "exhaustion",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 118)"
+  },
+  {
+    "id": "fury",
+    "category": "magical-power",
+    "type": "exhaustion",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 118)"
+  },
+  {
+    "id": "instill-fear",
+    "category": "magical-power",
+    "type": "temporary",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 118)"
+  },
+  {
+    "id": "natures-wrath",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 118)"
+  },
+  {
+    "id": "panic-steed",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 118)"
+  },
+  {
+    "id": "paralyse",
+    "category": "magical-power",
+    "type": "exhaustion",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 118)"
+  },
+  {
+    "id": "protection-of-the-valar",
+    "category": "magical-power",
+    "type": "temporary",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 119)"
+  },
+  {
+    "id": "renew",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 119)"
+  },
+  {
+    "id": "sorcerous-blast",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 119)"
+  },
+  {
+    "id": "strengthen-will",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 119)"
+  },
+  {
+    "id": "terrifying-aura",
+    "category": "magical-power",
+    "type": "exhaustion",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 119)"
+  },
+  {
+    "id": "transfix",
+    "category": "magical-power",
+    "type": "temporary",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 119)"
+  },
+  {
+    "id": "tremor",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 119)"
+  },
+  {
+    "id": "wither",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 120)"
+  },
+  {
+    "id": "wrath-of-bruinen",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 120)"
+  },
+  {
+    "id": "writhing-vines",
+    "category": "magical-power",
+    "type": "temporary",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 120)"
+  },
+  {
+    "id": "your-staff-is-broken",
+    "category": "magical-power",
+    "type": "instant",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 120)"
+  },
+  {
+    "id": "ancient-enemies",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 124)"
+  },
+  {
+    "id": "arcing-shot",
+    "category": "special-rule",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 141)"
+  },
+  {
+    "id": "backstabbers",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 124)"
+  },
+  {
+    "id": "bane-of-kings",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 124)"
+  },
+  {
+    "id": "bane-weapons",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 124)"
+  },
+  {
+    "id": "blades-of-the-dead",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 124)"
+  },
+  {
+    "id": "bodyguard",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 124)"
+  },
+  {
+    "id": "burly",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 124)"
+  },
+  {
+    "id": "cave-dweller",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
+  },
+  {
+    "id": "direct-shot",
+    "category": "special-rule",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 141)"
+  },
+  {
+    "id": "dominant",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
+  },
+  {
+    "id": "expert-rider",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
+  },
+  {
+    "id": "expert-shot",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
+  },
+  {
+    "id": "fearful",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
+  },
+  {
+    "id": "fearless",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
+  },
+  {
+    "id": "fell-sight",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
+  },
+  {
+    "id": "flaming-ammunition",
+    "category": "special-rule",
+    "source": ""
+  },
+  {
+    "id": "fly",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 126)"
+  },
+  {
+    "id": "foul-temperament",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Armies of The Lord of The Rings™(page 193)"
+  },
+  {
+    "id": "general-hunter",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 126)"
+  },
+  {
+    "id": "gnarled-hide",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Armies of The Lord of The Rings™(page 193)"
+  },
+  {
+    "id": "harbinger-of-evil",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 126)"
+  },
+  {
+    "id": "hatred",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 126)"
+  },
+  {
+    "id": "horse-lord",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 127)"
+  },
+  {
+    "id": "invisible",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 127)"
+  },
+  {
+    "id": "large-target",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 127)"
+  },
+  {
+    "id": "leader",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 127)"
+  },
+  {
+    "id": "master-of-battle",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 127)"
+  },
+  {
+    "id": "mighty-blow",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 127)"
+  },
+  {
+    "id": "mighty-hero",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
+  },
+  {
+    "id": "monstrous-charge",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
+  },
+  {
+    "id": "mountain-dweller",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
+  },
+  {
+    "id": "poisoned-attacks",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
+  },
+  {
+    "id": "rappelling-lines",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Armies of The Lord of The Rings™(page 193)"
+  },
+  {
+    "id": "resistant-to-magic",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
+  },
+  {
+    "id": "rocks",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Armies of The Lord of The Rings™(page 193)"
+  },
+  {
+    "id": "set-ablaze",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
+  },
+  {
+    "id": "severed-heads",
+    "category": "special-rule",
+    "source": ""
+  },
+  {
+    "id": "sharpshooter",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 129)"
+  },
+  {
+    "id": "shieldwall",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 129)"
+  },
+  {
+    "id": "sigils-of-defiance",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Armies of The Lord of The Rings™(page 193)"
+  },
+  {
+    "id": "spectral-walk",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 129)"
+  },
+  {
+    "id": "stalk-unseen",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 129)"
+  },
+  {
+    "id": "static",
+    "category": "special-rule",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 140)"
+  },
+  {
+    "id": "survival-instinct",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 129)"
+  },
+  {
+    "id": "swift-movement",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 129)"
+  },
+  {
+    "id": "sworn-protector",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 130)"
+  },
+  {
+    "id": "terror",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 130)"
+  },
+  {
+    "id": "throw-stones",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 130)"
+  },
+  {
+    "id": "timid",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 130)"
+  },
+  {
+    "id": "tusk-weapons",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Armies of The Lord of The Rings™(page 193)"
+  },
+  {
+    "id": "unyielding-combat-stance",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 130)"
+  },
+  {
+    "id": "venom",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 131)"
+  },
+  {
+    "id": "will-of-evil",
+    "category": "special-rule",
+    "type": "passive",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 131)"
+  },
+  {
+    "id": "woodland-creature",
+    "category": "special-rule",
+    "type": "active",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 131)"
   }
 ]

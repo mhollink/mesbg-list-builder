@@ -33,34 +33,14 @@ export const ruleTypeSchema = z.preprocess((value) => {
   ])
   .optional());
 
-export const ruleRowSchema = z
-  .object({
-    id: kebabCaseSchema,
-    "name-key": translationKeySchema,
-    "description-key": translationKeySchema,
-    category: ruleCategorySchema,
-    type: ruleTypeSchema,
-  })
-  .superRefine((rule, context) => {
-    const expectedNameKey = `${rule.id}.name`;
-    const expectedDescriptionKey = `${rule.id}.description`;
+export const sourceTypeScheme = z.string().optional();
 
-    if (rule["name-key"] !== expectedNameKey) {
-      context.addIssue({
-        code: "custom",
-        path: ["name-key"],
-        message: `Expected '${expectedNameKey}'`,
-      });
-    }
-
-    if (rule["description-key"] !== expectedDescriptionKey) {
-      context.addIssue({
-        code: "custom",
-        path: ["description-key"],
-        message: `Expected '${expectedDescriptionKey}'`,
-      });
-    }
-  });
+export const ruleRowSchema = z.object({
+  id: kebabCaseSchema,
+  category: ruleCategorySchema,
+  type: ruleTypeSchema,
+  source: sourceTypeScheme,
+});
 
 export const translationRowSchema = z.object({
   key: translationKeySchema,

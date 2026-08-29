@@ -1,31 +1,68 @@
-import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 
-import rules from "~/generated/game-data/rules.json";
-import {RuleText} from "~/features/reference/rules/components/RuleText.tsx";
+import { RulesHeader } from "./components/RulesHeader";
+import { RulesList } from "./components/RulesList";
+import { RulesResultCount } from "./components/RulesResultCount";
+import { RulesToolbar } from "./components/RulesToolbar";
+import { useRulesPage } from "./hooks/useRulesPage";
+import type { Rule } from "./rules.types";
 
 export function RulesPage() {
-  const { t } = useTranslation("game-rules");
+  const {
+    activeType,
+    activeLetter,
+    search,
+    availableLetters,
+    rows,
+    resultCount,
+    listRef,
+    selectType,
+    selectLetter,
+    changeSearch,
+    handleRowsRendered,
+  } = useRulesPage();
+
+  function openRule(rule: Rule) {
+    // Reference drawer navigator will go here.
+      console.log(rule);
+  }
 
   return (
-    <Box>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Rules
-      </Typography>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        minHeight: 0,
+      }}
+    >
+      <RulesHeader />
 
-      <Stack spacing={2}>
-        {Object.values(rules).map((rule) => (
-          <Box key={rule.id}>
-            <Typography variant="h6" component="h2">
-              {t(rule.nameKey)}
-            </Typography>
+      <RulesToolbar
+        activeType={activeType}
+        activeLetter={activeLetter}
+        search={search}
+        availableLetters={availableLetters}
+        onTypeChange={selectType}
+        onLetterChange={selectLetter}
+        onSearchChange={changeSearch}
+      />
 
-            <RuleText>{t(rule.descriptionKey)}</RuleText>
-          </Box>
-        ))}
-      </Stack>
+      <RulesResultCount count={resultCount} />
+
+      <Box
+        sx={{
+          flex: 1,
+          minHeight: 0,
+        }}
+      >
+        <RulesList
+          rows={rows}
+          listRef={listRef}
+          onRowsRendered={handleRowsRendered}
+          onOpenRule={openRule}
+        />
+      </Box>
     </Box>
   );
 }
