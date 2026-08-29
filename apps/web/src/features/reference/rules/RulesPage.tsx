@@ -23,14 +23,7 @@ export function RulesPage() {
   } = useRulesPage();
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        minHeight: "100%",
-      }}
-    >
+    <Box>
       <RulesHeader />
 
       <RulesToolbar
