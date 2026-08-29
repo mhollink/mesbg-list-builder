@@ -7,6 +7,7 @@ import type {
 
 const initialState: GeneralSettingsState = {
   language: "en",
+  translatedGameRules: false,
 };
 
 const generalSettingsSlice = createSlice({
@@ -15,10 +16,16 @@ const generalSettingsSlice = createSlice({
   reducers: {
     setLanguage(state, action: PayloadAction<AppLanguage>) {
       state.language = action.payload;
+      state.translatedGameRules = false;
+    },
+
+    setTranslatedGameRules(state, action: PayloadAction<boolean>) {
+      state.translatedGameRules = action.payload;
     },
   },
 });
 
-export const { setLanguage } = generalSettingsSlice.actions;
+export const { setLanguage, setTranslatedGameRules } =
+  generalSettingsSlice.actions;
 
 export default generalSettingsSlice.reducer;

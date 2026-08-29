@@ -1,0 +1,11 @@
+{
+  "title": "Rules",
+  "description": "Browse the rules and abilities used throughout the game.",
+  "search": {
+    "placeholder": "Search rules, magical powers and abilities",
+    "result": "result",
+    "results": "results",
+    "noResults": "No rules found",
+    "noResultsHelper": "Try a different search term."
+  }
+}

@@ -1,6 +1,6 @@
-// @ts-ignore
+// @ts-expect-error
 import { mkdir } from "node:fs/promises";
-// @ts-ignore
+// @ts-expect-error
 import { fileURLToPath } from "node:url";
 
 import { z } from "zod";
@@ -51,10 +51,9 @@ function readRules(): Rule[] {
 
   return parsedRows.map((rule) => ({
     id: rule.id,
-    nameKey: rule["name-key"],
-    descriptionKey: rule["description-key"],
     category: rule.category,
     ...(rule.type ? { type: rule.type } : {}),
+    source: rule.source,
   }));
 }
 
@@ -107,7 +106,9 @@ function readTranslations(locale: SupportedLocale): TranslationMap {
 }
 
 function getRequiredTranslationKeys(rules: Rule[]): Set<string> {
-  return new Set(rules.flatMap((rule) => [rule.nameKey, rule.descriptionKey]));
+  return new Set(
+    rules.flatMap((rule) => [`${rule.id}.name`, `${rule.id}.description`]),
+  );
 }
 
 function validateTranslationCoverage(
@@ -222,6 +223,6 @@ async function generateRules(): Promise<void> {
 
 generateRules().catch((error: unknown) => {
   console.error(error);
-  // @ts-ignore
+  // @ts-expect-error
   process.exitCode = 1;
 });

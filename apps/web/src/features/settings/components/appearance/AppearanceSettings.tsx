@@ -10,7 +10,7 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
 
-import { useAppDispatch, useAppSelector } from "../../../../app/hooks.ts";
+import { useAppDispatch, useAppSelector } from "../../../../app/store/hooks.ts";
 import type { ThemeMode } from "../../../../theme/theme.types.ts";
 import { THEME_PRESETS } from "../../../../theme/themePresets.ts";
 import {

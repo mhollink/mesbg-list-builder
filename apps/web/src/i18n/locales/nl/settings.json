@@ -35,5 +35,22 @@
         "other": "Overig applicatiegedrag"
       }
     }
+  },
+  "rulesTranslation": {
+    "label": "Vertaal spelregels",
+    "description": "Toon spelregels in de geselecteerde taal.",
+    "englishDescription": "De officiële spelregels zijn al in het Engels.",
+    "warning": {
+      "title": "Vertalingen zijn niet officieel",
+      "description": "Vertaalde spelregels zijn bedoeld als hulpmiddel en kunnen afwijken van de officiële Engelse formulering. Gebruik bij onduidelijkheden, discussies en toernooien altijd de officiële Engelse regels."
+    },
+    "confirmation": {
+      "title": "Vertaalde spelregels inschakelen?",
+      "description": "Je staat op het punt de officiële Engelse regeltekst te vervangen door een vertaling.",
+      "warning": "Vertalingen kunnen fouten, interpretatieverschillen of afwijkende terminologie bevatten. De Engelse regeltekst blijft leidend, met name bij discussies en tijdens toernooien.",
+      "instruction": "Typ \"{{phrase}}\" om te bevestigen.",
+      "phrase": "Ik begrijp het",
+      "confirm": "Vertaalde regels inschakelen"
+    }
   }
 }

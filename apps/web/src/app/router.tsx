@@ -1,11 +1,11 @@
 import { createBrowserRouter, Navigate } from "react-router";
 
-import { FeaturePagePlaceholder } from "../components/FeaturePagePlaceholder";
+import { FeaturePagePlaceholder } from "../components/FeaturePagePlaceholder.tsx";
 import { NotFoundPage } from "../components/NotFoundPage.tsx";
-import { FeedbackPage } from "../features/about-help/FeedbackPage";
+import { FeedbackPage } from "../features/about-help/FeedbackPage.tsx";
 import { PoliciesPage } from "../features/about-help/PoliciesPage.tsx";
 import { SupportPage } from "../features/about-help/SupportPage.tsx";
-import { HomePage } from "../features/home/HomePage";
+import { HomePage } from "../features/home/HomePage.tsx";
 import { AccessibilitySettings } from "../features/settings/components/accessibility/AccessibilitySettings.tsx";
 import { AccountSettings } from "../features/settings/components/account/AccountSettings.tsx";
 import { AppearanceSettings } from "../features/settings/components/appearance/AppearanceSettings.tsx";
@@ -14,7 +14,7 @@ import { ExportSettings } from "../features/settings/components/export/ExportSet
 import { GeneralSettings } from "../features/settings/components/general/GeneralSettings.tsx";
 import { PrivacySettings } from "../features/settings/components/privacy/PrivacySettings.tsx";
 import { SettingsPage } from "../features/settings/SettingsPage.tsx";
-import { AppLayout } from "./AppLayout";
+import { AppLayout } from "./AppLayout.tsx";
 import { RulesPage } from "~/features/reference/rules/RulesPage.tsx";
 
 export const router = createBrowserRouter([
