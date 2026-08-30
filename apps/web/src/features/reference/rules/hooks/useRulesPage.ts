@@ -62,7 +62,7 @@ export function useRulesPage() {
 
   const handleRuleClick = useCallback(
     (rule: Rule) => {
-      dispatch(openRuleDrawer(rule));
+      dispatch(openRuleDrawer(rule.id));
     },
     [dispatch],
   );

@@ -1,29 +1,47 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-import type { Rule } from "~/features/reference/rules/rules.types.ts";
+interface OpenDrawer {
+  type: "rule" | "profile";
+  id: string;
+}
 
 interface UiState {
-  selectedRule: Rule | null;
+  drawers: OpenDrawer[];
 }
 
 const initialState: UiState = {
-  selectedRule: null,
+  drawers: [],
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    openRuleDrawer(state, action: PayloadAction<Rule>) {
-      state.selectedRule = action.payload;
+    openDrawer(state, action: PayloadAction<OpenDrawer>) {
+      const current = state.drawers.at(-1);
+      const next = action.payload;
+
+      if (current?.type === next.type && current.id === next.id) {
+        return;
+      }
+
+      state.drawers.push(next);
     },
 
-    closeRuleDrawer(state) {
-      state.selectedRule = null;
+    closeDrawer(state) {
+      state.drawers.pop();
     },
   },
 });
 
-export const { openRuleDrawer, closeRuleDrawer } = uiSlice.actions;
+export const { closeDrawer, openDrawer } = uiSlice.actions;
+
+export function openRuleDrawer(ruleId: string) {
+  return openDrawer({ type: "rule", id: ruleId });
+}
+
+export function openProfileDrawer(profileId: string) {
+  return openDrawer({ type: "profile", id: profileId });
+}
 
 export default uiSlice.reducer;

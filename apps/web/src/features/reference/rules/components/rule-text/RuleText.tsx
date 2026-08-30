@@ -28,7 +28,7 @@ export function RuleText({ children, onRuleClick }: RuleTextProps) {
                   color="textSecondary"
                   sx={{ lineHeight: 1.7 }}
                 >
-                  {renderInlineMarkup(block.content)}
+                  {renderInlineMarkup(block.content, onRuleClick)}
                 </Typography>
               );
 
@@ -70,7 +70,7 @@ export function RuleText({ children, onRuleClick }: RuleTextProps) {
                         },
                       }}
                     >
-                      {renderInlineMarkup(item)}
+                      {renderInlineMarkup(item, onRuleClick)}
                     </Typography>
                   ))}
                 </Box>
