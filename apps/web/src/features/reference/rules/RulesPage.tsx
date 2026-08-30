@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box";
 
 import { RulesHeader } from "./components/RulesHeader";
-import { RulesList } from "./components/RulesList";
 import { RulesResultCount } from "./components/RulesResultCount";
 import { RulesToolbar } from "./components/RulesToolbar";
+import { RulesList } from "./components/rule-list/RulesList.tsx";
 import { useRulesPage } from "./hooks/useRulesPage";
-import { RuleDrawer } from "~/features/reference/rules/components/RuleDrawer.tsx";
+import { RuleDrawer } from "~/features/reference/rules/components/rule-drawer/RuleDrawer.tsx";
 
 export function RulesPage() {
   const {

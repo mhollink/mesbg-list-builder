@@ -3,11 +3,16 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
+import { ErrataText } from "~/features/reference/rules/components/rule-text/ErrataText.tsx";
+import { Keyword } from "~/features/reference/rules/components/rule-text/Keyword.tsx";
+import { ReferencedRuleLink } from "~/features/reference/rules/components/rule-text/ReferencedRuleLink.tsx";
+
 interface RuleTextProps {
   children: string;
+  onRuleClick?: (ruleId: string) => void;
 }
 
-export function RuleText({ children }: RuleTextProps) {
+export function RuleText({ children, onRuleClick }: RuleTextProps) {
   const blocks = parseBlocks(children);
 
   return (
@@ -24,6 +29,21 @@ export function RuleText({ children }: RuleTextProps) {
                   sx={{ lineHeight: 1.7 }}
                 >
                   {renderInlineMarkup(block.content)}
+                </Typography>
+              );
+
+            case "heading":
+              return (
+                <Typography
+                  key={block.content}
+                  component="h3"
+                  variant="h6"
+                  sx={{
+                    mt: 4,
+                    fontWeight: 700,
+                  }}
+                >
+                  {renderInlineMarkup(block.content, onRuleClick)}
                 </Typography>
               );
 
@@ -73,12 +93,16 @@ type RuleTextBlock =
   | {
       type: "list";
       items: string[];
+    }
+  | {
+      type: "heading";
+      content: string;
     };
 
 function parseBlocks(text: string): RuleTextBlock[] {
   return text
     .replace(/\r\n/g, "\n")
-    .split(/(<ul>.*?<\/ul>)/gs)
+    .split(/(<ul>.*?<\/ul>|<h3>.*?<\/h3>)/gs)
     .map((block) => block.trim())
     .filter(Boolean)
     .flatMap<RuleTextBlock>((block) => {
@@ -88,6 +112,13 @@ function parseBlocks(text: string): RuleTextBlock[] {
           items: [...block.matchAll(/<li>(.*?)<\/li>/gs)]
             .map((match) => match[1].trim())
             .filter(Boolean),
+        };
+      }
+
+      if (block.startsWith("<h3>") && block.endsWith("</h3>")) {
+        return {
+          type: "heading",
+          content: block.slice(4, -5).trim(),
         };
       }
 
@@ -102,13 +133,31 @@ function parseBlocks(text: string): RuleTextBlock[] {
     });
 }
 
-function renderInlineMarkup(text: string): ReactNode[] {
+function renderInlineMarkup(
+  text: string,
+  onRuleClick?: (ruleId: string) => void,
+): ReactNode[] {
   return text
-    .split(/(<b>.*?<\/b>)/g)
+    .split(/(<b>.*?<\/b>|<u>.*?<\/u>|<rule id="[^"]+">.*?<\/rule>)/g)
     .filter(Boolean)
-    .map((part) => {
+    .map((part, index) => {
+      const key = `${part}-${index}`;
       if (part.startsWith("<b>") && part.endsWith("</b>")) {
-        return <strong key={part}>{part.slice(3, -4)}</strong>;
+        return <Keyword key={key}>{part.slice(3, -4)}</Keyword>;
+      }
+
+      if (part.startsWith("<u>") && part.endsWith("</u>")) {
+        return <ErrataText key={key}>{part.slice(3, -4)}</ErrataText>;
+      }
+
+      const ruleMatch = part.match(/^<rule id="([^"]+)">(.*?)<\/rule>$/);
+      if (ruleMatch) {
+        const [, ruleId, label] = ruleMatch;
+        return (
+          <ReferencedRuleLink key={key} onClick={() => onRuleClick?.(ruleId)}>
+            {label}
+          </ReferencedRuleLink>
+        );
       }
 
       return part;

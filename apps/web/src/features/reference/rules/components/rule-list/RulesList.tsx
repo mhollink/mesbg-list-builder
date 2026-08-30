@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 
-import type { Rule, RuleRow } from "../rules.types";
-import { RuleListRow } from "./RuleListRow";
+import type { Rule, RuleRow } from "../../rules.types.ts";
+import { RuleListRow } from "./RuleListRow.tsx";
 
 interface RulesListProps {
   rows: RuleRow[];

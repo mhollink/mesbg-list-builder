@@ -599,5 +599,160 @@
     "category": "special-rule",
     "type": "active",
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 131)"
+  },
+  {
+    "id": "barge",
+    "category": "brutal-power-attack",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 90)"
+  },
+  {
+    "id": "rend",
+    "category": "brutal-power-attack",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 90)"
+  },
+  {
+    "id": "hurl",
+    "category": "brutal-power-attack",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 91)"
+  },
+  {
+    "id": "hand-weapon",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 103)"
+  },
+  {
+    "id": "two-handed-weapon",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 103)"
+  },
+  {
+    "id": "hand-and-a-half-weapon",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 103)"
+  },
+  {
+    "id": "unarmed",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 103)"
+  },
+  {
+    "id": "spear",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 104)"
+  },
+  {
+    "id": "pike",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 104)"
+  },
+  {
+    "id": "lance",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 105)"
+  },
+  {
+    "id": "war-spear",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 105)"
+  },
+  {
+    "id": "whip",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 105)"
+  },
+  {
+    "id": "elven-weapon",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 105)"
+  },
+  {
+    "id": "master-forged",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 105)"
+  },
+  {
+    "id": "staff-of-power",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 105)"
+  },
+  {
+    "id": "bow",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 106)"
+  },
+  {
+    "id": "throwing-weapon",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 106)"
+  },
+  {
+    "id": "crossbow",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 106)"
+  },
+  {
+    "id": "blowpipe",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 106)"
+  },
+  {
+    "id": "sling",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 106)"
+  },
+  {
+    "id": "banner",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 107)"
+  },
+  {
+    "id": "elven-cloak",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 108)"
+  },
+  {
+    "id": "war-drum",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 108)"
+  },
+  {
+    "id": "war-horn",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 108)"
+  },
+  {
+    "id": "armour",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 109)"
+  },
+  {
+    "id": "light-armour",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 109)"
+  },
+  {
+    "id": "heavy-armour",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 109)"
+  },
+  {
+    "id": "heavy-dwarf-armour",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 109)"
+  },
+  {
+    "id": "mithril-armour",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 109)"
+  },
+  {
+    "id": "shield",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 109)"
+  },
+  {
+    "id": "light-shield",
+    "category": "equipment",
+    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 109)"
   }
 ]

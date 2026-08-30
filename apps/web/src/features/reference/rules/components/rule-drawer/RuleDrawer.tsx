@@ -7,8 +7,8 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { useRuleDrawer } from "../hooks/useRuleDrawer";
-import { RuleText } from "~/features/reference/rules/components/RuleText.tsx";
+import { useRuleDrawer } from "../../hooks/useRuleDrawer.ts";
+import { RuleText } from "~/features/reference/rules/components/rule-text/RuleText.tsx";
 import type { Rule } from "~/features/reference/rules/rules.types.ts";
 
 export function RuleDrawer() {

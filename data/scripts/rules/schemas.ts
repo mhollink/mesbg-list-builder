@@ -6,6 +6,8 @@ export const ruleCategorySchema = z.enum([
   "special-rule",
   "magical-power",
   "heroic-action",
+  "brutal-power-attack",
+  "equipment",
 ]);
 
 export const ruleTypeSchema = z.preprocess((value) => {

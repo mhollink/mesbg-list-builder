@@ -5,7 +5,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 
-import type { Rule, RuleRow } from "../rules.types";
+import type { Rule, RuleRow } from "../../rules.types.ts";
 import { RULES_TOOLBAR_HEIGHT } from "~/features/reference/rules/hooks/useRulesPage.ts";
 
 interface RuleListRowProps {

@@ -42,9 +42,9 @@ help:
 	@echo "  make test-e2e       Run end-to-end tests"
 	@echo ""
 	@echo "Quality"
-	@echo "  make lint           Run all linters"
+	@echo "  make format         Run all linters and formatters"
 	@echo "  make typecheck      Run TypeScript type checks"
-	@echo "  make verify         Run lint, typecheck and tests"
+	@echo "  make verify         Run format, typecheck and tests"
 	@echo ""
 	@echo "Build"
 	@echo "  make build          Build game data, frontend and backend"
@@ -167,18 +167,18 @@ test-e2e:
 # Quality
 # ==============================================================================
 
-.PHONY: lint
-lint: lint-web lint-data
+.PHONY: format
+format: format-web format-data
 
 
-.PHONY: lint-web
-lint-web:
-	cd $(WEB_DIR) && $(PNPM) lint
+.PHONY: format-web
+format-web:
+	cd $(WEB_DIR) && $(PNPM) format
 
 
-.PHONY: lint-data
-lint-data:
-	cd $(DATA_DIR) && $(PNPM) lint
+.PHONY: format-data
+format-data:
+	cd $(DATA_DIR) && $(PNPM) format
 
 
 .PHONY: typecheck
@@ -196,7 +196,7 @@ typecheck-data:
 
 
 .PHONY: verify
-verify: lint typecheck test
+verify: format typecheck test
 
 
 # ==============================================================================

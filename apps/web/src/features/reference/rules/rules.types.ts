@@ -2,7 +2,8 @@ export type RuleType =
   | "special-rule"
   | "magical-power"
   | "heroic-action"
-  | "brutal-power-attack";
+  | "brutal-power-attack"
+  | "equipment";
 
 export interface Rule {
   id: string;
@@ -29,9 +30,4 @@ export type RuleRow =
 export interface RuleRowProps {
   rows: RuleRow[];
   onOpenRule: (rule: Rule) => void;
-}
-
-export interface VisibleRows {
-  startIndex: number;
-  stopIndex: number;
 }

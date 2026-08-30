@@ -402,5 +402,129 @@
   "your-staff-is-broken": {
     "name": "Your Staff is Broken",
     "description": "This Magical Power targets one enemy model that has a Staff of Power within range. The target's Staff of Power is immediately destroyed - remove it from their wargear."
+  },
+  "rend": {
+    "name": "Rend",
+    "description": "When a <b>Monster</b> uses this Brutal Power Attack, they must nominate one enemy model involved in the Combat to Rend (if this is a <b>Cavalry</b> model, you must choose either the rider or the <b>Mount</b>). The <b>Monster</b> makes a number of To Wound Rolls equal to its Attacks characteristic (including any modifiers to its Attacks) against the nominated model. When resolving these To Wound Rolls, use the nominated model’s Strength characteristic instead of their Defence when using the To Wound Chart"
+  },
+  "barge": {
+    "name": "Barge",
+    "description": "When a <b>Monster</b> wishes to use this Brutal Power Attack, enemymodelsdo not Back Away as normal. Instead, all enemy models involved in the Combat, plus any enemy models that were Supporting, must Back Away3\" rather than 1\". The order and direction that these models Back Away is chosen by the <b>Monster</b> model’s controlling player. Models may still Make Way for losing models (which will be decided by the <b>Monster</b> model’s controlling player) and, if they do, must Make Way 3\" rather than the usual 1\", in a direction chosen by the <b>Monster</b> model’s controlling player.\n\nAny models that cannot Back Away or Make Way the full 3\" are moved as far as possible and then knocked Prone. When doing this, if it is possible for a <b>Monster</b> to choose a direction for a model to Back Away or Make Way so that it goes the full 3\", then it must choose that direction–it can’t force a model to Back Away or Make Way less than 3\" and be knocked Prone if there was a way for it to Back Away the full 3\".\n\nOnce a <b>Monster</b> model has used a Barge, the Combat immediately ends and no further Strikes or Brutal Power Attacks can be made.\n\nOnce all models have Backed Away, the <b>Monster</b> that made the Barge can then Move D3+3\" in any direction, following all the usual rules for Moving a model. It can even Charge again if it wishes, in which case it will fight again that Fight Phase in the ordinary way – i.e., in an order chosen by the player with Priority.\n\nA <b>Monster</b> cannot Barge in the same turn in which it participates in a Heroic Combat."
+  },
+  "hurl": {
+    "name": "Hurl",
+    "description": "When a <b>Monster</b> wishes to use this Brutal Power Attack, it must nominate a single enemy model involved in the Combat before models Back Away – this is the model that will be Hurled. A <b>Monster</b> cannot nominate a model to be Hurled that has a Strength equal to or higher than their own. Then, all other enemy models (not the nominated model) Back Away as normal. The Monster will then Hurl the nominated model.\n\nTo Hurl a model, follow the steps below:\n<ul>\n<li> The <b>Monster</b> rolls a D3 and adds the difference in Strength between the <b>Monster</b> and the nominated model – this is the Hurl Distance.</li>\n<li>The <b>Monster</b> must then take an Intelligence Test (if the <b>Monster</b> is also a <b>Mount</b>, it may use the Intelligence of its rider if it is better).</li>\n<li>If the test is passed, the <b>Monster</b> chooses an enemy model it can draw Line of Sight to, and within the Hurl Distance from itself, to Hurl the nominated model at – this is the target. A model can only be chosen as the target of a Hurl once per turn. If the test was failed, the opposing player may choose one of their models in Line of Sight of the <b>Monster</b>, and within the Hurl Distance, to be the target instead.</li>\n<li>The Hurled model suffers two Strength 6 hits (if it is a <b>Cavalry</b> model then both rider and <b>Mount</b> will suffer these hits), and if it was a <b>Cavalry</b> model then it is also Knocked Flying. If it is slain, skip the next step and move straight to step 6.</li>\n<li>If it survives, place it in base contact with the target model as close to the <b>Monster</b> as possible. If this is not possible, place the model in base contact with the target as close to the position it should have been in as possible. If there is nowhere to place the model in base contact with the target, move other models the minimum distance to make this possible. The Hurled model is then knocked Prone.</li>\n<li>The target model is then knocked Prone, if it has a Strength of 5 or less, and will suffer one Strength 6 hit (if it is a <b>Cavalry</b> model then both rider and <b>Mount</b> will suffer these hits). If it is a <b>Cavalry</b> model then it is also Knocked Flying.</li>\n<li>If there are no enemy models eligible to be the target, then the <b>Monster</b> may choose a point on the battlefield it can draw Line of Sight within the Hurl Distance instead. Place the Hurled model on the chosen point; it is then knocked Prone and suffers two Strength 6 hits.</li>\n<li>Once a <b>Monster</b> model has used a Hurl, the Combat immediately ends and no further Strikes or Brutal Power Attacks can be made. A Monster cannot Hurl in the same turn in which it participates in a Heroic Combat.</li>\n</ul>"
+  },
+  "hand-weapon": {
+    "name": "Hand Weapon",
+    "description": "These are the standard kind of weapon a model may carry, and is anything wielded in a single hand, such as a sword, an axe, a mace or all manner of other weapons. The exact kind of weapon being carried doesn’t matter; all hand weapons function the same. A hand weapon has no specific rules attached to it."
+  },
+  "two-handed-weapon": {
+    "name": "Two-handed Weapons",
+    "description": "A two-handed weapon is the kind that requires two hands to wield; as a result, a model wielding a two-handed weapon cannot use any other wargear that would also require the use of a hand (such as a shield) in the same Combat in which they use a two-handed weapon. If the only Melee Weapon a model carries is a two-handed weapon, then they must use it in a Combat – they cannot choose not to.\n\nWhen a model fights with a two-handed weapon in a Combat, they suffer a -1 penalty to their Duel Roll. However, if the model rolls a natural 6 for their Duel Roll, they do not suffer this penalty. When a model with a two-handed weapon makes a Strike against an enemy model, they apply a +1 modifier to their ToWound Roll – so a 3 would become a 4, a 4 would become a 5, and so on. In the case of when two rolls are required (such as needing a 6+/4+), this will affect both rolls."
+  },
+  "hand-and-a-half-weapon": {
+    "name": "Hand-and-a-half Weapon",
+    "description": "A model armed with a hand-and-a-half weapon canchooseto fight with it as either a hand weapon or a two-handedweapon. When a model with a hand-and-a-half weapontakes part in a Combat, they must decide if they are usingtheir weapon as a hand weapon or a two-handed weaponbefore they make their Duel Roll."
+  },
+  "unarmed": {
+    "name": "Unarmed models",
+    "description": "Some models don’t carry any weapons at all; such modelsare said to be Unarmed. A model is only ever consideredtobeUnarmed if their profile explicitly states so, or if theystartedthe game with some form of weapon and those weapons have been lost or destroyed during the course of the game. An Unarmed model suffers a -1 penalty to any Duel Roll theymake, and also suffers a -1 penalty to any ToWound Rolls they make when making Strikes."
+  },
+  "spear": {
+    "name": "Spear",
+    "description": "An <b>Infantry</b> model armed with a spear may assist a friendly model during a Combat, so long as their ally has the same base size or smaller – this is called Supporting.\n\nIf a spear-armed model is not Engaged in Combat, then it can Support a friendly model in base contact. When they do, they contribute a single dice to the Duel Roll of the Combat the model they are Supportingispartof. This dice uses the Supporting model’s own Fight Value, and if they win they will make a single Strike using their own Strength. In a Multiple Combat, a Supporting model doesn’t have to Strike the same model as the model it is Supporting.\n\nModels that are Supporting do not count as being involved in the Combat they are Supporting. As a result, they cannot be targeted by Strikes, will not be knocked Prone by a Charging <b>Cavalry</b> model, cannot benefit from a Heroic Combat, and never count as being part of the Combat for the purpose of special rules or determining how many models are taking part on each side.\n\nA spear-armed model can only Support a single Combat during each Fight Phase. A spear-armed model cannot Support a Combat after already being Engaged in Combat. The only exception to this is that a spear-armed model that is involved in a successful Heroic Combat, and therefore gets to Move, may Move to Support a Combat, provided it hasn’t Supported an other Combat that Fight Phase.\n\nA model with a spear can use it as a hand weapon when they are Engaged in Combat. A model can’t Support if it is Prone, rendered unable to Activate or has made a Shooting Attack during the same turn.\n\nA Hero that is Supporting may use Might Points to improve a Duel Roll or To Wound Rolls as normal. However, a Hero that has declared a Heroic Action in the Fight Phase cannot Support during that Fight Phase."
+  },
+  "pike": {
+    "name": "Pike",
+    "description": "Pikes function in much the same way as spears, and allow models to Support in exactly the same way as those armed with a spear (see <rule id=\"spear\">spear</rule>).\n\nAdditionally, a model armed with a pike can Support another friendly model armed with a pike that is Supporting a friendly model Engaged in Combat – essentially giving two Supports to the same model.\n\nA pike requires two hands to use, and so a model armed with a pike will suffer a -1 penalty to their Duel Rolls if they are armed with a shield or a Missile Weapon.\n\nAs models armed with pikes can effectively Support at three models deep (one Engaged in Combat and two Supporting), it can be very easy to cause your own models to be Trapped, as only one model may Back Away not two. This is the risk of Supporting in such depth.\n\nAdditionally, if a Cavalry model Charges a model armed witha pike, thenthe model with a pike will gain a bonus of +1 ToWound when making Strikes against the <b>Mount</b> in the ensuing Combat."
+  },
+  "lance": {
+    "name": "Lance",
+    "description": "A <b>Cavalry</b> model using a lance applies a +1 modifier on any To Wound Rolls when making Strikes in a Combat in which it Charged. This modifier is not applied if the <b>Cavalry</b> model Charges whilst within Difficult Terrain.\n\nIf a <b>Cavalry</b> model Dismounts or loses their <b>Mount</b>, then they must discard their lance."
+  },
+  "war-spear": {
+    "name": "War spear",
+    "description": "A war spear follows the rules for a spear when wielded by an <b>Infantry</b> model, and follows the rules for a lance when wielded by a <b>Cavalry</b> model. The only exception is that a Cavalry model doesn’t have to discard the war spear when they Dismount or lose their <b>Mount</b>."
+  },
+  "whip": {
+    "name": "Whip",
+    "description": "A whip counts as a throwing weapon with a Strengthof 1 and a range of 2\". It can also be used as a handweapon in a Combat."
+  },
+  "elven-weapon": {
+    "name": "Elven weapon",
+    "description": "Some weapons will be described as an Elven weapon; for example, a model may have an Elven hand weapon or an Elven two-handed weapon.\n\nIf a model fights with an Elven weapon in a Combat, they will be more likely to win the Duel Roll in the result of a Drawn Combat. In these instances, a Good model armed with an Elven weapon will win the roll-off ona 3+, whilst an Evil model armed with an Elven weapon will win the roll-off on a 1-4. If both sides have an Elven weapon, neither side gains the benefit.\n\nSome Missile Weapons may also be classed as Elven weapons; however, the above bonus only applies to Melee Weapons as a model cannot choose to fight with a Missile Weapon in a Combat.\n\nAny weapon with the word ‘Elf’ in its name is automatically considered to be an Elven weapon."
+  },
+  "master-forged": {
+    "name": "Master-forged",
+    "description": "Some weapons may be classed as Master-forged. A model using a Master-forged weapon doesn't suffer the -1 penalty to the Duel Roll for using it as a <rule id=\"two-handed-weapon\">two-handed weapon</rule>."
+  },
+  "staff-of-power": {
+    "name": "Staff of Power",
+    "description": "A Staff of Power is a <rule id=\"hand-and-a-half-weapon\">hand-and-a-half weapon</rule>. Additionally, the wielder of a Staff of Power gains a free Will Point at the start of each turn. If this free Will Point is not spent by the end of the turn, it is lost."
+  },
+  "bow": {
+    "name": "Bow",
+    "description": "The term bow covers a wide range of Missile Weapons, including bows, longbows, Elf bows, Dwarf bows, and so on – essentially any Missile Weapon with ‘bow’ in its name (with the exception of a <rule id=\"crossbow\">crossbow</rule>). All bows function the same; a model can make a Shooting Attack with a bow during the Shoot Phase provided it has not Moved over half its Move Value during the preceding Move Phase.\n\nThe only difference between the various types of bow will be the Strength and range of that particular bow, as shown on the Missile Weapon Chart later on."
+  },
+  "throwing-weapon": {
+    "name": "Throwing weapon",
+    "description": "A model with a throwing weapon can make a Shooting Attack with it in the Shoot Phase, even if it Moved its full Move Value in the preceding Move Phase.\n\nAlternatively, once per turn, a model may make a Shooting Attack with a throwing weapon during the Move Phaseas it Charges an enemy model. If a model wishes to use a throwing weapon in this manner, then when it Charges it will stop 1\" away from the model it wishes to Charge, andthen make a Shooting Attack against the model. If the model using the throwing weapon begins its Move within the Control Zone of an enemy model it wishes to Charge, then it doesn’t need to Move first before throwing the weapon. This is made using all the normal rules for a Shooting Attack, with the exception of that throwing weapons thrown in this manner do not suffer the -1 penalty To Hit for Moving and Shooting.\n\nIf the target is not slain, then the model continues their Charge as normal and must Charge the target of their Shooting Attack. If the target is slain, then the model may continue to Move as normal, and may even Charge a different target if they wish.\n\nThrowing weapons do not count towards an Army’s Bow Limit. However, an Army can only have one third of its models armed with throwing weapons, unless specifically stated otherwise.\n\nThrowing spears follow the same rules as throwing weapons, but have a slightly different profile, as shown on the Missile Weapon Chart."
+  },
+  "crossbow": {
+    "name": "Crossbow",
+    "description": "A model with a crossbow cannot make a Shooting Attack with it in the same turn in which it Moved."
+  },
+  "blowpipe": {
+    "name": "Blowpipe",
+    "description": "A model with a blowpipe can make a Shooting Attack with it in the Shoot Phase provided it has not Moved over half its Move Value during the preceding Move Phase. Additionally, a blowpipe benefits from the Poisoned Attacks special rule.\n\nBlowpipes do not count towards an Army’s Bow Limit."
+  },
+  "sling": {
+    "name": "Sling",
+    "description": "A model with a sling can make two Shooting Attacks with it in the Shoot Phase, providing they did not Move at all during the preceding Move Phase. If the model Moved up to half their Move Value in the preceding Move Phase, they may make a single Shooting Attack. If they Moved over half their Move Value in the preceding Move Phase, they may not make a Shooting Attack in the Shoot Phase."
+  },
+  "banner": {
+    "name": "Banner",
+    "description": "A banner has a 3\" area of effect that extends out from the model carrying the banner (although some special banners may have a larger range). If a friendly model is within the range of one or more friendly banners, can draw Line of Sight to that banner, and is either Engaged in Combat or Supporting a friendly model, then that Combat is affected by the banner. If a Combat is affected by a banner then a single friendly model in that Combat (including a Supporting model) can re-roll a single dice in the Duel Roll. If a Combat is affected by multiple friendly banners, then this will still only allow a single dice to be re-rolled as part of the Duel Roll, not one for each banner. A model cannot use a banner to re-roll a dice in a Duel Roll that the model is currently winning, in order to try to lose the Combat.\n\nA banner must be flying in order to inspire its followers. If a model carrying a banner is Prone, then friendly models cannot benefit from it, or any special rules associated with the banner if applicable.\n\nIf a <b>Hero</b> has a special rule that means that friendly models in a certain range treat them as a banner, then the <b>Hero</b> must be standing in order for the effect of the banner to be applicable.\n\nIt is possible that one player will use their banner to re-roll a dice and then find themselves winning the Duel Roll, in which case their opponent may wish to use a banner of their own. This is perfectly fine, though each side may still only re-roll a single dice as the result of using a banner or a special rule that counts as a banner.\n\nIf a banner states that it only affects models with certain keywords, then those models must be in range of the banner themselves for the banner to affect that Combat, and only those models may re-roll a dice as a result of the banner.\n\nA model carrying a banner suffers a -1 penalty to their Duel Rolls.\n\nIf a <b>Warrior</b> carrying a banner (not a <b>Hero</b>) is removed from the battlefield as a casualty for any reason (such as being slain or fleeing the board as the result of being part of a Broken Army), then they may pass their banner onto another friendly <b>Warrior</b> model in base contact. However, they cannot pass their banner onto a model that is Prone, Engaged in Combat or to a model that could not normally take a banner as part of their profile. Swap the models over if they are the same type of <b>Warrior</b>, or find a suitable model in your collection. When a model takes a banner in this manner, it will count as having the wargear its profile allows it to have when it is upgraded to carry a banner as part of its profile, and will drop all others. So, if a Warrior of Minas Tirith with a spear and shield were to pick up a banner, it would have to drop its shield and spear as a Warrior of Minas Tirith that has a banner does not also have a spear and shield."
+  },
+  "elven-cloak": {
+    "name": "Elven cloak",
+    "description": "A model wearing an Elven cloak has the Stalk Unseen special rule. Additionally, models targeting an <b>Infantry</b> model wearing an Elven cloak with a Shooting Attack suffer a -1 penalty when rolling To Hit."
+  },
+  "war-drum": {
+    "name": "War drum",
+    "description": "A model with a war drum may use it during the Declare Heroic Actions step of each Move Phase to declare a <rule id=\"heroic-march\">Heroic March</rule> for free, without spending a Might Point, even if they are not a <b>Hero</b>. This free Heroic March has the following exceptions:\n<ul>\n<li>A model with a war drum that declares a Heroic March must always shout At the Double.</li>\n<li>The range of this At the Double is 12\" rather than 6\".</li>\n<li>Additionally, friendly models must finish their Activation within 12\" rather than 6\".</li>\n<li>The Heroic March declared when a model uses a war drum will only affect friendly models with the same keywords as the ones shown in brackets after the war drum. So if a model has a war drum (<b>Mordor</b>) then it will only affect models with the <b>Mordor</b> keyword.</li>\n</ul>\nAs a war drum allows a model to declare a free Heroic March, models cannot be affected by both a war drum and a normal Heroic March in the same turn."
+  },
+  "war-horn": {
+    "name": "War horn",
+    "description": "Models within 24\" of a friendly model with a war horn gain a bonus of +1 to any Courage Tests they take. Additionally, a model with a war horn gains the <rule id=\"dominant\">Dominant (2)</rule> special rule and can use it once per game to increase the range of a friendly <b>Hero</b> model’s Stand Fast by 3\", so long as the model with the war horn is in range of the <b>Hero</b> model’s Stand Fast before this increase. If a <b>Hero</b> model has a war horn themselves, they may use it to increase the range of their own Stand Fast by 3\" instead. A war horn is treated as an Active ability (see page 123)."
+  },
+  "armour": {
+    "name": "Armour",
+    "description": "A model wearing armour will add 1 to their Defence characteristic"
+  },
+  "light-armour": {
+    "name": "Light armour",
+    "description": "A model wearing light armour will add 1 to their Defence characteristic against Shooting Attacks. If a model is wearing light armour then the Defence improvement will not have been added onto their profile."
+  },
+  "heavy-armour": {
+    "name": "Heavy armour",
+    "description": "A model wearing heavy armour will add 2 to their Defence characteristic."
+  },
+  "heavy-dwarf-armour": {
+    "name": "Heavy Dwarf armour",
+    "description": "A model wearing heavy Dwarf armour will add 3 to their Defence characteristic."
+  },
+  "mithril-armour": {
+    "name": "Mithril armour",
+    "description": "A model wearing Mithril armour will add 3 to their Defence characteristic. Additionally, <b>Monster</b> models cannot use the <rule id=\"rend\">Rend</rule> Brutal Power Attack against a model wearing Mithril armour."
+  },
+  "shield": {
+    "name": "Shield",
+    "description": "A model carrying a shield adds 1 to their Defence characteristic. Where a model is listed as carrying a shield in its profile, then the improvement in its Defence characteristic will already have been included in their profile.\n\nA shield is cumbersome, and so a model carrying a shield that wishes to use their <rule id=\"hand-and-a-half-weapon\">hand-and-a-half weapon</rule> as a <rule id=\"two-handed-weapon\">two-handed weapon</rule> during a Combat cannot gain the Defence bonus for carrying a shield during that Combat. Additionally, a model carrying a shield does not gain the Defence bonus if it also carries a type of bow, crossbow, two-handed weapon or <rule id=\"pike\">pike</rule>.\n\nA model with a shield can also use the Shielding special rule:\n\n<h3>Shielding</h3>\nA model carrying a shield may declare they are Shielding at the start of a Combat they are involved in, before the Duel Roll is made. If they do, the Shielding model will double their Attacks characteristic for the duration of the Combat; however, if they win the Duel Roll they cannot make Strikes having put their effort into surviving. They also don’t gain any advantages of the special rules of their weapons (such as if they have an Elven weapon) as they are not using them in the Combat and are using their shield instead.\n\nIn a Multiple Combat, if one model wishes to declare they are Shielding, then all friendly models must do so. If some of them cannot, then no models may declare they are Shielding. Models that are Shielding cannot be Supported.\n\n<b>Cavalry</b> models cannot declare they are Shielding. Additionally, Shielding is treated as an Active ability (see page 123).\n\nA Prone model can declare they are Shielding – infact, it is a sensible way of trying to get them to stand backup as a Prone model can’t make Strikes anyway!"
+  },
+  "light-shield": {
+    "name": "Light shield",
+    "description": "A model with a light shield does not gain a bonus to its Defence. However, it may use the Shielding special rule as described on the <rule id=\"shield\">Shield</rule> equipment."
   }
 }

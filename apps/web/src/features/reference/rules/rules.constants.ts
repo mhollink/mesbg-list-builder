@@ -22,6 +22,10 @@ export const RULE_TYPES: readonly RuleTypeOption[] = [
     value: "brutal-power-attack",
     label: "Brutal power attacks",
   },
+  {
+    value: "equipment",
+    label: "Equipment",
+  },
 ];
 
 export const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");

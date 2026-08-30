@@ -109,14 +109,14 @@ async function main(): Promise<void> {
     migrateRule(legacyRule, existingSources),
   );
 
-  const migratedRules = migratedRulesSchema.parse(
-    migrated.map(({ rule }) => rule),
-  ).sort((a, b) => {
-    if (a.category === b.category) {
-      return a.id.localeCompare(b.id);
-    }
-    return a.category.localeCompare(b.category);
-  });
+  const migratedRules = migratedRulesSchema
+    .parse(migrated.map(({ rule }) => rule))
+    .sort((a, b) => {
+      if (a.category === b.category) {
+        return a.id.localeCompare(b.id);
+      }
+      return a.category.localeCompare(b.category);
+    });
 
   validateUniqueRuleIds(migratedRules);
 
