@@ -1,3 +1,4 @@
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
@@ -15,7 +16,7 @@ import type { Rule } from "~/features/reference/rules/rules.types.ts";
 
 export function RuleDrawer() {
   const dispatch = useAppDispatch();
-  const { open, rule, close } = useRuleDrawer();
+  const { open, rule, close, canGoBack, goBack } = useRuleDrawer();
 
   return (
     <Drawer
@@ -37,7 +38,12 @@ export function RuleDrawer() {
     >
       {rule && (
         <Stack sx={{ minHeight: "100%" }}>
-          <RuleDrawerHeader rule={rule} onClose={close} />
+          <RuleDrawerHeader
+            rule={rule}
+            onClose={close}
+            onBack={goBack}
+            canGoBack={canGoBack}
+          />
 
           <Divider />
 
@@ -69,10 +75,17 @@ export function RuleDrawer() {
 
 interface RuleDrawerHeaderProps {
   rule: Rule;
+  canGoBack: boolean;
+  onBack: () => void;
   onClose: () => void;
 }
 
-function RuleDrawerHeader({ rule, onClose }: RuleDrawerHeaderProps) {
+function RuleDrawerHeader({
+  rule,
+  onClose,
+  canGoBack,
+  onBack,
+}: RuleDrawerHeaderProps) {
   return (
     <Box
       sx={{
@@ -91,6 +104,19 @@ function RuleDrawerHeader({ rule, onClose }: RuleDrawerHeaderProps) {
           alignItems: "flex-start",
         }}
       >
+        {canGoBack && (
+          <IconButton
+            onClick={onBack}
+            aria-label="Back to previous item"
+            sx={{
+              mt: -0.5,
+              ml: -1,
+            }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+        )}
+
         <Box sx={{ flex: 1, minWidth: 0 }}>
           <Typography
             variant="overline"

@@ -28,13 +28,17 @@ const uiSlice = createSlice({
       state.drawers.push(next);
     },
 
-    closeDrawer(state) {
+    goBackDrawer(state) {
       state.drawers.pop();
+    },
+
+    closeDrawers(state) {
+      state.drawers = [];
     },
   },
 });
 
-export const { closeDrawer, openDrawer } = uiSlice.actions;
+export const { goBackDrawer, closeDrawers, openDrawer } = uiSlice.actions;
 
 export function openRuleDrawer(ruleId: string) {
   return openDrawer({ type: "rule", id: ruleId });

@@ -1,13 +1,10 @@
-import { useAppDispatch } from "~/app/store/hooks.ts";
-import { openRuleDrawer } from "~/app/store/uiSlice.ts";
 import { useDrawerStack } from "~/features/reference/hooks/useDrawerStack.ts";
 import { useGameRules } from "~/features/reference/rules/hooks/useGameRules.ts";
 
 export function useRuleDrawer() {
-  const dispatch = useAppDispatch();
   const { rules } = useGameRules();
 
-  const { activeDrawer, canGoBack, closeDrawer } = useDrawerStack();
+  const { activeDrawer, canGoBack, goBack, closeDrawer } = useDrawerStack();
 
   const rule =
     activeDrawer?.type === "rule"
@@ -18,7 +15,7 @@ export function useRuleDrawer() {
     open: rule !== undefined,
     rule,
     canGoBack,
+    goBack,
     close: closeDrawer,
-    openRule: (id: string) => dispatch(openRuleDrawer(id)),
   };
 }

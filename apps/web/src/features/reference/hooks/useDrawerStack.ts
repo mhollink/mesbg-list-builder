@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "~/app/store/hooks.ts";
-import { closeDrawer } from "~/app/store/uiSlice.ts";
+import { closeDrawers, goBackDrawer } from "~/app/store/uiSlice.ts";
 
 export function useDrawerStack() {
   const dispatch = useAppDispatch();
@@ -13,6 +13,7 @@ export function useDrawerStack() {
     activeDrawer,
     depth: drawers.length,
     canGoBack: drawers.length > 1,
-    closeDrawer: () => dispatch(closeDrawer()),
+    goBack: () => dispatch(goBackDrawer()),
+    closeDrawer: () => dispatch(closeDrawers()),
   };
 }
