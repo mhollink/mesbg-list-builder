@@ -1,11 +1,7 @@
 {
   "ancient-enemies": {
     "name": "Ancient Enemies (X)",
-    "description": "A model with this special rule must re-roll To Wound Rolls of a natural 1 when making Strikes against a model with the keywords listed in brackets in that model's profile. So, a model with the Ancient Enemies (Elf) special rule would re-roll To Wound Rolls of a natural 1 against Elf models."
-  },
-  "arcing-shot": {
-    "name": "Arcing Shot",
-    "description": "A Siege Engine that Shoots by Arcing Shot does not need Line of Sight to its target, or to a model its shot would scatter on to, so long as another friendly model has Line of Sight to the initial target. After determining the actual target, a Siege Engine with Arcing Shot does not make In The Way Tests for intervening models and terrain (the shot goes over them). However, anything that is clearly taller than the actual target and would be above the actual target when the shot comes down will incur an In The Way Test. This could include the likes of trees, ledges, or rocks that jut out from cliff faces; a degree of common sense will be needed here - a whole tree would provide this In The Way, but a single branch would not!\n\nThis is also the case for when a Siege Engine with Arcing Shot hits a War Beast with a Howdah, as the Howdah is above the War Beast and so will provide an In The Way Test."
+    "description": "A model with this special rule must re-roll To Wound Rolls of a natural 1 when making Strikes against a model with the keywords listed in brackets in that model's profile. So, a model with the Ancient Enemies (<b>Elf</b>) special rule would re-roll To Wound Rolls of a natural 1 against <b>Elf</b> models."
   },
   "aura-of-command": {
     "name": "Aura of Command",
@@ -25,15 +21,15 @@
   },
   "bane-weapons": {
     "name": "Bane Weapons",
-    "description": "A Bane Weapon will be presented as Xbane, where X is a specific Race keyword. For each successful Strike caused by a Bane Weapon (i.e., one that causes a Wound that is not prevented), the Bane Weapon will inflict D3 Wounds rather than 1 if the target of the Strike has the same keyword as the Bane Weapon. So, a weapon with the Orcbane special rule will deal D3 Wounds rather than 1 against Orc models."
+    "description": "A Bane Weapon will be presented as Xbane, where X is a specific Race keyword. For each successful Strike caused by a Bane Weapon (i.e., one that causes a Wound that is not prevented), the Bane Weapon will inflict D3 Wounds rather than 1 if the target of the Strike has the same keyword as the Bane Weapon. So, a weapon with the <b>Orc</b>bane special rule will deal D3 Wounds rather than 1 against <b>Orc</b> models."
   },
   "banishment": {
     "name": "Banishment",
-    "description": "This Magical Power targets one enemy Spirit model within range. The target immediately suffers 1 Wound. If this Magical Power targets a Cavalry model, the caster must choose whether the rider or the Mount is the target."
+    "description": "This Magical Power targets one enemy <b>Spirit</b> model within range. The target immediately suffers 1 Wound. If this Magical Power targets a <b>Cavalry</b> model, the caster must choose whether the rider or the <b>Mount</b> is the target."
   },
   "black-dart": {
     "name": "Black Dart",
-    "description": "A sinister dark force leaps from the caster’s hand, driving itself into the flesh of its victim and towards their heart.\n\nThis Magical Power targets one enemy model within range. The target immediately suffers one Strength 6 hit. If this Magical Power targets a Cavalry model, the caster must choose whether the rider or the Mount is the target."
+    "description": "This Magical Power targets one enemy model within range. The target immediately suffers one Strength 6 hit. If this Magical Power targets a <b>Cavalry</b> model, the caster must choose whether the rider or the <b>Mount</b> is the target."
   },
   "blades-of-the-dead": {
     "name": "Blades of the Dead",
@@ -53,7 +49,7 @@
   },
   "bodyguard": {
     "name": "Bodyguard",
-    "description": "All models with this special rule in an Army must select a Hero to bodyguard; this will automatically be the General if they have the same Faction keyword as this model. If the General does not have the same Faction keyword as this model, then they will bodyguard the Hero with the highest Heroic Tier amongst those who have the same Faction keyword (if there are multiple of the same Heroic Tier, you may choose which will be bodyguarded). All models of the same type must choose the same Hero to bodyguard. So long as the bodyguarded Hero is alive and on the battlefield, all models who are bodyguarding that Hero will automatically pass all Courage Tests they are required to take."
+    "description": "All models with this special rule in an Army must select a <b>Hero</b> to bodyguard; this will automatically be the <b>General</b> if they have the same Faction keyword as this model. If the <b>General</b> does not have the same Faction keyword as this model, then they will bodyguard the <b>Hero</b> with the highest Heroic Tier amongst those who have the same Faction keyword (if there are multiple of the same Heroic Tier, you may choose which will be bodyguarded). All models of the same type must choose the same <b>Hero</b> to bodyguard.\n\nSo long as the bodyguarded <b>Hero</b> is alive and on the battlefield, all models who are bodyguarding that <b>Hero</b> will automatically pass all Courage Tests they are required to take."
   },
   "burly": {
     "name": "Burly",
@@ -65,11 +61,11 @@
   },
   "cave-dweller": {
     "name": "Cave Dweller",
-    "description": "A model with this special rule applies a +1 modifier to any Jump, Leap and Climb Tests they take. Additionally, a model with this special rule suffers no penalties to how far they can see when fighting in the dark."
+    "description": "A model with this special rule applies a +1 modifier to any Jump, Leap and Climb Tests they take. Additionally, a model with this special rule suffers no penalties to how far they can see when fighting in the dark. <u>This special rule may be used by models that are not yet on the battlefield.</u>"
   },
   "chill-soul": {
     "name": "Chill Soul",
-    "description": "This Magical Power targets one enemy model in range. The target immediately suffers 1 Wound. If this Magical Power targets a Cavalry model, the caster must choose whether the rider or the Mount is the target."
+    "description": "This Magical Power targets one enemy model in range. The target immediately suffers 1 Wound. If this Magical Power targets a <b>Cavalry</b> model, the caster must choose whether the rider or the <b>Mount</b> is the target."
   },
   "collapse-rocks": {
     "name": "Collapse Rocks",
@@ -81,19 +77,15 @@
   },
   "curse": {
     "name": "Curse",
-    "description": "This Magical Power targets one enemy model in range. The target immediately loses 1 Fate Point. If this Magical Power targets a Cavalry model, the caster must choose whether the rider or the Mount is the target."
-  },
-  "direct-shot": {
-    "name": "Direct Shot",
-    "description": "A Siege Engine that Shoots by Direct Shot will need Line of Sight to the initial target. Additionally, if the shot scatters onto another target, the Siege Engine will need to have Line of Sight to this target in order for them to be selected as the actual target. In both of these instances, this Line of Sight is drawn from the firing point of the Siege Engine, so the tip of a ballista or siege bow for example.\n\nAfter determining the actual target, a Siege Engine with Direct Shot will make In The Way Tests in the same way as any other Shooting Attack."
+    "description": "This Magical Power targets one enemy model in range. The target immediately loses 1 Fate Point. If this Magical Power targets a <b>Cavalry</b> model, the caster must choose whether the rider or the <b>Mount</b> is the target."
   },
   "dominant": {
     "name": "Dominant (X)",
-    "description": "This model counts as the number of models as shown in brackets when working out how many models are in range of an objective, in a specific area of the board, or when working out how many models have escaped the battlefield. So, a model with Dominant (3) would count as three models in range of an objective, or in a specific area of the board, or three models when working out how many models have escaped the battlefield. If a model would gain this special rule whilst in range of another model or specific area of the board, and then Moves off the board, they will not gain the benefit of this special rule once off the board."
+    "description": "This model counts as the number of models as shown in brackets when working out how many models are in range of an objective, in a specific area of the board, or when working out how many models have escaped the battlefield. So, a model with Dominant (3) would count as three models in range of an objective, or in a specific area of the board, or three models when working out how many models have escaped the battlefield.\n\nIf a model would gain this special rule whilst in range of another model or specific area of the board, and then Moves off the board, they will not gain the benefit of this special rule once off the board."
   },
   "drain-courage": {
     "name": "Drain Courage",
-    "description": "This Magical Power targets one enemy model in range. The target immediately worsens their Courage value by 1 for the remainder of the game; so a model with a Courage of 5+ that is affected by this Magical Power would then have a Courage of 6+. A model can be affected by this Magical Power multiple times over the course of the battle, worsening its Courage value each time. If this Magical Power targets a Cavalry model, the caster must choose whether the rider or the Mount is the target."
+    "description": "This Magical Power targets one enemy model in range. The target immediately worsens their Courage value by 1 for the remainder of the game; so a model with a Courage of 5+ that is affected by this Magical Power would then have a Courage of 6+. A model can be affected by this Magical Power multiple times over the course of the battle, worsening its Courage value each time. If this Magical Power targets a <b>Cavalry</b> model, the caster must choose whether the rider or the <b>Mount</b> is the target."
   },
   "enchant-blades": {
     "name": "Enchant Blades",
@@ -101,7 +93,7 @@
   },
   "enrage-beast": {
     "name": "Enrage Beast",
-    "description": "This Magical Power targets one friendly Beast model within range. The target increases its Fight Value, Strength and Attacks by 2, and gains the Fearless special rule, until the End Phase of the turn, at which point the target will immediately suffer 1 Wound."
+    "description": "This Magical Power targets one friendly <b>Beast</b> model within range. The target increases its Fight Value, Strength and Attacks by 2, and gains the Fearless special rule, until the End Phase of the turn, at which point the target will immediately suffer 1 Wound."
   },
   "expert-rider": {
     "name": "Expert Rider",
@@ -121,19 +113,15 @@
   },
   "fell-sight": {
     "name": "Fell Sight",
-    "description": "A model with this special rule does not need to have Line of Sight to be able to Charge an enemy model. Additionally, a model with this special rule can Charge or target an enemy model with the Stalk Unseen special rule with no penalty. If a Mount has this special rule, the rider may benefit from it whilst they remain mounted."
+    "description": "A model with this special rule does not need to have Line of Sight to be able to Charge an enemy model. Additionally, a model with this special rule can Charge or target an enemy model with the <rule id=\"stalk-unseen\">Stalk Unseen</rule> special rule with no penalty. If a <b>Mount</b> has this special rule, the rider may benefit from it whilst they remain mounted."
   },
   "flameburst": {
     "name": "Flameburst",
     "description": "This Magical Power targets one enemy model in range. The target immediately suffers one Strength 6 hit. This is a fire-based attack, so if a model is immune to fire-based attacks, they are immune to this Magical Power."
   },
-  "flaming-ammunition": {
-    "name": "Flaming Ammunition",
-    "description": "A Siege Engine upgrade with Flaming Ammunition may re-roll any failed To Wound rolls against a Siege Target."
-  },
   "fly": {
     "name": "Fly",
-    "description": "A model with this special rule ignores intervening models and terrain when it Moves – flying over buildings, woods and so on, and ignoring the vertical distance as they Move.\n\nA model that Moves in this way cannot end its Move overlapping another model, within a piece of woodland terrain, or upon any surface in which it cannot balance safely (flat rock and hills are fine, but don’t try perching a model upon a sloped roof for example). Additionally, a model that Moves in this way cannot finish its Move atop a piece of terrain which it is impossible for the enemy to reach, such as at the top of a sheer rock face with no way up, or straddling one or more pieces of terrain that would allow other models to Move underneath.\n\nIf a model wishes to do something part way through its Move whilst it is Flying (such as Cast a Magical Power), then it must land in order to do so. When a model lands, there cannot be any models underneath it, and if it lands in an enemy model’s Control Zone then it must Charge that enemy model.\n\nA model with this special rule can choose not to Fly, and in which case will treat its Move Value as 4” rather than that listed in its profile (usually 12”). If it does, then it gains none of the benefits of the Fly special rule, though it may enter a piece of woodland terrain; however, if it enters a piece of woodland terrain, it cannot elect to Fly again until it has completely left the woods.\n\nA model that chooses to Fly will ignore enemy Control Zones as it Moves. A model that wishes to Charge when it is flying can Charge any model whose Control Zone it finishes its Move in. If a Flying model wishes to Charge a model that is already Engaged in Combat (or has otherwise lost their Control Zone) then it can only do so if it can land in a position where is is not within the Control Zones of other enemy models."
+    "description": "A model with this special rule ignores intervening models and terrain when it Moves – flying over buildings, woods and so on, and ignoring the vertical distance as they Move. A model that Moves in this way cannot end its Move overlapping another model, within a piece of woodland terrain, or upon any surface in which it cannot balance safely (flat rock and hills are fine, but don’t try perching a model upon a sloped roof for example). Additionally, a model that Moves in this way cannot finish its Move atop a piece of terrain which it is impossible for the enemy to reach, such as at the top of a sheer rock face with no way up, or straddling one or more pieces of terrain that would allow other models to Move underneath.\n\nIf a model wishes to do something part way through its Move whilst it is Flying (such as Cast a Magical Power), then it must land in order to do so. When a model lands, there cannot be any models underneath it, and if it lands in an enemy model’s Control Zone then it must Charge that enemy model.\n\nA model with this special rule can choose not to Fly, and in which case will treat its Move Value as 4” rather than that listed in its profile (usually 12”). If it does, then it gains none of the benefits of the Fly special rule, though it may enter a piece of woodland terrain; however, if it enters a piece of woodland terrain, it cannot elect to Fly again until it has completely left the woods.\n\nA model that chooses to Fly will ignore enemy Control Zones as it Moves. A model that wishes to Charge when it is flying can Charge any model whose Control Zone it finishes its Move in. If a Flying model wishes to Charge a model that is already Engaged in Combat (or has otherwise lost their Control Zone) then it can only do so if it can land in a position where is is not within the Control Zones of other enemy models. <u>This special rule may be used by models that are not yet on the battlefield.</u>"
   },
   "fog-of-disarray": {
     "name": "Fog of Disarray",
@@ -147,21 +135,13 @@
     "name": "Fortify Spirit",
     "description": "This Magical Power targets one friendly model within range. Each time the target becomes the target of a Magical Power Cast by an enemy model, they gain an additional free dice to try to Resist. This free dice can still be rolled even if the target has no Will Points or chooses not to use any from their store."
   },
-  "foul-temperament": {
-    "name": "Foul Temperament",
-    "description": "The Mumak has 4 Attacks, but suffers a -1 penalty to its Courage Tests when seeing if it will Stampede."
-  },
   "fury": {
     "name": "Fury (X)",
     "description": "This Magical Power targets the caster. Friendly models within 6\" of the caster who have the same keyword as those shown in brackets will automatically pass any Courage Tests they are required to take."
   },
   "general-hunter": {
     "name": "General Hunter",
-    "description": "If this model slays the enemy General in a Combat, they immediately regain a single point of Might spent earlier in the battle."
-  },
-  "gnarled-hide": {
-    "name": "Gnarled Hide",
-    "description": "The Mumak has a Defence of 8 rather than 7."
+    "description": "If this model slays the enemy <b>General</b> in a Combat, they immediately regain a single point of Might spent earlier in the battle."
   },
   "harbinger-of-evil": {
     "name": "Harbinger of Evil (X)",
@@ -169,7 +149,7 @@
   },
   "hatred": {
     "name": "Hatred (X)",
-    "description": "A model with this special rule gains a bonus of +1 To Wound when making Strikes against a model with the same keyword as the one shown in brackets. So, a model with the Hatred (Man) special rule would gain a bonus of +1 To Wound when making Strikes against Man models."
+    "description": "A model with this special rule gains a bonus of +1 To Wound when making Strikes against a model with the same keyword as the one shown in brackets. So, a model with the Hatred (<b>Man</b>) special rule would gain a bonus of +1 To Wound when making Strikes against <b>Man</b> models."
   },
   "heroic-accuracy": {
     "name": "Heroic Accuracy",
@@ -217,11 +197,11 @@
   },
   "horse-lord": {
     "name": "Horse Lord",
-    "description": "Whenever the Mount of a model with this special rule suffers a Wound, roll a D6 on a natural 6, the Wound is ignored. Additionally, a model with this special rule can use their own Fate Points to prevent Wounds inflicted upon their Mount."
+    "description": "Whenever the <b>Mount</b> of a model with this special rule suffers a Wound, roll a D6 on a natural 6, the Wound is ignored. Additionally, a model with this special rule can use their own Fate Points to prevent Wounds inflicted upon their <b>Mount</b>."
   },
   "instill-fear": {
     "name": "Instill Fear",
-    "description": "This Magical Power targets the caster. Enemy models within 6\" of the caster are considered to have the Fearful special rule."
+    "description": "This Magical Power targets the caster. Enemy models within 6\" of the caster are considered to have the <rule id=\"fearful\">Fearful</rule> special rule."
   },
   "invisible": {
     "name": "Invisible",
@@ -229,15 +209,15 @@
   },
   "large-target": {
     "name": "Large Target",
-    "description": "When a model makes a Shooting Attack that targets a model with this special rule, when they are determining models that are In The Way, they ignore models (both friendly and enemy) that do not have any of the following keywords: Monster, Siege Engine, War Beast. If the target model is Engaged in Combat, then the In The Way test for Shooting into Combat is still applied regardless of the model the target model is Engaged in Combat with."
+    "description": "When a model makes a Shooting Attack that targets a model with this special rule, when they are determining models that are In The Way, they ignore models (both friendly and enemy) that do not have any of the following keywords: <b>Monster</b>, <b>Siege Engine</b>, <b>War Beast</b>. If the target model is Engaged in Combat, then the In The Way test for Shooting into Combat is still applied regardless of the model the target model is Engaged in Combat with."
   },
   "leader": {
     "name": "Leader (X)",
-    "description": "A model with this special rule can include Warrior models of the type listed in brackets in their Warband."
+    "description": "A model with this special rule can include <b>Warrior</b> models of the type listed in brackets in their Warband."
   },
   "master-of-battle": {
     "name": "Master of Battle (X)",
-    "description": "Whenever an enemy Hero declares a Heroic Action within 6\" of this model, this model may roll a D6. If the result on the dice equals or beats the number shown in brackets, then this model may immediately declare a Heroic Action of the same type without spending a Might Point. This may still be done if this model has no Might Points remaining, or would not normally be able to declare that Heroic Action. If the roll is failed, this model may still declare a Heroic Action if they wish (though not one they cannot usually declare), for the usual cost of a Might Point."
+    "description": "Whenever an enemy <b>Hero</b> declares a Heroic Action within 6\" of this model, this model may roll a D6. If the result on the dice equals or beats the number shown in brackets, then this model may immediately declare a Heroic Action of the same type without spending a Might Point. This may still be done if this model has no Might Points remaining, or would not normally be able to declare that Heroic Action. If the roll is failed, this model may still declare a Heroic Action if they wish (though not one they cannot usually declare), for the usual cost of a Might Point."
   },
   "mighty-blow": {
     "name": "Mighty Blow",
@@ -249,19 +229,19 @@
   },
   "monstrous-charge": {
     "name": "Monstrous Charge",
-    "description": "If a model with this special rule Charges into Combat, then it will increase its Attacks characteristic by 1 during the ensuing Fight Phase. Additionally, if this model Charges and subsequently wins the Duel Roll, then all enemy models involved in the Combat with a Strength characteristic lower than this model, will be immediately knocked Prone before this model makes Strikes. Cavalry models will automatically count as suffering the Knocked Flying result on the Thrown Rider Chart."
+    "description": "If a model with this special rule Charges into Combat, then it will increase its Attacks characteristic by 1 during the ensuing Fight Phase. Additionally, if this model Charges and subsequently wins the Duel Roll, then all enemy models involved in the Combat with a Strength characteristic lower than this model, will be immediately knocked Prone before this model makes Strikes. <b>Cavalry</b> models will automatically count as suffering the Knocked Flying result on the Thrown Rider Chart."
   },
   "mountain-dweller": {
     "name": "Mountain Dweller",
-    "description": "A model with this special rule may Move through areas of rocky terrain that are classed as Difficult Terrain as if they are Open Ground. If a Cavalry model has this special rule, but their Mount does not, then this rule does not apply to the Mount. If a Mount has this special rule, then they will still retain their Cavalry Charge bonuses when they Charge, even if the rider does not have this special rule. Additionally, a model with this special rule may re-roll any Jump, Leap, or Climb Tests."
+    "description": "A model with this special rule may Move through areas of rocky terrain that are classed as Difficult Terrain as if they are Open Ground. If a <b>Cavalry</b> model has this special rule, but their <b>Mount</b> does not, then this rule does not apply to the <b>Mount</b>. If a <b>Mount</b> has this special rule, then they will still retain their Cavalry Charge bonuses when they Charge, even if the rider does not have this special rule. \n\nAdditionally, a model with this special rule may re-roll any Jump, Leap, or Climb Tests. <u>This special rule may be used by models that are not yet on the battlefield.</u>"
   },
   "natures-wrath": {
     "name": "Nature's Wrath",
-    "description": "This Magical Power targets all enemy models within range, even if they are not in Line of Sight of the caster. All targets models are immediately knocked Prone. Cavalry models are automatically treated as suffering a Knocked Flying result on the Thrown Rider Chart."
+    "description": "This Magical Power targets all enemy models within range, even if they are not in Line of Sight of the caster. All targets models are immediately knocked Prone. <b>Cavalry</b> models are automatically treated as suffering a Knocked Flying result on the Thrown Rider Chart."
   },
   "panic-steed": {
     "name": "Panic Steed",
-    "description": "This Magical Power targets one enemy Cavalry model within range. The rider is thrown and the Mount immediately flees and is removed as a casualty. The rider is automatically treated as suffering a Knocked Flying result on the Thrown Rider Chart."
+    "description": "This Magical Power targets one enemy <b>Cavalry</b> model within range. The rider is thrown and the <b>Mount</b> immediately flees and is removed as a casualty. The rider is automatically treated as suffering a Knocked Flying result on the Thrown Rider Chart."
   },
   "paralyse": {
     "name": "Paralyse",
@@ -269,67 +249,47 @@
   },
   "poisoned-attacks": {
     "name": "Poisoned Attacks (X)",
-    "description": "A model with this special rule must re-roll any To Wound Rolls of a natural 1 when making Shooting Attacks or making Strikes. Sometimes, a particular weapon will be described as benefiting from this special rule. When this is the case, only To Wound Rolls made for that weapon will be able to re-roll To Wound Rolls of a natural 1."
+    "description": "A model with this special rule must re-roll any To Wound Rolls of a natural 1 when making Shooting Attacks or making Strikes. \n\nSometimes, a particular weapon will be described as benefiting from this special rule. When this is the case, only To Wound Rolls made for that weapon will be able to re-roll To Wound Rolls of a natural 1."
   },
   "protection-of-the-valar": {
     "name": "Protection of the Valar",
     "description": "This Magical Power targets one friendly model within range. The target cannot be chosen as the target of enemy Magical Powers or enemy special rules that specifically target a  model. Additionally, enemy models that target the protected model will suffer a -1 penalty to their To Hit roll."
   },
-  "rappelling-lines": {
-    "name": "Rappelling Lines",
-    "description": "Models in the Howdah may attempt to dismount during their Activation by rolling a D6. On a 2+, the model dismounts and is placed in base contact with the Mumak. However, on a 1 the model suffers Falling Damage - if it survives, place it in base contact with the Mumak. A model that        successfully dismounts may then continue its  Activation as normal, even Charging if it    wishes, though may not make a shooting    attack that turn."
-  },
   "renew": {
     "name": "Renew",
-    "description": "This Magical Power targets one friendly model in range. The target immediately regains 1 Wound lost earlier in the battle. If this Magical Power targets a Cavalry model, the caster must choose whether the rider or the Mount is the target."
+    "description": "This Magical Power targets one friendly model in range. The target immediately regains 1 Wound lost earlier in the battle. If this Magical Power targets a <b>Cavalry</b> model, the caster must choose whether the rider or the <b>Mount</b> is the target."
   },
   "resistant-to-magic": {
     "name": "Resistant to Magic",
     "description": "Every time this model is targeted by a Magical Power, they gain an additional free dice when making a Resist Test, even if they have no Will Points remaining or decide not to use any Will Points. This is cumulative with other rules that confer a similar effect."
   },
-  "rocks": {
-    "name": "Rocks",
-    "description": "If they do not Move in their Activation, models in the Howdah can make a shooting attack with range 8\" and Strength 6 instead of using a different shooting attack."
-  },
   "set-ablaze": {
     "name": "Set Ablaze",
-    "description": "A model can be Set Ablaze through a number of means. During the End Phase of a turn, any model that is Set Ablaze will immediately suffer one Strength 5 hit. A model that is Set Ablaze can extinguish the flames either by Lying Down and Crawling 1\", or by entering a water feature. If either of these things happen, the model is no longer considered to be Set Ablaze. If a model is immune to fire-based attacks, they cannot be Set Ablaze under any circumstances."
-  },
-  "severed-heads": {
-    "name": "Severed Heads",
-    "description": "If a Mordor War Catapult chooses to fire Severed Heads, determine the actual target as normal. Then, instead of rolling To Wound, the actual target and any enemy models within 3\" of them must each take a Courage test. If the test is failed, the model flees and is removed as a casualty."
+    "description": "A model can be Set Ablaze through a number of means. During the End Phase of a turn, any model that is Set Ablaze will immediately suffer one Strength 5 hit. \n\nA model that is Set Ablaze can extinguish the flames either by Lying Down and Crawling 1\", or by entering a water feature. If either of these things happen, the model is no longer considered to be Set Ablaze. \n\nIf a model is immune to fire-based attacks, they cannot be Set Ablaze under any circumstances."
   },
   "sharpshooter": {
     "name": "Sharpshooter",
-    "description": "When a model with this special rule makes a Shooting Attack that targets a Cavalry model, it may choose either the rider or the Mount as its target. Additionally, if a model with this special rule hits a Cavalry model that it targeted with a Shooting Attack, it does not need to make the In The Way Test to see which part of the model it hits - it will automatically hit the part of the model it targeted, either rider or Mount."
+    "description": "When a model with this special rule makes a Shooting Attack that targets a <b>Cavalry</b> model, it may choose either the rider or the <b>Mount</b> as its target. Additionally, if a model with this special rule hits a <b>Cavalry</b> model that it targeted with a Shooting Attack, it does not need to make the In The Way Test to see which part of the model it hits - it will automatically hit the part of the model it targeted, either rider or <b>Mount</b>."
   },
   "shieldwall": {
     "name": "Shieldwall",
-    "description": "If this model is carrying a shield, then whilst it is in base contact with two or more other friendly models who also have this special rule and are carrying a shield, then this model receives an additional +1 bonus to its Defence. In Combat, this bonus is calculated before the model Backs Away.\n\nModels that are Prone or have the Cavalry keyword cannot benefit from, or provide an ally with the benefit from, this special rule."
-  },
-  "sigils-of-defiance": {
-    "name": "Sigils of Defiance",
-    "description": "The Mumak and any models in the Howdah gain the     Resistant to Magic, and whenever they suffer a Wound they may roll a D6. On a natural 6, the Wound is prevented."
+    "description": "If this model is carrying a shield, then whilst it is in base contact with two or more other friendly models who also have this special rule and are carrying a shield, then this model receives an additional +1 bonus to its Defence. In Combat, this bonus is calculated before the model Backs Away.\n\nModels that are Prone or have the <b>Cavalry</b> keyword cannot benefit from, or provide an ally with the benefit from, this special rule."
   },
   "sorcerous-blast": {
     "name": "Sorcerous Blast",
-    "description": "This Magical Power targets one enemy model in range. The target immediately suffers one Strength 5 hit. If they survive, they are immediately knocked Prone. If the target was a Cavalry model, they will automatically count as suffering the Knocked Flying result on the Thrown Rider Chart.\n\nIf the target was Engaged in Combat, then any other model that's also Engaged in the same Combat will also be knocked Prone if it has a Strength of 5 or lower - make sure to Pair Off Combats before working out which models are knocked Prone in this manner."
+    "description": "This Magical Power targets one enemy model in range. The target immediately suffers one Strength 5 hit. If they survive, they are immediately knocked Prone. If the target was a <b>Cavalry</b> model, they will automatically count as suffering the Knocked Flying result on the Thrown Rider Chart.\n\nIf the target was Engaged in Combat, then any other model that's also Engaged in the same Combat will also be knocked Prone if it has a Strength of 5 or lower - make sure to Pair Off Combats before working out which models are knocked Prone in this manner."
   },
   "spectral-walk": {
     "name": "Spectral Walk",
-    "description": "A model with this special rule is never slowed by Difficult Terrain. Additionally, a model with this special rule always counts as rolling a 6 for any Climb, Jump, Leap or Swim Tests."
+    "description": "A model with this special rule is never slowed by Difficult Terrain. Additionally, a model with this special rule always counts as rolling a 6 for any Climb, Jump, Leap or Swim Tests. <u>This special rule may be used by models that are not yet on the battlefield.</u>"
   },
   "stalk-unseen": {
     "name": "Stalk Unseen",
-    "description": "An Infantry model with this special rule that is partially concealed from view by a piece of terrain cannot be seen at distances of more than 6\". This means that enemy Models cannot target this model with Shooting Attacks, Magical Powers, special rules, or anything else that requires Line of Sight unless they have a completely clear view of this model."
-  },
-  "static": {
-    "name": "Static",
-    "description": "If a Siege Engine has the Static special rule, then it can be Moved or rotated."
+    "description": "An <b>Infantry</b> model with this special rule that is partially concealed from view by a piece of terrain cannot be seen at distances of more than 6\". This means that enemy Models cannot target this model with Shooting Attacks, Magical Powers, special rules, or anything else that requires Line of Sight unless they have a completely clear view of this model."
   },
   "strengthen-will": {
     "name": "Strengthen Will",
-    "description": "This Magical Power targets one friendly model within range. The target immediately regains a single Will Point spent earlier in the battle. If this Magical Power targets a Cavalry model, the caster must choose whether the rider or the Mount is the target."
+    "description": "This Magical Power targets one friendly model within range. The target immediately regains a single Will Point spent earlier in the battle. If this Magical Power targets a <b>Cavalry</b> model, the caster must choose whether the rider or the <b>Mount</b> is the target."
   },
   "survival-instinct": {
     "name": "Survival Instinct",
@@ -337,7 +297,7 @@
   },
   "swift-movement": {
     "name": "Swift Movement",
-    "description": "A model with this special rule is never slowed by Difficult Terrain, with the exception of water features. It can also ignore Obstacles as it Moves, allowing it to Move at any angle without having to make a Climb or Jump Test, though it will still count any vertical distance it has Moved towards its Move Value. A model with this special rule must finish its Move as flat to the playing surface as possible - no models finishing upside down, halfway up a wall, or at an angle, for example!"
+    "description": "A model with this special rule is never slowed by Difficult Terrain, with the exception of water features. It can also ignore Obstacles as it Moves, allowing it to Move at any angle without having to make a Climb or Jump Test, though it will still count any vertical distance it has Moved towards its Move Value. \n\nA model with this special rule must finish its Move as flat to the playing surface as possible - no models finishing upside down, halfway up a wall, or at an angle, for example! <u>This special rule may be used by models that are not yet on the battlefield.</u>"
   },
   "sworn-protector": {
     "name": "Sworn Protector (X)",
@@ -349,7 +309,7 @@
   },
   "terror": {
     "name": "Terror",
-    "description": "If a model wishes to Charge a model with this special rule, then it must take a Courage Test at the start of its Move. If the test is passed, the model may Charge as normal. If the test is failed, the model cannot Move that turn, but may otherwise act normally.\n\nSometimes a situation may open up the chance for a model to Charge a model with Terror part way through their Move, such as moving a different model with magic or killing something in the way with a throwing weapon. In such instances, the model only needs to take the Courage Test at the point in which the Terror causing model becomes possible to Charge. If a model making a Jump, Climb or Leap Test finishes within the Control Zone of an enemy with Terror and would normally be able to Charge, they will take their Courage Test after they have made their Jump, Climb or Leap Test.\n\nSometimes, a model may only cause Terror in certain enemies. In these instances, a keyword will follow Terror in brackets, and only models with that keyword will need to take a Courage Test to Charge the model. So, a model with Terror (Orc) will only cause Terror in Orc models."
+    "description": "If a model wishes to Charge a model with this special rule, then it must take a Courage Test at the start of its Move. If the test is passed, the model may Charge as normal. If the test is failed, the model cannot Move that turn, but may otherwise act normally.\n\nSometimes a situation may open up the chance for a model to Charge a model with Terror part way through their Move, such as moving a different model with magic or killing something in the way with a throwing weapon. In such instances, the model only needs to take the Courage Test at the point in which the Terror causing model becomes possible to Charge. If a model making a Jump, Climb or Leap Test finishes within the Control Zone of an enemy with Terror and would normally be able to Charge, they will take their Courage Test after they have made their Jump, Climb or Leap Test.\n\nSometimes, a model may only cause Terror in certain enemies. In these instances, a keyword will follow Terror in brackets, and only models with that keyword will need to take a Courage Test to Charge the model. So, a model with Terror (<b>Orc</b>) will only cause Terror in <b>Orc</b> models."
   },
   "throw-stones": {
     "name": "Throw Stones (X)",
@@ -357,7 +317,7 @@
   },
   "timid": {
     "name": "Timid",
-    "description": "If a Mount has this special rule, then every time it wishes to Charge an enemy model it must take a Courage Test. It may use its rider's Courage Value, but may never benefit from special rules or Magical Powers that would allow it to automatically pass a Courage Test. If the test is failed, the model cannot Move that turn but may otherwise act normally. A model with this special rule gains no Cavalry Charge bonuses."
+    "description": "If a <b>Mount</b> has this special rule, then every time it wishes to Charge an enemy model it must take a Courage Test. It may use its rider's Courage Value, but may never benefit from special rules or Magical Powers that would allow it to automatically pass a Courage Test. If the test is failed, the model cannot Move that turn but may otherwise act normally. A model with this special rule gains no Cavalry Charge bonuses."
   },
   "transfix": {
     "name": "Transfix",
@@ -365,11 +325,7 @@
   },
   "tremor": {
     "name": "Tremor",
-    "description": "Draw an imaginary 1mm line that extends D3+3\" directly away from the caster in a direction chosen by the caster. This Magical Power targets every model (friend or foe) that lies under the line. Each target immediately suffers one Strength 4 hit and is knocked Prone; if the target was a Cavalry model, they will automatically count as suffering the Knocked Flying result on the Thrown Rider Chart. If a target is Engaged in Combat, then any other model Engaged in the same Combat is also considered to be a target - make sure to Pair Off Combats before working out which models are targets. \n\nModels with the Fly special rule can never be a target of this Magical Power under any circumstances."
-  },
-  "tusk-weapons": {
-    "name": "Tusk Weapons",
-    "description": "When the Mumak Tramples, it will Inflict 4 Strength 9 Impact Hits rather than 3."
+    "description": "Draw an imaginary 1mm line that extends D3+3\" directly away from the caster in a direction chosen by the caster. This Magical Power targets every model (friend or foe) that lies under the line. Each target immediately suffers one Strength 4 hit and is knocked Prone; if the target was a <b>Cavalry</b> model, they will automatically count as suffering the Knocked Flying result on the Thrown Rider Chart. If a target is Engaged in Combat, then any other model Engaged in the same Combat is also considered to be a target - make sure to Pair Off Combats before working out which models are targets. \n\nModels with the <rule id=\"fly\">Fly</rule> special rule can never be a target of this Magical Power under any circumstances."
   },
   "unyielding-combat-stance": {
     "name": "Unyielding Combat Stance",
@@ -385,15 +341,15 @@
   },
   "wither": {
     "name": "Wither",
-    "description": "This Magical Power targets one enemy model in range. The target immediately reduces their Strength value by 1 for the remainder of the game. A model can be affected by this Magical Power multiple times over the course of the battle, reducing its Strength value each time. Should a model ever have its Strength reduced to 0, they are immediately slain and removed as a casualty. If this Magical Power targets a Cavalry model, the caster must choose whether the rider or the Mount is the target."
+    "description": "This Magical Power targets one enemy model in range. The target immediately reduces their Strength value by 1 for the remainder of the game. A model can be affected by this Magical Power multiple times over the course of the battle, reducing its Strength value each time. Should a model ever have its Strength reduced to 0, they are immediately slain and removed as a casualty. If this Magical Power targets a <b>Cavalry</b> model, the caster must choose whether the rider or the <b>Mount</b> is the target."
   },
   "woodland-creature": {
     "name": "Woodland Creature",
-    "description": "A model with this special rule may Move through woods and forests that are classed as Difficult Terrain as if they are Open Ground. If a Cavalry model has this special rule, but their Mount does not, then this rule does not apply to the Mount. If a Mount has this special rule, then they will still gain their Cavalry Charge bonuses when they Charge, even if the rider does not have this special rule."
+    "description": "A model with this special rule may Move through woods and forests that are classed as Difficult Terrain as if they are Open Ground. If a <b>Cavalry</b> model has this special rule, but their <b>Mount</b> does not, then this rule does not apply to the <b>Mount</b>. If a <b>Mount</b> has this special rule, then they will still gain their Cavalry Charge bonuses when they Charge, even if the rider does not have this special rule. <u>This special rule may be used by models that are not yet on the battlefield.</u>"
   },
   "wrath-of-bruinen": {
     "name": "Wrath of Bruinen",
-    "description": "This Magical Power targets all enemy models within range, even if they are not in Line of Sight of the caster. All target models immediately suffer one Strength 2 hit and are knocked Prone. Cavalry models are automatically treated as suffering a Knocked Flying result on the Thrown Rider Chart. If a target is within a water feature, they will suffer one Strength 8 hit instead of one Strength 2 hit."
+    "description": "This Magical Power targets all enemy models within range, even if they are not in Line of Sight of the caster. All target models immediately suffer one Strength 2 hit and are knocked Prone. <b>Cavalry</b> models are automatically treated as suffering a Knocked Flying result on the Thrown Rider Chart. If a target is within a water feature, they will suffer one Strength 8 hit instead of one Strength 2 hit."
   },
   "writhing-vines": {
     "name": "Writhing Vines",
@@ -409,11 +365,11 @@
   },
   "barge": {
     "name": "Barge",
-    "description": "When a <b>Monster</b> wishes to use this Brutal Power Attack, enemymodelsdo not Back Away as normal. Instead, all enemy models involved in the Combat, plus any enemy models that were Supporting, must Back Away3\" rather than 1\". The order and direction that these models Back Away is chosen by the <b>Monster</b> model’s controlling player. Models may still Make Way for losing models (which will be decided by the <b>Monster</b> model’s controlling player) and, if they do, must Make Way 3\" rather than the usual 1\", in a direction chosen by the <b>Monster</b> model’s controlling player.\n\nAny models that cannot Back Away or Make Way the full 3\" are moved as far as possible and then knocked Prone. When doing this, if it is possible for a <b>Monster</b> to choose a direction for a model to Back Away or Make Way so that it goes the full 3\", then it must choose that direction–it can’t force a model to Back Away or Make Way less than 3\" and be knocked Prone if there was a way for it to Back Away the full 3\".\n\nOnce a <b>Monster</b> model has used a Barge, the Combat immediately ends and no further Strikes or Brutal Power Attacks can be made.\n\nOnce all models have Backed Away, the <b>Monster</b> that made the Barge can then Move D3+3\" in any direction, following all the usual rules for Moving a model. It can even Charge again if it wishes, in which case it will fight again that Fight Phase in the ordinary way – i.e., in an order chosen by the player with Priority.\n\nA <b>Monster</b> cannot Barge in the same turn in which it participates in a Heroic Combat."
+    "description": "When a <b>Monster</b> wishes to use this Brutal Power Attack, enemy models do not Back Away as normal. Instead, all enemy models involved in the Combat, plus any enemy models that were Supporting, must Back Away 3\" rather than 1\". The order and direction that these models Back Away is chosen by the <b>Monster</b> model’s controlling player. Models may still Make Way for losing models (which will be decided by the <b>Monster</b> model’s controlling player) and, if they do, <u>may</u> Make Way 3\" rather than the usual 1\", in a direction chosen by the <b>Monster</b> model’s controlling player. <u>When a model Makes Way in this manner, it will only do so the minimum amount it needs to in order to allow the model Backing Away to Back Away 3\"; it won’t be forced to Make Way a full 3\" if only Making Way 1\" would suffice to allow the Barged model to Back Away 3\", for example, and won’t be automatically knocked Prone if it is able to Make Way the required amount.</u>\n\nAny models that cannot Back Away or Make Way the full 3\" are moved as far as possible and then knocked Prone. When doing this, if it is possible for a <b>Monster</b> to choose a direction for a model to Back Away or Make Way so that it goes the full 3\", then it must choose that direction–it can’t force a model to Back Away or Make Way less than 3\" and be knocked Prone if there was a way for it to Back Away the full 3\".\n\nOnce a <b>Monster</b> model has used a Barge, the Combat immediately ends and no further Strikes or Brutal Power Attacks can be made.\n\nOnce all models have Backed Away, the <b>Monster</b> that made the Barge can then Move D3+3\" in any direction, following all the usual rules for Moving a model. It can even Charge again if it wishes, in which case it will fight again that Fight Phase in the ordinary way – i.e., in an order chosen by the player with Priority.\n\nA <b>Monster</b> cannot Barge in the same turn in which it participates in a Heroic Combat."
   },
   "hurl": {
     "name": "Hurl",
-    "description": "When a <b>Monster</b> wishes to use this Brutal Power Attack, it must nominate a single enemy model involved in the Combat before models Back Away – this is the model that will be Hurled. A <b>Monster</b> cannot nominate a model to be Hurled that has a Strength equal to or higher than their own. Then, all other enemy models (not the nominated model) Back Away as normal. The Monster will then Hurl the nominated model.\n\nTo Hurl a model, follow the steps below:\n<ul>\n<li> The <b>Monster</b> rolls a D3 and adds the difference in Strength between the <b>Monster</b> and the nominated model – this is the Hurl Distance.</li>\n<li>The <b>Monster</b> must then take an Intelligence Test (if the <b>Monster</b> is also a <b>Mount</b>, it may use the Intelligence of its rider if it is better).</li>\n<li>If the test is passed, the <b>Monster</b> chooses an enemy model it can draw Line of Sight to, and within the Hurl Distance from itself, to Hurl the nominated model at – this is the target. A model can only be chosen as the target of a Hurl once per turn. If the test was failed, the opposing player may choose one of their models in Line of Sight of the <b>Monster</b>, and within the Hurl Distance, to be the target instead.</li>\n<li>The Hurled model suffers two Strength 6 hits (if it is a <b>Cavalry</b> model then both rider and <b>Mount</b> will suffer these hits), and if it was a <b>Cavalry</b> model then it is also Knocked Flying. If it is slain, skip the next step and move straight to step 6.</li>\n<li>If it survives, place it in base contact with the target model as close to the <b>Monster</b> as possible. If this is not possible, place the model in base contact with the target as close to the position it should have been in as possible. If there is nowhere to place the model in base contact with the target, move other models the minimum distance to make this possible. The Hurled model is then knocked Prone.</li>\n<li>The target model is then knocked Prone, if it has a Strength of 5 or less, and will suffer one Strength 6 hit (if it is a <b>Cavalry</b> model then both rider and <b>Mount</b> will suffer these hits). If it is a <b>Cavalry</b> model then it is also Knocked Flying.</li>\n<li>If there are no enemy models eligible to be the target, then the <b>Monster</b> may choose a point on the battlefield it can draw Line of Sight within the Hurl Distance instead. Place the Hurled model on the chosen point; it is then knocked Prone and suffers two Strength 6 hits.</li>\n<li>Once a <b>Monster</b> model has used a Hurl, the Combat immediately ends and no further Strikes or Brutal Power Attacks can be made. A Monster cannot Hurl in the same turn in which it participates in a Heroic Combat.</li>\n</ul>"
+    "description": "When a <b>Monster</b> wishes to use this Brutal Power Attack, it must nominate a single enemy model involved in the Combat before models Back Away – this is the model that will be Hurled. A <b>Monster</b> cannot nominate a model to be Hurled that has a Strength equal to or higher than their own. Then, all other enemy models (not the nominated model) Back Away as normal. The Monster will then Hurl the nominated model.\n\nTo Hurl a model, follow the steps below:\n<ul>\n<li> The <b>Monster</b> rolls a D3 and adds the difference in Strength between the <b>Monster</b> and the nominated model – this is the Hurl Distance.</li>\n<li>The <b>Monster</b> must then take an Intelligence Test (if the <b>Monster</b> is also a <b>Mount</b>, it may use the Intelligence of its rider if it is better).</li>\n<li>If the test is passed, the <b>Monster</b> chooses an enemy model it can draw Line of Sight to, and within the Hurl Distance from itself, to Hurl the nominated model at – this is the target. A model can only be chosen as the target of a Hurl once per turn. If the test was failed, the opposing player may choose one of their models in Line of Sight of the <b>Monster</b>, and within the Hurl Distance, to be the target instead.</li>\n<li>The Hurled model suffers two Strength 6 hits (if it is a <b>Cavalry</b> model then both rider and <b>Mount</b> will suffer these hits), and if it was a Cavalry model then it is also Knocked Flying <u>unless either the rider and/or <b>Mount</b> have a Strength of 6 or higher</u>. If it is slain, skip the next step and move straight to step 6.</li>\n<li>If it survives, place it in base contact with the target model as close to the <b>Monster</b> as possible. If this is not possible, place the model in base contact with the target as close to the position it should have been in as possible. If there is nowhere to place the model in base contact with the target, move other models the minimum distance to make this possible. The Hurled model is then knocked Prone.</li>\n<li>The target model is then knocked Prone, if it has a Strength of 5 or less, and will suffer one Strength 6 hit (if it is a <b>Cavalry</b> model then both rider and <b>Mount</b> will suffer these hits). If it is a <b>Cavalry</b> model then it is also Knocked Flying.</li>\n<li>If there are no enemy models eligible to be the target, then the <b>Monster</b> may choose a point on the battlefield it can draw Line of Sight within the Hurl Distance instead. Place the Hurled model on the chosen point; it is then knocked Prone and suffers two Strength 6 hits.</li>\n<li>Once a <b>Monster</b> model has used a Hurl, the Combat immediately ends and no further Strikes or Brutal Power Attacks can be made. A Monster cannot Hurl in the same turn in which it participates in a Heroic Combat.</li>\n</ul>"
   },
   "hand-weapon": {
     "name": "Hand Weapon",
@@ -433,7 +389,7 @@
   },
   "spear": {
     "name": "Spear",
-    "description": "An <b>Infantry</b> model armed with a spear may assist a friendly model during a Combat, so long as their ally has the same base size or smaller – this is called Supporting.\n\nIf a spear-armed model is not Engaged in Combat, then it can Support a friendly model in base contact. When they do, they contribute a single dice to the Duel Roll of the Combat the model they are Supportingispartof. This dice uses the Supporting model’s own Fight Value, and if they win they will make a single Strike using their own Strength. In a Multiple Combat, a Supporting model doesn’t have to Strike the same model as the model it is Supporting.\n\nModels that are Supporting do not count as being involved in the Combat they are Supporting. As a result, they cannot be targeted by Strikes, will not be knocked Prone by a Charging <b>Cavalry</b> model, cannot benefit from a Heroic Combat, and never count as being part of the Combat for the purpose of special rules or determining how many models are taking part on each side.\n\nA spear-armed model can only Support a single Combat during each Fight Phase. A spear-armed model cannot Support a Combat after already being Engaged in Combat. The only exception to this is that a spear-armed model that is involved in a successful Heroic Combat, and therefore gets to Move, may Move to Support a Combat, provided it hasn’t Supported an other Combat that Fight Phase.\n\nA model with a spear can use it as a hand weapon when they are Engaged in Combat. A model can’t Support if it is Prone, rendered unable to Activate or has made a Shooting Attack during the same turn.\n\nA Hero that is Supporting may use Might Points to improve a Duel Roll or To Wound Rolls as normal. However, a Hero that has declared a Heroic Action in the Fight Phase cannot Support during that Fight Phase."
+    "description": "An <b>Infantry</b> model armed with a spear may assist a friendly model during a Combat, so long as their ally has the same base size or smaller – this is called Supporting.\n\nIf a spear-armed model is not Engaged in Combat, then it can Support a friendly model in base contact. When they do, they contribute a single dice to the Duel Roll of the Combat the model they are Supportingispartof. This dice uses the Supporting model’s own Fight Value, and if they win they will make a single Strike using their own Strength. In a Multiple Combat, a Supporting model doesn’t have to Strike the same model as the model it is Supporting.\n\nModels that are Supporting do not count as being involved in the Combat they are Supporting. As a result, they cannot be targeted by Strikes, will not be knocked Prone by a Charging <b>Cavalry</b> model, cannot benefit from a Heroic Combat, and never count as being part of the Combat for the purpose of special rules or determining how many models are taking part on each side.\n\n<u>A model can only gain Support from one spear-armed model at a time. Additionally</u>, spear-armed model can only Support a single Combat during each Fight Phase. A spear-armed model cannot Support a Combat after already being Engaged in Combat. The only exception to this is that a spear-armed model that is involved in a successful Heroic Combat, and therefore gets to Move, may Move to Support a Combat, provided it hasn’t Supported an other Combat that Fight Phase.\n\nA model with a spear can use it as a hand weapon when they are Engaged in Combat. A model can’t Support if it is Prone, rendered unable to Activate or has made a Shooting Attack during the same turn.\n\nA Hero that is Supporting may use Might Points to improve a Duel Roll or To Wound Rolls as normal. However, a Hero that has declared a Heroic Action in the Fight Phase cannot Support during that Fight Phase."
   },
   "pike": {
     "name": "Pike",
@@ -521,7 +477,7 @@
   },
   "shield": {
     "name": "Shield",
-    "description": "A model carrying a shield adds 1 to their Defence characteristic. Where a model is listed as carrying a shield in its profile, then the improvement in its Defence characteristic will already have been included in their profile.\n\nA shield is cumbersome, and so a model carrying a shield that wishes to use their <rule id=\"hand-and-a-half-weapon\">hand-and-a-half weapon</rule> as a <rule id=\"two-handed-weapon\">two-handed weapon</rule> during a Combat cannot gain the Defence bonus for carrying a shield during that Combat. Additionally, a model carrying a shield does not gain the Defence bonus if it also carries a type of bow, crossbow, two-handed weapon or <rule id=\"pike\">pike</rule>.\n\nA model with a shield can also use the Shielding special rule:\n\n<h3>Shielding</h3>\nA model carrying a shield may declare they are Shielding at the start of a Combat they are involved in, before the Duel Roll is made. If they do, the Shielding model will double their Attacks characteristic for the duration of the Combat; however, if they win the Duel Roll they cannot make Strikes having put their effort into surviving. They also don’t gain any advantages of the special rules of their weapons (such as if they have an Elven weapon) as they are not using them in the Combat and are using their shield instead.\n\nIn a Multiple Combat, if one model wishes to declare they are Shielding, then all friendly models must do so. If some of them cannot, then no models may declare they are Shielding. Models that are Shielding cannot be Supported.\n\n<b>Cavalry</b> models cannot declare they are Shielding. Additionally, Shielding is treated as an Active ability (see page 123).\n\nA Prone model can declare they are Shielding – infact, it is a sensible way of trying to get them to stand backup as a Prone model can’t make Strikes anyway!"
+    "description": "A model carrying a shield adds 1 to their Defence characteristic. Where a model is listed as carrying a shield in its profile, then the improvement in its Defence characteristic will already have been included in their profile.\n\nA shield is cumbersome, and so a model carrying a shield that wishes to use their <rule id=\"hand-and-a-half-weapon\">hand-and-a-half weapon</rule> as a <rule id=\"two-handed-weapon\">two-handed weapon</rule> during a Combat cannot gain the Defence bonus for carrying a shield during that Combat. Additionally, a model carrying a shield does not gain the Defence bonus if it also carries a type of bow, crossbow, two-handed weapon or <rule id=\"pike\">pike</rule>.\n\nA model with a shield can also use the Shielding special rule:\n\n<h3>Shielding</h3>\nA model carrying a shield may declare they are Shielding at the start of a Combat they are involved in, before the Duel Roll is made. If they do, the Shielding model will double their Attacks characteristic for the duration of the Combat; however, if they win the Duel Roll they cannot make Strikes having put their effort into surviving. <u>They also don’t gain any advantages of the special rules of their weapons (such as if they have an Elven weapon) as they are not using them in the Combat and are using their shield instead.</u>\n\nIn a Multiple Combat, if one model wishes to declare they are Shielding, then all friendly models must do so. If some of them cannot, then no models may declare they are Shielding. Models that are Shielding cannot be Supported.\n\n<b>Cavalry</b> models cannot declare they are Shielding. Additionally, Shielding is treated as an Active ability (see page 123).\n\nA Prone model can declare they are Shielding – infact, it is a sensible way of trying to get them to stand backup as a Prone model can’t make Strikes anyway!"
   },
   "light-shield": {
     "name": "Light shield",

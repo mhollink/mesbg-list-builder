@@ -282,11 +282,6 @@
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 124)"
   },
   {
-    "id": "arcing-shot",
-    "category": "special-rule",
-    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 141)"
-  },
-  {
     "id": "backstabbers",
     "category": "special-rule",
     "type": "active",
@@ -329,11 +324,6 @@
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
   },
   {
-    "id": "direct-shot",
-    "category": "special-rule",
-    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 141)"
-  },
-  {
     "id": "dominant",
     "category": "special-rule",
     "type": "passive",
@@ -370,33 +360,16 @@
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 125)"
   },
   {
-    "id": "flaming-ammunition",
-    "category": "special-rule",
-    "source": ""
-  },
-  {
     "id": "fly",
     "category": "special-rule",
     "type": "active",
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 126)"
   },
   {
-    "id": "foul-temperament",
-    "category": "special-rule",
-    "type": "passive",
-    "source": "Armies of The Lord of The Rings™(page 193)"
-  },
-  {
     "id": "general-hunter",
     "category": "special-rule",
     "type": "active",
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 126)"
-  },
-  {
-    "id": "gnarled-hide",
-    "category": "special-rule",
-    "type": "passive",
-    "source": "Armies of The Lord of The Rings™(page 193)"
   },
   {
     "id": "harbinger-of-evil",
@@ -471,33 +444,16 @@
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
   },
   {
-    "id": "rappelling-lines",
-    "category": "special-rule",
-    "type": "passive",
-    "source": "Armies of The Lord of The Rings™(page 193)"
-  },
-  {
     "id": "resistant-to-magic",
     "category": "special-rule",
     "type": "passive",
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
   },
   {
-    "id": "rocks",
-    "category": "special-rule",
-    "type": "active",
-    "source": "Armies of The Lord of The Rings™(page 193)"
-  },
-  {
     "id": "set-ablaze",
     "category": "special-rule",
     "type": "passive",
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 128)"
-  },
-  {
-    "id": "severed-heads",
-    "category": "special-rule",
-    "source": ""
   },
   {
     "id": "sharpshooter",
@@ -512,12 +468,6 @@
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 129)"
   },
   {
-    "id": "sigils-of-defiance",
-    "category": "special-rule",
-    "type": "passive",
-    "source": "Armies of The Lord of The Rings™(page 193)"
-  },
-  {
     "id": "spectral-walk",
     "category": "special-rule",
     "type": "passive",
@@ -528,11 +478,6 @@
     "category": "special-rule",
     "type": "passive",
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 129)"
-  },
-  {
-    "id": "static",
-    "category": "special-rule",
-    "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 140)"
   },
   {
     "id": "survival-instinct",
@@ -569,12 +514,6 @@
     "category": "special-rule",
     "type": "passive",
     "source": "Middle-earth™ Strategy Battle Game Rules Manual (page 130)"
-  },
-  {
-    "id": "tusk-weapons",
-    "category": "special-rule",
-    "type": "active",
-    "source": "Armies of The Lord of The Rings™(page 193)"
   },
   {
     "id": "unyielding-combat-stance",
