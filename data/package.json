@@ -2,8 +2,9 @@
   "private": true,
   "scripts": {
     "format": "biome check --write .",
-    "build": "pnpm build:rules",
-    "build:rules": "tsx scripts/rules/generate-rules.ts"
+    "build": "pnpm build:rules && pnpm build:profiles",
+    "build:rules": "tsx scripts/rules/generate-rules.ts",
+    "build:profiles": "tsx scripts/profiles/generate-profiles.ts"
   },
   "keywords": [],
   "author": "",
