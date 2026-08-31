@@ -1,9 +1,9 @@
 import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+import { useAlphabetNavigation } from "../../hooks/useAlphabetNavigation.ts";
 import type { Rule, RuleType } from "../rules.types";
 import { createRuleRows, filterRules } from "../rules.utils";
-import { useAlphabetNavigation } from "./useAlphabetNavigation.ts";
 import { useGameRules } from "./useGameRules";
 import { useAppDispatch } from "~/app/store/hooks.ts";
 import { openRuleDrawer } from "~/app/store/uiSlice.ts";

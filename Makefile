@@ -132,7 +132,7 @@ api:
 
 .PHONY: data
 data:
-	cd $(DATA_DIR) && $(PNPM) build
+	cd $(DATA_DIR) && $(PNPM) build && $(PNPM) format
 
 
 # ==============================================================================

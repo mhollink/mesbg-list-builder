@@ -1,0 +1,15 @@
+{
+  "title": "Profiles",
+  "description": "Browse all the profiles from Middle-Earth",
+  "search": {
+    "placeholder": "Search profile by name, faction or keywords",
+    "result": "result",
+    "results": "results",
+    "noResults": "No rules found",
+    "noResultsHelper": "Try a different search term."
+  },
+  "alignment": {
+    "good": "Forces of Good",
+    "evil": "Forces of Evil"
+  }
+}

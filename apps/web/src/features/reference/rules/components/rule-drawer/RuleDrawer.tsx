@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
@@ -66,7 +67,7 @@ export function RuleDrawer() {
 
           <Divider />
 
-          <RuleSource source={rule.source ?? "unknown source."} />
+          <RuleSource source={rule.source} />
         </Stack>
       )}
     </Drawer>
@@ -169,10 +170,12 @@ function RuleDrawerHeader({
 }
 
 interface RuleSourceProps {
-  source: string;
+  source: Rule["source"];
 }
 
 function RuleSource({ source }: RuleSourceProps) {
+  const { t } = useTranslation("game-data", { keyPrefix: "books" });
+
   return (
     <Box
       sx={{
@@ -197,7 +200,7 @@ function RuleSource({ source }: RuleSourceProps) {
       </Typography>
 
       <Typography variant="body2" color="textSecondary">
-        {source}
+        {t(source.book)} (page {source.page})
       </Typography>
     </Box>
   );
