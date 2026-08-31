@@ -27,7 +27,7 @@ const generatedTranslationsDirectory = fileURLToPath(
 
 function readRules(): Rule[] {
   const workbook = readFile(rulesWorkbookPath);
-  const rows = readSheet(workbook, "rules");
+  const rows = readSheet(workbook, "Rules");
 
   const parsedRows = rows.map((row, index) => {
     const result = ruleRowSchema.safeParse(row);
@@ -76,19 +76,19 @@ function ensureUnique(values: string[], description: string): void {
   }
 }
 
-function readTranslations(locale: SupportedLocale): TranslationMap {
+function readTranslations(): Record<SupportedLocale, TranslationMap> {
   const workbook = readFile(translationsWorkbookPath);
-  const rows = readSheet(workbook, locale);
+  const rows = readSheet(workbook, "Translations");
 
   const parsedRows = rows.map((row, index) => {
     const result = translationRowSchema.safeParse(row);
 
     if (!result.success) {
       throw new Error(
-        [
-          `Invalid ${locale} translation at Excel row ${index + 2}:`,
-          z.prettifyError(result.error),
-        ].join("\n"),
+          [
+            `Invalid translation at Excel row ${index + 2}:`,
+            z.prettifyError(result.error),
+          ].join("\n"),
       );
     }
 
@@ -96,13 +96,21 @@ function readTranslations(locale: SupportedLocale): TranslationMap {
   });
 
   ensureUnique(
-    parsedRows.map((row) => row.key),
-    `${locale} translation key`,
+      parsedRows.map((row) => row.key),
+      "translation key",
   );
 
   return Object.fromEntries(
-    parsedRows.map(({ key, translation }) => [key, translation]),
-  );
+      SUPPORTED_LOCALES.map((locale) => [
+        locale,
+        Object.fromEntries(
+            parsedRows.map((row) => [
+              row.key,
+              row[locale],
+            ]),
+        ),
+      ]),
+  ) as Record<SupportedLocale, TranslationMap>;
 }
 
 function getRequiredTranslationKeys(rules: Rule[]): Set<string> {
@@ -198,9 +206,7 @@ async function generateRules(): Promise<void> {
 
   const rules = readRules();
 
-  const translations = Object.fromEntries(
-    SUPPORTED_LOCALES.map((locale) => [locale, readTranslations(locale)]),
-  ) as Record<SupportedLocale, TranslationMap>;
+  const translations = readTranslations();
 
   validateTranslationCoverage(rules, translations);
 
