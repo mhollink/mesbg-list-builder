@@ -8,7 +8,7 @@ import { z } from "zod";
 import { readFile, readSheet } from "../excel/readSheet";
 import { SUPPORTED_LOCALES, type SupportedLocale } from "../locales";
 import { writeJson } from "../output/write-json";
-import type { NestedTranslations, TranslationMap } from "../types";
+import type {NestedTranslations, TranslationMap, TranslationRow} from "../types";
 import { ruleRowSchema, translationRowSchema } from "./schemas";
 import type { Rule } from "./types";
 
@@ -76,6 +76,25 @@ function ensureUnique(values: string[], description: string): void {
   }
 }
 
+
+
+function createTranslationMap(
+    rows: TranslationRow[],
+    locale: SupportedLocale,
+): TranslationMap {
+  return Object.fromEntries(
+      rows.flatMap((row) => {
+        const translation = row[locale]?.trim();
+
+        if (!translation) {
+          return [];
+        }
+
+        return [[row.key, translation]];
+      }),
+  );
+}
+
 function readTranslations(): Record<SupportedLocale, TranslationMap> {
   const workbook = readFile(translationsWorkbookPath);
   const rows = readSheet(workbook, "Translations");
@@ -103,12 +122,7 @@ function readTranslations(): Record<SupportedLocale, TranslationMap> {
   return Object.fromEntries(
       SUPPORTED_LOCALES.map((locale) => [
         locale,
-        Object.fromEntries(
-            parsedRows.map((row) => [
-              row.key,
-              row[locale],
-            ]),
-        ),
+        createTranslationMap(parsedRows, locale)
       ]),
   ) as Record<SupportedLocale, TranslationMap>;
 }
