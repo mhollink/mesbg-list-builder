@@ -51,7 +51,7 @@ export function RuleText({ children, onRuleClick }: RuleTextProps) {
               return (
                 <Box
                   key={block.items.toString()}
-                  component="ul"
+                  component={block.listType}
                   sx={{
                     my: 0,
                     pl: 3,
@@ -91,25 +91,32 @@ type RuleTextBlock =
       content: string;
     }
   | {
-      type: "list";
-      items: string[];
-    }
-  | {
       type: "heading";
       content: string;
+    }
+  | {
+      type: "list";
+      listType: "ul" | "ol";
+      items: string[];
     };
 
 function parseBlocks(text: string): RuleTextBlock[] {
-  return text
-    .replace(/\r\n/g, "\n")
-    .split(/(<ul>.*?<\/ul>|<h3>.*?<\/h3>)/gs)
+  const normalized = text.replace(/\r\n/g, "\n");
+
+  return normalized
+    .split(/(<(?:ul|ol)>.*?<\/(?:ul|ol)>|<h3>.*?<\/h3>)/gs)
     .map((block) => block.trim())
     .filter(Boolean)
     .flatMap<RuleTextBlock>((block) => {
-      if (block.startsWith("<ul>") && block.endsWith("</ul>")) {
+      const listMatch = block.match(/^<(ul|ol)>(.*?)<\/\1>$/s);
+
+      if (listMatch) {
+        const [, listType, content] = listMatch;
+
         return {
           type: "list",
-          items: [...block.matchAll(/<li>(.*?)<\/li>/gs)]
+          listType: listType as "ul" | "ol",
+          items: [...content.matchAll(/<li>(.*?)<\/li>/gs)]
             .map((match) => match[1].trim())
             .filter(Boolean),
         };
@@ -137,29 +144,57 @@ function renderInlineMarkup(
   text: string,
   onRuleClick?: (ruleId: string) => void,
 ): ReactNode[] {
-  return text
-    .split(/(<b>.*?<\/b>|<u>.*?<\/u>|<rule id="[^"]+">.*?<\/rule>)/g)
-    .filter(Boolean)
-    .map((part, index) => {
-      const key = `${part}-${index}`;
-      if (part.startsWith("<b>") && part.endsWith("</b>")) {
-        return <Keyword key={key}>{part.slice(3, -4)}</Keyword>;
-      }
+  const result: ReactNode[] = [];
+  const regex = /<(b|u|rule)(?: id="([^"]+)")?>(.*?)<\/\1>/gs;
 
-      if (part.startsWith("<u>") && part.endsWith("</u>")) {
-        return <ErrataText key={key}>{part.slice(3, -4)}</ErrataText>;
-      }
+  let lastIndex = 0;
 
-      const ruleMatch = part.match(/^<rule id="([^"]+)">(.*?)<\/rule>$/);
-      if (ruleMatch) {
-        const [, ruleId, label] = ruleMatch;
-        return (
-          <ReferencedRuleLink key={key} onClick={() => onRuleClick?.(ruleId)}>
-            {label}
-          </ReferencedRuleLink>
+  while (true) {
+    const match = regex.exec(text);
+
+    if (match === null) {
+      break;
+    }
+
+    if (match.index > lastIndex) {
+      result.push(text.slice(lastIndex, match.index));
+    }
+
+    const [fullMatch, tag, id, content] = match;
+    const key = `${match.index}-${fullMatch.length}`;
+
+    switch (tag) {
+      case "b":
+        result.push(
+          <Keyword key={key}>
+            {renderInlineMarkup(content, onRuleClick)}
+          </Keyword>,
         );
-      }
+        break;
 
-      return part;
-    });
+      case "u":
+        result.push(
+          <ErrataText key={key}>
+            {renderInlineMarkup(content, onRuleClick)}
+          </ErrataText>,
+        );
+        break;
+
+      case "rule":
+        result.push(
+          <ReferencedRuleLink key={key} onClick={() => id && onRuleClick?.(id)}>
+            {renderInlineMarkup(content, onRuleClick)}
+          </ReferencedRuleLink>,
+        );
+        break;
+    }
+
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    result.push(text.slice(lastIndex));
+  }
+
+  return result;
 }
