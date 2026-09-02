@@ -69,11 +69,14 @@ export interface OptionEffect {
   value?: string;
 }
 
-type Source = { book: string; page: number };
+export type ProfileAlignment = "good" | "evil" | "siege-equipment";
+
+export type Source = { book: string; page: number };
 
 export interface Profile {
   profile: string;
   origin: string;
+  alignment: ProfileAlignment;
   points?: number;
   race: string[];
   factions: string[];

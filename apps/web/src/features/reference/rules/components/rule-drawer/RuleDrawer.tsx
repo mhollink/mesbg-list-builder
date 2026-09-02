@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
@@ -13,7 +14,6 @@ import { useAppDispatch } from "~/app/store/hooks.ts";
 import { openRuleDrawer } from "~/app/store/uiSlice.ts";
 import { RuleText } from "~/features/reference/rules/components/rule-text/RuleText.tsx";
 import type { Rule } from "~/features/reference/rules/rules.types.ts";
-import {useTranslation} from "react-i18next";
 
 export function RuleDrawer() {
   const dispatch = useAppDispatch();
@@ -170,13 +170,13 @@ function RuleDrawerHeader({
 }
 
 interface RuleSourceProps {
-  source: Rule["source"]
+  source: Rule["source"];
 }
 
 function RuleSource({ source }: RuleSourceProps) {
-    const { t } = useTranslation("game-data", {keyPrefix: "books"});
+  const { t } = useTranslation("game-data", { keyPrefix: "books" });
 
-    return (
+  return (
     <Box
       sx={{
         px: {

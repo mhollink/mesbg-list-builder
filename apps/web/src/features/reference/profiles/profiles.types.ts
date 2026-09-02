@@ -47,11 +47,13 @@ export interface OptionEffect {
   value?: string;
 }
 
+export type ProfileAlignment = "good" | "evil" | "siege-equipment";
 export type Source = { book: string; page: number };
 
 export interface Profile {
   profile: string;
   origin: string;
+  alignment: ProfileAlignment;
   points?: number;
   race: string[];
   factions: string[];
@@ -69,3 +71,21 @@ export interface Profile {
   profileRules?: ProfileRule[];
   magicPowers?: MagicPower[];
 }
+
+export interface LocalizedProfile extends Profile {
+  name: string;
+  originName: string;
+}
+
+export type ProfileRow =
+  | {
+      key: string;
+      type: "letter";
+      letter: string;
+    }
+  | {
+      key: string;
+      type: "profile";
+      letter: string;
+      profile: LocalizedProfile;
+    };

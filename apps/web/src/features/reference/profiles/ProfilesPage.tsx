@@ -1,31 +1,52 @@
-import Stack from "@mui/material/Stack";
-
-import profilesData from "~/generated/game-data/profiles.json" with { type: "json" };
 import Box from "@mui/material/Box";
-import {useTranslation} from "react-i18next";
-import Typography from "@mui/material/Typography";
 
+import { ProfilesHeader } from "./components/ProfilesHeader";
+import { ProfilesResultCount } from "./components/ProfilesResultCount";
+import { ProfilesToolbar } from "./components/ProfilesToolbar";
+import { ProfileList } from "./components/profile-list/ProfileList";
+import { useProfilesPage } from "./hooks/useProfilesPage";
+import { ProfileDrawer } from "~/features/reference/profiles/components/profile-drawer/ProfileDrawer.tsx";
+import { RuleDrawer } from "~/features/reference/rules/components/rule-drawer/RuleDrawer.tsx";
 
 export function ProfilesPage() {
-    const { t } = useTranslation("game-data", {keyPrefix: "profiles"})
+  const {
+    activeAlignment,
+    activeLetter,
+    registerLetter,
+    search,
+    availableLetters,
+    rows,
+    resultCount,
+    selectAlignment,
+    selectLetter,
+    changeSearch,
+    handleProfileClick,
+  } = useProfilesPage();
 
-    return (
-        <Stack>
-            { profilesData.map(profile => (
-                <Stack direction="row" sx={{justifyContent: "space-between"}}>
-                    <Typography>
-                        {t(`origins.${profile.origin}`)}
-                    </Typography>
-                    <Typography>
-                        {t(`profiles.${profile.profile}.name`)}
-                    </Typography>
+  return (
+    <Box>
+      <ProfilesHeader />
 
-                    <Box>
-                        {JSON.stringify(profile.stats)}
-                    </Box>
-                </Stack>
-            ))}
+      <ProfilesToolbar
+        activeAlignment={activeAlignment}
+        activeLetter={activeLetter}
+        search={search}
+        availableLetters={availableLetters}
+        onAlignmentChange={selectAlignment}
+        onLetterChange={selectLetter}
+        onSearchChange={changeSearch}
+      />
 
-        </Stack>
-    )
+      <ProfilesResultCount count={resultCount} />
+
+      <ProfileList
+        rows={rows}
+        registerLetter={registerLetter}
+        onOpenProfile={handleProfileClick}
+      />
+
+      <ProfileDrawer />
+      <RuleDrawer />
+    </Box>
+  );
 }

@@ -6,7 +6,7 @@ import { useAppSelector } from "~/app/store/hooks.ts";
 import rulesData from "~/generated/game-data/rules.json" with { type: "json" };
 
 export function useGameRules() {
-  const { t, i18n } = useTranslation("game-data", {keyPrefix: "rules"});
+  const { t, i18n } = useTranslation("game-data", { keyPrefix: "rules" });
 
   const translatedGameRules = useAppSelector(
     (state) => state.settings.translatedGameRules,

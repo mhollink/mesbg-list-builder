@@ -12,8 +12,8 @@ export interface Rule {
   category: RuleType;
   type?: string;
   source: {
-      book: string,
-      page: number
+    book: string;
+    page: number;
   };
 }
 

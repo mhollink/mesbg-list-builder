@@ -47,6 +47,7 @@ export function generateProfiles(
     return {
       profile: row.id,
       origin: row.origin,
+      alignment: row.alignment,
       ...(row.points ? { points: Number(row.points) } : {}),
       race: splitList(row.race),
       factions: splitList(row.factions),
