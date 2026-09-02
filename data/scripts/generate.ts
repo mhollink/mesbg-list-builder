@@ -1,4 +1,6 @@
+// @ts-ignore
 import { mkdir } from "node:fs/promises";
+// @ts-ignore
 import { fileURLToPath } from "node:url";
 
 import { generateProfiles } from "./generators/profiles";
@@ -47,5 +49,6 @@ async function generate(): Promise<void> {
 
 generate().catch((error: unknown) => {
   console.error(error);
+  // @ts-ignore
   process.exitCode = 1;
 });
