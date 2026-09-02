@@ -5464,15 +5464,6 @@
         }
       }
     },
-    "wild-warg-chieftain-general": {
-      "name": "Wild Warg Chieftain (General)",
-      "rule": {
-        "packlord": {
-          "description": "Friendly models may not benefit from the Heroic Actions or Stand Fast of this model unless they have the Warg keyword.",
-          "name": "Packlord"
-        }
-      }
-    },
     "wild-warg-chieftain": {
       "name": "Wild Warg Chieftain",
       "rule": {
