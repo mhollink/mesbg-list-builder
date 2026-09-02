@@ -16,6 +16,7 @@ import { PrivacySettings } from "../features/settings/components/privacy/Privacy
 import { SettingsPage } from "../features/settings/SettingsPage.tsx";
 import { AppLayout } from "./AppLayout.tsx";
 import { RulesPage } from "~/features/reference/rules/RulesPage.tsx";
+import {ProfilesPage} from "~/features/reference/profiles/ProfilesPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -132,10 +133,7 @@ export const router = createBrowserRouter([
           {
             path: "profiles",
             element: (
-              <FeaturePagePlaceholder
-                title="Profiles"
-                description="Browse model profiles."
-              />
+              <ProfilesPage />
             ),
           },
         ],
