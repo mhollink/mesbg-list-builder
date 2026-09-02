@@ -1,7 +1,102 @@
-import {z} from "zod";
-import {profileMagicPowerRowSchema, profileRowSchema, profileRuleRowSchema, profileStatsRowSchema} from "../schemas";
+import type { z } from "zod";
 
-export type Profile = z.infer<typeof profileRowSchema>;
-export type Stats = z.infer<typeof profileStatsRowSchema>
-export type ProfileRule = z.infer<typeof profileRuleRowSchema>
-export type MagicalPower = z.infer<typeof profileMagicPowerRowSchema>
+import type {
+  optionEffectRowSchema,
+  optionRequirementRowSchema,
+  optionRowSchema,
+  profileMagicPowerRowSchema,
+  profileRowSchema,
+  profileRuleRowSchema,
+  profileStatsRowSchema,
+} from "../schemas";
+
+export type ProfileRow = z.infer<typeof profileRowSchema>;
+export type StatsRow = z.infer<typeof profileStatsRowSchema>;
+export type ProfileRuleRow = z.infer<typeof profileRuleRowSchema>;
+export type MagicalPowerRow = z.infer<typeof profileMagicPowerRowSchema>;
+export type OptionRow = z.infer<typeof optionRowSchema>;
+export type OptionRequirementRow = z.infer<typeof optionRequirementRowSchema>;
+export type OptionEffectRow = z.infer<typeof optionEffectRowSchema>;
+
+export interface Stats {
+  mv: string;
+  fv: string;
+  sv: string;
+  s: string;
+  d: string;
+  a: string;
+  w: string;
+  c: string;
+  i: string;
+
+  might?: string | undefined;
+  will?: string | undefined;
+  fate?: string | undefined;
+
+  range?: string | undefined;
+}
+
+export type ProfileRule = {
+  id: string;
+  type: string;
+  option?: string;
+};
+
+export type MagicPower = {
+  id: string;
+  range: string;
+  cast: string;
+  target?: string;
+};
+
+export interface ProfileOption {
+  id: string;
+  points: number;
+  requirements: OptionRequirement[];
+  effects: OptionEffect[];
+}
+
+export interface OptionRequirement {
+  type: string;
+  target: string;
+  scope?: string;
+  value?: string;
+}
+
+export interface OptionEffect {
+  type: string;
+  target: string;
+  value?: string;
+}
+
+export interface Profile {
+  profile: string;
+  origin: string;
+
+  points?: number;
+  race?: string;
+  faction: string[];
+  unitType: string[];
+  baseSize?: number;
+
+  selectable: boolean;
+
+  source: {
+    book: string;
+    page?: number;
+  };
+
+  stats: Stats;
+
+  heroicActions: string[];
+  specialRules: string[];
+  wargear: string[];
+
+  additionalProfiles: string[];
+  additionalText: string[];
+
+  options: ProfileOption[];
+
+  profileRules: ProfileRule[];
+  magicPowers: MagicPower[];
+}
