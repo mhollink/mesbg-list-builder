@@ -69,34 +69,25 @@ export interface OptionEffect {
   value?: string;
 }
 
+type Source = { book: string; page: number };
+
 export interface Profile {
   profile: string;
   origin: string;
-
   points?: number;
-  race?: string;
-  faction: string[];
-  unitType: string[];
+  race: string[];
+  factions: string[];
+  unitTypes: string[];
   baseSize?: string;
-
   selectable: boolean;
-
-  source: {
-    book: string;
-    page?: number;
-  };
-
+  source: Source;
   stats: Stats;
-
-  heroicActions: string[];
-  specialRules: string[];
+  heroicActions?: string[];
+  specialRules?: string[];
   wargear: string[];
-
-  additionalProfiles: string[];
-  additionalText: string[];
-
-  options: ProfileOption[];
-
-  profileRules: ProfileRule[];
-  magicPowers: MagicPower[];
+  additionalProfiles?: string[];
+  additionalText?: string[];
+  options?: ProfileOption[];
+  profileRules?: ProfileRule[];
+  magicPowers?: MagicPower[];
 }

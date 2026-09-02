@@ -1,6 +1,6 @@
 import type { OptionWorkbook } from "../loader/loadOptions";
 import type { ProfileWorkbook } from "../loader/loadProfiles";
-import {
+import type {
   MagicalPowerRow,
   MagicPower,
   OptionEffect,
@@ -10,10 +10,10 @@ import {
   Profile,
   ProfileOption,
   ProfileRule,
-  ProfileRuleRow, Stats,
+  ProfileRuleRow,
 } from "../types/profile";
 import { groupBy } from "../utils/groupBy";
-import { splitList } from "../utils/lists";
+import { optionalArray, splitList } from "../utils/lists";
 
 export function generateProfiles(
   profileData: ProfileWorkbook,
@@ -48,9 +48,9 @@ export function generateProfiles(
       profile: row.id,
       origin: row.origin,
       ...(row.points ? { points: Number(row.points) } : {}),
-      ...(row.race ? { race: row.race } : {}),
-      faction: splitList(row.faction),
-      unitType: splitList(row.unit_type),
+      race: splitList(row.race),
+      factions: splitList(row.factions),
+      unitTypes: splitList(row.unit_types),
       baseSize: row.base_size,
       selectable: row.selectable,
       source: {
@@ -58,14 +58,23 @@ export function generateProfiles(
         page: Number(row.source_page),
       },
       stats: profileStats,
-      heroicActions: splitList(row.heroic_actions),
-      specialRules: splitList(row.special_rules),
       wargear: splitList(row.wargear),
-      additionalProfiles: splitList(row.additional_profiles),
-      additionalText: splitList(row.additional_text),
-      options: optionsByProfile.get(row.id) ?? [],
-      profileRules: mapRules(rulesByProfile.get(row.id) ?? []),
-      magicPowers: mapPowers(powersByProfile.get(row.id) ?? []),
+      ...optionalArray("heroicActions", splitList(row.heroic_actions)),
+      ...optionalArray("specialRules", splitList(row.special_rules)),
+      ...optionalArray(
+        "additionalProfiles",
+        splitList(row.additional_profiles),
+      ),
+      ...optionalArray("additionalText", splitList(row.additional_text)),
+      ...optionalArray("options", optionsByProfile.get(row.id) ?? []),
+      ...optionalArray(
+        "profileRules",
+        mapRules(rulesByProfile.get(row.id) ?? []),
+      ),
+      ...optionalArray(
+        "magicPowers",
+        mapPowers(powersByProfile.get(row.id) ?? []),
+      ),
     };
   });
 }
