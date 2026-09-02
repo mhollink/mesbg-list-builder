@@ -77,7 +77,7 @@ export interface Profile {
   race?: string;
   faction: string[];
   unitType: string[];
-  baseSize?: number;
+  baseSize?: string;
 
   selectable: boolean;
 

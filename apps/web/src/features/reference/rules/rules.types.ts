@@ -11,7 +11,10 @@ export interface Rule {
   description: string;
   category: RuleType;
   type?: string;
-  source?: string;
+  source: {
+      book: string,
+      page: number
+  };
 }
 
 export type RuleRow =

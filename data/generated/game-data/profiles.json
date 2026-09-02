@@ -6,7 +6,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -63,7 +63,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -106,7 +106,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -168,7 +168,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -239,7 +239,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -305,7 +305,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -359,7 +359,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -411,7 +411,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -461,7 +461,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -513,7 +513,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -564,7 +564,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -623,7 +623,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -668,7 +668,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -717,7 +717,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -780,7 +780,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -829,7 +829,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -909,7 +909,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -970,7 +970,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1029,7 +1029,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1078,7 +1078,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1123,7 +1123,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1175,7 +1175,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1223,7 +1223,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1285,7 +1285,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1342,7 +1342,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1402,7 +1402,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1484,7 +1484,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1535,7 +1535,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1595,7 +1595,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1643,7 +1643,7 @@
     "race": "warg",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1682,7 +1682,7 @@
     "race": "warg",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1732,7 +1732,7 @@
     "race": "warg",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1781,7 +1781,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1820,7 +1820,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -1859,7 +1859,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1904,7 +1904,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
@@ -1951,7 +1951,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2000,7 +2000,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2051,7 +2051,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2107,7 +2107,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2158,7 +2158,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2228,7 +2228,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2281,7 +2281,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2339,7 +2339,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2393,7 +2393,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2454,7 +2454,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -2517,7 +2517,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2593,7 +2593,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2641,7 +2641,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2692,7 +2692,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -2770,7 +2770,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2828,7 +2828,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2892,7 +2892,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -2935,7 +2935,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -2984,7 +2984,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -3051,7 +3051,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -3121,7 +3121,7 @@
     "points": 70,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -3175,7 +3175,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3219,7 +3219,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3280,7 +3280,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3330,7 +3330,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3381,7 +3381,7 @@
     "race": "wizard",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3494,7 +3494,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3544,7 +3544,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3595,7 +3595,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3646,7 +3646,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3695,7 +3695,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -3737,7 +3737,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "100mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3796,7 +3796,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3862,7 +3862,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "170mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3921,7 +3921,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -3970,7 +3970,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4049,7 +4049,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -4099,7 +4099,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4149,7 +4149,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4200,7 +4200,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -4256,7 +4256,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4310,7 +4310,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4367,7 +4367,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4425,7 +4425,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4485,7 +4485,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4540,7 +4540,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4596,7 +4596,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -4647,7 +4647,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4721,7 +4721,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4792,7 +4792,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4850,7 +4850,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4911,7 +4911,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -4951,7 +4951,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -5000,7 +5000,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -5061,7 +5061,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -5118,7 +5118,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -5196,7 +5196,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -5280,7 +5280,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -5363,7 +5363,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -5431,7 +5431,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -5499,7 +5499,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -5590,7 +5590,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -5642,7 +5642,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -5704,7 +5704,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -5783,7 +5783,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -5892,7 +5892,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -5957,7 +5957,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -6012,7 +6012,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -6090,7 +6090,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -6179,7 +6179,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -6246,7 +6246,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -6291,7 +6291,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -6364,7 +6364,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -6414,7 +6414,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -6464,7 +6464,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -6531,7 +6531,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -6581,7 +6581,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -6633,7 +6633,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -6683,7 +6683,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -6751,7 +6751,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -6810,7 +6810,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -6868,7 +6868,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -6927,7 +6927,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -6994,7 +6994,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -7045,7 +7045,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -7111,7 +7111,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -7189,7 +7189,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -7236,6 +7236,7 @@
     "origin": "evil-legacy",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7271,7 +7272,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7318,7 +7319,7 @@
     "race": "spider",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": false,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7360,7 +7361,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7401,7 +7402,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7469,7 +7470,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7510,7 +7511,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7558,7 +7559,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7607,7 +7608,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7672,7 +7673,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7719,7 +7720,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7762,7 +7763,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7810,7 +7811,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7864,7 +7865,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7929,7 +7930,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -7978,7 +7979,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8026,7 +8027,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8084,7 +8085,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8140,7 +8141,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8191,7 +8192,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8243,7 +8244,7 @@
     "race": "great-beast",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "120mm-oval",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8295,7 +8296,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8347,7 +8348,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8397,7 +8398,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8455,7 +8456,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8520,7 +8521,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8618,7 +8619,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8674,7 +8675,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8724,7 +8725,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8767,7 +8768,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8825,7 +8826,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8873,7 +8874,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8924,7 +8925,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -8987,7 +8988,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9063,7 +9064,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9119,7 +9120,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9168,7 +9169,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9210,7 +9211,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9255,7 +9256,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9310,7 +9311,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9368,7 +9369,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9419,7 +9420,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9488,7 +9489,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9530,7 +9531,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9592,7 +9593,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9688,7 +9689,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9783,7 +9784,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9879,7 +9880,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9922,7 +9923,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10022,7 +10023,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10117,7 +10118,7 @@
     "points": 120,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10172,7 +10173,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10235,7 +10236,7 @@
     "points": 130,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10336,7 +10337,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10396,7 +10397,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10442,6 +10443,7 @@
     "points": 35,
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10494,7 +10496,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10562,7 +10564,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -10610,7 +10612,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -10648,6 +10650,7 @@
     "origin": "fallen-realms",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -10689,7 +10692,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -10729,6 +10732,7 @@
     "origin": "fallen-realms",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -10764,7 +10768,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -10813,7 +10817,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -10892,7 +10896,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -10962,7 +10966,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11039,7 +11043,7 @@
     "points": 70,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -11093,7 +11097,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -11150,7 +11154,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -11201,7 +11205,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -11255,7 +11259,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11302,7 +11306,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -11361,7 +11365,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11420,7 +11424,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11470,7 +11474,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11524,7 +11528,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11597,7 +11601,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11665,7 +11669,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11720,7 +11724,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11794,7 +11798,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -11846,7 +11850,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11914,7 +11918,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -11963,7 +11967,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -12030,7 +12034,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12085,7 +12089,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -12147,7 +12151,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12198,6 +12202,7 @@
     "origin": "fallen-realms",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12256,7 +12261,7 @@
     "race": "mumak",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "180x140mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -12317,7 +12322,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12375,7 +12380,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12417,7 +12422,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12460,7 +12465,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12528,7 +12533,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12596,7 +12601,7 @@
     "race": "drake",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12645,7 +12650,7 @@
     "race": "mumak",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "180x140mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -12745,7 +12750,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -12785,7 +12790,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12837,7 +12842,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -12912,7 +12917,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -12959,7 +12964,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -13010,7 +13015,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -13078,7 +13083,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13160,7 +13165,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -13216,7 +13221,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13261,7 +13266,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13304,7 +13309,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13359,7 +13364,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -13405,7 +13410,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13456,7 +13461,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13507,7 +13512,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -13566,7 +13571,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13623,7 +13628,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13704,7 +13709,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -13759,7 +13764,7 @@
     "race": "wizard",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13888,7 +13893,7 @@
     "points": 60,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -13946,7 +13951,7 @@
     "points": 100,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "120mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14008,7 +14013,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14057,7 +14062,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14114,7 +14119,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -14181,7 +14186,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -14233,7 +14238,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14289,7 +14294,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14354,7 +14359,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14425,7 +14430,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14500,7 +14505,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14573,7 +14578,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14644,7 +14649,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14717,7 +14722,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14775,7 +14780,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -14847,7 +14852,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14899,7 +14904,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14951,7 +14956,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -15018,7 +15023,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -15070,7 +15075,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -15134,7 +15139,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -15196,7 +15201,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -15242,7 +15247,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -15315,7 +15320,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -15374,7 +15379,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -15442,7 +15447,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15495,7 +15500,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15547,7 +15552,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15605,7 +15610,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15658,7 +15663,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15710,7 +15715,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15757,7 +15762,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15804,7 +15809,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15867,7 +15872,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15918,7 +15923,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -15973,7 +15978,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16026,7 +16031,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16087,7 +16092,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16131,7 +16136,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16182,7 +16187,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16233,7 +16238,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16287,7 +16292,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16356,7 +16361,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16407,7 +16412,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16454,7 +16459,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16505,7 +16510,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16578,7 +16583,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16647,7 +16652,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16703,7 +16708,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -16752,7 +16757,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -16797,7 +16802,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -16878,7 +16883,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -16946,7 +16951,7 @@
     "race": "warg",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -16987,7 +16992,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17044,7 +17049,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17097,7 +17102,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17152,7 +17157,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17208,7 +17213,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "160mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17275,7 +17280,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17325,7 +17330,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17371,7 +17376,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17439,7 +17444,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "80mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17503,7 +17508,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17570,7 +17575,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17630,7 +17635,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17689,7 +17694,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17751,7 +17756,7 @@
     "race": "spider",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17800,7 +17805,7 @@
     "race": "spider",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17850,7 +17855,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -17902,7 +17907,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18022,7 +18027,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18084,7 +18089,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18146,7 +18151,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18204,7 +18209,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18261,7 +18266,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18323,7 +18328,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18385,7 +18390,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18447,7 +18452,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "80mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18501,7 +18506,7 @@
     "race": "bat",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18553,7 +18558,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -18609,7 +18614,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -18649,7 +18654,7 @@
     "race": "wizard",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -18718,7 +18723,7 @@
     "race": "wizard",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -18769,7 +18774,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -18809,7 +18814,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -18863,7 +18868,7 @@
     "race": "bird",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -18915,7 +18920,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -18965,7 +18970,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19014,7 +19019,7 @@
     "points": 75,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "105mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19073,7 +19078,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19123,7 +19128,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -19192,7 +19197,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19263,7 +19268,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -19321,7 +19326,7 @@
     "race": "warg",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19360,7 +19365,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19426,7 +19431,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19497,7 +19502,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -19554,7 +19559,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -19617,7 +19622,7 @@
     "race": "wizard",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19732,7 +19737,7 @@
     "race": "wizard",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -19772,7 +19777,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19829,7 +19834,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -19889,7 +19894,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -19937,7 +19942,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -19985,7 +19990,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20041,7 +20046,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20092,7 +20097,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20137,7 +20142,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20181,6 +20186,7 @@
     "points": 80,
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20238,7 +20244,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20279,7 +20285,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20338,7 +20344,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20380,7 +20386,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -20448,7 +20454,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20515,7 +20521,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20571,7 +20577,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20626,7 +20632,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -20710,7 +20716,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -20757,7 +20763,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -20804,7 +20810,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -20850,7 +20856,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -20892,7 +20898,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -20937,7 +20943,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -20989,7 +20995,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21079,7 +21085,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21124,7 +21130,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21188,7 +21194,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21242,7 +21248,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -21298,7 +21304,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21343,7 +21349,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21406,7 +21412,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21453,7 +21459,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -21501,7 +21507,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21560,7 +21566,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21608,7 +21614,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21673,7 +21679,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21717,7 +21723,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21765,7 +21771,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21824,7 +21830,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21902,7 +21908,7 @@
     "points": 70,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -21958,7 +21964,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
@@ -21997,7 +22003,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22039,7 +22045,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -22103,7 +22109,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -22165,7 +22171,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -22214,7 +22220,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22267,7 +22273,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22343,7 +22349,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22397,7 +22403,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22466,7 +22472,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22514,7 +22520,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22568,7 +22574,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22629,7 +22635,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22700,7 +22706,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22743,7 +22749,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22784,7 +22790,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -22853,7 +22859,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22902,7 +22908,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22972,7 +22978,7 @@
     "points": 50,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -23033,7 +23039,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23084,7 +23090,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23131,7 +23137,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23179,7 +23185,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23232,7 +23238,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23286,7 +23292,7 @@
     "points": 150,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "120mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23359,7 +23365,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23425,7 +23431,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23503,7 +23509,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23629,7 +23635,7 @@
     "race": "uruk-hai",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23686,7 +23692,7 @@
     "race": "spider",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23753,7 +23759,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23803,7 +23809,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -23912,7 +23918,7 @@
     "race": "spirit; ringwraith",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24064,7 +24070,7 @@
     "race": "fell-beast",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24112,7 +24118,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -24148,7 +24154,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24186,7 +24192,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24228,7 +24234,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24270,7 +24276,7 @@
     "race": "fell-beast",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24318,7 +24324,7 @@
     "race": "warg",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -24356,7 +24362,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "good-legacies-of-middle-earth-pdf",
@@ -24392,7 +24398,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24428,7 +24434,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24464,7 +24470,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
@@ -24502,7 +24508,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24544,7 +24550,7 @@
     "race": "eagle",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -24588,7 +24594,7 @@
     "race": "elk",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -24632,7 +24638,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -24668,7 +24674,7 @@
     "race": "goat",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "170mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -24722,7 +24728,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "170mm",
     "selectable": false,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -24766,7 +24772,7 @@
     "race": "pony",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -24802,7 +24808,7 @@
     "race": "rabbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "120mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -24849,7 +24855,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24891,7 +24897,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24933,7 +24939,7 @@
     "race": "horse",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -24975,7 +24981,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25014,7 +25020,7 @@
     "race": "warg",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -25060,7 +25066,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "80mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -25107,7 +25113,7 @@
     "race": "boar",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -25143,7 +25149,7 @@
     "race": "camel",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -25185,7 +25191,7 @@
     "race": "goat",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -25229,7 +25235,7 @@
     "race": "warg",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -25266,7 +25272,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25322,7 +25328,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25386,7 +25392,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -25448,7 +25454,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -25510,7 +25516,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25593,7 +25599,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25681,7 +25687,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25745,7 +25751,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25812,7 +25818,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25878,7 +25884,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25934,7 +25940,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25985,7 +25991,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26046,7 +26052,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26120,7 +26126,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26191,7 +26197,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26257,7 +26263,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26322,7 +26328,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26379,7 +26385,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26437,7 +26443,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26498,7 +26504,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26567,7 +26573,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26641,7 +26647,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26730,7 +26736,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26795,7 +26801,7 @@
     "points": 6,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26870,6 +26876,7 @@
     "origin": "siege-equipment",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -26910,6 +26917,7 @@
     "origin": "siege-equipment",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -26950,6 +26958,7 @@
     "origin": "siege-equipment",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -26990,6 +26999,7 @@
     "origin": "siege-equipment",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -27030,6 +27040,7 @@
     "origin": "siege-equipment",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -27070,6 +27081,7 @@
     "origin": "siege-equipment",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -27110,6 +27122,7 @@
     "origin": "siege-equipment",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -27150,6 +27163,7 @@
     "origin": "siege-equipment",
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": false,
     "source": {
       "book": "rules-manual",
@@ -27197,7 +27211,7 @@
     "race": "dragon",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "231x133mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -27303,7 +27317,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -27397,7 +27411,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -27453,7 +27467,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -27506,7 +27520,7 @@
     "race": "ent",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -27566,7 +27580,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -27620,7 +27634,7 @@
     "points": 60,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -27687,7 +27701,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -27743,7 +27757,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -27821,7 +27835,7 @@
     "points": 25,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -27878,7 +27892,7 @@
     "race": "ent",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -27937,7 +27951,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -28013,7 +28027,7 @@
     "race": "ent",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -28065,7 +28079,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -28114,7 +28128,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -28169,7 +28183,7 @@
     "points": 75,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -28214,7 +28228,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -28267,7 +28281,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -28316,7 +28330,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -28397,7 +28411,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -28465,7 +28479,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -28555,7 +28569,7 @@
     "points": 170,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -28668,7 +28682,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -28725,7 +28739,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -28794,7 +28808,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -28848,7 +28862,7 @@
     "points": 100,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -28893,7 +28907,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -28953,7 +28967,7 @@
     "points": 25,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29019,7 +29033,7 @@
     "points": 25,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -29065,7 +29079,7 @@
     "points": 150,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -29119,7 +29133,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -29167,7 +29181,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29223,7 +29237,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29272,7 +29286,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29314,7 +29328,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29365,7 +29379,7 @@
     "race": "elf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -29452,7 +29466,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -29510,7 +29524,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29563,7 +29577,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -29618,7 +29632,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29688,7 +29702,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29745,7 +29759,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -29800,7 +29814,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -29862,7 +29876,7 @@
     "points": 145,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -29977,7 +29991,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -30028,7 +30042,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30082,7 +30096,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30152,7 +30166,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -30217,7 +30231,7 @@
     "points": 170,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -30318,7 +30332,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30372,7 +30386,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30422,7 +30436,7 @@
     "race": "dwarf",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -30472,7 +30486,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -30527,7 +30541,7 @@
     "race": "ent",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30608,7 +30622,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -30659,7 +30673,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -30707,7 +30721,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30764,7 +30778,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30812,7 +30826,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30865,7 +30879,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30921,7 +30935,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -30980,7 +30994,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -31036,7 +31050,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -31120,7 +31134,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -31175,7 +31189,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -31254,7 +31268,7 @@
     "race": "orc",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -31295,7 +31309,7 @@
     "race": "man",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -31354,7 +31368,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
@@ -31395,7 +31409,7 @@
     "points": 35,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -31443,7 +31457,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -31501,7 +31515,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -31558,7 +31572,7 @@
     "points": 150,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "100mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -31624,7 +31638,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "50mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -31691,7 +31705,7 @@
     "race": "dragon",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "130mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -31818,7 +31832,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -31888,7 +31902,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -31945,7 +31959,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -31994,7 +32008,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -32048,7 +32062,7 @@
     "race": "hobbit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -32099,7 +32113,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -32154,7 +32168,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -32204,6 +32218,7 @@
     "points": 75,
     "faction": [],
     "unitType": [],
+    "baseSize": "",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -32258,7 +32273,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -32303,7 +32318,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-middle-earth",
@@ -32367,7 +32382,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "25mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -32428,7 +32443,7 @@
     "race": "spirit",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -32496,7 +32511,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -32560,7 +32575,7 @@
     "race": "goblin",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -32609,7 +32624,7 @@
     "points": 200,
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "130mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -32680,7 +32695,7 @@
     "race": "troll",
     "faction": [],
     "unitType": [],
-    "baseSize": null,
+    "baseSize": "60mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",

@@ -5,8 +5,8 @@ import type { Rule, RuleRow } from "../types/rule";
 
 export function generateRules(filename: string): Rule[] {
   const workbook = readFile(filename);
-
-  const rows = parseRows(readSheet(workbook, "Rules"), ruleRowSchema, "rule");
+  const sheet = readSheet(workbook, "Rules");
+  const rows = parseRows(sheet, ruleRowSchema, "rule");
 
   validateRules(rows);
 
@@ -25,14 +25,14 @@ function mapRule(row: RuleRow): Rule {
   };
 }
 
-function validateRules(rows: RuleRow[]): void {
+function validateRules(rules: RuleRow[]): void {
   const ids = new Set<string>();
 
-  for (const row of rows) {
-    if (ids.has(row.id)) {
-      throw new Error(`Duplicate rule id '${row.id}'`);
+  for (const rule of rules) {
+    if (ids.has(rule.id)) {
+      throw new Error(`Duplicate rule id '${rule.id}'`);
     }
 
-    ids.add(row.id);
+    ids.add(rule.id);
   }
 }

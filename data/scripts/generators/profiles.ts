@@ -51,7 +51,7 @@ export function generateProfiles(
       ...(row.race ? { race: row.race } : {}),
       faction: splitList(row.faction),
       unitType: splitList(row.unit_type),
-      ...(row.base_size ? { baseSize: Number(row.base_size) } : {}),
+      baseSize: row.base_size,
       selectable: row.selectable,
       source: {
         book: row.source_book,

@@ -5,6 +5,7 @@ export function parseRows<T>(
   schema: z.ZodType<T>,
   description: string,
 ): T[] {
+  console.log("parsing rows", description)
   return rows.map((row, index) => {
     const result = schema.safeParse(row);
 

@@ -1,7 +1,6 @@
-import { readFile } from "xlsx";
 
 import { parseRows } from "../excel/parseSheet";
-import { readSheet } from "../excel/readSheet";
+import { readFile, readSheet } from "../excel/readSheet";
 import {
   profileMagicPowerRowSchema,
   profileRowSchema,

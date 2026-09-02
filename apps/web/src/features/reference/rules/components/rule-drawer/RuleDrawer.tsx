@@ -13,6 +13,7 @@ import { useAppDispatch } from "~/app/store/hooks.ts";
 import { openRuleDrawer } from "~/app/store/uiSlice.ts";
 import { RuleText } from "~/features/reference/rules/components/rule-text/RuleText.tsx";
 import type { Rule } from "~/features/reference/rules/rules.types.ts";
+import {useTranslation} from "react-i18next";
 
 export function RuleDrawer() {
   const dispatch = useAppDispatch();
@@ -66,7 +67,7 @@ export function RuleDrawer() {
 
           <Divider />
 
-          <RuleSource source={rule.source ?? "unknown source."} />
+          <RuleSource source={rule.source} />
         </Stack>
       )}
     </Drawer>
@@ -169,11 +170,13 @@ function RuleDrawerHeader({
 }
 
 interface RuleSourceProps {
-  source: string;
+  source: Rule["source"]
 }
 
 function RuleSource({ source }: RuleSourceProps) {
-  return (
+    const { t } = useTranslation("game-data", {keyPrefix: "books"});
+
+    return (
     <Box
       sx={{
         px: {
@@ -197,7 +200,7 @@ function RuleSource({ source }: RuleSourceProps) {
       </Typography>
 
       <Typography variant="body2" color="textSecondary">
-        {source}
+        {t(source.book)} (page {source.page})
       </Typography>
     </Box>
   );
