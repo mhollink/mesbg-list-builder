@@ -7,6 +7,7 @@ import { useAppDispatch } from "~/app/store/hooks";
 import { openProfileDrawer, openRuleDrawer } from "~/app/store/uiSlice";
 import { useDrawerStack } from "~/features/reference/hooks/useDrawerStack";
 import { useGameRules } from "~/features/reference/rules/hooks/useGameRules";
+import type {SpecialRuleRef} from "~/features/reference/profiles/profiles.types.ts";
 
 export function useProfileDrawer() {
   const dispatch = useAppDispatch();
@@ -46,10 +47,22 @@ export function useProfileDrawer() {
     const translateAdditionalText = (id: string) =>
       t(`profiles.${profile.profile}.additional-text.${id}`);
 
-    const resolveRule = (id: string) => ({
+    const resolveHeroic = (id: string) => ({
       id,
       name: rulesById.get(id)?.name ?? id,
     });
+
+    const resolveRule = (ref: SpecialRuleRef) => {
+      let name = rulesById.get(ref.id)?.name ?? ref.id;
+      if (ref.parameter) {
+        name = name.replace(/\([x|X]\)/, `(${ref.parameter})`)
+      }
+      return ({
+        ...ref,
+        name
+      });
+    };
+
 
     return {
       profile,
@@ -58,7 +71,7 @@ export function useProfileDrawer() {
         translateAdditionalText,
       ),
 
-      heroicActions: (profile.heroicActions ?? []).map(resolveRule),
+      heroicActions: (profile.heroicActions ?? []).map(resolveHeroic),
 
       specialRules: (profile.specialRules ?? []).map(resolveRule),
 

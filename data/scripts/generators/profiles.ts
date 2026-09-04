@@ -11,6 +11,7 @@ import type {
   ProfileOption,
   ProfileRule,
   ProfileRuleRow,
+  RuleReference,
   Stats,
   StatsRow,
 } from "../types/profile";
@@ -61,7 +62,7 @@ export function generateProfiles(
       stats: mapStats(stats),
       wargear: splitList(row.wargear),
       ...optionalArray("heroicActions", splitList(row.heroic_actions)),
-      ...optionalArray("specialRules", splitList(row.special_rules)),
+      ...optionalArray("specialRules", splitRuleReferences(row.special_rules)),
       ...optionalArray(
         "additionalProfiles",
         splitList(row.additional_profiles),
@@ -121,6 +122,25 @@ function mapStats(row: StatsRow): Stats {
     c: row.c,
     i: row.i,
   };
+}
+
+export function splitRuleReferences(value?: string): RuleReference[] {
+  if (!value?.trim()) {
+    return [];
+  }
+
+  return value
+    .split(";")
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .map((entry) => {
+      const [id, parameter] = entry.split(":", 2);
+
+      return {
+        id,
+        ...(parameter ? { parameter } : {}),
+      };
+    });
 }
 
 function mapPowers(magicalPowerRows: MagicalPowerRow[]): MagicPower[] {

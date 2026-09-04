@@ -57,6 +57,11 @@ export type ProfileRule = {
   option?: string;
 };
 
+export type RuleReference = {
+  id: string;
+  parameter?: string;
+};
+
 export type MagicPower = {
   id: string;
   range: string;
@@ -84,7 +89,7 @@ export interface OptionEffect {
   value?: string;
 }
 
-export type ProfileAlignment = "good" | "evil" | "siege-equipment";
+export type ProfileAlignment = "good" | "evil" | "both" | "siege-equipment";
 
 export type Source = { book: string; page: number };
 
@@ -101,7 +106,7 @@ export interface Profile {
   source: Source;
   stats: Stats;
   heroicActions?: string[];
-  specialRules?: string[];
+  specialRules?: RuleReference[];
   wargear: string[];
   additionalProfiles?: string[];
   additionalText?: string[];

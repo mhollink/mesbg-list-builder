@@ -30,7 +30,11 @@
     },
     "wargear": ["armour", "hand-weapon", "shield"],
     "heroicActions": ["heroic-strength", "heroic-strike"],
-    "specialRules": ["mighty-blow"],
+    "specialRules": [
+      {
+        "id": "mighty-blow"
+      }
+    ],
     "profileRules": [
       {
         "id": "warlord-of-carn-dum",
@@ -273,7 +277,18 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-strike", "heroic-accuracy"],
-    "specialRules": ["expert-shot", "hatred-angmar", "sharpshooter"],
+    "specialRules": [
+      {
+        "id": "expert-shot"
+      },
+      {
+        "id": "hatred",
+        "parameter": "angmar"
+      },
+      {
+        "id": "sharpshooter"
+      }
+    ],
     "profileRules": [
       {
         "id": "remnants-of-arnor",
@@ -313,7 +328,11 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-strike", "heroic-accuracy"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "chieftain-of-the-dunedain",
@@ -353,7 +372,19 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield", "war-spear", "horse"],
     "heroicActions": ["heroic-march", "heroic-defence"],
-    "specialRules": ["expert-rider", "hatred-angmar", "master-of-battle-5"]
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "hatred",
+        "parameter": "angmar"
+      },
+      {
+        "id": "master-of-battle",
+        "parameter": "5"
+      }
+    ]
   },
   {
     "profile": "arvedui-last-king-of-arnor",
@@ -386,7 +417,12 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength", "heroic-defence"],
-    "specialRules": ["hatred-angmar"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "angmar"
+      }
+    ],
     "profileRules": [
       {
         "id": "the-king-in-the-north",
@@ -425,7 +461,17 @@
       "fate": "0"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["terror", "blades-of-the-dead", "spectral-walk"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "blades-of-the-dead"
+      },
+      {
+        "id": "spectral-walk"
+      }
+    ],
     "magicPowers": [
       {
         "id": "paralyse",
@@ -467,10 +513,20 @@
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength", "heroic-challenge"],
     "specialRules": [
-      "dominant-4",
-      "general-hunter",
-      "terror",
-      "throw-stones-range-12-strength-8"
+      {
+        "id": "dominant",
+        "parameter": "4"
+      },
+      {
+        "id": "general-hunter"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
     ],
     "profileRules": [
       {
@@ -516,7 +572,12 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["hatred-angmar"]
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "angmar"
+      }
+    ]
   },
   {
     "profile": "captain-of-carn-dum",
@@ -685,11 +746,21 @@
       "heroic-strike"
     ],
     "specialRules": [
-      "expert-rider",
-      "horse-lord",
-      "resistant-to-magic",
-      "terror",
-      "woodland-creature"
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "options": [
       {
@@ -755,13 +826,29 @@
     "wargear": ["claws-and-teeth-hand-weapons"],
     "heroicActions": ["heroic-strength", "heroic-defence"],
     "specialRules": [
-      "dominant-5",
-      "fly",
-      "harbinger-of-evil-12",
-      "large-target",
-      "monstrous-charge",
-      "resistant-to-magic",
-      "terror"
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "fly"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "profileRules": [
       {
@@ -807,7 +894,11 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-accuracy", "heroic-strike"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "banner-of-arwen-evenstar",
@@ -852,9 +943,17 @@
     },
     "wargear": ["hand-weapon"],
     "specialRules": [
-      "dominant-3",
-      "terror",
-      "throw-stones-range-12-strength-8"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
     ],
     "profileRules": [
       {
@@ -891,7 +990,12 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield", "war-spear", "horse"],
-    "specialRules": ["hatred-angmar"]
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "angmar"
+      }
+    ]
   },
   {
     "profile": "malbeth-the-seer",
@@ -1003,7 +1107,12 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-weapon", "bow"],
-    "specialRules": ["hatred-angmar"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "angmar"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -1056,7 +1165,11 @@
     },
     "wargear": ["hand-weapon", "bow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "armour",
@@ -1103,10 +1216,19 @@
     },
     "wargear": ["an-amalgamation-of-grasping-spectral-hands-hand-weapons"],
     "specialRules": [
-      "dominant-3",
-      "spectral-walk",
-      "terror",
-      "blades-of-the-dead"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "spectral-walk"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "blades-of-the-dead"
+      }
     ],
     "profileRules": [
       {
@@ -1157,7 +1279,17 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-challenge"],
-    "specialRules": ["blades-of-the-dead", "terror", "spectral-walk"],
+    "specialRules": [
+      {
+        "id": "blades-of-the-dead"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "spectral-walk"
+      }
+    ],
     "profileRules": [
       {
         "id": "herald-of-doom",
@@ -1224,7 +1356,12 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon", "spear", "shield"],
-    "specialRules": ["hatred-angmar"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "angmar"
+      }
+    ],
     "options": [
       {
         "id": "swap-spear-and-shield-for-banner",
@@ -1310,7 +1447,14 @@
       "i": "8"
     },
     "wargear": ["claws-and-teeth-hand-weapons"],
-    "specialRules": ["fell-sight", "terror"],
+    "specialRules": [
+      {
+        "id": "fell-sight"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "feral-charge",
@@ -1378,7 +1522,11 @@
     },
     "wargear": ["claws-and-teeth-hand-weapons"],
     "heroicActions": ["heroic-march", "heroic-strength"],
-    "specialRules": ["terror"],
+    "specialRules": [
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "packlord",
@@ -1418,7 +1566,11 @@
     },
     "wargear": ["claws-and-teeth-hand-weapons"],
     "heroicActions": ["heroic-march", "heroic-strength"],
-    "specialRules": ["terror"],
+    "specialRules": [
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "packlord",
@@ -1619,7 +1771,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "two-handed-weapon"],
     "heroicActions": ["heroic-resolve", "heroic-defence"],
-    "specialRules": ["sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "longbeard",
@@ -1659,7 +1816,12 @@
     },
     "wargear": ["light-armour", "hand-weapon", "boar-spear"],
     "heroicActions": ["heroic-strength"],
-    "specialRules": ["throw-stones-range-8-strength-2"],
+    "specialRules": [
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-2"
+      }
+    ],
     "profileRules": [
       {
         "id": "boar-spear",
@@ -1705,8 +1867,14 @@
     "wargear": ["heavy-dwarf-armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strength"],
     "specialRules": [
-      "throw-stones-range-8-strength-2",
-      "sworn-protector-thorin"
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-2"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
     ],
     "profileRules": [
       {
@@ -1747,7 +1915,15 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-resolve", "heroic-defence"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "sting",
@@ -1850,7 +2026,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "two-handed-weapon", "throwing-weapons"],
     "heroicActions": ["heroic-resolve"],
-    "specialRules": ["sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "options": [
       {
         "id": "troll-brute",
@@ -1898,7 +2079,12 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["dominant-2"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      }
+    ],
     "profileRules": [
       {
         "id": "lumbering",
@@ -1943,7 +2129,16 @@
     },
     "wargear": ["heavy-dwarf-armour", "flail"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["dominant-2", "sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "lumbering",
@@ -1998,7 +2193,11 @@
       "heroic-strength",
       "heroic-challenge"
     ],
-    "specialRules": ["fearless"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      }
+    ],
     "profileRules": [
       {
         "id": "barazantathul",
@@ -2053,7 +2252,14 @@
       "heroic-strength",
       "heroic-challenge"
     ],
-    "specialRules": ["burly", "fearless"],
+    "specialRules": [
+      {
+        "id": "burly"
+      },
+      {
+        "id": "fearless"
+      }
+    ],
     "options": [
       {
         "id": "war-boar",
@@ -2155,7 +2361,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "two-handed-weapon"],
     "heroicActions": ["heroic-resolve", "heroic-strength"],
-    "specialRules": ["sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "a-good-sort",
@@ -2201,7 +2412,15 @@
       "the-horn-of-zirakzigil"
     ],
     "heroicActions": ["heroic-challenge", "heroic-strike", "heroic-defence"],
-    "specialRules": ["fearless", "leader-khazad-guard"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "leader",
+        "parameter": "khazad-guard"
+      }
+    ],
     "additionalText": ["text-1"],
     "profileRules": [
       {
@@ -2262,7 +2481,14 @@
     },
     "wargear": ["armour", "grasper-and-keeper", "two-handed-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength"],
-    "specialRules": ["burly", "fearless"],
+    "specialRules": [
+      {
+        "id": "burly"
+      },
+      {
+        "id": "fearless"
+      }
+    ],
     "profileRules": [
       {
         "id": "grasper-and-keeper",
@@ -2311,7 +2537,18 @@
       "two-handed-weapon"
     ],
     "heroicActions": ["heroic-strike", "heroic-strength"],
-    "specialRules": ["burly", "fearless", "sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "burly"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "grasper-and-keeper",
@@ -2428,7 +2665,11 @@
       "i": "6"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["mountain-dweller"],
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      }
+    ],
     "options": [
       {
         "id": "dwarf-longbow",
@@ -2539,7 +2780,11 @@
       "w": "3"
     },
     "wargear": [],
-    "specialRules": ["direct-shot"],
+    "specialRules": [
+      {
+        "id": "direct-shot"
+      }
+    ],
     "additionalProfiles": ["dwarf-siege-crew"],
     "additionalText": ["text-1"],
     "profileRules": [
@@ -2586,7 +2831,11 @@
     },
     "wargear": ["heavy-armour", "hand-weapons"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["mountain-dweller"]
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      }
+    ]
   },
   {
     "profile": "erebor-dwarf-warrior",
@@ -2615,7 +2864,11 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["mountain-dweller"],
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      }
+    ],
     "options": [
       {
         "id": "shield-and-spear",
@@ -2707,7 +2960,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength"],
-    "specialRules": ["sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "combat-synergy",
@@ -2893,7 +3151,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength"],
-    "specialRules": ["sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "axe-mastery",
@@ -2933,7 +3196,11 @@
     },
     "wargear": ["heavy-dwarf-armour", "mattock", "throwing-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["ancient-enemies-orc"],
+    "specialRules": [
+      {
+        "id": "ancient-enemies-orc"
+      }
+    ],
     "profileRules": [
       {
         "id": "mattock",
@@ -2969,7 +3236,11 @@
       "i": "6"
     },
     "wargear": ["heavy-dwarf-armour", "mattock", "throwing-weapons"],
-    "specialRules": ["ancient-enemies-orc"],
+    "specialRules": [
+      {
+        "id": "ancient-enemies-orc"
+      }
+    ],
     "profileRules": [
       {
         "id": "mattock",
@@ -3005,7 +3276,11 @@
       "i": "6"
     },
     "wargear": ["dwarf-armour", "hand-weapon", "throwing-weapons"],
-    "specialRules": ["mountain-dweller"]
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      }
+    ]
   },
   {
     "profile": "iron-hills-ballista",
@@ -3029,7 +3304,11 @@
       "w": "4"
     },
     "wargear": [],
-    "specialRules": ["arcing-shot"],
+    "specialRules": [
+      {
+        "id": "arcing-shot"
+      }
+    ],
     "additionalProfiles": ["iron-hills-siege-crew"],
     "additionalText": ["text-1"],
     "profileRules": [
@@ -3081,7 +3360,15 @@
     },
     "wargear": ["heavy-armour", "spear", "hand-weapon", "shield"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["master-of-battle-5", "shieldwall"],
+    "specialRules": [
+      {
+        "id": "master-of-battle",
+        "parameter": "5"
+      },
+      {
+        "id": "shieldwall"
+      }
+    ],
     "options": [
       {
         "id": "exchange-shield-and-spear-for-mattock",
@@ -3131,7 +3418,12 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "hand-weapon", "rapid-fire-bolt-thrower"],
-    "specialRules": ["dominant-4"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "4"
+      }
+    ],
     "profileRules": [
       {
         "id": "rapid-fire-bolt-thrower",
@@ -3213,7 +3505,11 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["shieldwall"],
+    "specialRules": [
+      {
+        "id": "shieldwall"
+      }
+    ],
     "options": [
       {
         "id": "banner-and-shield",
@@ -3281,7 +3577,11 @@
       "i": "6"
     },
     "wargear": ["heavy-dwarf-armour", "two-handed-weapon", "hand-weapon"],
-    "specialRules": ["bodyguard"],
+    "specialRules": [
+      {
+        "id": "bodyguard"
+      }
+    ],
     "options": [
       {
         "id": "hearthguard",
@@ -3361,7 +3661,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-challenge"],
-    "specialRules": ["sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "combat-synergy",
@@ -3401,7 +3706,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "torozul"],
     "heroicActions": ["heroic-strength", "heroic-strike"],
-    "specialRules": ["sworn-protector-durin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "durin"
+      }
+    ],
     "profileRules": [
       {
         "id": "torozul",
@@ -3495,7 +3805,12 @@
       "throwing-weapons"
     ],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "weapon-master",
@@ -3643,7 +3958,11 @@
     },
     "wargear": ["hand-weapon", "sling"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["sharpshooter"],
+    "specialRules": [
+      {
+        "id": "sharpshooter"
+      }
+    ],
     "profileRules": [
       {
         "id": "chronicler",
@@ -3688,7 +4007,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "two-handed-weapon", "throwing-weapons"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["sworn-protector-thorin"],
+    "specialRules": [
+      {
+        "id": "sworn-protector",
+        "parameter": "thorin"
+      }
+    ],
     "profileRules": [
       {
         "id": "chronicler",
@@ -3845,7 +4169,15 @@
       "heroic-challenge",
       "heroic-resolve"
     ],
-    "specialRules": ["fearless", "hatred-gundabad"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "hatred",
+        "parameter": "gundabad"
+      }
+    ],
     "options": [
       {
         "id": "orcrist",
@@ -3903,7 +4235,12 @@
     },
     "wargear": ["heavy-dwarf-armour", "master-forged-two-handed-weapon"],
     "heroicActions": ["heroic-strike", "heroic-defence"],
-    "specialRules": ["hatred-gundabad"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "gundabad"
+      }
+    ],
     "additionalText": ["text-1"],
     "profileRules": [
       {
@@ -3955,7 +4292,11 @@
       "ring-of-durin"
     ],
     "heroicActions": ["heroic-strike", "heroic-challenge"],
-    "specialRules": ["ancient-enemies-orc"],
+    "specialRules": [
+      {
+        "id": "ancient-enemies-orc"
+      }
+    ],
     "additionalText": ["text-1"],
     "profileRules": [
       {
@@ -4069,7 +4410,11 @@
     },
     "wargear": ["armour", "grasper-and-keeper"],
     "heroicActions": ["heroic-challenge", "heroic-strength"],
-    "specialRules": ["fearless"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      }
+    ],
     "profileRules": [
       {
         "id": "grasper-and-keeper",
@@ -4168,7 +4513,14 @@
     },
     "wargear": ["elven-hand-weapon"],
     "heroicActions": ["heroic-resolve", "heroic-channelling", "heroic-defence"],
-    "specialRules": ["woodland-creature", "expert-rider"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      },
+      {
+        "id": "expert-rider"
+      }
+    ],
     "options": [
       {
         "id": "asfaloth",
@@ -4236,7 +4588,14 @@
     },
     "wargear": ["unarmed"],
     "heroicActions": ["heroic-strike", "heroic-channelling", "heroic-defence"],
-    "specialRules": ["terror", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "additionalText": ["text-1"],
     "profileRules": [
       {
@@ -4308,7 +4667,17 @@
     },
     "wargear": ["unarmed"],
     "heroicActions": ["heroic-channelling", "heroic-resolve"],
-    "specialRules": ["resistant-to-magic", "terror", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "the-shipwrights-power",
@@ -4380,7 +4749,11 @@
     },
     "wargear": ["heavy-armour", "elven-hand-weapons"],
     "heroicActions": ["heroic-strength", "heroic-strike"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -4438,7 +4811,11 @@
     },
     "wargear": ["heavy-armour", "elven-hand-weapons"],
     "heroicActions": ["heroic-defence", "heroic-strike"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -4501,7 +4878,17 @@
       "heroic-strike",
       "heroic-defence"
     ],
-    "specialRules": ["expert-rider", "terror", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -4578,7 +4965,14 @@
     },
     "wargear": ["elven-hand-and-a-half-weapon", "heavy-armour"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["sharpshooter", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "elf-bow",
@@ -4619,7 +5013,11 @@
       "elven-hand-and-a-half-weapon",
       "heavy-armour"
     ],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -4668,7 +5066,11 @@
       "i": "5"
     },
     "wargear": ["elven-hand-and-a-half-weapon", "heavy-armour"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "war-horn-and-elf-bow",
@@ -4739,7 +5141,14 @@
     },
     "wargear": ["unarmed", "nenya"],
     "heroicActions": ["heroic-resolve", "heroic-channelling", "heroic-defence"],
-    "specialRules": ["terror", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "additionalText": ["text-1"],
     "options": [
       {
@@ -4836,7 +5245,14 @@
     },
     "wargear": ["heavy-armour", "aiglos"],
     "heroicActions": ["heroic-resolve", "heroic-strength", "heroic-challenge"],
-    "specialRules": ["terror", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "additionalText": ["text-1"],
     "profileRules": [
       {
@@ -4883,7 +5299,11 @@
       "i": "5"
     },
     "wargear": ["heavy-armour", "elven-pike"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "exchange-elven-pike-for-banner-and-elven-hand-weapon",
@@ -4931,7 +5351,17 @@
     },
     "wargear": ["elven-hand-and-a-half-weapon"],
     "heroicActions": ["heroic-accuracy", "heroic-strike", "heroic-strength"],
-    "specialRules": ["expert-shot", "sharpshooter", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "expert-shot"
+      },
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "elf-bow",
@@ -4998,9 +5428,16 @@
     "wargear": ["armour", "elf-bow", "elven-hand-weapons"],
     "heroicActions": ["heroic-accuracy", "heroic-strike"],
     "specialRules": [
-      "sharpshooter",
-      "leader-palace-guard",
-      "woodland-creature"
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "leader",
+        "parameter": "palace-guard"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "options": [
       {
@@ -5077,7 +5514,11 @@
     },
     "wargear": ["elven-hand-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "song-of-elbereth",
@@ -5136,7 +5577,11 @@
     },
     "wargear": ["elven-hand-and-a-half-weapon", "elven-bow", "elven-cloak"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["woodland-creature"]
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ]
   },
   {
     "profile": "lothlorien-warrior",
@@ -5165,7 +5610,11 @@
       "i": "6"
     },
     "wargear": ["elven-hand-and-a-half-weapon", "elven-cloak"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -5231,7 +5680,11 @@
     },
     "wargear": ["heavy-armour", "elven-glaive"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "elven-glaive",
@@ -5267,7 +5720,14 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "horse", "elven-hand-and-a-half-weapons"],
-    "specialRules": ["expert-rider", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "kings-knights",
@@ -5303,7 +5763,11 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "elven-hand-and-a-half-weapon"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "elf-bow",
@@ -5359,7 +5823,14 @@
       "i": "6"
     },
     "wargear": ["elf-bow", "elven-hand-weapon", "elven-cloak"],
-    "specialRules": ["sharpshooter", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "knife-fighters",
@@ -5399,7 +5870,14 @@
     },
     "wargear": ["elf-bow", "elven-hand-weapon", "elven-cloak"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["sharpshooter", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "knife-fighters",
@@ -5439,7 +5917,11 @@
     },
     "wargear": ["heavy-armour", "elven-hand-weapons"],
     "heroicActions": ["heroic-strength"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "whirl-of-blades",
@@ -5475,7 +5957,14 @@
       "i": "5"
     },
     "wargear": ["heavy-armour", "elven-hand-and-a-half-weapon"],
-    "specialRules": ["bodyguard", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "bodyguard"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "shield-and-elven-spear",
@@ -5535,7 +6024,18 @@
     },
     "wargear": ["heavy-armour", "elven-hand-and-a-half-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["bodyguard", "leader-palace-guard", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "bodyguard"
+      },
+      {
+        "id": "leader",
+        "parameter": "palace-guard"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "shield",
@@ -5583,7 +6083,14 @@
     },
     "wargear": ["heavy-armour", "elven-hand-and-a-half-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["expert-rider", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "shield",
@@ -5632,7 +6139,14 @@
       "elven-hand-and-a-half-weapon",
       "elf-bow"
     ],
-    "specialRules": ["expert-rider", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "exchange-elven-lance-for-banner",
@@ -5675,7 +6189,11 @@
       "i": "5"
     },
     "wargear": ["heavy-armour", "elven-hand-and-a-half-weapon"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -5734,7 +6252,11 @@
     },
     "wargear": ["heavy-armour", "elven-hand-weapon", "shield"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "swift-parry",
@@ -5774,7 +6296,17 @@
     },
     "wargear": ["armour", "elven-cloak", "elven-hand-weapons"],
     "heroicActions": ["heroic-accuracy", "heroic-strike"],
-    "specialRules": ["expert-shot", "sharpshooter", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "expert-shot"
+      },
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "elf-bow",
@@ -5828,9 +6360,16 @@
     "wargear": ["elven-hand-and-a-half-weapons"],
     "heroicActions": ["heroic-resolve", "heroic-strike", "heroic-strength"],
     "specialRules": [
-      "expert-rider",
-      "leader-palace-guard",
-      "woodland-creature"
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "leader",
+        "parameter": "palace-guard"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "additionalProfiles": ["great-elk"],
     "options": [
@@ -5892,7 +6431,11 @@
       "i": "5"
     },
     "wargear": ["elven-hand-weapon", "elf-bow", "elven-cloak"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "enchanting-song",
@@ -5992,7 +6535,14 @@
       "i": "8"
     },
     "wargear": ["fangs-hand-weapons"],
-    "specialRules": ["poisoned-attacks", "swift-movement"]
+    "specialRules": [
+      {
+        "id": "poisoned-attacks"
+      },
+      {
+        "id": "swift-movement"
+      }
+    ]
   },
   {
     "profile": "abrakhan-merchant-guard",
@@ -6021,7 +6571,11 @@
       "i": "7"
     },
     "wargear": ["two-handed-weapon"],
-    "specialRules": ["burly"]
+    "specialRules": [
+      {
+        "id": "burly"
+      }
+    ]
   },
   {
     "profile": "ashrak",
@@ -6054,7 +6608,11 @@
     },
     "wargear": ["armour", "two-handed-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "death-touch",
@@ -6218,7 +6776,14 @@
       "fate": "0"
     },
     "wargear": ["armour", "hand-weapon", "morgul-blade"],
-    "specialRules": ["terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "profileRules": [
       {
         "id": "morgul-blade",
@@ -6269,7 +6834,11 @@
       "i": "8"
     },
     "wargear": ["hand-weapons"],
-    "specialRules": ["fearless"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      }
+    ],
     "profileRules": [
       {
         "id": "mindless-killers",
@@ -6372,7 +6941,11 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon", "dunlending-war-axe"],
-    "specialRules": ["bodyguard"],
+    "specialRules": [
+      {
+        "id": "bodyguard"
+      }
+    ],
     "profileRules": [
       {
         "id": "dunlending-war-axe",
@@ -6467,7 +7040,18 @@
       "i": "8"
     },
     "wargear": ["claws-and-teeth-hand-weapons"],
-    "specialRules": ["dominant-3", "resistant-to-magic", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "murderous-power",
@@ -6503,7 +7087,12 @@
       "i": "8"
     },
     "wargear": ["light-armour", "hand-weapons"],
-    "specialRules": ["hatred-man"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "man"
+      }
+    ],
     "profileRules": [
       {
         "id": "oblivious-to-pain",
@@ -6543,7 +7132,12 @@
     },
     "wargear": ["armour", "hand-weapon", "spear", "shield"],
     "heroicActions": ["heroic-strength", "heroic-defence"],
-    "specialRules": ["leader-dunlending-huscarl"],
+    "specialRules": [
+      {
+        "id": "leader",
+        "parameter": "dunlending-huscarl"
+      }
+    ],
     "profileRules": [
       {
         "id": "readied-stance",
@@ -6635,7 +7229,15 @@
     },
     "wargear": ["heavy-armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["burly", "dominant-2"],
+    "specialRules": [
+      {
+        "id": "burly"
+      },
+      {
+        "id": "dominant",
+        "parameter": "2"
+      }
+    ],
     "profileRules": [
       {
         "id": "come-here-maggot",
@@ -6675,7 +7277,12 @@
     },
     "wargear": ["armour", "hand-weapons"],
     "heroicActions": ["heroic-strength", "heroic-strike", "heroic-defence"],
-    "specialRules": ["leader-dunlending-huscarl"],
+    "specialRules": [
+      {
+        "id": "leader",
+        "parameter": "dunlending-huscarl"
+      }
+    ],
     "profileRules": [
       {
         "id": "ironskin",
@@ -6711,7 +7318,18 @@
       "i": "8"
     },
     "wargear": ["hooves-hand-weapon"],
-    "specialRules": ["dominant-6", "large-target", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "6"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "additionalProfiles": ["great-beast-howdah", "mordor-orc-commander"],
     "profileRules": [
       {
@@ -6752,7 +7370,11 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "mithril-crown"],
     "heroicActions": ["heroic-defence", "heroic-strike"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "mithril-crown",
@@ -6788,7 +7410,15 @@
       "i": "9"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["dominant-2", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "options": [
       {
         "id": "exchange-hand-weapon-for-two-handed-weapon",
@@ -6829,7 +7459,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strength", "heroic-march"],
-    "specialRules": ["bane-of-kings"],
+    "specialRules": [
+      {
+        "id": "bane-of-kings"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -6939,7 +7573,18 @@
       "heroic-channelling",
       "heroic-strike"
     ],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -7021,7 +7666,12 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-and-a-half-weapon", "hand-weapon"],
-    "specialRules": ["dominant-3"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "3"
+      }
+    ],
     "options": [
       {
         "id": "exchange-hand-and-a-half-weapon-for-bow",
@@ -7262,7 +7912,11 @@
       "i": "8"
     },
     "wargear": ["armour", "hand-weapon", "shield", "war-camel"],
-    "specialRules": ["poisoned-attacks-blowpipe"],
+    "specialRules": [
+      {
+        "id": "poisoned-attacks-blowpipe"
+      }
+    ],
     "options": [
       {
         "id": "blowpipe",
@@ -7315,7 +7969,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strength", "heroic-march"],
-    "specialRules": ["poisoned-attacks-blowpipe"],
+    "specialRules": [
+      {
+        "id": "poisoned-attacks-blowpipe"
+      }
+    ],
     "options": [
       {
         "id": "war-camel",
@@ -7376,7 +8034,11 @@
       "i": "8"
     },
     "wargear": ["armour", "hand-weapon", "shield"],
-    "specialRules": ["poisoned-attacks-blowpipe"],
+    "specialRules": [
+      {
+        "id": "poisoned-attacks-blowpipe"
+      }
+    ],
     "options": [
       {
         "id": "blowpipe",
@@ -7458,7 +8120,11 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["stalk-unseen"]
+    "specialRules": [
+      {
+        "id": "stalk-unseen"
+      }
+    ]
   },
   {
     "profile": "moria-blackshield-captain",
@@ -7491,7 +8157,15 @@
     },
     "wargear": ["heavy-armour", "two-handed-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["cave-dweller", "hatred-dwarf"]
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "hatred",
+        "parameter": "dwarf"
+      }
+    ]
   },
   {
     "profile": "moria-blackshield-drum",
@@ -7520,7 +8194,15 @@
       "i": "8"
     },
     "wargear": ["heavy-armour", "hand-weapon", "drum"],
-    "specialRules": ["cave-dweller", "hatred-dwarf"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "hatred",
+        "parameter": "dwarf"
+      }
+    ],
     "profileRules": [
       {
         "id": "run-and-drum",
@@ -7565,7 +8247,15 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["cave-dweller", "hatred-dwarf"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "hatred",
+        "parameter": "dwarf"
+      }
+    ],
     "magicPowers": [
       {
         "id": "collapse-rocks",
@@ -7608,7 +8298,15 @@
       "i": "8"
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
-    "specialRules": ["cave-dweller", "hatred-dwarf"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "hatred",
+        "parameter": "dwarf"
+      }
+    ],
     "options": [
       {
         "id": "spear",
@@ -7704,7 +8402,11 @@
       "i": "7"
     },
     "wargear": ["hand-weapon", "orc-bow"],
-    "specialRules": ["mountain-dweller"]
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      }
+    ]
   },
   {
     "profile": "razgush-war-leader-of-the-north",
@@ -7737,7 +8439,15 @@
     },
     "wargear": ["heavy-armour", "bone-breaker", "shield"],
     "heroicActions": ["heroic-strength", "heroic-strike"],
-    "specialRules": ["elfbane", "hatred-elf"],
+    "specialRules": [
+      {
+        "id": "elfbane"
+      },
+      {
+        "id": "hatred",
+        "parameter": "elf"
+      }
+    ],
     "profileRules": [
       {
         "id": "bone-breakers",
@@ -7788,10 +8498,19 @@
     "wargear": ["heavy-armour", "hand-and-a-half-weapon"],
     "heroicActions": ["heroic-channelling"],
     "specialRules": [
-      "bane-of-kings",
-      "harbinger-of-evil-12",
-      "terror",
-      "will-of-evil"
+      {
+        "id": "bane-of-kings"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
     ],
     "options": [
       {
@@ -7878,7 +8597,18 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -7964,7 +8694,18 @@
     },
     "wargear": ["heavy-armour", "two-handed-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -8050,7 +8791,11 @@
     },
     "wargear": ["two-handed-weapon", "the-golden-throne"],
     "heroicActions": ["heroic-resolve"],
-    "specialRules": ["burly"]
+    "specialRules": [
+      {
+        "id": "burly"
+      }
+    ]
   },
   {
     "profile": "the-knight-of-umbar",
@@ -8083,7 +8828,18 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -8174,7 +8930,18 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -8261,11 +9028,22 @@
     "wargear": ["large-venomous-fangs-hand-weapons"],
     "heroicActions": ["heroic-defence", "heroic-strike"],
     "specialRules": [
-      "dominant-3",
-      "monstrous-charge",
-      "swift-movement",
-      "terror",
-      "venom"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "swift-movement"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "venom"
+      }
     ],
     "additionalProfiles": ["broodling"],
     "profileRules": [
@@ -8307,7 +9085,18 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -8360,7 +9149,18 @@
     },
     "wargear": ["heavy-armour", "hand-and-a-half-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -8451,7 +9251,15 @@
     },
     "wargear": ["armour", "hand-weapon", "two-handed-weapon"],
     "heroicActions": ["heroic-strength", "heroic-strike"],
-    "specialRules": ["leader-dunlending-huscarl", "mighty-blow"],
+    "specialRules": [
+      {
+        "id": "leader",
+        "parameter": "dunlending-huscarl"
+      },
+      {
+        "id": "mighty-blow"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -8499,7 +9307,14 @@
     },
     "wargear": ["armour", "hand-weapon", "crossbow"],
     "heroicActions": ["heroic-accuracy", "heroic-march"],
-    "specialRules": ["expert-shot", "sharpshooter"]
+    "specialRules": [
+      {
+        "id": "expert-shot"
+      },
+      {
+        "id": "sharpshooter"
+      }
+    ]
   },
   {
     "profile": "warg-marauder",
@@ -8571,9 +9386,16 @@
     },
     "wargear": ["light-armour", "hand-weapon"],
     "specialRules": [
-      "hatred-spirit",
-      "poisoned-attacks-bow",
-      "resistant-to-magic"
+      {
+        "id": "hatred",
+        "parameter": "spirit"
+      },
+      {
+        "id": "poisoned-attacks-bow"
+      },
+      {
+        "id": "resistant-to-magic"
+      }
     ],
     "options": [
       {
@@ -8829,7 +9651,14 @@
     },
     "wargear": ["heavy-armour", "durtuz-the-silver-falchion"],
     "heroicActions": ["heroic-strike", "heroic-challenge"],
-    "specialRules": ["general-hunter", "unyielding-combat-stance"],
+    "specialRules": [
+      {
+        "id": "general-hunter"
+      },
+      {
+        "id": "unyielding-combat-stance"
+      }
+    ],
     "options": [
       {
         "id": "armoured-horse",
@@ -9017,7 +9846,11 @@
       "w": "3"
     },
     "wargear": [],
-    "specialRules": ["direct-shot"],
+    "specialRules": [
+      {
+        "id": "direct-shot"
+      }
+    ],
     "additionalProfiles": ["corsair-siege-crew"],
     "additionalText": ["text-1"],
     "profileRules": [
@@ -9161,7 +9994,14 @@
       "throwing-weapons"
     ],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["fearless", "sharpshooter"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "sharpshooter"
+      }
+    ],
     "options": [
       {
         "id": "exchange-two-handed-weapon-for-crossbow",
@@ -9285,7 +10125,17 @@
     },
     "wargear": ["hand-weapon", "throwing-weapons", "smoke-bombs"],
     "heroicActions": ["heroic-defence", "heroic-strike"],
-    "specialRules": ["backstabbers", "bane-of-kings", "stalk-unseen"],
+    "specialRules": [
+      {
+        "id": "backstabbers"
+      },
+      {
+        "id": "bane-of-kings"
+      },
+      {
+        "id": "stalk-unseen"
+      }
+    ],
     "profileRules": [
       {
         "id": "smoke-bombs",
@@ -9365,7 +10215,11 @@
       "i": "6"
     },
     "wargear": ["armour", "throwing-weapons", "hand-weapons"],
-    "specialRules": ["unyielding-combat-stance"],
+    "specialRules": [
+      {
+        "id": "unyielding-combat-stance"
+      }
+    ],
     "profileRules": [
       {
         "id": "supreme-agility",
@@ -9410,7 +10264,14 @@
     },
     "wargear": ["heavy-armour", "hand-weapons"],
     "heroicActions": ["heroic-challenge"],
-    "specialRules": ["general-hunter", "unyielding-combat-stance"],
+    "specialRules": [
+      {
+        "id": "general-hunter"
+      },
+      {
+        "id": "unyielding-combat-stance"
+      }
+    ],
     "options": [
       {
         "id": "armoured-horse",
@@ -9639,7 +10500,11 @@
     },
     "wargear": ["armour", "spear", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["poisoned-attacks-bow"],
+    "specialRules": [
+      {
+        "id": "poisoned-attacks-bow"
+      }
+    ],
     "options": [
       {
         "id": "bow",
@@ -9676,7 +10541,11 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-weapon", "horse"],
-    "specialRules": ["poisoned-attacks-bow"],
+    "specialRules": [
+      {
+        "id": "poisoned-attacks-bow"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -9770,7 +10639,11 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["poisoned-attacks-bow"],
+    "specialRules": [
+      {
+        "id": "poisoned-attacks-bow"
+      }
+    ],
     "options": [
       {
         "id": "war-horn",
@@ -9830,10 +10703,18 @@
     "wargear": ["dagger", "throwing-daggers", "blowpipe"],
     "heroicActions": ["heroic-strike", "heroic-defence"],
     "specialRules": [
-      "backstabbers",
-      "bane-of-kings",
-      "stalk-unseen",
-      "general-hunter"
+      {
+        "id": "backstabbers"
+      },
+      {
+        "id": "bane-of-kings"
+      },
+      {
+        "id": "stalk-unseen"
+      },
+      {
+        "id": "general-hunter"
+      }
     ],
     "profileRules": [
       {
@@ -9929,9 +10810,17 @@
     "wargear": ["armour", "spear"],
     "heroicActions": ["heroic-strike", "heroic-challenge"],
     "specialRules": [
-      "bane-of-kings",
-      "leader-serpent-guard",
-      "sworn-protector-suladan"
+      {
+        "id": "bane-of-kings"
+      },
+      {
+        "id": "leader",
+        "parameter": "serpent-guard"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "suladan"
+      }
     ],
     "profileRules": [
       {
@@ -9967,7 +10856,11 @@
       "i": "6"
     },
     "wargear": [],
-    "specialRules": ["dominant"],
+    "specialRules": [
+      {
+        "id": "dominant"
+      }
+    ],
     "profileRules": [
       {
         "id": "the-palanquin",
@@ -10017,7 +10910,18 @@
       "i": "9"
     },
     "wargear": ["tusks-and-huge-stomping-feet-hand-weapons"],
-    "specialRules": ["dominant-10", "large-target", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "10"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "additionalProfiles": ["howdah"],
     "profileRules": [
       {
@@ -10068,7 +10972,15 @@
     },
     "wargear": ["heavy-armour", "shield", "hand-weapon"],
     "heroicActions": ["heroic-challenge", "heroic-strike"],
-    "specialRules": ["master-of-battle-3", "unyielding-combat-stance"],
+    "specialRules": [
+      {
+        "id": "master-of-battle",
+        "parameter": "3"
+      },
+      {
+        "id": "unyielding-combat-stance"
+      }
+    ],
     "profileRules": [
       {
         "id": "phalanx",
@@ -10109,7 +11021,11 @@
       "i": "7"
     },
     "wargear": ["armour", "spear"],
-    "specialRules": ["poisoned-attacks"]
+    "specialRules": [
+      {
+        "id": "poisoned-attacks"
+      }
+    ]
   },
   {
     "profile": "serpent-rider",
@@ -10138,7 +11054,11 @@
       "i": "7"
     },
     "wargear": ["armour", "war-spear", "horse"],
-    "specialRules": ["poisoned-attacks"]
+    "specialRules": [
+      {
+        "id": "poisoned-attacks"
+      }
+    ]
   },
   {
     "profile": "suladan-the-serpent-lord",
@@ -10177,9 +11097,17 @@
       "heroic-challenge"
     ],
     "specialRules": [
-      "leader-serpent-guard",
-      "poisoned-attacks",
-      "leader-serpent-rider"
+      {
+        "id": "leader",
+        "parameter": "serpent-guard"
+      },
+      {
+        "id": "poisoned-attacks"
+      },
+      {
+        "id": "leader",
+        "parameter": "serpent-rider"
+      }
     ],
     "options": [
       {
@@ -10293,7 +11221,18 @@
       "i": "9"
     },
     "wargear": ["armour-claws-and-teeth-hand-weapons"],
-    "specialRules": ["dominant-2", "terror", "venom"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "venom"
+      }
+    ],
     "profileRules": [
       {
         "id": "slow-acting-venom",
@@ -10329,7 +11268,18 @@
       "i": "9"
     },
     "wargear": ["tusks-and-huge-stomping-feet-hand-weapons"],
-    "specialRules": ["dominant-10", "large-target", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "10"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "additionalProfiles": [
       "mumak-howdah",
       "haradrim-commander",
@@ -10450,7 +11400,14 @@
     },
     "wargear": ["armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strike", "heroic-march"],
-    "specialRules": ["fearless", "mighty-blow"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "mighty-blow"
+      }
+    ],
     "profileRules": [
       {
         "id": "chief-of-lamedon",
@@ -10497,7 +11454,17 @@
       "heroic-defence",
       "heroic-challenge"
     ],
-    "specialRules": ["horse-lord", "mighty-hero", "resistant-to-magic"],
+    "specialRules": [
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "mighty-hero"
+      },
+      {
+        "id": "resistant-to-magic"
+      }
+    ],
     "options": [
       {
         "id": "armoured-horse",
@@ -10590,7 +11557,11 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "longbow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["bodyguard"],
+    "specialRules": [
+      {
+        "id": "bodyguard"
+      }
+    ],
     "profileRules": [
       {
         "id": "an-unlikely-friendship",
@@ -10626,7 +11597,11 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-weapon", "bow"],
-    "specialRules": ["mountain-dweller"],
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      }
+    ],
     "options": [
       {
         "id": "war-horn",
@@ -10686,7 +11661,12 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "horn-of-gondor"],
     "heroicActions": ["heroic-strike", "heroic-strength", "heroic-challenge"],
-    "specialRules": ["leader-citadel-guard"],
+    "specialRules": [
+      {
+        "id": "leader",
+        "parameter": "citadel-guard"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -10803,7 +11783,11 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["shieldwall"]
+    "specialRules": [
+      {
+        "id": "shieldwall"
+      }
+    ]
   },
   {
     "profile": "captain-of-numenor",
@@ -10864,7 +11848,11 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["bodyguard"],
+    "specialRules": [
+      {
+        "id": "bodyguard"
+      }
+    ],
     "options": [
       {
         "id": "longbow",
@@ -10946,7 +11934,11 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "well-aimed-shot",
@@ -10987,8 +11979,14 @@
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-defence"],
     "specialRules": [
-      "leader-citadel-guard",
-      "leader-guard-of-the-fountain-court"
+      {
+        "id": "leader",
+        "parameter": "citadel-guard"
+      },
+      {
+        "id": "leader",
+        "parameter": "guard-of-the-fountain-court"
+      }
     ],
     "profileRules": [
       {
@@ -11029,7 +12027,14 @@
     },
     "wargear": ["armour", "hand-weapon", "bow", "spear"],
     "heroicActions": ["heroic-accuracy", "heroic-defence"],
-    "specialRules": ["mountain-dweller", "sharpshooter"],
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      },
+      {
+        "id": "sharpshooter"
+      }
+    ],
     "profileRules": [
       {
         "id": "go-for-the-eyes",
@@ -11074,7 +12079,11 @@
     },
     "wargear": ["heavy-armour", "narsil"],
     "heroicActions": ["heroic-strike", "heroic-strength", "heroic-challenge"],
-    "specialRules": ["resistant-to-magic"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      }
+    ],
     "profileRules": [
       {
         "id": "narsil",
@@ -11125,10 +12134,19 @@
       "heroic-defence"
     ],
     "specialRules": [
-      "leader-citadel-guard",
-      "resistant-to-magic",
-      "sharpshooter",
-      "woodland-creature"
+      {
+        "id": "leader",
+        "parameter": "citadel-guard"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "options": [
       {
@@ -11404,7 +12422,14 @@
       "w": "3"
     },
     "wargear": [],
-    "specialRules": ["arcing-shot", "static"],
+    "specialRules": [
+      {
+        "id": "arcing-shot"
+      },
+      {
+        "id": "static"
+      }
+    ],
     "additionalProfiles": ["minas-tirith-siege-crew"],
     "additionalText": ["text-1"],
     "options": [
@@ -11455,7 +12480,11 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "hand-weapon", "spear"],
-    "specialRules": ["bodyguard"],
+    "specialRules": [
+      {
+        "id": "bodyguard"
+      }
+    ],
     "profileRules": [
       {
         "id": "protectors-of-the-white-tree",
@@ -11494,7 +12523,17 @@
       "fate": "2"
     },
     "wargear": ["armour", "shield", "hand-weapon", "pennant-of-the-dead"],
-    "specialRules": ["blades-of-the-dead", "terror", "spectral-walk"],
+    "specialRules": [
+      {
+        "id": "blades-of-the-dead"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "spectral-walk"
+      }
+    ],
     "profileRules": [
       {
         "id": "pennant-of-the-dead",
@@ -11596,7 +12635,11 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
     "heroicActions": ["heroic-strike", "heroic-defence"],
-    "specialRules": ["shieldwall"],
+    "specialRules": [
+      {
+        "id": "shieldwall"
+      }
+    ],
     "profileRules": [
       {
         "id": "resolute-fighter",
@@ -11636,7 +12679,16 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["leader-citadel-guard", "sworn-protector-denethor"],
+    "specialRules": [
+      {
+        "id": "leader",
+        "parameter": "citadel-guard"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "denethor"
+      }
+    ],
     "profileRules": [
       {
         "id": "defend-the-white-city",
@@ -11681,7 +12733,11 @@
     },
     "wargear": ["heavy-armour", "hand-and-a-half-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength", "heroic-challenge"],
-    "specialRules": ["resistant-to-magic"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -11735,7 +12791,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-march", "heroic-strike", "heroic-resolve"],
-    "specialRules": ["fearless"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -11860,9 +12920,17 @@
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-march", "heroic-strike", "heroic-resolve"],
     "specialRules": [
-      "leader-citadel-guard",
-      "leader-guard-of-the-fountain-court",
-      "shieldwall"
+      {
+        "id": "leader",
+        "parameter": "citadel-guard"
+      },
+      {
+        "id": "leader",
+        "parameter": "guard-of-the-fountain-court"
+      },
+      {
+        "id": "shieldwall"
+      }
     ],
     "options": [
       {
@@ -11922,7 +12990,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-march", "heroic-strike", "heroic-resolve"],
-    "specialRules": ["resistant-to-magic"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -11981,7 +13053,18 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-march", "heroic-strike", "heroic-resolve"],
-    "specialRules": ["leader-rohan-royal-guard", "expert-rider", "horse-lord"],
+    "specialRules": [
+      {
+        "id": "leader",
+        "parameter": "rohan-royal-guard"
+      },
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -12040,7 +13123,17 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-march", "heroic-strike"],
-    "specialRules": ["blades-of-the-dead", "terror", "spectral-walk"],
+    "specialRules": [
+      {
+        "id": "blades-of-the-dead"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "spectral-walk"
+      }
+    ],
     "profileRules": [
       {
         "id": "drain-soul",
@@ -12141,7 +13234,11 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield", "lance", "horse"],
-    "specialRules": ["shieldwall"],
+    "specialRules": [
+      {
+        "id": "shieldwall"
+      }
+    ],
     "options": [
       {
         "id": "exchange-shield-and-lance-for-banner",
@@ -12182,7 +13279,11 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-march", "heroic-accuracy"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "master-of-reserves",
@@ -12218,7 +13319,12 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["hatred-mordor"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "mordor"
+      }
+    ],
     "options": [
       {
         "id": "bow",
@@ -12278,7 +13384,15 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -12372,7 +13486,11 @@
       "i": "6"
     },
     "wargear": ["armour", "hand-weapon", "bow"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -12421,7 +13539,17 @@
       "i": "6"
     },
     "wargear": ["armour", "hand-weapon", "shield", "spectral-steed"],
-    "specialRules": ["blades-of-the-dead", "terror", "spectral-walk"]
+    "specialRules": [
+      {
+        "id": "blades-of-the-dead"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "spectral-walk"
+      }
+    ]
   },
   {
     "profile": "warrior-of-minas-tirith",
@@ -12450,7 +13578,11 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["shieldwall"],
+    "specialRules": [
+      {
+        "id": "shieldwall"
+      }
+    ],
     "options": [
       {
         "id": "war-horn-and-shield",
@@ -12559,7 +13691,17 @@
       "i": "6"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["blades-of-the-dead", "terror", "spectral-walk"],
+    "specialRules": [
+      {
+        "id": "blades-of-the-dead"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "spectral-walk"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -12660,7 +13802,14 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["sharpshooter", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "lethal-aim",
@@ -12705,7 +13854,12 @@
       "heroic-resolve",
       "heroic-strike"
     ],
-    "specialRules": ["leader-khazad-guard"],
+    "specialRules": [
+      {
+        "id": "leader",
+        "parameter": "khazad-guard"
+      }
+    ],
     "profileRules": [
       {
         "id": "durins-axe",
@@ -12751,9 +13905,17 @@
     "wargear": ["hand-weapon", "horse"],
     "heroicActions": ["heroic-strike", "heroic-strength"],
     "specialRules": [
-      "leader-hobbit-shirriff",
-      "resistant-to-magic",
-      "throw-stones-range-8-strength-1"
+      {
+        "id": "leader",
+        "parameter": "hobbit-shirriff"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
     ],
     "profileRules": [
       {
@@ -12794,7 +13956,11 @@
     },
     "wargear": ["armour", "shield", "hand-weapon"],
     "heroicActions": ["heroic-resolve", "heroic-strike"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "boldest-of-the-bold",
@@ -12834,7 +14000,17 @@
     },
     "wargear": ["dwarf-armour", "hand-weapon", "dwarf-bow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["expert-shot", "sharpshooter", "mountain-dweller"]
+    "specialRules": [
+      {
+        "id": "expert-shot"
+      },
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "mountain-dweller"
+      }
+    ]
   },
   {
     "profile": "dwarf-shieldbearer",
@@ -12916,7 +14092,18 @@
       "heroic-strength",
       "heroic-strike"
     ],
-    "specialRules": ["expert-rider", "horse-lord", "leader-sons-of-eorl"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "leader",
+        "parameter": "sons-of-eorl"
+      }
+    ],
     "profileRules": [
       {
         "id": "legendary-hero",
@@ -12961,7 +14148,14 @@
     },
     "wargear": ["heavy-armour", "noldorin-daggers"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["terror", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "noldorin-daggers",
@@ -13007,7 +14201,14 @@
       "horn-of-the-hammerhand"
     ],
     "heroicActions": ["heroic-march", "heroic-strength"],
-    "specialRules": ["expert-rider", "horse-lord"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      }
+    ],
     "profileRules": [
       {
         "id": "horn-of-the-hammerhand",
@@ -13096,7 +14297,14 @@
       "heroic-march",
       "heroic-resolve"
     ],
-    "specialRules": ["terror", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "magicPowers": [
       {
         "id": "transfix",
@@ -13143,7 +14351,11 @@
     },
     "wargear": ["armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strength"],
-    "specialRules": ["mighty-blow"]
+    "specialRules": [
+      {
+        "id": "mighty-blow"
+      }
+    ]
   },
   {
     "profile": "kings-champion",
@@ -13216,7 +14428,11 @@
     },
     "wargear": ["armour", "hand-weapon", "longbow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["sharpshooter"],
+    "specialRules": [
+      {
+        "id": "sharpshooter"
+      }
+    ],
     "profileRules": [
       {
         "id": "master-archer",
@@ -13300,7 +14516,11 @@
     },
     "wargear": ["armour", "elven-hand-weapons"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "powers-of-nature",
@@ -13360,7 +14580,11 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "birdcalls",
@@ -13435,7 +14659,11 @@
     },
     "wargear": ["dwarf-armour", "shield", "kalazal"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["mountain-dweller"],
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "kalazal",
@@ -13471,7 +14699,11 @@
       "i": "6"
     },
     "wargear": ["elven-hand-and-a-half-weapon", "elven-cloak"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -13537,7 +14769,11 @@
     },
     "wargear": ["armour", "elven-hand-weapons"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "powers-of-nature",
@@ -13593,7 +14829,11 @@
       "i": "6"
     },
     "wargear": ["armour", "hand-weapon", "bow"],
-    "specialRules": ["expert-rider"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -13637,7 +14877,11 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield", "armoured-horse"],
-    "specialRules": ["expert-rider"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      }
+    ],
     "profileRules": [
       {
         "id": "riders-of-eorl",
@@ -13676,7 +14920,14 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["ancient-enemies-dwarf", "ancient-enemies-elf"]
+    "specialRules": [
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "ancient-enemies-elf"
+      }
+    ]
   },
   {
     "profile": "azog-the-defiler",
@@ -13714,7 +14965,11 @@
       "heroic-strength",
       "heroic-challenge"
     ],
-    "specialRules": ["burly"],
+    "specialRules": [
+      {
+        "id": "burly"
+      }
+    ],
     "options": [
       {
         "id": "stone-flail",
@@ -13789,7 +15044,17 @@
       "heroic-strength",
       "heroic-challenge"
     ],
-    "specialRules": ["burly", "ancient-enemies-dwarf", "ancient-enemies-elf"],
+    "specialRules": [
+      {
+        "id": "burly"
+      },
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "ancient-enemies-elf"
+      }
+    ],
     "options": [
       {
         "id": "fell-warg",
@@ -13839,7 +15104,11 @@
       "i": "7"
     },
     "wargear": ["claws-and-teeth-hand-weapon"],
-    "specialRules": ["fell-sight"]
+    "specialRules": [
+      {
+        "id": "fell-sight"
+      }
+    ]
   },
   {
     "profile": "fimbul-hunter-orc-captain",
@@ -13872,7 +15141,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strength"],
-    "specialRules": ["expert-rider"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      }
+    ],
     "options": [
       {
         "id": "fell-warg",
@@ -13916,7 +15189,11 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "chittering-hordes",
@@ -13961,7 +15238,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "chittering-hordes",
@@ -14002,7 +15283,14 @@
       "i": "8"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["ancient-enemies-dwarf", "ancient-enemies-elf"],
+    "specialRules": [
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "ancient-enemies-elf"
+      }
+    ],
     "options": [
       {
         "id": "two-handed-weapon",
@@ -14047,11 +15335,22 @@
     },
     "wargear": ["catapult", "metal-gauntlets"],
     "specialRules": [
-      "dominant-5",
-      "large-target",
-      "terror",
-      "ancient-enemies-dwarf",
-      "ancient-enemies-elf"
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "ancient-enemies-elf"
+      }
     ],
     "profileRules": [
       {
@@ -14104,10 +15403,19 @@
     },
     "wargear": ["hand-weapon"],
     "specialRules": [
-      "ancient-enemies-dwarf",
-      "ancient-enemies-elf",
-      "dominant-3",
-      "terror"
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "ancient-enemies-elf"
+      },
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "profileRules": [
       {
@@ -14148,7 +15456,14 @@
     },
     "wargear": ["heavy-armour", "shield", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["ancient-enemies-dwarf", "ancient-enemies-elf"]
+    "specialRules": [
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "ancient-enemies-elf"
+      }
+    ]
   },
   {
     "profile": "gundabad-orc-warrior",
@@ -14177,7 +15492,14 @@
       "i": "8"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["ancient-enemies-dwarf", "ancient-enemies-elf"],
+    "specialRules": [
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "ancient-enemies-elf"
+      }
+    ],
     "options": [
       {
         "id": "banner-and-shield",
@@ -14233,11 +15555,22 @@
     },
     "wargear": ["heavy-armour", "crushing-club"],
     "specialRules": [
-      "terror",
-      "large-target",
-      "dominant-4",
-      "ancient-enemies-dwarf",
-      "ancient-enemies-elf"
+      {
+        "id": "terror"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "dominant",
+        "parameter": "4"
+      },
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "ancient-enemies-elf"
+      }
     ],
     "options": [
       {
@@ -14448,7 +15781,19 @@
     },
     "wargear": ["armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["dominant-2", "harbinger-of-evil-12", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "rhunish-fury",
@@ -14494,7 +15839,17 @@
       "i": "8"
     },
     "wargear": ["fangs-hand-weapons"],
-    "specialRules": ["poisoned-attacks-fangs", "swift-movement", "terror"],
+    "specialRules": [
+      {
+        "id": "poisoned-attacks-fangs"
+      },
+      {
+        "id": "swift-movement"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "spider-webs",
@@ -14531,10 +15886,18 @@
     },
     "wargear": ["fangs-hand-weapons"],
     "specialRules": [
-      "poisoned-attacks-fangs",
-      "stalk-unseen",
-      "swift-movement",
-      "terror"
+      {
+        "id": "poisoned-attacks-fangs"
+      },
+      {
+        "id": "stalk-unseen"
+      },
+      {
+        "id": "swift-movement"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "profileRules": [
       {
@@ -14575,7 +15938,14 @@
     },
     "wargear": ["light-armour", "hand-weapon", "orc-bow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["expert-shot", "poisoned-attacks-orc-bow"],
+    "specialRules": [
+      {
+        "id": "expert-shot"
+      },
+      {
+        "id": "poisoned-attacks-orc-bow"
+      }
+    ],
     "profileRules": [
       {
         "id": "lethal-aim",
@@ -14620,11 +15990,23 @@
       "heroic-challenge"
     ],
     "specialRules": [
-      "dominant-5",
-      "harbinger-of-evil-18",
-      "spectral-walk",
-      "terror",
-      "will-of-evil"
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "18"
+      },
+      {
+        "id": "spectral-walk"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
     ],
     "profileRules": [
       {
@@ -14731,7 +16113,19 @@
     },
     "wargear": ["armour", "elven-hand-and-a-half-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["dominant-2", "harbinger-of-evil-12", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "spiritual-displacement",
@@ -14781,7 +16175,19 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["dominant-2", "harbinger-of-evil-12", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "executioner",
@@ -14832,10 +16238,20 @@
     "wargear": ["armour", "spear"],
     "heroicActions": ["heroic-strike"],
     "specialRules": [
-      "dominant-2",
-      "harbinger-of-evil-12",
-      "terror",
-      "bane-of-kings"
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "bane-of-kings"
+      }
     ],
     "profileRules": [
       {
@@ -14881,7 +16297,11 @@
     },
     "wargear": ["heavy-armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strength", "heroic-strike", "heroic-challenge"],
-    "specialRules": ["burly"],
+    "specialRules": [
+      {
+        "id": "burly"
+      }
+    ],
     "profileRules": [
       {
         "id": "torturer",
@@ -14926,7 +16346,19 @@
     },
     "wargear": ["armour", "hand-weapons"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["dominant-2", "harbinger-of-evil-12", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "unnatural-speed",
@@ -14976,7 +16408,19 @@
     },
     "wargear": ["armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["dominant-2", "harbinger-of-evil-12", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "angmar-arise",
@@ -15023,7 +16467,19 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["dominant-2", "harbinger-of-evil-12", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "angmar-arisen",
@@ -15069,7 +16525,21 @@
       "i": "9"
     },
     "wargear": ["hand-weapons"],
-    "specialRules": ["dominant-5", "terror", "fearless", "large-target"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "large-target"
+      }
+    ],
     "additionalProfiles": ["orc-commander"],
     "additionalText": ["text-1"],
     "profileRules": [
@@ -15107,7 +16577,11 @@
       "i": "8"
     },
     "wargear": ["razor-sharp-teeth-and-talons-hand-weapons"],
-    "specialRules": ["fly"],
+    "specialRules": [
+      {
+        "id": "fly"
+      }
+    ],
     "profileRules": [
       {
         "id": "piercing-talons",
@@ -15152,7 +16626,11 @@
     },
     "wargear": ["armour", "two-handed-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["expert-rider"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      }
+    ],
     "options": [
       {
         "id": "fell-warg-and-lance",
@@ -15227,7 +16705,12 @@
     },
     "wargear": ["hand-weapon", "two-handed-weapon"],
     "heroicActions": ["heroic-challenge"],
-    "specialRules": ["hatred-hobbit"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "hobbit"
+      }
+    ],
     "profileRules": [
       {
         "id": "whoever-strikes-me-shall-be-accursed",
@@ -15286,7 +16769,11 @@
       "fate": "0"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["stalk-unseen"],
+    "specialRules": [
+      {
+        "id": "stalk-unseen"
+      }
+    ],
     "profileRules": [
       {
         "id": "broken-loyalties",
@@ -15358,7 +16845,12 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-challenge"],
-    "specialRules": ["hatred-hobbit"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "hobbit"
+      }
+    ],
     "profileRules": [
       {
         "id": "sharkeys-spy",
@@ -15399,7 +16891,11 @@
       "i": "7"
     },
     "wargear": ["beaks-and-claws-hand-weapon"],
-    "specialRules": ["fly"],
+    "specialRules": [
+      {
+        "id": "fly"
+      }
+    ],
     "profileRules": [
       {
         "id": "keen-sight",
@@ -15487,7 +16983,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["backstabbers"],
+    "specialRules": [
+      {
+        "id": "backstabbers"
+      }
+    ],
     "profileRules": [
       {
         "id": "lets-put-a-maggot-hole-in-your-belly",
@@ -15518,7 +17018,11 @@
       "w": "4"
     },
     "wargear": [],
-    "specialRules": ["direct-shot"],
+    "specialRules": [
+      {
+        "id": "direct-shot"
+      }
+    ],
     "additionalProfiles": ["uruk-hai-siege-crew"],
     "additionalText": ["text-1"],
     "profileRules": [
@@ -15727,9 +17231,17 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
     "specialRules": [
-      "terror",
-      "throw-stones-range-12-strength-8",
-      "dominant-3"
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      },
+      {
+        "id": "dominant",
+        "parameter": "3"
+      }
     ],
     "options": [
       {
@@ -15864,7 +17376,11 @@
       "heroic-strength",
       "heroic-challenge"
     ],
-    "specialRules": ["sharpshooter"],
+    "specialRules": [
+      {
+        "id": "sharpshooter"
+      }
+    ],
     "options": [
       {
         "id": "shield",
@@ -16161,7 +17677,11 @@
     },
     "wargear": ["armour", "riding-dagger", "warg"],
     "heroicActions": ["heroic-march", "heroic-strike"],
-    "specialRules": ["expert-rider"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      }
+    ],
     "profileRules": [
       {
         "id": "riding-dagger",
@@ -16206,7 +17726,11 @@
     },
     "wargear": ["hand-weapon", "whip"],
     "heroicActions": ["heroic-strength"],
-    "specialRules": ["terror-hobbit"],
+    "specialRules": [
+      {
+        "id": "terror-hobbit"
+      }
+    ],
     "profileRules": [
       {
         "id": "with-me-lads",
@@ -16294,7 +17818,15 @@
       "fate": "1"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "profileRules": [
       {
         "id": "a-bad-influence",
@@ -16418,7 +17950,11 @@
     },
     "wargear": ["armour", "shield", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["shieldwall"]
+    "specialRules": [
+      {
+        "id": "shieldwall"
+      }
+    ]
   },
   {
     "profile": "uruk-hai-captain-general",
@@ -16451,7 +17987,11 @@
     },
     "wargear": ["armour", "shield", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["shieldwall"]
+    "specialRules": [
+      {
+        "id": "shieldwall"
+      }
+    ]
   },
   {
     "profile": "uruk-hai-demolition-team",
@@ -16698,7 +18238,11 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["shieldwall"],
+    "specialRules": [
+      {
+        "id": "shieldwall"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -16757,7 +18301,12 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "options": [
       {
         "id": "light-shield",
@@ -16804,7 +18353,15 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-strength"],
-    "specialRules": ["fearless", "hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "profileRules": [
       {
         "id": "bloodoath",
@@ -16845,7 +18402,12 @@
       "i": "8"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "options": [
       {
         "id": "light-shield-and-flaming-brand",
@@ -16961,7 +18523,11 @@
       "fate": "2"
     },
     "wargear": ["unarmed"],
-    "specialRules": ["fearful"],
+    "specialRules": [
+      {
+        "id": "fearful"
+      }
+    ],
     "profileRules": [
       {
         "id": "da-down-here",
@@ -17000,7 +18566,11 @@
       "fate": "2"
     },
     "wargear": ["unarmed"],
-    "specialRules": ["fearful"],
+    "specialRules": [
+      {
+        "id": "fearful"
+      }
+    ],
     "profileRules": [
       {
         "id": "da-down-here",
@@ -17035,7 +18605,12 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["hatred-dragon"]
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "dragon"
+      }
+    ]
   },
   {
     "profile": "alfrid-the-councillor",
@@ -17151,10 +18726,21 @@
       "heroic-strength"
     ],
     "specialRules": [
-      "sharpshooter",
-      "sworn-protector-bain",
-      "sworn-protector-sigrid",
-      "sworn-protector-tilda"
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "bain"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "sigrid"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "tilda"
+      }
     ],
     "options": [
       {
@@ -17261,7 +18847,15 @@
     },
     "wargear": ["the-one-ring", "mithril-coat", "sting"],
     "heroicActions": ["heroic-resolve", "heroic-strike", "heroic-defence"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "profileRules": [
       {
         "id": "mithril-coat",
@@ -17399,7 +18993,12 @@
     },
     "wargear": ["armour", "shield", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["hatred-dragon"]
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "dragon"
+      }
+    ]
   },
   {
     "profile": "girion-lord-of-dale",
@@ -17432,7 +19031,12 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-accuracy"],
-    "specialRules": ["hatred-dragon"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "dragon"
+      }
+    ],
     "options": [
       {
         "id": "windlance",
@@ -17773,7 +19377,11 @@
     },
     "wargear": ["unarmed"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["fearful"],
+    "specialRules": [
+      {
+        "id": "fearful"
+      }
+    ],
     "profileRules": [
       {
         "id": "moneybags",
@@ -17819,7 +19427,12 @@
       "i": "7"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["hatred-dragon"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "dragon"
+      }
+    ],
     "options": [
       {
         "id": "war-horn",
@@ -17881,7 +19494,11 @@
       "w": "3"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["direct-shot"],
+    "specialRules": [
+      {
+        "id": "direct-shot"
+      }
+    ],
     "additionalProfiles": ["dale-siege-crew"],
     "additionalText": ["text-1"],
     "profileRules": [
@@ -17950,7 +19567,15 @@
       "i": "7"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["dominant-3", "terror"]
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "terror"
+      }
+    ]
   },
   {
     "profile": "black-numenorean-knight",
@@ -17985,7 +19610,11 @@
       "shield",
       "armoured-horse"
     ],
-    "specialRules": ["terror"],
+    "specialRules": [
+      {
+        "id": "terror"
+      }
+    ],
     "options": [
       {
         "id": "exchange-lance-for-banner",
@@ -18038,7 +19667,11 @@
       "fate": "1"
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
-    "specialRules": ["terror"],
+    "specialRules": [
+      {
+        "id": "terror"
+      }
+    ],
     "options": [
       {
         "id": "armoured-horse",
@@ -18088,7 +19721,11 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
-    "specialRules": ["terror"],
+    "specialRules": [
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "visage-of-terror",
@@ -18282,7 +19919,12 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-march", "heroic-defence"],
-    "specialRules": ["master-of-battle-2"],
+    "specialRules": [
+      {
+        "id": "master-of-battle",
+        "parameter": "2"
+      }
+    ],
     "options": [
       {
         "id": "warg",
@@ -18751,7 +20393,11 @@
       "w": "3"
     },
     "wargear": [],
-    "specialRules": ["direct-shot"],
+    "specialRules": [
+      {
+        "id": "direct-shot"
+      }
+    ],
     "additionalProfiles": ["mordor-orc-siege-crew"],
     "additionalText": ["text-1"],
     "options": [
@@ -18803,9 +20449,17 @@
     },
     "wargear": ["armour", "hand-and-a-half-weapon"],
     "specialRules": [
-      "dominant-3",
-      "terror",
-      "throw-stones-range-12-strength-8"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
     ],
     "options": [
       {
@@ -18847,7 +20501,19 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength"],
-    "specialRules": ["dominant-4", "terror", "throw-stones-range-12-strength-8"]
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "4"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
+    ]
   },
   {
     "profile": "mordor-troll-chieftain-general",
@@ -18881,10 +20547,20 @@
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength"],
     "specialRules": [
-      "dominant-4",
-      "terror",
-      "fearless",
-      "throw-stones-range-12-strength-8"
+      {
+        "id": "dominant",
+        "parameter": "4"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
     ]
   },
   {
@@ -18999,7 +20675,11 @@
       "w": "4"
     },
     "wargear": [],
-    "specialRules": ["arcing-shot"],
+    "specialRules": [
+      {
+        "id": "arcing-shot"
+      }
+    ],
     "additionalProfiles": ["mordor-orc-siege-crew", "mordor-siege-troll"],
     "additionalText": ["text-1"],
     "options": [
@@ -19119,7 +20799,15 @@
     },
     "wargear": ["heavy-armour", "hand-and-a-half-weapon"],
     "heroicActions": ["heroic-march", "heroic-channelling"],
-    "specialRules": ["harbinger-of-evil-6", "terror"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "6"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "options": [
       {
         "id": "armoured-horse",
@@ -19187,7 +20875,18 @@
     },
     "wargear": ["heavy-armour", "sword"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "2a-2m-14w-2f",
@@ -19303,7 +21002,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-strength", "heroic-challenge"],
-    "specialRules": ["general-hunter"],
+    "specialRules": [
+      {
+        "id": "general-hunter"
+      }
+    ],
     "profileRules": [
       {
         "id": "hands-off-the-shiny-shirt-thats-mine",
@@ -19348,12 +21051,25 @@
     },
     "wargear": ["fangs-hand-weapon"],
     "specialRules": [
-      "dominant-4",
-      "monstrous-charge",
-      "survival-instinct",
-      "swift-movement",
-      "terror",
-      "venom"
+      {
+        "id": "dominant",
+        "parameter": "4"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "survival-instinct"
+      },
+      {
+        "id": "swift-movement"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "venom"
+      }
     ],
     "profileRules": [
       {
@@ -19405,7 +21121,17 @@
       "i": "7"
     },
     "wargear": ["heavy-armour", "hand-weapon"],
-    "specialRules": ["terror", "blades-of-the-dead", "spectral-walk"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "blades-of-the-dead"
+      },
+      {
+        "id": "spectral-walk"
+      }
+    ],
     "profileRules": [
       {
         "id": "a-fell-light-is-in-them",
@@ -19451,10 +21177,20 @@
       "heroic-challenge"
     ],
     "specialRules": [
-      "dominant-10",
-      "harbinger-of-evil-18",
-      "resistant-to-magic",
-      "terror"
+      {
+        "id": "dominant",
+        "parameter": "10"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "18"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "profileRules": [
       {
@@ -19554,7 +21290,18 @@
       "heroic-strength",
       "heroic-challenge"
     ],
-    "specialRules": ["harbinger-of-evil-12", "terror", "will-of-evil"],
+    "specialRules": [
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "will-of-evil"
+      }
+    ],
     "options": [
       {
         "id": "3a-3m-18w-3f",
@@ -19689,11 +21436,22 @@
     },
     "wargear": [],
     "specialRules": [
-      "dominant-3",
-      "fly",
-      "large-target",
-      "terror",
-      "monstrous-charge"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "fly"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "monstrous-charge"
+      }
     ],
     "profileRules": [
       {
@@ -19759,7 +21517,11 @@
       "fate": "1"
     },
     "wargear": [],
-    "specialRules": ["woodland-creature"]
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ]
   },
   {
     "profile": "ashere",
@@ -19856,11 +21618,22 @@
     },
     "wargear": [],
     "specialRules": [
-      "dominant-3",
-      "fly",
-      "large-target",
-      "terror",
-      "monstrous-charge"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "fly"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "monstrous-charge"
+      }
     ],
     "profileRules": [
       {
@@ -19896,7 +21669,11 @@
       "i": "7"
     },
     "wargear": [],
-    "specialRules": ["fell-sight"]
+    "specialRules": [
+      {
+        "id": "fell-sight"
+      }
+    ]
   },
   {
     "profile": "feralof",
@@ -20005,7 +21782,11 @@
       "i": "7"
     },
     "wargear": [],
-    "specialRules": ["woodland-creature"]
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ]
   },
   {
     "profile": "gandalfs-cart",
@@ -20068,11 +21849,22 @@
     },
     "wargear": [],
     "specialRules": [
-      "dominant-3",
-      "fly",
-      "large-target",
-      "monstrous-charge",
-      "terror"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "fly"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "additionalText": ["text-1"]
   },
@@ -20102,7 +21894,11 @@
       "i": "7"
     },
     "wargear": [],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "majestic-steed",
@@ -20164,7 +21960,12 @@
       "i": "6"
     },
     "wargear": [],
-    "specialRules": ["dominant-4"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "4"
+      }
+    ],
     "profileRules": [
       {
         "id": "rapid-fire-bolt-thrower",
@@ -20209,7 +22010,12 @@
       "i": "7"
     },
     "wargear": [],
-    "specialRules": ["dominant-3"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "3"
+      }
+    ],
     "profileRules": [
       {
         "id": "chariot-charge",
@@ -20271,7 +22077,15 @@
       "i": "8"
     },
     "wargear": [],
-    "specialRules": ["dominant-3", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "additionalText": ["text-1"],
     "profileRules": [
       {
@@ -20412,7 +22226,14 @@
       "i": "7"
     },
     "wargear": [],
-    "specialRules": ["terror", "spectral-walk"]
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "spectral-walk"
+      }
+    ]
   },
   {
     "profile": "the-white-warg",
@@ -20443,7 +22264,17 @@
       "fate": "1"
     },
     "wargear": [],
-    "specialRules": ["fearless", "fell-sight", "terror"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "fell-sight"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "pack-master",
@@ -20478,7 +22309,21 @@
       "i": "9"
     },
     "wargear": [],
-    "specialRules": ["dominant-5", "terror", "fearless", "large-target"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "large-target"
+      }
+    ],
     "profileRules": [
       {
         "id": "trample",
@@ -20574,7 +22419,11 @@
       "i": "7"
     },
     "wargear": [],
-    "specialRules": ["mountain-dweller"],
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "devastating-charge",
@@ -20641,7 +22490,11 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["fearful"],
+    "specialRules": [
+      {
+        "id": "fearful"
+      }
+    ],
     "profileRules": [
       {
         "id": "unsteady-nerves",
@@ -20686,7 +22539,14 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["expert-rider", "horse-lord"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -20740,10 +22600,20 @@
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
     "heroicActions": ["heroic-march", "heroic-strike"],
     "specialRules": [
-      "expert-rider",
-      "horse-lord",
-      "sworn-protector-theoden",
-      "leader-rohan-royal-guard"
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "theoden"
+      },
+      {
+        "id": "leader",
+        "parameter": "rohan-royal-guard"
+      }
     ],
     "options": [
       {
@@ -20792,7 +22662,14 @@
     },
     "wargear": ["armour", "hand-weapon", "shield", "throwing-spears"],
     "heroicActions": ["heroic-accuracy", "heroic-defence", "heroic-march"],
-    "specialRules": ["expert-rider", "horse-lord"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -20840,7 +22717,18 @@
     },
     "wargear": ["heavy-armour", "guthwine"],
     "heroicActions": ["heroic-strength", "heroic-strike"],
-    "specialRules": ["expert-rider", "horse-lord", "leader-rohan-royal-guard"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "leader",
+        "parameter": "rohan-royal-guard"
+      }
+    ],
     "options": [
       {
         "id": "firefoot-with-armour",
@@ -20911,7 +22799,14 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-resolve", "heroic-strike", "heroic-defence"],
-    "specialRules": ["expert-rider", "horse-lord"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      }
+    ],
     "options": [
       {
         "id": "merry",
@@ -20988,7 +22883,14 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-resolve", "heroic-defence"],
-    "specialRules": ["expert-rider", "horse-lord"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -21042,10 +22944,20 @@
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-march", "heroic-defence"],
     "specialRules": [
-      "expert-rider",
-      "horse-lord",
-      "leader-rohan-royal-guard",
-      "sworn-protector-theoden"
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "leader",
+        "parameter": "rohan-royal-guard"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "theoden"
+      }
     ],
     "options": [
       {
@@ -21100,7 +23012,14 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-resolve", "heroic-challenge"],
-    "specialRules": ["expert-rider", "horse-lord"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      }
+    ],
     "options": [
       {
         "id": "armoured-horse",
@@ -21154,7 +23073,11 @@
     },
     "wargear": ["armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["fearful"],
+    "specialRules": [
+      {
+        "id": "fearful"
+      }
+    ],
     "profileRules": [
       {
         "id": "there-is-always-hope",
@@ -21199,7 +23122,16 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["leader-rohan-royal-guard", "sworn-protector-theoden"],
+    "specialRules": [
+      {
+        "id": "leader",
+        "parameter": "rohan-royal-guard"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "theoden"
+      }
+    ],
     "profileRules": [
       {
         "id": "doorward-of-meduseld",
@@ -21239,7 +23171,17 @@
     },
     "wargear": ["heavy-armour", "hand-weapon", "bow"],
     "heroicActions": ["heroic-accuracy", "heroic-defence"],
-    "specialRules": ["expert-rider", "horse-lord", "sharpshooter"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "sharpshooter"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -21293,10 +23235,19 @@
     ],
     "heroicActions": ["heroic-strike", "heroic-strength", "heroic-challenge"],
     "specialRules": [
-      "burly",
-      "expert-rider",
-      "horse-lord",
-      "leader-rohan-royal-guard"
+      {
+        "id": "burly"
+      },
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "leader",
+        "parameter": "rohan-royal-guard"
+      }
     ],
     "options": [
       {
@@ -21356,11 +23307,23 @@
     "wargear": ["light-armour", "horn-of-the-hammerhand"],
     "heroicActions": ["heroic-strike", "heroic-strength", "heroic-challenge"],
     "specialRules": [
-      "burly",
-      "dominant-4",
-      "fearless",
-      "hatred-dunland",
-      "mighty-blow"
+      {
+        "id": "burly"
+      },
+      {
+        "id": "dominant",
+        "parameter": "4"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "hatred",
+        "parameter": "dunland"
+      },
+      {
+        "id": "mighty-blow"
+      }
     ],
     "profileRules": [
       {
@@ -21416,7 +23379,14 @@
     },
     "wargear": ["armour", "hand-weapon", "spyglass"],
     "heroicActions": ["heroic-strike", "heroic-defence", "heroic-resolve"],
-    "specialRules": ["expert-rider", "horse-lord"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      }
+    ],
     "options": [
       {
         "id": "ashere",
@@ -21469,7 +23439,14 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-defence", "heroic-challenge"],
-    "specialRules": ["fearless", "unyielding-combat-stance"],
+    "specialRules": [
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "unyielding-combat-stance"
+      }
+    ],
     "options": [
       {
         "id": "shield",
@@ -21522,7 +23499,11 @@
     },
     "wargear": ["light-armour", "hand-weapon"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["horse-lord"],
+    "specialRules": [
+      {
+        "id": "horse-lord"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -21570,7 +23551,15 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-strike"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -21617,7 +23606,18 @@
     },
     "wargear": ["light-armour", "shield", "hand-weapon"],
     "heroicActions": ["heroic-defence", "heroic-resolve"],
-    "specialRules": ["expert-rider", "horse-lord", "sworn-protector-hera"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "hera"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -21661,7 +23661,11 @@
       "i": "6"
     },
     "wargear": ["armour", "hand-weapon", "shield", "bow", "horse"],
-    "specialRules": ["expert-rider"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      }
+    ],
     "options": [
       {
         "id": "banner",
@@ -21716,7 +23720,14 @@
       "i": "6"
     },
     "wargear": ["heavy-armour", "hand-weapon", "shield"],
-    "specialRules": ["bodyguard", "expert-rider"],
+    "specialRules": [
+      {
+        "id": "bodyguard"
+      },
+      {
+        "id": "expert-rider"
+      }
+    ],
     "options": [
       {
         "id": "horse-and-throwing-spears",
@@ -21781,7 +23792,18 @@
     },
     "wargear": ["armour", "herugrim"],
     "heroicActions": ["heroic-march", "heroic-strike", "heroic-challenge"],
-    "specialRules": ["expert-rider", "horse-lord", "leader-rohan-royal-guard"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "leader",
+        "parameter": "rohan-royal-guard"
+      }
+    ],
     "options": [
       {
         "id": "exchange-armour-for-heavy-armour",
@@ -21857,7 +23879,18 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-challenge"],
-    "specialRules": ["expert-rider", "horse-lord", "leader-rohan-royal-guard"],
+    "specialRules": [
+      {
+        "id": "expert-rider"
+      },
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "leader",
+        "parameter": "rohan-royal-guard"
+      }
+    ],
     "options": [
       {
         "id": "brego",
@@ -22256,15 +24289,35 @@
     "wargear": ["razor-sharp-teeth-massive-talons-hand-weapons"],
     "heroicActions": ["heroic-challenge"],
     "specialRules": [
-      "ancient-enemies-dwarf",
-      "dominant-20",
-      "fearless",
-      "fly",
-      "harbinger-of-evil-18",
-      "large-target",
-      "monstrous-charge",
-      "resistant-to-magic",
-      "terror"
+      {
+        "id": "ancient-enemies-dwarf"
+      },
+      {
+        "id": "dominant",
+        "parameter": "20"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "fly"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "18"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "profileRules": [
       {
@@ -22363,7 +24416,17 @@
       "heroic-defence",
       "heroic-challenge"
     ],
-    "specialRules": ["horse-lord", "mighty-hero", "resistant-to-magic"],
+    "specialRules": [
+      {
+        "id": "horse-lord"
+      },
+      {
+        "id": "mighty-hero"
+      },
+      {
+        "id": "resistant-to-magic"
+      }
+    ],
     "options": [
       {
         "id": "bow",
@@ -22441,9 +24504,16 @@
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-accuracy"],
     "specialRules": [
-      "resistant-to-magic",
-      "sharpshooter",
-      "throw-stones-range-8-strength-1"
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
     ],
     "profileRules": [
       {
@@ -22534,12 +24604,26 @@
     "wargear": ["roots-and-branches-hand-weapon"],
     "heroicActions": ["heroic-challenge", "heroic-strength"],
     "specialRules": [
-      "dominant-3",
-      "fearless",
-      "large-target",
-      "throw-stones-range-18-strength-10",
-      "terror",
-      "woodland-creature"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-18-strength-10"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -22586,11 +24670,22 @@
     "wargear": ["two-handed-weapon"],
     "heroicActions": ["heroic-strength", "heroic-strike", "heroic-defence"],
     "specialRules": [
-      "burly",
-      "dominant-2",
-      "fearless",
-      "resistant-to-magic",
-      "woodland-creature"
+      {
+        "id": "burly"
+      },
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -22629,13 +24724,28 @@
     "wargear": ["claws-and-teeth-hand-weapons"],
     "heroicActions": ["heroic-strength", "heroic-strike", "heroic-defence"],
     "specialRules": [
-      "burly",
-      "dominant-5",
-      "fearless",
-      "monstrous-charge",
-      "resistant-to-magic",
-      "terror",
-      "woodland-creature"
+      {
+        "id": "burly"
+      },
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -22682,7 +24792,14 @@
       "i": "5"
     },
     "wargear": ["hand-and-a-half-weapon", "hand-weapon"],
-    "specialRules": ["burly", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "burly"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "swap-hand-and-a-half-weapon-for-great-bow",
@@ -22730,7 +24847,15 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-resolve"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "mithril-coat",
@@ -22799,7 +24924,11 @@
       "fate": "2"
     },
     "wargear": ["iron-shod-hooves-hand-weapon"],
-    "specialRules": ["fearful"],
+    "specialRules": [
+      {
+        "id": "fearful"
+      }
+    ],
     "profileRules": [
       {
         "id": "official-meals",
@@ -22850,12 +24979,26 @@
     "wargear": ["roots-and-branches-hand-weapon"],
     "heroicActions": ["heroic-strength"],
     "specialRules": [
-      "dominant-3",
-      "fearless",
-      "large-target",
-      "throw-stones-range-18-strength-10",
-      "terror",
-      "woodland-creature"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-18-strength-10"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -22967,12 +25110,26 @@
     },
     "wargear": ["roots-and-branches-hand-weapon"],
     "specialRules": [
-      "dominant-3",
-      "fearless",
-      "large-target",
-      "throw-stones-range-18-strength-10",
-      "terror",
-      "woodland-creature"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-18-strength-10"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -23012,7 +25169,15 @@
       "fate": "2"
     },
     "wargear": ["two-handed-weapon", "grip-fang-and-wolf"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "profileRules": [
       {
         "id": "get-out-of-my-fields",
@@ -23052,7 +25217,15 @@
     },
     "wargear": ["pitchfork"],
     "heroicActions": ["heroic-resolve", "heroic-challenge"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "profileRules": [
       {
         "id": "pitchfork",
@@ -23094,11 +25267,22 @@
     },
     "wargear": ["claws-and-beak-hand-weapon"],
     "specialRules": [
-      "dominant-2",
-      "fly",
-      "large-target",
-      "monstrous-charge",
-      "terror"
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "fly"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "terror"
+      }
     ]
   },
   {
@@ -23131,7 +25315,15 @@
       "fate": "1"
     },
     "wargear": ["unarmed"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "profileRules": [
       {
         "id": "high-spirits",
@@ -23176,9 +25368,17 @@
     },
     "wargear": ["unarmed"],
     "specialRules": [
-      "dominant-2",
-      "resistant-to-magic",
-      "throw-stones-range-8-strength-1"
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
     ],
     "profileRules": [
       {
@@ -23219,7 +25419,15 @@
     },
     "wargear": ["hand-weapon", "the-one-ring"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "mithril-coat",
@@ -23290,7 +25498,11 @@
     },
     "wargear": ["mithril-coat", "pony", "unarmed"],
     "heroicActions": ["heroic-defence"],
-    "specialRules": ["resistant-to-magic"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      }
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -23348,7 +25560,14 @@
     },
     "wargear": ["the-light-of-earendil", "nenya"],
     "heroicActions": ["heroic-channelling", "heroic-strike"],
-    "specialRules": ["terror", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "nenya",
@@ -23536,12 +25755,26 @@
     "wargear": ["hand-weapon", "spear", "blowpipe"],
     "heroicActions": ["heroic-march", "heroic-accuracy"],
     "specialRules": [
-      "hatred-goblin",
-      "hated-orc",
-      "hatred-uruk-hai",
-      "poisoned-attacks",
-      "stalk-unseen",
-      "woodland-creature"
+      {
+        "id": "hatred",
+        "parameter": "goblin"
+      },
+      {
+        "id": "hated-orc"
+      },
+      {
+        "id": "hatred",
+        "parameter": "uruk-hai"
+      },
+      {
+        "id": "poisoned-attacks"
+      },
+      {
+        "id": "stalk-unseen"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -23690,11 +25923,22 @@
     },
     "wargear": ["claws-and-beak-hand-weapon"],
     "specialRules": [
-      "dominant-3",
-      "fly",
-      "large-target",
-      "monstrous-charge",
-      "terror"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "fly"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "terror"
+      }
     ]
   },
   {
@@ -23729,11 +25973,22 @@
     "wargear": ["two-handed-weapon", "great-bow"],
     "heroicActions": ["heroic-strength", "heroic-strike", "heroic-defence"],
     "specialRules": [
-      "burly",
-      "dominant-2",
-      "fearless",
-      "resistant-to-magic",
-      "woodland-creature"
+      {
+        "id": "burly"
+      },
+      {
+        "id": "dominant",
+        "parameter": "2"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -23777,13 +26032,28 @@
     "wargear": ["claws-and-teeth-hand-weapons"],
     "heroicActions": ["heroic-strength", "heroic-strike", "heroic-defence"],
     "specialRules": [
-      "burly",
-      "dominant-5",
-      "fearless",
-      "monstrous-charge",
-      "resistant-to-magic",
-      "terror",
-      "woodland-creature"
+      {
+        "id": "burly"
+      },
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -23830,7 +26100,11 @@
       "i": "7"
     },
     "wargear": ["teeth-and-claws-hand-weapons"],
-    "specialRules": ["woodland-creature"],
+    "specialRules": [
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "profileRules": [
       {
         "id": "loyal-hounds",
@@ -23871,11 +26145,22 @@
     "wargear": ["claws-and-beak-hand-weapon"],
     "heroicActions": ["heroic-strength", "heroic-defence"],
     "specialRules": [
-      "dominant-4",
-      "fly",
-      "large-target",
-      "monstrous-charge",
-      "terror"
+      {
+        "id": "dominant",
+        "parameter": "4"
+      },
+      {
+        "id": "fly"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "profileRules": [
       {
@@ -23915,7 +26200,15 @@
       "fate": "2"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "profileRules": [
       {
         "id": "leave-my-flowers-alone",
@@ -23951,7 +26244,15 @@
       "i": "7"
     },
     "wargear": ["hand-weapon", "short-bow"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "war-horn",
@@ -23994,7 +26295,15 @@
       "i": "8"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "battlin-brandybucks",
@@ -24031,7 +26340,15 @@
       "i": "7"
     },
     "wargear": ["hand-and-a-half-weapon"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"]
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ]
   },
   {
     "profile": "holfoot-bracegirdle-shirriff-leader",
@@ -24065,9 +26382,17 @@
     "wargear": ["hand-and-a-half-weapon"],
     "heroicActions": ["heroic-march"],
     "specialRules": [
-      "leader-hobbit-shirriff",
-      "resistant-to-magic",
-      "throw-stones-range-8-strength-1"
+      {
+        "id": "leader",
+        "parameter": "hobbit-shirriff"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
     ],
     "profileRules": [
       {
@@ -24108,7 +26433,14 @@
     },
     "wargear": ["elven-made-weapon", "elf-bow"],
     "heroicActions": ["heroic-accuracy", "heroic-strike"],
-    "specialRules": ["sharpshooter", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "sharpshooter"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -24183,7 +26515,15 @@
       "fate": "1"
     },
     "wargear": ["umbrella"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "profileRules": [
       {
         "id": "umbrella",
@@ -24232,7 +26572,15 @@
       "fate": "1"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "profileRules": [
       {
         "id": "family-rivalry",
@@ -24276,7 +26624,15 @@
       "fate": "2"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -24324,7 +26680,15 @@
     },
     "wargear": ["armour", "hand-weapon", "pony", "horn-of-the-riddermark"],
     "heroicActions": ["heroic-challenge", "heroic-march", "heroic-strike"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "additionalText": ["text-1"],
     "options": [
       {
@@ -24379,7 +26743,15 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-accuracy"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "additionalText": ["text-1"],
     "profileRules": [
       {
@@ -24424,7 +26796,15 @@
       "fate": "2"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -24472,7 +26852,15 @@
     },
     "wargear": ["armour", "hand-weapon", "pony"],
     "heroicActions": ["heroic-accuracy", "heroic-march", "heroic-strike"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "additionalText": ["text-1"],
     "options": [
       {
@@ -24521,7 +26909,17 @@
     },
     "wargear": ["staff-of-power", "hand-weapon", "sebastian"],
     "heroicActions": ["heroic-defence", "heroic-channelling"],
-    "specialRules": ["mountain-dweller", "stalk-unseen", "woodland-creature"],
+    "specialRules": [
+      {
+        "id": "mountain-dweller"
+      },
+      {
+        "id": "stalk-unseen"
+      },
+      {
+        "id": "woodland-creature"
+      }
+    ],
     "options": [
       {
         "id": "exchange-staff-for-great-eagle",
@@ -24625,9 +27023,17 @@
     "wargear": ["hand-and-a-half-weapon"],
     "heroicActions": ["heroic-march"],
     "specialRules": [
-      "leader-hobbit-shirriff",
-      "resistant-to-magic",
-      "throw-stones-range-8-strength-1"
+      {
+        "id": "leader",
+        "parameter": "hobbit-shirriff"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
     ],
     "profileRules": [
       {
@@ -24668,9 +27074,16 @@
     },
     "wargear": ["unarmed"],
     "specialRules": [
-      "fearful",
-      "resistant-to-magic",
-      "throw-stones-range-8-strength-1"
+      {
+        "id": "fearful"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
     ],
     "profileRules": [
       {
@@ -24716,7 +27129,15 @@
     },
     "wargear": ["hand-weapon", "frying-pan"],
     "heroicActions": ["heroic-strike", "heroic-strength"],
-    "specialRules": ["resistant-to-magic", "throw-stones-range-8-strength-1"],
+    "specialRules": [
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -24776,10 +27197,21 @@
     "wargear": ["sting", "pony"],
     "heroicActions": ["heroic-resolve", "heroic-strike"],
     "specialRules": [
-      "resistant-to-magic",
-      "sworn-protector-frodo",
-      "sworn-protector-rosie",
-      "throw-stones-range-8-strength-1"
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "frodo"
+      },
+      {
+        "id": "sworn-protector",
+        "parameter": "rosie"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
     ],
     "options": [
       {
@@ -24925,7 +27357,17 @@
       "fate": "1"
     },
     "wargear": ["strangling-fingers-never-unarmed"],
-    "specialRules": ["cave-dweller", "mountain-dweller", "stalk-unseen"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "mountain-dweller"
+      },
+      {
+        "id": "stalk-unseen"
+      }
+    ],
     "profileRules": [
       {
         "id": "serve-the-master-of-the-precious",
@@ -25110,12 +27552,26 @@
       "heroic-march"
     ],
     "specialRules": [
-      "dominant-5",
-      "fearless",
-      "large-target",
-      "throw-stones-range-18-strength-10",
-      "terror",
-      "woodland-creature"
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-18-strength-10"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "options": [
       {
@@ -25182,9 +27638,17 @@
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-resolve"],
     "specialRules": [
-      "leader-hobbit-shirriff",
-      "resistant-to-magic",
-      "throw-stones-range-8-strength-1"
+      {
+        "id": "leader",
+        "parameter": "hobbit-shirriff"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-8-strength-1"
+      }
     ],
     "profileRules": [
       {
@@ -25222,12 +27686,26 @@
     },
     "wargear": ["hand-weapon", "spear", "blowpipe"],
     "specialRules": [
-      "hatred-goblin",
-      "hated-orc",
-      "hatred-uruk-hai",
-      "stalk-unseen",
-      "poisoned-attacks",
-      "woodland-creature"
+      {
+        "id": "hatred",
+        "parameter": "goblin"
+      },
+      {
+        "id": "hated-orc"
+      },
+      {
+        "id": "hatred",
+        "parameter": "uruk-hai"
+      },
+      {
+        "id": "stalk-unseen"
+      },
+      {
+        "id": "poisoned-attacks"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ]
   },
   {
@@ -25305,7 +27783,18 @@
       "i": "8"
     },
     "wargear": ["claws-hand-weapon"],
-    "specialRules": ["dominant-3", "mountain-dweller", "terror"],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "mountain-dweller"
+      },
+      {
+        "id": "terror"
+      }
+    ],
     "profileRules": [
       {
         "id": "horned-charge",
@@ -25388,7 +27877,12 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-challenge", "heroic-strength"],
-    "specialRules": ["hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "profileRules": [
       {
         "id": "dunlending-heritage",
@@ -25433,7 +27927,16 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-defence", "heroic-march"],
-    "specialRules": ["master-of-battle-4", "hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "master-of-battle",
+        "parameter": "4"
+      },
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -25481,7 +27984,12 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "options": [
       {
         "id": "light-shield",
@@ -25524,7 +28032,12 @@
       "i": "8"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "options": [
       {
         "id": "light-shield-and-flaming-brand",
@@ -25602,7 +28115,12 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-challenge"],
-    "specialRules": ["hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "profileRules": [
       {
         "id": "traitor-of-rohan",
@@ -25643,7 +28161,12 @@
       "i": "6"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "options": [
       {
         "id": "war-horn-shield-throwing-spears",
@@ -25744,7 +28267,15 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-challenge", "heroic-strength", "heroic-strike"],
-    "specialRules": ["general-hunter", "hatred-rohan"],
+    "specialRules": [
+      {
+        "id": "general-hunter"
+      },
+      {
+        "id": "hatred",
+        "parameter": "rohan"
+      }
+    ],
     "options": [
       {
         "id": "horse",
@@ -25787,7 +28318,11 @@
       "i": "8"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["cave-dweller"]
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ]
   },
   {
     "profile": "bat-swarm",
@@ -25816,7 +28351,14 @@
       "i": "9"
     },
     "wargear": ["claws-and-teeth-hand-weapons"],
-    "specialRules": ["cave-dweller", "fly"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "fly"
+      }
+    ],
     "profileRules": [
       {
         "id": "blinding-swarm",
@@ -25857,10 +28399,20 @@
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-defence", "heroic-strength"],
     "specialRules": [
-      "dominant-3",
-      "large-target",
-      "terror",
-      "throw-stones-range-12-strength-8"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
     ],
     "profileRules": [
       {
@@ -25907,10 +28459,20 @@
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-challenge", "heroic-strike"],
     "specialRules": [
-      "dominant-5",
-      "large-target",
-      "terror",
-      "throw-stones-range-12-strength-8"
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
     ],
     "profileRules": [
       {
@@ -25957,14 +28519,31 @@
     "wargear": ["claws-and-teeth-hand-weapons"],
     "heroicActions": ["heroic-defence"],
     "specialRules": [
-      "cave-dweller",
-      "dominant-4",
-      "large-target",
-      "monstrous-charge",
-      "mountain-dweller",
-      "resistant-to-magic",
-      "terror",
-      "woodland-creature"
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "dominant",
+        "parameter": "4"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "mountain-dweller"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "woodland-creature"
+      }
     ],
     "profileRules": [
       {
@@ -26012,9 +28591,17 @@
     },
     "wargear": ["troll-chain"],
     "specialRules": [
-      "dominant-3",
-      "terror",
-      "throw-stones-range-12-strength-8"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
     ],
     "options": [
       {
@@ -26075,13 +28662,29 @@
     "wargear": ["claws-and-teeth-hand-weapons"],
     "heroicActions": ["heroic-channelling", "heroic-resolve", "heroic-defence"],
     "specialRules": [
-      "dominant-5",
-      "harbinger-of-evil-12",
-      "large-target",
-      "monstrous-charge",
-      "resistant-to-magic",
-      "survival-instinct",
-      "terror"
+      {
+        "id": "dominant",
+        "parameter": "5"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "monstrous-charge"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "survival-instinct"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "options": [
       {
@@ -26194,7 +28797,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-channelling", "heroic-defence"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "master-of-the-dark-wild",
@@ -26254,7 +28861,11 @@
     },
     "wargear": ["heavy-armour", "hand-weapon"],
     "heroicActions": ["heroic-strike", "heroic-resolve", "heroic-defence"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "iron-fist",
@@ -26299,7 +28910,11 @@
     },
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "chittering-hordes",
@@ -26335,7 +28950,11 @@
       "i": "8"
     },
     "wargear": ["hand-weapon"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "options": [
       {
         "id": "two-handed-weapon",
@@ -26382,7 +29001,17 @@
       "fate": "1"
     },
     "wargear": ["strangling-fingers"],
-    "specialRules": ["cave-dweller", "mountain-dweller", "stalk-unseen"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "mountain-dweller"
+      },
+      {
+        "id": "stalk-unseen"
+      }
+    ],
     "additionalText": ["text-1"],
     "profileRules": [
       {
@@ -26423,7 +29052,11 @@
     },
     "wargear": ["hand-weapon", "whip"],
     "heroicActions": ["heroic-challenge"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "profileRules": [
       {
         "id": "swap-with-me",
@@ -26468,7 +29101,11 @@
     },
     "wargear": ["armour", "hand-weapon"],
     "heroicActions": ["heroic-march"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "options": [
       {
         "id": "orc-bow",
@@ -26551,7 +29188,17 @@
       "i": "7"
     },
     "wargear": ["armour", "two-handed-weapon", "throwing-weapons"],
-    "specialRules": ["cave-dweller", "backstabbers", "stalk-unseen"]
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "backstabbers"
+      },
+      {
+        "id": "stalk-unseen"
+      }
+    ]
   },
   {
     "profile": "moria-goblin-shaman",
@@ -26584,7 +29231,11 @@
     },
     "wargear": ["armour", "spear", "hand-weapon"],
     "heroicActions": ["heroic-channelling"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "magicPowers": [
       {
         "id": "fury",
@@ -26633,7 +29284,11 @@
       "i": "8"
     },
     "wargear": ["armour", "hand-weapon"],
-    "specialRules": ["cave-dweller"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      }
+    ],
     "options": [
       {
         "id": "orc-bow",
@@ -26686,12 +29341,26 @@
     },
     "wargear": ["giant-flaming-hand-weapon", "fiery-lash"],
     "specialRules": [
-      "dominant-10",
-      "fearless",
-      "large-target",
-      "harbinger-of-evil-18",
-      "terror",
-      "resistant-to-magic"
+      {
+        "id": "dominant",
+        "parameter": "10"
+      },
+      {
+        "id": "fearless"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "18"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "resistant-to-magic"
+      }
     ],
     "profileRules": [
       {
@@ -26747,7 +29416,20 @@
     },
     "wargear": ["two-handed-weapon"],
     "heroicActions": ["heroic-strength", "heroic-challenge", "heroic-strike"],
-    "specialRules": ["cave-dweller", "resistant-to-magic", "terror", "burly"],
+    "specialRules": [
+      {
+        "id": "cave-dweller"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "burly"
+      }
+    ],
     "profileRules": [
       {
         "id": "relentless-advance",
@@ -26840,11 +29522,23 @@
     },
     "wargear": ["tentacles-hand-weapon"],
     "specialRules": [
-      "dominant-6",
-      "harbinger-of-evil-12",
-      "large-target",
-      "resistant-to-magic",
-      "terror"
+      {
+        "id": "dominant",
+        "parameter": "6"
+      },
+      {
+        "id": "harbinger-of-evil",
+        "parameter": "12"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "resistant-to-magic"
+      },
+      {
+        "id": "terror"
+      }
     ],
     "profileRules": [
       {
@@ -26906,10 +29600,20 @@
     "wargear": ["hand-weapon"],
     "heroicActions": ["heroic-defence"],
     "specialRules": [
-      "dominant-3",
-      "large-target",
-      "terror",
-      "throw-stones-range-12-strength-8"
+      {
+        "id": "dominant",
+        "parameter": "3"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
+      },
+      {
+        "id": "throw-stones",
+        "parameter": "range-12-strength-8"
+      }
     ],
     "profileRules": [
       {

@@ -34,6 +34,11 @@ export type ProfileRule = {
   option?: string;
 };
 
+export type SpecialRuleRef = {
+  id: string;
+  parameter?: string;
+}
+
 export type MagicPower = {
   id: string;
   range: string;
@@ -77,7 +82,7 @@ export interface Profile {
   source: Source;
   stats: Stats;
   heroicActions?: string[];
-  specialRules?: string[];
+  specialRules?: SpecialRuleRef[];
   wargear: string[];
   additionalProfiles?: string[];
   additionalText?: string[];
