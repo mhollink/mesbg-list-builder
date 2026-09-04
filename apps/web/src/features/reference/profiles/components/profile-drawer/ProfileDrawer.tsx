@@ -1,12 +1,9 @@
-import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
 
 import { useProfileDrawer } from "../../hooks/useProfileDrawer";
 import { ProfileDrawerHeader } from "./ProfileDrawerHeader";
-import { ProfileHeroicStats } from "./ProfileHeroicStats";
-import { ProfileKeywords } from "./ProfileKeywords";
 import { ProfileMagicPowers } from "./ProfileMagicPowers";
 import { ProfileOptions } from "./ProfileOptions";
 import { ProfileProfileRules } from "./ProfileProfileRules";
@@ -42,8 +39,6 @@ export function ProfileDrawer() {
         <Stack sx={{ minHeight: "100%" }}>
           <ProfileDrawerHeader
             profile={content.profile}
-            unitTypes={content.unitTypes}
-            races={content.races}
             canGoBack={canGoBack}
             onBack={goBack}
             onClose={close}
@@ -62,20 +57,19 @@ export function ProfileDrawer() {
               py: 3,
             }}
           >
-            <Box>
-              <ProfileStats stats={content.profile.stats} />
+            <ProfileStats stats={content.profile.stats} />
 
-              <ProfileHeroicStats stats={content.profile.stats} />
-            </Box>
+            {content.additionalText && (
+              <ProfileValueList
+                title="Additional Information"
+                values={content.additionalText}
+              />
+            )}
 
-            <ProfileKeywords factions={content.factions} />
-
-            <ProfileValueList title="Wargear" values={content.wargear} />
-
-            <ProfileRuleLinks
-              title="Heroic Actions"
-              rules={content.heroicActions}
-              onOpenRule={openRule}
+            <ProfileValueList
+              title="Wargear"
+              values={content.profile.wargear}
+              display="inline"
             />
 
             <ProfileRuleLinks
@@ -84,29 +78,28 @@ export function ProfileDrawer() {
               onOpenRule={openRule}
             />
 
-            <ProfileMagicPowers
-              powers={content.magicalPowers}
-              onOpenRule={openRule}
-            />
-
             <ProfileProfileRules
               rules={content.profileRules}
               onOpenRule={openRule}
             />
 
+            <ProfileRuleLinks
+              title="Heroic Actions"
+              rules={content.heroicActions}
+              onOpenRule={openRule}
+            />
+
             <ProfileOptions options={content.options} />
+
+            <ProfileMagicPowers
+              powers={content.magicalPowers}
+              onOpenRule={openRule}
+            />
 
             <ProfileRelatedProfiles
               profiles={content.additionalProfiles}
               onOpenProfile={openProfile}
             />
-
-            {content.profile.additionalText && (
-              <ProfileValueList
-                title="Additional Information"
-                values={content.profile.additionalText}
-              />
-            )}
           </Stack>
 
           <Divider />

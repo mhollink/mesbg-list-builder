@@ -25,15 +25,25 @@ export function filterProfiles(
   });
 
   return profiles
-    .filter((profile) => profile.alignment === alignment)
+    .filter(
+      (profile) =>
+        profile.alignment === alignment || profile.alignment === "both",
+    )
     .filter((profile) => {
       if (!query) {
-        return true;
+        return profile.selectable; // only list selectable profiles, unless direct search
       }
 
-      return (
-        profile.name.toLocaleLowerCase(locale).includes(query) ||
-        profile.originName.toLocaleLowerCase(locale).includes(query)
+      const searchableValues = [
+        profile.name,
+        profile.originName,
+        ...profile.race,
+        ...profile.factions,
+        ...profile.unitTypes,
+      ];
+
+      return searchableValues.some((value) =>
+        value.toLocaleLowerCase(locale).includes(query),
       );
     })
     .sort((left, right) => collator.compare(left.name, right.name));

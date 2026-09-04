@@ -18,7 +18,9 @@ export type OptionRow = z.infer<typeof optionRowSchema>;
 export type OptionRequirementRow = z.infer<typeof optionRequirementRowSchema>;
 export type OptionEffectRow = z.infer<typeof optionEffectRowSchema>;
 
-export interface Stats {
+export interface WarriorStats {
+  type: "warrior";
+
   mv: string;
   fv: string;
   sv: string;
@@ -28,13 +30,26 @@ export interface Stats {
   w: string;
   c: string;
   i: string;
-
-  might?: string | undefined;
-  will?: string | undefined;
-  fate?: string | undefined;
-
-  range?: string | undefined;
 }
+
+export interface HeroStats extends Omit<WarriorStats, "type"> {
+  type: "hero";
+
+  might: string;
+  will: string;
+  fate: string;
+}
+
+export interface SiegeStats {
+  type: "siege";
+
+  range: string;
+  s: string;
+  d: string;
+  w: string;
+}
+
+export type Stats = WarriorStats | HeroStats | SiegeStats;
 
 export type ProfileRule = {
   id: string;

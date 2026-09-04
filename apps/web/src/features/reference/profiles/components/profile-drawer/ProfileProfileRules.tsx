@@ -1,4 +1,4 @@
-import Chip from "@mui/material/Chip";
+import Chip, { type ChipProps } from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
@@ -49,8 +49,12 @@ export function ProfileProfileRules({
 
               <Chip
                 label={formatRuleType(rule.type)}
+                color={ruleTypeColor(rule.type)}
                 size="small"
-                variant="outlined"
+                variant="filled"
+                sx={{
+                  fontWeight: "bold",
+                }}
               />
             </Stack>
 
@@ -60,6 +64,16 @@ export function ProfileProfileRules({
       </Stack>
     </ProfileSection>
   );
+}
+
+function ruleTypeColor(type: string) {
+  const colors: Record<string, ChipProps["color"]> = {
+    active: "error",
+    passive: "warning",
+    "brutal-power-attack": "info",
+  };
+
+  return colors[type];
 }
 
 function formatRuleType(type: string): string {

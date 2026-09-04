@@ -34,10 +34,7 @@ export interface ProfileDrawerRelatedProfile {
 export interface ProfileDrawerContent {
   profile: LocalizedProfile;
 
-  races: string[];
-  factions: string[];
-  unitTypes: string[];
-  wargear: string[];
+  additionalText: string[];
 
   heroicActions: ProfileDrawerRuleLink[];
   specialRules: ProfileDrawerRuleLink[];

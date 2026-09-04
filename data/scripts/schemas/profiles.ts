@@ -10,7 +10,7 @@ import {
 export const profileRowSchema = z.object({
   id: requiredStringCellSchema,
   origin: requiredStringCellSchema,
-  alignment: z.enum(["good", "evil", "siege-equipment"]),
+  alignment: z.enum(["good", "evil", "both", "siege-equipment"]),
   points: optionalStringCellSchema,
   race: optionalStringCellSchema,
   factions: optionalStringCellSchema,

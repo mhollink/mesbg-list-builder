@@ -43,10 +43,8 @@ export function useProfileDrawer() {
       return undefined;
     }
 
-    const translateKeyword = (group: string, id: string) =>
-      t(`keywords.${group}.${id}`, {
-        defaultValue: id,
-      });
+    const translateAdditionalText = (id: string) =>
+      t(`profiles.${profile.profile}.additional-text.${id}`);
 
     const resolveRule = (id: string) => ({
       id,
@@ -56,20 +54,8 @@ export function useProfileDrawer() {
     return {
       profile,
 
-      races: profile.race.map((race) => translateKeyword("races", race)),
-
-      factions: profile.factions.map((faction) =>
-        translateKeyword("factions", faction),
-      ),
-
-      unitTypes: profile.unitTypes.map((unitType) =>
-        translateKeyword("unit-types", unitType),
-      ),
-
-      wargear: profile.wargear.map((item) =>
-        t(`wargear.${item}`, {
-          defaultValue: item,
-        }),
+      additionalText: (profile.additionalText ?? [])?.map(
+        translateAdditionalText,
       ),
 
       heroicActions: (profile.heroicActions ?? []).map(resolveRule),

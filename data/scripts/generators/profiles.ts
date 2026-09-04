@@ -11,6 +11,8 @@ import type {
   ProfileOption,
   ProfileRule,
   ProfileRuleRow,
+  Stats,
+  StatsRow,
 } from "../types/profile";
 import { groupBy } from "../utils/groupBy";
 import { optionalArray, splitList } from "../utils/lists";
@@ -42,8 +44,6 @@ export function generateProfiles(
       throw new Error(`Missing stats for profile '${row.id}'`);
     }
 
-    const { profile, ...profileStats } = stats;
-
     return {
       profile: row.id,
       origin: row.origin,
@@ -58,7 +58,7 @@ export function generateProfiles(
         book: row.source_book,
         page: Number(row.source_page),
       },
-      stats: profileStats,
+      stats: mapStats(stats),
       wargear: splitList(row.wargear),
       ...optionalArray("heroicActions", splitList(row.heroic_actions)),
       ...optionalArray("specialRules", splitList(row.special_rules)),
@@ -78,6 +78,49 @@ export function generateProfiles(
       ),
     };
   });
+}
+
+function mapStats(row: StatsRow): Stats {
+  if (row.range) {
+    return {
+      type: "siege",
+      range: row.range,
+      s: row.s,
+      d: row.d,
+      w: row.w,
+    };
+  }
+
+  if (row.might || row.will || row.fate) {
+    return {
+      type: "hero",
+      mv: row.mv,
+      fv: row.fv,
+      sv: row.sv,
+      s: row.s,
+      d: row.d,
+      a: row.a,
+      w: row.w,
+      c: row.c,
+      i: row.i,
+      might: row.might,
+      will: row.will,
+      fate: row.fate,
+    };
+  }
+
+  return {
+    type: "warrior",
+    mv: row.mv,
+    fv: row.fv,
+    sv: row.sv,
+    s: row.s,
+    d: row.d,
+    a: row.a,
+    w: row.w,
+    c: row.c,
+    i: row.i,
+  };
 }
 
 function mapPowers(magicalPowerRows: MagicalPowerRow[]): MagicPower[] {

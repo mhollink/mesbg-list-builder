@@ -1,78 +1,184 @@
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 import type { Stats } from "../../profiles.types";
-import { ProfileSection } from "./ProfileSection";
 
 interface ProfileStatsProps {
   stats: Stats;
 }
 
-const PROFILE_STATS = [
-  ["Mv", "mv"],
-  ["Fv", "fv"],
-  ["Sv", "sv"],
-  ["S", "s"],
-  ["D", "d"],
-  ["A", "a"],
-  ["W", "w"],
-  ["C", "c"],
-  ["I", "i"],
-] as const satisfies readonly [string, keyof Stats][];
+interface Stat {
+  id: string;
+  label: string;
+  value: string;
+}
 
 export function ProfileStats({ stats }: ProfileStatsProps) {
+  const values = getStats(stats);
+
   return (
-    <ProfileSection title="Profile">
-      <Box
+    <Box
+      sx={{
+        overflowX: "auto",
+        borderTop: 1,
+        borderColor: "divider",
+      }}
+    >
+      <Table
+        size="small"
         sx={{
-          display: "grid",
-          gridTemplateColumns: {
-            xs: "repeat(5, minmax(0, 1fr))",
-            sm: "repeat(9, minmax(0, 1fr))",
+          minWidth: values.length * 32,
+
+          "& .MuiTableCell-root": {
+            minWidth: 32,
+            px: 1,
+            py: 1,
+            textAlign: "center",
+            whiteSpace: "nowrap",
+            borderBottom: 0,
           },
-          border: 1,
-          borderColor: "divider",
-          borderRadius: 1,
-          overflow: "hidden",
         }}
       >
-        {PROFILE_STATS.map(([label, key]) => (
-          <Box
-            key={key}
+        <TableHead>
+          <TableRow
             sx={{
-              minWidth: 0,
-              py: 1.25,
-              textAlign: "center",
-
-              "&:not(:last-child)": {
-                borderRight: 1,
-                borderColor: "divider",
-              },
+              bgcolor: "action.hover",
+              borderBottom: 1,
+              borderColor: "divider",
             }}
           >
-            <Typography
-              variant="caption"
-              color="textSecondary"
-              sx={{
-                display: "block",
-                fontWeight: 700,
-              }}
-            >
-              {label}
-            </Typography>
+            {values.map((stat) => (
+              <TableCell
+                key={stat.id}
+                component="th"
+                scope="col"
+                sx={{
+                  fontWeight: 700,
+                }}
+              >
+                {stat.label}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
 
-            <Typography
-              variant="h6"
-              sx={{
-                mt: 0.25,
-                fontWeight: 700,
-              }}
-            >
-              {stats[key]}
-            </Typography>
-          </Box>
-        ))}
-      </Box>
-    </ProfileSection>
+        <TableBody>
+          <TableRow>
+            {values.map((stat) => (
+              <TableCell
+                key={stat.id}
+                sx={{
+                  fontWeight: 400,
+                }}
+              >
+                {stat.value}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableBody>
+      </Table>
+    </Box>
   );
+}
+
+function getStats(stats: Stats): Stat[] {
+  if (stats.type === "siege") {
+    return [
+      {
+        id: "range",
+        label: "Range",
+        value: stats.range,
+      },
+      {
+        id: "strength",
+        label: "Strength",
+        value: stats.s,
+      },
+      {
+        id: "defence",
+        label: "Defence",
+        value: stats.d,
+      },
+      {
+        id: "wounds",
+        label: "Wounds",
+        value: stats.w,
+      },
+    ];
+  }
+
+  const standardStats: Stat[] = [
+    {
+      id: "movement",
+      label: "Mv",
+      value: stats.mv,
+    },
+    {
+      id: "fight",
+      label: "Fv",
+      value: stats.fv,
+    },
+    {
+      id: "shoot",
+      label: "Sv",
+      value: stats.sv,
+    },
+    {
+      id: "strength",
+      label: "S",
+      value: stats.s,
+    },
+    {
+      id: "defence",
+      label: "D",
+      value: stats.d,
+    },
+    {
+      id: "attacks",
+      label: "A",
+      value: stats.a,
+    },
+    {
+      id: "wounds",
+      label: "W",
+      value: stats.w,
+    },
+    {
+      id: "courage",
+      label: "C",
+      value: stats.c,
+    },
+    {
+      id: "intelligence",
+      label: "I",
+      value: stats.i,
+    },
+  ];
+
+  if (stats.type === "warrior") {
+    return standardStats;
+  }
+
+  return [
+    ...standardStats,
+    {
+      id: "might",
+      label: "Might",
+      value: stats.might,
+    },
+    {
+      id: "will",
+      label: "Will",
+      value: stats.will,
+    },
+    {
+      id: "fate",
+      label: "Fate",
+      value: stats.fate,
+    },
+  ];
 }

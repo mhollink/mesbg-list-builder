@@ -10,8 +10,6 @@ import type { LocalizedProfile } from "../../profiles.types";
 
 interface ProfileDrawerHeaderProps {
   profile: LocalizedProfile;
-  unitTypes: string[];
-  races: string[];
   canGoBack: boolean;
   onBack: () => void;
   onClose: () => void;
@@ -19,8 +17,6 @@ interface ProfileDrawerHeaderProps {
 
 export function ProfileDrawerHeader({
   profile,
-  unitTypes,
-  races,
   canGoBack,
   onBack,
   onClose,
@@ -111,21 +107,43 @@ export function ProfileDrawerHeader({
               flexWrap: "wrap",
             }}
           >
-            {unitTypes.map((unitType) => (
+            {profile.race.map((race) => (
+              <Chip
+                key={race}
+                label={race}
+                size="small"
+                variant="outlined"
+                color="warning"
+              />
+            ))}
+
+            {profile.factions.map((faction) => (
+              <Chip
+                key={faction}
+                label={faction}
+                size="small"
+                variant="outlined"
+                color="info"
+              />
+            ))}
+
+            {profile.unitTypes.map((unitType) => (
               <Chip
                 key={unitType}
                 label={unitType}
                 size="small"
                 variant="outlined"
+                color="error"
               />
             ))}
 
-            {races.map((race) => (
-              <Chip key={race} label={race} size="small" variant="outlined" />
-            ))}
-
             {profile.baseSize && (
-              <Chip label={profile.baseSize} size="small" variant="outlined" />
+              <Chip
+                label={profile.baseSize}
+                size="small"
+                variant="outlined"
+                color="success"
+              />
             )}
           </Stack>
         </Box>

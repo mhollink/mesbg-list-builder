@@ -1,4 +1,5 @@
-export interface Stats {
+type WarriorStats = {
+  type: "warrior";
   mv: string;
   fv: string;
   sv: string;
@@ -8,11 +9,24 @@ export interface Stats {
   w: string;
   c: string;
   i: string;
-  might?: string | undefined;
-  will?: string | undefined;
-  fate?: string | undefined;
-  range?: string | undefined;
-}
+};
+
+type HeroicStats = Omit<WarriorStats, "type"> & {
+  type: "hero";
+  might: string;
+  will: string;
+  fate: string;
+};
+
+type SiegeStats = {
+  type: "siege";
+  s: string;
+  d: string;
+  w: string;
+  range: string;
+};
+
+export type Stats = WarriorStats | HeroicStats | SiegeStats;
 
 export type ProfileRule = {
   id: string;
@@ -47,7 +61,7 @@ export interface OptionEffect {
   value?: string;
 }
 
-export type ProfileAlignment = "good" | "evil" | "siege-equipment";
+export type ProfileAlignment = "good" | "evil" | "both" | "siege-equipment";
 export type Source = { book: string; page: number };
 
 export interface Profile {
