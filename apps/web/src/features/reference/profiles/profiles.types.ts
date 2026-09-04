@@ -37,7 +37,7 @@ export type ProfileRule = {
 export type SpecialRuleRef = {
   id: string;
   parameter?: string;
-}
+};
 
 export type MagicPower = {
   id: string;

@@ -6,8 +6,8 @@ import { useGameProfiles } from "./useGameProfiles";
 import { useAppDispatch } from "~/app/store/hooks";
 import { openProfileDrawer, openRuleDrawer } from "~/app/store/uiSlice";
 import { useDrawerStack } from "~/features/reference/hooks/useDrawerStack";
+import type { SpecialRuleRef } from "~/features/reference/profiles/profiles.types.ts";
 import { useGameRules } from "~/features/reference/rules/hooks/useGameRules";
-import type {SpecialRuleRef} from "~/features/reference/profiles/profiles.types.ts";
 
 export function useProfileDrawer() {
   const dispatch = useAppDispatch();
@@ -55,14 +55,13 @@ export function useProfileDrawer() {
     const resolveRule = (ref: SpecialRuleRef) => {
       let name = rulesById.get(ref.id)?.name ?? ref.id;
       if (ref.parameter) {
-        name = name.replace(/\([x|X]\)/, `(${ref.parameter})`)
+        name = name.replace(/\([x|X]\)/, `(${ref.parameter})`);
       }
-      return ({
+      return {
         ...ref,
-        name
-      });
+        name,
+      };
     };
-
 
     return {
       profile,
