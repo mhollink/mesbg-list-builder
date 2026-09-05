@@ -3198,7 +3198,8 @@
     "heroicActions": ["heroic-march"],
     "specialRules": [
       {
-        "id": "ancient-enemies-orc"
+        "id": "ancient-enemies",
+        "parameter": "orc"
       }
     ],
     "profileRules": [
@@ -3238,7 +3239,8 @@
     "wargear": ["heavy-dwarf-armour", "mattock", "throwing-weapons"],
     "specialRules": [
       {
-        "id": "ancient-enemies-orc"
+        "id": "ancient-enemies",
+        "parameter": "orc"
       }
     ],
     "profileRules": [
@@ -4294,7 +4296,8 @@
     "heroicActions": ["heroic-strike", "heroic-challenge"],
     "specialRules": [
       {
-        "id": "ancient-enemies-orc"
+        "id": "ancient-enemies",
+        "parameter": "orc"
       }
     ],
     "additionalText": ["text-1"],
@@ -6537,7 +6540,8 @@
     "wargear": ["fangs-hand-weapons"],
     "specialRules": [
       {
-        "id": "poisoned-attacks"
+        "id": "poisoned-attacks",
+        "parameter": ""
       },
       {
         "id": "swift-movement"
@@ -7914,7 +7918,8 @@
     "wargear": ["armour", "hand-weapon", "shield", "war-camel"],
     "specialRules": [
       {
-        "id": "poisoned-attacks-blowpipe"
+        "id": "poisoned-attacks",
+        "parameter": "blowpipe"
       }
     ],
     "options": [
@@ -7971,7 +7976,8 @@
     "heroicActions": ["heroic-strength", "heroic-march"],
     "specialRules": [
       {
-        "id": "poisoned-attacks-blowpipe"
+        "id": "poisoned-attacks",
+        "parameter": "blowpipe"
       }
     ],
     "options": [
@@ -8036,7 +8042,8 @@
     "wargear": ["armour", "hand-weapon", "shield"],
     "specialRules": [
       {
-        "id": "poisoned-attacks-blowpipe"
+        "id": "poisoned-attacks",
+        "parameter": "blowpipe"
       }
     ],
     "options": [
@@ -9391,7 +9398,8 @@
         "parameter": "spirit"
       },
       {
-        "id": "poisoned-attacks-bow"
+        "id": "poisoned-attacks",
+        "parameter": "bow"
       },
       {
         "id": "resistant-to-magic"
@@ -10502,7 +10510,8 @@
     "heroicActions": ["heroic-march"],
     "specialRules": [
       {
-        "id": "poisoned-attacks-bow"
+        "id": "poisoned-attacks",
+        "parameter": "bow"
       }
     ],
     "options": [
@@ -10543,7 +10552,8 @@
     "wargear": ["armour", "hand-weapon", "horse"],
     "specialRules": [
       {
-        "id": "poisoned-attacks-bow"
+        "id": "poisoned-attacks",
+        "parameter": "bow"
       }
     ],
     "options": [
@@ -10641,7 +10651,8 @@
     "wargear": ["armour", "hand-weapon"],
     "specialRules": [
       {
-        "id": "poisoned-attacks-bow"
+        "id": "poisoned-attacks",
+        "parameter": "bow"
       }
     ],
     "options": [
@@ -11102,7 +11113,8 @@
         "parameter": "serpent-guard"
       },
       {
-        "id": "poisoned-attacks"
+        "id": "poisoned-attacks",
+        "parameter": ""
       },
       {
         "id": "leader",
@@ -14922,10 +14934,12 @@
     "heroicActions": ["heroic-march"],
     "specialRules": [
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
-        "id": "ancient-enemies-elf"
+        "id": "ancient-enemies",
+        "parameter": "elf"
       }
     ]
   },
@@ -15049,10 +15063,12 @@
         "id": "burly"
       },
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
-        "id": "ancient-enemies-elf"
+        "id": "ancient-enemies",
+        "parameter": "elf"
       }
     ],
     "options": [
@@ -15285,10 +15301,12 @@
     "wargear": ["armour", "hand-weapon"],
     "specialRules": [
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
-        "id": "ancient-enemies-elf"
+        "id": "ancient-enemies",
+        "parameter": "elf"
       }
     ],
     "options": [
@@ -15346,10 +15364,12 @@
         "id": "terror"
       },
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
-        "id": "ancient-enemies-elf"
+        "id": "ancient-enemies",
+        "parameter": "elf"
       }
     ],
     "profileRules": [
@@ -15404,10 +15424,12 @@
     "wargear": ["hand-weapon"],
     "specialRules": [
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
-        "id": "ancient-enemies-elf"
+        "id": "ancient-enemies",
+        "parameter": "elf"
       },
       {
         "id": "dominant",
@@ -15458,10 +15480,12 @@
     "heroicActions": ["heroic-march"],
     "specialRules": [
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
-        "id": "ancient-enemies-elf"
+        "id": "ancient-enemies",
+        "parameter": "elf"
       }
     ]
   },
@@ -15494,10 +15518,12 @@
     "wargear": ["heavy-armour", "hand-weapon"],
     "specialRules": [
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
-        "id": "ancient-enemies-elf"
+        "id": "ancient-enemies",
+        "parameter": "elf"
       }
     ],
     "options": [
@@ -15566,10 +15592,12 @@
         "parameter": "4"
       },
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
-        "id": "ancient-enemies-elf"
+        "id": "ancient-enemies",
+        "parameter": "elf"
       }
     ],
     "options": [
@@ -15841,7 +15869,8 @@
     "wargear": ["fangs-hand-weapons"],
     "specialRules": [
       {
-        "id": "poisoned-attacks-fangs"
+        "id": "poisoned-attacks",
+        "parameter": "fangs"
       },
       {
         "id": "swift-movement"
@@ -15887,7 +15916,8 @@
     "wargear": ["fangs-hand-weapons"],
     "specialRules": [
       {
-        "id": "poisoned-attacks-fangs"
+        "id": "poisoned-attacks",
+        "parameter": "fangs"
       },
       {
         "id": "stalk-unseen"
@@ -15943,7 +15973,8 @@
         "id": "expert-shot"
       },
       {
-        "id": "poisoned-attacks-orc-bow"
+        "id": "poisoned-attacks",
+        "parameter": "orc-bow"
       }
     ],
     "profileRules": [
@@ -24290,7 +24321,8 @@
     "heroicActions": ["heroic-challenge"],
     "specialRules": [
       {
-        "id": "ancient-enemies-dwarf"
+        "id": "ancient-enemies",
+        "parameter": "dwarf"
       },
       {
         "id": "dominant",
@@ -25760,14 +25792,16 @@
         "parameter": "goblin"
       },
       {
-        "id": "hated-orc"
+        "id": "hatred",
+        "parameter": "orc"
       },
       {
         "id": "hatred",
         "parameter": "uruk-hai"
       },
       {
-        "id": "poisoned-attacks"
+        "id": "poisoned-attacks",
+        "parameter": "blowpipe"
       },
       {
         "id": "stalk-unseen"
@@ -27701,7 +27735,8 @@
         "id": "stalk-unseen"
       },
       {
-        "id": "poisoned-attacks"
+        "id": "poisoned-attacks",
+        "parameter": "blowpipe"
       },
       {
         "id": "woodland-creature"

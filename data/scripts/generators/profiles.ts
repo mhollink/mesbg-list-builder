@@ -138,7 +138,7 @@ export function splitRuleReferences(value?: string): RuleReference[] {
 
       return {
         id,
-        ...(parameter ? { parameter } : {}),
+        ...(parameter !== undefined ? { parameter } : {}),
       };
     });
 }

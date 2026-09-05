@@ -52,10 +52,22 @@ export function useProfileDrawer() {
       name: rulesById.get(id)?.name ?? id,
     });
 
+    const resolveParameter = ({
+      id: rule,
+      parameter,
+    }: SpecialRuleRef): string => {
+      if (parameter === "") return "";
+      if (rule === "dominant" || rule === "harbinger-of-evil")
+        return `(${parameter})`;
+      const translatedParameter =
+        t(`rules.parameters.${parameter}`) ?? parameter;
+      return `(${translatedParameter})`;
+    };
+
     const resolveRule = (ref: SpecialRuleRef) => {
       let name = rulesById.get(ref.id)?.name ?? ref.id;
-      if (ref.parameter) {
-        name = name.replace(/\([x|X]\)/, `(${ref.parameter})`);
+      if (ref.parameter !== undefined) {
+        name = name.replace(/\([x|X]\)/, resolveParameter(ref));
       }
       return {
         ...ref,
