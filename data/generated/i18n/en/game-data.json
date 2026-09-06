@@ -1981,12 +1981,12 @@
         "name": "Farmer Tolman Cotton",
         "rules": {
           "pitchfork": {
-            "description": "A Pitchfork can either be used as a spear or a two-handed weapon.",
+            "description": "A Pitchfork can either be used as a <rule id=\"spear\">spear</rule> or a two-handed weapon.",
             "name": "Pitchfork"
           },
           "this-is-our-country": {
-            "description": "Friendly Hobbit models within 3\" of Farmer Cotton may re-roll any rolls of a 1 when making a Duel Roll.",
-            "name": "This is our Country"
+            "description": "Friendly <b>Hobbit</b> models within 3\" of Farmer Cotton may re-roll any rolls of a 1 when making a Duel Roll.",
+            "name": "\"This is our Country\""
           }
         }
       },
@@ -2083,7 +2083,7 @@
             "name": "A Helpful Sort"
           },
           "high-spirits": {
-            "description": "Whenever a friendly Hobbit model within 6\" of Folco spends a Might Point, they may roll a D6. On a natural 6, the Might Point spent is free and does not reduce the model's store of Might.",
+            "description": "Whenever a friendly <b>Hobbit</b> model within 6\" of Folco spends a Might Point, they may roll a D6. On a natural 6, the Might Point spent is free and does not reduce the model's store of Might.",
             "name": "High Spirits"
           }
         }
@@ -2140,7 +2140,7 @@
         "name": "Fredegar 'Fatty' Bolger",
         "rules": {
           "live-to-fight-another-day": {
-            "description": "If Fredegar attempts to Charge an enemy model with the Terror special rule and fails the Courage Test, then Fredegar may still Move as normal; however, he may not Charge any model that turn.",
+            "description": "If Fredegar attempts to Charge an enemy model with the <rule id=\"terror\">Terror</rule> special rule and fails the Courage Test, then Fredegar may still Move as normal; however, he may not Charge any model that turn.",
             "name": "Live to fight another day"
           }
         }
@@ -2175,15 +2175,15 @@
         "name": "Frodo of the Nine Fingers",
         "rules": {
           "home-is-the-hero": {
-            "description": "Friendly Hobbit models treat Frodo as a banner with a range of 6\".",
+            "description": "Friendly <b>Hobbit</b> models treat Frodo as a banner with a range of 6\".",
             "name": "Home is the Hero"
           },
           "it-will-never-really-heal": {
             "description": "Frodo may never Charge enemy models under any circumstances. Additionally, Frodo may never make Strikes if his side wins a Combat.",
-            "name": "It will never really heal!"
+            "name": "\"It will never really heal!\""
           },
           "mithril-coat": {
-            "description": "Mithril armour. Additionally, the wearer may re-roll Fate Rolls of a 1.",
+            "description": "This is a <b>Unique</b> piece of Mithril armour. Additionally, the wearer may re-roll Fate Rollsof a 1.",
             "name": "Mithril Coat"
           }
         }
@@ -3780,7 +3780,7 @@
         "name": "Lotho Sackville-Baggins",
         "rules": {
           "considerable-wealth": {
-            "description": "Lotho may spend his Will Points to pay off models around him in the following ways:\\nAt the start of a Fight Phase, before the Declare Heroic Actions step, Lotho can spend a Will Point to use this ability. If he does, until the End Phase of the turn, friendly Hobbit models within 3\" of Lotho gain a +1 bonus to their Fight Value.\\nAt the start of a Move Phase, before the Declare Heroic Actions step, Lotho can spend a Will Point to use this ability. If he does, until the End Phase of the turn, friendly Ruffian models within 3\" of Lotho count as having the Fearless special rule.\\nWhen an enemy model attempts to Charge Lotho, Lotho may spend a Will Point to use this ability. If he does, roll a D6. On a 2+, the enemy model stops 1\" away from Lotho instead of Charging him and their Activation immediately ends.",
+            "description": "Lotho may spend his Will Points to pay off models around him in the following ways:\n<ul>\n<li>At the start of a Fight Phase, before the Declare Heroic Actions step, Lotho can spend a Will Point to use this ability. If he does, until the End Phase of the turn, friendly <b>Hobbit</b> models within 3\" of Lotho gain a +1 bonus to their Fight Value.</li>\n<li>At the start of a Move Phase, before the Declare Heroic Actions step, Lotho can spend a Will Point to use this ability. If he does, until the End Phase of the turn, friendly <b>Ruffian</b> models within 3\" of Lotho count as having the <rule id=\"fearless\">Fearless</rule> special rule.</li>\n<li>When an enemy model attempts to Charge Lotho, Lotho may spend a Will Point to use this ability. If he does, roll a D6. On a 2+, the enemy model stops 1\" away from Lotho instead of Charging him and their Activation immediately ends.</li>\n</ul>",
             "name": "Considerable Wealth"
           },
           "family-rivalry": {
@@ -3891,12 +3891,12 @@
       },
       "meriadoc-brandybuck-captain-of-the-shire": {
         "additional-text": {
-          "text-1": "Any Hobbit Militia in Merry's Warband upgraded to Battlin Brandybucks have Strength 3."
+          "text-1": "If your Army includes Merry, you may upgrade any number of Hobbit Militia in his Warband to Battlin’ Brandybucks at the cost of +1 point per model. Battlin’ Brandybucks have a Strength of 3."
         },
         "name": "Meriadoc Brandybuck, Captain of the Shire",
         "rules": {
           "horn-of-the-riddermark": {
-            "description": "A war horn. Additionally, Merry gains the Fearless special rule.",
+            "description": "this is a <b>Unique</b> <rule id=\"war-horn\">war horn</rule>. Additionally, Merry gains the <rule id=\"fearless\">Fearless</rule> special rule.",
             "name": "Horn of the Riddermark"
           }
         }
@@ -4421,7 +4421,7 @@
       },
       "paladin-took-thain-of-the-shire": {
         "additional-text": {
-          "text-1": "Any Hobbit Archers in Paladin's Warband upgraded to Tookish Hunters may re-roll To Wounds of a 1 when making shooting attacks."
+          "text-1": "If your Army includes Paladin, you may upgrade any number of Hobbit Archers in his Warband to Tookish Hunters at the cost of +1 point per model. Tookish Hunters may re-roll To Wound Rolls of a | when making Shooting Attacks."
         },
         "name": "Paladin Took, Thain of the Shire",
         "rules": {
@@ -4430,8 +4430,8 @@
             "name": "For Tuckborough!"
           },
           "to-me-shire-folk": {
-            "description": "Paladin's Stand Fast has a range of 12\"; however, only friendly Hobbit models may benefit from Paladin's Stand Fast.",
-            "name": "To me, Shire-folk!"
+            "description": "Paladin's Stand Fast has a range of 12\"; however, only friendly <b>Hobbit</b> models may benefit from Paladin's Stand Fast.",
+            "name": "\"To me, Shire-folk!\""
           }
         }
       },
@@ -4446,12 +4446,12 @@
       },
       "peregrin-took-captain-of-the-shire": {
         "additional-text": {
-          "text-1": "Any Hobbit Archers in Pippin's Warband upgraded to Tookish Hunters may re-roll To Wounds of a 1 when making shooting attacks."
+          "text-1": "If your Army includes Pippin, you may upgrade any number of Hobbit Archers in his Warband to \"Tookish Hunters at the cost of +1 point per model. Tookish Hunters may re-roll To Wound Rolls of a 1 when making Shooting Attacks."
         },
         "name": "Peregrin Took, Captain of the Shire",
         "rules": {
           "against-all-odds": {
-            "description": "Pippin may re-roll any failed To Wound rolls when making Strikes against Hero or Monster models.",
+            "description": "Pippin may re-roll any failed To Wound Rolls when making Strikes against <b>Hero</b> or <b>Monster</b> models.",
             "name": "Against all odds"
           }
         }
@@ -4816,12 +4816,12 @@
         "name": "Samwise the Brave",
         "rules": {
           "sting": {
-            "description": "Elven hand weapon. This model gains a bonus of +1 Strength when making Strikes with Sting.",
+            "description": "This is a <b>Unique</b> Elven hand weapon. A model gains a bonus of +1 to their Strength when making Strikes with Sting.",
             "name": "Sting"
           },
           "theres-some-good-in-this-world-mr-frodo-and-its-worth-fighting-for": {
-            "description": "During the Declare Heroic Actions step of the Fight Phase, if Frodo and/or Rosie are Engaged in Combat and are within 6\" of Sam, then Sam may declare a free Heroic Combat. If this Heroic Combat is successful, then Sam must use the following Move to join either Frodo’s or Rosie’s Combat, as chosen by Sam’s controlling player. If this is not possible, then Sam must Move as close as possible to either Frodo or Rosie. Sam cannot use this special rule if he is in the same Combat as either Frodo or Rosie.",
-            "name": "There’s some good in this world, Mr Frodo, and it’s worth fighting for"
+            "description": "During the Declare Heroic Actions step of the Fight Phase, if Frodo and/or Rosie are Engaged in Combat and are within 6\" of Sam, then Sam may declare a free <rule id=\"heroic-combat\">Heroic Combat</rule>. If this Heroic Combat is successful, then Sam must use the following Move to join either Frodo’s or Rosie’s Combat, as chosen by Sam’s controlling player. If this is not possible, then Sam must Move as close as possible to either Frodo or Rosie. Sam cannot use this special rule if he is in the same Combat as either Frodo or Rosie.",
+            "name": "\"There’s some good in this world, Mr Frodo, and it’s worth fighting for\""
           }
         }
       },
@@ -6327,7 +6327,7 @@
         "name": "Will Whitfoot, Mayor of Michel Delving",
         "rules": {
           "mayor-of-michel-delving": {
-            "description": "At the beginning of a Fight Phase, before the Declare Heroic Actions step, Will Whitfoot can spend a Will Point to use this special rule. If he does, friendly Hobbit Warrior models within 3\" of him gain a bonus of +1 to their Fight Value until the End Phase of the turn.",
+            "description": "At the beginning of a Fight Phase, before the Declare Heroic Actions step, Will Whitfoot can spend a Will Point to use this special rule. If he does, friendly <b>Hobbit Warrior</b> models within 3\" of him gain a bonus of +1 to their Fight Value until the End Phase of the turn.",
             "name": "Mayor of Michel Delving"
           }
         }

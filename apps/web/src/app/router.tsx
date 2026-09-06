@@ -15,6 +15,7 @@ import { GeneralSettings } from "../features/settings/components/general/General
 import { PrivacySettings } from "../features/settings/components/privacy/PrivacySettings.tsx";
 import { SettingsPage } from "../features/settings/SettingsPage.tsx";
 import { AppLayout } from "./AppLayout.tsx";
+import { DebugProfiles } from "~/features/admin-data-checker/DebugProfiles.tsx";
 import { ProfilesPage } from "~/features/reference/profiles/ProfilesPage.tsx";
 import { RulesPage } from "~/features/reference/rules/RulesPage.tsx";
 
@@ -133,6 +134,11 @@ export const router = createBrowserRouter([
           {
             path: "profiles",
             element: <ProfilesPage />,
+          },
+
+          {
+            path: "debug/profiles",
+            element: <DebugProfiles />,
           },
         ],
       },
