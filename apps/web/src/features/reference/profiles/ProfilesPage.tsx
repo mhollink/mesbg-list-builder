@@ -5,8 +5,6 @@ import { ProfilesResultCount } from "./components/ProfilesResultCount";
 import { ProfilesToolbar } from "./components/ProfilesToolbar";
 import { ProfileList } from "./components/profile-list/ProfileList";
 import { useProfilesPage } from "./hooks/useProfilesPage";
-import { ProfileDrawer } from "~/features/reference/profiles/components/profile-drawer/ProfileDrawer.tsx";
-import { RuleDrawer } from "~/features/reference/rules/components/rule-drawer/RuleDrawer.tsx";
 
 export function ProfilesPage() {
   const {
@@ -44,9 +42,6 @@ export function ProfilesPage() {
         registerLetter={registerLetter}
         onOpenProfile={handleProfileClick}
       />
-
-      <ProfileDrawer />
-      <RuleDrawer />
     </Box>
   );
 }

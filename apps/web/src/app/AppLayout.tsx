@@ -17,6 +17,7 @@ import Typography from "@mui/material/Typography";
 
 import { QuickLookupSearch } from "../features/search/QuickLookupSearch.tsx";
 import { navigation } from "./navigation";
+import { DrawerStack } from "~/features/drawer-stack/DrawerStack.tsx";
 
 const drawerWidth = 260;
 
@@ -209,6 +210,8 @@ export const AppLayout = () => {
           }}
         >
           <Outlet />
+
+          <DrawerStack />
         </Box>
       </Box>
     </Box>

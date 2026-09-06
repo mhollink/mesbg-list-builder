@@ -1,28 +1,29 @@
 import { useCallback, useDeferredValue, useMemo, useState } from "react";
+import { useSearchParams } from "react-router";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useAlphabetNavigation } from "../../hooks/useAlphabetNavigation";
 import type { LocalizedProfile, ProfileAlignment } from "../profiles.types";
 import { createProfileRows, filterProfiles } from "../profiles.utils";
 import { useGameProfiles } from "./useGameProfiles";
-import { useAppDispatch } from "~/app/store/hooks.ts";
-import { openProfileDrawer } from "~/app/store/uiSlice.ts";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 
 export const PROFILES_TOOLBAR_HEIGHT = 160;
 
 export function useProfilesPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { openProfileDrawer } = useDrawerStack();
   const { profiles, locale } = useGameProfiles();
-  const dispatch = useAppDispatch();
+
+  const tab = searchParams.get("tab");
+  const activeAlignment: ProfileAlignment = (tab as ProfileAlignment) ?? "good";
 
   const handleProfileClick = useCallback(
     (profile: LocalizedProfile) => {
-      dispatch(openProfileDrawer(profile.profile));
+      openProfileDrawer(profile.profile);
     },
-    [dispatch],
+    [openProfileDrawer],
   );
-
-  const [activeAlignment, setActiveAlignment] =
-    useState<ProfileAlignment>("good");
 
   const [search, setSearch] = useState("");
   const deferredSearch = useDeferredValue(search);
@@ -52,9 +53,16 @@ export function useProfilesPage() {
     stickyOffset: PROFILES_TOOLBAR_HEIGHT,
   });
 
-  const selectAlignment = useCallback((alignment: ProfileAlignment) => {
-    setActiveAlignment(alignment);
-  }, []);
+  const selectAlignment = useCallback(
+    (alignment: ProfileAlignment) => {
+      setSearchParams((params) => {
+        const next = new URLSearchParams(params);
+        next.set("tab", alignment);
+        return next;
+      });
+    },
+    [setSearchParams],
+  );
 
   const changeSearch = useCallback((value: string) => {
     setSearch(value);

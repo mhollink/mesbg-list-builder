@@ -1,4 +1,4 @@
-import { useDrawerStack } from "~/features/reference/hooks/useDrawerStack.ts";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 import { useGameRules } from "~/features/reference/rules/hooks/useGameRules.ts";
 
 export function useRuleDrawer() {

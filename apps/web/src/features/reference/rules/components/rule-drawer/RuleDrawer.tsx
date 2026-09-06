@@ -10,13 +10,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { useRuleDrawer } from "../../hooks/useRuleDrawer.ts";
-import { useAppDispatch } from "~/app/store/hooks.ts";
-import { openRuleDrawer } from "~/app/store/uiSlice.ts";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 import { RuleText } from "~/features/reference/rules/components/rule-text/RuleText.tsx";
 import type { Rule } from "~/features/reference/rules/rules.types.ts";
 
 export function RuleDrawer() {
-  const dispatch = useAppDispatch();
+  const { openRuleDrawer } = useDrawerStack();
   const { open, rule, close, canGoBack, goBack } = useRuleDrawer();
 
   return (
@@ -58,11 +57,7 @@ export function RuleDrawer() {
               py: 3,
             }}
           >
-            <RuleText
-              onRuleClick={(ruleId) => dispatch(openRuleDrawer(ruleId))}
-            >
-              {rule.description}
-            </RuleText>
+            <RuleText onRuleClick={openRuleDrawer}>{rule.description}</RuleText>
           </Box>
 
           <Divider />

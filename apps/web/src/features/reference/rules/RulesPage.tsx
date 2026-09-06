@@ -5,7 +5,6 @@ import { RulesResultCount } from "./components/RulesResultCount";
 import { RulesToolbar } from "./components/RulesToolbar";
 import { RulesList } from "./components/rule-list/RulesList.tsx";
 import { useRulesPage } from "./hooks/useRulesPage";
-import { RuleDrawer } from "~/features/reference/rules/components/rule-drawer/RuleDrawer.tsx";
 
 export function RulesPage() {
   const {
@@ -50,8 +49,6 @@ export function RulesPage() {
           registerLetter={registerLetter}
         />
       </Box>
-
-      <RuleDrawer />
     </Box>
   );
 }

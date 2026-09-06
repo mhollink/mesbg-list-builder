@@ -1,20 +1,22 @@
 import { useCallback, useDeferredValue, useMemo, useState } from "react";
+import { useSearchParams } from "react-router";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useAlphabetNavigation } from "../../hooks/useAlphabetNavigation.ts";
 import type { Rule, RuleType } from "../rules.types";
 import { createRuleRows, filterRules } from "../rules.utils";
 import { useGameRules } from "./useGameRules";
-import { useAppDispatch } from "~/app/store/hooks.ts";
-import { openRuleDrawer } from "~/app/store/uiSlice.ts";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 
 export const RULES_TOOLBAR_HEIGHT = 160;
 
 export function useRulesPage() {
-  const dispatch = useAppDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { openRuleDrawer } = useDrawerStack();
   const { rules, locale } = useGameRules();
 
-  const [activeType, setActiveType] = useState<RuleType>("special-rule");
+  const tab = searchParams.get("tab");
+  const activeType: RuleType = (tab as RuleType) ?? "special-rule";
 
   const [search, setSearch] = useState("");
 
@@ -45,9 +47,16 @@ export function useRulesPage() {
     stickyOffset: RULES_TOOLBAR_HEIGHT,
   });
 
-  const selectType = useCallback((type: RuleType) => {
-    setActiveType(type);
-  }, []);
+  const selectType = useCallback(
+    (type: RuleType) => {
+      setSearchParams((params) => {
+        const next = new URLSearchParams(params);
+        next.set("tab", type);
+        return next;
+      });
+    },
+    [setSearchParams],
+  );
 
   const changeSearch = useCallback((value: string) => {
     setSearch(value);
@@ -62,9 +71,9 @@ export function useRulesPage() {
 
   const handleRuleClick = useCallback(
     (rule: Rule) => {
-      dispatch(openRuleDrawer(rule.id));
+      openRuleDrawer(rule.id);
     },
-    [dispatch],
+    [openRuleDrawer],
   );
 
   return {

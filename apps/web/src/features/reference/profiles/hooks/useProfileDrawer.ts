@@ -3,14 +3,12 @@ import { useTranslation } from "react-i18next";
 
 import type { ProfileDrawerContent } from "../components/profile-drawer/profile-drawer.types";
 import { useGameProfiles } from "./useGameProfiles";
-import { useAppDispatch } from "~/app/store/hooks";
-import { openProfileDrawer, openRuleDrawer } from "~/app/store/uiSlice";
-import { useDrawerStack } from "~/features/reference/hooks/useDrawerStack";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 import type { SpecialRuleRef } from "~/features/reference/profiles/profiles.types.ts";
 import { useGameRules } from "~/features/reference/rules/hooks/useGameRules";
 
 export function useProfileDrawer() {
-  const dispatch = useAppDispatch();
+  const { openRuleDrawer, openProfileDrawer } = useDrawerStack();
 
   const { profiles } = useGameProfiles();
   const { rules, locale: rulesLocale } = useGameRules();
@@ -149,16 +147,16 @@ export function useProfileDrawer() {
 
   const openRule = useCallback(
     (ruleId: string) => {
-      dispatch(openRuleDrawer(ruleId));
+      openRuleDrawer(ruleId);
     },
-    [dispatch],
+    [openRuleDrawer],
   );
 
   const openProfile = useCallback(
     (profileId: string) => {
-      dispatch(openProfileDrawer(profileId));
+      openProfileDrawer(profileId);
     },
-    [dispatch],
+    [openProfileDrawer],
   );
 
   return {
