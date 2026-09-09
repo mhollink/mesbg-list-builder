@@ -347,7 +347,7 @@
         "name": "Angbor the Fearless",
         "rules": {
           "chief-of-lamedon": {
-            "description": "Friendly Lamedon models within 3\" of Angbor automatically pass any Courage Tests they are required to make.",
+            "description": "Other friendly <b>Lamedon</b> models within 3\" of Angbor automatically pass any Courage Tests they are required to make.",
             "name": "Chief of Lamedon"
           }
         }
@@ -409,7 +409,7 @@
         "name": "Aranarth",
         "rules": {
           "remnants-of-arnor": {
-            "description": "Friendly Dunedain models treat Aranarth as a banner. Additionally, all Dunedain models in the same Army List as Aranarth gain the Arnor Keyword.",
+            "description": "Friendly <b>Dúnedain</b> models treat Aranarth as a banner. Additionally, all <b>Dúnedain</b> models in the same Army List as Aranarth gain the <b>Arnor</b> Keyword.",
             "name": "Remnants of Arnor"
           }
         }
@@ -418,7 +418,7 @@
         "name": "Arathorn, Chieftain of the Dunedain",
         "rules": {
           "chieftain-of-the-dunedain": {
-            "description": "Friendly Dunedain Hero models may benefit from Arathorn's Stand Fast.",
+            "description": "Friendly <b>Dunedain Hero</b> models may benefit from Arathorn's Stand Fast.",
             "name": "Chieftain of the Dunedain"
           }
         }
@@ -501,7 +501,7 @@
         "name": "Axeman of Lossarnach",
         "rules": {
           "axe-of-lossarnach": {
-            "description": "This weapon can be used as either a spear or two-handed weapon.",
+            "description": "An Axe of Lossarnach can be used either as a spear or a two-handed weapon.",
             "name": "Axe of Lossarnach"
           }
         }
@@ -540,7 +540,7 @@
             "name": "Champion Stone Skipper"
           },
           "master-of-traps": {
-            "description": "At the start of the game, after both sides have deployed, Baldo may place eight 25mm Trap Markers face-down on the board; two each of Snare Traps, Tripwire Traps, Pitfall Traps, and Dummy Traps. These cannot be deployed in the enemy's deployment zone, within 3\" of another Trap Marker or an Objective Marker, or within an enemy model's Control Zone. When an enemy model Moves within 1\" of a Trap Marker, they immediately stop Moving and flip the Trap Marker; after resolving its effects, the model's Activation immediately ends. Monster, War Beast, Swarm and Chariot models are completely unaffected by Trap Markers, and will instead simply remove them from play if they Move within 1\" of them. Once a Trap has been resolved and any affected models are no longer affected, remove that Trap Marker from play. The effects of each Trap Marker are explained below:\\nTripwire Trap - When this is revealed, Baldo's player rolls a D6. On a 2+, the model that revealed the trap suffers a Strength 2 hit and is placed Prone. Cavalry models that reveal a trap are only affected on a 4+. However, they will also be Knocked Flying in addition to the other effects.\\nPitfall Trap - When this is revealed, Baldo's player rolls a D6. On a 2+, the model that revealed the trap falls into the hole. Whilst in a hole, a model may not Move and always counts as Trapped. If a model begins its Move in a hole they must roll a D6; on a 4+, the model clambers out of the hole and their Move immediately ends. Cavalry models that reveal a trap are only affected on a 4+. However, they will also be Knocked Flying in addition to the other effects.\\nSnare Trap - When this is revealed, Baldo's player rolls a D6. On a 2+, the model that revealed the trap suffers a Strength 1 hit, is placed Prone and is now caught in the Snare Trap. A model caught in a Snare Trap cannot Activate and will always count as Trapped. During the End Phase, a model caught in a Snare Trap must roll a D6; if the roll is equal to or less than their Strength, then they are freed from the Snare Trap. Cavalry models that reveal a trap are only affected on a 4+. However, they will also be Knocked Flying in addition to the other effects.\\nDummy Trap - When this is revealed, the Activation of the model that revealed the Trap Marker immediately ends. There are no additional effects.",
+            "description": "At the start of the game, after both sides have deployed, Baldo may place eight 25mm Trap Markers face-down on the board; two each of Snare Traps, Tripwire Traps, Pitfall Traps, and Dummy Traps. These cannot be deployed in the enemy's deployment zone, within 3\" of another Trap Marker or an Objective Marker, or within an enemy model's Control Zone. When an enemy model Moves within 1\" of a Trap Marker, they immediately stop Moving and flip the Trap Marker; after resolving its effects, the model's Activation immediately ends. Monster, War Beast, Swarm and Chariot models are completely unaffected by Trap Markers, and will instead simply remove them from play if they Move within 1\" of them. Once a Trap has been resolved and any affected models are no longer affected, remove that Trap Marker from play. The effects of each Trap Marker are explained below:\\n<b>Tripwire Trap</b> - When this is revealed, Baldo's player rolls a D6. On a 2+, the model that revealed the trap suffers a Strength 2 hit and is placed Prone. Cavalry models that reveal a trap are only affected on a 4+. However, they will also be Knocked Flying in addition to the other effects.\\n<b>Pitfall Trap</b> - When this is revealed, Baldo's player rolls a D6. On a 2+, the model that revealed the trap falls into the hole. Whilst in a hole, a model may not Move and always counts as Trapped. If a model begins its Move in a hole they must roll a D6; on a 4+, the model clambers out of the hole and their Move immediately ends. Cavalry models that reveal a trap are only affected on a 4+. However, they will also be Knocked Flying in addition to the other effects.\\n<b>Snare Trap</b> - When this is revealed, Baldo's player rolls a D6. On a 2+, the model that revealed the trap suffers a Strength 1 hit, is placed Prone and is now caught in the Snare Trap. A model caught in a Snare Trap cannot Activate and will always count as Trapped. During the End Phase, a model caught in a Snare Trap must roll a D6; if the roll is equal to or less than their Strength, then they are freed from the Snare Trap. Cavalry models that reveal a trap are only affected on a 4+. However, they will also be Knocked Flying in addition to the other effects.\\n<b>Dummy Trap</b> - When this is revealed, the Activation of the model that revealed the Trap Marker immediately ends. There are no additional effects.",
             "name": "Master of Traps"
           }
         }
@@ -712,7 +712,7 @@
         "name": "Beorning",
         "rules": {
           "followers-of-the-bear": {
-            "description": "This model treats friendly Bear models as a banner.",
+            "description": "This model treats friendly <b>Bear</b> models as a banner.",
             "name": "Followers of the Bear"
           }
         }
@@ -1040,11 +1040,11 @@
         "name": "Brand, King of Dale",
         "rules": {
           "lord-of-dale": {
-            "description": "Brand's Stand Fast! Is 12\" rather than 6\".",
+            "description": "The range of Brand's Stand Fast! is 12\" rather than 6\".",
             "name": "Lord of Dale"
           },
           "stoic-fighter": {
-            "description": "At the start of any Combat involving Brand, if he would be Trapped upon losing the Duel roll, he may re-roll a single D6 in the Duel roll, and a single D6 when rolling To Wound.",
+            "description": "At the start of any Combat involving Brand, check to see if Brand would be considered to be Trapped should his side lose the Duel Roll. If Brand would be considered to be Trapped, then he may re-roll a single D6 during the Duel Roll, and may re-roll a single D6 when rolling To Wound.",
             "name": "Stoic Fighter"
           }
         }
@@ -1120,7 +1120,7 @@
         "name": "Captain of Dol Amroth",
         "rules": {
           "pride-of-dol-amroth": {
-            "description": "Whilst within 3\" of Prince Imrahil, this model gains a bonus of +1 Fight value.",
+            "description": "Whilst within 3\" of Prince Imrahil, this model gains a bonus of +1 to their Fight value.",
             "name": "Pride of Dol Amroth"
           }
         }
@@ -1266,7 +1266,7 @@
         "name": "Clansman of Lamedon",
         "rules": {
           "the-honour-of-lamedon": {
-            "description": "Clansmen of Lamedon within 3\" of a friendly Lamedon Hero model may re-roll any rolls of a natural 1 when making a Duel roll.",
+            "description": "Whilst within 3\" of a friendly <b>Lamedon Hero</b> model, this model may re-roll any rolls of a natural 1 when making a Duel roll.",
             "name": "The Honour of Lamedon"
           }
         }
@@ -1424,7 +1424,7 @@
         "name": "Deorwine, Chief of the King's Knights",
         "rules": {
           "for-theoden": {
-            "description": "During the Declare Heroic Actions step of the Fight Phase, if Theoden is Engaged in Combat within 6\", Deorwine may call a Heroic Combat for free. If the action is successful, you must use the following move to join Theoden's Combat, or get as close as possible to him. He cannot use this special rule if he is in the same Combat as Theoden.",
+            "description": "During the Declare Heroic Actions step of the Fight Phase, if Théoden is Engaged in Combat and is within 6\" of Déorwine, then Déorwine may declare a free Heroic Combat. If this Heroic Combat is successful, then Déorwine must use the following Move to join Théoden’s Combat. If this is not possible, then Déorwine must Move as close as possible to Théoden. Déorwine cannot use this special rule if he is in the same Combat as Théoden.",
             "name": "For Theoden!"
           }
         }
@@ -1523,11 +1523,11 @@
         "name": "Duinhir, Lord of the Blackroot Vale",
         "rules": {
           "go-for-the-eyes": {
-            "description": "Duinhir may re-roll failed To Hit rolls when shooting an enemy Monster model. Also, if he successfully Wounds an enemy Monster with a shooting attack that is not prevented, it will deal D3 Wounds rather than 1.",
+            "description": "Duinhir may re-roll failed To Hit rolls when shooting an enemy <b>Monster</b> model. Additionally, if Duinhir successfully Wounds an enemy <b>Monster<b\\> with a shooting attack (i.e., a Wound is caused and is not prevented), it will deal D3 Wounds rather than 1.",
             "name": "Go for the Eyes!"
           },
           "lord-of-the-blackroot-vale": {
-            "description": "Blackroot Vale Archers within 3\" of Duinhir may re-roll To Hit rolls of 1 when making shooting attacks, as long as they didn't Move during the preceding Move phase.",
+            "description": "Other <b>Blackroot Vale</b> models within 3\" of Duinhir may re-roll To Hit rolls of 1 when making a shooting attack in the Shoot Phase, provided they did not Move in the preceding Move phase.",
             "name": "Lord of the Blackroot Vale"
           }
         }
@@ -1575,28 +1575,28 @@
       },
       "durin-king-of-khazad-dum": {
         "additional-text": {
-          "text-1": "Any Khazad Guard in Durin's Warband upgraded to Hearthguard have the Burly special rule."
+          "text-1": "Khazad Guard in Durin’s Warband may be upgraded to Hearthguard for +2 points per model. Hearthguard have the the Burly special rule."
         },
         "name": "Durin, King of Khazad-Dum",
         "rules": {
           "durins-axe": {
-            "description": "Master-forged two-handed weapon. Durin may re-roll a single D6 when making a Duel roll.",
-            "name": "Durin's axe"
+            "description": "This is a <b>Unique</b> Master-forged two-handed weapon. Additionally, Durin may re-roll a single D6 when making a Duel Roll.",
+            "name": "Durin's Axe"
           },
           "exquisite-mithril-armour": {
-            "description": "Mithril armour that adds 4 to Durin's Defence rather than the usual 3 (already included in his profile).",
+            "description": "This is a set of <b>Unique</b> Mithril armour that will add 4 to Durin's Defence rather than the usual 3 (already included in his profile).",
             "name": "Exquisite Mithril Armour"
           },
           "the-crown-of-kings": {
-            "description": "For each Wound he suffers, roll a D6. On a 6, the Wound is prevented and ignored.",
+            "description": "This is a <b>Unique</b> piece of wargear. Whenever Durin suffers a Wound, roll a D6. On a natural 6, the Wound is prevented and is ignored.",
             "name": "The Crown of Kings"
           },
           "the-horn-of-zirakzigil": {
-            "description": "A war horn which also gives Durin the Terror special rule.",
+            "description": "This is a <b>Unique</b> war horn, which also gives Durin the Terror special rule.",
             "name": "The Horn of Zirakzigil"
           },
           "the-ring-of-durin": {
-            "description": "Once per game during the Priority phase, after both sides have rolled their dice, you can re-roll your side's Priority roll.",
+            "description": "This is a <b>Unique</b> piece of wargear. Once per game during the Priority phase, after the roll for Priority has taken place, the bearer of the Ring of Durin can re-roll their side's Priority Roll.",
             "name": "The Ring of Durin"
           }
         }
@@ -1696,11 +1696,11 @@
         "name": "Earnur, Last King of Gondor",
         "rules": {
           "a-fools-challenge": {
-            "description": "Earnur must always Charge an enemy Hero if he able to do so when he Activates. Additionally, he may never decline a Heroic Challenge under any circumstances.",
+            "description": "If Earnur is ever the target of a Heroic Challenge, he may never choose to decline under any circumstances. Additionally, when Earnur Activates, if he is able to Charge \nan enemy <b>Hero</b> model then he must do so.",
             "name": "A Fool's Challenge"
           },
           "master-duellist": {
-            "description": "At the start of a Combat involving Earnur, before Heroic Strikes are resolved, Earnur may increase his Fight value to match that of a single enemy he is Engaged in Combat with. Additionally, Earnur can never have his Fight Value modified by enemy special rules or Magical Powers.",
+            "description": "At the start of a Combat involving Earnur, before any Heroic Strikes are resolved, Earnur may increase his Fight value to match that of a single enemy model he is Engaged in Combat with. Additionally, Earnur can never have his Fight Value modified by enemy special rules or Magical Powers.",
             "name": "Master Duellist"
           }
         }
@@ -1815,7 +1815,7 @@
         "name": "Elfhelm, Captain of Rohan",
         "rules": {
           "pinpoint-accuracy": {
-            "description": "Elfhelm may re-roll To Hit, To Wound and In The Way rolls when using his throwing spears, and never suffers the normal -1 penalty when moving and shooting with his throwing spears.",
+            "description": "Elfhelm never suffers the -1 penalty for Moving and Shooting when using his throwing spears. Additionally, when throwing his throwing spears, Elfhelm may re-roll any failed To Hit, To Wound or In The Way Rolls when making that shooting attack.",
             "name": "Pinpoint Accuracy"
           }
         }
@@ -1824,15 +1824,15 @@
         "name": "Elladan",
         "rules": {
           "strength-of-brotherhood": {
-            "description": "Whilst within 3\" of Elladan, Elrohir gains Dominant (2) and may re-roll To Wound rolls of a natural 1 when making Strikes.",
+            "description": "Whilst within 3\" of Elladan, Elrohir gains the Dominant (2) special rule and may re-roll To Wound rolls of a natural 1 when making Strikes.",
             "name": "Strength of Brotherhood"
           },
           "twin-elven-blades": {
-            "description": "Whilst he has the Infantry keyword, Elrohir can choose one of three bonuses at the start of a Combat: Gain 3 Attacks rather than 2, use the Shielding rule, or use his Elven weapons as Elven hand-and-a-half weapons.",
+            "description": "Whilst he has the <b>Infantry</b> Keyword, Elladan can choose to fight in one of the three following ways. He must declare which way he is fighting at the start of a Combat, before any dice are rolled: \\nElladan can fight with 3 Attacks rather than 2.\\nElladan can use his Elven weapons as Elven hand-and-a-half weapons.\\nElladan can use his Elven weapons to parry, which counts as Shielding.",
             "name": "Twin Elven Blades"
           },
           "unbreakable-bond": {
-            "description": "If Elladan is slain, make a note of the model that killed him. Elrohir increases his Strength by 1 for the remainder of the game, and must always Charge an enemy if able to do so, prioritising the enemy who killed Elladan. If Elrohir is Engaged in Combat with the model that killed Elladan, and that model is a Hero, he may declare a free Heroic Challenge, regardless of the Hero’s Heroic Tier.",
+            "description": "If Elrohir is slain, make a note of the model that killed him; for the remainder of the game, Elladan increases his Strength by 1. Additionally, for the remainder of the game, whenever Elladan Activates if he can Charge an enemy model then he must do so; if he is able to Charge the enemy model that killed Elrohir, then he must prioritise that model to Charge. If Elladan is Engaged in Combat with the model that killed Elrohir, and that model is a <b>Hero</b>, he must declare a free Heroic Challenge against them. This may still be done even though Elladan cannot normally declare a Heroic Challenge, and even if the <b>Hero</b> has a lower Heroic Tier than Elladan.",
             "name": "Unbreakable Bond"
           }
         }
@@ -1841,15 +1841,15 @@
         "name": "Elrohir",
         "rules": {
           "strength-of-brotherhood": {
-            "description": "Whilst within 3\" of Elrohir, Elladan gains Dominant (2) and may re-roll To Wound rolls of a natural 1 when making Strikes.",
+            "description": "Whilst within 3\" of Elrohir, Elladan gains the Dominant (2) special rule and may re-roll To Wound rolls of a natural 1 when making Strikes.",
             "name": "Strength of Brotherhood"
           },
           "twin-elven-blades": {
-            "description": "Whilst he has the Infantry keyword, Elladan can choose one of three bonuses at the start of a Combat: Gain 3 Attacks rather than 2, use the Shielding rule, or use his Elven weapons as Elven hand-and-a-half weapons.",
+            "description": "Whilst he has the <b>Infantry</b> Keyword, Elrohir can choose to fight in one of the three following ways. He must declare which way he is fighting at the start of a Combat, before any dice are rolled: \\nElrohir can fight with 3 Attacks rather than 2.\\nElrohir can use his Elven weapons as Elven hand-and-a-half weapons.\\nElrohir can use his Elven weapons to parry, which counts as Shielding.",
             "name": "Twin Elven Blades"
           },
           "unbreakable-bond": {
-            "description": "If Elrohir is slain, make a note of the model that killed him. Elladan increases his Strength by 1 for the remainder of the game, and must always Charge an enemy if able to do so, prioritising the enemy who killed Elrohir. If Elladan is Engaged in Combat with the model that killed Elrohir, and that model is a Hero, he may declare a free Heroic Challenge, regardless of the Hero's Heroic Tier.",
+            "description": "If Elladan is slain, make a note of the model that killed him; for the remainder of the game, Elrohir increases his Strength by 1. Additionally, for the remainder of the game, whenever Elrohir Activates if he can Charge an enemy model then he must do so; if he is able to Charge the enemy model that killed Elladan, then he must prioritise that model to Charge. If Elrohir is Engaged in Combat with the model that killed Elladan, and that model is a <b>Hero</b>, he must declare a free Heroic Challenge against them. This may still be done even though Elrohir cannot normally declare a Heroic Challenge, and even if the <b>Hero</b> has a lower Heroic Tier than Elrohir.",
             "name": "Unbreakable Bond"
           }
         }
@@ -2092,11 +2092,11 @@
         "name": "Forlong the Fat",
         "rules": {
           "lord-of-lossarnach": {
-            "description": "Friendly Lossarnach models within 3\" may re-roll results of a natural 1 when making Strikes.",
+            "description": "Other friendly <b>Lossarnach</b> models within 3\" of Forlong the Fat may re-roll To Wound Rolls of a natural 1 when making Strikes.",
             "name": "Lord of Lossarnach"
           },
           "the-horn-of-lossarnach": {
-            "description": "A war horn. Once per game at the beginning of his Activation, Forlong may use it to give friendly models within 12\" of him the Terror special rule until the end of the turn.",
+            "description": "This is a <b>Unique</b> war horn. Additionally once per game at the beginning of his Activation, Forlong may let out a blast on his horn. If he does, then friendly models within 12\" of Forlong count as having the Terror special rule until the end of the turn.",
             "name": "The Horn of Lossarnach"
           }
         }
@@ -2183,7 +2183,7 @@
             "name": "\"It will never really heal!\""
           },
           "mithril-coat": {
-            "description": "This is a <b>Unique</b> piece of Mithril armour. Additionally, the wearer may re-roll Fate Rollsof a 1.",
+            "description": "This is a <b>Unique</b> piece of Mithril armour. Additionally, the wearer may re-roll Fate Rolls of a 1.",
             "name": "Mithril Coat"
           }
         }
@@ -2428,13 +2428,13 @@
         }
       },
       "ghan-buri-ghan": {
-        "name": "Ghan-Buri-Ghan",
         "rules": {
           "forest-stalker": {
-            "description": "Whenever a friendly Druadan model within 6\" of Ghan-buri-Ghan that is within a piece of woodland terrain suffers a Wound, roll a D6. On the roll of a natural 6, the Wound is ignored.",
-            "name": "Forest Stalker"
+            "name": "Forest Stalker",
+            "description": "Whenever a friendly <b>Druadan</b> model within 6\" of Ghan-buri-Ghan that is within a piece of woodland terrain suffers a Wound, roll a D6. On the roll of a natural 6, the Wound is ignored."
           }
-        }
+        },
+        "name": "Ghan-Buri-Ghan"
       },
       "gil-galad": {
         "additional-text": {
@@ -2515,11 +2515,11 @@
         "name": "Glorfindel, Lord of the West",
         "rules": {
           "armour-of-gondolin": {
-            "description": "Whilst Glorfindel is wearing the Armour of Gondolin, enemy Monster models Engaged in Combat with him cannot use Brutal Power Attacks.",
+            "description": "This is <b>Unique</b> heavy armour. Additionally, whilst Glorfindel is wearing the Armour of Gondolin, enemy <b>Monster</b> models Engaged in Combat with him cannot use Brutal Power Attacks.",
             "name": "Armour of Gondolin"
           },
           "hero-of-the-elves": {
-            "description": "Glorfindel gains a bonus of +1 To Wound when making Strikes against Monster models.",
+            "description": "Glorfindel gains a bonus of +1 To Wound when making Strikes against <b>Monster</b> models.",
             "name": "Hero of the Elves"
           },
           "lord-of-the-west": {
@@ -2580,11 +2580,11 @@
             "name": "Goldberry is waiting"
           },
           "river-daughter": {
-            "description": "Goldberry treats all kinds of terrain as Open Ground and always treats the result of any Climb, Leap, Jump and Swim Tests as a 6. Goldberry cannot be targeted by any abilities, special rules, Magical Powers, Brutal Power Attacks or shooting attacks, either friendly or enemy. This means that any Magical Powers that would target Goldberry will automatically be resisted, even if they would target multiple models. If Goldberry is hit by a missile weapon as a result of a failed In The Way Test, the shot will automatically disappear and have no effect. Goldberry does not have a Control Zone. Enemy models cannot Move into base contact with Goldberry for any reason, unless Goldberry's controlling player explicitly allows it. If a model would be forced into base contact with Goldberry, then they will stop just before moving into base contact. Goldberry may Charge enemy models as normal, and her side will automatically win any Combat that Goldberry is involved in; however, when they do, friendly models may not make Strikes in that Combat. Goldberry may never carry Objectives under any circumstances and may never be chosen in Scenarios that require a player to choose a specific Hero model.",
+            "description": "Goldberry treats all kinds of terrain as Open Ground and always treats the result of any Climb, Leap, Jump and Swim Tests as a 6. Goldberry cannot be targeted by any abilities, special rules, Magical Powers, Brutal Power Attacks or shooting attacks, either friendly or enemy. This means that any Magical Powers that would target Goldberry will automatically be resisted, even if they would target multiple models. If Goldberry is hit by a missile weapon as a result of a failed In The Way Test, the shot will automatically disappear and have no effect. Goldberry does not have a Control Zone. Enemy models cannot Move into base contact with Goldberry for any reason, unless Goldberry's controlling player explicitly allows it. If a model would be forced into base contact with Goldberry, then they will stop just before moving into base contact. Goldberry may Charge enemy models as normal, and her side will automatically win any Combat that Goldberry is involved in; however, when they do, friendly models may not make Strikes in that Combat. Goldberry may never carry Objectives under any circumstances and may never be chosen in Scenarios that require a player to choose a specific <b>Hero</b> model.",
             "name": "River-daughter"
           },
           "sing-a-jolly-song-goldberry": {
-            "description": "At any point during her Activation, Goldberry may spend a Will Point to sing one of the songs listed below to gain the relevant effect. Goldberry may sing any number of these songs during her Activation, and may sing each of these songs as many times as she wishes during her Activation unless otherwise stated. Every time Goldberry sings a song it will cost her a Will Point.\\n\"Supper is Ready\" - Choose a friendly model within 6\" of Goldberry. The chosen model immediately regains a single Wound lost earlier in the battle. A model may only be chosen by this song once per turn.\\n\"Have Peace Now\" - Choose an enemy model within 6\" of Goldberry. The chosen model may not be Activated during their player's Activation Phase this turn, but may otherwise act normally in all other Phases. This song may only be sung once per turn.\\n\"Heed no Nightly Noises\" - Choose a friendly model within 6\" of Goldberry. Until the end of the turn, the chosen model automatically passes any Courage Tests it is required to take. Additionally, if the chosen model Charges an enemy model, the chosen model will increase their Fight Value by 1 until the End Phase of the turn. A model may only be chosen by this song once per turn.",
+            "description": "At any point during her Activation, Goldberry may spend a Will Point to sing one of the songs listed below to gain the relevant effect. Goldberry may sing any number of these songs during her Activation, and may sing each of these songs as many times as she wishes during her Activation unless otherwise stated. Every time Goldberry sings a song it will cost her a Will Point.\\n<b>\"Supper is Ready\"</b> - Choose a friendly model within 6\" of Goldberry. The chosen model immediately regains a single Wound lost earlier in the battle. A model may only be chosen by this song once per turn.\\n<b>\"Have Peace Now\"</b> - Choose an enemy model within 6\" of Goldberry. The chosen model may not be Activated during their player's Activation Phase this turn, but may otherwise act normally in all other Phases. This song may only be sung once per turn.\\n<b>\"Heed no Nightly Noises\"</b> - Choose a friendly model within 6\" of Goldberry. Until the end of the turn, the chosen model automatically passes any Courage Tests it is required to take. Additionally, if the chosen model Charges an enemy model, the chosen model will increase their Fight Value by 1 until the End Phase of the turn. A model may only be chosen by this song once per turn.",
             "name": "Sing a Jolly Song (Goldberry)"
           }
         }
@@ -2617,11 +2617,11 @@
         "name": "Gondor Avenger Bolt Thrower",
         "rules": {
           "rapid-fire": {
-            "description": "A Bolt Thrower doesn't shoot like a normal Siege Engine. Instead, it may make D6 shoot attacks in the same way as a normal Missile Weapon. No Scatter is required for these shots, they will either hit or miss. Each shot may be fully resolved before determining the target of the next one. Shots fired by the Bolt Thrower do not kill their targets outright if they Wound them.",
+            "description": "A Gondor Avenger Bolt Thrower doesn't shoot like a normal <b>Siege Engine</b>. Instead, it may make D6 shoot attacks in the same way as a normal Missile Weapon. No Scatter is required for these shots, they will either hit or miss. Each shot may be fully resolved before determining the target of the next one. Shots fired by a Gondor Avenger Bolt Thrower do not kill their targets outright if they Wound them.",
             "name": "Rapid Fire"
           },
           "swift-reload": {
-            "description": "AWhen firing the Bolt Thrower, you may roll two dice and pick the highest result when determining how many shots it may take.",
+            "description": "When firing the Gondor Avenger Bolt Thrower, you may roll two dice and pick the highest result when determining how many shots it may make.",
             "name": "Swift Reload"
           }
         }
@@ -2764,11 +2764,11 @@
             "name": "Crushing Strength"
           },
           "leader-of-the-beornings": {
-            "description": "Only Beorning models can benefit from Grimbeorn's Heroic Actions or Stand Fast.",
+            "description": "Only <b>Beorning</b> models can benefit from Grimbeorn's Heroic Actions or Stand Fast.",
             "name": "Leader of the Beornings"
           },
           "skin-changer": {
-            "description": "At the beginning of his Activation, Grimbeorn the Bear can change his form from Bear to Man. If he does, place the Man model in base contact with the Bear model, and then remove the Bear model from play. If there is no space to place the Man model, then Grimbeorn cannot transform. Once he has transformed, Grimbeorn may continue his Activation as normal, including Charging in which case check the Line of Sight from the newly placed Man model to determine whether Grimbeorn can Charge. Once Grimbeorn has transformed, he uses the Grimbeorn profile - though his Wounds, Might, Will and Fate Points remain the same between both profiles.",
+            "description": "At the beginning of his Activation, Grimbeorn can change his form from <b>Man</b> to <b>Bear</b>. If he does, place the <b>Bear model</b> in base contact with the <b>Man</b> model, and then remove the <b>Man model</b> from play. If there is no space to place the <b>Bear</b> model, then Grimbeorn cannot transform. Once he has transformed, Grimbeorn the Bear may continue his Activation as normal, including Charging in which case check the Line of Sight from the newly placed <b>Bear</b> model to determine whether Grimbeorn can Charge. Once Grimbeorn has transformed, he uses the Grimbeorn the Bear profile - though his Wounds, Might, Will and Fate Points remain the same between both profiles.",
             "name": "Skin-changer"
           }
         }
@@ -2777,11 +2777,11 @@
         "name": "Grimbeorn",
         "rules": {
           "leader-of-the-beornings": {
-            "description": "Only Beorning models can benefit from Grimbeorn's Heroic Actions or Stand Fast.",
+            "description": "Only <b>Beorning</b> models can benefit from Grimbeorn's Heroic Actions or Stand Fast.",
             "name": "Leader of the Beornings"
           },
           "skin-changer": {
-            "description": "At the beginning of his Activation, Grimbeorn can change his form from Man to Bear. If he does, place the Bear model in base contact with the Man model, and then remove the Man model from play. If there is no space to place the Bear model, then Grimbeorn cannot transform. Once he has transformed, Grimbeorn the Bear may continue his Activation as normal, including Charging in which case check the Line of Sight from the newly placed Bear model to determine whether Grimbeorn can Charge. Once Grimbeorn has transformed, he uses the Grimbeorn the Bear profile - though his Wounds, Might, Will and Fate Points remain the same between both profiles.",
+            "description": "At the beginning of his Activation, Grimbeorn can change his form from <b>Man</b> to <b>Bear</b>. If he does, place the <b>Bear model</b> in base contact with the <b>Man</b> model, and then remove the <b>Man model</b> from play. If there is no space to place the <b>Bear</b> model, then Grimbeorn cannot transform. Once he has transformed, Grimbeorn the Bear may continue his Activation as normal, including Charging in which case check the Line of Sight from the newly placed <b>Bear</b> model to determine whether Grimbeorn can Charge. Once Grimbeorn has transformed, he uses the Grimbeorn the Bear profile - though his Wounds, Might, Will and Fate Points remain the same between both profiles.",
             "name": "Skin-changer"
           }
         }
@@ -2842,7 +2842,7 @@
         "name": "Guard of the Galadhrim Court",
         "rules": {
           "caras-galadhon-fighting-style": {
-            "description": "This model may use the Shielding rule with their Elven pike. The usual restrictions for Shielding still apply, chiefly that a model using the Shielding rule cannot be Supported by another model, not even by another Guard of the Galadhrim Court.",
+            "description": "This model may use the Shielding rule with their Elven pike. All of the usual restrictions for Shielding still apply, chiefly that a model using the Shielding rule cannot be Supported by another model, not even by another Guard of the Galadhrim Court.",
             "name": "Caras Galadhon Fighting Style"
           }
         }
@@ -2944,7 +2944,7 @@
         "name": "Halbarad",
         "rules": {
           "banner-of-arwen-evenstar": {
-            "description": "This is a banner with a range of 6\" rather than 3\", and Halbarad never suffers the -1 penalty to his Duel Rolls for carrying a banner. Additionally, friendly models within 6\" and Line of Sight of the Banner of Arwen Evenstar automatically pass any Courage Tests they are required to take.",
+            "description": "This is a <b>Unique</b> banner with a range of 6\" rather than 3\", and Halbarad never suffers the -1 penalty to his Duel Rolls for carrying a banner. Additionally, friendly models within 6\" and Line of Sight of the Banner of Arwen Evenstar automatically pass any Courage Tests they are required to take.",
             "name": "Banner of Arwen Evenstar"
           }
         }
@@ -3230,15 +3230,15 @@
         "name": "Hurin the Tall, Warden of the Keys",
         "rules": {
           "in-defence-of-the-king": {
-            "description": "Whilst Hurin is within 3\" of your General, so long as your General has the Gondor keyword, Hurin automatically passes any Courage Tests he is required to make, and may re-roll To Wound rolls of a natural 1 when making Strikes.",
+            "description": "Whilst he is within 3\" of your <b>General</b>, so long as your <b>General</b> has the <b>Gondor Keyword</b>, Hurin automatically passes any Courage Tests he is required to take and may re-roll To Wound Rolls of a natural 1 when making Strikes.",
             "name": "In Defence of the King"
           },
           "lines-of-command": {
-            "description": "Your opponent cannot score Victory Points for Wounding or slaying the enemy General, so long as Hurin is alive on the battlefield and your General has the Gondor keyword.",
+            "description": "Whilst Harin is alive and on the battlefield, your opponent cannot score any Victory Points for Wounding or slaying the enemy <b>General</b>, so long as your <b>General</b> has the <b>Gondor</b> Keyword.",
             "name": "Lines of Command"
           },
           "the-wardens-sword": {
-            "description": "Master Forged hand-and-a-half weapon.",
+            "description": "This is a Master-forged hand-and-a-half weapon.",
             "name": "The Warden's Sword"
           }
         }
@@ -3247,7 +3247,7 @@
         "name": "Ingold, Warden of The Rammas Echor",
         "rules": {
           "resolute-fighter": {
-            "description": "Ingold and friendly Gondor Warrior models within 3\" do not Back Away if they lose a Combat - their opponent must Back Away instead. However, this does not mean that a model benefiting from this rule cannot count as being Trapped, when they lose their Duel roll.",
+            "description": "Ingold and friendly <b>Gondor Warrior</b> models within 3\" of him do not Back Away if they lose a Combat — their opponent must Back Away instead. It is important to note that models benefitting from this special rule can still be Trapped as normal, and a player should check to see if the model would be Trapped under normal circumstances should their side lose the Combat. If they would be Trapped, then opposition models will apply the effects of being Trapped, such as any of their special rules for making Strikes against a Trapped model, and will still make two To Wound Rolls for each Strike as they would against any other Trapped model.",
             "name": "Resolute Fighter"
           }
         }
@@ -3602,7 +3602,13 @@
         }
       },
       "knight-of-dol-amroth": {
-        "name": "Knight of Dol Amroth"
+        "name": "Knight of Dol Amroth",
+        "rules": {
+          "pride-of-dol-amroth": {
+            "description": "Whilst within 3\" of Prince Imrahil, this model gains a bonus of +1 to their Fight value.",
+            "name": "Pride of Dol Amroth"
+          }
+        }
       },
       "knight-of-minas-tirith": {
         "name": "Knight of Minas Tirith"
@@ -3849,11 +3855,11 @@
         "name": "Malbeth the Seer",
         "rules": {
           "foresight-of-the-eldar": {
-            "description": "At the start of the game, before either side deploys, roll a D6 and make a note of the result - this is the number of Foresight Points that Malbeth has for the battle. During the roll for Priority, so long as he is alive and on the battlefield, Malbeth can spend these Foresight Points to increase the roll on his controlling player's roll for Priority. For each Foresight Point spent, increase the dice roll by 1, to a maximum of 6.",
+            "description": "At the start of the game, before either side deploys, roll a D6 and make a note of the result — this is the number of Foresight Points that Malbeth has for the battle. During the roll for Priority, so long as he is alive and on the battlefield, Malbeth can spend these Foresight Points to increase the roll on his controlling player’s roll for Priority. For each Foresight Point spent, increase the dice roll by 1, to a maximum of 6.",
             "name": "Foresight of the Eldar"
           },
           "gift-of-foresight": {
-            "description": "Every time a friendly Arnor model suffers a Wound within 6\" and Line of Sight of Malbeth, roll a D6. On a 5+, the Wound is prevented. If failed, Hero models may still use Fate points as normal.",
+            "description": "Whenever a friendly Arnor model within 6\" and Line of Sight of Malbeth suffers a Wound, roll a D6. On a 5+, the Wound has been prevented and is ignored. Note that if this roll is failed, a <b>Hero</b> model may still use Fate Points as normal.",
             "name": "Gift of Foresight"
           }
         }
@@ -3871,12 +3877,12 @@
         "name": "Mardin, The King's Ward",
         "rules": {
           "durins-protector": {
-            "description": "During the Declare Heroic Actions step of the Fight phase, if Durin is Engaged in Combat within 6\" of Mardin, then Mardin may declare a free Heroic Combat. If this is successful, Mardin must use the following Move to join Durin's Combat if able, or move as close as possible to him. Mardin cannot use this special rule if he is in the same Combat as Durin.",
+            "description": "During the Declare Heroic Actions step of the Fight Phase, if Durin is Engaged in Combat and is within 6\" of Mardin, then Mardin may declare a free Heroic Combat. If this Heroic Combat is successful, then Mardin must use the following Move to join Durin’s Combat. If this is not possible, then Mardin must Move as close as possible to Durin. Mardin cannot use this special rule if he is in the same Combat as Durin.",
             "name": "Durin's Protector"
           },
           "torozul": {
-            "description": "This is a Foe Spear, with the Trollbane special rule. Additionally, Mardin adds +1 when rolling To Wound against Monster models.",
-            "name": "Torozul"
+            "description": "This is a <b>Unique</b> Foe Spear with the <b>Trollbane</b> special rule. Additionally, Mardin gains an additional bonus of +1 To Wound when making Strikes against <b>Monster</b> models.",
+            "name": "Torozûl"
           }
         }
       },
@@ -4387,7 +4393,7 @@
         "name": "Orophin, Galadhrim Captain",
         "rules": {
           "whirl-of-blades": {
-            "description": "If Orophin rolls a natural 6 in the Duel roll, then he will make double the number of strikes he normally would when rolling To Wound. Note that if the model he is fighting is Trapped, these Strikes will not also gain the benefit for Striking a Trapped model.",
+            "description": "If Orophin rolls a natural 6 when making a Duel Roll, then he will make double the number of Strikes he would normally make. Note that if the model he is fighting is Trapped, these Strikes will not also gain the benefit for Striking a Trapped model.",
             "name": "Whirl of Blades"
           }
         }
@@ -4475,8 +4481,8 @@
         "name": "Prince Imrahil",
         "rules": {
           "dol-amroth-for-gondor": {
-            "description": "Other friendly Dol Amroth models treat Prince Imrahil as a banner with a range of 6\".",
-            "name": "Dol Amroth for Gondor!"
+            "description": "Other friendly <b>Dol Amroth</b> models treat Prince Imrahil as a banner with a range of 6\".",
+            "name": "\"Dol Amroth for Gondor!\""
           },
           "the-lineage-of-numenor": {
             "description": "The range of Prince Imrahil's Stand Fast is 12\" rather than 6\".",
@@ -4781,7 +4787,7 @@
         "name": "Rumil, Warden of Caras Galadhon",
         "rules": {
           "swift-parry": {
-            "description": "Rumil may force one enemy model involved in the same Combat as him to re-roll one D6 in their Duel roll. This must be done before all other re-rolls, and before any Might points are spent.",
+            "description": "Rumil may force one enemy model involved in the same Combat as him to re-roll a single D6 for their Duel Roll. This must be done before all other re-rolls, and before any Might points are spent.",
             "name": "Swift Parry"
           }
         }
@@ -5993,7 +5999,7 @@
         "name": "Tom Bombadil",
         "rules": {
           "sing-a-jolly-song-tom": {
-            "description": "At any point during his Activation, Tom may spend a Will Point to sing one of the songs listed below to gain the relevant effect. Tom may sing any number of these songs during his Activation, and may sing each of these songs as many times as he wishes during his Activation unless otherwise stated. Every time Tom sings a song it will cost his a Will Point.\\n\"Hey! Come Merry Doll!\" - Choose a friendly model within 6\" of Tom Bombadil. The chosen model immediately regains a single Wound lost earlier in the battle. A model may only be chosen by this song once per turn.\\n\"Hop along, my hearties!\" - Until the end of the turn, friendly models that begin their Activation within 6\" of Tom Bombadil may add 3\" to their Move Value and will treat all areas of Difficult Terrain as Open Ground.\\n\"Wake now my merry lads!\" - Choose a friendly model within 6\" of Tom Bombadil. The chosen model immediately recovers from the effects of any enemy Magical Powers currently cast upon them. Additionally, until the end of the turn, the chosen model cannot be chosen as the target of any enemy Magical Powers or special rules.\\n\"Ring a ding dillo!\" - Until the end of the turn, friendly models within 6\" of Tom Bombadil automatically pass any Courage Tests they are required to take.\\n\"Get out, you Wight!\" - Choose an enemy Spirit model within 6\" of Tom Bombadil. The chosen model immediately suffers a Wound. This song may only be sung once per turn.",
+            "description": "At any point during his Activation, Tom may spend a Will Point to sing one of the songs listed below to gain the relevant effect. Tom may sing any number of these songs during his Activation, and may sing each of these songs as many times as he wishes during his Activation unless otherwise stated. Every time Tom sings a song it will cost him a Will Point.\\n<b>\"Hey! Come Merry Doll!\"</b> - Choose a friendly model within 6\" of Tom Bombadil. The chosen model immediately regains a single Wound lost earlier in the battle. A model may only be chosen by this song once per turn.\\n<b>\"Hop along, my hearties!\"</b> - Until the end of the turn, friendly models that begin their Activation within 6\" of Tom Bombadil may add 3\" to their Move Value and will treat all areas of Difficult Terrain as Open Ground. A model may only be affected by this song once per turn.\\n<b>\"Wake now my merry lads!\"</b> - Choose a friendly model within 6\" of Tom Bombadil. The chosen model immediately recovers from the effects of any enemy Magical Powers currently cast upon them. Additionally, until the end of the turn, the chosen model cannot be chosen as the target of any enemy Magical Powers or special rules.\\n<b>\"Ring a ding dillo!\"</b> - Until the end of the turn, friendly models within 6\" of Tom Bombadil automatically pass any Courage Tests they are required to take.\\n<b>\"Get out, you Wight!\"</b> - Choose an enemy <b>Spirit</b> model within 6\" of Tom Bombadil. The chosen model immediately suffers a Wound. This song may only be sung once per turn.",
             "name": "Sing a Jolly Song (Tom)"
           },
           "tom-has-his-house-to-mind": {
@@ -6001,7 +6007,7 @@
             "name": "Tom has his house to mind"
           },
           "tom-is-master": {
-            "description": "Tom Bombadil treats all kinds of terrain as Open Ground and always treats the result of any Climb, Leap, Jump and Swim Tests as a 6. Tom cannot be targeted by any abilities, special rules, Magical Powers, Brutal Power Attacks or shooting attacks, either friendly or enemy. This means that any Magical Powers that would target Tom will automatically be resisted, even if they would target multiple models. If Tom is hit by a missile weapon as a result of a failed In The Way Test, the shot will automatically disappear and have no effect. Tom Bombadil does not have a Control Zone. Enemy models cannot Move into base contact with Tom for any reason, unless Tom's controlling player explicitly allows it. If a model would be forced into base contact with Tom, then they will stop just before moving into base contact. Tom may Charge enemy models as normal, and his side will automatically win any Combat that Tom is involved in; however, when they do, friendly models may not make Strikes in that Combat. Tom Bombadil may never carry Objectives under any circumstances, and may never be chosen in Scenarios that require a player to choose a specific Hero model.",
+            "description": "Tom Bombadil treats all kinds of terrain as Open Ground and always treats the result of any Climb, Leap, Jump and Swim Tests as a 6. Tom cannot be targeted by any abilities, special rules, Magical Powers, Brutal Power Attacks or shooting attacks, either friendly or enemy. This means that any Magical Powers that would target Tom will automatically be resisted, even if they would target multiple models. If Tom is hit by a missile weapon as a result of a failed In The Way Test, the shot will automatically disappear and have no effect. Tom Bombadil does not have a Control Zone. Enemy models cannot Move into base contact with Tom for any reason, unless Tom's controlling player explicitly allows it. If a model would be forced into base contact with Tom, then they will stop just before moving into base contact. Tom may Charge enemy models as normal, and his side will automatically win any Combat that Tom is involved in; however, when they do, friendly models may not make Strikes in that Combat. Tom Bombadil may never carry Objectives under any circumstances, and may never be chosen in Scenarios that require a player to choose a specific <b>Hero</b> model.",
             "name": "Tom is Master"
           }
         }
@@ -6352,7 +6358,7 @@
         "name": "Wood Elf Sentinel",
         "rules": {
           "enchanting-song": {
-            "description": "During their Activation, a Sentinel may sing one of the following songs:\\nThe Hymn of Elbereth - Choose a friendly model within 12\", who will  automatically pass all Courage Tests until the End Phase of the turn.\\nEldamar Madrigal - Choose an enemy model within 12\" who is not Engaged in Combat. They must take an Intelligence Test. If failed, you may immediately Move that model. However you cannot make them enter an enemy model’s Control Zone, dismount, lie down, be forced to Climb, Jump, Leap or Swim, or Move in any way that would cause direct harm. The model affected by this song cannot be Activated later in the turn.\\nThe Lay of Gondolin - Sentinel and all friendly models within 3\" gain Terror until the End Phase of the turn.",
+            "description": "During their Activation, a Wood EIf Sentinel may sing one of the following songs to gain the relevant effect:\\n<b>Hymn of Elbereth</b> — Choose a friendly model within 12\". Until the End Phase of the turn, the chosen model automatically passes any Courage Tests they are required to take.\\n<b>Lay of Gondolin</b> — Until the End Phase of the turn, this model and all friendly models within 3\" of them gain the Terror special rule.\\n<b>Eldamar Madrigal</b> — Choose an enemy model within 12\" that is not Engaged in Combat; the chosen model must immediately take an Intelligence Test. If the test is failed, then you may immediately Move that model as if it was that model’s Activation; however, the only thing they can do is Move. A model made to Move in this manner cannot enter an enemy model’s Control Zone, dismount, lie down, be forced to make a Climb, Jump, Leap or Swim Test, and cannot Move in any way that ‘would cause it direct harm (such as attempting to jump off a cliff). A model affected by this song cannot be Activated later in the turn.",
             "name": "Enchanting Song"
           }
         }

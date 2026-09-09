@@ -348,7 +348,7 @@
     "points": 85,
     "race": ["man"],
     "factions": ["arnor"],
-    "unitTypes": ["hero", "infantry", "unique"],
+    "unitTypes": ["hero", "cavalry", "unique"],
     "baseSize": "25mm",
     "selectable": true,
     "source": {
@@ -3277,7 +3277,7 @@
       "c": "6",
       "i": "6"
     },
-    "wargear": ["dwarf-armour", "hand-weapon", "throwing-weapons"],
+    "wargear": ["heavy-armour", "hand-weapon", "throwing-weapons"],
     "specialRules": [
       {
         "id": "mountain-dweller"
@@ -3706,7 +3706,7 @@
       "will": "2",
       "fate": "2"
     },
-    "wargear": ["heavy-dwarf-armour", "torozul"],
+    "wargear": ["heavy-dwarf-armour", "torozûl"],
     "heroicActions": ["heroic-strength", "heroic-strike"],
     "specialRules": [
       {
@@ -5895,7 +5895,7 @@
     "alignment": "good",
     "points": 85,
     "race": ["elf"],
-    "factions": ["lothl-rien"],
+    "factions": ["lothlorien"],
     "unitTypes": ["hero", "infantry", "unique"],
     "baseSize": "25mm",
     "selectable": true,
@@ -12225,7 +12225,7 @@
     "wargear": [
       "heavy-armour",
       "hand-weapon",
-      "war-spear",
+      "spear",
       "the-horn-of-lossarnach"
     ],
     "heroicActions": ["heroic-strength"],
@@ -13217,6 +13217,13 @@
         "requirements": [],
         "effects": []
       }
+    ],
+    "profileRules": [
+      {
+        "id": "pride-of-dol-amroth",
+        "type": "active",
+        "option": ""
+      }
     ]
   },
   {
@@ -13418,7 +13425,7 @@
     "profile": "prince-imrahil",
     "origin": "gondor",
     "alignment": "good",
-    "points": 160,
+    "points": 140,
     "race": ["man"],
     "factions": ["gondor", "dol-amroth"],
     "unitTypes": ["hero", "infantry", "unique"],
@@ -25906,9 +25913,9 @@
       "w": "-",
       "c": "-",
       "i": "-",
-      "might": "0",
+      "might": "-",
       "will": "8",
-      "fate": "0"
+      "fate": "-"
     },
     "wargear": ["unarmed"],
     "profileRules": [
@@ -26041,12 +26048,11 @@
     "profile": "grimbeorn-the-bear",
     "origin": "the-free-peoples",
     "alignment": "good",
-    "points": 25,
     "race": ["bear"],
     "factions": ["beorning"],
     "unitTypes": ["hero", "infantry", "monster", "unique"],
-    "baseSize": "25mm",
-    "selectable": true,
+    "baseSize": "60mm",
+    "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
       "page": 23
@@ -27526,9 +27532,9 @@
       "w": "-",
       "c": "-",
       "i": "-",
-      "might": "0",
+      "might": "-",
       "will": "12",
-      "fate": "0"
+      "fate": "-"
     },
     "wargear": ["unarmed"],
     "profileRules": [
@@ -27725,7 +27731,8 @@
         "parameter": "goblin"
       },
       {
-        "id": "hated-orc"
+        "id": "hated",
+        "parameter": "orc"
       },
       {
         "id": "hatred",
