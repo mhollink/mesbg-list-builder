@@ -1,8 +1,8 @@
 {
-  "name": "web",
   "private": true,
-  "version": "2.0.0-alpha.9",
+  "name": "@mlb/frontend",
   "type": "module",
+  "version": "2.0.0-alpha.9",
   "scripts": {
     "dev": "vite",
     "format": "biome check --write .",

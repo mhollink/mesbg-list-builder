@@ -1,4 +1,9 @@
 {
+  "name": "@mlb/app",
   "private": true,
-  "packageManager": "pnpm@11.26.0"
+  "version": "2.0.0-alpha.9",
+  "packageManager": "pnpm@11.26.0",
+  "devDependencies": {
+    "git-cliff": "^2.13.1"
+  }
 }

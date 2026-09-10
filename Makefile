@@ -249,3 +249,23 @@ clean-backend:
 .PHONY: clean-data
 clean-data:
 	rm -rf $(DATA_DIR)/generated
+
+
+# ==============================================================================
+# Cleanup
+# ==============================================================================
+
+
+.PHONY: version release
+
+version:
+ifndef VERSION
+	$(error VERSION is required. Usage: make version VERSION=1.2.3)
+endif
+	@./scripts/version.sh "$(VERSION)"
+
+release:
+ifndef VERSION
+	$(error VERSION is required. Usage: make release VERSION=1.2.3)
+endif
+	@./scripts/release.sh "$(VERSION)"

@@ -1,13 +1,12 @@
 {
   "private": true,
+  "name": "@mlb/data",
+  "type": "module",
+  "version": "2.0.0-alpha.9",
   "scripts": {
     "format": "biome check --write .",
     "build": "tsx scripts/generate.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.34.4",
   "devDependencies": {
     "@biomejs/biome": "2.5.10",
     "@types/node": "^26.4.0",
