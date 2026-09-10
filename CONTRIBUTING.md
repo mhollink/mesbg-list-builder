@@ -6,34 +6,36 @@ MESBG List Builder is an unofficial community project developed in people's free
 including application changes, accessibility improvements, documentation, translations, and corrections to game data.
 
 <!-- TOC -->
+
 * [Contributing to MESBG List Builder](#contributing-to-mesbg-list-builder)
-  * [Code of conduct](#code-of-conduct)
-  * [Before starting](#before-starting)
-  * [Development setup](#development-setup)
-    * [Requirements](#requirements)
-    * [Clone the repository](#clone-the-repository)
-    * [Bootstrap the development environment](#bootstrap-the-development-environment)
-      * [Linux and macOS](#linux-and-macos)
-      * [Windows](#windows)
-    * [Available commands](#available-commands)
-  * [Making application changes](#making-application-changes)
-  * [Working with game data](#working-with-game-data)
-    * [Editing data locally](#editing-data-locally)
-    * [Reviewing profile and rule changes](#reviewing-profile-and-rule-changes)
-    * [Data corrections](#data-corrections)
-  * [Translations](#translations)
-  * [Formatting and builds](#formatting-and-builds)
-  * [Commit messages](#commit-messages)
-    * [Commit types](#commit-types)
-    * [Data corrections are fixes](#data-corrections-are-fixes)
-    * [Breaking changes](#breaking-changes)
-  * [Pull requests](#pull-requests)
-  * [Changelog and releases](#changelog-and-releases)
-  * [Reporting security issues](#reporting-security-issues)
-  * [Legal and licensing requirements](#legal-and-licensing-requirements)
-    * [Third-party and game-related material](#third-party-and-game-related-material)
-  * [Documentation](#documentation)
-  * [Questions](#questions)
+    * [Code of conduct](#code-of-conduct)
+    * [Before starting](#before-starting)
+    * [Development setup](#development-setup)
+        * [Requirements](#requirements)
+        * [Clone the repository](#clone-the-repository)
+        * [Bootstrap the development environment](#bootstrap-the-development-environment)
+            * [Linux and macOS](#linux-and-macos)
+            * [Windows](#windows)
+        * [Available commands](#available-commands)
+    * [Making application changes](#making-application-changes)
+    * [Working with game data](#working-with-game-data)
+        * [Editing data locally](#editing-data-locally)
+        * [Reviewing profile and rule changes](#reviewing-profile-and-rule-changes)
+        * [Data corrections](#data-corrections)
+    * [Translations](#translations)
+    * [Formatting and builds](#formatting-and-builds)
+    * [Commit messages](#commit-messages)
+        * [Commit types](#commit-types)
+        * [Data corrections are fixes](#data-corrections-are-fixes)
+        * [Breaking changes](#breaking-changes)
+    * [Pull requests](#pull-requests)
+    * [Changelog and releases](#changelog-and-releases)
+    * [Reporting security issues](#reporting-security-issues)
+    * [Legal and licensing requirements](#legal-and-licensing-requirements)
+        * [Third-party and game-related material](#third-party-and-game-related-material)
+    * [Documentation](#documentation)
+    * [Questions](#questions)
+
 <!-- TOC -->
 
 ## Code of conduct
@@ -374,6 +376,67 @@ feat(data)!: change profile option schema
 ```
 
 Describe the compatibility or migration impact in the commit body or pull request.
+
+## Git history
+
+The repository maintains a **linear Git history**.
+
+Merge commits are not accepted. Before a pull request is merged, its branch should be up to date with the target branch
+without introducing a merge commit.
+
+Prefer rebasing your branch:
+
+```bash
+git fetch origin
+git rebase origin/master
+```
+
+If conflicts occur, resolve them during the rebase and continue with:
+
+```bash
+git rebase --continue
+```
+
+After rebasing a branch that has already been pushed, update the remote branch with:
+
+```bash
+git push --force-with-lease
+```
+
+Use `--force-with-lease` rather than `--force` to avoid unintentionally overwriting changes made by someone else.
+
+Do not update your branch using:
+
+```bash
+git merge master
+```
+
+because this introduces a merge commit into the branch history.
+
+### Commit quality
+
+Commits should represent coherent changes and use the project's Conventional Commit format.
+
+Before requesting review, consider cleaning up temporary or intermediate commits such as:
+
+```text
+fix
+oops
+address review
+try again
+```
+
+Interactive rebase can be used to reorder, combine, or reword commits:
+
+```bash
+git rebase -i origin/master
+```
+
+A pull request does not need to contain exactly one commit. Multiple commits are appropriate when they describe
+meaningful, independently understandable steps.
+
+Pull requests are merged without creating merge commits. A clean commit history may be rebased onto the target branch
+directly. Pull requests with noisy intermediate history may be squashed when merged.
 
 ## Pull requests
 
