@@ -262,8 +262,7 @@ clean-data:
 # ==============================================================================
 
 
-.PHONY: version release
-
+.PHONY: version release publish
 version:
 ifndef VERSION
 	$(error VERSION is required. Usage: make version VERSION=1.2.3)
@@ -275,3 +274,6 @@ ifndef VERSION
 	$(error VERSION is required. Usage: make release VERSION=1.2.3)
 endif
 	@./scripts/release.sh "$(VERSION)"
+
+publish:
+	@./scripts/publish.sh
