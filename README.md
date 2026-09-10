@@ -1,366 +1,431 @@
 # MESBG List Builder
 
-A web application for building and managing armies for the **Middle-earth Strategy Battle Game**, with additional tools for tracking games, managing collections, finding local players, running Battle Companies, and supporting tournaments.
+MESBG List Builder is an unofficial companion application for the **Middle-earth Strategy Battle Game**.
 
-The project started as a roster builder and is being expanded into a broader companion application for MESBG players.
+The project is being developed as a broader toolkit for MESBG players, with functionality for army building, game
+reference, collections, games, Battle Companies, tournaments, and player discovery.
+
+The current development focus is the frontend application and the game-data pipeline.
 
 <!-- TOC -->
 * [MESBG List Builder](#mesbg-list-builder)
-  * [Features](#features)
-    * [Armies](#armies)
-    * [Play](#play)
-    * [Reference](#reference)
+  * [Project structure](#project-structure)
   * [Technology](#technology)
-    * [Web](#web)
-    * [API](#api)
-    * [Database](#database)
-    * [Testing](#testing)
-    * [Infrastructure](#infrastructure)
-  * [Repository structure](#repository-structure)
+  * [Local development](#local-development)
+    * [Requirements](#requirements)
+    * [Clone the repository](#clone-the-repository)
+    * [Initial setup](#initial-setup)
+      * [Linux and macOS](#linux-and-macos)
+      * [Windows](#windows)
+  * [Running the application](#running-the-application)
+  * [Working with game data](#working-with-game-data)
+    * [One-off generation](#one-off-generation)
+    * [Working on data locally](#working-on-data-locally)
+    * [Checking data changes](#checking-data-changes)
+  * [Repository commands](#repository-commands)
   * [Architecture](#architecture)
     * [Game data](#game-data)
     * [User data](#user-data)
-  * [Application areas](#application-areas)
-  * [Local development](#local-development)
-    * [Requirements](#requirements)
-    * [Setup](#setup)
-  * [Game-data pipeline](#game-data-pipeline)
-  * [API](#api-1)
-  * [Testing](#testing-1)
-  * [Documentation](#documentation)
-  * [Privacy](#privacy)
+  * [Commit messages](#commit-messages)
+    * [Commit types and changelog](#commit-types-and-changelog)
+    * [Breaking changes](#breaking-changes)
+  * [Changelog and releases](#changelog-and-releases)
   * [Contributing](#contributing)
-    * [Translating](#translating)
-      * [How to add a new language](#how-to-add-a-new-language)
   * [Disclaimer](#disclaimer)
 <!-- TOC -->
 
-## Features
-
-### Armies
-
-* Build and manage army rosters
-* Track your miniature collection
-* Validate available profiles and army-list options using the bundled game data
-
-### Play
-
-* Record and review games
-* Find players and games nearby
-* Manage Battle Companies
-* Create and participate in tournaments
-
-### Reference
-
-* Browse profiles
-* Search rules
-* View dice and probability charts
-
-Game reference data is generated from a maintained Excel workbook and bundled with the frontend rather than served through the backend API.
-
-## Technology
-
-### Web
-
-* React
-* TypeScript
-* Vite
-* Material UI
-* Redux Toolkit
-* RTK Query
-
-### API
-
-* Java 25
-* Spring Boot
-* Spring Web
-* Spring Security
-* Spring Data JPA
-* Bean Validation
-* Flyway
-
-### Database
-
-* PostgreSQL
-* PostGIS may be introduced later for geographical player discovery
-
-### Testing
-
-* JUnit
-* Spring Boot Test
-* Testcontainers
-* Vitest
-* React Testing Library
-* Playwright
-
-### Infrastructure
-
-* Docker
-* Docker Compose
-* GitHub Actions
-
-## Repository structure
+## Project structure
 
 ```text
 .
 ├── apps/
-│   ├── frontend/            # React frontend
-│   └── backend/             # Spring Boot backend
+│   ├── frontend/              # React frontend
+│   └── backend/               # Spring Boot backend
 │
 ├── data/
-│   ├── raw/                 # Source Excel game data
-│   ├── scripts/             # Import, validation and transformation pipeline
-│   └── generated/           # Generated json datafiles used by React frontend
+│   ├── raw/                   # Source Excel workbooks
+│   ├── scripts/               # Data generation pipeline
+│   └── generated/             # Generated JSON consumed by the frontend
 │
-├── api/                     # OpenAPI contract       
+├── api/
+│   ├── openapi.yaml           # API contract
+│   └── schemas/               # API schemas
 │
-├── tests/
-│   └── e2e/                 # Whole-system Playwright tests
+├── scripts/
+│   ├── quick-start.sh         # Linux/macOS development bootstrap
+│   ├── quick-start.bat        # Windows development bootstrap
+│   ├── version.sh             # Version management
+│   └── release.sh             # Release automation
 │
-├── docs/
-│   ├── architecture/        # System architecture
-│   ├── adr/                 # Architecture Decision Records
-│   └── development/         # Developer documentation
-│
-├── infra/                   # Docker and deployment configuration
-├── scripts/                 # Repository-level automation
-└── .github/                 # GitHub configuration and CI/CD
+├── Makefile                   # Repository commands
+├── pnpm-workspace.yaml        # pnpm workspace configuration
+└── cliff.toml                 # Changelog configuration
 ```
 
-## Architecture
+## Technology
 
-The application distinguishes between two main categories of data.
+The frontend is built with React, TypeScript, Vite, Material UI, Redux Toolkit, and i18next.
 
-### Game data
+The backend is built with Java 25 and Spring Boot.
 
-Game data describes MESBG itself, including:
-
-* profiles
-* rules
-* army lists
-* profile availability
-* points and options
-
-The source of truth for this data is maintained as an Excel workbook.
-
-```text
-Excel
-  ↓
-Import
-  ↓
-Transform
-  ↓
-Validate
-  ↓
-Generated JSON
-  ↓
-React application
-```
-
-Generated data is treated as build-time configuration and does not require API endpoints or database tables.
-
-### User data
-
-The backend manages information created or changed by users, including:
-
-* accounts
-* rosters
-* collections
-* games
-* player discovery
-* game requests
-* Battle Companies
-* tournaments
-
-```text
-React
-  ↕
-Spring Boot API
-  ↕
-PostgreSQL
-```
-
-The frontend combines static game data with user-specific data provided by the API.
-
-## Application areas
-
-The primary application navigation is organized around user goals:
-
-```text
-Home
-
-Armies
-├── Rosters
-└── Collection
-
-Play
-├── Games
-├── Find a Game
-├── Battle Companies
-└── Tournaments
-
-Reference
-├── Profiles
-├── Rules
-└── Army lists
-
-Settings
-```
+Game data is maintained in Excel workbooks and transformed into JSON during development and builds. The generated data
+is consumed directly by the frontend and does not require the backend.
 
 ## Local development
 
 ### Requirements
 
-Install the following before running the project locally:
+The repository provides bootstrap scripts that install or configure most development dependencies automatically.
 
-* Java 25 (see [.java-version](.java-version))
-* Node 24 (see [.nvmrc](.nvmrc))
-* pnpm 11 (see [package.json](package.json))
+The configured versions are:
 
-### Setup
+- Java 25
+- Node 24
+- pnpm 11
+- GNU Make
 
-The cloned repository contains multiple helpers to get the app running locally.
-There is a quick-start script installing the required software and dependencies in [scripts](./scripts).
+Git is also required.
 
-Clone the repository:
+### Clone the repository
 
 ```bash
 git clone git@github.com:mhollink/mesbg-list-builder.git
 cd mesbg-list-builder
 ```
 
-> [!NOTE]
-> Visit https://git-scm.com/install/ and follow the installation for your operating system.
+### Initial setup
 
-Run the quick-setup script to get all the pre-install requirements out of the way:
+#### Linux and macOS
 
-```shell
-# macOs / Linux
+Run:
+
+```bash
 ./scripts/quick-start.sh
 ```
-```shell
-# Windows
-./scripts/quick-start.bat
+
+The script:
+
+- installs or verifies Java
+- installs and configures fnm
+- installs the configured Node.js version
+- enables the configured pnpm version through Corepack
+- installs GNU Make when necessary
+- installs the pnpm workspace dependencies
+- downloads the backend Maven dependencies
+
+#### Windows
+
+Run the bootstrap script from Command Prompt or PowerShell:
+
+```bat
+scripts\quick-start.bat
 ```
 
-> [!WARNING]
-> The quick start script might not fully finish in one run. 
-> Installing Java/Node may require a new terminal session before they become available.
+The Windows bootstrap additionally configures Git Bash so that fnm and the repository's Make-based commands can be used
+there.
 
+After the initial setup, use **Git Bash** for the normal development workflow:
 
-## Game-data pipeline
+```bash
+make
+```
 
-The source workbook is stored under:
+Running `make` without a target displays the available repository commands.
+
+## Running the application
+
+The frontend development server can be started from the repository root:
+
+```bash
+make frontend
+```
+
+Vite will print the local development URL when it starts.
+
+The Spring Boot backend can be started separately with:
+
+```bash
+make backend
+```
+
+The frontend and backend are intentionally separate processes, so each can be restarted or debugged independently.
+
+## Working with game data
+
+Game data is maintained in Excel workbooks under:
 
 ```text
 data/raw/
 ```
 
-Generate the frontend game data with:
+The directory currently contains source files for profiles, options, rules, translations, and army lists.
 
-```bash
-pnpm data:build
-```
-
-The pipeline should:
-
-```text
-Read workbook
-    ↓
-Transform source data
-    ↓
-Validate structure
-    ↓
-Validate references
-    ↓
-Write generated JSON
-```
-
-Invalid references or malformed game data should cause the build to fail.
-
-Generated files are written to:
+Generated application data is written to:
 
 ```text
 data/generated/
 ```
 
-## API
+Do not manually edit generated JSON. Changes should be made to the source workbooks and regenerated.
 
-The API contract is maintained using OpenAPI:
+### One-off generation
 
-```text
-contracts/api/openapi.yaml
-```
-
-The OpenAPI specification acts as the contract between the Spring Boot API and the React application.
-
-Generated TypeScript API code should not be edited manually.
-
-## Testing
-
-Run all repository tests with:
+To generate the data once:
 
 ```bash
-make test
+make data
 ```
 
-Individual test suites can be run separately:
+### Working on data locally
+
+For regular data work, run the data watcher and frontend in separate terminals.
+
+Terminal 1:
 
 ```bash
-make test-web
-make test-api
-make test-data
-make test-e2e
+make watch-data
 ```
 
-Exact commands may change while the repository setup is being completed.
+Terminal 2:
 
-## Documentation
+```bash
+make frontend
+```
 
-Long-form documentation lives under [`docs/`](./docs).
+`make watch-data` performs an initial generation and then watches the Excel files under `data/raw/`.
 
-Important architectural decisions should be recorded as Architecture Decision Records under:
+Whenever an `.xlsx` file is saved, the data generator runs again and updates `data/generated/`.
+
+This makes it possible to edit the Excel source data and immediately inspect the result in the frontend.
+
+### Checking data changes
+
+Depending on the data being changed, useful frontend pages include:
 
 ```text
-docs/adr/
+/reference/profiles
+/reference/rules
+/reference/debug/profiles
 ```
 
-Examples include:
+The debug profiles page is particularly useful when reviewing large numbers of profiles because it presents the
+generated profile information together in a single page.
 
-* monorepo structure
-* static game-data pipeline
-* OpenAPI contract ownership
-* player-location privacy
-* frontend state-management strategy
+A typical data change therefore looks like:
 
-## Privacy
+```text
+Edit data/raw/*.xlsx
+        ↓
+make watch-data detects the save
+        ↓
+Generate data/generated/*
+        ↓
+Frontend reads the generated data
+        ↓
+Inspect the affected profile or rule locally
+        ↓
+Review the generated Git diff
+```
 
-Player discovery is designed around approximate location rather than exposing exact home locations.
+If generation fails, check the watcher output. Invalid source values or references should be corrected in the workbook
+and saved again.
 
-Location information returned to other users should be limited to what is necessary to find nearby players or games.
+When committing a data correction, include both the changed source workbook and its corresponding generated output.
 
-See the location privacy ADR and security documentation for the detailed design.
+## Repository commands
+
+The Makefile is the main entry point for repository tasks.
+
+Some commonly used commands are:
+
+```bash
+make frontend       # Start the Vite frontend
+make backend        # Start the Spring Boot backend
+
+make data           # Generate game data once
+make watch-data     # Generate data and watch Excel files for changes
+
+make format         # Format supported frontend and data sources
+
+make build          # Generate data and build frontend and backend
+make build-frontend
+make build-backend
+
+make clean          # Remove generated build artifacts
+```
+
+Run:
+
+```bash
+make
+```
+
+to see the complete list of available commands.
+
+## Architecture
+
+The application distinguishes between two kinds of data.
+
+### Game data
+
+Game data describes the game itself, including profiles, rules, options, translations, and eventually army-list
+composition.
+
+The Excel workbooks under `data/raw/` are the source of truth.
+
+```text
+Excel workbooks
+      ↓
+Load and transform
+      ↓
+Validate
+      ↓
+Generated JSON
+      ↓
+React application
+```
+
+Generated game data is treated as build-time application data rather than user data.
+
+### User data
+
+Data created by users belongs to the application backend.
+
+The intended architecture is:
+
+```text
+React frontend
+      ↕
+Spring Boot API
+      ↕
+Persistent storage
+```
+
+This separation keeps relatively static MESBG game data independent from accounts, rosters, collections, games, and
+other user-specific information.
+
+## Commit messages
+
+This repository uses **Conventional Commits**.
+
+Commit messages should generally follow:
+
+```text
+<type>(optional-scope): <description>
+```
+
+For example:
+
+```text
+feat(frontend): add profile keyword filtering
+
+fix(data): correct Prince Imrahil points
+
+refactor(data): simplify profile generation
+
+docs: document local development
+
+chore(release): v2.0.0-alpha.10
+```
+
+Keep the description short and describe the change rather than the process of making it.
+
+Useful scopes include `frontend`, `backend`, `data`, and `release`, although a scope is optional.
+
+### Commit types and changelog
+
+The changelog is generated from Conventional Commits using `git-cliff`.
+
+The following commit types describe changes that appear in the generated changelog:
+
+| Type       | Purpose                                 | Changelog section |
+|------------|-----------------------------------------|-------------------|
+| `feat`     | New functionality                       | Added             |
+| `fix`      | Bug fixes and incorrect behaviour       | Fixed             |
+| `perf`     | Performance improvements                | Performance       |
+| `refactor` | Behaviour-preserving structural changes | Changed           |
+| `revert`   | Reverted changes                        | Reverted          |
+
+Other useful Conventional Commit types include:
+
+```text
+docs
+style
+test
+build
+ci
+chore
+```
+
+These are intentionally excluded from the generated user-facing changelog.
+
+For that reason, a correction to MESBG data that changes what users see should normally use `fix(data)` rather than
+`chore`.
+
+For example:
+
+```text
+fix(data): correct Grimbeorn base size
+```
+
+is preferable to:
+
+```text
+chore: update profile data
+```
+
+### Breaking changes
+
+Breaking changes can be marked using `!`:
+
+```text
+feat(data)!: change profile option schema
+```
+
+A breaking change should explain any required migration or compatibility implications in the commit body or pull
+request.
+
+## Changelog and releases
+
+The project uses Semantic Versioning and `git-cliff` to generate `CHANGELOG.md`.
+
+To update project versions without creating a release:
+
+```bash
+make version VERSION=2.0.0-alpha.10
+```
+
+To create a release commit, changelog, and Git tag:
+
+```bash
+make release VERSION=2.0.0-alpha.10
+```
+
+The release script:
+
+1. verifies that the working tree is clean
+2. updates the pnpm workspace versions
+3. updates the Maven project version
+4. updates the pnpm lockfile
+5. generates the changelog
+6. runs the configured build and verification steps
+7. creates a `chore(release)` commit
+8. creates an annotated `v<version>` Git tag
+
+The release script does **not** push the commit or tag automatically.
 
 ## Contributing
 
-Issues and pull requests are welcome.
+Contributions are welcome.
 
-For larger changes, prefer creating an issue first so the intended behavior and architecture can be discussed before implementation.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for contribution guidelines, legal requirements, data corrections, and
+pull-request expectations.
 
-### Translating
-
-One of the main parts that could use support is the translation to other languages. I am only fluent in english and dutch. 
-Other languages on the page are either AI-generated or created with help of the community.
-
-#### How to add a new language
-
-* Create a fresh copy from apps/web/src/i18n/locales/en into the language of choice
-* Add the language tag to the supported languages in apps/web/src/i18n/i18n.ts (`supportedLngs`)
-* Update the list of supported (`SUPPORTED_LANGUAGES`) languages in apps/web/src/features/settings/state/general/generalSettings.constants.ts
-* Translate any (or all) keys inside the initially created locale files. 
+For larger features or architectural changes, opening an issue before implementation is recommended.
 
 ## Disclaimer
 
 This project is an unofficial community tool for the Middle-earth Strategy Battle Game.
 
-It is not affiliated with, endorsed by, or associated with Games Workshop, Middle-earth Enterprises, or their respective licensors and rights holders.
+It is not affiliated with, endorsed by, or associated with Games Workshop, Middle-earth Enterprises, or their respective
+licensors and rights holders.
