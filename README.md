@@ -104,17 +104,15 @@ Game reference data is generated from a maintained Excel workbook and bundled wi
 ```text
 .
 ├── apps/
-│   ├── web/                 # React frontend
-│   └── api/                 # Spring Boot backend
+│   ├── frontend/            # React frontend
+│   └── backend/             # Spring Boot backend
 │
 ├── data/
 │   ├── raw/                 # Source Excel game data
-│   ├── scripts/             # Import and transformation pipeline
-│   ├── schema/              # Validation schemas
-│   └── tests/               # Data-pipeline tests
+│   ├── scripts/             # Import, validation and transformation pipeline
+│   └── generated/           # Generated json datafiles used by React frontend
 │
-├── contracts/
-│   └── api/                 # OpenAPI contract
+├── api/                     # OpenAPI contract       
 │
 ├── tests/
 │   └── e2e/                 # Whole-system Playwright tests
@@ -139,7 +137,6 @@ Game data describes MESBG itself, including:
 
 * profiles
 * rules
-* armies
 * army lists
 * profile availability
 * points and options
@@ -216,46 +213,40 @@ Settings
 
 Install the following before running the project locally:
 
-* Java 25
-* Node.js
-* pnpm
-* Docker
-* Docker Compose
+* Java 25 (see [.java-version](.java-version))
+* Node 24 (see [.nvmrc](.nvmrc))
+* pnpm 11 (see [package.json](package.json))
 
 ### Setup
+
+The cloned repository contains multiple helpers to get the app running locally.
+There is a quick-start script installing the required software and dependencies in [scripts](./scripts).
 
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone git@github.com:mhollink/mesbg-list-builder.git
 cd mesbg-list-builder
 ```
 
-Install frontend and data-pipeline dependencies:
+> [!NOTE]
+> Visit https://git-scm.com/install/ and follow the installation for your operating system.
 
-```bash
-pnpm install
+Run the quick-setup script to get all the pre-install requirements out of the way:
+
+```shell
+# macOs / Linux
+./scripts/quick-start.sh
+```
+```shell
+# Windows
+./scripts/quick-start.bat
 ```
 
-Start the required infrastructure:
+> [!WARNING]
+> The quick start script might not fully finish in one run. 
+> Installing Java/Node may require a new terminal session before they become available.
 
-```bash
-docker compose up -d
-```
-
-Run the backend:
-
-```bash
-cd apps/api
-./mvnw spring-boot:run
-```
-
-Run the frontend:
-
-```bash
-cd apps/web
-pnpm dev
-```
 
 ## Game-data pipeline
 

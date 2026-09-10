@@ -1,0 +1,6 @@
+packages:
+  - "apps/frontend"
+  - "data"
+
+allowBuilds:
+  esbuild: true
