@@ -9,22 +9,24 @@ The format is based on Keep a Changelog and releases follow Semantic Versioning.
 """
 
 body = """
-{% if version %}
+{% if version -%}
 ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
-{% else %}
+{% else -%}
 ## [Unreleased]
-{% endif %}
+{% endif -%}
 
 {% for group, commits in commits | group_by(attribute="group") %}
 ### {{ group | striptags | trim }}
 
-{% for commit in commits %}
+{% for commit in commits -%}
 - {% if commit.breaking %}**Breaking:** {% endif %}{{ commit.message | upper_first }}
-{% endfor %}
+{% endfor -%}
+
 {% endfor %}
 """
 
 trim = true
+format = true
 
 [git]
 conventional_commits = true
