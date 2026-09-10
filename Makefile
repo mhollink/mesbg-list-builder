@@ -31,6 +31,7 @@ help:
 	@echo ""
 	@echo "Game data"
 	@echo "  make data             Generate game data from the source workbook"
+	@echo "  make watch-data       Generate game data and automatically rerun on save"
 	@echo ""
 	@echo "Testing"
 	@echo "  make test             Run frontend, backend and data tests"
@@ -129,7 +130,12 @@ backend:
 
 .PHONY: data
 data:
-	cd $(DATA_DIR) && $(PNPM) build && $(PNPM) format
+	cd $(DATA_DIR) && $(PNPM) build
+
+
+.PHONY: watch-data
+watch-data:
+	cd $(DATA_DIR) && $(PNPM) build && $(PNPM) build:watch
 
 
 # ==============================================================================
