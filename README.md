@@ -2,6 +2,8 @@
 
 MESBG List Builder is an unofficial companion application for the **Middle-earth Strategy Battle Game**.
 
+![MESBG List Builder preview](preview-image.png)
+
 The project is being developed as a broader toolkit for MESBG players, with functionality for army building, game
 reference, collections, games, Battle Companies, tournaments, and player discovery.
 
