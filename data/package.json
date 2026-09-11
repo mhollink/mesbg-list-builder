@@ -9,7 +9,7 @@
     "build:watch": "chokidar \"raw/**/*.xlsx\" -c \"pnpm build\""
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.10",
+    "@biomejs/biome": "2.5.12",
     "@types/node": "^26.4.0",
     "chokidar-cli": "^3.0.0",
     "tsx": "^4.23.12",
