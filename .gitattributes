@@ -1,6 +1,14 @@
-* text=auto
-*.json text eol=crlf
+# Normalize all text files to LF
+* text=auto eol=lf
 
-*.sh text eol=lf
+# Windows command scripts
 *.bat text eol=crlf
 *.cmd text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.xlsx binary
