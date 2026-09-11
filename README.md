@@ -10,34 +10,6 @@ reference, collections, games, Battle Companies, tournaments, and player discove
 > [!NOTE]
 > The current development focus is the frontend application and the game-data pipeline.
 
-<!-- TOC -->
-
-* [MESBG List Builder](#mesbg-list-builder)
-    * [Project structure](#project-structure)
-    * [Technology](#technology)
-    * [Local development](#local-development)
-        * [Requirements](#requirements)
-        * [Clone the repository](#clone-the-repository)
-        * [Initial setup](#initial-setup)
-            * [Linux and macOS](#linux-and-macos)
-            * [Windows](#windows)
-    * [Running the application](#running-the-application)
-    * [Working with game data](#working-with-game-data)
-        * [One-off generation](#one-off-generation)
-        * [Working on data locally](#working-on-data-locally)
-        * [Checking data changes](#checking-data-changes)
-    * [Repository commands](#repository-commands)
-    * [Architecture](#architecture)
-        * [Game data](#game-data)
-        * [User data](#user-data)
-    * [Commit messages](#commit-messages)
-        * [Commit types and changelog](#commit-types-and-changelog)
-        * [Breaking changes](#breaking-changes)
-    * [Changelog and releases](#changelog-and-releases)
-    * [Contributing](#contributing)
-    * [Disclaimer](#disclaimer)
-
-<!-- TOC -->
 
 ## Project structure
 
