@@ -1,0 +1,30 @@
+name: 📜 Rule data issue
+description: Report incorrect or missing rule data
+title: "[Rule]: "
+labels:
+  - "🗃️ Data"
+  - "📜 Rules"
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for incorrect or missing rules, heroic actions, magical powers, special rules, references, or rule metadata.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is incorrect or missing?
+      description: Tell us which rule is affected and what appears to be wrong.
+      placeholder: The rule ... currently says/shows ... but should ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or additional context
+      description: If available, include the book/page, FAQ or errata reference, screenshot, or other useful context.
+    validations:
+      required: false

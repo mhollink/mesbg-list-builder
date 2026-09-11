@@ -1,0 +1,29 @@
+name: 🎨 UX improvement
+description: Suggest an improvement to an existing workflow or interface
+title: "[UX]: "
+labels:
+  - "🎨 UX"
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when something works, but could be clearer, easier, or more pleasant to use.
+
+  - type: textarea
+    id: improvement
+    attributes:
+      label: What could be improved?
+      description: Describe what feels confusing, awkward, slow, or unnecessarily difficult.
+      placeholder: When I try to..., I find it difficult because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, examples, ideas, or anything else that may help.
+    validations:
+      required: false

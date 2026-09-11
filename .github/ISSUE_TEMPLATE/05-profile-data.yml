@@ -1,0 +1,30 @@
+name: 📇 Profile data issue
+description: Report incorrect or missing profile data
+title: "[Profile]: "
+labels:
+  - "🗃️ Data"
+  - "📇 Profiles"
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for incorrect or missing profile information such as stats, points, wargear, options, keywords, heroic actions, or special rules.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is incorrect or missing?
+      description: Tell us which profile is affected and what appears to be wrong.
+      placeholder: The profile for ... currently shows ... but should show ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or additional context
+      description: If available, include the book/page, FAQ or errata reference, screenshot, or other useful context.
+    validations:
+      required: false

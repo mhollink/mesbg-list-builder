@@ -1,0 +1,30 @@
+name: 🌐 Translation issue
+description: Report an incorrect, missing, or unclear translation
+title: "[Translation]: "
+labels:
+  - "🗃️ Data"
+  - "🌐 Translations"
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for missing translations, incorrect translations, spelling mistakes, or wording that could be clearer.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What should be changed?
+      description: Tell us where the translation appears and what you think should be changed.
+      placeholder: The text ... is currently translated as ... but should be ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Original wording, screenshots, references, or anything else that may help.
+    validations:
+      required: false

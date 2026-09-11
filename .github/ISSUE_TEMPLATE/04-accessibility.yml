@@ -1,0 +1,30 @@
+name: ♿ Accessibility issue
+description: Report an accessibility problem or improvement
+title: "[Accessibility]: "
+labels:
+  - "🐛 Bug"
+  - "♿ Accessibility"
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report anything that makes the application harder to use with assistive technology, keyboard navigation, zoom, high contrast, or other accessibility needs.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is the accessibility issue?
+      description: Describe what you were trying to do and what made it difficult or impossible.
+      placeholder: When I try to..., I cannot...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Assistive technology, browser/device information, screenshots, WCAG references, or anything else that may help.
+    validations:
+      required: false

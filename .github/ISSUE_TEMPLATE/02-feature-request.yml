@@ -1,0 +1,31 @@
+name: ✨ Feature request
+description: Suggest a new feature or capability
+title: "[Feature]: "
+labels:
+  - "✨ Feature"
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for improving the application?
+
+        It does not need to be a fully worked-out solution. Describe what you would like to be able to do.
+
+  - type: textarea
+    id: request
+    attributes:
+      label: What would you like to see?
+      description: Describe the feature or the problem you would like it to solve.
+      placeholder: It would be useful if...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Examples, mockups, alternative ideas, or anything else that may help.
+    validations:
+      required: false

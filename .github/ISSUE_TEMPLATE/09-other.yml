@@ -1,0 +1,27 @@
+name: 🔧 Other
+description: Report something that does not fit the other categories
+title: "[Other]: "
+labels:
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Not sure where your issue belongs? That is fine. Describe it here and it can be categorized later.
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What would you like to report?
+      description: Describe the issue, question, idea, or request.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add screenshots, links, examples, or anything else that may help.
+    validations:
+      required: false

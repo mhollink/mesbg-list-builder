@@ -1,0 +1,34 @@
+name: 🐛 Bug report
+description: Report something that is not working as expected
+title: "[Bug]: "
+labels:
+  - "🐛 Bug"
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem.
+
+        Describe what happened as clearly as you can. If more information is needed, we can ask for it later.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Tell us what you were trying to do, what happened, and what you expected instead.
+      placeholder: |
+        I was trying to...
+        Instead...
+        I expected...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, links, reproduction steps, browser/device information, or anything else that may help.
+    validations:
+      required: false

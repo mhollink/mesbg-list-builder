@@ -1,0 +1,30 @@
+name: ⚔️ Army list issue
+description: Report incorrect or missing army list data
+title: "[Army List]: "
+labels:
+  - "🗃️ Data"
+  - "⚔️ Army Lists"
+  - "🔍 Needs Triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for army composition issues such as missing profiles, leaders, followers, options, restrictions, alliances, or mandatory choices.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is incorrect or missing?
+      description: Tell us which army list is affected and what appears to be wrong.
+      placeholder: In the ... army list, ... should/should not be available because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or additional context
+      description: If available, include the book/page, FAQ or errata reference, screenshot, or other useful context.
+    validations:
+      required: false
