@@ -7,33 +7,36 @@ MESBG List Builder is an unofficial companion application for the **Middle-earth
 The project is being developed as a broader toolkit for MESBG players, with functionality for army building, game
 reference, collections, games, Battle Companies, tournaments, and player discovery.
 
-The current development focus is the frontend application and the game-data pipeline.
+> [!NOTE]
+> The current development focus is the frontend application and the game-data pipeline.
 
 <!-- TOC -->
+
 * [MESBG List Builder](#mesbg-list-builder)
-  * [Project structure](#project-structure)
-  * [Technology](#technology)
-  * [Local development](#local-development)
-    * [Requirements](#requirements)
-    * [Clone the repository](#clone-the-repository)
-    * [Initial setup](#initial-setup)
-      * [Linux and macOS](#linux-and-macos)
-      * [Windows](#windows)
-  * [Running the application](#running-the-application)
-  * [Working with game data](#working-with-game-data)
-    * [One-off generation](#one-off-generation)
-    * [Working on data locally](#working-on-data-locally)
-    * [Checking data changes](#checking-data-changes)
-  * [Repository commands](#repository-commands)
-  * [Architecture](#architecture)
-    * [Game data](#game-data)
-    * [User data](#user-data)
-  * [Commit messages](#commit-messages)
-    * [Commit types and changelog](#commit-types-and-changelog)
-    * [Breaking changes](#breaking-changes)
-  * [Changelog and releases](#changelog-and-releases)
-  * [Contributing](#contributing)
-  * [Disclaimer](#disclaimer)
+    * [Project structure](#project-structure)
+    * [Technology](#technology)
+    * [Local development](#local-development)
+        * [Requirements](#requirements)
+        * [Clone the repository](#clone-the-repository)
+        * [Initial setup](#initial-setup)
+            * [Linux and macOS](#linux-and-macos)
+            * [Windows](#windows)
+    * [Running the application](#running-the-application)
+    * [Working with game data](#working-with-game-data)
+        * [One-off generation](#one-off-generation)
+        * [Working on data locally](#working-on-data-locally)
+        * [Checking data changes](#checking-data-changes)
+    * [Repository commands](#repository-commands)
+    * [Architecture](#architecture)
+        * [Game data](#game-data)
+        * [User data](#user-data)
+    * [Commit messages](#commit-messages)
+        * [Commit types and changelog](#commit-types-and-changelog)
+        * [Breaking changes](#breaking-changes)
+    * [Changelog and releases](#changelog-and-releases)
+    * [Contributing](#contributing)
+    * [Disclaimer](#disclaimer)
+
 <!-- TOC -->
 
 ## Project structure
@@ -86,7 +89,8 @@ The configured versions are:
 - pnpm 11
 - GNU Make
 
-Git is also required.
+> [!NOTE]
+> Git is also required. If your new or do not have it installed yet, vist: https://git-scm.com/install
 
 ### Clone the repository
 
@@ -123,8 +127,9 @@ Run the bootstrap script from Command Prompt or PowerShell:
 scripts\quick-start.bat
 ```
 
-The Windows bootstrap additionally configures Git Bash so that fnm and the repository's Make-based commands can be used
-there.
+> [!IMPORTANT]  
+> The Windows bootstrap additionally configures Git Bash so that fnm and the repository's Make-based commands can be
+> used there.
 
 After the initial setup, use **Git Bash** for the normal development workflow:
 
@@ -132,7 +137,8 @@ After the initial setup, use **Git Bash** for the normal development workflow:
 make
 ```
 
-Running `make` without a target displays the available repository commands.
+> [!TIP]
+> Running `make` without a target displays the available repository commands.
 
 ## Running the application
 
@@ -168,7 +174,8 @@ Generated application data is written to:
 data/generated/
 ```
 
-Do not manually edit generated JSON. Changes should be made to the source workbooks and regenerated.
+> [!WARNING]
+> Do not manually edit generated JSON. Changes should be made to the source workbooks and regenerated.
 
 ### One-off generation
 
@@ -200,6 +207,10 @@ Whenever an `.xlsx` file is saved, the data generator runs again and updates `da
 
 This makes it possible to edit the Excel source data and immediately inspect the result in the frontend.
 
+> [!IMPORTANT]  
+> The generation takes a few seconds and may output validation errors in the terminal. Do remember to check the log from
+> time to time.
+
 ### Checking data changes
 
 Depending on the data being changed, useful frontend pages include:
@@ -210,8 +221,9 @@ Depending on the data being changed, useful frontend pages include:
 /reference/debug/profiles
 ```
 
-The debug profiles page is particularly useful when reviewing large numbers of profiles because it presents the
-generated profile information together in a single page.
+> [!TIP]
+> The debug profiles page is particularly useful when reviewing large numbers of profiles because it presents the
+> generated profile information together in a single page.
 
 A typical data change therefore looks like:
 
@@ -229,10 +241,12 @@ Inspect the affected profile or rule locally
 Review the generated Git diff
 ```
 
-If generation fails, check the watcher output. Invalid source values or references should be corrected in the workbook
-and saved again.
+> [!CAUTION]
+> If generation fails, check the watcher output. Invalid source values or references should be corrected in the workbook
+> and saved again.
 
-When committing a data correction, include both the changed source workbook and its corresponding generated output.
+> [!IMPORTANT]
+> When committing a data correction, include both the changed source workbook and its corresponding generated output.
 
 ## Repository commands
 
@@ -308,7 +322,8 @@ other user-specific information.
 
 ## Commit messages
 
-This repository uses **Conventional Commits**.
+> [!IMPORTANT]
+> This repository uses **Conventional Commits**.
 
 Commit messages should generally follow:
 
@@ -319,20 +334,21 @@ Commit messages should generally follow:
 For example:
 
 ```text
-feat(frontend): add profile keyword filtering
+feat: add profile keyword filtering
 
-fix(data): correct Prince Imrahil points
+fix: correct Prince Imrahil points
 
-refactor(data): simplify profile generation
+refactor: simplify profile generation
 
 docs: document local development
 
-chore(release): v2.0.0-alpha.10
+chore(release): v2.3.1
 ```
 
 Keep the description short and describe the change rather than the process of making it.
 
-Useful scopes include `frontend`, `backend`, `data`, and `release`, although a scope is optional.
+> [!NOTE]
+> Useful scopes include `frontend`, `backend`, `data`, and `release`, although a scope is optional.
 
 ### Commit types and changelog
 
@@ -351,12 +367,11 @@ The following commit types describe changes that appear in the generated changel
 Other useful Conventional Commit types include:
 
 ```text
-docs
-style
-test
-build
-ci
-chore
+docs    // Only documentation file changes
+style   // Reformatting code
+test    // Only updated test code
+build   // Update to the (local) build pipeline
+chore   // Other misc fixes
 ```
 
 These are intentionally excluded from the generated user-facing changelog.
