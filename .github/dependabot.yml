@@ -1,0 +1,53 @@
+version: 2
+
+updates:
+  # pnpm workspace
+  # The root workspace covers packages such as:
+  # - /apps/frontend
+  # - /data
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+    commit-message:
+      prefix: "chore(deps)"
+
+    groups:
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Spring Boot / Maven backend
+  - package-ecosystem: "maven"
+    directory: "/apps/backend"
+    schedule:
+      interval: "weekly"
+
+    commit-message:
+      prefix: "chore(deps)"
+
+    groups:
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+    commit-message:
+      prefix: "chore(deps)"
+
+    groups:
+      actions:
+        patterns:
+          - "*"
