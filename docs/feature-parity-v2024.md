@@ -3,8 +3,7 @@
 > Working checklist for rebuilding `mesbg-list-builder-v2024` in the new `mesbg-list-builder` repository.
 >
 > Last audited: 2026-09-11  
-> v2024 baseline commit: `cfabe7a8945f7fcbef313201d82c9465360834eb`  
-> Rewrite audit commit: `07fa9bf1df2007c5096b4ee2f91a3554d87d7931`
+> v2024 baseline commit: `cfabe7a8945f7fcbef313201d82c9465360834eb`
 
 ## Purpose
 
@@ -15,12 +14,15 @@ The rewrite does **not** need to preserve the old architecture. In particular:
 - Moving the backend into the same repository is an architectural change and is not a parity gap.
 - Replacing the Python data-generation scripts with TypeScript is an architectural change and is not a parity gap.
 - Replacing old pages, drawers, routes, state libraries, APIs, or UI patterns with redesigned equivalents is acceptable.
-- A feature counts as parity when the user can achieve the same outcome and the important MESBG behaviour is preserved.
-- New functionality in the rewrite does not need to be finished before v2024 parity is reached unless an old feature depends on it.
+- A feature counts as parity when the user can achieve the same outcome and the important MESBG behavior is preserved.
+- New functionality in the rewrite does not need to be finished before v2024 parity is reached unless an old feature
+  depends on it.
 
-The objective is simple:
+The goal is simple:
 
-> **Feature parity is reached when every v2024 capability in this document is either `PARITY`, `CHANGED-EQUIVALENT`, or deliberately `INTENTIONALLY REMOVED`, with no unresolved `MISSING`, `IN PROGRESS`, or `NEEDS VERIFICATION` items in the parity-required sections.**
+> **Feature parity is reached when every v2024 capability in this document is either `PARITY`, `CHANGED-EQUIVALENT`, or
+deliberately `INTENTIONALLY REMOVED`, with no unresolved `MISSING`, `IN PROGRESS`, or `NEEDS VERIFICATION` items in the
+parity-required sections.**
 
 ## Source of truth
 
@@ -32,21 +34,20 @@ Primary sources used for this audit:
 - v2024 route definitions, page/components, state stores, modals, drawers, data pipeline, and `CHANGELOG.json`
 - Rewrite router and currently implemented feature pages
 
-The v2024 codebase and changelog are the main source of truth for this checklist. Before declaring parity complete, do one final manual pass through the old live application for any interaction that may not be obvious from the source.
-
----
+The v2024 codebase and changelog are the main source of truth for this checklist. Before declaring parity complete, do
+one final manual pass through the old live application for any interaction that may not be obvious from the source.---
 
 ## Status legend
 
-| Status | Meaning | Counts as resolved? |
-| --- | --- | --- |
-| `MISSING` | Exists in v2024 but has no working equivalent in the rewrite | No |
-| `IN PROGRESS` | Some or most of the replacement exists but parity is incomplete | No |
-| `NEEDS VERIFICATION` | It may already exist, but equivalence has not been proven | No |
-| `PARITY` | Behaviour is materially equivalent to v2024 | Yes |
-| `CHANGED-EQUIVALENT` | Reimplemented differently but satisfies the same user need | Yes |
-| `INTENTIONALLY REMOVED` | Deliberately not carried over, with rationale documented | Yes |
-| `NEW` | Rewrite-only scope. Does not block v2024 parity | Not applicable |
+| Status                  | Meaning                                                         | Counts as resolved? |
+|-------------------------|-----------------------------------------------------------------|---------------------|
+| `MISSING`               | Exists in v2024 but has no working equivalent in the rewrite    | No                  |
+| `IN PROGRESS`           | Some or most of the replacement exists but parity is incomplete | No                  |
+| `NEEDS VERIFICATION`    | It may already exist, but equivalence has not been proven       | No                  |
+| `PARITY`                | Behaviour is materially equivalent to v2024                     | Yes                 |
+| `CHANGED-EQUIVALENT`    | Reimplemented differently but satisfies the same user need      | Yes                 |
+| `INTENTIONALLY REMOVED` | Deliberately not carried over, with rationale documented        | Yes                 |
+| `NEW`                   | Rewrite-only scope. Does not block v2024 parity                 | Not applicable      |
 
 Checkbox convention:
 
@@ -58,94 +59,96 @@ Checkbox convention:
 
 # Current high-level assessment
 
-| Area | Initial assessment |
-| --- | --- |
-| Application shell and navigation | `IN PROGRESS` |
-| Rosters and roster organisation | `MISSING` |
-| Roster builder | `MISSING` |
-| List validation and calculations | `MISSING` |
-| Sharing, exports, printable output | `MISSING` |
-| Profiles and rules reference | `IN PROGRESS` / `CHANGED-EQUIVALENT` |
-| Collection | `MISSING` |
-| Game Mode | `MISSING` |
-| Match History | `MISSING` |
-| Accounts and sync | `NEEDS VERIFICATION` |
-| Settings and preferences | `IN PROGRESS` |
-| Data pipeline and data semantics | `IN PROGRESS` / `NEEDS VERIFICATION` |
-| Community and informational pages | `IN PROGRESS` |
-| Cross-cutting UX and resilience | `IN PROGRESS` |
-| Rewrite-only features | `NEW`, non-blocking |
+| Area                               | Initial assessment                   |
+|------------------------------------|--------------------------------------|
+| Application shell and navigation   | `IN PROGRESS`                        |
+| Rosters and roster organisation    | `MISSING`                            |
+| Roster builder                     | `MISSING`                            |
+| List validation and calculations   | `MISSING`                            |
+| Sharing, exports, printable output | `MISSING`                            |
+| Profiles and rules reference       | `IN PROGRESS` / `CHANGED-EQUIVALENT` |
+| Collection                         | `MISSING`                            |
+| Game Mode                          | `MISSING`                            |
+| Match History                      | `MISSING`                            |
+| Accounts and sync                  | `MISSING`                            |
+| Settings and preferences           | `IN PROGRESS`                        |
+| Data pipeline and data semantics   | `IN PROGRESS` / `CHANGED-EQUIVALENT` |
+| Community and informational pages  | `IN PROGRESS`                        |
+| Cross-cutting UX and resilience    | `IN PROGRESS`                        |
+| Rewrite-only features              | `NEW`, non-blocking                  |
 
----
 
-# APP - Application shell and navigation
+# APP – Application shell and navigation
 
 - [x] **APP-001 - Application shell and home route** `CHANGED-EQUIVALENT`
-  - v2024 has a home page inside the main application shell.
-  - The rewrite has a real `HomePage`.
-  - Parity does not require reproducing the old layout.
+    - v2024 has a home page inside the main application shell.
+    - The rewrite has a real `HomePage`.
+    - Parity does not require reproducing the old layout.
 
 - [ ] **APP-002 - Responsive primary navigation** `IN PROGRESS`
-  - Users must be able to reach all parity-required areas on desktop and mobile.
-  - Verify collapsed/mobile navigation behaviour when the parity features are added.
+    - Users must be able to reach all parity-required areas on desktop and mobile.
+    - Verify collapsed/mobile navigation behavior when the parity features are added.
 
 - [ ] **APP-003 - Roster navigation hierarchy** `MISSING`
-  - v2024 exposes roster groups and optionally individual rosters from navigation.
-  - Replacement may use the new information architecture, but fast access to roster groups/rosters must remain practical.
+    - v2024 exposes roster groups and optionally individual rosters from navigation.
+    - Replacement may use the new information architecture, but fast access to roster groups/rosters must remain
+      practical.
 
 - [ ] **APP-004 - Ongoing-game indicator in roster navigation** `MISSING`
-  - v2024 marks rosters that currently have a Game Mode session in progress.
-  - Equivalent status visibility may live somewhere other than the sidebar.
+    - v2024 marks rosters that currently have a Game Mode session in progress.
+    - Equivalent status visibility may live somewhere other than the sidebar.
 
 - [ ] **APP-005 - Hide individual rosters from navigation preference** `MISSING`
-  - v2024 lets users reduce navigation clutter while retaining group navigation.
-  - May be intentionally removed if the new navigation makes the preference unnecessary. If so, mark `INTENTIONALLY REMOVED` and record the replacement UX.
+    - v2024 lets users reduce navigation clutter while retaining group navigation.
+    - May be intentionally removed if the new navigation makes the preference unnecessary. If so, mark
+      `INTENTIONALLY REMOVED` and record the replacement UX.
 
 - [ ] **APP-006 - Quick profile lookup from anywhere** `IN PROGRESS`
-  - v2024 provides a Profiles drawer for quick lookup.
-  - The rewrite has a full Profiles reference page.
-  - Verify a sufficiently quick global lookup path exists without forcing users through multiple screens.
+    - v2024 provides a Profiles drawer for quick lookup.
+    - The rewrite has a full Profiles reference page.
+    - Verify a sufficiently quick global lookup path exists without forcing users through multiple screens.
 
 - [ ] **APP-007 - Quick rules, magic, and heroic-action lookup from anywhere** `IN PROGRESS`
-  - v2024 provides a combined drawer for Special Rules, Magical Powers, and Heroic Actions.
-  - The rewrite has the Rules reference feature.
-  - Verify global access and drawer/search replacement behaviour.
+    - v2024 provides a combined drawer for Special Rules, Magical Powers, and Heroic Actions.
+    - The rewrite has the Rules reference feature.
+    - Verify global access and drawer/search replacement behavior.
 
 - [ ] **APP-008 - Reference charts/tables access** `MISSING`
-  - v2024 exposes common MESBG charts from navigation.
-  - See `REF-020` through `REF-030`.
+    - v2024 exposes common MESBG charts from navigation.
+    - See `REF-020` through `REF-030`.
 
 - [x] **APP-009 - Feedback / bug reporting entry point** `CHANGED-EQUIVALENT`
-  - v2024 uses a mail link for bug/correction reports.
-  - The rewrite has a dedicated Feedback page.
-  - Verify it remains easy to report both application bugs and data/rule corrections.
+    - v2024 uses a mail link for bug/correction reports.
+    - The rewrite has a dedicated Feedback page.
+    - Verify it remains easy to report both application bugs and data/rule corrections.
 
 - [ ] **APP-010 - FAQ and Errata external access** `NEEDS VERIFICATION`
-  - v2024 includes direct access to FAQs and Errata.
-  - Keep an obvious route to the official/current source.
+    - v2024 includes direct access to FAQs and Errata.
+    - Keep an obvious route to the official/current source.
 
 - [x] **APP-011 - Not-found page** `CHANGED-EQUIVALENT`
-  - The rewrite has a dedicated `NotFoundPage`.
+    - The rewrite has a dedicated `NotFoundPage`.
 
 - [ ] **APP-012 - Feature-specific missing-resource states** `MISSING`
-  - v2024 distinguishes cases such as roster-not-found and no-game-started.
-  - Deep links to a deleted/nonexistent roster, game, shared roster, or printable roster should fail gracefully.
+    - v2024 distinguishes cases such as roster-not-found and no-game-started.
+    - Deep links to a deleted/nonexistent roster, game, shared roster, or printable roster should fail gracefully.
 
 - [ ] **APP-013 - Deep-link support** `IN PROGRESS`
-  - Direct URLs to nested feature state must load correctly after refresh.
-  - Includes profiles/rules, roster pages, groups, shared rosters, and game-related pages where applicable.
+    - Direct URLs to nested feature state must load correctly after refresh.
+    - Includes profiles/rules, roster pages, groups, shared rosters, and game-related pages where applicable.
 
 - [ ] **APP-014 - Browser history for transient UI state** `IN PROGRESS`
-  - Back navigation should respect drawer stacks and tab changes where those states are represented in the URL/history.
-  - Particularly important on mobile swipe-back.
+    - Back navigation should respect drawer stacks and tab changes where those states are represented in the
+      URL/history.
+    - Particularly important on mobile swipe-back.
 
 - [ ] **APP-015 - Changelog access** `NEEDS VERIFICATION`
-  - v2024 exposes changelog both as a route and from settings.
-  - The rewrite already maintains `CHANGELOG.md`; verify an in-app equivalent is desired.
+    - v2024 exposes changelog both as a route and from settings.
+    - The rewrite already maintains `CHANGELOG.md`; verify an in-app equivalent is desired.
 
 - [ ] **APP-016 - Version/build information in the UI** `NEEDS VERIFICATION`
-  - v2024 settings show the build version and last-updated date.
-  - Decide whether this remains user-facing.
+    - v2024 settings show the build version and last-updated date.
+    - Decide whether this remains user-facing.
 
 ---
 
@@ -154,64 +157,65 @@ Checkbox convention:
 ## Roster lifecycle
 
 - [ ] **ROS-001 - Create a roster** `MISSING`
-  - User can create a roster from the Rosters area.
+    - User can create a roster from the Rosters area.
 
 - [ ] **ROS-002 - Optional roster name with sensible default** `MISSING`
-  - v2024 allows creation without entering a custom name.
+    - v2024 allows creation without entering a custom name.
 
 - [ ] **ROS-003 - Select an army list during creation** `MISSING`
-  - Selection must use the new army-list data model.
+    - Selection must use the new army-list data model.
 
 - [ ] **ROS-004 - Search army lists by army-list name** `MISSING`
-  - Creation flow must remain usable with a large number of lists.
+    - Creation flow must remain usable with a large number of lists.
 
 - [ ] **ROS-005 - Search army lists by hero name** `MISSING`
-  - v2024 allows searching for a hero and choosing an army list that contains that hero.
+    - v2024 allows searching for a hero and choosing an army list that contains that hero.
 
 - [ ] **ROS-006 - Auto-add searched hero when creating from hero search** `MISSING`
-  - If the user creates a roster through a hero search result, that hero is added to the created roster.
+    - If the user creates a roster through a hero search result, that hero is added to the created roster.
 
 - [ ] **ROS-007 - Create unrestricted custom Good roster** `MISSING`
-  - v2024 supports custom Good rosters outside normal army-list restrictions.
+    - v2024 supports custom Good rosters outside normal army-list restrictions.
 
 - [ ] **ROS-008 - Create unrestricted custom Evil roster** `MISSING`
-  - v2024 supports custom Evil rosters outside normal army-list restrictions.
+    - v2024 supports custom Evil rosters outside normal army-list restrictions.
 
 - [ ] **ROS-009 - Open and edit an existing roster** `MISSING`
 
 - [ ] **ROS-010 - Rename roster** `MISSING`
 
 - [ ] **ROS-011 - Edit roster metadata** `MISSING`
-  - Includes at least name, army-list-related metadata, tags, point limit, and other retained roster configuration.
+    - Includes at least name, army-list-related metadata, tags, point limit, and other retained roster configuration.
 
 - [ ] **ROS-012 - Change army list while editing roster** `MISSING`
-  - v2024 permits this but clears the existing roster because selections may no longer be valid.
-  - Replacement must make this destructive consequence explicit.
+    - v2024 permits this but clears the existing roster because selections may no longer be valid.
+    - Replacement must make this destructive consequence explicit.
 
 - [ ] **ROS-013 - Delete roster with confirmation** `MISSING`
 
 - [ ] **ROS-014 - Bulk-delete rosters** `MISSING`
 
 - [ ] **ROS-015 - Duplicate roster** `MISSING`
-  - Duplicate must receive independent IDs and remain independently editable and synchronisable.
+    - Duplicate must receive independent IDs and remain independently editable and synchronisable.
 
 - [ ] **ROS-016 - Import roster** `MISSING`
-  - See also the backwards-compatibility requirements under `OUT` and `DATA`.
+    - See also the backwards-compatibility requirements under `OUT` and `DATA`.
 
 - [ ] **ROS-017 - Export roster from the roster list or editor** `MISSING`
-  - Detailed export behaviour is tracked under `OUT`.
+    - Detailed export behavior is tracked under `OUT`.
 
 ## Finding and sorting rosters
 
 - [ ] **ROS-018 - Basic roster text search** `MISSING`
-  - Search at least name and army list.
+    - Search at least name and army list.
 
 - [ ] **ROS-019 - Advanced roster query syntax or equivalent filtering** `MISSING`
-  - v2024 supports expressions over fields such as type, army, name, points, units, bows, throwing weapons, Might, Will, Fate, and tags.
-  - The exact query language does not need to survive if the redesigned filters provide equivalent power.
+    - v2024 supports expressions over fields such as type, army, name, points, units, bows, throwing weapons, Might,
+      Will, Fate, and tags.
+    - The exact query language does not need to survive if the redesigned filters provide equivalent power.
 
 - [ ] **ROS-020 - Roster tags** `MISSING`
-  - Tags can be stored and used to find lists.
+    - Tags can be stored and used to find lists.
 
 - [ ] **ROS-021 - Sort rosters by name** `MISSING`
 
@@ -222,7 +226,7 @@ Checkbox convention:
 - [ ] **ROS-024 - Sort rosters by unit count** `MISSING`
 
 - [ ] **ROS-025 - Filter/sort with roster groups present** `MISSING`
-  - Grouped rosters must not disappear or become impossible to find when sorting/filtering.
+    - Grouped rosters must not disappear or become impossible to find when sorting/filtering.
 
 ## Roster groups
 
@@ -231,7 +235,7 @@ Checkbox convention:
 - [ ] **ROS-027 - Name roster groups** `MISSING`
 
 - [ ] **ROS-028 - Allow groups with duplicate display names** `MISSING`
-  - Internal identity must not depend on display-name uniqueness.
+    - Internal identity must not depend on display-name uniqueness.
 
 - [ ] **ROS-029 - Select an icon for a roster group** `MISSING`
 
@@ -242,31 +246,32 @@ Checkbox convention:
 - [ ] **ROS-032 - Move roster out of a group** `MISSING`
 
 - [ ] **ROS-033 - Create nested groups** `MISSING`
-  - v2024 supports parent-child group relationships.
+    - v2024 supports parent-child group relationships.
 
 - [ ] **ROS-034 - Move groups between nesting levels** `MISSING`
 
 - [ ] **ROS-035 - Group breadcrumbs** `MISSING`
-  - Users can understand and navigate the current nested group location.
+    - Users can understand and navigate the current nested group location.
 
 - [ ] **ROS-036 - Disband group while preserving rosters** `MISSING`
-  - **Acceptance:** removing the group leaves contained rosters intact and ungrouped/reparented appropriately.
+    - **Acceptance:** removing the group leaves contained rosters intact and ungrouped/reparented appropriately.
 
 - [ ] **ROS-037 - Delete group together with contained rosters** `MISSING`
-  - **Acceptance:** this remains semantically distinct from disbanding and requires an appropriately strong confirmation.
+    - **Acceptance:** this remains semantically distinct from disbanding and requires an appropriately strong
+      confirmation.
 
 - [ ] **ROS-038 - Drag and drop roster grouping** `MISSING`
-  - Exact interaction may change, but quick reorganisation must remain available.
+    - Exact interaction may change, but quick reorganisation must remain available.
 
 - [ ] **ROS-039 - Drag and drop nested group organisation** `MISSING`
 
 - [ ] **ROS-040 - Lock roster-page drag and drop** `MISSING`
-  - v2024 supports disabling drag/drop to avoid accidental changes, especially on touch devices.
+    - v2024 supports disabling drag/drop to avoid accidental changes, especially on touch devices.
 
 - [ ] **ROS-041 - Persist roster-page drag/drop lock** `MISSING`
 
 - [ ] **ROS-042 - Import roster into the currently opened group** `MISSING`
-  - v2024 preserves the user's current group context when importing.
+    - v2024 preserves the user's current group context when importing.
 
 ## Roster-card actions
 
@@ -289,7 +294,7 @@ Checkbox convention:
 - [ ] **BLD-001 - Display roster as ordered warbands** `MISSING`
 
 - [ ] **BLD-002 - Add a new warband** `MISSING`
-  - New warband creation should immediately lead into leader selection.
+    - New warband creation should immediately lead into leader selection.
 
 - [ ] **BLD-003 - Number warbands sequentially** `MISSING`
 
@@ -300,7 +305,7 @@ Checkbox convention:
 - [ ] **BLD-006 - Reset/empty a compulsory-general warband instead of illegally deleting it** `MISSING`
 
 - [ ] **BLD-007 - Duplicate a warband** `MISSING`
-  - Unique models must not be duplicated illegally.
+    - Unique models must not be duplicated illegally.
 
 - [ ] **BLD-008 - Reorder whole warbands** `MISSING`
 
@@ -309,8 +314,8 @@ Checkbox convention:
 - [ ] **BLD-010 - Collapse/expand all warbands** `MISSING`
 
 - [ ] **BLD-011 - Preserve usable mutation controls on compact/mobile layouts** `MISSING`
-  - v2024 has a preference to keep mutation buttons visible when collapsed.
-  - The redesigned UI may solve this without a preference.
+    - v2024 has a preference to keep mutation buttons visible when collapsed.
+    - The redesigned UI may solve this without a preference.
 
 ## Leader and follower selection
 
@@ -321,7 +326,7 @@ Checkbox convention:
 - [ ] **BLD-014 - Select/change follower units** `MISSING`
 
 - [ ] **BLD-015 - Restrict follower choices per leader** `MISSING`
-  - Must be driven by army-list/profile-specific warband rules, not only generic heroic tier.
+    - Must be driven by army-list/profile-specific warband rules, not only generic heroic tier.
 
 - [ ] **BLD-016 - Add empty follower slot and immediately open selection** `MISSING`
 
@@ -336,13 +341,13 @@ Checkbox convention:
 - [ ] **BLD-021 - Reorder models inside a warband** `MISSING`
 
 - [ ] **BLD-022 - Move models between warbands** `MISSING`
-  - Revalidate the destination warband and recalculate all totals.
+    - Revalidate the destination warband and recalculate all totals.
 
 - [ ] **BLD-023 - Invalid-follower visual state after leader changes** `MISSING`
-  - v2024 shows clearly when changing a leader makes existing followers invalid.
+    - v2024 shows clearly when changing a leader makes existing followers invalid.
 
 - [ ] **BLD-024 - Lock/disable builder drag and drop** `MISSING`
-  - Important for touch/mobile navigation.
+    - Important for touch/mobile navigation.
 
 ## Warband capacity
 
@@ -361,47 +366,48 @@ Checkbox convention:
 - [ ] **BLD-030 - Render profile options with point costs** `MISSING`
 
 - [ ] **BLD-031 - Included/preselected options** `MISSING`
-  - Included options cannot be removed when the source rules make them compulsory.
+    - Included options cannot be removed when the source rules make them compulsory.
 
 - [ ] **BLD-032 - Mandatory option selection** `MISSING`
 
 - [ ] **BLD-033 - Option dependencies** `MISSING`
-  - Availability can depend on another selected/included option.
+    - Availability can depend on another selected/included option.
 
 - [ ] **BLD-034 - Mutually exclusive options** `MISSING`
 
 - [ ] **BLD-035 - Combined options where army/list context permits them** `MISSING`
-  - Required for custom-list kitbash cases such as combined equipment.
+    - Required for custom-list kitbash cases such as combined equipment.
 
 - [ ] **BLD-036 - Exchange options** `MISSING`
-  - Example class: exchange armour for heavy armour, staff for mount, etc.
+    - Example class: exchange armour for heavy armour, staff for mount, etc.
 
 - [ ] **BLD-037 - Mount options** `MISSING`
 
 - [ ] **BLD-038 - Armoured/named mount variants** `MISSING`
 
 - [ ] **BLD-039 - Profile-specific unit upgrades** `MISSING`
-  - Example class: Helmingas/Hearthguard style upgrades.
+    - Example class: Helmingas/Hearthguard style upgrades.
 
 - [ ] **BLD-040 - Special warband upgrades alongside normal equipment** `MISSING`
 
 - [ ] **BLD-041 - Ringwraith-style variable A/M/W/F options** `MISSING`
 
 - [ ] **BLD-042 - Options may alter stats dynamically** `MISSING`
-  - Fight, Shoot, Strength, Defence, Attacks, Wounds, Courage, Intelligence and heroic resources must reflect applicable option effects.
+    - Fight, Shoot, Strength, Defence, Attacks, Wounds, Courage, Intelligence and heroic resources must reflect
+      applicable option effects.
 
 - [ ] **BLD-043 - Options may alter point cost dynamically** `MISSING`
 
 - [ ] **BLD-044 - Options may alter model count dynamically** `MISSING`
-  - Needed for composed models/passengers/war beasts and similar profiles.
+    - Needed for composed models/passengers/war beasts and similar profiles.
 
 - [ ] **BLD-045 - Options may add/remove rules dynamically** `MISSING`
 
 - [ ] **BLD-046 - List-specific option overrides** `MISSING`
-  - Same base profile may expose different option availability, defaults, names, or costs in different army lists.
+    - Same base profile may expose different option availability, defaults, names, or costs in different army lists.
 
 - [ ] **BLD-047 - Preselected option upgrade path** `MISSING`
-  - Support cases where an army list preselects a base option and exposes only an incremental upgrade variant.
+    - Support cases where an army list preselects a base option and exposes only an incremental upgrade variant.
 
 ## Army general and special roster configuration
 
@@ -410,14 +416,14 @@ Checkbox convention:
 - [ ] **BLD-049 - Mandatory army general rules** `MISSING`
 
 - [ ] **BLD-050 - Preference to allow removal/replacement of compulsory general** `MISSING`
-  - Used for tournament formats that relax normal list-building requirements.
+    - Used for tournament formats that relax normal list-building requirements.
 
 - [ ] **BLD-051 - Points limit per roster** `MISSING`
 
 - [ ] **BLD-052 - Warn when point limit is exceeded** `MISSING`
 
 - [ ] **BLD-053 - Add extra points for breakpoint/summary calculations** `MISSING`
-  - Tournament helper for free/bonus models or points.
+    - Tournament helper for free/bonus models or points.
 
 - [ ] **BLD-054 - Add extra units for breakpoint/summary calculations** `MISSING`
 
@@ -432,10 +438,10 @@ Checkbox convention:
 - [ ] **BLD-058 - Automatically add mandatory units/warbands** `MISSING`
 
 - [ ] **BLD-059 - Automatically construct paired-hero warbands where required** `MISSING`
-  - v2024 explicitly handles paired profiles such as Elladan/Elrohir and Murin/Drar.
+    - v2024 explicitly handles paired profiles such as Elladan/Elrohir and Murin/Drar.
 
 - [ ] **BLD-060 - Army-specific automatic warband helpers** `MISSING`
-  - Keep the capability for lists whose rules require specific automatically-created compositions.
+    - Keep the capability for lists whose rules require specific automatically-created compositions.
 
 - [ ] **BLD-061 - Custom Good/Evil lists bypass normal army-list restrictions** `MISSING`
 
@@ -444,7 +450,7 @@ Checkbox convention:
 - [ ] **BLD-062 - Roster information panel/drawer** `MISSING`
 
 - [ ] **BLD-063 - Mobile roster information toolbar** `MISSING`
-  - Equivalent persistent visibility of points, size, and limit information is acceptable.
+    - Equivalent persistent visibility of points, size, and limit information is acceptable.
 
 - [ ] **BLD-064 - Sticky roster-warning toolbar on small screens** `MISSING`
 
@@ -453,20 +459,20 @@ Checkbox convention:
 - [ ] **BLD-066 - Start Game Mode from builder** `MISSING`
 
 - [ ] **BLD-067 - Undo builder mutation** `MISSING`
-  - v2024 keeps up to 20 temporal roster states.
+    - v2024 keeps up to 20 temporal roster states.
 
 - [ ] **BLD-068 - Redo builder mutation** `MISSING`
 
 - [ ] **BLD-069 - Keyboard undo/redo** `MISSING`
-  - v2024 supports Ctrl+Z, Ctrl+Y and Ctrl+Shift+Z.
+    - v2024 supports Ctrl+Z, Ctrl+Y and Ctrl+Shift+Z.
 
 - [ ] **BLD-070 - Clear/reset undo history when switching roster** `MISSING`
 
 ---
 
-# VAL - Validation, legality, and derived calculations
+# VAL – Validation, legality, and derived calculations
 
-These are behavioural parity requirements. They are more important than copying the old implementation.
+These are behavioral parity requirements. They are more important than copying the old implementation.
 
 - [ ] **VAL-001 - Recalculate total points after every relevant change** `MISSING`
 
@@ -487,7 +493,7 @@ These are behavioural parity requirements. They are more important than copying 
 - [ ] **VAL-009 - Apply army-specific throwing-weapon rules** `MISSING`
 
 - [ ] **VAL-010 - Correct breakpoint semantics** `MISSING`
-  - Preserve MESBG "more than 50%" semantics and army-list-specific breakpoint overrides.
+    - Preserve MESBG "more than 50%" semantics and army-list-specific breakpoint overrides.
 
 - [ ] **VAL-011 - Correct quartered/25-percent calculation** `MISSING`
 
@@ -514,7 +520,7 @@ These are behavioural parity requirements. They are more important than copying 
 - [ ] **VAL-022 - Validate option dependencies and exclusions** `MISSING`
 
 - [ ] **VAL-023 - Validate army-specific warnings** `MISSING`
-  - Warning system must remain data-driven enough to support one-off army-list constraints.
+    - Warning system must remain data-driven enough to support one-off army-list constraints.
 
 - [ ] **VAL-024 - Validate siege-engine/equipment restrictions** `MISSING`
 
@@ -524,39 +530,42 @@ These are behavioural parity requirements. They are more important than copying 
 
 - [ ] **VAL-027 - Warnings remain visible while scrolling long rosters** `MISSING`
 
-- [ ] **VAL-028 - Army-list additional/special rules contribute to roster behaviour** `MISSING`
+- [ ] **VAL-028 - Army-list additional/special rules contribute to roster behavior** `MISSING`
 
 - [ ] **VAL-029 - Selected options contribute the correct special rules** `MISSING`
 
 - [ ] **VAL-030 - Selected options affect PDF/Game Mode stats identically to builder stats** `MISSING`
 
 - [ ] **VAL-031 - Composed models/passengers/war beasts count correctly** `MISSING`
-  - Unit totals, bows, throwing weapons, trackers, collection use, and breakpoint calculations must agree.
+    - Unit totals, bows, throwing weapons, trackers, collection use, and breakpoint calculations must agree.
 
 - [ ] **VAL-032 - Legacy content is distinguishable where relevant** `MISSING`
 
 - [ ] **VAL-033 - Representative regression test matrix for army-specific exceptions** `MISSING`
-  - Do not port historical bugs one by one.
-  - Instead create fixtures for representative complex lists and rules so the new model proves it can express the same classes of restriction.
+    - Do not port historical bugs one by one.
+    - Instead create fixtures for representative complex lists and rules so the new model proves it can express the same
+      classes of restriction.
 
 ---
 
-# OUT - Sharing, exports, printable output, and interoperability
+# OUT – Sharing, exports, printable output, and interoperability
 
 ## Roster import/export
 
 - [ ] **OUT-001 - Machine-readable roster export** `MISSING`
 
 - [ ] **OUT-002 - Export includes enough metadata for correct re-import** `MISSING`
-  - Version, army/list identity, options, quantities, group metadata where appropriate, and derived configuration must round-trip safely.
+    - Version, army/list identity, options, quantities, group metadata where appropriate, and derived configuration must
+      round-trip safely.
 
 - [ ] **OUT-003 - Import exported roster on same device** `MISSING`
 
 - [ ] **OUT-004 - Import exported roster on another device** `MISSING`
 
 - [ ] **OUT-005 - Old v2024 export migration/import strategy** `MISSING`
-  - Prefer directly importing a representative set of v2024 exports.
-  - If direct compatibility is intentionally dropped, provide and document a migration path before calling parity complete.
+    - Prefer directly importing a representative set of v2024 exports.
+    - If direct compatibility is intentionally dropped, provide and document a migration path before calling parity
+      complete.
 
 - [ ] **OUT-006 - Invalid/unsupported import gives actionable error** `MISSING`
 
@@ -567,17 +576,17 @@ These are behavioural parity requirements. They are more important than copying 
 - [ ] **OUT-008 - Modern visual roster summary** `MISSING`
 
 - [ ] **OUT-009 - Plain-text roster summary** `MISSING`
-  - Must paste cleanly into text-centric destinations such as Reddit/forums/chat.
+    - Must paste cleanly into text-centric destinations such as Reddit/forums/chat.
 
 - [ ] **OUT-010 - Save roster summary as image/screenshot** `MISSING`
 
 - [ ] **OUT-011 - Legacy/simple black-and-white summary mode or explicit replacement decision** `MISSING`
-  - v2024 retains the old v2018 table as a preference.
-  - Can be `INTENTIONALLY REMOVED` if the new summary fully replaces the need.
+    - v2024 retains the old v2018 table as a preference.
+    - Can be `INTENTIONALLY REMOVED` if the new summary fully replaces the need.
 
 - [ ] **OUT-012 - Public/shared roster URL** `MISSING`
-  - v2024 supports `/shared/roster/:sid`.
-  - Shared view must not expose private account data.
+    - v2024 supports `/shared/roster/:sid`.
+    - Shared view must not expose private account data.
 
 - [ ] **OUT-013 - Shared roster works without owning/editing the roster** `MISSING`
 
@@ -647,12 +656,12 @@ These are behavioural parity requirements. They are more important than copying 
 
 ---
 
-# REF - Profiles, rules, and reference material
+# REF – Profiles, rules, and reference material
 
 ## Profiles
 
 - [x] **REF-001 - Browse profiles** `CHANGED-EQUIVALENT`
-  - Rewrite has a dedicated Profiles page.
+    - Rewrite has a dedicated Profiles page.
 
 - [x] **REF-002 - Search profiles** `CHANGED-EQUIVALENT`
 
@@ -663,10 +672,10 @@ These are behavioural parity requirements. They are more important than copying 
 - [x] **REF-005 - Profile result count** `CHANGED-EQUIVALENT`
 
 - [ ] **REF-006 - Search across profile name, origin, and relevant keywords** `IN PROGRESS`
-  - Verify final searchable fields match the redesigned data model.
+    - Verify final searchable fields match the redesigned data model.
 
 - [ ] **REF-007 - Profile detail view/drawer** `IN PROGRESS`
-  - Must expose all data needed during list building and play.
+    - Must expose all data needed during list building and play.
 
 - [ ] **REF-008 - Profile stats including heroic resources** `IN PROGRESS`
 
@@ -695,12 +704,12 @@ These are behavioural parity requirements. They are more important than copying 
 ## Rules
 
 - [x] **REF-020 - Browse reference rules** `CHANGED-EQUIVALENT`
-  - Rewrite has a dedicated Rules page.
+    - Rewrite has a dedicated Rules page.
 
 - [x] **REF-021 - Search rules** `CHANGED-EQUIVALENT`
 
 - [x] **REF-022 - Rule-type tabs/categories** `CHANGED-EQUIVALENT`
-  - Covers Special Rules, Magical Powers, and Heroic Actions.
+    - Covers Special Rules, Magical Powers, and Heroic Actions.
 
 - [x] **REF-023 - Alphabetic rule navigation** `CHANGED-EQUIVALENT`
 
@@ -709,10 +718,11 @@ These are behavioural parity requirements. They are more important than copying 
 - [ ] **REF-025 - Rule detail view/drawer** `IN PROGRESS`
 
 - [ ] **REF-026 - Full rule wording with rich text** `IN PROGRESS`
-  - Preserve paragraphs, bold text, lists, headings, underlines/errata marking, and cross-rule links supported by the new renderer.
+    - Preserve paragraphs, bold text, lists, headings, underlines/errata marking, and cross-rule links supported by the
+      new renderer.
 
 - [ ] **REF-027 - Rule variants with parameter/suffix presentation** `IN PROGRESS`
-  - Example class: `Hatred (Rohan)`, `Dominant (2)`, distance-valued variants.
+    - Example class: `Hatred (Rohan)`, `Dominant (2)`, distance-valued variants.
 
 - [ ] **REF-028 - Cross-rule navigation from rule text** `IN PROGRESS`
 
@@ -721,7 +731,7 @@ These are behavioural parity requirements. They are more important than copying 
 - [ ] **REF-030 - Quick/global access to rules during roster building and play** `IN PROGRESS`
 
 - [ ] **REF-031 - Highlight rules used by current roster or equivalent contextual reference** `MISSING`
-  - v2024 can colour-code active rules.
+    - v2024 can colour-code active rules.
 
 - [ ] **REF-032 - Move/split active roster rules to top or equivalent contextual filter** `MISSING`
 
@@ -743,7 +753,7 @@ The exact UI can change. A single searchable Reference area is acceptable if it 
 
 ---
 
-# COL - Miniature collection
+# COL – Miniature collection
 
 - [ ] **COL-001 - View personal miniature collection** `MISSING`
 
@@ -768,7 +778,7 @@ The exact UI can change. A single searchable Reference area is acceptable if it 
 - [ ] **COL-011 - Sort collection predictably by origin/model or redesigned equivalent** `MISSING`
 
 - [ ] **COL-012 - Filter collection** `MISSING`
-  - v2024 supports semicolon-separated AND terms.
+    - v2024 supports semicolon-separated AND terms.
 
 - [ ] **COL-013 - Clear collection filter** `MISSING`
 
@@ -1002,7 +1012,7 @@ The exact UI can change. A single searchable Reference area is acceptable if it 
 
 ---
 
-# ACC - Accounts, persistence, and sync
+# ACC – Accounts, persistence, and sync
 
 Implementation can change completely. This section tracks user-visible guarantees.
 
@@ -1069,13 +1079,14 @@ Implementation can change completely. This section tracks user-visible guarantee
 ## Architectural replacement
 
 - [x] **ACC-028 - Backend lives in the rewrite monorepo** `CHANGED-EQUIVALENT`
-  - This is an implementation difference, not a feature parity requirement.
+    - This is an implementation difference, not a feature parity requirement.
 
 ---
 
-# SET - Settings and user preferences
+# SET – Settings and user preferences
 
-The rewrite already has a redesigned Settings area. Each old preference below still needs either a mapped replacement or a deliberate removal decision.
+The rewrite already has a redesigned Settings area. Each old preference below still needs either a mapped replacement or
+a deliberate removal decision.
 
 ## General
 
@@ -1144,10 +1155,11 @@ The rewrite already has a redesigned Settings area. Each old preference below st
 
 ## Principle
 
-The old Python implementation does not need to be reproduced. The TypeScript pipeline reaches parity when it can represent and generate all required game semantics reliably.
+The old Python implementation does not need to be reproduced. The TypeScript pipeline reaches parity when it can
+represent and generate all required game semantics reliably.
 
 - [x] **DATA-001 - Replace Python data scripts with TypeScript** `CHANGED-EQUIVALENT`
-  - Implementation-language change is already intentional.
+    - Implementation-language change is already intentional.
 
 - [ ] **DATA-002 - Deterministic/reproducible data generation** `NEEDS VERIFICATION`
 
@@ -1239,7 +1251,7 @@ The old Python implementation does not need to be reproduced. The TypeScript pip
 
 - [ ] **DATA-042 - English wording remains authoritative** `IN PROGRESS`
 
-- [ ] **DATA-043 - Unofficial translation fallback behaviour** `IN PROGRESS`
+- [ ] **DATA-043 - Unofficial translation fallback behavior** `IN PROGRESS`
 
 - [ ] **DATA-044 - Rule rich-text semantics survive generation** `IN PROGRESS`
 
@@ -1256,7 +1268,7 @@ The old Python implementation does not need to be reproduced. The TypeScript pip
 ## Migration and regression safety
 
 - [ ] **DATA-049 - Golden-fixture comparison against representative v2024 data** `MISSING`
-  - Compare semantic output, not JSON shape.
+    - Compare semantic output, not JSON shape.
 
 - [ ] **DATA-050 - Representative old roster fixtures migrate successfully** `MISSING`
 
@@ -1267,7 +1279,7 @@ The old Python implementation does not need to be reproduced. The TypeScript pip
 - [ ] **DATA-053 - Complex-list regression fixtures cover option/constraint edge cases** `MISSING`
 
 - [x] **DATA-054 - Admin/debug profile data-checking page** `NEW`
-  - Useful rewrite-only quality tooling. Does not block v2024 parity.
+    - Useful rewrite-only quality tooling. Does not block v2024 parity.
 
 ---
 
@@ -1276,7 +1288,7 @@ The old Python implementation does not need to be reproduced. The TypeScript pip
 - [x] **COM-001 - Home page** `CHANGED-EQUIVALENT`
 
 - [ ] **COM-002 - Home page explains major application capabilities** `NEEDS VERIFICATION`
-  - v2024 explicitly presents an overview of features.
+    - v2024 explicitly presents an overview of features.
 
 - [ ] **COM-003 - Community/Discord link if still desired** `NEEDS VERIFICATION`
 
@@ -1287,24 +1299,24 @@ The old Python implementation does not need to be reproduced. The TypeScript pip
 - [x] **COM-006 - Policies page** `NEW`
 
 - [ ] **COM-007 - About/project information** `IN PROGRESS`
-  - Determine whether new Support/Policies/Home fully replace the old About page.
+    - Determine whether new Support/Policies/Home fully replace the old About page.
 
 - [ ] **COM-008 - In-app changelog/release notes** `NEEDS VERIFICATION`
 
 - [ ] **COM-009 - Community Stats page** `NEEDS VERIFICATION`
-  - v2024 exposes:
-    - new users in last 7 days
-    - active users in last 7 days
-    - total users
-    - active games in last 7 days
-    - games in last 7 days
-    - total games
-    - rosters created in last 7 days
-    - total rosters
-  - If this is not wanted in the rewrite, mark it `INTENTIONALLY REMOVED` rather than silently dropping it.
+    - v2024 exposes:
+        - new users in last 7 days
+        - active users in last 7 days
+        - total users
+        - active games in last 7 days
+        - games in last 7 days
+        - total games
+        - rosters created in last 7 days
+        - total rosters
+    - If this is not wanted in the rewrite, mark it `INTENTIONALLY REMOVED` rather than silently dropping it.
 
-- [ ] **COM-010 - Community stats caching/update behaviour if retained** `NEEDS VERIFICATION`
-  - v2024 describes the figures as updating hourly.
+- [ ] **COM-010 - Community stats caching/update behavior if retained** `NEEDS VERIFICATION`
+    - v2024 describes the figures as updating hourly.
 
 ---
 
@@ -1318,7 +1330,8 @@ The old Python implementation does not need to be reproduced. The TypeScript pip
 
 - [ ] **UX-004 - Drawers fit narrow screens** `IN PROGRESS`
 
-- [ ] **UX-005 - Roster information remains accessible when permanent desktop drawer becomes temporary on small screens** `MISSING`
+- [ ] **UX-005 - Roster information remains accessible when permanent desktop drawer becomes temporary on small screens
+  ** `MISSING`
 
 - [ ] **UX-006 - Long profile/rule content remains readable on small screens** `IN PROGRESS`
 
@@ -1331,7 +1344,7 @@ The old Python implementation does not need to be reproduced. The TypeScript pip
 - [ ] **UX-010 - Deep-linked deleted resources fail safely** `IN PROGRESS`
 
 - [ ] **UX-011 - User-changing destructive actions require appropriate confirmation** `MISSING`
-  - Examples: deleting roster/group, bulk deletion, switching army list and clearing roster.
+    - Examples: deleting roster/group, bulk deletion, switching army list and clearing roster.
 
 - [ ] **UX-012 - Empty states explain the next useful action** `IN PROGRESS`
 
@@ -1389,7 +1402,7 @@ Do not mark the project feature-complete based only on page presence. Use the fo
 - [ ] Verify sign-in reconciliation does not overwrite newer local data unexpectedly.
 - [ ] Verify pending writes survive common navigation/reload scenarios or explicitly block unsafe actions.
 
-## 3. Roster builder behaviour matrix
+## 3. Roster builder behavior matrix
 
 At minimum, add automated fixture/tests covering:
 
@@ -1460,43 +1473,43 @@ Before removing the `feature-parity` milestone/label:
 - [ ] Add/edit/delete/import/export a Collection entry.
 - [ ] Export/import/share/print one complex roster.
 - [ ] Compare reference lookups and common charts.
-- [ ] Record any newly discovered behaviour in this file before declaring parity.
+- [ ] Record any newly discovered behavior in this file before declaring parity.
 
 ---
 
 # Suggested implementation order
 
-This is not a required sequence, but it minimises rework because later features depend on earlier domain behaviour.
+This is not a required sequence, but it minimizes rework because later features depend on earlier domain behavior.
 
 1. **Army-list data model and constraints**
-   - `DATA-028` through `DATA-039`
-   - option semantics `DATA-017` through `DATA-027`
+    - `DATA-028` through `DATA-039`
+    - option semantics `DATA-017` through `DATA-027`
 
 2. **Roster domain model and calculations**
-   - `VAL-*`
-   - persistence interfaces from `ACC-*`
+    - `VAL-*`
+    - persistence interfaces from `ACC-*`
 
 3. **Roster management**
-   - `ROS-*`
+    - `ROS-*`
 
 4. **Roster builder**
-   - `BLD-*`
+    - `BLD-*`
 
 5. **Import/export and migration**
-   - `OUT-001` through `OUT-006`
-   - `DATA-049` through `DATA-053`
+    - `OUT-001` through `OUT-006`
+    - `DATA-049` through `DATA-053`
 
 6. **Roster summaries and printable output**
-   - remainder of `OUT-*`
+    - remainder of `OUT-*`
 
 7. **Collection**
-   - `COL-*`
+    - `COL-*`
 
 8. **Game Mode**
-   - `PLY-*`
+    - `PLY-*`
 
 9. **Match History**
-   - `HIS-*`
+    - `HIS-*`
 
 10. **Account/cloud synchronisation**
     - finish `ACC-*` around the same domain APIs instead of creating a second client-only model
@@ -1513,39 +1526,40 @@ This is not a required sequence, but it minimises rework because later features 
 
 # Evidence map
 
-This section is intentionally concise. It makes it easier to find the old implementation when working on a checklist item.
+This section is intentionally concise. It makes it easier to find the old implementation when working on a checklist
+item.
 
-| Area | Useful v2024 source paths |
-| --- | --- |
-| Routes | `src/routing/routes.tsx` |
-| Roster state | `src/state/roster-building/` |
-| Roster groups | `src/state/roster-building/groups/index.ts` |
-| Undo/redo | `src/state/roster-building/index.ts` |
-| Rosters page | `src/pages/rosters/` |
-| Advanced roster search | `src/pages/rosters/components/useRosterSearch.ts` |
-| Roster builder page | `src/pages/roster/` |
-| Warbands | `src/components/common/warbands/` |
-| Warband mutations | `src/hooks/mutations/useWarbandMutations.ts` |
-| Roster calculations/warnings | `src/hooks/calculations-and-displays/` |
-| Roster information | `src/components/common/roster-info/` |
-| Export/share actions | `src/pages/roster/RosterFloatingButton.tsx` |
-| Export logic | `src/hooks/export/` |
-| Modals | `src/components/modal/modals.tsx` |
-| Drawers | `src/components/drawer/drawers.tsx` |
-| Collection | `src/pages/Collection.tsx`, `src/state/collection/` |
-| Profile Database | `src/pages/database/` |
-| Game Mode | `src/pages/gamemode/`, `src/state/gamemode/` |
-| Match History | `src/pages/match-history/`, `src/state/recent-games/` |
-| Settings | `src/pages/Settings.tsx`, `src/state/preference/` |
-| Navigation | `src/layout/navigation/menu/` |
-| Charts | `src/constants/charts.ts`, `src/components/modal/modals/ChartsModal.tsx` |
-| Account/auth | `src/pages/account/`, `src/firebase/` |
-| Cloud sync | `src/hooks/cloud-sync/` |
-| Shared roster | `src/pages/shared/` |
-| Printable roster | `src/components/common/roster-pdf/` |
-| Community stats | `src/pages/site-stats/` |
-| Old data pipeline | `data/scripts/`, especially `data/scripts/mappers/` |
-| Historical feature record | `CHANGELOG.json` |
+| Area                         | Useful v2024 source paths                                                |
+|------------------------------|--------------------------------------------------------------------------|
+| Routes                       | `src/routing/routes.tsx`                                                 |
+| Roster state                 | `src/state/roster-building/`                                             |
+| Roster groups                | `src/state/roster-building/groups/index.ts`                              |
+| Undo/redo                    | `src/state/roster-building/index.ts`                                     |
+| Rosters page                 | `src/pages/rosters/`                                                     |
+| Advanced roster search       | `src/pages/rosters/components/useRosterSearch.ts`                        |
+| Roster builder page          | `src/pages/roster/`                                                      |
+| Warbands                     | `src/components/common/warbands/`                                        |
+| Warband mutations            | `src/hooks/mutations/useWarbandMutations.ts`                             |
+| Roster calculations/warnings | `src/hooks/calculations-and-displays/`                                   |
+| Roster information           | `src/components/common/roster-info/`                                     |
+| Export/share actions         | `src/pages/roster/RosterFloatingButton.tsx`                              |
+| Export logic                 | `src/hooks/export/`                                                      |
+| Modals                       | `src/components/modal/modals.tsx`                                        |
+| Drawers                      | `src/components/drawer/drawers.tsx`                                      |
+| Collection                   | `src/pages/Collection.tsx`, `src/state/collection/`                      |
+| Profile Database             | `src/pages/database/`                                                    |
+| Game Mode                    | `src/pages/gamemode/`, `src/state/gamemode/`                             |
+| Match History                | `src/pages/match-history/`, `src/state/recent-games/`                    |
+| Settings                     | `src/pages/Settings.tsx`, `src/state/preference/`                        |
+| Navigation                   | `src/layout/navigation/menu/`                                            |
+| Charts                       | `src/constants/charts.ts`, `src/components/modal/modals/ChartsModal.tsx` |
+| Account/auth                 | `src/pages/account/`, `src/firebase/`                                    |
+| Cloud sync                   | `src/hooks/cloud-sync/`                                                  |
+| Shared roster                | `src/pages/shared/`                                                      |
+| Printable roster             | `src/components/common/roster-pdf/`                                      |
+| Community stats              | `src/pages/site-stats/`                                                  |
+| Old data pipeline            | `data/scripts/`, especially `data/scripts/mappers/`                      |
+| Historical feature record    | `CHANGELOG.json`                                                         |
 
 ---
 
