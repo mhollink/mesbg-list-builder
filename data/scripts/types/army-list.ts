@@ -6,7 +6,8 @@ export type ArmyListTier =
   | "hero-of-fortitude"
   | "minor-hero"
   | "independent-hero"
-  | "warrior";
+  | "warrior"
+  | "siege-engine";
 
 export interface Source {
   book: string;

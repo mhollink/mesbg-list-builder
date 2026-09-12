@@ -198,10 +198,10 @@ function buildOptions(
   return optionsByProfile;
 }
 
-function groupOptionRows<T extends { profile: string; option: string }>(
-  rows: T[],
-): Map<string, T[]> {
-  const result = new Map<string, T[]>();
+function groupOptionRows(
+  rows: OptionRequirementRow[],
+): Map<string, OptionRequirementRow[]> {
+  const result = new Map<string, OptionRequirementRow[]>();
 
   for (const row of rows) {
     const key = optionKey(row.profile, row.option);
