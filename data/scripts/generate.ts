@@ -3,9 +3,11 @@ import { mkdir } from "node:fs/promises";
 // @ts-expect-error
 import { fileURLToPath } from "node:url";
 
+import { generateArmyList } from "./generators/army-lists";
 import { generateProfiles } from "./generators/profiles";
 import { generateRules } from "./generators/rules";
 import { generateTranslations } from "./generators/translations";
+import { loadArmyLists } from "./loader/loadArmyLists";
 import { loadOptions } from "./loader/loadOptions";
 import { loadProfiles } from "./loader/loadProfiles";
 import { loadTranslations } from "./loader/loadTranslations";
@@ -25,6 +27,9 @@ async function generate(): Promise<void> {
     loadProfiles(`${rawDirectory}/profiles.xlsx`),
     loadOptions(`${rawDirectory}/options.xlsx`),
   );
+  const armyLists = generateArmyList(
+    loadArmyLists(`${rawDirectory}/army-lists.xlsx`),
+  );
   const translations = generateTranslations(
     loadTranslations(`${rawDirectory}/translations.xlsx`),
   );
@@ -32,6 +37,7 @@ async function generate(): Promise<void> {
   await mkdir(`${generatedDirectory}/game-data`, { recursive: true });
   await writeJson(`${generatedDirectory}/game-data/rules.json`, rules);
   await writeJson(`${generatedDirectory}/game-data/profiles.json`, profiles);
+  await writeJson(`${generatedDirectory}/game-data/army-lists.json`, armyLists);
 
   for (const locale of SUPPORTED_LOCALES) {
     const localeDirectory = `${generatedDirectory}/i18n/${locale}`;
@@ -45,6 +51,7 @@ async function generate(): Promise<void> {
 
   console.log(`Generated ${rules.length} rules.`);
   console.log(`Generated ${profiles.length} profiles.`);
+  console.log(`Generated ${armyLists.length} army lists.`);
 }
 
 generate().catch((error: unknown) => {

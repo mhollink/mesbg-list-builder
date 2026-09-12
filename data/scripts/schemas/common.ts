@@ -16,6 +16,22 @@ export const optionalStringCellSchema = z
   .optional()
   .transform((value) => (value === undefined ? "" : String(value)));
 
+export const optionalNumberCellSchema = z.preprocess(
+  (value) => (value === "" || value == null ? undefined : value),
+  z.coerce.number().optional(),
+);
+
+export const semicolonListCellSchema = z
+  .string()
+  .optional()
+  .transform(
+    (value) =>
+      value
+        ?.split(";")
+        .map((entry) => entry.trim())
+        .filter(Boolean) ?? [],
+  );
+
 export const booleanCellSchema = z
   .enum(["true", "false"])
   .transform((value) => value === "true");
