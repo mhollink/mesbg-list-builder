@@ -33,6 +33,8 @@ export interface ArmyList {
   source: Source;
 }
 
+export type WarbandCapability = "leader" | "follower" | "standalone";
+
 /**
  * The representation of a base Profile within a particular Army List.
  *
@@ -44,8 +46,14 @@ export interface ArmyListProfile {
   profileId: string;
   tier: ArmyListTier;
 
-  options: ArmyListProfileOption[];
+  /**
+   * Overrides the capabilities derived from the profile/tier.
+   *
+   * When omitted, normal MESBG warband rules apply.
+   */
+  warbandCapabilities?: WarbandCapability[];
 
+  options: ArmyListProfileOption[];
   overrides?: ArmyListProfileOverrides;
 }
 
@@ -101,6 +109,20 @@ export type ArmyListWarbandStructure =
        * All selected models are placed into one Warband.
        */
       type: "single";
+    }
+  | {
+      /**
+       * The player may either use normal Warbands or put all models
+       * into a single Warband.
+       */
+      type: "choice";
+      definitions: ArmyListWarbandDefinition[];
+
+      /**
+       * When present, the single-Warband option is only available when
+       * every selected profile matches this selector.
+       */
+      singleWarbandWhen?: ArmyListProfileSelector;
     };
 
 /**
