@@ -16,7 +16,7 @@ export function useArmyListFinder() {
   const { profiles } = useGameProfiles();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectableProfiles = useMemo(
+  const allSelectableProfiles = useMemo(
     () =>
       profiles
         .filter((profile) => profile.selectable)
@@ -30,16 +30,44 @@ export function useArmyListFinder() {
   );
 
   const validProfileIds = useMemo(
-    () => new Set(selectableProfiles.map((profile) => profile.profile)),
-    [selectableProfiles],
+    () => new Set(allSelectableProfiles.map((profile) => profile.profile)),
+    [allSelectableProfiles],
   );
 
-  const selectedProfileIds = useMemo(
+  const requestedProfileIds = useMemo(
     () =>
       [...new Set(searchParams.getAll("profile"))]
         .filter((profileId) => validProfileIds.has(profileId))
         .slice(0, MAX_SELECTED_PROFILES),
     [searchParams, validProfileIds],
+  );
+
+  const selectedAlignment = useMemo(
+    () =>
+      requestedProfileIds
+        .map((profileId) => profilesById.get(profileId))
+        .find(
+          (profile) =>
+            profile?.alignment === "good" || profile?.alignment === "evil",
+        )?.alignment,
+    [profilesById, requestedProfileIds],
+  );
+
+  const selectedProfileIds = useMemo(
+    () =>
+      requestedProfileIds.filter((profileId) => {
+        const profile = profilesById.get(profileId);
+
+        if (!profile || !selectedAlignment) {
+          return Boolean(profile);
+        }
+
+        return (
+          profile.alignment === selectedAlignment ||
+          profile.alignment === "both"
+        );
+      }),
+    [profilesById, requestedProfileIds, selectedAlignment],
   );
 
   const selectedProfiles = useMemo(
@@ -49,6 +77,17 @@ export function useArmyListFinder() {
         return profile ? [profile] : [];
       }),
     [profilesById, selectedProfileIds],
+  );
+
+  const selectableProfiles = useMemo(
+    () =>
+      allSelectableProfiles.filter(
+        (profile) =>
+          !selectedAlignment ||
+          profile.alignment === selectedAlignment ||
+          profile.alignment === "both",
+      ),
+    [allSelectableProfiles, selectedAlignment],
   );
 
   const matches = useMemo(
