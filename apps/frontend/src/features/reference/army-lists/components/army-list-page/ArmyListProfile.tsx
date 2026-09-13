@@ -22,37 +22,60 @@ export function ArmyListProfile({
     (option) => option.state === "available",
   );
 
+  const points =
+    (profile.profile.points ?? 0) +
+    includedOptions.reduce((total, option) => total + (option.points ?? 0), 0);
+
   return (
     <Stack sx={{ gap: 1 }}>
       <Stack sx={{ gap: 0.25 }}>
-        <ButtonBase
-          onClick={() => onOpenProfile(profile.profileId)}
+        <Stack
+          direction="row"
           sx={{
-            alignSelf: "flex-start",
-            textAlign: "left",
-            borderRadius: 1,
-
-            "&:hover .army-list-profile-name": {
-              color: "primary.main",
-            },
+            alignItems: "baseline",
+            justifyContent: "space-between",
+            gap: 2,
           }}
         >
-          <Typography
-            className="army-list-profile-name"
-            variant="h6"
-            component="h3"
+          <ButtonBase
+            onClick={() => onOpenProfile(profile.profileId)}
             sx={{
-              fontWeight: 600,
-              lineHeight: 1.3,
-              transition: (theme) =>
-                theme.transitions.create("color", {
-                  duration: theme.transitions.duration.shortest,
-                }),
+              textAlign: "left",
+              borderRadius: 1,
+
+              "&:hover .army-list-profile-name": {
+                color: "primary.main",
+              },
             }}
           >
-            {profile.profile.name}
+            <Typography
+              className="army-list-profile-name"
+              variant="h6"
+              component="h3"
+              sx={{
+                fontWeight: 600,
+                lineHeight: 1.3,
+                transition: (theme) =>
+                  theme.transitions.create("color", {
+                    duration: theme.transitions.duration.shortest,
+                  }),
+              }}
+            >
+              {profile.profile.name}
+            </Typography>
+          </ButtonBase>
+
+          <Typography
+            variant="body2"
+            sx={{
+              flexShrink: 0,
+              fontWeight: 700,
+              whiteSpace: "nowrap",
+            }}
+          >
+            {points} pts
           </Typography>
-        </ButtonBase>
+        </Stack>
 
         {includedOptions.length > 0 && (
           <Typography
