@@ -1,22 +1,23 @@
-import type { OptionWorkbook } from "../loader/loadOptions";
-import type { ProfileWorkbook } from "../loader/loadProfiles";
+import type { OptionWorkbook } from "../schemas/options";
+import type { ProfileWorkbook } from "../schemas/profiles";
 import type {
-  MagicalPowerRow,
   MagicPower,
   OptionEffect,
-  OptionEffectRow,
   OptionRequirement,
-  OptionRequirementRow,
   Profile,
   ProfileOption,
   ProfileRule,
-  ProfileRuleRow,
   RuleReference,
   Stats,
-  StatsRow,
-} from "../types/profile";
+} from "../types";
 import { groupBy } from "../utils/groupBy";
 import { optionalArray, splitList } from "../utils/lists";
+
+type MagicalPowerRow = ProfileWorkbook["magicalPowers"][number];
+type ProfileRuleRow = ProfileWorkbook["profileRules"][number];
+type StatsRow = ProfileWorkbook["stats"][number];
+type OptionRequirementRow = OptionWorkbook["requirements"][number];
+type OptionEffectRow = OptionWorkbook["effects"][number];
 
 export function generateProfiles(
   profileData: ProfileWorkbook,

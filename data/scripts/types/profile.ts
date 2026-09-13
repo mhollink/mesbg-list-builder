@@ -1,22 +1,4 @@
-import type { z } from "zod";
-
-import type {
-  optionEffectRowSchema,
-  optionRequirementRowSchema,
-  optionRowSchema,
-  profileMagicPowerRowSchema,
-  profileRowSchema,
-  profileRuleRowSchema,
-  profileStatsRowSchema,
-} from "../schemas";
-
-export type ProfileRow = z.infer<typeof profileRowSchema>;
-export type StatsRow = z.infer<typeof profileStatsRowSchema>;
-export type ProfileRuleRow = z.infer<typeof profileRuleRowSchema>;
-export type MagicalPowerRow = z.infer<typeof profileMagicPowerRowSchema>;
-export type OptionRow = z.infer<typeof optionRowSchema>;
-export type OptionRequirementRow = z.infer<typeof optionRequirementRowSchema>;
-export type OptionEffectRow = z.infer<typeof optionEffectRowSchema>;
+import type { Source } from "./common";
 
 export interface WarriorStats {
   type: "warrior";
@@ -90,8 +72,6 @@ export interface OptionEffect {
 }
 
 export type ProfileAlignment = "good" | "evil" | "both" | "siege-equipment";
-
-export type Source = { book: string; page: number };
 
 export interface Profile {
   profile: string;

@@ -12,7 +12,8 @@ import type {
   ArmyListRule,
   ArmyListWarbandDefinition,
   ArmyListWarbandStructure,
-} from "../types/army-list";
+} from "../types";
+import { assertNever } from "../utils/never";
 
 export function generateArmyList(
   armyListsWorkbook: ArmyListsWorkbook,
@@ -388,14 +389,4 @@ function requireNonEmptyString(
   }
 
   return value;
-}
-
-/**
- * Keeps switches exhaustive when their source fields are Zod enums / unions.
- *
- * If your current workbook schema still types these fields as plain strings,
- * change them to Zod enums so TypeScript can verify the switches exhaustively.
- */
-function assertNever(value: never, message: string): never {
-  throw new Error(`${message}: ${String(value)}`);
 }

@@ -24,3 +24,11 @@ export const optionEffectRowSchema = z.object({
   target: requiredStringCellSchema,
   value: optionalStringCellSchema,
 });
+
+export const optionWorkbookSchema = z.object({
+  options: z.array(optionRowSchema),
+  requirements: z.array(optionRequirementRowSchema),
+  effects: z.array(optionEffectRowSchema),
+});
+
+export type OptionWorkbook = z.infer<typeof optionWorkbookSchema>;

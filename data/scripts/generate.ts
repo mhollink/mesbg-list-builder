@@ -1,6 +1,4 @@
-// @ts-expect-error
 import { mkdir } from "node:fs/promises";
-// @ts-expect-error
 import { fileURLToPath } from "node:url";
 
 import { generateArmyList } from "./generators/army-lists";
@@ -11,10 +9,12 @@ import { loadArmyLists } from "./loader/loadArmyLists";
 import { loadOptions } from "./loader/loadOptions";
 import { loadProfiles } from "./loader/loadProfiles";
 import { loadTranslations } from "./loader/loadTranslations";
+import { SUPPORTED_LOCALES } from "./locales";
 import { writeJson } from "./output/write-json";
-import { SUPPORTED_LOCALES } from "./types/locales";
 
+// @ts-expect-error
 const rawDirectory = fileURLToPath(new URL("../raw", import.meta.url));
+// @ts-expect-error
 const generatedDirectory = fileURLToPath(
   new URL("../generated", import.meta.url),
 );
@@ -56,6 +56,5 @@ async function generate(): Promise<void> {
 
 generate().catch((error: unknown) => {
   console.error(error);
-  // @ts-expect-error
   process.exitCode = 1;
 });
