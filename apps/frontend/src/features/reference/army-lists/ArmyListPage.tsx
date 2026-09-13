@@ -33,6 +33,7 @@ export function ArmyListPage() {
           <ArmyListRules
             rules={armyList.additionalRules}
             onOpenRule={openRuleDrawer}
+            display="list"
           />
         </>
       )}
