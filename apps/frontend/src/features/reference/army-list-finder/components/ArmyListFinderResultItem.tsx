@@ -42,7 +42,7 @@ export function ArmyListFinderResultItem({
           {match.armyList.name}
         </Typography>
 
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
           {selectedProfiles.map((profile) => (
             <ProfileFitChip
               key={profile.profile}
