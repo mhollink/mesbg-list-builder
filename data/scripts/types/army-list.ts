@@ -19,11 +19,9 @@ export interface ArmyList {
   warbands: ArmyListWarbandStructure;
 
   general?: ArmyListGeneralRule;
-  requirements: ArmyListRequirement[];
-
-  limits: ArmyListLimits;
-
-  options: ArmyListOption[];
+  requirements?: ArmyListRequirement[];
+  limits?: ArmyListLimits;
+  options?: ArmyListOption[];
 
   specialRules: ArmyListRule[];
   additionalRules: ArmyListRule[];

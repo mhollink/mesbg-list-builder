@@ -14,6 +14,7 @@ import type {
   ArmyListWarbandStructure,
 } from "../types";
 import { assertNever } from "../utils/never";
+import {optionalArray, splitList} from "../utils/lists";
 
 export function generateArmyList(
   armyListsWorkbook: ArmyListsWorkbook,
@@ -77,11 +78,10 @@ export function generateArmyList(
 
       ...(general ? { general } : {}),
 
-      requirements: requirementRows.map(mapRequirement),
-
       limits: mapLimits(row),
 
-      options: armyOptionRows.map(mapArmyOption),
+      ...optionalArray("requirements", requirementRows.map(mapRequirement)),
+      ...optionalArray("options", armyOptionRows.map(mapArmyOption)),
 
       specialRules: ruleRows
         .filter((rule) => rule.category === "special")
