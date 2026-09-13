@@ -1,0 +1,65 @@
+{
+  "title": "Army Lists",
+  "description": "Browse army lists and see which profiles and rules are available to them.",
+  "search": {
+    "placeholder": "Search army list, profile or rule",
+    "result": "result",
+    "results": "results",
+    "noResults": "No army lists found",
+    "noResultsHelper": "Try a different search term."
+  },
+  "alphabet": {
+    "label": "Army list index"
+  },
+  "alignment": {
+    "label": "Army alignment",
+    "good": "Forces of Good",
+    "evil": "Forces of Evil"
+  },
+  "list": {
+    "summary": "{{profiles}} profiles · {{rules}} rules"
+  },
+  "tiers": {
+    "hero-of-legend": "Hero of Legend",
+    "hero-of-valour": "Hero of Valour",
+    "hero-of-fortitude": "Hero of Fortitude",
+    "minor-hero": "Minor Hero",
+    "independent-hero": "Independent Hero",
+    "warrior": "Warrior",
+    "siege-engine": "Siege Engine"
+  },
+  "drawer": {
+    "back": "Back to previous item",
+    "close": "Close army list details",
+    "profiles": {
+      "title": "Profiles",
+      "heroes": "Heroes",
+      "warriors": "Warriors",
+      "siegeEngines": "Siege Engines"
+    },
+    "options": {
+      "included": "included",
+      "free": "free",
+      "pointsShort": "pts"
+    },
+    "specialRules": "Special Rules",
+    "additionalRules": "Additional Rules",
+    "source": "Source",
+    "page": "page {{page}}"
+  },
+  "structure": {
+    "title": "Army Structure",
+    "general": "General",
+    "anyProfile": "any matching profile",
+    "generalSelector": "Must match: {{selector}}",
+    "generalPriority": "Use the first included profile in this order: {{profiles}}",
+    "requirements": {
+      "title": "Requirements",
+      "minimum": "At least {{count}} × {{selector}}.",
+      "maximum": "At most {{count}} × {{selector}}.",
+      "requires": "If {{selector}} is included, {{requires}} must also be included.",
+      "excludes": "If {{selector}} is included, {{excludes}} may not be included.",
+      "ratio": "At most {{ratio}} × {{selector}} for each {{relativeTo}}."
+    }
+  }
+}

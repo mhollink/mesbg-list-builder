@@ -1,0 +1,65 @@
+{
+  "title": "Legerlijsten",
+  "description": "Bekijk legerlijsten en welke profielen en regels daarin beschikbaar zijn.",
+  "search": {
+    "placeholder": "Zoek op legerlijst, profiel of regel",
+    "result": "resultaat",
+    "results": "resultaten",
+    "noResults": "Geen legerlijsten gevonden",
+    "noResultsHelper": "Probeer een andere zoekterm."
+  },
+  "alphabet": {
+    "label": "Legerlijstindex"
+  },
+  "alignment": {
+    "label": "Zijde",
+    "good": "Krachten van Goed",
+    "evil": "Krachten van Kwaad"
+  },
+  "list": {
+    "summary": "{{profiles}} profielen · {{rules}} regels"
+  },
+  "tiers": {
+    "hero-of-legend": "Hero of Legend",
+    "hero-of-valour": "Hero of Valour",
+    "hero-of-fortitude": "Hero of Fortitude",
+    "minor-hero": "Minor Hero",
+    "independent-hero": "Independent Hero",
+    "warrior": "Warrior",
+    "siege-engine": "Siege Engine"
+  },
+  "drawer": {
+    "back": "Terug naar het vorige item",
+    "close": "Sluit details van de legerlijst",
+    "profiles": {
+      "title": "Profielen",
+      "heroes": "Helden",
+      "warriors": "Krijgers",
+      "siegeEngines": "Belegeringswerktuigen"
+    },
+    "options": {
+      "included": "inbegrepen",
+      "free": "gratis",
+      "pointsShort": "pt"
+    },
+    "specialRules": "Speciale regels",
+    "additionalRules": "Aanvullende regels",
+    "source": "Bron",
+    "page": "pagina {{page}}"
+  },
+  "structure": {
+    "title": "Legerstructuur",
+    "general": "Generaal",
+    "anyProfile": "ieder passend profiel",
+    "generalSelector": "Moet overeenkomen met: {{selector}}",
+    "generalPriority": "Gebruik het eerste opgenomen profiel in deze volgorde: {{profiles}}",
+    "requirements": {
+      "title": "Vereisten",
+      "minimum": "Minimaal {{count}} × {{selector}}.",
+      "maximum": "Maximaal {{count}} × {{selector}}.",
+      "requires": "Als {{selector}} is opgenomen, moet {{requires}} ook zijn opgenomen.",
+      "excludes": "Als {{selector}} is opgenomen, mag {{excludes}} niet zijn opgenomen.",
+      "ratio": "Maximaal {{ratio}} × {{selector}} per {{relativeTo}}."
+    }
+  }
+}

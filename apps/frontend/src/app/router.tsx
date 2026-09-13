@@ -16,6 +16,8 @@ import { PrivacySettings } from "../features/settings/components/privacy/Privacy
 import { SettingsPage } from "../features/settings/SettingsPage.tsx";
 import { AppLayout } from "./AppLayout.tsx";
 import { DebugProfiles } from "~/features/admin-data-checker/DebugProfiles.tsx";
+import { ArmyListPage } from "~/features/reference/army-lists/ArmyListPage.tsx";
+import { ArmyListsPage } from "~/features/reference/army-lists/ArmyListsPage.tsx";
 import { ProfilesPage } from "~/features/reference/profiles/ProfilesPage.tsx";
 import { RulesPage } from "~/features/reference/rules/RulesPage.tsx";
 
@@ -134,6 +136,19 @@ export const router = createBrowserRouter([
           {
             path: "profiles",
             element: <ProfilesPage />,
+          },
+          {
+            path: "armylists",
+            children: [
+              {
+                index: true,
+                element: <ArmyListsPage />,
+              },
+              {
+                path: ":armyListId",
+                element: <ArmyListPage />,
+              },
+            ],
           },
 
           {
