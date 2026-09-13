@@ -13,8 +13,8 @@ import type {
   ArmyListWarbandDefinition,
   ArmyListWarbandStructure,
 } from "../types";
+import { optionalArray } from "../utils/lists";
 import { assertNever } from "../utils/never";
-import {optionalArray, splitList} from "../utils/lists";
 
 export function generateArmyList(
   armyListsWorkbook: ArmyListsWorkbook,
