@@ -1,7 +1,9 @@
 import { parseRows } from "../excel/parseSheet";
 import { readFile, readSheet } from "../excel/readSheet";
-import { translationRowSchema } from "../schemas";
-import type { TranslationRow } from "../types/translations";
+import {
+  type TranslationRow,
+  translationRowSchema,
+} from "../schemas/translations";
 
 export function loadTranslations(
   translationWorkbookPath: string,

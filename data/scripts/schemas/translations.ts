@@ -14,3 +14,5 @@ export const translationRowSchema = z.object({
   en: z.string().trim().min(1),
   nl: z.string().optional(),
 });
+
+export type TranslationRow = z.infer<typeof translationRowSchema>;

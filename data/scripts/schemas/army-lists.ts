@@ -28,8 +28,6 @@ export const armyListRowSchema = z.object({
   page: requiredStringCellSchema,
 });
 
-export type ArmyListRow = z.infer<typeof armyListRowSchema>;
-
 export const armyListProfileRowSchema = z
   .object({
     army_list: requiredStringCellSchema,
@@ -50,8 +48,6 @@ export const armyListProfileRowSchema = z
     id: row.id || row.profile,
   }));
 
-export type ArmyListProfileRow = z.infer<typeof armyListProfileRowSchema>;
-
 export const profileOptionRowSchema = z.object({
   army_list: requiredStringCellSchema,
   profile: requiredStringCellSchema,
@@ -65,8 +61,6 @@ export const profileOptionRowSchema = z.object({
   points_override: optionalNumberCellSchema,
 });
 
-export type ProfileOptionRow = z.infer<typeof profileOptionRowSchema>;
-
 export const warbandRowSchema = z.object({
   army_list: requiredStringCellSchema,
   id: requiredStringCellSchema,
@@ -77,8 +71,6 @@ export const warbandRowSchema = z.object({
   ),
 });
 
-export type WarbandRow = z.infer<typeof warbandRowSchema>;
-
 export const generalRuleRowSchema = z.object({
   army_list: requiredStringCellSchema,
   type: z.enum(["fixed", "selector"]),
@@ -86,8 +78,6 @@ export const generalRuleRowSchema = z.object({
   profile: optionalStringCellSchema,
   selector_profiles: semicolonListCellSchema,
 });
-
-export type GeneralRuleRow = z.infer<typeof generalRuleRowSchema>;
 
 export const requirementRowSchema = z.object({
   army_list: requiredStringCellSchema,
@@ -111,23 +101,17 @@ export const requirementRowSchema = z.object({
   max_ratio: optionalNumberCellSchema.pipe(z.number().positive().optional()),
 });
 
-export type RequirementRow = z.infer<typeof requirementRowSchema>;
-
 export const armyOptionRowSchema = z.object({
   army_list: requiredStringCellSchema,
   id: requiredStringCellSchema,
   points: positiveNumberCellSchema,
 });
 
-export type ArmyOptionRow = z.infer<typeof armyOptionRowSchema>;
-
 export const armyRuleRowSchema = z.object({
   army_list: requiredStringCellSchema,
   id: requiredStringCellSchema,
   category: z.enum(["special", "additional"]),
 });
-
-export type ArmyRuleRow = z.infer<typeof armyRuleRowSchema>;
 
 export const armyListsWorkbookSchema = z.object({
   armyLists: z.array(armyListRowSchema),

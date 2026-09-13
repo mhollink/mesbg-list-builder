@@ -1,4 +1,3 @@
-// @ts-expect-error
 import { writeFile } from "node:fs/promises";
 
 export async function writeJson(path: string, value: unknown): Promise<void> {

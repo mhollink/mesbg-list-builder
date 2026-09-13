@@ -62,3 +62,12 @@ export const profileMagicPowerRowSchema = z.object({
   target: optionalStringCellSchema,
   order: z.coerce.number().int().positive(),
 });
+
+export const profileWorkbookSchema = z.object({
+  profiles: z.array(profileRowSchema),
+  stats: z.array(profileStatsRowSchema),
+  profileRules: z.array(profileRuleRowSchema),
+  magicalPowers: z.array(profileMagicPowerRowSchema),
+});
+
+export type ProfileWorkbook = z.infer<typeof profileWorkbookSchema>;

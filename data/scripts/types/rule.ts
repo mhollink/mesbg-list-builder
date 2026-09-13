@@ -1,22 +1,44 @@
-import type { z } from "zod";
+import type { Source } from "./common";
 
-import type {
-  ruleCategorySchema,
-  ruleRowSchema,
-  ruleTypeSchema,
-} from "../schemas";
-
-export type RuleRow = z.infer<typeof ruleRowSchema>;
-export type RuleCategory = z.infer<typeof ruleCategorySchema>;
-export type RuleType = z.infer<typeof ruleTypeSchema>;
-
-export interface Rule {
+export type SpecialRuleType = "active" | "passive";
+export type SpecialRule = {
   id: string;
-  category: RuleCategory;
-  type?: RuleType;
+  category: "special-rule";
+  type: SpecialRuleType;
+  source: Source;
+};
 
-  source: {
-    book: string;
-    page: number;
-  };
-}
+export type MagicalPowerType = "exhaustion" | "instant" | "temporary";
+export type MagicalPower = {
+  id: string;
+  category: "magical-power";
+  type: MagicalPowerType;
+  source: Source;
+};
+
+export type HeroicPhase = "move-phase" | "shoot-phase" | "fight-phase";
+export type HeroicAction = {
+  id: string;
+  category: "heroic-action";
+  type: HeroicPhase;
+  source: Source;
+};
+
+export type BrutalPowerAttack = {
+  id: string;
+  category: "brutal-power-attack";
+  source: Source;
+};
+
+export type Equipment = {
+  id: string;
+  category: "equipment" | "siege-equipment";
+  source: Source;
+};
+
+export type Rule =
+  | SpecialRule
+  | MagicalPower
+  | HeroicAction
+  | BrutalPowerAttack
+  | Equipment;

@@ -1,3 +1,5 @@
+import type { Source } from "./common";
+
 export type Alignment = "good" | "evil";
 
 export type ArmyListTier =
@@ -8,11 +10,6 @@ export type ArmyListTier =
   | "independent-hero"
   | "warrior"
   | "siege-engine";
-
-export interface Source {
-  book: string;
-  page: number;
-}
 
 export interface ArmyList {
   id: string;

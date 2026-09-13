@@ -1,9 +1,10 @@
-import { SUPPORTED_LOCALES, type SupportedLocale } from "../types/locales";
-import type {
-  NestedTranslations,
-  TranslationMap,
-  TranslationRow,
-} from "../types/translations";
+import {
+  type NestedTranslations,
+  SUPPORTED_LOCALES,
+  type SupportedLocale,
+  type TranslationMap,
+} from "../locales";
+import type { TranslationRow } from "../schemas/translations";
 
 export function generateTranslations(
   translations: TranslationRow[],
