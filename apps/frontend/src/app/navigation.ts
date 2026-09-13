@@ -5,6 +5,7 @@ import GroupsOutlined from "@mui/icons-material/GroupsOutlined";
 import HomeOutlined from "@mui/icons-material/HomeOutlined";
 import Inventory2Outlined from "@mui/icons-material/Inventory2Outlined";
 import ListAltOutlined from "@mui/icons-material/ListAltOutlined";
+import ManageSearchOutlined from "@mui/icons-material/ManageSearchOutlined";
 import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
 import PersonSearchOutlined from "@mui/icons-material/PersonSearchOutlined";
 import ShieldOutlined from "@mui/icons-material/ShieldOutlined";
@@ -100,6 +101,12 @@ export const navigation: NavigationSection[] = [
         label: "army-lists",
         path: "/reference/armylists",
         icon: ListAltOutlined,
+      },
+      {
+        label: "find-an-army",
+        path: "/reference/army-list-finder",
+        icon: ManageSearchOutlined,
+        description: "Find army lists that can include your chosen profiles.",
       },
     ],
   },

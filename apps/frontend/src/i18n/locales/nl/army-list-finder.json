@@ -1,0 +1,22 @@
+{
+  "title": "Vind een leger",
+  "description": "Selecteer maximaal vijf profielen om legerlijsten te vinden waarin ze samen beschikbaar zijn. Gedeeltelijke overeenkomsten worden getoond wanneer een legerlijst genoeg van de geselecteerde profielen bevat.",
+  "profileSearch": {
+    "label": "Profiel toevoegen",
+    "placeholder": "Zoek profielen...",
+    "limitReached": "Je kunt maximaal vijf profielen selecteren."
+  },
+  "selectedProfiles": {
+    "title": "Geselecteerde profielen",
+    "clear": "Wissen"
+  },
+  "results": {
+    "title": "Beschikbare legerlijsten",
+    "empty": "Selecteer een of meer profielen om bijpassende legerlijsten te vinden.",
+    "noResults": "Geen bijpassende legerlijsten gevonden."
+  },
+  "fit": {
+    "available": "{{profile}} is beschikbaar in deze legerlijst",
+    "unavailable": "{{profile}} is niet beschikbaar in deze legerlijst"
+  }
+}

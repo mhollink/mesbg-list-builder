@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import Box from "@mui/material/Box";
@@ -14,13 +14,18 @@ interface ArmyListPageHeaderProps {
 
 export function ArmyListPageHeader({ armyList }: ArmyListPageHeaderProps) {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const backTo =
+    (location.state as { backTo?: string } | null)?.backTo ??
+    "/reference/armylists";
 
   return (
     <Stack sx={{ gap: 3 }}>
       <Button
         variant="text"
         startIcon={<ArrowBackRoundedIcon />}
-        onClick={() => navigate("/reference/armylists")}
+        onClick={() => navigate(backTo)}
         sx={{
           alignSelf: "flex-start",
           px: 0,

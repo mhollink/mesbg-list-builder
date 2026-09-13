@@ -1,0 +1,22 @@
+{
+  "title": "Find an Army",
+  "description": "Select up to five profiles to find army lists that can include them together. Partial matches are shown when an army list contains enough of your selected profiles.",
+  "profileSearch": {
+    "label": "Add profile",
+    "placeholder": "Search profiles...",
+    "limitReached": "You can select up to five profiles."
+  },
+  "selectedProfiles": {
+    "title": "Selected profiles",
+    "clear": "Clear"
+  },
+  "results": {
+    "title": "Available army lists",
+    "empty": "Select one or more profiles to find matching army lists.",
+    "noResults": "No matching army lists found."
+  },
+  "fit": {
+    "available": "{{profile}} is available in this army list",
+    "unavailable": "{{profile}} is not available in this army list"
+  }
+}
