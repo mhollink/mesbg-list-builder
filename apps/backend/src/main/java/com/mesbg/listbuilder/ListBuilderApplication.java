@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ListBuilderApplication {
 
-	static void main(String[] args) {
-		SpringApplication.run(ListBuilderApplication.class, args);
-	}
-
+  static void main(String[] args) {
+    SpringApplication.run(ListBuilderApplication.class, args);
+  }
 }
