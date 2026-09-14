@@ -211,8 +211,7 @@ build-frontend:
 
 .PHONY: build-backend
 build-backend:
-	cd $(BACKEND_DIR) && $(MVN) clean package
-
+	cd $(BACKEND_DIR) && $(MVN) clean package jib:dockerBuild -Dimage=mesbg-list-builder-backend:local
 
 # ==============================================================================
 # Database
