@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
+import { normalizeSearchText } from "~/utils/normalize.ts";
 
 interface ProfileAutocompleteProps {
   profiles: LocalizedProfile[];
@@ -38,6 +39,13 @@ export function ProfileAutocomplete({
       disabled={disabled}
       getOptionLabel={(profile) => profile.name}
       isOptionEqualToValue={(option, value) => option.profile === value.profile}
+      filterOptions={(options, { inputValue }) => {
+        const query = normalizeSearchText(inputValue);
+
+        return options.filter((profile) =>
+          normalizeSearchText(profile.name).includes(query),
+        );
+      }}
       onChange={(_, profile) => {
         if (profile) {
           onSelect(profile.profile);

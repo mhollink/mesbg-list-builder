@@ -4,6 +4,7 @@ import {
   RULE_ROW_HEIGHT,
 } from "./rules.constants";
 import type { Rule, RuleRow, RuleRowProps, RuleType } from "./rules.types";
+import { normalizeSearchText } from "~/utils/normalize.ts";
 
 export function getRuleLetter(name: string): string {
   const letter = name.trim().charAt(0).toUpperCase();
@@ -17,7 +18,7 @@ export function filterRules(
   search: string,
   locale?: string,
 ): Rule[] {
-  const query = search.trim().toLocaleLowerCase(locale);
+  const query = normalizeSearchText(search);
 
   const collator = new Intl.Collator(locale, {
     sensitivity: "base",
@@ -27,13 +28,12 @@ export function filterRules(
   return rules
     .filter((rule) => {
       return query
-        ? rule.name.toLocaleLowerCase(locale).includes(query) ||
-            rule.description.toLocaleLowerCase(locale).includes(query)
+        ? normalizeSearchText(rule.name).includes(query) ||
+            normalizeSearchText(rule.description).includes(query)
         : rule.category === category;
     })
     .sort((left, right) => collator.compare(left.name, right.name));
 }
-
 export function createRuleRows(rules: Rule[]) {
   const rows: RuleRow[] = [];
   const letterIndexes = new Map<string, number>();

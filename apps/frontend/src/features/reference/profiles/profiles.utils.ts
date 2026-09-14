@@ -4,6 +4,7 @@ import type {
   ProfileAlignment,
   ProfileRow,
 } from "./profiles.types";
+import { normalizeSearchText } from "~/utils/normalize.ts";
 
 export function getProfileLetter(name: string): string {
   const letter = name.trim().charAt(0).toUpperCase();
@@ -42,8 +43,10 @@ export function filterProfiles(
         ...profile.unitTypes,
       ];
 
+      const normalizedQuery = normalizeSearchText(query);
+
       return searchableValues.some((value) =>
-        value.toLocaleLowerCase(locale).includes(query),
+        normalizeSearchText(value).includes(normalizedQuery),
       );
     })
     .sort((left, right) => collator.compare(left.name, right.name));

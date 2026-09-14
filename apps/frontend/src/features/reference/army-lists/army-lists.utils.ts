@@ -4,6 +4,7 @@ import type {
   ArmyListRow,
   LocalizedArmyList,
 } from "./army-lists.types.ts";
+import { normalizeSearchText } from "~/utils/normalize.ts";
 
 export function formatArmyListId(id: string): string {
   return id
@@ -58,8 +59,9 @@ export function filterArmyLists(
         ...armyList.additionalRules.map((rule) => rule.name),
       ];
 
+      const normalizedQuery = normalizeSearchText(query);
       return searchableValues.some((value) =>
-        value.toLocaleLowerCase(locale).includes(query),
+        normalizeSearchText(value).includes(normalizedQuery),
       );
     })
     .sort((left, right) => collator.compare(left.name, right.name));
