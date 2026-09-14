@@ -16,6 +16,7 @@
 		<java.version>25</java.version>
 
 		<spotless.version>3.5.1</spotless.version>
+		<jib-maven-plugin.version>3.5.2</jib-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -112,7 +113,33 @@
 					</java>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>${jib-maven-plugin.version}</version>
 
+				<configuration>
+					<from>
+						<image>eclipse-temurin:${java.version}-jre</image>
+					</from>
+
+					<to>
+						<image>ghcr.io/mhollink/mesbg-list-builder-backend</image>
+					</to>
+
+					<container>
+						<ports>
+							<port>8080</port>
+						</ports>
+
+						<labels>
+							<org.opencontainers.image.source>
+								https://github.com/mhollink/mesbg-list-builder
+							</org.opencontainers.image.source>
+						</labels>
+					</container>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
