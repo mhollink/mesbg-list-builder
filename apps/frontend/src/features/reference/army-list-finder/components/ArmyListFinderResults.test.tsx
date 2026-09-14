@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import type { ArmyListMatch } from "../army-list-finder.types.ts";
 import { ArmyListFinderResults } from "./ArmyListFinderResults.tsx";
+import type { LocalizedArmyList } from "~/features/reference/army-lists/army-lists.types.ts";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
 
 vi.mock("react-i18next", () => ({
@@ -26,7 +27,7 @@ const fellowshipMatch = {
   armyList: {
     id: "the-fellowship",
     name: "The Fellowship",
-  },
+  } as LocalizedArmyList,
   matchedProfileIds: ["aragorn"],
   missingProfileIds: [],
   matchCount: 1,
@@ -37,7 +38,7 @@ const minasTirithMatch = {
   armyList: {
     id: "minas-tirith",
     name: "Minas Tirith",
-  },
+  } as LocalizedArmyList,
   matchedProfileIds: ["aragorn"],
   missingProfileIds: [],
   matchCount: 1,
