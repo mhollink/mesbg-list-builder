@@ -44,7 +44,8 @@
     ],
     "heroicActions": [
       "heroic-strength",
-      "heroic-strike"
+      "heroic-strike",
+      "heroic-challenge"
     ],
     "specialRules": [
       {
@@ -153,6 +154,14 @@
     "heroicActions": [
       "heroic-channelling"
     ],
+    "options": [
+      {
+        "id": "warg",
+        "points": 20,
+        "requirements": [],
+        "effects": []
+      }
+    ],
     "magicPowers": [
       {
         "id": "instill-fear",
@@ -257,7 +266,7 @@
     ],
     "unitTypes": [
       "warrior",
-      "infantry"
+      "cavalry"
     ],
     "baseSize": "25mm",
     "selectable": true,
@@ -2024,7 +2033,7 @@
       "i": "6"
     },
     "wargear": [
-      "armour",
+      "heavy-armour",
       "hand-weapon"
     ]
   },
@@ -4652,7 +4661,7 @@
     },
     "wargear": [
       "heavy-dwarf-armour",
-      "torozûl"
+      "torozul"
     ],
     "heroicActions": [
       "heroic-strength",
@@ -12154,7 +12163,7 @@
         "target": "easterling"
       },
       {
-        "id": "enchanted-blades",
+        "id": "enchant-blades",
         "cast": "4+",
         "range": "12",
         "target": ""
@@ -13045,7 +13054,7 @@
     ],
     "unitTypes": [
       "warrior",
-      "calvary"
+      "cavalry"
     ],
     "baseSize": "25mm",
     "selectable": true,
@@ -13264,7 +13273,7 @@
     },
     "wargear": [
       "dagger",
-      "throwing-daggers",
+      "throwing-weapons",
       "blowpipe"
     ],
     "heroicActions": [
@@ -13429,10 +13438,16 @@
     "profile": "royal-palanquin",
     "origin": "fallen-realms",
     "alignment": "evil",
-    "race": [],
-    "factions": [],
-    "unitTypes": [],
-    "baseSize": "",
+    "race": [
+      "man"
+    ],
+    "factions": [
+      "easterling"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
+    "baseSize": "80mm",
     "selectable": false,
     "source": {
       "book": "armies-of-middle-earth",
@@ -13671,7 +13686,7 @@
     ],
     "unitTypes": [
       "warrior",
-      "infantry",
+      "cavalry",
       "elite"
     ],
     "baseSize": "25mm",
@@ -13795,10 +13810,10 @@
       "man"
     ],
     "factions": [
-      "easterling"
+      "easterling",
+      "black-dragon"
     ],
     "unitTypes": [
-      "black-dragon",
       "hero",
       "infantry",
       "unique"
@@ -13835,6 +13850,9 @@
       "heroic-strike",
       "heroic-strength",
       "heroic-defence"
+    ],
+    "additionalProfiles": [
+      "royal-palanquin"
     ],
     "profileRules": [
       {
@@ -20663,7 +20681,7 @@
       "two-handed-weapon"
     ],
     "heroicActions": [
-      "heroic-challenge"
+      "heroic-channelling"
     ],
     "specialRules": [
       {
@@ -20705,7 +20723,7 @@
     "alignment": "evil",
     "points": 60,
     "race": [
-      "wizard"
+      "man"
     ],
     "factions": [
       "isengard"
@@ -20832,7 +20850,8 @@
       "fate": "1"
     },
     "wargear": [
-      "hand-weapon"
+      "hand-weapon",
+      "whip"
     ],
     "heroicActions": [
       "heroic-challenge"
@@ -21917,7 +21936,8 @@
     ],
     "specialRules": [
       {
-        "id": "terror-hobbit"
+        "id": "terror",
+        "parameter": "hobbit"
       }
     ],
     "profileRules": [
@@ -31579,7 +31599,9 @@
     "race": [
       "spirit"
     ],
-    "factions": [],
+    "factions": [
+      "none"
+    ],
     "unitTypes": [
       "hero",
       "infantry",
@@ -33535,7 +33557,9 @@
     "race": [
       "spirit"
     ],
-    "factions": [],
+    "factions": [
+      "none"
+    ],
     "unitTypes": [
       "hero",
       "infantry",
@@ -33793,7 +33817,7 @@
         "parameter": "goblin"
       },
       {
-        "id": "hated",
+        "id": "hatred",
         "parameter": "orc"
       },
       {
