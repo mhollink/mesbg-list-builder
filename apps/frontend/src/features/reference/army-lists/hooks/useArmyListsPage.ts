@@ -8,7 +8,7 @@ import type {
 } from "../army-lists.types.ts";
 import { createArmyListRows, filterArmyLists } from "../army-lists.utils.ts";
 import { useGameArmyLists } from "./useGameArmyLists.ts";
-import { useAlphabetNavigation } from "~/features/reference/hooks/useAlphabetNavigation.ts";
+import { useAlphabetNavigation } from "~/features/reference/shared/hooks/useAlphabetNavigation.ts";
 
 export const ARMY_LISTS_TOOLBAR_HEIGHT = 160;
 

@@ -2,11 +2,11 @@ import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { useAlphabetNavigation } from "../../hooks/useAlphabetNavigation";
 import type { LocalizedProfile, ProfileAlignment } from "../profiles.types";
 import { createProfileRows, filterProfiles } from "../profiles.utils";
 import { useGameProfiles } from "./useGameProfiles";
 import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
+import { useAlphabetNavigation } from "~/features/reference/shared/hooks/useAlphabetNavigation";
 
 export const PROFILES_TOOLBAR_HEIGHT = 160;
 

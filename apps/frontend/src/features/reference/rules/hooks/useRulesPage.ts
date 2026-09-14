@@ -2,11 +2,11 @@ import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { useAlphabetNavigation } from "../../hooks/useAlphabetNavigation.ts";
 import type { Rule, RuleType } from "../rules.types";
 import { createRuleRows, filterRules } from "../rules.utils";
 import { useGameRules } from "./useGameRules";
 import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
+import { useAlphabetNavigation } from "~/features/reference/shared/hooks/useAlphabetNavigation.ts";
 
 export const RULES_TOOLBAR_HEIGHT = 160;
 

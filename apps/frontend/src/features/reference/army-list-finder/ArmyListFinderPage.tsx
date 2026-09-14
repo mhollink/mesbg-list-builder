@@ -1,12 +1,14 @@
+import { useTranslation } from "react-i18next";
 import Stack from "@mui/material/Stack";
 
-import { ArmyListFinderHeader } from "./components/ArmyListFinderHeader.tsx";
 import { ArmyListFinderResults } from "./components/ArmyListFinderResults.tsx";
 import { ProfileAutocomplete } from "./components/ProfileAutocomplete.tsx";
 import { SelectedProfiles } from "./components/SelectedProfiles.tsx";
 import { useArmyListFinder } from "./hooks/useArmyListFinder.ts";
+import { ReferencePageHeader } from "~/features/reference/shared/components/ReferencePageHeader.tsx";
 
 export function ArmyListFinderPage() {
+  const { t } = useTranslation("army-list-finder");
   const {
     selectableProfiles,
     selectedProfiles,
@@ -22,7 +24,7 @@ export function ArmyListFinderPage() {
 
   return (
     <Stack spacing={4}>
-      <ArmyListFinderHeader />
+      <ReferencePageHeader title={t("title")} description={t("description")} />
 
       <Stack spacing={2}>
         <ProfileAutocomplete

@@ -1,13 +1,11 @@
 import { useTranslation } from "react-i18next";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import Box from "@mui/material/Box";
-import InputAdornment from "@mui/material/InputAdornment";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
-import TextField from "@mui/material/TextField";
 
-import { ALPHABET } from "../army-lists.constants.ts";
 import type { ArmyListAlignment } from "../army-lists.types.ts";
+import { AlphabetTabs } from "~/features/reference/shared/components/AlphabetTabs.tsx";
+import { ReferenceSearchField } from "~/features/reference/shared/components/ReferenceSearchField.tsx";
 
 interface ArmyListsToolbarProps {
   activeAlignment: ArmyListAlignment;
@@ -49,61 +47,18 @@ export function ArmyListsToolbar({
         <Tab value="evil" label={t("alignment.evil")} />
       </Tabs>
 
-      <Box
-        sx={{
-          px: {
-            xs: 2,
-            md: 3,
-          },
-          pt: 2,
-        }}
-      >
-        <TextField
-          value={search}
-          onChange={(event) => onSearchChange(event.target.value)}
-          placeholder={t("search.placeholder")}
-          fullWidth
-          size="small"
-          slotProps={{
-            input: {
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchRoundedIcon />
-                </InputAdornment>
-              ),
-            },
-          }}
-        />
-      </Box>
+      <ReferenceSearchField
+        search={search}
+        onSearchChange={onSearchChange}
+        placeholder={t("search.placeholder")}
+      />
 
-      <Tabs
-        value={activeLetter}
-        onChange={(_, value: string) => onLetterChange(value)}
-        variant="scrollable"
-        scrollButtons={false}
-        aria-label={t("alphabet.label")}
-        sx={{
-          px: {
-            xs: 1,
-            md: 2,
-          },
-          mt: 1,
-
-          "& .MuiTab-root": {
-            minWidth: 40,
-            px: 1,
-          },
-        }}
-      >
-        {ALPHABET.map((letter) => (
-          <Tab
-            key={letter}
-            value={letter}
-            label={letter}
-            disabled={!availableLetters.has(letter)}
-          />
-        ))}
-      </Tabs>
+      <AlphabetTabs
+        activeLetter={activeLetter}
+        onLetterChange={onLetterChange}
+        availableLetters={availableLetters}
+        ariaLabel="Rule index"
+      />
     </Box>
   );
 }

@@ -1,12 +1,14 @@
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 
-import { RulesHeader } from "./components/RulesHeader";
-import { RulesResultCount } from "./components/RulesResultCount";
 import { RulesToolbar } from "./components/RulesToolbar";
 import { RulesList } from "./components/rule-list/RulesList.tsx";
 import { useRulesPage } from "./hooks/useRulesPage";
+import { ReferencePageHeader } from "~/features/reference/shared/components/ReferencePageHeader.tsx";
+import { ReferenceResultCount } from "~/features/reference/shared/components/ReferenceResultCount.tsx";
 
 export function RulesPage() {
+  const { t } = useTranslation("rules");
   const {
     activeType,
     activeLetter,
@@ -23,7 +25,7 @@ export function RulesPage() {
 
   return (
     <Box>
-      <RulesHeader />
+      <ReferencePageHeader title={t("title")} description={t("description")} />
 
       <RulesToolbar
         activeType={activeType}
@@ -35,7 +37,11 @@ export function RulesPage() {
         onSearchChange={changeSearch}
       />
 
-      <RulesResultCount count={resultCount} />
+      <ReferenceResultCount
+        count={resultCount}
+        resultLabel={t("search.result")}
+        resultsLabel={t("search.results")}
+      />
 
       <Box
         sx={{

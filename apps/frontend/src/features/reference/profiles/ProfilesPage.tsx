@@ -1,12 +1,14 @@
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 
-import { ProfilesHeader } from "./components/ProfilesHeader";
-import { ProfilesResultCount } from "./components/ProfilesResultCount";
 import { ProfilesToolbar } from "./components/ProfilesToolbar";
 import { ProfileList } from "./components/profile-list/ProfileList";
 import { useProfilesPage } from "./hooks/useProfilesPage";
+import { ReferencePageHeader } from "~/features/reference/shared/components/ReferencePageHeader.tsx";
+import { ReferenceResultCount } from "~/features/reference/shared/components/ReferenceResultCount.tsx";
 
 export function ProfilesPage() {
+  const { t } = useTranslation("profiles");
   const {
     activeAlignment,
     activeLetter,
@@ -23,7 +25,7 @@ export function ProfilesPage() {
 
   return (
     <Box>
-      <ProfilesHeader />
+      <ReferencePageHeader title={t("title")} description={t("description")} />
 
       <ProfilesToolbar
         activeAlignment={activeAlignment}
@@ -35,7 +37,11 @@ export function ProfilesPage() {
         onSearchChange={changeSearch}
       />
 
-      <ProfilesResultCount count={resultCount} />
+      <ReferenceResultCount
+        count={resultCount}
+        resultLabel={t("search.result")}
+        resultsLabel={t("search.results")}
+      />
 
       <ProfileList
         rows={rows}

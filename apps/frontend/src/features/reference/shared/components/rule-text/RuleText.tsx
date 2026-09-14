@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { ErrataText } from "~/features/reference/rules/components/rule-text/ErrataText.tsx";
-import { Keyword } from "~/features/reference/rules/components/rule-text/Keyword.tsx";
-import { ReferencedRuleLink } from "~/features/reference/rules/components/rule-text/ReferencedRuleLink.tsx";
+import { ErrataText } from "~/features/reference/shared/components/rule-text/ErrataText.tsx";
+import { Keyword } from "~/features/reference/shared/components/rule-text/Keyword.tsx";
+import { ReferencedRuleLink } from "~/features/reference/shared/components/rule-text/ReferencedRuleLink.tsx";
 
 interface RuleTextProps {
   children: string;

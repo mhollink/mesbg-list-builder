@@ -2,9 +2,9 @@ import Chip, { type ChipProps } from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { RuleText } from "../../../rules/components/rule-text/RuleText";
 import { ProfileSection } from "./ProfileSection";
 import type { ProfileDrawerRule } from "./profile-drawer.types";
+import { RuleText } from "~/features/reference/shared/components/rule-text/RuleText";
 
 interface ProfileProfileRulesProps {
   rules: ProfileDrawerRule[];

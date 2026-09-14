@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import type { LocalizedArmyListRule } from "../../army-lists.types.ts";
-import { RuleText } from "~/features/reference/rules/components/rule-text/RuleText.tsx";
+import { RuleText } from "~/features/reference/shared/components/rule-text/RuleText.tsx";
 
 interface ArmyListRulesProps {
   rules: LocalizedArmyListRule[];

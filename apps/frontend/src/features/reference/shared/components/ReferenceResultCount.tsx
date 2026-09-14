@@ -1,14 +1,17 @@
-import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 interface ProfilesResultCountProps {
   count: number;
+  resultLabel: string;
+  resultsLabel: string;
 }
 
-export function ProfilesResultCount({ count }: ProfilesResultCountProps) {
-  const { t } = useTranslation("profiles");
-
+export function ReferenceResultCount({
+  count,
+  resultLabel,
+  resultsLabel,
+}: ProfilesResultCountProps) {
   return (
     <Box
       sx={{
@@ -24,7 +27,7 @@ export function ProfilesResultCount({ count }: ProfilesResultCountProps) {
       }}
     >
       <Typography variant="body2" color="textSecondary">
-        {count} {count === 1 ? t("search.result") : t("search.results")}
+        {count} {count === 1 ? resultLabel : resultsLabel}
       </Typography>
     </Box>
   );

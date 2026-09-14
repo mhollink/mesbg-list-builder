@@ -11,8 +11,8 @@ import Typography from "@mui/material/Typography";
 
 import { useRuleDrawer } from "../../hooks/useRuleDrawer.ts";
 import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
-import { RuleText } from "~/features/reference/rules/components/rule-text/RuleText.tsx";
 import type { Rule } from "~/features/reference/rules/rules.types.ts";
+import { RuleText } from "~/features/reference/shared/components/rule-text/RuleText.tsx";
 
 export function RuleDrawer() {
   const { openRuleDrawer } = useDrawerStack();
