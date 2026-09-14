@@ -1,7 +1,7 @@
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 
-import { ALPHABET } from "~/features/reference/rules/rules.constants.ts";
+import { ALPHABET } from "~/features/reference/shared/reference.constants.ts";
 
 export function AlphabetTabs({
   activeLetter,

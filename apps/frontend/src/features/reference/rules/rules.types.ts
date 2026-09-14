@@ -29,8 +29,3 @@ export type RuleRow =
       letter: string;
       rule: Rule;
     };
-
-export interface RuleRowProps {
-  rows: RuleRow[];
-  onOpenRule: (rule: Rule) => void;
-}

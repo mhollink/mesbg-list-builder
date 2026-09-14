@@ -1,9 +1,5 @@
-import {
-  ALPHABET,
-  LETTER_ROW_HEIGHT,
-  RULE_ROW_HEIGHT,
-} from "./rules.constants";
-import type { Rule, RuleRow, RuleRowProps, RuleType } from "./rules.types";
+import type { Rule, RuleRow, RuleType } from "./rules.types";
+import { ALPHABET } from "~/features/reference/shared/reference.constants.ts";
 import { normalizeSearchText } from "~/utils/normalize.ts";
 
 export function getRuleLetter(name: string): string {
@@ -34,6 +30,7 @@ export function filterRules(
     })
     .sort((left, right) => collator.compare(left.name, right.name));
 }
+
 export function createRuleRows(rules: Rule[]) {
   const rows: RuleRow[] = [];
   const letterIndexes = new Map<string, number>();
@@ -66,12 +63,4 @@ export function createRuleRows(rules: Rule[]) {
     rows,
     letterIndexes,
   };
-}
-
-export function getRuleRowHeight(index: number, { rows }: RuleRowProps) {
-  return rows[index]?.type === "letter" ? LETTER_ROW_HEIGHT : RULE_ROW_HEIGHT;
-}
-
-export function getRuleRowKey(index: number, { rows }: RuleRowProps) {
-  return rows[index]?.key ?? index;
 }

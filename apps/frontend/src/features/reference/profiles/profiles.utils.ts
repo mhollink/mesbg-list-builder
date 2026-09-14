@@ -1,9 +1,9 @@
-import { ALPHABET } from "./profiles.constants";
 import type {
   LocalizedProfile,
   ProfileAlignment,
   ProfileRow,
 } from "./profiles.types";
+import { ALPHABET } from "~/features/reference/shared/reference.constants.ts";
 import { normalizeSearchText } from "~/utils/normalize.ts";
 
 export function getProfileLetter(name: string): string {

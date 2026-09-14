@@ -1,9 +1,9 @@
-import { ALPHABET } from "./army-lists.constants.ts";
 import type {
   ArmyListAlignment,
   ArmyListRow,
   LocalizedArmyList,
 } from "./army-lists.types.ts";
+import { ALPHABET } from "~/features/reference/shared/reference.constants.ts";
 import { normalizeSearchText } from "~/utils/normalize.ts";
 
 export function formatArmyListId(id: string): string {
