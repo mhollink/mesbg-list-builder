@@ -9,11 +9,7 @@ describe("ReferencedRuleLink", () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
 
-    render(
-      <ReferencedRuleLink onClick={onClick}>
-        Spear
-      </ReferencedRuleLink>,
-    );
+    render(<ReferencedRuleLink onClick={onClick}>Spear</ReferencedRuleLink>);
 
     await user.click(screen.getByRole("button", { name: "Spear" }));
 

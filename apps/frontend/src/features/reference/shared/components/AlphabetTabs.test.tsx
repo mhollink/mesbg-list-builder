@@ -15,7 +15,9 @@ describe("AlphabetTabs", () => {
       />,
     );
 
-    expect(screen.getByRole("tablist", { name: "Profile index" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("tablist", { name: "Profile index" }),
+    ).toBeInTheDocument();
     expect(screen.getAllByRole("tab")).toHaveLength(26);
 
     expect(screen.getByRole("tab", { name: "A" })).toHaveAttribute(
@@ -50,12 +52,12 @@ describe("AlphabetTabs", () => {
     const onLetterChange = vi.fn();
 
     render(
-        <AlphabetTabs
-            activeLetter={false}
-            availableLetters={new Set(["A"])}
-            ariaLabel="Rule index"
-            onLetterChange={onLetterChange}
-        />,
+      <AlphabetTabs
+        activeLetter={false}
+        availableLetters={new Set(["A"])}
+        ariaLabel="Rule index"
+        onLetterChange={onLetterChange}
+      />,
     );
 
     expect(screen.getByRole("tab", { name: "A" })).toBeEnabled();

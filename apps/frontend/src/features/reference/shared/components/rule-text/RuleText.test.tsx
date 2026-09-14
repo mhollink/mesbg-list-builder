@@ -1,20 +1,21 @@
+import type { Theme } from "@mui/material/styles";
+
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import { RuleText } from "./RuleText.tsx";
 
-vi.mock('@mui/material/Typography', () => ({
+vi.mock("@mui/material/Typography", () => ({
   default: ({ component: Component, children, sx, ...props }: any) => {
     const mockTheme = {
-      appColors: { highlight: 'mocked-highlight-color' },
-    };
-    console.log(sx);
-    const resolvedSx = typeof sx === 'function' ? sx(mockTheme) : sx;
+      appColors: { highlight: "mocked-highlight-color" },
+    } as Theme;
+    const resolvedSx = typeof sx === "function" ? sx(mockTheme) : sx;
     return (
-        <Component data-sx={JSON.stringify(resolvedSx)} {...props}>
-          {children}
-        </Component>
+      <Component data-sx={JSON.stringify(resolvedSx)} {...props}>
+        {children}
+      </Component>
     );
   },
 }));
@@ -22,9 +23,7 @@ vi.mock('@mui/material/Typography', () => ({
 describe("RuleText", () => {
   test("renders separate paragraphs from newline-separated text", () => {
     const { container } = render(
-      <RuleText>
-        {"First paragraph.\nSecond paragraph."}
-      </RuleText>,
+      <RuleText>{"First paragraph.\nSecond paragraph."}</RuleText>,
     );
 
     expect(screen.getByText("First paragraph.")).toBeInTheDocument();
@@ -57,9 +56,7 @@ describe("RuleText", () => {
 
   test("renders keyword and errata inline markup", () => {
     render(
-      <RuleText>
-        {"A <b>Hero</b> gains <u>this updated wording</u>."}
-      </RuleText>,
+      <RuleText>{"A <b>Hero</b> gains <u>this updated wording</u>."}</RuleText>,
     );
 
     expect(screen.getByText("Hero").tagName).toBe("STRONG");
