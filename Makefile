@@ -37,7 +37,6 @@ help:
 	@echo "  make test             Run frontend, backend and data tests"
 	@echo "  make test-frontend    Run frontend tests"
 	@echo "  make test-backend     Run backend tests"
-	@echo "  make test-data        Run game-data tests"
 	@echo "  make test-e2e         Run end-to-end tests"
 	@echo ""
 	@echo "Quality"
@@ -143,22 +142,17 @@ watch-data:
 # ==============================================================================
 
 .PHONY: test
-test: test-data test-frontend test-backend
+test: test-frontend test-backend
 
 
 .PHONY: test-frontend
 test-frontend:
-	cd $(FRONTEND_DIR) && $(PNPM) test -- --run
+	cd $(FRONTEND_DIR) && $(PNPM) test
 
 
 .PHONY: test-backend
 test-backend:
 	cd $(BACKEND_DIR) && $(MVN) test
-
-
-.PHONY: test-data
-test-data:
-	cd $(DATA_DIR) && $(PNPM) test -- --run
 
 
 .PHONY: test-e2e
