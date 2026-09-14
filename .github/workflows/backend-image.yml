@@ -1,0 +1,50 @@
+name: Publish backend image
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "apps/backend/**"
+      - ".github/workflows/backend-image.yml"
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE: ghcr.io/mhollink/mesbg-list-builder-backend
+
+jobs:
+  publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/backend
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: maven
+          cache-dependency-path: apps/backend/pom.xml
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build, test and publish image
+        run: |
+          ./mvnw --batch-mode verify jib:build \
+            -Dimage="${IMAGE}:latest" \
+            -Djib.to.tags="sha-${GITHUB_SHA}"
