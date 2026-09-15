@@ -12,6 +12,7 @@ import {
   ReturningPlayerSection,
 } from "./sections/ReturningPlayerSection.tsx";
 import { StatusAndCommunitySection } from "./sections/StatusAndComunitySection.tsx";
+import {keycloak} from "~/features/account/auth/keycloak.ts";
 
 const demoRecentRosters: RecentRoster[] = [
   {
@@ -38,7 +39,7 @@ const demoRecentRosters: RecentRoster[] = [
 ];
 
 export function HomePage() {
-  const isReturningUser = true;
+  const isReturningUser = keycloak.authenticated;
   const recentRosters = demoRecentRosters;
 
   return (

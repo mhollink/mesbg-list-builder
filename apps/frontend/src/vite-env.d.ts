@@ -5,9 +5,9 @@ declare const RESOURCES_URL: string;
 declare const API_URL: string;
 
 interface ImportMetaEnv {
-  readonly VITE_FIREBASE_API_KEY: string;
-  readonly VITE_FIREBASE_APP_ID: string;
-  readonly VITE_FIREBASE_MESSAGE_SENDER_ID: string;
+  readonly VITE_KEYCLOAK_URL: string;
+  readonly VITE_KEYCLOAK_REALM: string;
+  readonly VITE_KEYCLOAK_CLIENT_ID: string;
 }
 
 interface ImportMeta {

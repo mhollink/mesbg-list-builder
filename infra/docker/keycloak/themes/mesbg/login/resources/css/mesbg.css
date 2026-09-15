@@ -1,0 +1,65 @@
+:root {
+    --mesbg-primary: #2867a8;
+    --mesbg-primary-hover: #205487;
+
+    --mesbg-background: #f5f5f5;
+    --mesbg-paper: #ffffff;
+
+    --mesbg-text-primary: rgba(0, 0, 0, 0.87);
+    --mesbg-text-secondary: rgba(0, 0, 0, 0.60);
+    --mesbg-divider: rgba(0, 0, 0, 0.12);
+
+    --keycloak-card-top-color: var(--mesbg-primary);
+
+    --pf-v5-global--primary-color--100: var(--mesbg-primary);
+    --pf-v5-global--primary-color--200: var(--mesbg-primary-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --mesbg-primary: #6aa7df;
+        --mesbg-primary-hover: #8abbea;
+
+        --mesbg-background: #121212;
+        --mesbg-paper: #1e1e1e;
+
+        --mesbg-text-primary: rgba(255, 255, 255, 0.87);
+        --mesbg-text-secondary: rgba(255, 255, 255, 0.60);
+        --mesbg-divider: rgba(255, 255, 255, 0.12);
+    }
+}
+
+.login-pf body {
+    background: var(--mesbg-background);
+    color: var(--mesbg-text-primary);
+}
+
+#kc-header-wrapper {
+    color: var(--mesbg-text-primary) !important;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.pf-v5-c-login__container {
+    grid-template-columns: minmax(0, 30rem);
+}
+
+.pf-v5-c-login__main {
+    background: var(--mesbg-paper);
+    border: 1px solid var(--mesbg-divider);
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+.pf-v5-c-login__main-header {
+    border-top-color: var(--mesbg-primary);
+}
+
+.pf-v5-c-button.pf-m-primary {
+    background-color: var(--mesbg-primary);
+    border-radius: 4px;
+}
+
+.pf-v5-c-button.pf-m-primary:hover {
+    background-color: var(--mesbg-primary-hover);
+}
