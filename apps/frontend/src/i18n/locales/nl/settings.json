@@ -52,5 +52,30 @@
       "phrase": "Ik begrijp het",
       "confirm": "Vertaalde regels inschakelen"
     }
+  },
+  "account": {
+    "title": "Account",
+    "description": "Beheer je account en inloginstellingen.",
+    "details": {
+      "title": "Accountgegevens",
+      "description": "De accountgegevens die worden gebruikt door MESBG List Builder.",
+      "email": "E-mailadres"
+    },
+    "security": {
+      "title": "Inloggen en beveiliging",
+      "description": "Beheer je wachtwoord, gekoppelde inlogmethodes en andere beveiligingsinstellingen.",
+      "manage": "Account beheren"
+    },
+    "session": {
+      "title": "Sessie",
+      "description": "Log uit bij MESBG List Builder op dit apparaat.",
+      "logout": "Uitloggen"
+    },
+    "signedOut": {
+      "title": "Je bent niet ingelogd",
+      "description": "Log in of maak een account aan om je MESBG-gegevens op te slaan en te synchroniseren.",
+      "signIn": "Inloggen",
+      "createAccount": "Account aanmaken"
+    }
   }
 }

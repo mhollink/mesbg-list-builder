@@ -14,6 +14,12 @@ import { keycloak } from "~/features/account/auth/keycloak.ts";
 export function HeroSection({ returningUser }: { returningUser: boolean }) {
   const { t } = useTranslation("home");
 
+  const handleLogin = () => {
+    void keycloak.login({
+      redirectUri: window.location.href,
+    });
+  };
+
   return (
     <Box>
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 14 } }}>
@@ -58,12 +64,7 @@ export function HeroSection({ returningUser }: { returningUser: boolean }) {
                 {returningUser ? (
                   <>
                     <Button
-                      // href="/armies/rosters/new"
-                      onClick={() =>
-                        void keycloak.logout({
-                          redirectUri: window.location.origin,
-                        })
-                      }
+                      href="/armies/rosters/new"
                       size="large"
                       variant="contained"
                       endIcon={<ArrowForwardIcon />}
@@ -81,20 +82,19 @@ export function HeroSection({ returningUser }: { returningUser: boolean }) {
                 ) : (
                   <>
                     <Button
-                      // href="/login"
                       size="large"
                       variant="contained"
                       endIcon={<ArrowForwardIcon />}
-                      onClick={() =>
-                        void keycloak.login({
-                          redirectUri: window.location.origin,
-                        })
-                      }
+                      onClick={handleLogin}
                     >
                       {" "}
                       {t("hero.cta.sign-in")}
                     </Button>
-                    <Button href="/register" size="large" variant="outlined">
+                    <Button
+                      size="large"
+                      variant="outlined"
+                      onClick={handleLogin}
+                    >
                       {t("hero.cta.create-account")}
                     </Button>
                   </>

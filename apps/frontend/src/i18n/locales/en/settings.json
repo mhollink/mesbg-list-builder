@@ -52,5 +52,30 @@
       "phrase": "I understand",
       "confirm": "Enable translated rules"
     }
+  },
+  "account": {
+    "title": "Account",
+    "description": "Manage your account and sign-in settings.",
+    "details": {
+      "title": "Account details",
+      "description": "Your account information used by MESBG List Builder.",
+      "email": "Email address"
+    },
+    "security": {
+      "title": "Sign-in & security",
+      "description": "Manage your password, connected sign-in methods and other security settings.",
+      "manage": "Manage account"
+    },
+    "session": {
+      "title": "Session",
+      "description": "Sign out of MESBG List Builder on this device.",
+      "logout": "Sign out"
+    },
+    "signedOut": {
+      "title": "You're not signed in",
+      "description": "Sign in or create an account to save and synchronize your MESBG data.",
+      "signIn": "Sign in",
+      "createAccount": "Create account"
+    }
   }
 }
