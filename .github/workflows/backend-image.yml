@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - "apps/backend/**"
+      - "infra/docker/keycloak/**"
       - ".github/workflows/backend-image.yml"
 
 permissions:
@@ -56,6 +57,9 @@ jobs:
     environment: production
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh
@@ -68,12 +72,66 @@ jobs:
           
           chmod 600 ~/.ssh/id_ed25519
 
-      - name: Deploy
+      - name: Prepare Keycloak directories
         run: |
           ssh "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" <<'EOF'
+            mkdir -p /opt/mesbg/keycloak/import
+            mkdir -p /opt/mesbg/keycloak/themes
+          EOF
+
+      - name: Sync Keycloak configuration
+        id: keycloak
+        run: |
+          IMPORT_CHANGES="$(
+            rsync \
+              -rlz \
+              --delete \
+              --omit-dir-times \
+              --itemize-changes \
+              -e "ssh -i ~/.ssh/id_ed25519" \
+              docker/keycloak/import/ \
+              "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/mesbg/keycloak/import/"
+          )"
+
+          THEME_CHANGES="$(
+            rsync \
+              -rlz \
+              --delete \
+              --omit-dir-times \
+              --itemize-changes \
+              -e "ssh -i ~/.ssh/id_ed25519" \
+              docker/keycloak/themes/ \
+              "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/mesbg/keycloak/themes/"
+          )"
+
+          printf '%s\n' "$IMPORT_CHANGES"
+          printf '%s\n' "$THEME_CHANGES"
+
+          if [[ -n "$IMPORT_CHANGES" || -n "$THEME_CHANGES" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy
+        env:
+          KEYCLOAK_CHANGED: ${{ steps.keycloak.outputs.changed }}
+        run: |
+          ssh "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
+            "KEYCLOAK_CHANGED='${KEYCLOAK_CHANGED}' bash -s" <<'EOF'
+            set -euo pipefail
+
             cd /opt/mesbg
           
-            docker compose pull backend
+            docker compose pull backend keycloak
             docker compose up -d backend
+
+            if [[ "$KEYCLOAK_CHANGED" == "true" ]]; then
+              echo "Keycloak configuration changed, recreating container..."
+              docker compose up -d --force-recreate keycloak
+            else
+              docker compose up -d keycloak
+            fi
+
             docker image prune -f
           EOF

@@ -9,7 +9,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { RosterPreviewCard } from "../components/RosterPreviewCard.tsx";
-import {keycloak} from "~/features/account/auth/keycloak.ts";
+import { keycloak } from "~/features/account/auth/keycloak.ts";
 
 export function HeroSection({ returningUser }: { returningUser: boolean }) {
   const { t } = useTranslation("home");
@@ -59,9 +59,11 @@ export function HeroSection({ returningUser }: { returningUser: boolean }) {
                   <>
                     <Button
                       // href="/armies/rosters/new"
-                        onClick={() =>       void keycloak.logout({
+                      onClick={() =>
+                        void keycloak.logout({
                           redirectUri: window.location.origin,
-                        })}
+                        })
+                      }
                       size="large"
                       variant="contained"
                       endIcon={<ArrowForwardIcon />}
@@ -84,9 +86,9 @@ export function HeroSection({ returningUser }: { returningUser: boolean }) {
                       variant="contained"
                       endIcon={<ArrowForwardIcon />}
                       onClick={() =>
-                          void keycloak.login({
-                            redirectUri: window.location.origin,
-                          })
+                        void keycloak.login({
+                          redirectUri: window.location.origin,
+                        })
                       }
                     >
                       {" "}

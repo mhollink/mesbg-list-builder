@@ -12,7 +12,7 @@ import {
   ReturningPlayerSection,
 } from "./sections/ReturningPlayerSection.tsx";
 import { StatusAndCommunitySection } from "./sections/StatusAndComunitySection.tsx";
-import {keycloak} from "~/features/account/auth/keycloak.ts";
+import { keycloak } from "~/features/account/auth/keycloak.ts";
 
 const demoRecentRosters: RecentRoster[] = [
   {

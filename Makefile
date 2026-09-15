@@ -165,7 +165,7 @@ test-e2e:
 # ==============================================================================
 
 .PHONY: format
-format: format-frontend format-data
+format: format-data format-frontend format-backend
 
 
 .PHONY: format-frontend
@@ -176,6 +176,10 @@ format-frontend:
 .PHONY: format-data
 format-data:
 	cd $(DATA_DIR) && $(PNPM) format
+
+.PHONY: format-backend
+format-backend:
+	cd $(BACKEND_DIR) && $(MVN) spotless:apply
 
 
 .PHONY: typecheck
