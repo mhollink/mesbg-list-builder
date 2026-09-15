@@ -3,6 +3,8 @@ package com.mesbg.listbuilder.config;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 import java.util.List;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,6 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+@Slf4j
 @Configuration
 public class SecurityConfig {
 
@@ -39,7 +42,9 @@ public class SecurityConfig {
   UrlBasedCorsConfigurationSource corsConfigurationSource(CorsProperties corsProperties) {
     var configuration = new CorsConfiguration();
 
-    configuration.setAllowedOrigins(corsProperties.allowedOrigins());
+    List<String> origins = corsProperties.allowedOrigins();
+    log.info("CORS origins allowed: {}", origins);
+    configuration.setAllowedOrigins(origins);
     configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
     configuration.setAllowCredentials(false);
