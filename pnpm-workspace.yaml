@@ -1,6 +1,9 @@
 packages:
-  - "apps/frontend"
   - "data"
+  - "api"
+  - "apps/frontend"
+  - "tests/e2e"
 
 allowBuilds:
+  '@openapitools/openapi-generator-cli': true
   esbuild: true

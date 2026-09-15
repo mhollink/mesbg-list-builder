@@ -1,0 +1,26 @@
+{
+  "name": "@mlb/api-client",
+  "private": true,
+  "type": "module",
+  "version": "2.0.0-alpha.14",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "generate": "rimraf src/generated && openapi-generator-cli generate -c generator/typescript-fetch.yaml",
+    "build": "pnpm generate && tsc -p tsconfig.json",
+    "clean": "rimraf dist src/generated"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "2.40.1",
+    "rimraf": "^6.0.0",
+    "typescript": "~7.0.2"
+  }
+}

@@ -1,3 +1,20 @@
 spring:
   application:
     name: api
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/mesbg}
+    username: ${SPRING_DATASOURCE_USERNAME:mesbg}
+    password: ${SPRING_DATASOURCE_PASSWORD:mesbg}
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8081/realms/mesbg}

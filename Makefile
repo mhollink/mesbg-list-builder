@@ -1,3 +1,4 @@
+API_DIR := api
 FRONTEND_DIR := apps/frontend
 BACKEND_DIR := apps/backend
 DATA_DIR := data
@@ -19,7 +20,7 @@ help:
 	@echo "MESBG List Builder"
 	@echo ""
 	@echo "Setup"
-	@echo "  make setup            Install dependencies, start infrastructure and build data"
+	@echo "  make setup            Install dependencies, generates api-client and starts infrastructure"
 	@echo "  make install          Install all project dependencies"
 	@echo ""
 	@echo "Development"
@@ -41,7 +42,6 @@ help:
 	@echo ""
 	@echo "Quality"
 	@echo "  make format           Run all linters and formatters"
-	@echo "  make typecheck        Run TypeScript type checks"
 	@echo "  make verify           Run format, typecheck and tests"
 	@echo ""
 	@echo "Build"
@@ -62,7 +62,7 @@ help:
 # ==============================================================================
 
 .PHONY: setup
-setup: install start data
+setup: install build start
 	@echo ""
 	@echo "Project setup complete."
 	@echo ""
@@ -70,30 +70,28 @@ setup: install start data
 	@echo "  make backend"
 	@echo "  make frontend"
 
-
 .PHONY: install
-install: install-frontend install-data install-e2e install-backend
+install: install-api install-data install-frontend install-backend install-e2e
 
-
-.PHONY: install-frontend
-install-frontend:
-	cd $(FRONTEND_DIR) && $(PNPM) install
-
+.PHONY: install-api
+install-api:
+	cd $(API_DIR) && $(PNPM) install
 
 .PHONY: install-data
 install-data:
 	cd $(DATA_DIR) && $(PNPM) install
 
-
-.PHONY: install-e2e
-install-e2e:
-	cd $(E2E_DIR) && $(PNPM) install
-
+.PHONY: install-frontend
+install-frontend:
+	cd $(FRONTEND_DIR) && $(PNPM) install
 
 .PHONY: install-backend
 install-backend:
 	cd $(BACKEND_DIR) && $(MVN) dependency:go-offline
 
+.PHONY: install-e2e
+install-e2e:
+	cd $(E2E_DIR) && $(PNPM) install
 
 # ==============================================================================
 # Development
@@ -101,27 +99,30 @@ install-backend:
 
 .PHONY: start
 start:
-	$(DOCKER_COMPOSE) up -d
-
+	$(DOCKER_COMPOSE) up -d database keycloak
 
 .PHONY: stop
 stop:
 	$(DOCKER_COMPOSE) down
 
-
 .PHONY: restart
 restart: stop start
-
 
 .PHONY: frontend
 frontend:
 	cd $(FRONTEND_DIR) && $(PNPM) dev
 
-
 .PHONY: backend
 backend:
 	cd $(BACKEND_DIR) && $(MVN) spring-boot:run
 
+# ==============================================================================
+# API
+# ==============================================================================
+
+.PHONY: api
+api:
+	cd $(API_DIR) && $(PNPM) build
 
 # ==============================================================================
 # Game data
@@ -131,11 +132,9 @@ backend:
 data:
 	cd $(DATA_DIR) && $(PNPM) build
 
-
 .PHONY: watch-data
 watch-data:
 	cd $(DATA_DIR) && $(PNPM) build && $(PNPM) build:watch
-
 
 # ==============================================================================
 # Testing
@@ -144,21 +143,17 @@ watch-data:
 .PHONY: test
 test: test-frontend test-backend
 
-
 .PHONY: test-frontend
 test-frontend:
 	cd $(FRONTEND_DIR) && $(PNPM) test
-
 
 .PHONY: test-backend
 test-backend:
 	cd $(BACKEND_DIR) && $(MVN) test
 
-
 .PHONY: test-e2e
 test-e2e:
 	cd $(E2E_DIR) && $(PNPM) test
-
 
 # ==============================================================================
 # Quality
@@ -167,11 +162,9 @@ test-e2e:
 .PHONY: format
 format: format-data format-frontend format-backend
 
-
 .PHONY: format-frontend
 format-frontend:
 	cd $(FRONTEND_DIR) && $(PNPM) format
-
 
 .PHONY: format-data
 format-data:
@@ -181,24 +174,9 @@ format-data:
 format-backend:
 	cd $(BACKEND_DIR) && $(MVN) spotless:apply
 
-
-.PHONY: typecheck
-typecheck: typecheck-frontend typecheck-data
-
-
-.PHONY: typecheck-frontend
-typecheck-frontend:
-	cd $(FRONTEND_DIR) && $(PNPM) typecheck
-
-
-.PHONY: typecheck-data
-typecheck-data:
-	cd $(DATA_DIR) && $(PNPM) typecheck
-
-
+# Only testing frontend, backend tests are also part of build.
 .PHONY: verify
-verify: format typecheck test
-
+verify: format test-frontend build
 
 # ==============================================================================
 # Build
@@ -207,11 +185,9 @@ verify: format typecheck test
 .PHONY: build
 build: data build-frontend build-backend
 
-
 .PHONY: build-frontend
-build-frontend:
+build-frontend: api
 	cd $(FRONTEND_DIR) && $(PNPM) build
-
 
 .PHONY: build-backend
 build-backend:
@@ -223,13 +199,11 @@ build-backend:
 
 .PHONY: db-start
 db-start:
-	$(DOCKER_COMPOSE) up -d db
-
+	$(DOCKER_COMPOSE) up -d database
 
 .PHONY: db-stop
 db-stop:
-	$(DOCKER_COMPOSE) stop db
-
+	$(DOCKER_COMPOSE) stop database
 
 # ==============================================================================
 # Cleanup
@@ -238,21 +212,17 @@ db-stop:
 .PHONY: clean
 clean: clean-frontend clean-backend clean-data
 
-
 .PHONY: clean-frontend
 clean-frontend:
 	rm -rf $(FRONTEND_DIR)/dist
-
 
 .PHONY: clean-backend
 clean-backend:
 	cd $(BACKEND_DIR) && $(MVN) clean
 
-
 .PHONY: clean-data
 clean-data:
 	rm -rf $(DATA_DIR)/generated
-
 
 # ==============================================================================
 # Cleanup

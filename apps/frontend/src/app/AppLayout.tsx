@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink, Outlet } from "react-router";
 import MenuOutlined from "@mui/icons-material/MenuOutlined";
@@ -17,6 +17,8 @@ import Typography from "@mui/material/Typography";
 
 import { QuickLookupSearch } from "../features/search/QuickLookupSearch.tsx";
 import { navigation } from "./navigation";
+import { accountApi } from "~/api/api.ts";
+import { keycloak } from "~/features/account/auth/keycloak.ts";
 import { DrawerStack } from "~/features/drawer-stack/DrawerStack.tsx";
 
 const drawerWidth = 260;
@@ -24,6 +26,12 @@ const drawerWidth = 260;
 export const AppLayout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useTranslation("navigation");
+
+  useEffect(() => {
+    if (keycloak.authenticated) {
+      accountApi.getCurrentUser().then(console.log).catch(console.error);
+    }
+  }, []);
 
   const drawer = (
     <Box

@@ -1,0 +1,11 @@
+generatorName: typescript-fetch
+
+inputSpec: openapi.yaml
+outputDir: src/generated
+
+additionalProperties:
+  supportsES6: true
+  useSingleRequestParameter: true
+  dateLibrary: string
+  disallowAdditionalPropertiesIfNotPresent: false
+  hideGenerationTimestamp: true

@@ -1,0 +1,23 @@
+openapi: 3.0.3
+
+info:
+  title: MESBG List Builder API
+  version: 2.0.0
+
+servers:
+  - url: /
+
+tags:
+  - name: Account
+    description: Operations for the authenticated user.
+
+paths:
+  /api/v1/me:
+    $ref: "./paths/account.yaml#/Me"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
