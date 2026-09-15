@@ -5,7 +5,6 @@ import static org.springframework.security.config.Customizer.withDefaults;
 import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -37,22 +36,12 @@ public class SecurityConfig {
   }
 
   @Bean
-  UrlBasedCorsConfigurationSource corsConfigurationSource() {
+  UrlBasedCorsConfigurationSource corsConfigurationSource(CorsProperties corsProperties) {
     var configuration = new CorsConfiguration();
 
-    configuration.setAllowedOrigins(List.of("http://localhost:5173"));
-
-    configuration.setAllowedMethods(
-        List.of(
-            HttpMethod.GET.name(),
-            HttpMethod.POST.name(),
-            HttpMethod.PUT.name(),
-            HttpMethod.PATCH.name(),
-            HttpMethod.DELETE.name(),
-            HttpMethod.OPTIONS.name()));
-
+    configuration.setAllowedOrigins(corsProperties.allowedOrigins());
+    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
-
     configuration.setAllowCredentials(false);
     configuration.setMaxAge(3600L);
 
