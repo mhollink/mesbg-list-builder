@@ -89,7 +89,7 @@ jobs:
               --omit-dir-times \
               --itemize-changes \
               -e "ssh -i ~/.ssh/id_ed25519" \
-              docker/keycloak/import/ \
+              infra/docker/keycloak/import/ \
               "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/mesbg/keycloak/import/"
           )"
 
@@ -100,7 +100,7 @@ jobs:
               --omit-dir-times \
               --itemize-changes \
               -e "ssh -i ~/.ssh/id_ed25519" \
-              docker/keycloak/themes/ \
+              infra/docker/keycloak/themes/ \
               "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/mesbg/keycloak/themes/"
           )"
 
