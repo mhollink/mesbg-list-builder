@@ -2,7 +2,7 @@
   "private": true,
   "name": "@mlb/frontend",
   "type": "module",
-  "version": "2.0.0-alpha.14",
+  "version": "2.0.0-alpha.15",
   "scripts": {
     "dev": "vite",
     "format": "biome check --write .",
@@ -11,9 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mlb/api-client": "workspace:*",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@mlb/api-client": "workspace:*",
     "@mui/icons-material": "^9.3.1",
     "@mui/material": "^9.3.1",
     "@reduxjs/toolkit": "^2.12.0",

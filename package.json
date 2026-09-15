@@ -1,7 +1,7 @@
 {
   "name": "@mlb/app",
   "private": true,
-  "version": "2.0.0-alpha.14",
+  "version": "2.0.0-alpha.15",
   "packageManager": "pnpm@11.26.0",
   "devDependencies": {
     "git-cliff": "^2.13.1"

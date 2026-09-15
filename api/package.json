@@ -2,7 +2,7 @@
   "name": "@mlb/api-client",
   "private": true,
   "type": "module",
-  "version": "2.0.0-alpha.14",
+  "version": "2.0.0-alpha.15",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
