@@ -1,8 +1,7 @@
 package com.mesbg.listbuilder.armies.roster.persistence;
 
-import java.util.Optional;
-
 import com.mesbg.listbuilder.armies.roster.model.RosterUnitEntity;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -33,7 +32,5 @@ public interface RosterUnitRepository extends JpaRepository<RosterUnitEntity, Lo
         and unit.warband.roster.user.id = :userId
       """)
   Optional<RosterUnitEntity> findOwnedUnitInRoster(
-      @Param("unitId") Long unitId,
-      @Param("rosterId") Long rosterId,
-      @Param("userId") Long userId);
+      @Param("unitId") Long unitId, @Param("rosterId") Long rosterId, @Param("userId") Long userId);
 }

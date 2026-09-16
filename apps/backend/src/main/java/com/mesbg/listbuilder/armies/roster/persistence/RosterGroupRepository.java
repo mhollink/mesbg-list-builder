@@ -1,9 +1,8 @@
 package com.mesbg.listbuilder.armies.roster.persistence;
 
+import com.mesbg.listbuilder.armies.roster.model.RosterGroupEntity;
 import java.util.List;
 import java.util.Optional;
-
-import com.mesbg.listbuilder.armies.roster.model.RosterGroupEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RosterGroupRepository extends JpaRepository<RosterGroupEntity, Long> {

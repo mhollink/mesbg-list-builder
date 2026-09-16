@@ -1,16 +1,16 @@
 package com.mesbg.listbuilder.armies.roster.api;
 
-import java.util.List;
-
 import com.mesbg.listbuilder.generated.api.RosterGroupsApi;
 import com.mesbg.listbuilder.generated.model.CreateRosterGroupRequest;
 import com.mesbg.listbuilder.generated.model.RosterGroup;
 import com.mesbg.listbuilder.generated.model.UpdateRosterGroupRequest;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 
-public class RosterGroupsController implements RosterGroupsApi  {
+public class RosterGroupsController implements RosterGroupsApi {
   @Override
-  public ResponseEntity<RosterGroup> createRosterGroup(CreateRosterGroupRequest createRosterGroupRequest) {
+  public ResponseEntity<RosterGroup> createRosterGroup(
+      CreateRosterGroupRequest createRosterGroupRequest) {
     return null;
   }
 
@@ -35,7 +35,8 @@ public class RosterGroupsController implements RosterGroupsApi  {
   }
 
   @Override
-  public ResponseEntity<RosterGroup> updateRosterGroup(Long groupId, UpdateRosterGroupRequest updateRosterGroupRequest) {
+  public ResponseEntity<RosterGroup> updateRosterGroup(
+      Long groupId, UpdateRosterGroupRequest updateRosterGroupRequest) {
     return null;
   }
 }

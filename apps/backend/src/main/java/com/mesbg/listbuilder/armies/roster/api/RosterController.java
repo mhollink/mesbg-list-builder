@@ -1,7 +1,5 @@
 package com.mesbg.listbuilder.armies.roster.api;
 
-import java.util.List;
-
 import com.mesbg.listbuilder.generated.api.RostersApi;
 import com.mesbg.listbuilder.generated.model.CreateFollowerRequest;
 import com.mesbg.listbuilder.generated.model.CreateRosterRequest;
@@ -13,6 +11,7 @@ import com.mesbg.listbuilder.generated.model.RosterUnit;
 import com.mesbg.listbuilder.generated.model.UpdateRosterRequest;
 import com.mesbg.listbuilder.generated.model.UpdateRosterUnitRequest;
 import com.mesbg.listbuilder.generated.model.Warband;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 public class RosterController implements RostersApi {
@@ -32,12 +31,14 @@ public class RosterController implements RostersApi {
   }
 
   @Override
-  public ResponseEntity<Warband> createWarband(Long rosterId, CreateWarbandRequest createWarbandRequest) {
+  public ResponseEntity<Warband> createWarband(
+      Long rosterId, CreateWarbandRequest createWarbandRequest) {
     return null;
   }
 
   @Override
-  public ResponseEntity<RosterUnit> createWarbandFollower(Long rosterId, Long warbandId, CreateFollowerRequest createFollowerRequest) {
+  public ResponseEntity<RosterUnit> createWarbandFollower(
+      Long rosterId, Long warbandId, CreateFollowerRequest createFollowerRequest) {
     return null;
   }
 
@@ -72,7 +73,8 @@ public class RosterController implements RostersApi {
   }
 
   @Override
-  public ResponseEntity<RosterUnit> replaceWarbandLeader(Long rosterId, Long warbandId, LeaderInput leaderInput) {
+  public ResponseEntity<RosterUnit> replaceWarbandLeader(
+      Long rosterId, Long warbandId, LeaderInput leaderInput) {
     return null;
   }
 
@@ -82,12 +84,14 @@ public class RosterController implements RostersApi {
   }
 
   @Override
-  public ResponseEntity<RosterSummary> updateRoster(Long rosterId, UpdateRosterRequest updateRosterRequest) {
+  public ResponseEntity<RosterSummary> updateRoster(
+      Long rosterId, UpdateRosterRequest updateRosterRequest) {
     return null;
   }
 
   @Override
-  public ResponseEntity<RosterUnit> updateWarbandUnit(Long rosterId, Long warbandId, Long unitId, UpdateRosterUnitRequest updateRosterUnitRequest) {
+  public ResponseEntity<RosterUnit> updateWarbandUnit(
+      Long rosterId, Long warbandId, Long unitId, UpdateRosterUnitRequest updateRosterUnitRequest) {
     return null;
   }
 }
