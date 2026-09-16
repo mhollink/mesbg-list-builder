@@ -121,8 +121,15 @@ backend:
 # ==============================================================================
 
 .PHONY: api
-api:
+api: build-typescript-api-client build-java-api-server
+
+.PHONY: build-typescript-api-client
+build-typescript-api-client:
 	cd $(API_DIR) && $(PNPM) build
+
+.PHONY: build-java-api-server
+build-java-api-server:
+	cd $(BACKEND_DIR) && $(MVN) generate-sources -Dspotless.skip=true
 
 # ==============================================================================
 # Game data

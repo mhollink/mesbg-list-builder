@@ -1,0 +1,308 @@
+RosterIdParameter:
+  name: rosterId
+  in: path
+  required: true
+  description: Identifier of the roster.
+  schema:
+    type: integer
+    format: int64
+
+WarbandIdParameter:
+  name: warbandId
+  in: path
+  required: true
+  description: Identifier of the warband.
+  schema:
+    type: integer
+    format: int64
+
+UnitIdParameter:
+  name: unitId
+  in: path
+  required: true
+  description: Identifier of the unit selection.
+  schema:
+    type: integer
+    format: int64
+
+RosterSummary:
+  type: object
+  required:
+    - id
+    - name
+    - armyListId
+    - groupId
+    - points
+    - warbandCount
+    - modelCount
+    - bowCount
+    - throwingWeaponCount
+    - createdAt
+    - updatedAt
+
+  properties:
+    id:
+      type: integer
+      format: int64
+
+    name:
+      type: string
+
+    armyListId:
+      type: string
+      description: Identifier of the army list used by this roster.
+
+    groupId:
+      type: integer
+      format: int64
+      nullable: true
+      description: Group containing the roster, or null when the roster is at the root.
+
+    points:
+      type: integer
+      minimum: 0
+      description: Derived total points value of the roster.
+
+    warbandCount:
+      type: integer
+      minimum: 0
+      description: Number of warbands in the roster.
+
+    modelCount:
+      type: integer
+      minimum: 0
+      description: Total number of models, calculated as the sum of all unit selection quantities.
+
+    bowCount:
+      type: integer
+      minimum: 0
+      description: Number of models in the roster equipped with a bow for roster composition purposes.
+
+    throwingWeaponCount:
+      type: integer
+      minimum: 0
+      description: Number of models in the roster equipped with a throwing weapon.
+
+    createdAt:
+      type: string
+      format: date-time
+
+    updatedAt:
+      type: string
+      format: date-time
+
+Roster:
+  type: object
+  required:
+    - id
+    - name
+    - armyListId
+    - groupId
+    - generalUnitId
+    - points
+    - warbandCount
+    - modelCount
+    - bowCount
+    - throwingWeaponCount
+    - warbands
+    - createdAt
+    - updatedAt
+
+  properties:
+    id:
+      type: integer
+      format: int64
+
+    name:
+      type: string
+
+    armyListId:
+      type: string
+      description: Identifier of the army list used by this roster.
+
+    groupId:
+      type: integer
+      format: int64
+      nullable: true
+      description: Group containing the roster, or null when the roster is at the root.
+
+    generalUnitId:
+      type: integer
+      format: int64
+      nullable: true
+      description: Unit selection chosen as the roster general, or null when no general has been selected.
+
+    points:
+      type: integer
+      minimum: 0
+      description: Derived total points value of the roster.
+
+    warbandCount:
+      type: integer
+      minimum: 0
+
+    modelCount:
+      type: integer
+      minimum: 0
+
+    bowCount:
+      type: integer
+      minimum: 0
+
+    throwingWeaponCount:
+      type: integer
+      minimum: 0
+
+    warbands:
+      type: array
+      items:
+        $ref: "#/Warband"
+
+    createdAt:
+      type: string
+      format: date-time
+
+    updatedAt:
+      type: string
+      format: date-time
+
+CreateRosterRequest:
+  type: object
+  required:
+    - name
+    - armyListId
+
+  properties:
+    name:
+      type: string
+      minLength: 1
+      maxLength: 255
+
+    armyListId:
+      type: string
+      minLength: 1
+
+    groupId:
+      type: integer
+      format: int64
+      nullable: true
+      description: Optional initial group assignment.
+
+UpdateRosterRequest:
+  type: object
+  minProperties: 1
+
+  properties:
+    name:
+      type: string
+      minLength: 1
+      maxLength: 255
+
+Warband:
+  type: object
+  required:
+    - id
+    - leader
+    - followers
+
+  properties:
+    id:
+      type: integer
+      format: int64
+
+    leader:
+      $ref: "#/RosterUnit"
+
+    followers:
+      type: array
+      items:
+        $ref: "#/RosterUnit"
+
+RosterUnit:
+  type: object
+  required:
+    - id
+    - profileId
+    - quantity
+    - optionIds
+
+  properties:
+    id:
+      type: integer
+      format: int64
+
+    profileId:
+      type: string
+
+    quantity:
+      type: integer
+      minimum: 1
+
+    optionIds:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+
+LeaderInput:
+  type: object
+  required:
+    - profileId
+    - optionIds
+
+  properties:
+    profileId:
+      type: string
+      minLength: 1
+
+    optionIds:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+
+CreateWarbandRequest:
+  type: object
+  required:
+    - leader
+
+  properties:
+    leader:
+      $ref: "#/LeaderInput"
+
+CreateFollowerRequest:
+  type: object
+  required:
+    - profileId
+    - quantity
+    - optionIds
+
+  properties:
+    profileId:
+      type: string
+      minLength: 1
+
+    quantity:
+      type: integer
+      minimum: 1
+
+    optionIds:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+
+UpdateRosterUnitRequest:
+  type: object
+  minProperties: 1
+
+  properties:
+    quantity:
+      type: integer
+      minimum: 1
+
+    optionIds:
+      type: array
+      uniqueItems: true
+      items:
+        type: string

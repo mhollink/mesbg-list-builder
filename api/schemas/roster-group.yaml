@@ -1,0 +1,66 @@
+GroupIdParameter:
+  name: groupId
+  in: path
+  required: true
+  description: Identifier of the roster group.
+  schema:
+    type: integer
+    format: int64
+
+ParentGroupIdParameter:
+  name: parentGroupId
+  in: path
+  required: true
+  description: Identifier of the new parent roster group.
+  schema:
+    type: integer
+    format: int64
+
+RosterGroup:
+  type: object
+  required:
+    - id
+    - name
+    - children
+
+  properties:
+    id:
+      type: integer
+      format: int64
+
+    name:
+      type: string
+
+    children:
+      type: array
+      description: Direct child groups.
+      items:
+        $ref: "#/RosterGroup"
+
+CreateRosterGroupRequest:
+  type: object
+  required:
+    - name
+
+  properties:
+    name:
+      type: string
+      minLength: 1
+      maxLength: 255
+
+    parentGroupId:
+      type: integer
+      format: int64
+      nullable: true
+      description: Optional parent group. Omit or set to null to create the group at the root.
+
+UpdateRosterGroupRequest:
+  type: object
+  required:
+    - name
+
+  properties:
+    name:
+      type: string
+      minLength: 1
+      maxLength: 255
