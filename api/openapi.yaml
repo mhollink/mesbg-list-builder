@@ -10,10 +10,59 @@ servers:
 tags:
   - name: Account
     description: Operations for the authenticated user.
+  - name: Rosters
+    description: Operations for managing rosters owned by the authenticated user.
+  - name: Roster Groups
+    description: Operations for organizing rosters in hierarchical groups.
 
 paths:
   /api/v1/me:
     $ref: "./paths/account.yaml#/Me"
+
+  /api/v1/rosters:
+    $ref: "./paths/rosters.yaml#/Rosters"
+
+  /api/v1/rosters/{rosterId}:
+    $ref: "./paths/rosters.yaml#/Roster"
+
+  /api/v1/rosters/{rosterId}/group/{groupId}:
+    $ref: "./paths/rosters.yaml#/RosterGroupAssignment"
+
+  /api/v1/rosters/{rosterId}/group:
+    $ref: "./paths/rosters.yaml#/RosterGroupRemoval"
+
+  /api/v1/rosters/{rosterId}/general/{unitId}:
+    $ref: "./paths/rosters.yaml#/RosterGeneralAssignment"
+
+  /api/v1/rosters/{rosterId}/general:
+    $ref: "./paths/rosters.yaml#/RosterGeneralRemoval"
+
+  /api/v1/rosters/{rosterId}/warbands:
+    $ref: "./paths/rosters.yaml#/RosterWarbands"
+
+  /api/v1/rosters/{rosterId}/warbands/{warbandId}:
+    $ref: "./paths/rosters.yaml#/RosterWarband"
+
+  /api/v1/rosters/{rosterId}/warbands/{warbandId}/leader:
+    $ref: "./paths/rosters.yaml#/RosterWarbandLeader"
+
+  /api/v1/rosters/{rosterId}/warbands/{warbandId}/followers:
+    $ref: "./paths/rosters.yaml#/RosterWarbandFollowers"
+
+  /api/v1/rosters/{rosterId}/warbands/{warbandId}/units/{unitId}:
+    $ref: "./paths/rosters.yaml#/RosterWarbandUnit"
+
+  /api/v1/roster-groups:
+    $ref: "./paths/roster-groups.yaml#/RosterGroups"
+
+  /api/v1/roster-groups/{groupId}:
+    $ref: "./paths/roster-groups.yaml#/RosterGroup"
+
+  /api/v1/roster-groups/{groupId}/parent/{parentGroupId}:
+    $ref: "./paths/roster-groups.yaml#/RosterGroupParentAssignment"
+
+  /api/v1/roster-groups/{groupId}/parent:
+    $ref: "./paths/roster-groups.yaml#/RosterGroupParentRemoval"
 
 components:
   securitySchemes:

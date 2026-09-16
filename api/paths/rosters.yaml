@@ -1,0 +1,443 @@
+Rosters:
+  get:
+    tags:
+      - Rosters
+    operationId: listRosters
+    summary: List rosters
+    description: Returns summary data for all rosters owned by the authenticated user.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "200":
+        description: Roster summaries.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../schemas/roster.yaml#/RosterSummary"
+
+      "401":
+        description: Authentication is required.
+
+  post:
+    tags:
+      - Rosters
+    operationId: createRoster
+    summary: Create a roster
+    description: Creates an empty roster for the authenticated user.
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/CreateRosterRequest"
+
+    responses:
+      "201":
+        description: Roster created.
+        headers:
+          Location:
+            description: Location of the created roster.
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/Roster"
+
+      "400":
+        description: The roster payload is invalid.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: The requested roster group does not exist.
+
+Roster:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+
+  get:
+    tags:
+      - Rosters
+    operationId: getRoster
+    summary: Get a roster
+    description: Returns the complete roster owned by the authenticated user.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "200":
+        description: Requested roster.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/Roster"
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+  patch:
+    tags:
+      - Rosters
+    operationId: updateRoster
+    summary: Update roster metadata
+    description: Updates mutable non-relational roster metadata, currently the roster name.
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/UpdateRosterRequest"
+
+    responses:
+      "200":
+        description: Updated roster summary.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterSummary"
+
+      "400":
+        description: The roster payload is invalid.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+  delete:
+    tags:
+      - Rosters
+    operationId: deleteRoster
+    summary: Delete a roster
+    description: Deletes a roster and all of its warbands and unit selections.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: Roster deleted.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+RosterGroupAssignment:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+    - $ref: "../schemas/roster-group.yaml#/GroupIdParameter"
+
+  put:
+    tags:
+      - Rosters
+    operationId: assignRosterToGroup
+    summary: Assign a roster to a group
+    description: Moves the roster into the requested roster group.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: Roster assigned to the group.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster or roster group not found.
+
+RosterGroupRemoval:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+
+  delete:
+    tags:
+      - Rosters
+    operationId: removeRosterFromGroup
+    summary: Remove a roster from its group
+    description: Moves the roster to the root by removing its current group assignment.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: Roster moved to the root.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+RosterGeneralAssignment:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+    - $ref: "../schemas/roster.yaml#/UnitIdParameter"
+
+  put:
+    tags:
+      - Rosters
+    operationId: setRosterGeneral
+    summary: Set the roster general
+    description: Marks the requested unit selection as the roster general. The unit must belong to the roster and be eligible to be the general.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: General updated.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster or unit selection not found.
+
+      "409":
+        description: The requested unit cannot be selected as the general.
+
+RosterGeneralRemoval:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+
+  delete:
+    tags:
+      - Rosters
+    operationId: clearRosterGeneral
+    summary: Clear the roster general
+    description: Removes the current general selection from the roster.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: General cleared.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+RosterWarbands:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+
+  post:
+    tags:
+      - Rosters
+    operationId: createWarband
+    summary: Add a warband
+    description: Creates a warband with an explicit leader.
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/CreateWarbandRequest"
+
+    responses:
+      "201":
+        description: Warband created.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/Warband"
+
+      "400":
+        description: The warband or leader payload is invalid.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+RosterWarband:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+    - $ref: "../schemas/roster.yaml#/WarbandIdParameter"
+
+  delete:
+    tags:
+      - Rosters
+    operationId: deleteWarband
+    summary: Delete a warband
+    description: Deletes the warband, its leader, and all of its followers.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: Warband deleted.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster or warband not found.
+
+RosterWarbandLeader:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+    - $ref: "../schemas/roster.yaml#/WarbandIdParameter"
+
+  put:
+    tags:
+      - Rosters
+    operationId: replaceWarbandLeader
+    summary: Replace a warband leader
+    description: Replaces the profile and selected options of the warband leader. A leader always represents exactly one model.
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/LeaderInput"
+
+    responses:
+      "200":
+        description: Updated warband leader.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterUnit"
+
+      "400":
+        description: The leader payload is invalid.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster or warband not found.
+
+      "409":
+        description: The selected profile cannot lead this warband.
+
+RosterWarbandFollowers:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+    - $ref: "../schemas/roster.yaml#/WarbandIdParameter"
+
+  post:
+    tags:
+      - Rosters
+    operationId: createWarbandFollower
+    summary: Add a follower selection
+    description: Adds a follower selection to the warband.
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/CreateFollowerRequest"
+
+    responses:
+      "201":
+        description: Follower selection created.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterUnit"
+
+      "400":
+        description: The follower payload is invalid.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster or warband not found.
+
+      "409":
+        description: The follower cannot be added to the warband.
+
+RosterWarbandUnit:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+    - $ref: "../schemas/roster.yaml#/WarbandIdParameter"
+    - $ref: "../schemas/roster.yaml#/UnitIdParameter"
+
+  patch:
+    tags:
+      - Rosters
+    operationId: updateWarbandUnit
+    summary: Update a unit selection
+    description: Updates the quantity and/or selected options of a leader or follower. Leader quantity must remain one.
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/UpdateRosterUnitRequest"
+
+    responses:
+      "200":
+        description: Updated unit selection.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterUnit"
+
+      "400":
+        description: The unit selection payload is invalid.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster, warband, or unit selection not found.
+
+      "409":
+        description: The requested update violates a roster or warband invariant.
+
+  delete:
+    tags:
+      - Rosters
+    operationId: deleteWarbandUnit
+    summary: Delete a follower selection
+    description: Deletes a follower selection. The leader cannot be deleted independently; delete the warband or replace its leader instead.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: Follower selection deleted.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster, warband, or unit selection not found.
+
+      "409":
+        description: The requested unit is the warband leader and cannot be deleted independently.

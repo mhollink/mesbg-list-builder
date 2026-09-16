@@ -1,0 +1,169 @@
+RosterGroups:
+  get:
+    tags:
+      - Roster Groups
+    operationId: listRosterGroups
+    summary: List roster groups
+    description: Returns the authenticated user's roster groups as a tree. Only root groups occur in the top-level array.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "200":
+        description: Roster group tree.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../schemas/roster-group.yaml#/RosterGroup"
+
+      "401":
+        description: Authentication is required.
+
+  post:
+    tags:
+      - Roster Groups
+    operationId: createRosterGroup
+    summary: Create a roster group
+    description: Creates a roster group at the root or beneath an existing group.
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster-group.yaml#/CreateRosterGroupRequest"
+
+    responses:
+      "201":
+        description: Roster group created.
+        headers:
+          Location:
+            description: Location of the created roster group.
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster-group.yaml#/RosterGroup"
+
+      "400":
+        description: The roster group payload is invalid.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: The requested parent group does not exist.
+
+RosterGroup:
+  parameters:
+    - $ref: "../schemas/roster-group.yaml#/GroupIdParameter"
+
+  patch:
+    tags:
+      - Roster Groups
+    operationId: updateRosterGroup
+    summary: Update a roster group
+    description: Updates mutable non-relational group metadata, currently the group name.
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster-group.yaml#/UpdateRosterGroupRequest"
+
+    responses:
+      "200":
+        description: Updated roster group.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster-group.yaml#/RosterGroup"
+
+      "400":
+        description: The roster group payload is invalid.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster group not found.
+
+  delete:
+    tags:
+      - Roster Groups
+    operationId: deleteRosterGroup
+    summary: Delete a roster group
+    description: Deletes an empty roster group. Groups containing child groups or rosters must be emptied first.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: Roster group deleted.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster group not found.
+
+      "409":
+        description: The roster group still contains child groups or rosters.
+
+RosterGroupParentAssignment:
+  parameters:
+    - $ref: "../schemas/roster-group.yaml#/GroupIdParameter"
+    - $ref: "../schemas/roster-group.yaml#/ParentGroupIdParameter"
+
+  put:
+    tags:
+      - Roster Groups
+    operationId: moveRosterGroup
+    summary: Move a roster group
+    description: Moves a group beneath another group. A group cannot be moved beneath itself or one of its descendants.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: Roster group moved.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster group or parent group not found.
+
+      "409":
+        description: The requested move would create an invalid group hierarchy.
+
+RosterGroupParentRemoval:
+  parameters:
+    - $ref: "../schemas/roster-group.yaml#/GroupIdParameter"
+
+  delete:
+    tags:
+      - Roster Groups
+    operationId: moveRosterGroupToRoot
+    summary: Move a roster group to the root
+    description: Removes the group's parent assignment.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "204":
+        description: Roster group moved to the root.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster group not found.
