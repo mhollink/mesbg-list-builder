@@ -1,9 +1,6 @@
 package com.mesbg.listbuilder.armies.roster.service;
 
 import com.mesbg.listbuilder.account.AuthenticatedUserService;
-import java.util.List;
-import java.util.Set;
-
 import com.mesbg.listbuilder.armies.roster.model.RosterEntity;
 import com.mesbg.listbuilder.armies.roster.model.RosterGroupEntity;
 import com.mesbg.listbuilder.armies.roster.model.RosterUnitEntity;
@@ -12,6 +9,8 @@ import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterUnitRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.WarbandRepository;
+import java.util.List;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -41,8 +40,7 @@ public class RosterService {
   }
 
   @Transactional
-  public RosterEntity createRoster(
-      String name, String armyListId, Long groupId) {
+  public RosterEntity createRoster(String name, String armyListId, Long groupId) {
     var user = authenticatedUserService.getCurrentUser();
     var group = groupId == null ? null : requireGroup(groupId, user.getId());
 
@@ -104,11 +102,7 @@ public class RosterService {
     var roster = requireRoster(rosterId, user.getId());
 
     var sortIndex =
-        roster.getWarbands().stream()
-                .mapToInt(WarbandEntity::getSortIndex)
-                .max()
-                .orElse(-1)
-            + 1;
+        roster.getWarbands().stream().mapToInt(WarbandEntity::getSortIndex).max().orElse(-1) + 1;
 
     var warband = new WarbandEntity(roster, sortIndex);
     var leader = new RosterUnitEntity(warband, leaderProfileId, 1, true, 0);
@@ -163,21 +157,13 @@ public class RosterService {
 
   @Transactional
   public RosterUnitEntity addFollower(
-      Long rosterId,
-      Long warbandId,
-      String profileId,
-      int quantity,
-      Set<String> optionIds) {
+      Long rosterId, Long warbandId, String profileId, int quantity, Set<String> optionIds) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
     var warband = requireWarband(warbandId, rosterId, user.getId());
 
     var sortIndex =
-        warband.getUnits().stream()
-                .mapToInt(RosterUnitEntity::getSortIndex)
-                .max()
-                .orElse(0)
-            + 1;
+        warband.getUnits().stream().mapToInt(RosterUnitEntity::getSortIndex).max().orElse(0) + 1;
 
     var unit = new RosterUnitEntity(warband, profileId, quantity, false, sortIndex);
     unit.getOptionIds().addAll(optionIds);
@@ -190,11 +176,7 @@ public class RosterService {
 
   @Transactional
   public RosterUnitEntity updateUnit(
-      Long rosterId,
-      Long warbandId,
-      Long unitId,
-      Integer quantity,
-      Set<String> optionIds) {
+      Long rosterId, Long warbandId, Long unitId, Integer quantity, Set<String> optionIds) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
     var unit =

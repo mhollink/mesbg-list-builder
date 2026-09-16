@@ -50,11 +50,7 @@ public class RosterUnitEntity {
   private Set<String> optionIds = new LinkedHashSet<>();
 
   public RosterUnitEntity(
-      WarbandEntity warband,
-      String profileId,
-      int quantity,
-      boolean leader,
-      int sortIndex) {
+      WarbandEntity warband, String profileId, int quantity, boolean leader, int sortIndex) {
     this.warband = warband;
     this.profileId = profileId;
     this.quantity = quantity;

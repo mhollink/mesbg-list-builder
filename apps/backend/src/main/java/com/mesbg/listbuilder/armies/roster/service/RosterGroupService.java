@@ -1,11 +1,10 @@
 package com.mesbg.listbuilder.armies.roster.service;
 
 import com.mesbg.listbuilder.account.AuthenticatedUserService;
-import java.util.List;
-
 import com.mesbg.listbuilder.armies.roster.model.RosterGroupEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -29,8 +28,7 @@ public class RosterGroupService {
   @Transactional
   public RosterGroupEntity createGroup(String name, Long parentGroupId) {
     var user = authenticatedUserService.getCurrentUser();
-    var parent =
-        parentGroupId == null ? null : requireGroup(parentGroupId, user.getId());
+    var parent = parentGroupId == null ? null : requireGroup(parentGroupId, user.getId());
 
     return rosterGroupRepository.save(new RosterGroupEntity(user, name, parent));
   }
