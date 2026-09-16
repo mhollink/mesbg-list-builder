@@ -1,4 +1,4 @@
-package com.mesbg.listbuilder.armies.roster;
+package com.mesbg.listbuilder.armies.roster.api;
 
 import java.util.List;
 
