@@ -1,4 +1,4 @@
-package com.mesbg.listbuilder.armies.roster.model;
+package com.mesbg.listbuilder.armies.roster.persistence.model;
 
 import com.mesbg.listbuilder.account.UserEntity;
 import jakarta.persistence.CascadeType;
