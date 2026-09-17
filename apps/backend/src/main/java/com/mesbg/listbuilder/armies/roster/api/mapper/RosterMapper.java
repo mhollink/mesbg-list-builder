@@ -18,6 +18,7 @@ public interface RosterMapper {
   @Mapping(source = "statistics.points", target = "points")
   @Mapping(source = "statistics.warbandCount", target = "warbandCount")
   @Mapping(source = "statistics.modelCount", target = "modelCount")
+  @Mapping(source = "statistics.might", target = "might")
   @Mapping(source = "statistics.bowCount", target = "bowCount")
   @Mapping(source = "statistics.throwingWeaponCount", target = "throwingWeaponCount")
   Roster toDto(RosterEntity entity, RosterStatistics statistics);
@@ -26,6 +27,7 @@ public interface RosterMapper {
   @Mapping(source = "statistics.points", target = "points")
   @Mapping(source = "statistics.warbandCount", target = "warbandCount")
   @Mapping(source = "statistics.modelCount", target = "modelCount")
+  @Mapping(source = "statistics.might", target = "might")
   @Mapping(source = "statistics.bowCount", target = "bowCount")
   @Mapping(source = "statistics.throwingWeaponCount", target = "throwingWeaponCount")
   RosterSummary toSummary(RosterEntity roster, RosterStatistics statistics);
