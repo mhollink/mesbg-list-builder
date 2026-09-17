@@ -21,6 +21,7 @@ import { ArmyListPage } from "~/features/reference/army-lists/ArmyListPage.tsx";
 import { ArmyListsPage } from "~/features/reference/army-lists/ArmyListsPage.tsx";
 import { ProfilesPage } from "~/features/reference/profiles/ProfilesPage.tsx";
 import { RulesPage } from "~/features/reference/rules/RulesPage.tsx";
+import {RostersPage} from "~/features/armies/rosters/RostersPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -50,12 +51,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "rosters",
-            element: (
-              <FeaturePagePlaceholder
-                title="Rosters"
-                description="Create and manage army lists."
-              />
-            ),
+            element: <RostersPage />,
           },
           {
             path: "rosters/new",

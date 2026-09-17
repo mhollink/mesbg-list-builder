@@ -1,14 +1,16 @@
 package com.mesbg.listbuilder.armies.roster.service;
 
 import com.mesbg.listbuilder.account.AuthenticatedUserService;
-import com.mesbg.listbuilder.armies.roster.model.RosterEntity;
-import com.mesbg.listbuilder.armies.roster.model.RosterGroupEntity;
-import com.mesbg.listbuilder.armies.roster.model.RosterUnitEntity;
-import com.mesbg.listbuilder.armies.roster.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterUnitRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.WarbandRepository;
+import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
+import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
+import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
+import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
+import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatistics;
+import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatisticsCalculator;
 import java.util.List;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
@@ -26,34 +28,40 @@ public class RosterService {
   private final RosterGroupRepository rosterGroupRepository;
   private final WarbandRepository warbandRepository;
   private final RosterUnitRepository rosterUnitRepository;
+  private final RosterStatisticsCalculator rosterStatisticsCalculator;
 
   @Transactional
-  public List<RosterEntity> listRosters() {
+  public List<RosterSnapshot> listRosters() {
     var user = authenticatedUserService.getCurrentUser();
-    return rosterRepository.findAllByUserIdOrderByUpdatedAtDesc(user.getId());
+    return rosterRepository.findAllByUserIdOrderByUpdatedAtDesc(user.getId()).stream()
+        .map(this::snapshot)
+        .toList();
   }
 
   @Transactional
-  public RosterEntity getRoster(Long rosterId) {
+  public RosterSnapshot getRoster(Long rosterId) {
     var user = authenticatedUserService.getCurrentUser();
-    return requireRoster(rosterId, user.getId());
+    var roster = requireRoster(rosterId, user.getId());
+
+    return snapshot(roster);
   }
 
   @Transactional
-  public RosterEntity createRoster(String name, String armyListId, Long groupId) {
+  public RosterSnapshot createRoster(String name, String armyListId, Long groupId) {
     var user = authenticatedUserService.getCurrentUser();
     var group = groupId == null ? null : requireGroup(groupId, user.getId());
 
-    return rosterRepository.save(new RosterEntity(user, name, armyListId, group));
+    var roster = rosterRepository.save(new RosterEntity(user, name, armyListId, group));
+    return snapshot(roster);
   }
 
   @Transactional
-  public RosterEntity renameRoster(Long rosterId, String name) {
+  public RosterSnapshot renameRoster(Long rosterId, String name) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
 
     roster.setName(name);
-    return roster;
+    return snapshot(roster);
   }
 
   @Transactional
@@ -249,5 +257,10 @@ public class RosterService {
 
   private ResponseStatusException conflict(String message) {
     return new ResponseStatusException(HttpStatus.CONFLICT, message);
+  }
+
+  private RosterSnapshot snapshot(RosterEntity roster) {
+    RosterStatistics statistics = rosterStatisticsCalculator.calculate(roster);
+    return new RosterSnapshot(roster, statistics);
   }
 }

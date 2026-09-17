@@ -5,7 +5,10 @@ info:
   version: 2.0.0
 
 servers:
-  - url: /
+  - description: "Local development server"
+    url: "http://localhost:8080/"
+  - description: "Live Production server"
+    url: "https://api-next.mesbg-list-builder.com/"
 
 tags:
   - name: Account

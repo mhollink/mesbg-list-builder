@@ -1,6 +1,6 @@
 package com.mesbg.listbuilder.armies.roster.persistence;
 
-import com.mesbg.listbuilder.armies.roster.model.WarbandEntity;
+import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

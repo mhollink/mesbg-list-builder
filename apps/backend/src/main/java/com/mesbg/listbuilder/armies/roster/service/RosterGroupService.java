@@ -1,9 +1,9 @@
 package com.mesbg.listbuilder.armies.roster.service;
 
 import com.mesbg.listbuilder.account.AuthenticatedUserService;
-import com.mesbg.listbuilder.armies.roster.model.RosterGroupEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
+import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

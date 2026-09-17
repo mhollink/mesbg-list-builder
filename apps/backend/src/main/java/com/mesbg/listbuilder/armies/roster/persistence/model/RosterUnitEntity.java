@@ -1,4 +1,4 @@
-package com.mesbg.listbuilder.armies.roster.model;
+package com.mesbg.listbuilder.armies.roster.persistence.model;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
