@@ -22,6 +22,7 @@ help:
 	@echo "Setup"
 	@echo "  make setup            Install dependencies, generates api-client and starts infrastructure"
 	@echo "  make install          Install all project dependencies"
+	@echo "  make api              Generate the web-api bindings (frontend <> backend)"
 	@echo ""
 	@echo "Development"
 	@echo "  make start            Start infrastructure"
