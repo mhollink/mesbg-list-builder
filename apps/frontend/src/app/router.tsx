@@ -16,12 +16,13 @@ import { PrivacySettings } from "../features/settings/components/privacy/Privacy
 import { SettingsPage } from "../features/settings/SettingsPage.tsx";
 import { AppLayout } from "./AppLayout.tsx";
 import { DebugProfiles } from "~/features/admin-data-checker/DebugProfiles.tsx";
+import { RosterPage } from "~/features/armies/rosters/RosterPage.tsx";
+import { RostersPage } from "~/features/armies/rosters/RostersPage.tsx";
 import { ArmyListFinderPage } from "~/features/reference/army-list-finder/ArmyListFinderPage.tsx";
 import { ArmyListPage } from "~/features/reference/army-lists/ArmyListPage.tsx";
 import { ArmyListsPage } from "~/features/reference/army-lists/ArmyListsPage.tsx";
 import { ProfilesPage } from "~/features/reference/profiles/ProfilesPage.tsx";
 import { RulesPage } from "~/features/reference/rules/RulesPage.tsx";
-import {RostersPage} from "~/features/armies/rosters/RostersPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -64,12 +65,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "rosters/:rosterId",
-            element: (
-              <FeaturePagePlaceholder
-                title="Roster"
-                description="See and update a roster"
-              />
-            ),
+            element: <RosterPage />,
           },
           {
             path: "collection",
