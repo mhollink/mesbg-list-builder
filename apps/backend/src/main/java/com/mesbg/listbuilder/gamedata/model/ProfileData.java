@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 public record ProfileData(
-    String profile, int points, List<String> wargear, List<ProfileOptionData> options) {
+    String profile,
+    int points,
+    ProfileStatsData stats,
+    List<String> wargear,
+    List<ProfileOptionData> options) {
 
   public ProfileData {
     wargear = wargear == null ? List.of() : List.copyOf(wargear);

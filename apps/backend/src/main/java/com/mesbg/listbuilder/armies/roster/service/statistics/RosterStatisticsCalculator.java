@@ -3,6 +3,7 @@ package com.mesbg.listbuilder.armies.roster.service.statistics;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.gamedata.GameDataCatalog;
+import com.mesbg.listbuilder.gamedata.model.ProfileData;
 import com.mesbg.listbuilder.gamedata.model.ProfileOptionData;
 import java.util.HashSet;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ public class RosterStatisticsCalculator {
         unitStatistics.stream().mapToInt(UnitStatistics::points).sum(),
         roster.getWarbands().size(),
         unitStatistics.stream().mapToInt(UnitStatistics::models).sum(),
+        unitStatistics.stream().mapToInt(UnitStatistics::might).sum(),
         unitStatistics.stream().mapToInt(UnitStatistics::bows).sum(),
         unitStatistics.stream().mapToInt(UnitStatistics::throwingWeapons).sum());
   }
@@ -46,11 +48,22 @@ public class RosterStatisticsCalculator {
     var hasBow = equipment.stream().anyMatch(this::isBow);
     var hasThrowingWeapon = equipment.stream().anyMatch(this::isThrowingWeapon);
 
+    var might = getMight(profile) * quantity;
+
     return new UnitStatistics(
         (profile.points() + optionPoints) * quantity,
         quantity,
+        might,
         hasBow ? quantity : 0,
         hasThrowingWeapon ? quantity : 0);
+  }
+
+  private int getMight(ProfileData profile) {
+    if (profile.stats() == null || profile.stats().might() == null) {
+      return 0;
+    }
+
+    return Integer.parseInt(profile.stats().might());
   }
 
   private boolean isBow(String equipmentId) {
@@ -63,5 +76,5 @@ public class RosterStatisticsCalculator {
     return equipmentId.startsWith("throwing-") || equipmentId.contains("-and-throwing-");
   }
 
-  private record UnitStatistics(int points, int models, int bows, int throwingWeapons) {}
+  private record UnitStatistics(int points, int models, int might, int bows, int throwingWeapons) {}
 }

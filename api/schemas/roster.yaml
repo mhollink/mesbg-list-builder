@@ -35,6 +35,7 @@ RosterSummary:
     - points
     - warbandCount
     - modelCount
+    - might
     - bowCount
     - throwingWeaponCount
     - createdAt
@@ -73,6 +74,11 @@ RosterSummary:
       minimum: 0
       description: Total number of models, calculated as the sum of all unit selection quantities.
 
+    might:
+      type: integer
+      minimum: 0
+      description: Total Might available in the roster.
+
     bowCount:
       type: integer
       minimum: 0
@@ -102,6 +108,7 @@ Roster:
     - points
     - warbandCount
     - modelCount
+    - might
     - bowCount
     - throwingWeaponCount
     - warbands
@@ -140,6 +147,11 @@ Roster:
     warbandCount:
       type: integer
       minimum: 0
+
+    might:
+      type: integer
+      minimum: 0
+      description: Total Might available in the roster.
 
     modelCount:
       type: integer
