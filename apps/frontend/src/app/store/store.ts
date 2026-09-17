@@ -12,6 +12,7 @@ import {
 
 import { rootReducer } from "./rootReducer.ts";
 import { storage } from "./storage.ts";
+import { serverApi } from "~/api/server-api.ts";
 
 const persistedReducer = persistReducer(
   {
@@ -21,7 +22,7 @@ const persistedReducer = persistReducer(
     whitelist: ["theme", "settings"],
   },
   rootReducer,
-);
+) as typeof rootReducer;
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -31,7 +32,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(serverApi.middleware),
 });
 
 export const persistor = persistStore(store);

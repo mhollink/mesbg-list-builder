@@ -1,4 +1,4 @@
-import {AccountApi, RosterGroupsApi, RostersApi} from "@mlb/api-client";
+import { AccountApi, RosterGroupsApi, RostersApi } from "@mlb/api-client";
 
 import { apiConfiguration } from "./api-config.ts";
 
