@@ -19,7 +19,7 @@
     "clean": "rimraf dist src/generated"
   },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "2.40.1",
+    "@openapitools/openapi-generator-cli": "2.41.0",
     "rimraf": "^6.0.0",
     "typescript": "~7.0.2"
   }
