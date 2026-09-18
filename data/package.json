@@ -6,7 +6,8 @@
   "scripts": {
     "format": "biome check --write .",
     "build": "tsx scripts/generate.ts",
-    "build:watch": "chokidar \"raw/**/*.xlsx\" -c \"pnpm build\""
+    "build:watch": "chokidar \"raw/**/*.xlsx\" -c \"pnpm build\"",
+    "build:heraldry-sheet": "tsx scripts/generate-heraldry-spritesheet.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.12",
@@ -14,6 +15,7 @@
     "chokidar-cli": "^3.0.0",
     "tsx": "^4.23.12",
     "xlsx": "^0.18.5",
+    "sharp": "^0.35.4",
     "zod": "^4.4.3"
   }
 }
