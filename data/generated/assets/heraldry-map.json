@@ -1,0 +1,183 @@
+{
+  "cellSize": 100,
+  "width": 900,
+  "height": 500,
+  "icons": {
+    "angmar": [
+      0,
+      0
+    ],
+    "arnor": [
+      100,
+      0
+    ],
+    "azog-hunters": [
+      200,
+      0
+    ],
+    "azog-legion": [
+      300,
+      0
+    ],
+    "barad-dur": [
+      400,
+      0
+    ],
+    "beornings": [
+      500,
+      0
+    ],
+    "council": [
+      600,
+      0
+    ],
+    "dale": [
+      700,
+      0
+    ],
+    "dragons": [
+      800,
+      0
+    ],
+    "druadan": [
+      0,
+      100
+    ],
+    "dunharrow": [
+      100,
+      100
+    ],
+    "dunland": [
+      200,
+      100
+    ],
+    "easterlings": [
+      300,
+      100
+    ],
+    "erebor": [
+      400,
+      100
+    ],
+    "fangorn": [
+      500,
+      100
+    ],
+    "far-harad": [
+      600,
+      100
+    ],
+    "fellowship": [
+      700,
+      100
+    ],
+    "fiefdoms": [
+      800,
+      100
+    ],
+    "goblin-town": [
+      0,
+      200
+    ],
+    "harad": [
+      100,
+      200
+    ],
+    "iron-hills": [
+      200,
+      200
+    ],
+    "isengard": [
+      300,
+      200
+    ],
+    "khand": [
+      400,
+      200
+    ],
+    "khazad-dum": [
+      500,
+      200
+    ],
+    "laketown": [
+      600,
+      200
+    ],
+    "lothlorien": [
+      700,
+      200
+    ],
+    "minas-tirith": [
+      800,
+      200
+    ],
+    "mirkwood": [
+      0,
+      300
+    ],
+    "misty-mountains": [
+      100,
+      300
+    ],
+    "mordor": [
+      200,
+      300
+    ],
+    "moria": [
+      300,
+      300
+    ],
+    "necromancer": [
+      400,
+      300
+    ],
+    "numenor": [
+      500,
+      300
+    ],
+    "radagast": [
+      600,
+      300
+    ],
+    "rangers": [
+      700,
+      300
+    ],
+    "rivendell": [
+      800,
+      300
+    ],
+    "rohan": [
+      0,
+      400
+    ],
+    "sharkeys": [
+      100,
+      400
+    ],
+    "shire": [
+      200,
+      400
+    ],
+    "thorin": [
+      300,
+      400
+    ],
+    "thranduil": [
+      400,
+      400
+    ],
+    "thror": [
+      500,
+      400
+    ],
+    "trolls": [
+      600,
+      400
+    ],
+    "umbar": [
+      700,
+      400
+    ]
+  }
+}
