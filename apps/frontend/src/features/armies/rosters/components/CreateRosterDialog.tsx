@@ -154,7 +154,7 @@ export function CreateRosterDialog({
                   }}
                 >
                   <HeraldryIcon
-                    name={getArmyListHeraldry(option.id)}
+                    iconName={getArmyListHeraldry(option.id)}
                     size={20}
                   />
 

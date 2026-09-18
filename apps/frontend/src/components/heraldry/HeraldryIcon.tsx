@@ -6,12 +6,12 @@ import heraldry from "~/generated/assets/heraldry-map.json";
 export type HeraldryIconName = keyof typeof heraldry.icons;
 
 interface HeraldryIconProps {
-  name: HeraldryIconName;
+  iconName: HeraldryIconName;
   size?: number;
 }
 
-export function HeraldryIcon({ name, size = 48 }: HeraldryIconProps) {
-  const [x, y] = heraldry.icons[name];
+export function HeraldryIcon({ iconName, size = 48 }: HeraldryIconProps) {
+  const [x, y] = heraldry.icons[iconName];
   const scale = size / heraldry.cellSize;
 
   return (
