@@ -32,6 +32,22 @@ export function RostersPage() {
     [armyLists],
   );
 
+  const tagSuggestions = useMemo(() => {
+    const tags = new Map<string, string>();
+
+    for (const roster of rosters) {
+      for (const tag of roster.tags) {
+        const key = tag.toLocaleLowerCase();
+
+        if (!tags.has(key)) {
+          tags.set(key, tag);
+        }
+      }
+    }
+
+    return [...tags.values()].sort((a, b) => a.localeCompare(b));
+  }, [rosters]);
+
   return (
     <Box>
       <Stack spacing={3}>
@@ -115,6 +131,7 @@ export function RostersPage() {
 
       <CreateRosterDialog
         open={createOpen}
+        tagSuggestions={tagSuggestions}
         onClose={() => setCreateOpen(false)}
       />
 

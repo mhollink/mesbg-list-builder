@@ -91,7 +91,7 @@ Roster:
       - Rosters
     operationId: updateRoster
     summary: Update roster metadata
-    description: Updates mutable non-relational roster metadata, currently the roster name.
+    description: Updates mutable non-relational roster metadata.
     security:
       - bearerAuth: []
 
