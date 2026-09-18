@@ -15,8 +15,8 @@ import { writeJson } from "./output/write-json";
 // @ts-expect-error
 const rawDirectory = fileURLToPath(new URL("../raw", import.meta.url));
 const generatedDirectory = fileURLToPath(
-    // @ts-expect-error
-    new URL("../generated", import.meta.url),
+  // @ts-expect-error
+  new URL("../generated", import.meta.url),
 );
 
 async function generate(): Promise<void> {
