@@ -18,14 +18,21 @@ import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameA
 interface CreateRosterDialogProps {
   open: boolean;
   onClose: () => void;
+  tagSuggestions: string[];
 }
 
-export function CreateRosterDialog({ open, onClose }: CreateRosterDialogProps) {
+export function CreateRosterDialog({
+  open,
+  onClose,
+  tagSuggestions,
+}: CreateRosterDialogProps) {
   const navigate = useNavigate();
   const { armyLists } = useGameArmyLists();
 
   const [name, setName] = useState("");
   const [armyList, setArmyList] = useState<LocalizedArmyList | null>(null);
+  const [pointsLimit, setPointsLimit] = useState<number | "">("");
+  const [tags, setTags] = useState<string[]>([]);
 
   const [createRoster, { isLoading, isError }] = useCreateRosterMutation();
 
@@ -49,6 +56,8 @@ export function CreateRosterDialog({ open, onClose }: CreateRosterDialogProps) {
     const roster = await createRoster({
       name: name.trim(),
       armyListId: armyList.id,
+      ...(pointsLimit ? { pointsLimit: Number(pointsLimit) } : {}),
+      tags: tags,
     }).unwrap();
 
     handleClose();
@@ -93,6 +102,45 @@ export function CreateRosterDialog({ open, onClose }: CreateRosterDialogProps) {
                 <TextField {...params} label="Army list" required />
               )}
             />
+
+            <TextField
+              label="Point limit"
+              type="number"
+              value={pointsLimit}
+              onChange={(event) => {
+                const value = event.target.value;
+
+                setPointsLimit(value === "" ? "" : Number(value));
+              }}
+              slotProps={{
+                htmlInput: {
+                  min: 1,
+                  step: 1,
+                },
+              }}
+              helperText="Optional. We'll warn when the roster reaches or exceeds this limit."
+              fullWidth
+            />
+
+            <Autocomplete
+              multiple
+              freeSolo
+              filterSelectedOptions
+              limitTags={3}
+              options={tagSuggestions}
+              value={tags}
+              onChange={(_, values) => {
+                setTags(normalizeTags(values));
+              }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Tags"
+                  placeholder="Add tag"
+                  helperText="Press Enter to add a new tag."
+                />
+              )}
+            />
           </Box>
         </DialogContent>
 
@@ -113,4 +161,22 @@ export function CreateRosterDialog({ open, onClose }: CreateRosterDialogProps) {
       </Box>
     </Dialog>
   );
+}
+
+function normalizeTags(values: string[]) {
+  const seen = new Set<string>();
+
+  return values
+    .map((value) => value.trim())
+    .filter(Boolean)
+    .filter((value) => {
+      const normalized = value.toLocaleLowerCase();
+
+      if (seen.has(normalized)) {
+        return false;
+      }
+
+      seen.add(normalized);
+      return true;
+    });
 }

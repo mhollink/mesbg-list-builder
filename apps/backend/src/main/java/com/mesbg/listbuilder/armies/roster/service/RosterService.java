@@ -11,8 +11,11 @@ import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatistics;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatisticsCalculator;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -47,20 +50,31 @@ public class RosterService {
   }
 
   @Transactional
-  public RosterSnapshot createRoster(String name, String armyListId, Long groupId) {
+  public RosterSnapshot createRoster(
+      String name, String armyListId, Integer pointsLimit, List<String> tags, Long groupId) {
     var user = authenticatedUserService.getCurrentUser();
     var group = groupId == null ? null : requireGroup(groupId, user.getId());
+    var normalizeTags = normalizeTags(tags);
 
-    var roster = rosterRepository.save(new RosterEntity(user, name, armyListId, group));
+    var roster =
+        rosterRepository.save(
+            new RosterEntity(user, name, armyListId, pointsLimit, normalizeTags, group));
+
     return snapshot(roster);
   }
 
   @Transactional
-  public RosterSnapshot renameRoster(Long rosterId, String name) {
+  public RosterSnapshot updateRoster(
+      Long rosterId, String name, Integer pointsLimit, List<String> tags) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
+    var normalizeTags = normalizeTags(tags);
 
-    roster.setName(name);
+    if (name != null && !name.equals(roster.getName())) roster.setName(name);
+
+    if (pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit()))
+      roster.setPointsLimit(pointsLimit);
+
     return snapshot(roster);
   }
 
@@ -262,5 +276,17 @@ public class RosterService {
   private RosterSnapshot snapshot(RosterEntity roster) {
     RosterStatistics statistics = rosterStatisticsCalculator.calculate(roster);
     return new RosterSnapshot(roster, statistics);
+  }
+
+  private Set<String> normalizeTags(Collection<String> tags) {
+    if (tags == null) {
+      return Set.of();
+    }
+
+    return tags.stream()
+        .map(String::trim)
+        .filter(tag -> !tag.isBlank())
+        .filter(tag -> tag.length() <= 64)
+        .collect(Collectors.toCollection(LinkedHashSet::new));
   }
 }

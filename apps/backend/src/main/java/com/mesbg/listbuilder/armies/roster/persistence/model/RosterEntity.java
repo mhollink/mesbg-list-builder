@@ -2,7 +2,9 @@ package com.mesbg.listbuilder.armies.roster.persistence.model;
 
 import com.mesbg.listbuilder.account.UserEntity;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +17,9 @@ import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -51,6 +55,14 @@ public class RosterEntity {
   @Column(name = "army_list_id", nullable = false, length = 255, updatable = false)
   private String armyListId;
 
+  @Column(name = "points_limit")
+  private Integer pointsLimit;
+
+  @ElementCollection(fetch = FetchType.LAZY)
+  @CollectionTable(name = "roster_tags", joinColumns = @JoinColumn(name = "roster_id"))
+  @Column(name = "tag", nullable = false)
+  private Set<String> tags = new LinkedHashSet<>();
+
   @OneToMany(mappedBy = "roster", cascade = CascadeType.ALL, orphanRemoval = true)
   @OrderBy("sortIndex ASC, id ASC")
   private List<WarbandEntity> warbands = new ArrayList<>();
@@ -63,10 +75,18 @@ public class RosterEntity {
   @Column(name = "updated_at", nullable = false)
   private Instant updatedAt;
 
-  public RosterEntity(UserEntity user, String name, String armyListId, RosterGroupEntity group) {
+  public RosterEntity(
+      UserEntity user,
+      String name,
+      String armyListId,
+      Integer pointsLimit,
+      Set<String> tags,
+      RosterGroupEntity group) {
     this.user = user;
     this.name = name;
     this.armyListId = armyListId;
+    this.pointsLimit = pointsLimit;
+    this.tags = tags;
     this.group = group;
   }
 

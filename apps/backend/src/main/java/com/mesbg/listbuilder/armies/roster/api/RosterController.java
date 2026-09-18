@@ -50,10 +50,13 @@ public class RosterController implements RostersApi {
 
   @Override
   public ResponseEntity<Roster> createRoster(CreateRosterRequest request) {
-
     var snapshot =
         rosterService.createRoster(
-            request.getName(), request.getArmyListId(), request.getGroupId());
+            request.getName(),
+            request.getArmyListId(),
+            request.getPointsLimit(),
+            request.getTags(),
+            request.getGroupId());
 
     var location =
         ServletUriComponentsBuilder.fromCurrentRequest()
@@ -67,8 +70,9 @@ public class RosterController implements RostersApi {
 
   @Override
   public ResponseEntity<RosterSummary> updateRoster(Long rosterId, UpdateRosterRequest request) {
-
-    var snapshot = rosterService.renameRoster(rosterId, request.getName());
+    var snapshot =
+        rosterService.updateRoster(
+            rosterId, request.getName(), request.getPointsLimit(), request.getTags());
 
     return ResponseEntity.ok(rosterMapper.toSummary(snapshot.roster(), snapshot.statistics()));
   }
