@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import type { RosterSummary } from "@mlb/api-client";
 
 import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
-import { armyListIcons } from "~/components/heraldry/heraldry.const.ts";
+import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
 
 interface RosterCardProps {
   roster: RosterSummary;
@@ -29,7 +29,6 @@ export function RosterCard({
   onDelete,
 }: RosterCardProps) {
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
-  const icon = armyListIcons[roster.armyListId];
   const stats = [
     ["Points", roster.points],
     ["Models", roster.modelCount],
@@ -80,7 +79,10 @@ export function RosterCard({
               {roster.name}
             </Typography>
 
-            {icon && <HeraldryIcon name={icon} size={66} />}
+            <HeraldryIcon
+              iconName={getArmyListHeraldry(roster.armyListId)}
+              size={66}
+            />
 
             <Typography
               variant="body2"
