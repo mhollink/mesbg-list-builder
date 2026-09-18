@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import AddIcon from "@mui/icons-material/Add";
 import Alert from "@mui/material/Alert";
@@ -10,10 +10,23 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
 import { useCreateRosterMutation } from "../api/roster-api.ts";
+import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
+import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
 import type { LocalizedArmyList } from "~/features/reference/army-lists/army-lists.types.ts";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
+
+const alignmentOrder = {
+  good: 0,
+  evil: 1,
+} as const;
+
+const LEGACY_BOOKS = new Set([
+  "good-legacies-of-middle-earth-pdf",
+  "evil-legacies-of-middle-earth-pdf",
+]);
 
 interface CreateRosterDialogProps {
   open: boolean;
@@ -35,6 +48,17 @@ export function CreateRosterDialog({
   const [tags, setTags] = useState<string[]>([]);
 
   const [createRoster, { isLoading, isError }] = useCreateRosterMutation();
+
+  const sortedArmyLists = useMemo(
+    () =>
+      [...armyLists].sort((a, b) => {
+        const alignment =
+          alignmentOrder[a.alignment] - alignmentOrder[b.alignment];
+
+        return alignment !== 0 ? alignment : a.name.localeCompare(b.name);
+      }),
+    [armyLists],
+  );
 
   const handleClose = () => {
     if (isLoading) {
@@ -93,13 +117,74 @@ export function CreateRosterDialog({
             />
 
             <Autocomplete
-              options={armyLists}
+              options={sortedArmyLists}
               value={armyList}
               onChange={(_, value) => setArmyList(value)}
               getOptionLabel={(option) => option.name}
               isOptionEqualToValue={(option, value) => option.id === value.id}
+              groupBy={(option) => option.alignment}
+              renderGroup={(params) => (
+                <li key={params.key}>
+                  <Typography
+                    component="div"
+                    variant="overline"
+                    sx={{
+                      px: 2,
+                      py: 0.5,
+                      fontWeight: 700,
+                    }}
+                  >
+                    {params.group === "good" ? "Good" : "Evil"}
+                  </Typography>
+
+                  <Box component="ul" sx={{ p: 0 }}>
+                    {params.children}
+                  </Box>
+                </li>
+              )}
+              renderOption={(props, option) => (
+                <Box
+                  component="li"
+                  {...props}
+                  sx={{
+                    ...props.style,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1.5,
+                  }}
+                >
+                  <HeraldryIcon
+                    name={getArmyListHeraldry(option.id)}
+                    size={20}
+                  />
+
+                  <Typography
+                    sx={{
+                      minWidth: 0,
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {option.name}
+                  </Typography>
+
+                  {isLegacyArmyList(option) && (
+                    <Typography
+                      variant="caption"
+                      color="textSecondary"
+                      sx={{
+                        ml: "auto",
+                        flexShrink: 0,
+                      }}
+                    >
+                      Legacy
+                    </Typography>
+                  )}
+                </Box>
+              )}
               renderInput={(params) => (
-                <TextField {...params} label="Army list" required />
+                <TextField {...params} label="Army list" />
               )}
             />
 
@@ -161,6 +246,10 @@ export function CreateRosterDialog({
       </Box>
     </Dialog>
   );
+}
+
+function isLegacyArmyList(armyList: LocalizedArmyList) {
+  return LEGACY_BOOKS.has(armyList.source.book);
 }
 
 function normalizeTags(values: string[]) {
