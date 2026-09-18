@@ -80,7 +80,7 @@ export function RosterCard({
               {roster.name}
             </Typography>
 
-                        <HeraldryIcon name={icon} size={66}/>
+            {icon && <HeraldryIcon name={icon} size={66} />}
 
             <Typography
               variant="body2"
