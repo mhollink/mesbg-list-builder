@@ -63,6 +63,9 @@ export const rosterGroupApi = serverApi.injectEndpoints({
       queryFn: async (groupId) => {
         try {
           await rosterGroupsApi.deleteRosterGroup({ groupId });
+          return {
+            data: undefined,
+          };
         } catch (error) {
           return { error: toApiError(error) };
         }
@@ -77,6 +80,9 @@ export const rosterGroupApi = serverApi.injectEndpoints({
             groupId: request.groupId,
             parentGroupId: request.parentGroupId,
           });
+          return {
+            data: undefined,
+          };
         } catch (error) {
           return { error: toApiError(error) };
         }
@@ -91,6 +97,9 @@ export const rosterGroupApi = serverApi.injectEndpoints({
             await rosterGroupsApi.moveRosterGroupToRoot({
               groupId: request.groupId,
             });
+            return {
+              data: undefined,
+            };
           } catch (error) {
             return { error: toApiError(error) };
           }

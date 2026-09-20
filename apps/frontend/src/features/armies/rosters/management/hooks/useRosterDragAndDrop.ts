@@ -1,12 +1,15 @@
 import { type ComponentProps, useState } from "react";
 
 import type { DragDropProvider } from "@dnd-kit/react";
-import type { RosterSummary } from "@mlb/api-client";
 
 import {
   useMoveRosterToGroupMutation,
   useMoveRosterToRootMutation,
 } from "../../api/roster-api";
+import {
+  useMoveRosterGroupMutation,
+  useMoveRosterGroupToRootMutation,
+} from "~/features/armies/rosters/api/roster-group-api.ts";
 
 type DragEndEvent = Parameters<
   NonNullable<ComponentProps<typeof DragDropProvider>["onDragEnd"]>
@@ -16,6 +19,13 @@ interface RosterDragData {
   type: "roster";
   rosterId: number;
 }
+
+interface GroupDragData {
+  type: "group";
+  groupId: number;
+}
+
+type DragData = RosterDragData | GroupDragData;
 
 interface GroupDropData {
   type: "group";
@@ -28,10 +38,11 @@ interface RootDropData {
 
 type DropData = GroupDropData | RootDropData;
 
-export function useRosterDragAndDrop(rosters: RosterSummary[]) {
-  const [moveToGroup] = useMoveRosterToGroupMutation();
-
-  const [moveToRoot] = useMoveRosterToRootMutation();
+export function useRosterDragAndDrop() {
+  const [moveRosterToGroup] = useMoveRosterToGroupMutation();
+  const [moveRosterToRoot] = useMoveRosterToRootMutation();
+  const [moveGroup] = useMoveRosterGroupMutation();
+  const [moveGroupToRoot] = useMoveRosterGroupToRootMutation();
 
   const [isError, setIsError] = useState(false);
 
@@ -46,44 +57,52 @@ export function useRosterDragAndDrop(rosters: RosterSummary[]) {
       return;
     }
 
-    const sourceData = source.data as RosterDragData | undefined;
-
+    const sourceData = source.data as DragData | undefined;
     const targetData = target.data as DropData | undefined;
 
-    if (sourceData?.type !== "roster") {
-      return;
-    }
-
-    const roster = rosters.find(
-      (candidate) => candidate.id === sourceData.rosterId,
-    );
-
-    if (!roster) {
+    if (!sourceData || !targetData) {
       return;
     }
 
     setIsError(false);
 
     try {
-      if (targetData?.type === "group") {
-        if (roster.groupId === targetData.groupId) {
-          return;
-        }
-
-        await moveToGroup({
-          rosterId: roster.id,
-          groupId: targetData.groupId,
-        }).unwrap();
-
-        return;
-      }
-
-      if (targetData?.type === "root" && roster.groupId != null) {
-        await moveToRoot(roster.id).unwrap();
+      if (sourceData.type === "roster") {
+        await moveRoster(sourceData, targetData);
+      } else if (sourceData.type === "group") {
+        await moveGroupItem(sourceData, targetData);
       }
     } catch {
       setIsError(true);
     }
+  }
+
+  async function moveRoster(source: RosterDragData, target: DropData) {
+    if (target.type === "root") {
+      await moveRosterToRoot(source.rosterId);
+      return;
+    }
+
+    return await moveRosterToGroup({
+      groupId: target.groupId,
+      rosterId: source.rosterId,
+    }).unwrap();
+  }
+
+  async function moveGroupItem(source: GroupDragData, target: DropData) {
+    if (target.type === "root") {
+      await moveGroupToRoot({ groupId: source.groupId }).unwrap();
+      return;
+    }
+
+    if (source.groupId === target.groupId) {
+      return;
+    }
+
+    await moveGroup({
+      groupId: source.groupId,
+      parentGroupId: target.groupId,
+    }).unwrap();
   }
 
   return {
