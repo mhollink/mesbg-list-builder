@@ -16,8 +16,8 @@ import { PrivacySettings } from "../features/settings/components/privacy/Privacy
 import { SettingsPage } from "../features/settings/SettingsPage.tsx";
 import { AppLayout } from "./AppLayout.tsx";
 import { DebugProfiles } from "~/features/admin-data-checker/DebugProfiles.tsx";
-import { RosterPage } from "~/features/armies/rosters/RosterPage.tsx";
-import { RostersPage } from "~/features/armies/rosters/RostersPage.tsx";
+import { RosterPage } from "~/features/armies/rosters/builder/RosterPage.tsx";
+import { RostersPage } from "~/features/armies/rosters/management/RostersPage.tsx";
 import { ArmyListFinderPage } from "~/features/reference/army-list-finder/ArmyListFinderPage.tsx";
 import { ArmyListPage } from "~/features/reference/army-lists/ArmyListPage.tsx";
 import { ArmyListsPage } from "~/features/reference/army-lists/ArmyListsPage.tsx";
@@ -52,20 +52,20 @@ export const router = createBrowserRouter([
           },
           {
             path: "rosters",
-            element: <RostersPage />,
-          },
-          {
-            path: "rosters/new",
-            element: (
-              <FeaturePagePlaceholder
-                title="New roster"
-                description="Create a new army list"
-              />
-            ),
-          },
-          {
-            path: "rosters/:rosterId",
-            element: <RosterPage />,
+            children: [
+              {
+                index: true,
+                element: <RostersPage />,
+              },
+              {
+                path: "groups/:groupId",
+                element: <RostersPage />,
+              },
+              {
+                path: ":rosterId",
+                element: <RosterPage />,
+              },
+            ],
           },
           {
             path: "collection",

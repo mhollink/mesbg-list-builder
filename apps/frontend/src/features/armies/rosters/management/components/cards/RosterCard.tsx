@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutlined";
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
+import DriveFileMoveOutlinedIcon from "@mui/icons-material/DriveFileMoveOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -10,8 +12,10 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 
+import { useDraggable } from "@dnd-kit/react";
 import type { RosterSummary } from "@mlb/api-client";
 
 import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
@@ -19,15 +23,24 @@ import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
 
 interface RosterCardProps {
   roster: RosterSummary;
-  armyListName: string;
+  onMove: (roster: RosterSummary) => void;
   onDelete: (roster: RosterSummary) => void;
 }
 
-export function RosterCard({
-  roster,
-  armyListName,
-  onDelete,
-}: RosterCardProps) {
+export function RosterCard({ roster, onMove, onDelete }: RosterCardProps) {
+  const {
+    ref: draggableRef,
+    handleRef,
+    isDragging,
+  } = useDraggable({
+    id: `roster:${roster.id}`,
+    type: "roster",
+    data: {
+      type: "roster",
+      rosterId: roster.id,
+    },
+  });
+
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
   const stats = [
     ["Points", roster.points],
@@ -40,14 +53,39 @@ export function RosterCard({
 
   return (
     <Card
+      ref={draggableRef}
       elevation={3}
       sx={{
         position: "relative",
         width: "100%",
         maxWidth: 300,
         aspectRatio: "1 / 1",
+        opacity: isDragging ? 0.5 : 1,
       }}
     >
+      <Tooltip title="Drag roster">
+        <IconButton
+          ref={handleRef}
+          aria-label={`Drag ${roster.name}`}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+          }}
+          sx={{
+            position: "absolute",
+            left: 4,
+            top: 4,
+            zIndex: 2,
+            cursor: "grab",
+            "&:active": {
+              cursor: "grabbing",
+            },
+          }}
+        >
+          <DragIndicatorIcon />
+        </IconButton>
+      </Tooltip>
+
       <IconButton
         aria-label={`Actions for ${roster.name}`}
         onClick={(event) => setMenuAnchor(event.currentTarget)}
@@ -90,7 +128,7 @@ export function RosterCard({
               noWrap
               sx={{ width: "100%" }}
             >
-              {armyListName}
+              {roster.armyListId}
             </Typography>
           </Stack>
 
@@ -99,7 +137,7 @@ export function RosterCard({
               display: "grid",
               gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
               gap: 1,
-              p: 2,
+              p: 1,
             }}
           >
             {stats.map(([label, value]) => (
@@ -135,6 +173,15 @@ export function RosterCard({
         open={Boolean(menuAnchor)}
         onClose={() => setMenuAnchor(null)}
       >
+        <MenuItem
+          onClick={() => {
+            setMenuAnchor(null);
+            onMove(roster);
+          }}
+        >
+          <DriveFileMoveOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
+          Move to group
+        </MenuItem>
         <MenuItem
           onClick={() => {
             setMenuAnchor(null);
