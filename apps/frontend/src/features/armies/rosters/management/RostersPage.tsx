@@ -7,14 +7,13 @@ import Typography from "@mui/material/Typography";
 
 import { DragDropProvider } from "@dnd-kit/react";
 
+import { RosterBreadcrumbs } from "./components/breadcrumbs/RosterBreadcrumbs.tsx";
 import { CreateRosterDialog } from "./components/dialogs/CreateRosterDialog";
 import { CreateRosterGroupDialog } from "./components/dialogs/CreateRosterGroupDialog";
 import { DeleteRosterDialog } from "./components/dialogs/DeleteRosterDialog";
 import { DeleteRosterGroupDialog } from "./components/dialogs/DeleteRosterGroupDialog";
 import { MoveRosterDialog } from "./components/dialogs/MoveRosterDialog";
 import { RenameRosterGroupDialog } from "./components/dialogs/RenameRosterGroupDialog";
-import { RootRosterDropZone } from "./components/RootRosterDropZone";
-import { RosterBreadcrumbs } from "./components/RosterBreadcrumbs";
 import { RostersSpeedDial } from "./components/RostersSpeedDial";
 import { useRosterDialogs } from "./hooks/useRosterDialogs";
 import { useRosterDragAndDrop } from "./hooks/useRosterDragAndDrop";
@@ -24,12 +23,9 @@ import { RosterGrid } from "~/features/armies/rosters/management/components/Rost
 
 export function RostersPage() {
   const data = useRosterManagementData();
-
   const navigation = useRosterGroupNavigation(data.groups, data.rosters);
-
   const dialogs = useRosterDialogs();
-
-  const dnd = useRosterDragAndDrop(data.rosters);
+  const dnd = useRosterDragAndDrop();
 
   if (data.isLoading) {
     return (
@@ -70,10 +66,8 @@ export function RostersPage() {
           )}
 
           {dnd.isError && (
-            <Alert severity="error">The roster could not be moved.</Alert>
+            <Alert severity="error">The roster or group could not be moved.</Alert>
           )}
-
-          {navigation.currentGroupId !== null && <RootRosterDropZone />}
 
           <RosterGrid
             groups={navigation.currentGroups}

@@ -58,7 +58,7 @@ export function RosterGrid({
       sx={{
         display: "grid",
         gridTemplateColumns:
-          "repeat(auto-fill, minmax(min(100%, 280px), 320px))",
+          "repeat(auto-fill, minmax(min(100%, 280px), 300px))",
         gap: 3,
       }}
     >
