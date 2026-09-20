@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { useGetRosterQuery } from "./api/roster-api.ts";
+import { useGetRosterQuery } from "../api/roster-api.ts";
 import { formatArmyListId } from "~/features/reference/army-lists/army-lists.utils.ts";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 
@@ -65,7 +65,7 @@ export function RosterPage() {
         <Box>
           <Typography variant="h4">{roster.name}</Typography>
 
-          <Typography color="text.secondary">{armyListName}</Typography>
+          <Typography color="textSecondary">{armyListName}</Typography>
         </Box>
 
         <Stack
@@ -94,7 +94,7 @@ export function RosterPage() {
           >
             <Typography variant="h6">No warbands yet</Typography>
 
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+            <Typography variant="body2" color="textSecondary" sx={{ mt: 1 }}>
               Add a warband to start building this roster.
             </Typography>
           </Paper>
@@ -106,7 +106,7 @@ export function RosterPage() {
 
                 <Typography>Leader: {warband.leader.profileId}</Typography>
 
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="textSecondary">
                   {warband.followers.reduce(
                     (total, follower) => total + follower.quantity,
                     0,

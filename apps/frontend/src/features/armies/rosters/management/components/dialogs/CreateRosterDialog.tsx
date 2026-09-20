@@ -12,7 +12,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import { useCreateRosterMutation } from "../api/roster-api.ts";
+import { useCreateRosterMutation } from "../../../api/roster-api.ts";
 import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
 import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
 import type { LocalizedArmyList } from "~/features/reference/army-lists/army-lists.types.ts";
@@ -32,12 +32,14 @@ interface CreateRosterDialogProps {
   open: boolean;
   onClose: () => void;
   tagSuggestions: string[];
+  groupId?: number | null;
 }
 
 export function CreateRosterDialog({
   open,
   onClose,
   tagSuggestions,
+  groupId,
 }: CreateRosterDialogProps) {
   const navigate = useNavigate();
   const { armyLists } = useGameArmyLists();
@@ -79,6 +81,7 @@ export function CreateRosterDialog({
 
     const roster = await createRoster({
       name: name.trim(),
+      groupId: groupId ?? undefined,
       armyListId: armyList.id,
       ...(pointsLimit ? { pointsLimit: Number(pointsLimit) } : {}),
       tags: tags,

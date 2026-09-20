@@ -1,4 +1,5 @@
 import type {
+  AssignRosterToGroupRequest,
   CreateFollowerRequest,
   CreateRosterRequest,
   CreateWarbandRequest,
@@ -211,6 +212,44 @@ export const rosterApi = serverApi.injectEndpoints({
         { type: "Roster", id: "LIST" },
       ],
     }),
+
+    moveRosterToGroup: builder.mutation<void, AssignRosterToGroupRequest>({
+      queryFn: async ({ rosterId, groupId }) => {
+        try {
+          await rostersApi.assignRosterToGroup({ rosterId, groupId });
+          return {
+            data: undefined,
+          };
+        } catch (error) {
+          return {
+            error: toApiError(error),
+          };
+        }
+      },
+      invalidatesTags: (_result, _error, { rosterId }) => [
+        { type: "Roster", id: rosterId },
+        { type: "Roster", id: "LIST" },
+      ],
+    }),
+
+    moveRosterToRoot: builder.mutation<void, number>({
+      queryFn: async (rosterId) => {
+        try {
+          await rostersApi.removeRosterFromGroup({ rosterId });
+          return {
+            data: undefined,
+          };
+        } catch (error) {
+          return {
+            error: toApiError(error),
+          };
+        }
+      },
+      invalidatesTags: (_result, _error, rosterId) => [
+        { type: "Roster", id: rosterId },
+        { type: "Roster", id: "LIST" },
+      ],
+    }),
   }),
 });
 
@@ -223,4 +262,6 @@ export const {
   useCreateWarbandMutation,
   useCreateFollowerMutation,
   useUpdateUnitMutation,
+  useMoveRosterToGroupMutation,
+  useMoveRosterToRootMutation,
 } = rosterApi;

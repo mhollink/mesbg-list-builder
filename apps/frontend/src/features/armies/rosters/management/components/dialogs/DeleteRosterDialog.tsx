@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 import type { RosterSummary } from "@mlb/api-client";
 
-import { useDeleteRosterMutation } from "../api/roster-api.ts";
+import { useDeleteRosterMutation } from "../../../api/roster-api.ts";
 
 interface DeleteRosterDialogProps {
   roster: RosterSummary | null;
