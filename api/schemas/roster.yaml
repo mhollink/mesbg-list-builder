@@ -32,6 +32,8 @@ RosterSummary:
     - name
     - armyListId
     - groupId
+    - favorite
+    - locked
     - tags
     - points
     - warbandCount
@@ -59,6 +61,16 @@ RosterSummary:
       format: int64
       nullable: true
       description: Group containing the roster, or null when the roster is at the root.
+
+    favorite:
+      type: boolean
+      default: false
+      description: Indicates whether the roster has been marked as a favorite by the user.
+
+    locked:
+      type: boolean
+      default: false
+      description: Indicates whether the roster composition is locked against modification or deletion. Organizational metadata such as the roster name, group, or favorite status may still be changed.
 
     pointsLimit:
       type: integer
@@ -117,6 +129,8 @@ Roster:
     - name
     - armyListId
     - groupId
+    - favorite
+    - locked
     - tags
     - generalUnitId
     - points
@@ -151,6 +165,16 @@ Roster:
       type: integer
       minimum: 1
       description: Optional advisory points limit for the roster.
+
+    favorite:
+      type: boolean
+      default: false
+      description: Indicates whether the roster has been marked as a favorite by the user.
+
+    locked:
+      type: boolean
+      default: false
+      description: Indicates whether the roster composition is locked against modification or deletion. Organizational metadata such as the roster name, group, or favorite status may still be changed.
 
     tags:
       type: array

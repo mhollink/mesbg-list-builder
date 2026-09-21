@@ -79,6 +79,46 @@ public class RosterService {
   }
 
   @Transactional
+  public RosterSnapshot favoriteRoster(long rosterId) {
+    var user = authenticatedUserService.getCurrentUser();
+    var roster = requireRoster(rosterId, user.getId());
+
+    roster.setFavorite(true);
+
+    return snapshot(roster);
+  }
+
+  @Transactional
+  public RosterSnapshot unfavoriteRoster(long rosterId) {
+    var user = authenticatedUserService.getCurrentUser();
+    var roster = requireRoster(rosterId, user.getId());
+
+    roster.setFavorite(false);
+
+    return snapshot(roster);
+  }
+
+  @Transactional
+  public RosterSnapshot lockRoster(long rosterId) {
+    var user = authenticatedUserService.getCurrentUser();
+    var roster = requireRoster(rosterId, user.getId());
+
+    roster.setLocked(true);
+
+    return snapshot(roster);
+  }
+
+  @Transactional
+  public RosterSnapshot unlockRoster(long rosterId) {
+    var user = authenticatedUserService.getCurrentUser();
+    var roster = requireRoster(rosterId, user.getId());
+
+    roster.setLocked(false);
+
+    return snapshot(roster);
+  }
+
+  @Transactional
   public void deleteRoster(Long rosterId) {
     var user = authenticatedUserService.getCurrentUser();
     rosterRepository.delete(requireRoster(rosterId, user.getId()));

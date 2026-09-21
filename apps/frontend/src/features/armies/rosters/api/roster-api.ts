@@ -103,6 +103,78 @@ export const rosterApi = serverApi.injectEndpoints({
       ],
     }),
 
+    favoriteRoster: builder.mutation<RosterSummary, number>({
+      queryFn: async (rosterId) => {
+        try {
+          return {
+            data: await rostersApi.favoriteRoster({ rosterId }),
+          };
+        } catch (error) {
+          return {
+            error: toApiError(error),
+          };
+        }
+      },
+
+      invalidatesTags: (_result, _error, rosterId) => [
+        { type: "Roster", id: rosterId },
+      ],
+    }),
+
+    unfavoriteRoster: builder.mutation<RosterSummary, number>({
+      queryFn: async (rosterId) => {
+        try {
+          return {
+            data: await rostersApi.unfavoriteRoster({ rosterId }),
+          };
+        } catch (error) {
+          return {
+            error: toApiError(error),
+          };
+        }
+      },
+
+      invalidatesTags: (_result, _error, rosterId) => [
+        { type: "Roster", id: rosterId },
+      ],
+    }),
+
+    lockRoster: builder.mutation<RosterSummary, number>({
+      queryFn: async (rosterId) => {
+        try {
+          return {
+            data: await rostersApi.lockRoster({ rosterId }),
+          };
+        } catch (error) {
+          return {
+            error: toApiError(error),
+          };
+        }
+      },
+
+      invalidatesTags: (_result, _error, rosterId) => [
+        { type: "Roster", id: rosterId },
+      ],
+    }),
+
+    unlockRoster: builder.mutation<RosterSummary, number>({
+      queryFn: async (rosterId) => {
+        try {
+          return {
+            data: await rostersApi.unlockRoster({ rosterId }),
+          };
+        } catch (error) {
+          return {
+            error: toApiError(error),
+          };
+        }
+      },
+
+      invalidatesTags: (_result, _error, rosterId) => [
+        { type: "Roster", id: rosterId },
+      ],
+    }),
+
     deleteRoster: builder.mutation<void, number>({
       queryFn: async (rosterId) => {
         try {
@@ -259,6 +331,10 @@ export const {
   useCreateRosterMutation,
   useUpdateRosterMutation,
   useDeleteRosterMutation,
+  useFavoriteRosterMutation,
+  useUnfavoriteRosterMutation,
+  useLockRosterMutation,
+  useUnlockRosterMutation,
   useCreateWarbandMutation,
   useCreateFollowerMutation,
   useUpdateUnitMutation,

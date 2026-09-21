@@ -58,6 +58,12 @@ public class RosterEntity {
   @Column(name = "points_limit")
   private Integer pointsLimit;
 
+  @Column(name = "favorite")
+  private boolean favorite;
+
+  @Column(name = "locked")
+  private boolean locked;
+
   @ElementCollection(fetch = FetchType.LAZY)
   @CollectionTable(name = "roster_tags", joinColumns = @JoinColumn(name = "roster_id"))
   @Column(name = "tag", nullable = false)

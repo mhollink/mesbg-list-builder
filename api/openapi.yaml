@@ -27,6 +27,12 @@ paths:
 
   /api/v1/rosters/{rosterId}:
     $ref: "./paths/rosters.yaml#/Roster"
+  
+  /api/v1/rosters/{rosterId}/favorite:
+    $ref: "./paths/rosters.yaml#/RosterFavorite"
+
+  /api/v1/rosters/{rosterId}/lock:
+    $ref: "./paths/rosters.yaml#/RosterLock"
 
   /api/v1/rosters/{rosterId}/group/{groupId}:
     $ref: "./paths/rosters.yaml#/RosterGroupAssignment"

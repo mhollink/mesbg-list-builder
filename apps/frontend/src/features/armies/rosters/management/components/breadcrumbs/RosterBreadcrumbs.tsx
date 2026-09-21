@@ -10,6 +10,8 @@ interface RosterBreadcrumbsProps {
 }
 
 export function RosterBreadcrumbs({ path }: RosterBreadcrumbsProps) {
+  if (path.length === 0) return null;
+
   return (
     <Breadcrumbs aria-label="Roster group navigation">
       <RootBreadcrumb />
