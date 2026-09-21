@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
@@ -14,9 +15,21 @@ export function RostersSpeedDial({
   onCreateRoster,
   onCreateGroup,
 }: RostersSpeedDialProps) {
+  const [open, setOpen] = useState(false);
+
   return (
     <SpeedDial
       ariaLabel="Roster actions"
+      open={open}
+      onOpen={() => setOpen(true)}
+      onClose={(_event, reason) => {
+        // Clicking the main FAB while already open should not close it.
+        if (reason === "toggle") {
+          return;
+        }
+
+        setOpen(false);
+      }}
       icon={<SpeedDialIcon openIcon={<AddIcon />} />}
       sx={{
         position: "fixed",
@@ -26,14 +39,44 @@ export function RostersSpeedDial({
     >
       <SpeedDialAction
         icon={<FormatListBulletedIcon />}
-        title="Create roster"
-        onClick={onCreateRoster}
+        onClick={() => {
+          setOpen(false);
+          onCreateRoster();
+        }}
+        sx={{
+          ".MuiSpeedDialAction-staticTooltipLabel": {
+            whiteSpace: "nowrap",
+            minWidth: "max-content",
+          },
+        }}
+        slotProps={{
+          tooltip: {
+            title: "Create roster",
+            open: true,
+            placement: "left",
+          },
+        }}
       />
 
       <SpeedDialAction
         icon={<CreateNewFolderIcon />}
-        title="Create group"
-        onClick={onCreateGroup}
+        onClick={() => {
+          setOpen(false);
+          onCreateGroup();
+        }}
+        sx={{
+          ".MuiSpeedDialAction-staticTooltipLabel": {
+            whiteSpace: "nowrap",
+            minWidth: "max-content",
+          },
+        }}
+        slotProps={{
+          tooltip: {
+            title: "Create group",
+            open: true,
+            placement: "left",
+          },
+        }}
       />
     </SpeedDial>
   );

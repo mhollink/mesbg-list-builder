@@ -12,9 +12,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import { useCreateRosterMutation } from "../../../api/roster-api.ts";
 import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
 import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
+import { useCreateRoster } from "~/features/armies/rosters/management/hooks/useCreateRoster.ts";
 import type { LocalizedArmyList } from "~/features/reference/army-lists/army-lists.types.ts";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 
@@ -49,7 +49,7 @@ export function CreateRosterDialog({
   const [pointsLimit, setPointsLimit] = useState<number | "">("");
   const [tags, setTags] = useState<string[]>([]);
 
-  const [createRoster, { isLoading, isError }] = useCreateRosterMutation();
+  const { createRoster, isError, isLoading } = useCreateRoster();
 
   const sortedArmyLists = useMemo(
     () =>
@@ -72,24 +72,24 @@ export function CreateRosterDialog({
     onClose();
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.SubmitEvent) => {
     event.preventDefault();
 
     if (!armyList || !name.trim()) {
       return;
     }
 
-    const roster = await createRoster({
+    // TODO: properly handle the exception(s).
+    const newRosterUrl = await createRoster({
       name: name.trim(),
       groupId: groupId ?? undefined,
       armyListId: armyList.id,
       ...(pointsLimit ? { pointsLimit: Number(pointsLimit) } : {}),
       tags: tags,
-    }).unwrap();
+    });
 
     handleClose();
-
-    navigate(`/armies/rosters/${roster.id}`);
+    navigate(newRosterUrl);
   };
 
   return (
