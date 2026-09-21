@@ -1,5 +1,11 @@
 package com.mesbg.listbuilder.armies.roster.service;
 
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import com.mesbg.listbuilder.account.AuthenticatedUserService;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
@@ -9,18 +15,17 @@ import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
+import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotFoundException;
+import com.mesbg.listbuilder.armies.roster.service.exception.RosterInvariantViolationException;
+import com.mesbg.listbuilder.armies.roster.service.exception.RosterLockedException;
+import com.mesbg.listbuilder.armies.roster.service.exception.RosterNotFoundException;
+import com.mesbg.listbuilder.armies.roster.service.exception.RosterUnitNotFoundException;
+import com.mesbg.listbuilder.armies.roster.service.exception.WarbandNotFoundException;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatistics;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatisticsCalculator;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @RequiredArgsConstructor
@@ -72,8 +77,10 @@ public class RosterService {
 
     if (name != null && !name.equals(roster.getName())) roster.setName(name);
 
-    if (pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit()))
+    if (pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit())) {
+      requireEditable(roster);
       roster.setPointsLimit(pointsLimit);
+    }
 
     return snapshot(roster);
   }
@@ -121,7 +128,9 @@ public class RosterService {
   @Transactional
   public void deleteRoster(Long rosterId) {
     var user = authenticatedUserService.getCurrentUser();
-    rosterRepository.delete(requireRoster(rosterId, user.getId()));
+    var roster = requireRoster(rosterId, user.getId());
+    requireEditable(roster);
+    rosterRepository.delete(roster);
   }
 
   @Transactional
@@ -143,10 +152,11 @@ public class RosterService {
   public void setRosterGeneral(Long rosterId, Long unitId) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
+    requireEditable(roster);
     var unit =
         rosterUnitRepository
             .findOwnedUnitInRoster(unitId, rosterId, user.getId())
-            .orElseThrow(() -> notFound("Unit selection", unitId));
+            .orElseThrow(() -> new RosterUnitNotFoundException(unitId));
 
     roster.setGeneralUnit(unit);
   }
@@ -154,7 +164,9 @@ public class RosterService {
   @Transactional
   public void clearRosterGeneral(Long rosterId) {
     var user = authenticatedUserService.getCurrentUser();
-    requireRoster(rosterId, user.getId()).setGeneralUnit(null);
+    var roster = requireRoster(rosterId, user.getId());
+    requireEditable(roster);
+    roster.setGeneralUnit(null);
   }
 
   @Transactional
@@ -162,6 +174,8 @@ public class RosterService {
       Long rosterId, String leaderProfileId, Set<String> leaderOptionIds) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
+
+    requireEditable(roster);
 
     var sortIndex =
         roster.getWarbands().stream().mapToInt(WarbandEntity::getSortIndex).max().orElse(-1) + 1;
@@ -181,6 +195,7 @@ public class RosterService {
   public void deleteWarband(Long rosterId, Long warbandId) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
+    requireEditable(roster);
     var warband = requireWarband(warbandId, rosterId, user.getId());
 
     if (roster.getGeneralUnit() != null
@@ -197,6 +212,7 @@ public class RosterService {
       Long rosterId, Long warbandId, String profileId, Set<String> optionIds) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
+    requireEditable(roster);
     var warband = requireWarband(warbandId, rosterId, user.getId());
 
     var leader =
@@ -222,6 +238,7 @@ public class RosterService {
       Long rosterId, Long warbandId, String profileId, int quantity, Set<String> optionIds) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
+    requireEditable(roster);
     var warband = requireWarband(warbandId, rosterId, user.getId());
 
     var sortIndex =
@@ -241,18 +258,20 @@ public class RosterService {
       Long rosterId, Long warbandId, Long unitId, Integer quantity, Set<String> optionIds) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
+    requireEditable(roster);
     var unit =
         rosterUnitRepository
             .findOwnedUnit(unitId, warbandId, rosterId, user.getId())
-            .orElseThrow(() -> notFound("Unit selection", unitId));
+            .orElseThrow(() -> new RosterUnitNotFoundException(unitId));
 
     if (quantity != null) {
       if (unit.isLeader() && quantity != 1) {
-        throw conflict("A warband leader must have quantity 1");
+        throw new RosterInvariantViolationException(
+            "A warband leader must have quantity 1");
       }
       if (quantity < 1) {
-        throw new ResponseStatusException(
-            HttpStatus.BAD_REQUEST, "Unit quantity must be at least 1");
+        throw new RosterInvariantViolationException(
+            "A warband leader must have quantity 1");
       }
       unit.setQuantity(quantity);
     }
@@ -270,13 +289,14 @@ public class RosterService {
   public void deleteUnit(Long rosterId, Long warbandId, Long unitId) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
+    requireEditable(roster);
     var unit =
         rosterUnitRepository
             .findOwnedUnit(unitId, warbandId, rosterId, user.getId())
-            .orElseThrow(() -> notFound("Unit selection", unitId));
+            .orElseThrow(() -> new RosterUnitNotFoundException(unitId));
 
     if (unit.isLeader()) {
-      throw conflict("The warband leader cannot be deleted independently");
+      throw new RosterInvariantViolationException("The warband leader cannot be deleted independently");
     }
 
     if (roster.getGeneralUnit() != null && roster.getGeneralUnit().getId().equals(unitId)) {
@@ -290,27 +310,25 @@ public class RosterService {
   private RosterEntity requireRoster(Long rosterId, Long userId) {
     return rosterRepository
         .findByIdAndUserId(rosterId, userId)
-        .orElseThrow(() -> notFound("Roster", rosterId));
+        .orElseThrow(() -> new RosterNotFoundException(rosterId));
   }
 
   private RosterGroupEntity requireGroup(Long groupId, Long userId) {
     return rosterGroupRepository
         .findByIdAndUserId(groupId, userId)
-        .orElseThrow(() -> notFound("Roster group", groupId));
+        .orElseThrow(() -> new RosterGroupNotFoundException(groupId));
   }
 
   private WarbandEntity requireWarband(Long warbandId, Long rosterId, Long userId) {
     return warbandRepository
         .findOwnedWarband(warbandId, rosterId, userId)
-        .orElseThrow(() -> notFound("Warband", warbandId));
+        .orElseThrow(() -> new WarbandNotFoundException(warbandId));
   }
 
-  private ResponseStatusException notFound(String resource, Long id) {
-    return new ResponseStatusException(HttpStatus.NOT_FOUND, resource + " " + id + " not found");
-  }
-
-  private ResponseStatusException conflict(String message) {
-    return new ResponseStatusException(HttpStatus.CONFLICT, message);
+  private void requireEditable(RosterEntity roster) {
+    if (roster.isLocked()) {
+      throw new RosterLockedException(roster.getId());
+    }
   }
 
   private RosterSnapshot snapshot(RosterEntity roster) {
