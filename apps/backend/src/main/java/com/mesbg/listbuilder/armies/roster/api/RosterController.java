@@ -78,6 +78,34 @@ public class RosterController implements RostersApi {
   }
 
   @Override
+  public ResponseEntity<RosterSummary> favoriteRoster(Long rosterId) {
+    var snapshot = rosterService.favoriteRoster(rosterId);
+
+    return ResponseEntity.ok(rosterMapper.toSummary(snapshot.roster(), snapshot.statistics()));
+  }
+
+  @Override
+  public ResponseEntity<RosterSummary> unfavoriteRoster(Long rosterId) {
+    var snapshot = rosterService.unfavoriteRoster(rosterId);
+
+    return ResponseEntity.ok(rosterMapper.toSummary(snapshot.roster(), snapshot.statistics()));
+  }
+
+  @Override
+  public ResponseEntity<RosterSummary> lockRoster(Long rosterId) {
+    var snapshot = rosterService.lockRoster(rosterId);
+
+    return ResponseEntity.ok(rosterMapper.toSummary(snapshot.roster(), snapshot.statistics()));
+  }
+
+  @Override
+  public ResponseEntity<RosterSummary> unlockRoster(Long rosterId) {
+    var snapshot = rosterService.unlockRoster(rosterId);
+
+    return ResponseEntity.ok(rosterMapper.toSummary(snapshot.roster(), snapshot.statistics()));
+  }
+
+  @Override
   public ResponseEntity<Void> deleteRoster(Long rosterId) {
     rosterService.deleteRoster(rosterId);
 

@@ -119,6 +119,9 @@ Roster:
       "404":
         description: Roster not found.
 
+      "409":
+        description: The roster is locked and cannot be modified.
+
   delete:
     tags:
       - Rosters
@@ -131,6 +134,109 @@ Roster:
     responses:
       "204":
         description: Roster deleted.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+      "409":
+        description: The roster is locked and cannot be modified.
+
+RosterFavorite:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+
+  put:
+    tags:
+      - Rosters
+    operationId: favoriteRoster
+    summary: Mark a roster as favorite
+    description: Marks the roster as a favorite for the authenticated user.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "200":
+        description: Updated roster marked as favorite.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterSummary"
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+  delete:
+    tags:
+      - Rosters
+    operationId: unfavoriteRoster
+    summary: Remove a roster from favorites
+    description: Removes the roster from the authenticated user's favorites.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "200":
+        description: Updated roster removed from favorites.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterSummary"
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+RosterLock:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+
+  put:
+    tags:
+      - Rosters
+    operationId: lockRoster
+    summary: Lock a roster
+    description: Locks the roster composition to prevent it from being modified or deleted.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "200":
+        description: Updated locked roster.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterSummary"
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+
+  delete:
+    tags:
+      - Rosters
+    operationId: unlockRoster
+    summary: Unlock a roster
+    description: Unlocks the roster so its composition can be modified or deleted again.
+    security:
+      - bearerAuth: []
+
+    responses:
+      "200":
+        description: Updated unlocked roster.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterSummary"
 
       "401":
         description: Authentication is required.
@@ -210,7 +316,7 @@ RosterGeneralAssignment:
         description: Roster or unit selection not found.
 
       "409":
-        description: The requested unit cannot be selected as the general.
+        description: The roster is locked or the requested update violates a roster or warband invariant.
 
 RosterGeneralRemoval:
   parameters:
@@ -234,6 +340,9 @@ RosterGeneralRemoval:
 
       "404":
         description: Roster not found.
+
+      "409":
+        description: The roster is locked or the requested update violates a roster or warband invariant.
 
 RosterWarbands:
   parameters:
@@ -272,6 +381,9 @@ RosterWarbands:
       "404":
         description: Roster not found.
 
+      "409":
+        description: The roster is locked or the requested update violates a roster or warband invariant.
+
 RosterWarband:
   parameters:
     - $ref: "../schemas/roster.yaml#/RosterIdParameter"
@@ -295,6 +407,9 @@ RosterWarband:
 
       "404":
         description: Roster or warband not found.
+
+      "409":
+        description: The roster is locked or the requested update violates a roster or warband invariant.
 
 RosterWarbandLeader:
   parameters:
@@ -335,7 +450,7 @@ RosterWarbandLeader:
         description: Roster or warband not found.
 
       "409":
-        description: The selected profile cannot lead this warband.
+        description: The roster is locked or the requested update violates a roster or warband invariant.
 
 RosterWarbandFollowers:
   parameters:
@@ -376,7 +491,7 @@ RosterWarbandFollowers:
         description: Roster or warband not found.
 
       "409":
-        description: The follower cannot be added to the warband.
+        description: The roster is locked or the requested update violates a roster or warband invariant.
 
 RosterWarbandUnit:
   parameters:
@@ -418,7 +533,7 @@ RosterWarbandUnit:
         description: Roster, warband, or unit selection not found.
 
       "409":
-        description: The requested update violates a roster or warband invariant.
+        description: The roster is locked or the requested update violates a roster or warband invariant.
 
   delete:
     tags:
@@ -440,4 +555,4 @@ RosterWarbandUnit:
         description: Roster, warband, or unit selection not found.
 
       "409":
-        description: The requested unit is the warband leader and cannot be deleted independently.
+        description: The roster is locked or the requested update violates a roster or warband invariant.

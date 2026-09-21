@@ -12,7 +12,7 @@ export function RosterPage() {
   }
 
   const id = Number(rosterId);
-  const validRosterId = Number.isInteger(rosterId);
+  const validRosterId = Number.isInteger(id);
   if (!validRosterId) {
     return <InvalidRoster />;
   }

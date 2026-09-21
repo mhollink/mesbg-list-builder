@@ -3,11 +3,17 @@ import { Link } from "react-router";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutlined";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import DriveFileMoveOutlinedIcon from "@mui/icons-material/DriveFileMoveOutlined";
+import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import StarIcon from "@mui/icons-material/Star";
+import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import Chip from "@mui/material/Chip";
+import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -20,14 +26,24 @@ import type { RosterSummary } from "@mlb/api-client";
 
 import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
 import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
+import { useRosterMetadata } from "~/features/armies/rosters/management/hooks/useRosterMetadata.ts";
 
 interface RosterCardProps {
   roster: RosterSummary;
+  armyList: string;
   onMove: (roster: RosterSummary) => void;
   onDelete: (roster: RosterSummary) => void;
 }
 
-export function RosterCard({ roster, onMove, onDelete }: RosterCardProps) {
+export function RosterCard({
+  roster,
+  onMove,
+  onDelete,
+  armyList,
+}: RosterCardProps) {
+  const { onFavorite, onLock, isFavoriteLoading, isLockLoading } =
+    useRosterMetadata(roster);
+
   const {
     ref: draggableRef,
     handleRef,
@@ -117,18 +133,50 @@ export function RosterCard({ roster, onMove, onDelete }: RosterCardProps) {
               {roster.name}
             </Typography>
 
-            <HeraldryIcon
-              iconName={getArmyListHeraldry(roster.armyListId)}
-              size={66}
-            />
+            <Box sx={{ position: "relative", display: "inline-flex" }}>
+              <HeraldryIcon
+                iconName={getArmyListHeraldry(roster.armyListId)}
+                size={66}
+              />
+
+              {roster.favorite && (
+                <Tooltip title="Favorite roster">
+                  <StarIcon
+                    aria-label="Favorite roster"
+                    sx={{
+                      position: "absolute",
+                      top: -4,
+                      right: -20,
+                      fontSize: 18,
+                    }}
+                  />
+                </Tooltip>
+              )}
+            </Box>
 
             <Typography
               variant="body2"
               color="textSecondary"
               noWrap
-              sx={{ width: "100%" }}
+              sx={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 0.5,
+              }}
             >
-              {roster.armyListId}
+              {roster.locked && (
+                <Tooltip title="Locked roster">
+                  <LockOutlinedIcon
+                    aria-label="Locked roster"
+                    sx={{
+                      fontSize: 16,
+                    }}
+                  />
+                </Tooltip>
+              )}
+              {armyList}
             </Typography>
           </Stack>
 
@@ -174,6 +222,40 @@ export function RosterCard({ roster, onMove, onDelete }: RosterCardProps) {
         onClose={() => setMenuAnchor(null)}
       >
         <MenuItem
+          disabled={isFavoriteLoading}
+          onClick={() => {
+            setMenuAnchor(null);
+            onFavorite();
+          }}
+        >
+          {roster.favorite ? (
+            <StarOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
+          ) : (
+            <StarBorderOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
+          )}
+
+          {roster.favorite ? "Remove from favorites" : "Add to favorites"}
+        </MenuItem>
+
+        <MenuItem
+          disabled={isLockLoading}
+          onClick={() => {
+            setMenuAnchor(null);
+            onLock();
+          }}
+        >
+          {roster.locked ? (
+            <LockOpenOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
+          ) : (
+            <LockOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
+          )}
+
+          {roster.locked ? "Unlock roster" : "Lock roster"}
+        </MenuItem>
+
+        <Divider />
+
+        <MenuItem
           onClick={() => {
             setMenuAnchor(null);
             onMove(roster);
@@ -182,15 +264,23 @@ export function RosterCard({ roster, onMove, onDelete }: RosterCardProps) {
           <DriveFileMoveOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
           Move to group
         </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setMenuAnchor(null);
-            onDelete(roster);
-          }}
+        <Tooltip
+          title={roster.locked ? "Unlock this roster before deleting it." : ""}
+          placement="left"
         >
-          <DeleteOutlineIcon fontSize="small" sx={{ mr: 1 }} />
-          Delete
-        </MenuItem>
+          <span>
+            <MenuItem
+              disabled={roster.locked}
+              onClick={() => {
+                setMenuAnchor(null);
+                onDelete(roster);
+              }}
+            >
+              <DeleteOutlineIcon fontSize="small" sx={{ mr: 1 }} />
+              Delete
+            </MenuItem>
+          </span>
+        </Tooltip>
       </Menu>
     </Card>
   );

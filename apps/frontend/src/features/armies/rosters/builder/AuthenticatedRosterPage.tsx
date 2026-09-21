@@ -22,7 +22,6 @@ export function AuthenticatedRosterPage({
   const { data: roster, isLoading, isError } = useGetRosterQuery(rosterId);
 
   const { armyLists } = useGameArmyLists();
-
   const armyListName = useMemo(() => {
     if (!roster) {
       return "";
