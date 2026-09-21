@@ -1,0 +1,42 @@
+ApiErrorCode:
+  type: string
+  enum:
+    - ROSTER_NOT_FOUND
+    - ROSTER_GROUP_NOT_FOUND
+    - WARBAND_NOT_FOUND
+    - ROSTER_UNIT_NOT_FOUND
+    - ROSTER_LOCKED
+    - ROSTER_GROUP_NOT_EMPTY
+    - INVALID_ROSTER_GROUP_MOVE
+    - ROSTER_INVARIANT_VIOLATION
+    - INVALID_ROSTER_UNIT
+
+ApiProblem:
+  type: object
+  required:
+    - title
+    - status
+    - code
+
+  properties:
+    type:
+      type: string
+      format: uri
+
+    title:
+      type: string
+
+    status:
+      type: integer
+      format: int32
+
+    detail:
+      type: string
+
+    instance:
+      type: string
+      format: uri
+
+    code:
+      $ref: "#/ApiErrorCode"
+

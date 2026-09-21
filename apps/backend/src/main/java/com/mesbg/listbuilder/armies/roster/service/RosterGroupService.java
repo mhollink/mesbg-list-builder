@@ -5,6 +5,10 @@ import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
 import java.util.List;
+
+import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterGroupMoveException;
+import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotEmptyException;
+import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -49,7 +53,7 @@ public class RosterGroupService {
 
     if (rosterGroupRepository.existsByParentGroupIdAndUserId(groupId, user.getId())
         || rosterRepository.existsByGroupIdAndUserId(groupId, user.getId())) {
-      throw conflict("Roster group must be empty before it can be deleted");
+      throw new RosterGroupNotEmptyException(groupId);
     }
 
     rosterGroupRepository.delete(group);
@@ -73,13 +77,15 @@ public class RosterGroupService {
 
   private void validateMove(RosterGroupEntity group, RosterGroupEntity newParent) {
     if (group.getId().equals(newParent.getId())) {
-      throw conflict("A roster group cannot be its own parent");
+      throw new InvalidRosterGroupMoveException(
+          "A roster group cannot be its own parent");
     }
 
     var ancestor = newParent;
     while (ancestor != null) {
       if (group.getId().equals(ancestor.getId())) {
-        throw conflict("Moving the roster group would create a cycle");
+        throw new InvalidRosterGroupMoveException(
+            "Moving the roster group would create a cycle");
       }
       ancestor = ancestor.getParentGroup();
     }
@@ -88,12 +94,8 @@ public class RosterGroupService {
   private RosterGroupEntity requireGroup(Long groupId, Long userId) {
     return rosterGroupRepository
         .findByIdAndUserId(groupId, userId)
-        .orElseThrow(
-            () ->
-                new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Roster group " + groupId + " not found"));
+        .orElseThrow(() -> new RosterGroupNotFoundException(groupId));
   }
-
   private ResponseStatusException conflict(String message) {
     return new ResponseStatusException(HttpStatus.CONFLICT, message);
   }

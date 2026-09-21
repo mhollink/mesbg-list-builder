@@ -58,6 +58,10 @@ RosterGroups:
 
       "404":
         description: The requested parent group does not exist.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
 
 RosterGroup:
   parameters:
@@ -95,6 +99,10 @@ RosterGroup:
 
       "404":
         description: Roster group not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
 
   delete:
     tags:
@@ -117,6 +125,10 @@ RosterGroup:
 
       "409":
         description: The roster group still contains child groups or rosters.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
 
 RosterGroupParentAssignment:
   parameters:
@@ -141,9 +153,17 @@ RosterGroupParentAssignment:
 
       "404":
         description: Roster group or parent group not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
 
       "409":
         description: The requested move would create an invalid group hierarchy.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
 
 RosterGroupParentRemoval:
   parameters:
@@ -167,3 +187,7 @@ RosterGroupParentRemoval:
 
       "404":
         description: Roster group not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
