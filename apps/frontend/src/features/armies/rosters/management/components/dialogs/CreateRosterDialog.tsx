@@ -12,9 +12,16 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
+import { useAppSelector } from "~/app/store/hooks.ts";
 import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
 import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
-import { useCreateRoster } from "~/features/armies/rosters/management/hooks/useCreateRoster.ts";
+import { selectGuestRoster } from "~/features/armies/rosters/guest/guest-roster.selectors.ts";
+import { ReplaceGuestRosterDialog } from "~/features/armies/rosters/management/components/dialogs/ReplaceGuestRosterDialog.tsx";
+import {
+  type CreateRosterValues,
+  GuestRosterAlreadyExistsError,
+  useCreateRoster,
+} from "~/features/armies/rosters/management/hooks/useCreateRoster.ts";
 import type { LocalizedArmyList } from "~/features/reference/army-lists/army-lists.types.ts";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 
@@ -43,11 +50,14 @@ export function CreateRosterDialog({
 }: CreateRosterDialogProps) {
   const navigate = useNavigate();
   const { armyLists } = useGameArmyLists();
+  const guestRoster = useAppSelector(selectGuestRoster);
 
   const [name, setName] = useState("");
   const [armyList, setArmyList] = useState<LocalizedArmyList | null>(null);
   const [pointsLimit, setPointsLimit] = useState<number | "">("");
   const [tags, setTags] = useState<string[]>([]);
+
+  const [replaceConfirmationOpen, setReplaceConfirmationOpen] = useState(false);
 
   const { createRoster, isError, isLoading } = useCreateRoster();
 
@@ -69,7 +79,22 @@ export function CreateRosterDialog({
 
     setName("");
     setArmyList(null);
+    setReplaceConfirmationOpen(false);
     onClose();
+  };
+
+  const createValues = (): CreateRosterValues => {
+    if (!armyList)
+      throw new Error(
+        "armyList should have been selected before calling createValues()",
+      );
+    return {
+      name: name.trim(),
+      armyListId: armyList.id,
+      ...(pointsLimit ? { pointsLimit: Number(pointsLimit) } : {}),
+      tags,
+      groupId,
+    };
   };
 
   const handleSubmit = async (event: React.SubmitEvent) => {
@@ -79,20 +104,41 @@ export function CreateRosterDialog({
       return;
     }
 
-    // TODO: properly handle the exception(s).
-    const newRosterUrl = await createRoster({
-      name: name.trim(),
-      groupId: groupId ?? undefined,
-      armyListId: armyList.id,
-      ...(pointsLimit ? { pointsLimit: Number(pointsLimit) } : {}),
-      tags: tags,
+    try {
+      const destination = await createRoster(createValues());
+
+      handleClose();
+      navigate(destination);
+    } catch (error) {
+      if (error instanceof GuestRosterAlreadyExistsError) {
+        setReplaceConfirmationOpen(true);
+        return;
+      }
+
+      throw error;
+    }
+  };
+
+  const handleReplace = async () => {
+    const destination = await createRoster(createValues(), {
+      replaceGuestRoster: true,
     });
 
     handleClose();
-    navigate(newRosterUrl);
+    navigate(destination);
   };
 
-  return (
+  return replaceConfirmationOpen && guestRoster ? (
+    <ReplaceGuestRosterDialog
+      open={open}
+      existingRosterName={guestRoster.name}
+      newRosterName={name}
+      isLoading={isLoading}
+      onCancel={() => setReplaceConfirmationOpen(false)}
+      onOpenExisting={() => navigate("/armies/rosters/guest")}
+      onReplace={handleReplace}
+    />
+  ) : (
     <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
       <Box component="form" onSubmit={handleSubmit}>
         <DialogTitle>Create roster</DialogTitle>

@@ -13,7 +13,16 @@ export type CreateRosterValues = {
   groupId?: number;
 };
 
-class GuestRosterAlreadyExistsError extends Error {}
+interface CreateRosterOptions {
+  replaceGuestRoster?: boolean;
+}
+
+export class GuestRosterAlreadyExistsError extends Error {
+  constructor() {
+    super("A guest roster already exists.");
+    this.name = "GuestRosterAlreadyExistsError";
+  }
+}
 
 export function useCreateRoster() {
   const dispatch = useAppDispatch();
@@ -21,7 +30,10 @@ export function useCreateRoster() {
 
   const [createAccountRoster, accountMutation] = useCreateRosterMutation();
 
-  const createRoster = async (values: CreateRosterValues): Promise<string> => {
+  const createRoster = async (
+    values: CreateRosterValues,
+    options: CreateRosterOptions = {},
+  ): Promise<string> => {
     if (keycloak.authenticated) {
       const roster = await createAccountRoster({
         name: values.name,
@@ -34,7 +46,7 @@ export function useCreateRoster() {
       return `/armies/rosters/${roster.id}`;
     }
 
-    if (guestRoster) {
+    if (guestRoster && !options.replaceGuestRoster) {
       throw new GuestRosterAlreadyExistsError();
     }
 
