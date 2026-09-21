@@ -19,7 +19,7 @@ const persistedReducer = persistReducer(
     key: "mesbg-list-builder",
     storage,
 
-    whitelist: ["theme", "settings"],
+    whitelist: ["guestRoster", "theme", "settings"],
   },
   rootReducer,
 ) as typeof rootReducer;
