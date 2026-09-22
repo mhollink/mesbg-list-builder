@@ -102,6 +102,21 @@ describe("CreateRosterDialog", () => {
     expect(mocks.navigate).toHaveBeenCalledWith("/armies/rosters/42");
   });
 
+  it("preselects the requested army list", async () => {
+    render(
+      <CreateRosterDialog
+        open
+        onClose={vi.fn()}
+        tagSuggestions={[]}
+        initialArmyListId="mordor"
+      />,
+    );
+
+    expect(
+      await screen.findByRole("combobox", { name: "Army list" }),
+    ).toHaveValue("Mordor");
+  });
+
   it("switches to the replacement flow when a guest roster already exists", async () => {
     const user = userEvent.setup();
     mocks.guestRoster = { id: "guest", name: "Existing roster" };

@@ -17,6 +17,7 @@ import Typography from "@mui/material/Typography";
 
 import { QuickLookupSearch } from "../features/search/QuickLookupSearch.tsx";
 import { navigation } from "./navigation";
+import { RosterCreationProvider } from "~/features/armies/rosters/management/RosterCreationProvider.tsx";
 import { DrawerStack } from "~/features/drawer-stack/DrawerStack.tsx";
 
 const drawerWidth = 260;
@@ -209,7 +210,9 @@ export const AppLayout = () => {
             mx: "auto",
           }}
         >
-          <Outlet />
+          <RosterCreationProvider>
+            <Outlet />
+          </RosterCreationProvider>
 
           <DrawerStack />
         </Box>

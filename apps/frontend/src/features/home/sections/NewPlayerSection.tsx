@@ -6,17 +6,19 @@ import Grid from "@mui/material/Grid";
 
 import { DashboardActionCard } from "../components/DashboardActionCard.tsx";
 import { PageSection } from "../components/PageSection";
+import { keycloak } from "~/features/account/auth/keycloak.ts";
+import { useRosterCreation } from "~/features/armies/rosters/management/RosterCreationProvider.tsx";
 
 const quickActions = [
   {
     key: "account",
-    href: "/register",
+    href: undefined,
     icon: <PersonAddAltOutlinedIcon />,
     primary: true,
   },
   {
     key: "build",
-    href: "/armies/rosters/new",
+    href: undefined,
     icon: <FactCheckOutlinedIcon />,
   },
   {
@@ -28,6 +30,14 @@ const quickActions = [
 
 export function NewPlayerSection() {
   const { t } = useTranslation("home", { keyPrefix: "new-player" });
+  const { openCreateRoster } = useRosterCreation();
+
+  const handleLogin = () => {
+    void keycloak.login({
+      redirectUri: window.location.href,
+    });
+  };
+
   return (
     <PageSection
       eyebrow={t("eyebrow")}
@@ -41,6 +51,13 @@ export function NewPlayerSection() {
               title={t(`cards.${action.key}.title`)}
               description={t(`cards.${action.key}.description`)}
               href={action.href}
+              onClick={
+                action.key === "account"
+                  ? handleLogin
+                  : action.key === "build"
+                    ? () => openCreateRoster()
+                    : undefined
+              }
               icon={action.icon}
               action={t(`cards.${action.key}.action`)}
               primary={action.primary}

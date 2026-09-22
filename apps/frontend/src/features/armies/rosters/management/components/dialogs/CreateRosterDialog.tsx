@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import AddIcon from "@mui/icons-material/Add";
 import Alert from "@mui/material/Alert";
@@ -40,6 +40,7 @@ interface CreateRosterDialogProps {
   onClose: () => void;
   tagSuggestions: string[];
   groupId?: number;
+  initialArmyListId?: string;
 }
 
 export function CreateRosterDialog({
@@ -47,19 +48,35 @@ export function CreateRosterDialog({
   onClose,
   tagSuggestions,
   groupId,
+  initialArmyListId,
 }: CreateRosterDialogProps) {
   const navigate = useNavigate();
   const { armyLists } = useGameArmyLists();
   const guestRoster = useAppSelector(selectGuestRoster);
 
   const [name, setName] = useState("");
-  const [armyList, setArmyList] = useState<LocalizedArmyList | null>(null);
+  const [armyListId, setArmyListId] = useState<string | null>(
+    initialArmyListId ?? null,
+  );
   const [pointsLimit, setPointsLimit] = useState<number | "">("");
   const [tags, setTags] = useState<string[]>([]);
+
+  const armyList = useMemo(
+    () => armyLists.find((candidate) => candidate.id === armyListId) ?? null,
+    [armyLists, armyListId],
+  );
 
   const [replaceConfirmationOpen, setReplaceConfirmationOpen] = useState(false);
 
   const { createRoster, isError, isLoading } = useCreateRoster();
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    setArmyListId(initialArmyListId ?? null);
+  }, [initialArmyListId, open]);
 
   const sortedArmyLists = useMemo(
     () =>
@@ -78,7 +95,7 @@ export function CreateRosterDialog({
     }
 
     setName("");
-    setArmyList(null);
+    setArmyListId(null);
     setReplaceConfirmationOpen(false);
     onClose();
   };
@@ -168,7 +185,7 @@ export function CreateRosterDialog({
             <Autocomplete
               options={sortedArmyLists}
               value={armyList}
-              onChange={(_, value) => setArmyList(value)}
+              onChange={(_, value) => setArmyListId(value?.id ?? null)}
               getOptionLabel={(option) => option.name}
               isOptionEqualToValue={(option, value) => option.id === value.id}
               groupBy={(option) => option.alignment}

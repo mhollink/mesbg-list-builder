@@ -14,13 +14,15 @@ export function DashboardActionCard({
   title,
   description,
   href,
+  onClick,
   icon,
   action,
   primary = false,
 }: {
   title: string;
   description: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   icon: ReactNode;
   action: string;
   primary?: boolean;
@@ -54,6 +56,7 @@ export function DashboardActionCard({
       <CardActions sx={{ px: 2, pb: 2 }}>
         <Button
           href={href}
+          onClick={onClick}
           variant={primary ? "contained" : "text"}
           endIcon={<ArrowForwardIcon />}
         >

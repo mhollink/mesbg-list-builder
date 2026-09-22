@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import type { LocalizedArmyList } from "../../army-lists.types.ts";
+import { useRosterCreation } from "~/features/armies/rosters/management/RosterCreationProvider.tsx";
 
 interface ArmyListPageHeaderProps {
   armyList: LocalizedArmyList;
@@ -15,6 +16,7 @@ interface ArmyListPageHeaderProps {
 export function ArmyListPageHeader({ armyList }: ArmyListPageHeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { openCreateRoster } = useRosterCreation();
 
   const backTo =
     (location.state as { backTo?: string } | null)?.backTo ??
@@ -76,11 +78,7 @@ export function ArmyListPageHeader({ armyList }: ArmyListPageHeaderProps) {
         <Button
           variant="contained"
           startIcon={<AddRoundedIcon />}
-          onClick={() =>
-            navigate(
-              `/armies/rosters/new?armyList=${encodeURIComponent(armyList.id)}`,
-            )
-          }
+          onClick={() => openCreateRoster({ armyListId: armyList.id })}
           sx={{
             flexShrink: 0,
           }}

@@ -10,9 +10,11 @@ import Typography from "@mui/material/Typography";
 
 import { RosterPreviewCard } from "../components/RosterPreviewCard.tsx";
 import { keycloak } from "~/features/account/auth/keycloak.ts";
+import { useRosterCreation } from "~/features/armies/rosters/management/RosterCreationProvider.tsx";
 
 export function HeroSection({ returningUser }: { returningUser: boolean }) {
   const { t } = useTranslation("home");
+  const { openCreateRoster } = useRosterCreation();
 
   const handleLogin = () => {
     void keycloak.login({
@@ -64,7 +66,7 @@ export function HeroSection({ returningUser }: { returningUser: boolean }) {
                 {returningUser ? (
                   <>
                     <Button
-                      href="/armies/rosters/new"
+                      onClick={() => openCreateRoster()}
                       size="large"
                       variant="contained"
                       endIcon={<ArrowForwardIcon />}

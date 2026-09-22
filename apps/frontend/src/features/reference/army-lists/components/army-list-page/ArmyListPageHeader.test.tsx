@@ -7,6 +7,7 @@ import { ArmyListPageHeader } from "./ArmyListPageHeader.tsx";
 
 const mocks = vi.hoisted(() => ({
   navigate: vi.fn(),
+  openCreateRoster: vi.fn(),
   location: {
     state: null as { backTo?: string } | null,
   },
@@ -16,6 +17,13 @@ vi.mock("react-router", () => ({
   useNavigate: () => mocks.navigate,
   useLocation: () => mocks.location,
 }));
+
+vi.mock(
+  "~/features/armies/rosters/management/RosterCreationProvider.tsx",
+  () => ({
+    useRosterCreation: () => ({ openCreateRoster: mocks.openCreateRoster }),
+  }),
+);
 
 const armyList = {
   id: "minas-tirith",
@@ -30,6 +38,7 @@ const armyList = {
 describe("ArmyListPageHeader", () => {
   beforeEach(() => {
     mocks.navigate.mockReset();
+    mocks.openCreateRoster.mockReset();
     mocks.location.state = null;
   });
 
@@ -78,8 +87,8 @@ describe("ArmyListPageHeader", () => {
 
     await user.click(screen.getByRole("button", { name: /create a roster/i }));
 
-    expect(mocks.navigate).toHaveBeenCalledWith(
-      "/armies/rosters/new?armyList=minas-tirith",
-    );
+    expect(mocks.openCreateRoster).toHaveBeenCalledWith({
+      armyListId: "minas-tirith",
+    });
   });
 });

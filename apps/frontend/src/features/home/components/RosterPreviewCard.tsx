@@ -9,9 +9,11 @@ import { alpha } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 import { PreviewRow } from "./PreviewRow.tsx";
+import { useRosterCreation } from "~/features/armies/rosters/management/RosterCreationProvider.tsx";
 
 export function RosterPreviewCard() {
   const { t } = useTranslation("home", { keyPrefix: "hero.roster-preview" });
+  const { openCreateRoster } = useRosterCreation();
 
   return (
     <Paper
@@ -55,7 +57,11 @@ export function RosterPreviewCard() {
           <PreviewRow label={t("warnings")} value={t("none")} />
         </Stack>
 
-        <Button href="/armies/rosters/new" variant="contained" fullWidth>
+        <Button
+          onClick={() => openCreateRoster()}
+          variant="contained"
+          fullWidth
+        >
           {t("cta")}
         </Button>
       </Stack>
