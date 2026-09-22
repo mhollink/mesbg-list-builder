@@ -14,7 +14,7 @@ describe("useRosterGroupNavigation", () => {
       { wrapper: wrapper("/armies/rosters") },
     );
 
-    expect(result.current.currentGroupId).toBeNull();
+    expect(result.current.currentGroupId).toBeUndefined();
     expect(result.current.currentGroup).toBeUndefined();
     expect(result.current.currentGroups).toEqual(groups);
     expect(result.current.currentPath).toEqual([]);
@@ -47,7 +47,7 @@ describe("useRosterGroupNavigation", () => {
       { wrapper: wrapper("/armies/rosters/groups/nope") },
     );
 
-    expect(result.current.currentGroupId).toBeNull();
+    expect(result.current.currentGroupId).toBeUndefined();
     expect(result.current.invalidGroupId).toBe(true);
     expect(result.current.groupNotFound).toBe(false);
   });
