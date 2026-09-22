@@ -81,6 +81,10 @@ public class RosterService {
       roster.setPointsLimit(pointsLimit);
     }
 
+    if (tags != null) {
+      roster.setTags(normalizeTags(tags));
+    }
+
     return snapshot(roster);
   }
 

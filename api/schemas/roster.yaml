@@ -281,7 +281,6 @@ UpdateRosterRequest:
       type: array
       items:
         type: string
-      default: [ ]
       description: Free-form labels attached to the roster.
 
 Warband:

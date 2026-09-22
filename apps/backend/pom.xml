@@ -86,6 +86,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-testcontainers</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -153,14 +158,14 @@
 								<useJackson3>true</useJackson3>
 								<useBeanValidation>true</useBeanValidation>
 
-								<useTags>true</useTags>
+								<containerDefaultToNull>true</containerDefaultToNull>
 
+								<useTags>true</useTags>
 								<annotationLibrary>none</annotationLibrary>
 								<documentationProvider>none</documentationProvider>
 								<useSwaggerUI>false</useSwaggerUI>
 
 								<openApiNullable>false</openApiNullable>
-
 								<hideGenerationTimestamp>true</hideGenerationTimestamp>
 							</configOptions>
 						</configuration>
