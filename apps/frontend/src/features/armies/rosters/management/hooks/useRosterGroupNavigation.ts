@@ -8,7 +8,16 @@ import { findRosterGroupPath } from "../roster-groups.utils";
 export function useRosterGroupNavigation(
   groups: RosterGroup[],
   rosters: RosterSummary[],
-) {
+): {
+  currentGroupId?: number;
+  currentGroup?: RosterGroup;
+  currentGroups: RosterGroup[];
+  currentPath:  RosterGroup[];
+  invalidGroupId: boolean;
+  groupNotFound: boolean;
+  currentRosters: RosterSummary[];
+  getDirectRosterCount: (groupId: number) => number
+} {
   const { groupId: groupIdParam } = useParams();
 
   const parsedGroupId =
@@ -49,7 +58,7 @@ export function useRosterGroupNavigation(
   const groupNotFound = currentGroupId !== null && currentGroup === undefined;
 
   return {
-    currentGroupId,
+    currentGroupId: currentGroupId ?? undefined,
     currentGroup,
     currentGroups,
     currentPath,

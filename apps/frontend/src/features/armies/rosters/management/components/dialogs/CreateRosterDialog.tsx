@@ -39,7 +39,7 @@ interface CreateRosterDialogProps {
   open: boolean;
   onClose: () => void;
   tagSuggestions: string[];
-  groupId?: number | null;
+  groupId?: number;
 }
 
 export function CreateRosterDialog({

@@ -8,7 +8,7 @@ import { createGuestRoster } from "~/features/armies/rosters/guest/guest-roster.
 export type CreateRosterValues = {
   name: string;
   armyListId: string;
-  pointsLimit?: number | null;
+  pointsLimit?: number;
   tags?: string[];
   groupId?: number;
 };
