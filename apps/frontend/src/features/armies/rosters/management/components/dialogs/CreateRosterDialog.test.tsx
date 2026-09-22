@@ -26,26 +26,23 @@ vi.mock("~/app/store/hooks.ts", () => ({
   useAppSelector: () => mocks.guestRoster,
 }));
 
-vi.mock(
-    "~/features/armies/rosters/management/hooks/useCreateRoster.ts",
-    () => {
-      class GuestRosterAlreadyExistsError extends Error {
-        constructor() {
-          super("A guest roster already exists.");
-          this.name = "GuestRosterAlreadyExistsError";
-        }
-      }
+vi.mock("~/features/armies/rosters/management/hooks/useCreateRoster.ts", () => {
+  class GuestRosterAlreadyExistsError extends Error {
+    constructor() {
+      super("A guest roster already exists.");
+      this.name = "GuestRosterAlreadyExistsError";
+    }
+  }
 
-      return {
-        GuestRosterAlreadyExistsError,
+  return {
+    GuestRosterAlreadyExistsError,
 
-        useCreateRoster: () => ({
-          createRoster: mocks.createRoster,
-          ...mocks.state,
-        }),
-      };
-    },
-);
+    useCreateRoster: () => ({
+      createRoster: mocks.createRoster,
+      ...mocks.state,
+    }),
+  };
+});
 
 vi.mock("~/features/reference/army-lists/hooks/useGameArmyLists.ts", () => ({
   useGameArmyLists: () => ({
