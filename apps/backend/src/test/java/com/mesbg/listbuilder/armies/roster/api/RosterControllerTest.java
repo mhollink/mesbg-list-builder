@@ -212,6 +212,30 @@ class RosterControllerTest {
     }
 
     @Test
+    void emptyTagsArePassedAsEmptyList() throws Exception {
+      var entity = rosterEntity(ROSTER_ID);
+      var snapshot = new RosterSnapshot(entity, STATISTICS);
+      var dto = summary(ROSTER_ID, "Updated");
+
+      when(rosterService.updateRoster(ROSTER_ID, null, null, List.of())).thenReturn(snapshot);
+      when(rosterMapper.toSummary(entity, STATISTICS)).thenReturn(dto);
+
+      mockMvc
+          .perform(
+              patch("/api/v1/rosters/{rosterId}", ROSTER_ID)
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(
+                      """
+                      {
+                        "tags": []
+                      }
+                      """))
+          .andExpect(status().isOk());
+
+      verify(rosterService).updateRoster(ROSTER_ID, null, null, List.of());
+    }
+
+    @Test
     void deletesRoster() throws Exception {
       mockMvc
           .perform(delete("/api/v1/rosters/{rosterId}", ROSTER_ID))

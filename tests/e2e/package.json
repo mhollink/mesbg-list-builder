@@ -1,6 +1,6 @@
 {
   "name": "@mlb/e2e",
-  "version": "2.0.0-alpha.15",
+  "version": "2.0.0-alpha.16",
   "scripts": {},
   "devDependencies": {
     "@playwright/test": "^1.62.1",
