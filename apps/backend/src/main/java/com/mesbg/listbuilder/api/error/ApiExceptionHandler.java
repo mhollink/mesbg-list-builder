@@ -21,10 +21,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
   @ExceptionHandler(RosterNotFoundException.class)
   ProblemDetail handleRosterNotFound(RosterNotFoundException exception) {
     return problem(
-        HttpStatus.NOT_FOUND,
-        "ROSTER_NOT_FOUND",
-        "Roster not found",
-        exception.getMessage());
+        HttpStatus.NOT_FOUND, "ROSTER_NOT_FOUND", "Roster not found", exception.getMessage());
   }
 
   @ExceptionHandler(RosterGroupNotFoundException.class)
@@ -39,10 +36,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
   @ExceptionHandler(WarbandNotFoundException.class)
   ProblemDetail handleWarbandNotFound(WarbandNotFoundException exception) {
     return problem(
-        HttpStatus.NOT_FOUND,
-        "WARBAND_NOT_FOUND",
-        "Warband not found",
-        exception.getMessage());
+        HttpStatus.NOT_FOUND, "WARBAND_NOT_FOUND", "Warband not found", exception.getMessage());
   }
 
   @ExceptionHandler(RosterUnitNotFoundException.class)
@@ -56,11 +50,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(RosterLockedException.class)
   ProblemDetail handleRosterLocked(RosterLockedException exception) {
-    return problem(
-        HttpStatus.CONFLICT,
-        "ROSTER_LOCKED",
-        "Roster locked",
-        exception.getMessage());
+    return problem(HttpStatus.CONFLICT, "ROSTER_LOCKED", "Roster locked", exception.getMessage());
   }
 
   @ExceptionHandler(RosterGroupNotEmptyException.class)
@@ -73,8 +63,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
   @ExceptionHandler(InvalidRosterGroupMoveException.class)
-  ProblemDetail handleInvalidRosterGroupMove(
-      InvalidRosterGroupMoveException exception) {
+  ProblemDetail handleInvalidRosterGroupMove(InvalidRosterGroupMoveException exception) {
     return problem(
         HttpStatus.CONFLICT,
         "INVALID_ROSTER_GROUP_MOVE",
@@ -83,8 +72,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
   @ExceptionHandler(RosterInvariantViolationException.class)
-  ProblemDetail handleRosterInvariantViolation(
-      RosterInvariantViolationException exception) {
+  ProblemDetail handleRosterInvariantViolation(RosterInvariantViolationException exception) {
     return problem(
         HttpStatus.CONFLICT,
         "ROSTER_INVARIANT_VIOLATION",
@@ -101,11 +89,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         exception.getMessage());
   }
 
-  private ProblemDetail problem(
-      HttpStatus status,
-      String code,
-      String title,
-      String detail) {
+  private ProblemDetail problem(HttpStatus status, String code, String title, String detail) {
 
     var problem = ProblemDetail.forStatusAndDetail(status, detail);
 

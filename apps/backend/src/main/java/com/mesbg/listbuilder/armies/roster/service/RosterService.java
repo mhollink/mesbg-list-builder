@@ -1,11 +1,5 @@
 package com.mesbg.listbuilder.armies.roster.service;
 
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.mesbg.listbuilder.account.AuthenticatedUserService;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
@@ -15,6 +9,7 @@ import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
+import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterUnitException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotFoundException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterInvariantViolationException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterLockedException;
@@ -23,6 +18,11 @@ import com.mesbg.listbuilder.armies.roster.service.exception.RosterUnitNotFoundE
 import com.mesbg.listbuilder.armies.roster.service.exception.WarbandNotFoundException;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatistics;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatisticsCalculator;
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -73,7 +73,6 @@ public class RosterService {
       Long rosterId, String name, Integer pointsLimit, List<String> tags) {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
-    var normalizeTags = normalizeTags(tags);
 
     if (name != null && !name.equals(roster.getName())) roster.setName(name);
 
@@ -196,7 +195,7 @@ public class RosterService {
     var user = authenticatedUserService.getCurrentUser();
     var roster = requireRoster(rosterId, user.getId());
     requireEditable(roster);
-    var warband = requireWarband(warbandId, rosterId, user.getId());
+    requireWarband(warbandId, rosterId, user.getId());
 
     if (roster.getGeneralUnit() != null
         && roster.getGeneralUnit().getWarband().getId().equals(warbandId)) {
@@ -266,12 +265,10 @@ public class RosterService {
 
     if (quantity != null) {
       if (unit.isLeader() && quantity != 1) {
-        throw new RosterInvariantViolationException(
-            "A warband leader must have quantity 1");
+        throw new RosterInvariantViolationException("A warband leader must have quantity 1");
       }
       if (quantity < 1) {
-        throw new RosterInvariantViolationException(
-            "A warband leader must have quantity 1");
+        throw new InvalidRosterUnitException("Unit quantity must be at least 1");
       }
       unit.setQuantity(quantity);
     }
@@ -296,7 +293,8 @@ public class RosterService {
             .orElseThrow(() -> new RosterUnitNotFoundException(unitId));
 
     if (unit.isLeader()) {
-      throw new RosterInvariantViolationException("The warband leader cannot be deleted independently");
+      throw new RosterInvariantViolationException(
+          "The warband leader cannot be deleted independently");
     }
 
     if (roster.getGeneralUnit() != null && roster.getGeneralUnit().getId().equals(unitId)) {
