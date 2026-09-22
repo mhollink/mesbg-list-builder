@@ -106,7 +106,7 @@ export function GuestRosterCard({ roster, onDelete }: GuestRosterCardProps) {
               noWrap
               sx={{ width: "100%" }}
             >
-              {armyListName.name}
+              {armyListName?.name ?? roster.armyListId}
             </Typography>
           </Stack>
 

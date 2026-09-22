@@ -57,7 +57,7 @@ function addUnitStats(
   const quantity = unit.quantity;
 
   stats.modelCount += quantity;
-  stats.points += profile.points * quantity;
+  stats.points += (profile.points ?? 0) * quantity;
 
   if (profile.stats.type === "hero") {
     const might = Number(profile.stats.might);

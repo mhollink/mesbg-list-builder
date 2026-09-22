@@ -3,7 +3,7 @@ export interface GuestRoster {
   name: string;
   armyListId: string;
   pointsLimit?: number;
-  tags: string[];
+  tags?: string[];
 
   warbands: GuestWarband[];
 

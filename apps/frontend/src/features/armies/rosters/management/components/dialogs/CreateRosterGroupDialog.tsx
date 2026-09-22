@@ -12,7 +12,7 @@ import { useCreateRosterGroupMutation } from "../../../api/roster-group-api";
 
 interface CreateRosterGroupDialogProps {
   open: boolean;
-  parentGroupId: number | null;
+  parentGroupId?: number ;
   onClose: () => void;
 }
 
@@ -43,7 +43,7 @@ export function CreateRosterGroupDialog({
     try {
       await createGroup({
         name: trimmedName,
-        parentGroupId: parentGroupId ?? undefined,
+        parentGroupId: parentGroupId,
       }).unwrap();
 
       onClose();
