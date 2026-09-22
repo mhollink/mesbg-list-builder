@@ -4,11 +4,10 @@ import com.mesbg.listbuilder.account.AuthenticatedUserService;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
-import java.util.List;
-
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterGroupMoveException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotEmptyException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotFoundException;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -77,15 +76,13 @@ public class RosterGroupService {
 
   private void validateMove(RosterGroupEntity group, RosterGroupEntity newParent) {
     if (group.getId().equals(newParent.getId())) {
-      throw new InvalidRosterGroupMoveException(
-          "A roster group cannot be its own parent");
+      throw new InvalidRosterGroupMoveException("A roster group cannot be its own parent");
     }
 
     var ancestor = newParent;
     while (ancestor != null) {
       if (group.getId().equals(ancestor.getId())) {
-        throw new InvalidRosterGroupMoveException(
-            "Moving the roster group would create a cycle");
+        throw new InvalidRosterGroupMoveException("Moving the roster group would create a cycle");
       }
       ancestor = ancestor.getParentGroup();
     }
@@ -96,6 +93,7 @@ public class RosterGroupService {
         .findByIdAndUserId(groupId, userId)
         .orElseThrow(() -> new RosterGroupNotFoundException(groupId));
   }
+
   private ResponseStatusException conflict(String message) {
     return new ResponseStatusException(HttpStatus.CONFLICT, message);
   }
