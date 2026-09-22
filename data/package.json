@@ -2,7 +2,7 @@
   "private": true,
   "name": "@mlb/data",
   "type": "commonjs",
-  "version": "2.0.0-alpha.15",
+  "version": "2.0.0-alpha.16",
   "scripts": {
     "format": "biome check --write .",
     "build": "tsx scripts/generate.ts",
@@ -13,9 +13,9 @@
     "@biomejs/biome": "2.5.12",
     "@types/node": "^26.5.0",
     "chokidar-cli": "^3.0.0",
+    "sharp": "^0.35.4",
     "tsx": "^4.23.12",
     "xlsx": "^0.18.5",
-    "sharp": "^0.35.4",
     "zod": "^4.4.3"
   }
 }
