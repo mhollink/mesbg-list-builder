@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import AddIcon from "@mui/icons-material/Add";
 import Alert from "@mui/material/Alert";
@@ -53,6 +53,10 @@ export function CreateRosterDialog({
   const navigate = useNavigate();
   const { armyLists } = useGameArmyLists();
   const guestRoster = useAppSelector(selectGuestRoster);
+  const { createRoster, isError, isLoading } = useCreateRoster();
+
+  const armyListInputRef = useRef<HTMLInputElement>(null);
+  const rosterNameInputRef = useRef<HTMLInputElement>(null);
 
   const [name, setName] = useState("");
   const [armyListId, setArmyListId] = useState<string | null>(
@@ -60,24 +64,13 @@ export function CreateRosterDialog({
   );
   const [pointsLimit, setPointsLimit] = useState<number | "">("");
   const [tags, setTags] = useState<string[]>([]);
+  const [replaceConfirmationOpen, setReplaceConfirmationOpen] = useState(false);
 
   const armyList = useMemo(
     () => armyLists.find((candidate) => candidate.id === armyListId) ?? null,
     [armyLists, armyListId],
   );
-
-  const [replaceConfirmationOpen, setReplaceConfirmationOpen] = useState(false);
-
-  const { createRoster, isError, isLoading } = useCreateRoster();
-
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    setArmyListId(initialArmyListId ?? null);
-  }, [initialArmyListId, open]);
-
+  const rosterName = name.trim() || armyList?.name || "";
   const sortedArmyLists = useMemo(
     () =>
       [...armyLists].sort((a, b) => {
@@ -88,6 +81,22 @@ export function CreateRosterDialog({
       }),
     [armyLists],
   );
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    setArmyListId(initialArmyListId ?? null);
+  }, [initialArmyListId, open]);
+
+  const handleDialogEntered = () => {
+    if (initialArmyListId) {
+      rosterNameInputRef.current?.focus();
+    } else {
+      armyListInputRef.current?.focus();
+    }
+  };
 
   const handleClose = () => {
     if (isLoading) {
@@ -106,7 +115,7 @@ export function CreateRosterDialog({
         "armyList should have been selected before calling createValues()",
       );
     return {
-      name: name.trim(),
+      name: rosterName,
       armyListId: armyList.id,
       ...(pointsLimit ? { pointsLimit: Number(pointsLimit) } : {}),
       tags,
@@ -117,7 +126,7 @@ export function CreateRosterDialog({
   const handleSubmit = async (event: React.SubmitEvent) => {
     event.preventDefault();
 
-    if (!armyList || !name.trim()) {
+    if (!armyList) {
       return;
     }
 
@@ -149,14 +158,24 @@ export function CreateRosterDialog({
     <ReplaceGuestRosterDialog
       open={open}
       existingRosterName={guestRoster.name}
-      newRosterName={name}
+      newRosterName={rosterName}
       isLoading={isLoading}
       onCancel={() => setReplaceConfirmationOpen(false)}
       onOpenExisting={() => navigate("/armies/rosters/guest")}
       onReplace={handleReplace}
     />
   ) : (
-    <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      fullWidth
+      maxWidth="sm"
+      slotProps={{
+        transition: {
+          onEntered: handleDialogEntered,
+        },
+      }}
+    >
       <Box component="form" onSubmit={handleSubmit}>
         <DialogTitle>Create roster</DialogTitle>
 
@@ -172,15 +191,6 @@ export function CreateRosterDialog({
             {isError && (
               <Alert severity="error">The roster could not be created.</Alert>
             )}
-
-            <TextField
-              label="Roster name"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              required
-              autoFocus
-              fullWidth
-            />
 
             <Autocomplete
               options={sortedArmyLists}
@@ -250,8 +260,21 @@ export function CreateRosterDialog({
                 </Box>
               )}
               renderInput={(params) => (
-                <TextField {...params} label="Army list" />
+                <TextField
+                  {...params}
+                  label="Army list"
+                  inputRef={armyListInputRef}
+                />
               )}
+            />
+
+            <TextField
+              label="Roster name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              helperText={`Optional. Defaults to "${armyList?.name ?? "the army list name"}".`}
+              fullWidth
+              inputRef={rosterNameInputRef}
             />
 
             <TextField
@@ -304,7 +327,7 @@ export function CreateRosterDialog({
             type="submit"
             variant="contained"
             startIcon={<AddIcon />}
-            disabled={isLoading || !name.trim() || !armyList}
+            disabled={isLoading || !armyList}
           >
             Create roster
           </Button>

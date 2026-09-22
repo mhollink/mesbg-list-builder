@@ -86,7 +86,7 @@ describe("CreateRosterDialog", () => {
       />,
     );
 
-    await user.type(screen.getByLabelText("Roster name *"), "  My Mordor  ");
+    await user.type(screen.getByLabelText("Roster name"), "  My Mordor  ");
     await selectMordor(user);
     await user.type(screen.getByLabelText("Point limit"), "750");
     await user.click(screen.getByRole("button", { name: "Create roster" }));
@@ -100,6 +100,22 @@ describe("CreateRosterDialog", () => {
     });
     expect(onClose).toHaveBeenCalledOnce();
     expect(mocks.navigate).toHaveBeenCalledWith("/armies/rosters/42");
+  });
+
+  it("defaults the roster name to the localized army list name", async () => {
+    const user = userEvent.setup();
+
+    render(<CreateRosterDialog open onClose={vi.fn()} tagSuggestions={[]} />);
+
+    await selectMordor(user);
+    await user.click(screen.getByRole("button", { name: "Create roster" }));
+
+    expect(mocks.createRoster).toHaveBeenCalledWith({
+      name: "Mordor",
+      armyListId: "mordor",
+      tags: [],
+      groupId: undefined,
+    });
   });
 
   it("preselects the requested army list", async () => {
@@ -126,7 +142,7 @@ describe("CreateRosterDialog", () => {
 
     render(<CreateRosterDialog open onClose={vi.fn()} tagSuggestions={[]} />);
 
-    await user.type(screen.getByLabelText("Roster name *"), "Replacement");
+    await user.type(screen.getByLabelText("Roster name"), "Replacement");
     await selectMordor(user);
     await user.click(screen.getByRole("button", { name: "Create roster" }));
 
