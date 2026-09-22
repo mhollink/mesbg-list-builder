@@ -12,7 +12,7 @@ import { useCreateRosterGroupMutation } from "../../../api/roster-group-api";
 
 interface CreateRosterGroupDialogProps {
   open: boolean;
-  parentGroupId?: number ;
+  parentGroupId?: number;
   onClose: () => void;
 }
 

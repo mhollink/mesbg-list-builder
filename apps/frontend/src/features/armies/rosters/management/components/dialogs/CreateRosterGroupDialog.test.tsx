@@ -45,7 +45,11 @@ describe("CreateRosterGroupDialog", () => {
     const user = userEvent.setup();
 
     render(
-      <CreateRosterGroupDialog open parentGroupId={undefined} onClose={vi.fn()} />,
+      <CreateRosterGroupDialog
+        open
+        parentGroupId={undefined}
+        onClose={vi.fn()}
+      />,
     );
 
     await user.type(screen.getByLabelText("Group name"), "Root");
@@ -61,7 +65,11 @@ describe("CreateRosterGroupDialog", () => {
     mocks.state = { isLoading: false, isError: true };
 
     render(
-      <CreateRosterGroupDialog open parentGroupId={undefined} onClose={vi.fn()} />,
+      <CreateRosterGroupDialog
+        open
+        parentGroupId={undefined}
+        onClose={vi.fn()}
+      />,
     );
 
     expect(screen.getByText("Could not create the group.")).toBeInTheDocument();

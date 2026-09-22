@@ -11,7 +11,7 @@ interface HeraldryIconProps {
 }
 
 export function HeraldryIcon({ iconName, size = 48 }: HeraldryIconProps) {
-    if (iconName === undefined) return null;
+  if (iconName === undefined) return null;
 
   const [x, y] = heraldry.icons[iconName];
   const scale = size / heraldry.cellSize;

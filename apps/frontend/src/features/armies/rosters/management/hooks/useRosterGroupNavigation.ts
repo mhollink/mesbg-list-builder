@@ -12,11 +12,11 @@ export function useRosterGroupNavigation(
   currentGroupId?: number;
   currentGroup?: RosterGroup;
   currentGroups: RosterGroup[];
-  currentPath:  RosterGroup[];
+  currentPath: RosterGroup[];
   invalidGroupId: boolean;
   groupNotFound: boolean;
   currentRosters: RosterSummary[];
-  getDirectRosterCount: (groupId: number) => number
+  getDirectRosterCount: (groupId: number) => number;
 } {
   const { groupId: groupIdParam } = useParams();
 

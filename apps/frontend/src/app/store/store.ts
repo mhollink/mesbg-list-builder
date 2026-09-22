@@ -1,8 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, type Middleware } from "@reduxjs/toolkit";
 import {
   FLUSH,
   PAUSE,
   PERSIST,
+  type PersistConfig,
   PURGE,
   persistReducer,
   persistStore,
@@ -14,15 +15,15 @@ import { rootReducer } from "./rootReducer.ts";
 import { storage } from "./storage.ts";
 import { serverApi } from "~/api/server-api.ts";
 
-const persistedReducer = persistReducer(
-  {
-    key: "mesbg-list-builder",
-    storage,
+type RootReducerState = ReturnType<typeof rootReducer>;
 
-    whitelist: ["guestRoster", "theme", "settings"],
-  },
-  rootReducer,
-) as typeof rootReducer;
+const persistConfig = {
+  key: "mesbg-list-builder",
+  storage,
+  whitelist: ["guestRoster", "theme", "settings"],
+} satisfies PersistConfig<RootReducerState>;
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -32,11 +33,10 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(serverApi.middleware),
+    }).concat(serverApi.middleware as Middleware),
 });
 
 export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
-
 export type AppDispatch = typeof store.dispatch;
