@@ -86,8 +86,8 @@ describe("CreateRosterDialog", () => {
       />,
     );
 
-    await user.type(screen.getByLabelText("Roster name"), "  My Mordor  ");
     await selectMordor(user);
+    await user.type(screen.getByLabelText("Roster name"), "  My Mordor  ");
     await user.type(screen.getByLabelText("Point limit"), "750");
     await user.click(screen.getByRole("button", { name: "Create roster" }));
 
@@ -142,8 +142,8 @@ describe("CreateRosterDialog", () => {
 
     render(<CreateRosterDialog open onClose={vi.fn()} tagSuggestions={[]} />);
 
-    await user.type(screen.getByLabelText("Roster name"), "Replacement");
     await selectMordor(user);
+    await user.type(screen.getByLabelText("Roster name"), "Replacement");
     await user.click(screen.getByRole("button", { name: "Create roster" }));
 
     expect(
@@ -176,6 +176,10 @@ describe("CreateRosterDialog", () => {
 });
 
 async function selectMordor(user: ReturnType<typeof userEvent.setup>) {
-  await user.click(screen.getByRole("combobox", { name: "Army list" }));
-  await user.click(await screen.findByRole("option", { name: "Mordor" }));
+  const input = screen.getByRole("combobox", {name: "Army list",});
+  await user.type(input, "Mordor");
+  const option = await screen.findByRole("option", {
+    name: "Mordor",
+  });
+  await user.click(option);
 }
