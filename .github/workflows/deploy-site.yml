@@ -39,6 +39,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build API client
+        run: pnpm --filter @mlb/api-client build
+
+      - name: Build data
+        run: pnpm --filter @mlb/data build
+
       - name: Test frontend
         run: pnpm --dir apps/frontend test --run
 
