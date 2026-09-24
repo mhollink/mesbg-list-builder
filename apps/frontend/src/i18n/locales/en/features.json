@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "eyebrow": "Features",
+    "title": "One place for your MESBG hobby",
+    "description": "Build and organize armies, manage your collection, find opponents, record games, manage campaigns and tournaments, and look up the rules you need at the table.",
+    "note": "Some areas are already available in the new List Builder. The others show where the application is heading as the rewrite continues."
+  },
+  "statuses": {
+    "planned": "Planned"
+  },
+  "sections": {
+    "rosters": {
+      "title": "Build and manage your armies",
+      "description": "Create your rosters from the Army Lists of Middle-Earth. Roster management supports groups, favourites, duplication and locking to prevent altering tournament submitted lists.",
+      "features": [
+        "Warband-based roster building",
+        "Groups, search and favourites",
+        "Automatic points and army statistics",
+        "Lock submitted rosters"
+      ],
+      "action": "Manage rosters"
+    },
+    "collection": {
+      "title": "Know what you own and what you can field",
+      "description": "Keep track of the models and loadouts in your collection so army building can take the miniatures you actually own into account and show where a list still has gaps.",
+      "features": [
+        "Model and quantity tracking",
+        "Wargear and loadout support",
+        "Roster collection checks",
+        "See which models are missing"
+      ]
+    },
+    "play": {
+      "title": "Find a game and take your roster to the table",
+      "description": "Find other players looking for a game, agree on the important details and use one of your saved rosters as the starting point when the battle begins.",
+      "features": [
+        "Find players and open games",
+        "Share points and game details",
+        "Start from a saved roster",
+        "At-the-table game tools"
+      ]
+    },
+    "history": {
+      "title": "Turn completed games into useful history",
+      "description": "Save your results and build statistics around the army lists and models you actually play. Over time, your match history becomes a useful view of what you play, how often you play it and how those games went.",
+      "features": [
+        "Match history",
+        "Results by army list",
+        "Results by model or profile",
+        "Scenario and points-level trends"
+      ]
+    },
+    "battle-companies": {
+      "title": "Manage a company between battles",
+      "description": "Keep a Battle Company roster and its progression together between games, then use the List Builder to guide the War's Aftermath process and record the changes that carry into the next battle.",
+      "features": [
+        "Persistent company roster",
+        "Progression between battles",
+        "War's Aftermath assistance",
+        "Campaign history"
+      ]
+    },
+    "tournaments": {
+      "title": "Organize and join events from the same account",
+      "description": "Bring event registration, roster submission and tournament progress together. Players can enter with rosters they already manage, while organizers can keep the event structure and results in one place.",
+      "features": [
+        "Event registration",
+        "Roster submission and locking",
+        "Rounds and pairings",
+        "Standings and results"
+      ]
+    },
+    "reference": {
+      "title": "Find the profile, army list or rule you need",
+      "description": "Search rules, profiles and army lists from the same structured game data used throughout the List Builder. When you know which models you want to use, Find an Army can also show which lists can field them together.",
+      "features": [
+        "Rules reference",
+        "Profile reference",
+        "Army list reference",
+        "Find an Army"
+      ],
+      "action": "Browse the reference"
+    }
+  }
+}

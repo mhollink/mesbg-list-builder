@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "eyebrow": "Functies",
+    "title": "Alles voor je MESBG-hobby op één plek",
+    "description": "Bouw en organiseer legers, beheer je collectie, vind tegenstanders, leg wedstrijden vast, beheer campagnes en toernooien en zoek de regels op die je aan tafel nodig hebt.",
+    "note": "Een deel is al beschikbaar in de nieuwe List Builder. De overige onderdelen laten zien waar de applicatie naartoe groeit terwijl de rewrite verdergaat."
+  },
+  "statuses": {
+    "planned": "Gepland"
+  },
+  "sections": {
+    "rosters": {
+      "title": "Bouw je leger en houd iedere legerlijst georganiseerd",
+      "description": "Stel je legers samen op basis van de legerlijsten van Middle-Earth. Roosterbeheer ondersteunt groepen, favorieten, duplicatie en vergrendeling om te voorkomen dat de ingezonden lijsten van toernooien worden gewijzigd.",
+      "features": [
+        "Warband-gebaseerde list builder",
+        "Groepen, zoeken en favorieten",
+        "Automatische punten en legerstatistieken",
+        "Ingediende lijsten vergrendelen"
+      ],
+      "action": "Beheer legerlijsten"
+    },
+    "collection": {
+      "title": "Weet wat je bezit en wat je kunt spelen",
+      "description": "Houd de miniaturen en uitrustingsopties in je collectie bij, zodat de army builder rekening kan houden met wat je daadwerkelijk bezit en kan laten zien wat er voor een lijst nog ontbreekt.",
+      "features": [
+        "Miniaturen en aantallen bijhouden",
+        "Uitrusting en loadouts",
+        "Collectiecontrole op legerlijsten",
+        "Bekijk welke miniaturen ontbreken"
+      ]
+    },
+    "play": {
+      "title": "Vind een spel en neem je legerlijst mee naar tafel",
+      "description": "Vind andere spelers die een wedstrijd zoeken, spreek de belangrijkste details af en gebruik een van je opgeslagen legerlijsten als startpunt wanneer het gevecht begint.",
+      "features": [
+        "Vind spelers en open wedstrijden",
+        "Deel punten en wedstrijdgegevens",
+        "Start vanuit een opgeslagen legerlijst",
+        "Tools voor tijdens het spelen"
+      ]
+    },
+    "history": {
+      "title": "Maak van gespeelde wedstrijden een bruikbare geschiedenis",
+      "description": "Bewaar je resultaten en bouw statistieken op rond de legerlijsten en modellen waarmee je daadwerkelijk speelt. Zo wordt je wedstrijdgeschiedenis steeds nuttiger om te zien wat je speelt, hoe vaak en met welk resultaat.",
+      "features": [
+        "Wedstrijdgeschiedenis",
+        "Resultaten per legerlijst",
+        "Resultaten per model of profiel",
+        "Trends per scenario en puntenniveau"
+      ]
+    },
+    "battle-companies": {
+      "title": "Beheer je company tussen wedstrijden door",
+      "description": "Houd de roster en voortgang van je Battle Company tussen wedstrijden bij en gebruik de List Builder vervolgens om het War's Aftermath-proces te begeleiden en de wijzigingen voor de volgende wedstrijd vast te leggen.",
+      "features": [
+        "Blijvende company roster",
+        "Voortgang tussen wedstrijden",
+        "Hulp bij War's Aftermath",
+        "Campagnegeschiedenis"
+      ]
+    },
+    "tournaments": {
+      "title": "Organiseer en speel evenementen vanuit hetzelfde account",
+      "description": "Breng inschrijving, legerlijstinzending en het verloop van een toernooi samen. Spelers kunnen deelnemen met lijsten die ze al beheren, terwijl organisatoren de structuur en resultaten van het evenement op één plek kunnen bijhouden.",
+      "features": [
+        "Inschrijving voor evenementen",
+        "Legerlijst indienen en vergrendelen",
+        "Rondes en pairings",
+        "Stand en resultaten"
+      ]
+    },
+    "reference": {
+      "title": "Vind het profiel, de legerlijst of de regel die je nodig hebt",
+      "description": "Zoek regels, profielen en legerlijsten vanuit dezelfde gestructureerde speldata die in de rest van de List Builder wordt gebruikt. Weet je welke modellen je wilt spelen, dan laat Find an Army ook zien welke legerlijsten ze samen kunnen gebruiken.",
+      "features": [
+        "Regelreferentie",
+        "Profielreferentie",
+        "Legerlijstreferentie",
+        "Find an Army"
+      ],
+      "action": "Bekijk de referentie"
+    }
+  }
+}
