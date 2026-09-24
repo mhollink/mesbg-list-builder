@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router";
 
 import { FeaturePagePlaceholder } from "../components/FeaturePagePlaceholder.tsx";
 import { NotFoundPage } from "../components/NotFoundPage.tsx";
+import { FeaturesPage } from "../features/about-help/FeaturesPage.tsx";
 import { FeedbackPage } from "../features/about-help/FeedbackPage.tsx";
 import { PoliciesPage } from "../features/about-help/PoliciesPage.tsx";
 import { SupportPage } from "../features/about-help/SupportPage.tsx";
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "features",
+        element: <FeaturesPage />,
       },
       {
         path: "search",
