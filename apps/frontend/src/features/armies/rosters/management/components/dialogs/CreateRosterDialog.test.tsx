@@ -176,7 +176,7 @@ describe("CreateRosterDialog", () => {
 });
 
 async function selectMordor(user: ReturnType<typeof userEvent.setup>) {
-  const input = screen.getByRole("combobox", {name: "Army list",});
+  const input = screen.getByRole("combobox", { name: "Army list" });
   await user.type(input, "Mordor");
   const option = await screen.findByRole("option", {
     name: "Mordor",
