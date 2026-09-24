@@ -1,42 +1,59 @@
-name: Publish backend image
+name: CD
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
     branches:
       - master
-    paths:
-      - "apps/backend/**"
-      - "api/**"
-      - "infra/docker/keycloak/**"
-      - ".github/workflows/backend-image.yml"
 
 permissions:
+  actions: read
   contents: read
   packages: write
 
+concurrency:
+  group: production
+  cancel-in-progress: false
+
 env:
-  IMAGE: ghcr.io/mhollink/mesbg-list-builder-backend
+  BACKEND_IMAGE: ghcr.io/mhollink/mesbg-list-builder-backend
 
 jobs:
-  publish:
-    name: Build and publish
+  deploy:
+    name: Deploy
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      (github.event.workflow_run.event == 'push' ||
+       github.event.workflow_run.event == 'workflow_dispatch')
+
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: apps/backend
+    environment: production
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Set up Java
-        uses: actions/setup-java@v5
+      - name: Checkout deployment configuration
+        uses: actions/checkout@v7
         with:
-          distribution: temurin
-          java-version: "25"
-          cache: maven
-          cache-dependency-path: apps/backend/pom.xml
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Download frontend artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: frontend-${{ github.event.workflow_run.head_sha }}
+          path: artifacts/frontend
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download backend image artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: backend-image-${{ github.event.workflow_run.head_sha }}
+          path: artifacts/backend
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log in to GHCR
         uses: docker/login-action@v3
@@ -45,32 +62,30 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build, test and publish image
+      - name: Publish backend image
+        env:
+          IMAGE_TAG: sha-${{ github.event.workflow_run.head_sha }}
         run: |
-          ./mvnw --batch-mode verify jib:build \
-            -Dimage="${IMAGE}:latest" \
-            -Djib.to.tags="sha-${GITHUB_SHA}"
+          docker load --input artifacts/backend/jib-image.tar
 
-  deploy:
-    name: Deploy
-    needs: publish
-    runs-on: ubuntu-latest
-    environment: production
+          docker push "${BACKEND_IMAGE}:${IMAGE_TAG}"
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+          docker tag \
+            "${BACKEND_IMAGE}:${IMAGE_TAG}" \
+            "${BACKEND_IMAGE}:latest"
+
+          docker push "${BACKEND_IMAGE}:latest"
 
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh
-          
+
           printf '%s\n' "${{ secrets.VPS_SSH_KEY }}" \
             > ~/.ssh/id_ed25519
-          
+
           printf '%s\n' "${{ secrets.VPS_KNOWN_HOSTS }}" \
             > ~/.ssh/known_hosts
-          
+
           chmod 600 ~/.ssh/id_ed25519
 
       - name: Prepare Keycloak directories
@@ -114,7 +129,7 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Deploy
+      - name: Deploy backend
         env:
           KEYCLOAK_CHANGED: ${{ steps.keycloak.outputs.changed }}
         run: |
@@ -123,7 +138,7 @@ jobs:
             set -euo pipefail
 
             cd /opt/mesbg
-          
+
             docker compose pull backend keycloak
             docker compose up -d backend
 
@@ -136,3 +151,14 @@ jobs:
 
             docker image prune -f
           EOF
+
+      - name: Deploy frontend
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          protocol: ftps
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: artifacts/frontend/
+          server-dir: /public_html/test/
+          log-level: minimal

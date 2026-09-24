@@ -1,10 +1,6 @@
 version: 2
 
 updates:
-  # pnpm workspace
-  # The root workspace covers packages such as:
-  # - /apps/frontend
-  # - /data
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -21,7 +17,6 @@ updates:
           - "minor"
           - "patch"
 
-  # Spring Boot / Maven backend
   - package-ecosystem: "maven"
     directory: "/apps/backend"
     schedule:
@@ -38,7 +33,6 @@ updates:
           - "minor"
           - "patch"
 
-  # GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
