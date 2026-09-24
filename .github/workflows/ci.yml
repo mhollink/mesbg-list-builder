@@ -2,9 +2,13 @@ name: CI
 
 on:
   pull_request:
+
   push:
     branches:
       - master
+
+  # Allows explicitly rebuilding/redeploying the current master commit.
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,6 +16,9 @@ permissions:
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
+
+env:
+  BACKEND_IMAGE: ghcr.io/mhollink/mesbg-list-builder-backend
 
 jobs:
   frontend:
@@ -29,7 +36,7 @@ jobs:
           run_install: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: pnpm
@@ -53,8 +60,35 @@ jobs:
       - name: Build data
         run: pnpm --filter @mlb/data build
 
+      - name: Validate deployment configuration
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        env:
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_KEYCLOAK_URL: ${{ vars.VITE_KEYCLOAK_URL }}
+          VITE_KEYCLOAK_REALM: ${{ vars.VITE_KEYCLOAK_REALM }}
+          VITE_KEYCLOAK_CLIENT_ID: ${{ vars.VITE_KEYCLOAK_CLIENT_ID }}
+        run: |
+          : "${VITE_API_URL:?Repository variable VITE_API_URL is required}"
+          : "${VITE_KEYCLOAK_URL:?Repository variable VITE_KEYCLOAK_URL is required}"
+          : "${VITE_KEYCLOAK_REALM:?Repository variable VITE_KEYCLOAK_REALM is required}"
+          : "${VITE_KEYCLOAK_CLIENT_ID:?Repository variable VITE_KEYCLOAK_CLIENT_ID is required}"
+
       - name: Build frontend
+        env:
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_KEYCLOAK_URL: ${{ vars.VITE_KEYCLOAK_URL }}
+          VITE_KEYCLOAK_REALM: ${{ vars.VITE_KEYCLOAK_REALM }}
+          VITE_KEYCLOAK_CLIENT_ID: ${{ vars.VITE_KEYCLOAK_CLIENT_ID }}
         run: pnpm --filter @mlb/frontend build
+
+      - name: Upload frontend artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v7
+        with:
+          name: frontend-${{ github.sha }}
+          path: apps/frontend/dist/
+          if-no-files-found: error
+          retention-days: 7
 
   backend:
     name: Backend
@@ -82,3 +116,18 @@ jobs:
 
       - name: Build and test
         run: ./mvnw --batch-mode verify
+
+      - name: Build backend image artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        run: |
+          ./mvnw --batch-mode jib:buildTar \
+            -Dimage="${BACKEND_IMAGE}:sha-${GITHUB_SHA}"
+
+      - name: Upload backend image artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v7
+        with:
+          name: backend-image-${{ github.sha }}
+          path: apps/backend/target/jib-image.tar
+          if-no-files-found: error
+          retention-days: 7
