@@ -3,14 +3,17 @@ package com.mesbg.listbuilder.armies.roster.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.mesbg.listbuilder.account.AuthenticatedUserService;
+import com.mesbg.listbuilder.account.CurrentUserContext;
 import com.mesbg.listbuilder.account.UserEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
+import com.mesbg.listbuilder.armies.roster.persistence.RosterUnitRepository;
+import com.mesbg.listbuilder.armies.roster.persistence.WarbandRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterGroupMoveException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotEmptyException;
@@ -21,7 +24,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -30,13 +32,13 @@ class RosterGroupServiceTest {
 
   private static final long USER_ID = 10L;
 
-  @Mock private AuthenticatedUserService authenticatedUserService;
-
+  @Mock private CurrentUserContext currentUser;
   @Mock private RosterGroupRepository rosterGroupRepository;
-
   @Mock private RosterRepository rosterRepository;
+  @Mock private WarbandRepository warbandRepository;
+  @Mock private RosterUnitRepository rosterUnitRepository;
 
-  @InjectMocks private RosterGroupService service;
+  private RosterGroupService service;
 
   private UserEntity user;
 
@@ -45,7 +47,19 @@ class RosterGroupServiceTest {
     user = new UserEntity("keycloak-subject", "user@example.test");
     user.setId(USER_ID);
 
-    when(authenticatedUserService.getCurrentUser()).thenReturn(user);
+    lenient().when(currentUser.getUser()).thenReturn(user);
+    lenient().when(currentUser.getUserId()).thenReturn(USER_ID);
+
+    RosterAccess rosterAccess =
+        new RosterAccess(
+            currentUser,
+            rosterRepository,
+            warbandRepository,
+            rosterUnitRepository,
+            rosterGroupRepository);
+
+    service =
+        new RosterGroupService(currentUser, rosterAccess, rosterGroupRepository, rosterRepository);
   }
 
   @Nested

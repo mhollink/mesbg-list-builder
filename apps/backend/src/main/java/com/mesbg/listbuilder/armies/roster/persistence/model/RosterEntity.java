@@ -69,6 +69,11 @@ public class RosterEntity {
   @Column(name = "tag", nullable = false)
   private Set<String> tags = new LinkedHashSet<>();
 
+  @ElementCollection(fetch = FetchType.LAZY)
+  @CollectionTable(name = "roster_options", joinColumns = @JoinColumn(name = "roster_id"))
+  @Column(name = "option_id", nullable = false)
+  private Set<String> armyOptionIds = new LinkedHashSet<>();
+
   @OneToMany(mappedBy = "roster", cascade = CascadeType.ALL, orphanRemoval = true)
   @OrderBy("sortIndex ASC, id ASC")
   private List<WarbandEntity> warbands = new ArrayList<>();

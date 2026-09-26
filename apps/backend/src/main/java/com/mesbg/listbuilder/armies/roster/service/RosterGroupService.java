@@ -1,45 +1,40 @@
 package com.mesbg.listbuilder.armies.roster.service;
 
-import com.mesbg.listbuilder.account.AuthenticatedUserService;
+import com.mesbg.listbuilder.account.CurrentUserContext;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterGroupMoveException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotEmptyException;
-import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotFoundException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @RequiredArgsConstructor
 public class RosterGroupService {
 
-  private final AuthenticatedUserService authenticatedUserService;
+  private final CurrentUserContext currentUser;
+  private final RosterAccess rosterAccess;
   private final RosterGroupRepository rosterGroupRepository;
   private final RosterRepository rosterRepository;
 
   @Transactional
   public List<RosterGroupEntity> listGroups() {
-    var user = authenticatedUserService.getCurrentUser();
-    return rosterGroupRepository.findAllByUserIdOrderByNameAsc(user.getId());
+    return rosterGroupRepository.findAllByUserIdOrderByNameAsc(currentUser.getUserId());
   }
 
   @Transactional
   public RosterGroupEntity createGroup(String name, Long parentGroupId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var parent = parentGroupId == null ? null : requireGroup(parentGroupId, user.getId());
+    var parent = parentGroupId == null ? null : rosterAccess.requireGroup(parentGroupId);
 
-    return rosterGroupRepository.save(new RosterGroupEntity(user, name, parent));
+    return rosterGroupRepository.save(new RosterGroupEntity(currentUser.getUser(), name, parent));
   }
 
   @Transactional
   public RosterGroupEntity renameGroup(Long groupId, String name) {
-    var user = authenticatedUserService.getCurrentUser();
-    var group = requireGroup(groupId, user.getId());
+    var group = rosterAccess.requireGroup(groupId);
 
     group.setName(name);
     return group;
@@ -47,11 +42,10 @@ public class RosterGroupService {
 
   @Transactional
   public void deleteGroup(Long groupId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var group = requireGroup(groupId, user.getId());
+    var group = rosterAccess.requireGroup(groupId);
 
-    if (rosterGroupRepository.existsByParentGroupIdAndUserId(groupId, user.getId())
-        || rosterRepository.existsByGroupIdAndUserId(groupId, user.getId())) {
+    if (rosterGroupRepository.existsByParentGroupIdAndUserId(groupId, currentUser.getUserId())
+        || rosterRepository.existsByGroupIdAndUserId(groupId, currentUser.getUserId())) {
       throw new RosterGroupNotEmptyException(groupId);
     }
 
@@ -60,9 +54,8 @@ public class RosterGroupService {
 
   @Transactional
   public void moveGroup(Long groupId, Long parentGroupId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var group = requireGroup(groupId, user.getId());
-    var parent = requireGroup(parentGroupId, user.getId());
+    var group = rosterAccess.requireGroup(groupId);
+    var parent = rosterAccess.requireGroup(parentGroupId);
 
     validateMove(group, parent);
     group.setParentGroup(parent);
@@ -70,8 +63,7 @@ public class RosterGroupService {
 
   @Transactional
   public void moveGroupToRoot(Long groupId) {
-    var user = authenticatedUserService.getCurrentUser();
-    requireGroup(groupId, user.getId()).setParentGroup(null);
+    rosterAccess.requireGroup(groupId).setParentGroup(null);
   }
 
   private void validateMove(RosterGroupEntity group, RosterGroupEntity newParent) {
@@ -86,15 +78,5 @@ public class RosterGroupService {
       }
       ancestor = ancestor.getParentGroup();
     }
-  }
-
-  private RosterGroupEntity requireGroup(Long groupId, Long userId) {
-    return rosterGroupRepository
-        .findByIdAndUserId(groupId, userId)
-        .orElseThrow(() -> new RosterGroupNotFoundException(groupId));
-  }
-
-  private ResponseStatusException conflict(String message) {
-    return new ResponseStatusException(HttpStatus.CONFLICT, message);
   }
 }

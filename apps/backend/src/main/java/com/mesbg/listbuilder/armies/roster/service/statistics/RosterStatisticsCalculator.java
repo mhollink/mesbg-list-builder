@@ -22,8 +22,11 @@ public class RosterStatisticsCalculator {
             .map(this::calculateUnit)
             .toList();
 
+    int optionCost = roster.getArmyOptionIds().size() * 50;
+    int totalUnitCost = unitStatistics.stream().mapToInt(UnitStatistics::points).sum();
+
     return new RosterStatistics(
-        unitStatistics.stream().mapToInt(UnitStatistics::points).sum(),
+        totalUnitCost + optionCost,
         roster.getWarbands().size(),
         unitStatistics.stream().mapToInt(UnitStatistics::models).sum(),
         unitStatistics.stream().mapToInt(UnitStatistics::might).sum(),

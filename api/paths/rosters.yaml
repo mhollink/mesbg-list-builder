@@ -26,7 +26,10 @@ Rosters:
       - Rosters
     operationId: createRoster
     summary: Create a roster
-    description: Creates an empty roster for the authenticated user.
+    description: >
+      Creates a roster for the authenticated user. Army-list initialization
+      rules may cause mandatory composition, such as a fixed general and its
+      warband, to be created automatically.
     security:
       - bearerAuth: []
 
@@ -292,6 +295,44 @@ RosterLock:
             schema:
               $ref: "../schemas/problem.yaml#/ApiProblem"
 
+RosterArmyOptions:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+
+  put:
+    tags:
+      - Roster Composition
+    operationId: setRosterArmyOptions
+    summary: Sets the currently selected army options
+    description: Replaces the set of selected army options with the requested set
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/UpdateRosterArmyOptionsRequest"
+
+    responses:
+      "200":
+        description: Updated army options
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/RosterSummary"
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+
 RosterGroupAssignment:
   parameters:
     - $ref: "../schemas/roster.yaml#/RosterIdParameter"
@@ -354,10 +395,13 @@ RosterGeneralAssignment:
 
   put:
     tags:
-      - Rosters
+      - Roster Composition
     operationId: setRosterGeneral
     summary: Set the roster general
-    description: Marks the requested unit selection as the roster general. The unit must belong to the roster and be eligible to be the general.
+    description: >
+      Marks the requested warband leader as the roster general.
+      The unit must be a leader and must satisfy any hard army-list
+      general-selection restrictions.
     security:
       - bearerAuth: []
 
@@ -388,7 +432,7 @@ RosterGeneralRemoval:
 
   delete:
     tags:
-      - Rosters
+      - Roster Composition
     operationId: clearRosterGeneral
     summary: Clear the roster general
     description: Removes the current general selection from the roster.
@@ -422,19 +466,15 @@ RosterWarbands:
 
   post:
     tags:
-      - Rosters
+      - Roster Warbands
     operationId: createWarband
     summary: Add a warband
-    description: Creates a warband with an explicit leader.
+    description: Creates a warband
     security:
       - bearerAuth: []
 
     requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: "../schemas/roster.yaml#/CreateWarbandRequest"
+      required: false
 
     responses:
       "201":
@@ -473,9 +513,46 @@ RosterWarband:
     - $ref: "../schemas/roster.yaml#/RosterIdParameter"
     - $ref: "../schemas/roster.yaml#/WarbandIdParameter"
 
+  patch:
+    tags:
+      - Roster Warbands
+    operationId: moveWarband
+    summary: Updates position of a warband
+    description: Repositions the given warband to the requested position
+    security:
+      - bearerAuth: [ ]
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/MoveWarbandRequest"
+
+    responses:
+      "204":
+        description: Positions updated.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster or warband not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+
+      "409":
+        description: The roster is locked or the requested update violates a roster or warband invariant.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+
   delete:
     tags:
-      - Rosters
+      - Roster Warbands
     operationId: deleteWarband
     summary: Delete a warband
     description: Deletes the warband, its leader, and all of its followers.
@@ -503,6 +580,43 @@ RosterWarband:
             schema:
               $ref: "../schemas/problem.yaml#/ApiProblem"
 
+RosterWarbandDuplication:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+    - $ref: "../schemas/roster.yaml#/WarbandIdParameter"
+
+  post:
+    tags:
+      - Roster Warbands
+    operationId: duplicateWarband
+    summary: Duplicate a warband
+    description: Duplicates the warband, its leader, and all of its followers.
+
+    responses:
+      "201":
+        description: Warband duplicated.
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/Warband"
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster or warband not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+
+      "409":
+        description: The roster is locked or the requested update violates a roster or warband invariant.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+
 RosterWarbandLeader:
   parameters:
     - $ref: "../schemas/roster.yaml#/RosterIdParameter"
@@ -510,10 +624,12 @@ RosterWarbandLeader:
 
   put:
     tags:
-      - Rosters
-    operationId: replaceWarbandLeader
-    summary: Replace a warband leader
-    description: Replaces the profile and selected options of the warband leader. A leader always represents exactly one model.
+      - Roster Units
+    operationId: setWarbandLeader
+    summary: Set a warband leader
+    description: >
+      Sets or replaces the warband leader. A leader always represents
+      exactly one model.
     security:
       - bearerAuth: []
 
@@ -563,7 +679,7 @@ RosterWarbandFollowers:
 
   post:
     tags:
-      - Rosters
+      - Roster Units
     operationId: createWarbandFollower
     summary: Add a follower selection
     description: Adds a follower selection to the warband.
@@ -617,7 +733,7 @@ RosterWarbandUnit:
 
   patch:
     tags:
-      - Rosters
+      - Roster Units
     operationId: updateWarbandUnit
     summary: Update a unit selection
     description: Updates the quantity and/or selected options of a leader or follower. Leader quantity must remain one.
@@ -665,7 +781,7 @@ RosterWarbandUnit:
 
   delete:
     tags:
-      - Rosters
+      - Roster Units
     operationId: deleteWarbandUnit
     summary: Delete a follower selection
     description: Deletes a follower selection. The leader cannot be deleted independently; delete the warband or replace its leader instead.
@@ -675,6 +791,56 @@ RosterWarbandUnit:
     responses:
       "204":
         description: Follower selection deleted.
+
+      "401":
+        description: Authentication is required.
+
+      "404":
+        description: Roster, warband, or unit selection not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+
+      "409":
+        description: The roster is locked or the requested update violates a roster or warband invariant.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+
+RosterUnitPosition:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+    - $ref: "../schemas/roster.yaml#/WarbandIdParameter"
+    - $ref: "../schemas/roster.yaml#/UnitIdParameter"
+
+  patch:
+    tags:
+      - Roster Units
+    operationId: moveRosterUnit
+    summary: Update position or warband of a unit
+    description: Updates the position of the roster unit
+    security:
+      - bearerAuth: [ ]
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/MoveRosterUnitRequest"
+
+    responses:
+      "204":
+        description: Updated unit position.
+
+      "400":
+        description: The unit selection payload is invalid.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
 
       "401":
         description: Authentication is required.

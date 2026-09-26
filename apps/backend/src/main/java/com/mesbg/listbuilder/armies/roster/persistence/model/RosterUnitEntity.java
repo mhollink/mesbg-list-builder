@@ -29,7 +29,7 @@ public class RosterUnitEntity {
   private Long id;
 
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "warband_id", nullable = false, updatable = false)
+  @JoinColumn(name = "warband_id", nullable = false)
   private WarbandEntity warband;
 
   @Column(name = "profile_id", nullable = false, length = 255)
