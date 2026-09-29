@@ -32,8 +32,8 @@ public class RosterUnitEntity {
   @JoinColumn(name = "warband_id", nullable = false)
   private WarbandEntity warband;
 
-  @Column(name = "profile_id", nullable = false, length = 255)
-  private String profileId;
+  @Column(name = "army_list_profile_id", nullable = false, length = 255)
+  private String armyListProfileId;
 
   @Column(nullable = false)
   private int quantity;
@@ -50,9 +50,13 @@ public class RosterUnitEntity {
   private Set<String> optionIds = new LinkedHashSet<>();
 
   public RosterUnitEntity(
-      WarbandEntity warband, String profileId, int quantity, boolean leader, int sortIndex) {
+      WarbandEntity warband,
+      String armyListProfileId,
+      int quantity,
+      boolean leader,
+      int sortIndex) {
     this.warband = warband;
-    this.profileId = profileId;
+    this.armyListProfileId = armyListProfileId;
     this.quantity = quantity;
     this.leader = leader;
     this.sortIndex = sortIndex;

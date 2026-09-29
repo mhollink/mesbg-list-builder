@@ -23,16 +23,7 @@ export interface GuestWarband {
 export interface GuestRosterUnit {
   id: string;
 
-  profileId: string;
+  armyListProfileId: string;
   quantity: number;
   optionIds: string[];
-}
-
-export interface GuestRosterStats {
-  points: number;
-  modelCount: number;
-  warbandCount: number;
-  might: number;
-  bowCount: number;
-  throwingWeaponCount: number;
 }

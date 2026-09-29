@@ -3,9 +3,13 @@ package com.mesbg.listbuilder.armies.roster.service.statistics;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.gamedata.GameDataCatalog;
+import com.mesbg.listbuilder.gamedata.model.ArmyListOptionData;
+import com.mesbg.listbuilder.gamedata.model.ArmyListProfileData;
+import com.mesbg.listbuilder.gamedata.model.ArmyListProfileOptionData;
 import com.mesbg.listbuilder.gamedata.model.ProfileData;
-import com.mesbg.listbuilder.gamedata.model.ProfileOptionData;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +20,20 @@ public class RosterStatisticsCalculator {
   private final GameDataCatalog gameDataCatalog;
 
   public RosterStatistics calculate(RosterEntity roster) {
+    var armyListId = roster.getArmyListId();
+
     var unitStatistics =
         roster.getWarbands().stream()
             .flatMap(warband -> warband.getUnits().stream())
-            .map(this::calculateUnit)
+            .map(unit -> calculateUnit(armyListId, unit))
             .toList();
 
-    int optionCost = roster.getArmyOptionIds().size() * 50;
-    int totalUnitCost = unitStatistics.stream().mapToInt(UnitStatistics::points).sum();
+    var unitPoints = unitStatistics.stream().mapToInt(UnitStatistics::points).sum();
+
+    var armyOptionPoints = calculateArmyOptionPoints(roster);
 
     return new RosterStatistics(
-        totalUnitCost + optionCost,
+        unitPoints + armyOptionPoints,
         roster.getWarbands().size(),
         unitStatistics.stream().mapToInt(UnitStatistics::models).sum(),
         unitStatistics.stream().mapToInt(UnitStatistics::might).sum(),
@@ -34,31 +41,106 @@ public class RosterStatisticsCalculator {
         unitStatistics.stream().mapToInt(UnitStatistics::throwingWeapons).sum());
   }
 
-  private UnitStatistics calculateUnit(RosterUnitEntity unit) {
-    var profile = gameDataCatalog.getProfile(unit.getProfileId());
+  private UnitStatistics calculateUnit(String armyListId, RosterUnitEntity unit) {
 
-    var optionPoints =
-        unit.getOptionIds().stream()
-            .map(profile::findOption)
-            .mapToInt(option -> option.map(ProfileOptionData::points).orElse(0))
-            .sum();
+    var armyListProfile =
+        gameDataCatalog.getArmyListProfile(armyListId, unit.getArmyListProfileId());
+
+    var profile = gameDataCatalog.getProfile(armyListProfile.profileId());
+
+    var options = getEffectiveOptions(armyListProfile, unit);
 
     var quantity = unit.getQuantity();
 
-    var equipment = new HashSet<>(profile.wargear());
-    equipment.addAll(unit.getOptionIds());
-
-    var hasBow = equipment.stream().anyMatch(this::isBow);
-    var hasThrowingWeapon = equipment.stream().anyMatch(this::isThrowingWeapon);
+    var points = (profile.points() + calculateOptionPoints(profile, options)) * quantity;
 
     var might = getMight(profile) * quantity;
 
-    return new UnitStatistics(
-        (profile.points() + optionPoints) * quantity,
-        quantity,
-        might,
-        hasBow ? quantity : 0,
-        hasThrowingWeapon ? quantity : 0);
+    var equipment = getEffectiveEquipment(profile, armyListProfile, options);
+
+    var countsTowardsWeaponLimits = armyListProfile.isWarrior();
+
+    var bows = countsTowardsWeaponLimits && equipment.stream().anyMatch(this::isBow) ? quantity : 0;
+
+    var throwingWeapons =
+        countsTowardsWeaponLimits && equipment.stream().anyMatch(this::isThrowingWeapon)
+            ? quantity
+            : 0;
+
+    return new UnitStatistics(points, quantity, might, bows, throwingWeapons);
+  }
+
+  private int calculateArmyOptionPoints(RosterEntity roster) {
+    var armyList = gameDataCatalog.getArmyList(roster.getArmyListId());
+
+    var selectedOptionIds = new LinkedHashSet<>(roster.getArmyOptionIds());
+
+    armyList.options().stream()
+        .filter(ArmyListOptionData::preselected)
+        .map(ArmyListOptionData::id)
+        .forEach(selectedOptionIds::add);
+
+    return selectedOptionIds.stream()
+        .mapToInt(
+            optionId ->
+                gameDataCatalog.getArmyListOption(roster.getArmyListId(), optionId).points())
+        .sum();
+  }
+
+  private Set<ArmyListProfileOptionData> getEffectiveOptions(
+      ArmyListProfileData armyListProfile, RosterUnitEntity unit) {
+
+    var optionIds = new LinkedHashSet<String>();
+
+    armyListProfile.options().stream()
+        .filter(ArmyListProfileOptionData::isPreselected)
+        .map(ArmyListProfileOptionData::id)
+        .forEach(optionIds::add);
+
+    optionIds.addAll(unit.getOptionIds());
+
+    var options = new LinkedHashSet<ArmyListProfileOptionData>();
+
+    for (var optionId : optionIds) {
+      options.add(armyListProfile.getOption(optionId));
+    }
+
+    return Set.copyOf(options);
+  }
+
+  private int calculateOptionPoints(ProfileData profile, Set<ArmyListProfileOptionData> options) {
+
+    return options.stream().mapToInt(option -> getOptionPoints(profile, option)).sum();
+  }
+
+  private int getOptionPoints(ProfileData profile, ArmyListProfileOptionData option) {
+
+    if (option.pointsOverride() != null) {
+      return option.pointsOverride();
+    }
+
+    return profile
+        .findOption(option.optionId())
+        .orElseThrow(
+            () ->
+                new IllegalArgumentException(
+                    "Unknown canonical option '%s' for profile '%s'"
+                        .formatted(option.optionId(), profile.profile())))
+        .points();
+  }
+
+  private Set<String> getEffectiveEquipment(
+      ProfileData profile,
+      ArmyListProfileData armyListProfile,
+      Set<ArmyListProfileOptionData> options) {
+
+    var equipment = new HashSet<>(profile.wargear());
+
+    armyListProfile.removedWargear().forEach(equipment::remove);
+
+    options.stream().map(ArmyListProfileOptionData::optionId).forEach(equipment::add);
+
+    return equipment;
   }
 
   private int getMight(ProfileData profile) {

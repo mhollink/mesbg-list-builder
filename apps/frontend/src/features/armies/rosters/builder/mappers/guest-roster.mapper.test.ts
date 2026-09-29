@@ -18,14 +18,14 @@ describe("mapGuestRoster", () => {
           id: "warband-1",
           leader: {
             id: "leader-1",
-            profileId: "gothmog",
+            armyListProfileId: "gothmog",
             quantity: 1,
             optionIds: ["warg"],
           },
           followers: [
             {
               id: "follower-1",
-              profileId: "orc-warrior",
+              armyListProfileId: "orc-warrior",
               quantity: 6,
               optionIds: ["shield"],
             },
@@ -50,14 +50,14 @@ describe("mapGuestRoster", () => {
           id: "warband-1",
           leader: {
             id: "leader-1",
-            profileId: "gothmog",
+            armyListProfileId: "gothmog",
             quantity: 1,
             optionIds: ["warg"],
           },
           followers: [
             {
               id: "follower-1",
-              profileId: "orc-warrior",
+              armyListProfileId: "orc-warrior",
               quantity: 6,
               optionIds: ["shield"],
             },

@@ -39,7 +39,7 @@ function mapGuestWarband(warband: GuestWarband): BuilderWarband {
 function mapGuestUnit(unit: GuestRosterUnit): BuilderUnit {
   return {
     id: unit.id,
-    profileId: unit.profileId,
+    armyListProfileId: unit.armyListProfileId,
     quantity: unit.quantity,
     optionIds: [...unit.optionIds],
   };

@@ -31,7 +31,7 @@ function mapWarband(warband: Warband): BuilderWarband {
 function mapRosterUnit(unit: RosterUnit): BuilderUnit {
   return {
     id: unit.id,
-    profileId: unit.profileId,
+    armyListProfileId: unit.armyListProfileId,
     optionIds: [...unit.optionIds],
     quantity: unit.quantity,
   };
