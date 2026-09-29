@@ -108,19 +108,19 @@ function DebugProfile({
               <DebugValue value={[profile.points]} />
             </DebugKeyword>
             <DebugKeyword title="Race">
-              <DebugValue value={profile.race} />
+              <DebugValue value={profile.raceNames} />
             </DebugKeyword>
             <DebugKeyword title="Factions">
-              <DebugValue value={profile.factions} />
+              <DebugValue value={profile.factionNames} />
             </DebugKeyword>
             <DebugKeyword title="Unit type">
-              <DebugValue value={profile.unitTypes} />
+              <DebugValue value={profile.unitTypeNames} />
             </DebugKeyword>
             <DebugKeyword title="Base size">
               <DebugValue value={[profile.baseSize || "-"]} />
             </DebugKeyword>
             <DebugKeyword title="Wargear">
-              <DebugValue value={profile.wargear} />
+              <DebugValue value={profile.wargearNames} />
             </DebugKeyword>
             <DebugSection title="Heroic actions">
               <DebugValue

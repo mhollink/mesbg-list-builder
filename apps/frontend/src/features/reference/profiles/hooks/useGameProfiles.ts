@@ -29,14 +29,14 @@ export function useGameProfiles() {
           originName: t(`origins.${profile.origin}`),
           alignment: profile.alignment as ProfileAlignment,
           stats: profile.stats as Stats,
-          race: profile.race.map((race) => translateKeyword("races", race)),
-          factions: profile.factions.map((faction) =>
+          raceNames: profile.race.map((race) => translateKeyword("races", race)),
+          factionNames: profile.factions.map((faction) =>
             translateKeyword("factions", faction),
           ),
-          unitTypes: profile.unitTypes.map((unitType) =>
+          unitTypeNames: profile.unitTypes.map((unitType) =>
             translateKeyword("unit-types", unitType),
           ),
-          wargear: profile.wargear.map((item) =>
+          wargearNames: profile.wargear.map((item) =>
             t(`wargear.${item}`, { defaultValue: item }),
           ),
         }) satisfies LocalizedProfile,
