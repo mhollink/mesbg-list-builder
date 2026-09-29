@@ -94,6 +94,11 @@ export interface Profile {
 export interface LocalizedProfile extends Profile {
   name: string;
   originName: string;
+
+  factionNames: string[];
+  raceNames: string[];
+  unitTypeNames: string[];
+  wargearNames: string[];
 }
 
 export type ProfileRow =
