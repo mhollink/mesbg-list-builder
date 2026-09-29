@@ -10,9 +10,9 @@ const profile = {
   name: "Aragorn",
   originName: "The Fellowship",
   points: 160,
-  race: ["Man"],
-  factions: ["Minas Tirith"],
-  unitTypes: ["Hero"],
+  raceNames: ["Man"],
+  factionNames: ["Minas Tirith"],
+  unitTypeNames: ["Hero"],
   baseSize: "25mm",
 } as LocalizedProfile;
 

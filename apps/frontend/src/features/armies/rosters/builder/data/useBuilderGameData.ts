@@ -5,50 +5,37 @@ import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/a
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 
 export function useBuilderGameData(
-    armyListId: string,
+  armyListId: string,
 ): BuilderGameData | undefined {
   const { armyLists } = useGameArmyLists();
 
   return useMemo(() => {
-    const armyList = armyLists.find(
-        (candidate) => candidate.id === armyListId,
-    );
+    const armyList = armyLists.find((candidate) => candidate.id === armyListId);
 
     if (!armyList) {
       return undefined;
     }
 
     const profilesById = new Map(
-        armyList.profiles.map(({ profile }) => [
-          profile.profile,
-          profile,
-        ]),
+      armyList.profiles.map(({ profile }) => [profile.profile, profile]),
     );
 
     const armyListProfilesById = new Map(
-        armyList.profiles.map((profile) => [
-          profile.id,
-          profile,
-        ]),
+      armyList.profiles.map((profile) => [profile.id, profile]),
     );
 
     const armyListProfilesByProfileId = new Map<
-        string,
-        LocalizedArmyListProfile[]
+      string,
+      LocalizedArmyListProfile[]
     >();
 
     for (const armyListProfile of armyList.profiles) {
       const profiles =
-          armyListProfilesByProfileId.get(
-              armyListProfile.profileId,
-          ) ?? [];
+        armyListProfilesByProfileId.get(armyListProfile.profileId) ?? [];
 
       profiles.push(armyListProfile);
 
-      armyListProfilesByProfileId.set(
-          armyListProfile.profileId,
-          profiles,
-      );
+      armyListProfilesByProfileId.set(armyListProfile.profileId, profiles);
     }
 
     return {

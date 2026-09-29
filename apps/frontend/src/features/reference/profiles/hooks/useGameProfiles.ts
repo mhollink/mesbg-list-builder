@@ -29,7 +29,9 @@ export function useGameProfiles() {
           originName: t(`origins.${profile.origin}`),
           alignment: profile.alignment as ProfileAlignment,
           stats: profile.stats as Stats,
-          raceNames: profile.race.map((race) => translateKeyword("races", race)),
+          raceNames: profile.race.map((race) =>
+            translateKeyword("races", race),
+          ),
           factionNames: profile.factions.map((faction) =>
             translateKeyword("factions", faction),
           ),
