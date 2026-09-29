@@ -142,7 +142,7 @@ const content = {
     stats: {
       type: "hero",
     },
-    wargear: ["Andúril"],
+    wargearNames: ["Andúril"],
     source: {
       book: "armies-of-the-lord-of-the-rings",
       page: 42,
