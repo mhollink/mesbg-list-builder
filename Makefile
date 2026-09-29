@@ -10,7 +10,6 @@ DOCKER_COMPOSE := docker compose
 
 .DEFAULT_GOAL := help
 
-
 # ==============================================================================
 # Help
 # ==============================================================================
@@ -115,7 +114,7 @@ frontend:
 
 .PHONY: backend
 backend:
-	cd $(BACKEND_DIR) && $(MVN) spring-boot:run
+	cd $(BACKEND_DIR) && SPRING_PROFILES_ACTIVE=local $(MVN) spring-boot:run
 
 # ==============================================================================
 # API
