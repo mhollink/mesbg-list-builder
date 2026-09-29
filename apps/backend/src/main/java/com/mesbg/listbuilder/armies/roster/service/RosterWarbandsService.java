@@ -57,6 +57,8 @@ public class RosterWarbandsService {
 
     var duplicated = new WarbandEntity(roster, getMaxSortIndex(roster) + 1);
 
+    // TODO: Remove unique models from stream.
+    // TODO: Clear upgrades/options from units coming from specific leaders.
     source.getUnits().stream()
         .sorted(Comparator.comparingInt(RosterUnitEntity::getSortIndex))
         .map(unit -> duplicateUnit(duplicated, unit))
