@@ -15,7 +15,7 @@ const mocks = vi.hoisted(() => ({
   useUnlock: vi.fn(),
 }));
 
-vi.mock("~/features/armies/rosters/api/roster-api.ts", () => ({
+vi.mock("~/features/armies/rosters/api/rosters-api.ts", () => ({
   useFavoriteRosterMutation: mocks.useFavorite,
   useUnfavoriteRosterMutation: mocks.useUnfavorite,
   useLockRosterMutation: mocks.useLock,

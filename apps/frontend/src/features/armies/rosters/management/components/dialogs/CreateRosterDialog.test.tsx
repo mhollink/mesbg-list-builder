@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import {render, screen, waitFor} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -177,6 +177,7 @@ describe("CreateRosterDialog", () => {
 
 async function selectMordor(user: ReturnType<typeof userEvent.setup>) {
   const input = screen.getByRole("combobox", { name: "Army list" });
+  await waitFor(() => expect(input).toHaveFocus());
   await user.type(input, "Mordor");
   const option = await screen.findByRole("option", {
     name: "Mordor",
