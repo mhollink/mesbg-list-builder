@@ -13,6 +13,8 @@ export function createGuestRoster(values: CreateRosterValues): GuestRoster {
     armyListId: values.armyListId,
     pointsLimit: values.pointsLimit,
     tags: values.tags,
+    armyOptionIds: [],
+    generalUnitId: null,
     warbands: [],
     createdAt: "",
     updatedAt: "",
