@@ -52,8 +52,11 @@ export function filterArmyLists(
         ...armyList.profiles.map(({ profile }) => profile.name),
         ...armyList.profiles.flatMap(({ profile }) => [
           ...profile.race,
+          ...profile.raceNames,
           ...profile.factions,
+          ...profile.factionNames,
           ...profile.unitTypes,
+          ...profile.unitTypeNames,
         ]),
         ...armyList.specialRules.map((rule) => rule.name),
         ...armyList.additionalRules.map((rule) => rule.name),

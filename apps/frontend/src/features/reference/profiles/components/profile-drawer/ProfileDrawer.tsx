@@ -68,7 +68,7 @@ export function ProfileDrawer() {
 
             <ProfileValueList
               title="Wargear"
-              values={content.profile.wargear}
+              values={content.profile.wargearNames}
               display="inline"
             />
 
