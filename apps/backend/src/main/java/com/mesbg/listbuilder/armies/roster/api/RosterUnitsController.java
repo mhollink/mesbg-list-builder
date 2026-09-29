@@ -26,7 +26,10 @@ public class RosterUnitsController implements RosterUnitsApi {
 
     var leader =
         rosterUnitsService.setWarbandLeader(
-            rosterId, warbandId, request.getProfileId(), Set.copyOf(request.getOptionIds()));
+            rosterId,
+            warbandId,
+            request.getArmyListProfileId(),
+            Set.copyOf(request.getOptionIds()));
 
     return ResponseEntity.ok(rosterUnitMapper.toDto(leader));
   }
@@ -39,7 +42,7 @@ public class RosterUnitsController implements RosterUnitsApi {
         rosterUnitsService.addFollower(
             rosterId,
             warbandId,
-            request.getProfileId(),
+            request.getArmyListProfileId(),
             request.getQuantity(),
             Set.copyOf(request.getOptionIds()));
 

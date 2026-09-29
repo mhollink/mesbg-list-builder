@@ -82,7 +82,7 @@ class RosterUnitsServiceTest {
     var result = unitsService.addFollower(ROSTER_ID, 40L, "orc-warrior", 6, Set.of("shield"));
 
     assertThat(result.getSortIndex()).isEqualTo(5);
-    assertThat(result.getProfileId()).isEqualTo("orc-warrior");
+    assertThat(result.getArmyListProfileId()).isEqualTo("orc-warrior");
     assertThat(result.getQuantity()).isEqualTo(6);
     assertThat(result.isLeader()).isFalse();
     assertThat(result.getOptionIds()).containsExactly("shield");
@@ -329,7 +329,7 @@ class RosterUnitsServiceTest {
         unitsService.setWarbandLeader(ROSTER_ID, 40L, "new-profile", Set.of("horse", "shield"));
 
     assertThat(result).isSameAs(leader);
-    assertThat(leader.getProfileId()).isEqualTo("new-profile");
+    assertThat(leader.getArmyListProfileId()).isEqualTo("new-profile");
     assertThat(leader.getQuantity()).isEqualTo(1);
 
     assertThat(leader.getOptionIds()).containsExactlyInAnyOrder("horse", "shield");
@@ -353,7 +353,7 @@ class RosterUnitsServiceTest {
     var result = unitsService.setWarbandLeader(ROSTER_ID, 40L, "new-profile", Set.of("horse"));
 
     assertThat(result.isLeader()).isTrue();
-    assertThat(result.getProfileId()).isEqualTo("new-profile");
+    assertThat(result.getArmyListProfileId()).isEqualTo("new-profile");
     assertThat(result.getQuantity()).isEqualTo(1);
     assertThat(result.getSortIndex()).isEqualTo(-1);
     assertThat(result.getOptionIds()).containsExactly("horse");

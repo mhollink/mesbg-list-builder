@@ -74,7 +74,7 @@ public class RosterWarbandsService {
     var duplicated =
         new RosterUnitEntity(
             targetWarband,
-            source.getProfileId(),
+            source.getArmyListProfileId(),
             source.getQuantity(),
             source.isLeader(),
             source.getSortIndex());

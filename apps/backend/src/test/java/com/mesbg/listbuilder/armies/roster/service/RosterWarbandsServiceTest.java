@@ -189,11 +189,11 @@ class RosterWarbandsServiceTest {
     var duplicatedFollower = result.getUnits().get(1);
 
     assertThat(duplicatedLeader).isNotSameAs(leader);
-    assertThat(duplicatedLeader.getProfileId()).isEqualTo("hero");
+    assertThat(duplicatedLeader.getArmyListProfileId()).isEqualTo("hero");
     assertThat(duplicatedLeader.getOptionIds()).containsExactly("horse");
 
     assertThat(duplicatedFollower).isNotSameAs(follower);
-    assertThat(duplicatedFollower.getProfileId()).isEqualTo("warrior");
+    assertThat(duplicatedFollower.getArmyListProfileId()).isEqualTo("warrior");
     assertThat(duplicatedFollower.getQuantity()).isEqualTo(5);
     assertThat(duplicatedFollower.getOptionIds()).containsExactly("shield");
   }
