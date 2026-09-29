@@ -5,6 +5,9 @@ export interface GuestRoster {
   pointsLimit?: number;
   tags?: string[];
 
+  armyOptionIds: string[];
+  generalUnitId: string | null;
+
   warbands: GuestWarband[];
 
   createdAt: string;
