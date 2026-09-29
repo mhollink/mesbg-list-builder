@@ -11,31 +11,22 @@ vi.mock("~/components/heraldry/HeraldryIcon.tsx", () => ({
   HeraldryIcon: () => <span data-testid="heraldry-icon" />,
 }));
 
-vi.mock("~/features/reference/profiles/hooks/useGameProfiles.ts", () => ({
-  useGameProfiles: () => ({
-    profiles: [],
+vi.mock("~/features/armies/rosters/builder/data/useBuilderGameData.ts", () => ({
+  useBuilderGameData: () => ({
+    armyList: {
+      id: "mordor",
+      name: "Mordor",
+    },
+    profilesById: new Map(),
+    armyListProfilesById: new Map(),
+    armyListProfilesByProfileId: new Map(),
   }),
 }));
 
-vi.mock("~/features/reference/army-lists/hooks/useGameArmyLists.ts", () => ({
-  useGameArmyLists: () => ({
-    armyLists: [
-      {
-        id: "mordor",
-        name: "Mordor",
-      },
-    ],
-  }),
-}));
-
-vi.mock("~/features/armies/rosters/guest/guest-roster.utils.ts", async () => {
-  const actual = await vi.importActual<
-    typeof import("~/features/armies/rosters/guest/guest-roster.utils.ts")
-  >("~/features/armies/rosters/guest/guest-roster.utils.ts");
-
-  return {
-    ...actual,
-    calculateGuestRosterStats: () => ({
+vi.mock(
+  "~/features/armies/rosters/builder/domain/roster-statistics.ts",
+  () => ({
+    calculateRosterStatistics: () => ({
       points: 500,
       modelCount: 24,
       warbandCount: 2,
@@ -43,8 +34,8 @@ vi.mock("~/features/armies/rosters/guest/guest-roster.utils.ts", async () => {
       bowCount: 8,
       throwingWeaponCount: 3,
     }),
-  };
-});
+  }),
+);
 
 describe("GuestRosterCard", () => {
   it("renders the guest roster and its calculated statistics", () => {
@@ -92,6 +83,8 @@ const guestRoster: GuestRoster = {
   id: "guest",
   name: "Guest Mordor",
   armyListId: "mordor",
+  armyOptionIds: [],
+  generalUnitId: null,
   tags: [],
   warbands: [],
   createdAt: "",

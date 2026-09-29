@@ -28,7 +28,7 @@ export interface BuilderWarband {
 export interface BuilderUnit {
   id: BuilderUnitId;
 
-  profileId: string;
+  armyListProfileId: string;
   quantity: number;
   optionIds: string[];
 }

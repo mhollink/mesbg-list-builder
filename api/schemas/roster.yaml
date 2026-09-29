@@ -336,7 +336,7 @@ RosterUnit:
   type: object
   required:
     - id
-    - profileId
+    - armyListProfileId
     - quantity
     - optionIds
 
@@ -345,7 +345,7 @@ RosterUnit:
       type: integer
       format: int64
 
-    profileId:
+    armyListProfileId:
       type: string
 
     quantity:
@@ -361,11 +361,11 @@ RosterUnit:
 LeaderInput:
   type: object
   required:
-    - profileId
+    - armyListProfileId
     - optionIds
 
   properties:
-    profileId:
+    armyListProfileId:
       type: string
       minLength: 1
 
@@ -378,12 +378,12 @@ LeaderInput:
 CreateFollowerRequest:
   type: object
   required:
-    - profileId
+    - armyListProfileId
     - quantity
     - optionIds
 
   properties:
-    profileId:
+    armyListProfileId:
       type: string
       minLength: 1
 

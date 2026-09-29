@@ -39,7 +39,7 @@ public class RosterUnitsService {
       roster.setGeneralUnit(null);
     }
 
-    leader.setProfileId(profileId);
+    leader.setArmyListProfileId(profileId);
     leader.setQuantity(1);
     leader.getOptionIds().clear();
     leader.getOptionIds().addAll(optionIds);
@@ -51,14 +51,18 @@ public class RosterUnitsService {
 
   @Transactional
   public RosterUnitEntity addFollower(
-      Long rosterId, Long warbandId, String profileId, int quantity, Set<String> optionIds) {
+      Long rosterId,
+      Long warbandId,
+      String armyListProfileId,
+      int quantity,
+      Set<String> optionIds) {
     var roster = rosterAccess.requireEditable(rosterId);
     var warband = rosterAccess.requireWarband(warbandId, rosterId);
 
     var sortIndex =
         warband.getUnits().stream().mapToInt(RosterUnitEntity::getSortIndex).max().orElse(-1) + 1;
 
-    var unit = new RosterUnitEntity(warband, profileId, quantity, false, sortIndex);
+    var unit = new RosterUnitEntity(warband, armyListProfileId, quantity, false, sortIndex);
     unit.getOptionIds().addAll(optionIds);
 
     warband.getUnits().add(unit);

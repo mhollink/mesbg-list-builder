@@ -58,13 +58,13 @@ class RosterUnitsControllerTest {
                 .content(
                     """
                     {
-                      "profileId": "witch-king",
+                      "armyListProfileId": "witch-king",
                       "optionIds": ["horse"]
                     }
                     """))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.id").value(UNIT_ID))
-        .andExpect(jsonPath("$.profileId").value("witch-king"));
+        .andExpect(jsonPath("$.armyListProfileId").value("witch-king"));
   }
 
   @Test
@@ -83,7 +83,7 @@ class RosterUnitsControllerTest {
                 .content(
                     """
                     {
-                      "profileId": "orc-warrior",
+                      "armyListProfileId": "orc-warrior",
                       "quantity": 5,
                       "optionIds": ["shield"]
                     }
@@ -180,7 +180,7 @@ class RosterUnitsControllerTest {
     var unit = new RosterUnit();
 
     unit.setId(id);
-    unit.setProfileId(profileId);
+    unit.setArmyListProfileId(profileId);
     unit.setQuantity(1);
     unit.setOptionIds(Set.of());
 

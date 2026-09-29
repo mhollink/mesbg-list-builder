@@ -29,12 +29,12 @@ describe("rosterUnitApi", () => {
 
   it("sets a warband leader", async () => {
     const request: LeaderInput = {
-      profileId: "orc-captain",
-      optionIds: ["shield"],
+      armyListProfileId: "orc-captain",
+      optionIds: new Set("shield"),
     };
     const response = unit({
-      profileId: "orc-captain",
-      optionIds: ["shield"],
+      armyListProfileId: "orc-captain",
+      optionIds: new Set("shield"),
     });
 
     client.setWarbandLeader.mockResolvedValue(response);
@@ -57,14 +57,14 @@ describe("rosterUnitApi", () => {
 
   it("creates a follower", async () => {
     const request: CreateFollowerRequest = {
-      profileId: "orc-warrior",
+      armyListProfileId: "orc-warrior",
       quantity: 4,
-      optionIds: ["shield"],
+      optionIds: new Set("shield"),
     };
     const response = unit({
-      profileId: "orc-warrior",
+      armyListProfileId: "orc-warrior",
       quantity: 4,
-      optionIds: ["shield"],
+      optionIds: new Set("shield"),
     });
 
     client.createWarbandFollower.mockResolvedValue(response);
@@ -88,11 +88,11 @@ describe("rosterUnitApi", () => {
   it("updates a unit", async () => {
     const request: UpdateRosterUnitRequest = {
       quantity: 6,
-      optionIds: ["shield"],
+      optionIds: new Set("shield"),
     };
     const response = unit({
       quantity: 6,
-      optionIds: ["shield"],
+      optionIds: new Set("shield"),
     });
 
     client.updateWarbandUnit.mockResolvedValue(response);
@@ -201,9 +201,9 @@ function createStore() {
 function unit(overrides: Partial<RosterUnit> = {}): RosterUnit {
   return {
     id: 34,
-    profileId: "orc-warrior",
+    armyListProfileId: "orc-warrior",
     quantity: 1,
-    optionIds: [],
+    optionIds: new Set(),
     ...overrides,
   };
 }
