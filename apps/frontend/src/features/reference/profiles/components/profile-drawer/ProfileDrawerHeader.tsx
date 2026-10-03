@@ -107,7 +107,7 @@ export function ProfileDrawerHeader({
               flexWrap: "wrap",
             }}
           >
-            {profile.race.map((race) => (
+            {profile.raceNames.map((race) => (
               <Chip
                 key={race}
                 label={race}
@@ -117,7 +117,7 @@ export function ProfileDrawerHeader({
               />
             ))}
 
-            {profile.factions.map((faction) => (
+            {profile.factionNames.map((faction) => (
               <Chip
                 key={faction}
                 label={faction}
@@ -127,7 +127,7 @@ export function ProfileDrawerHeader({
               />
             ))}
 
-            {profile.unitTypes.map((unitType) => (
+            {profile.unitTypeNames.map((unitType) => (
               <Chip
                 key={unitType}
                 label={unitType}

@@ -18,7 +18,7 @@ vi.mock("~/app/store/hooks.ts", () => ({
 }));
 
 vi.mock(
-  "~/features/armies/rosters/guest/components/GuestRosterCard.tsx",
+  "~/features/armies/rosters/management/components/cards/GuestRosterCard.tsx",
   () => ({
     GuestRosterCard: ({
       roster,

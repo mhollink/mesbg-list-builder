@@ -9,13 +9,13 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
+import { useBuilderGameData } from "../../../builder/data/useBuilderGameData";
+import { calculateRosterStatistics } from "../../../builder/domain/roster-statistics";
 import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
 import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
+import { InvalidRoster } from "~/features/armies/rosters/builder/components/InvalidRoster.tsx";
+import { mapGuestRoster } from "~/features/armies/rosters/builder/mappers/guest-roster.mapper.ts";
 import type { GuestRoster } from "~/features/armies/rosters/guest/guest-roster.types.ts";
-import { calculateGuestRosterStats } from "~/features/armies/rosters/guest/guest-roster.utils.ts";
-import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
-import { useGameProfiles } from "~/features/reference/profiles/hooks/useGameProfiles.ts";
-import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
 
 interface GuestRosterCardProps {
   roster: GuestRoster;
@@ -23,28 +23,15 @@ interface GuestRosterCardProps {
 }
 
 export function GuestRosterCard({ roster, onDelete }: GuestRosterCardProps) {
-  const { profiles } = useGameProfiles();
-  const { armyLists } = useGameArmyLists();
+  const gameData = useBuilderGameData(roster.armyListId);
 
-  const profilesById = useMemo(
-    () =>
-      profiles.reduce(
-        (byId, profile) => byId.set(profile.profile, profile),
-        new Map<string, LocalizedProfile>(),
-      ),
-    [profiles],
-  );
+  const builderRoster = useMemo(() => mapGuestRoster(roster), [roster]);
 
-  const armyListName = useMemo(
-    () => armyLists.find((list) => list.id === roster.armyListId),
-    [armyLists, roster.armyListId],
-  );
+  if (!gameData) {
+    return <InvalidRoster />;
+  }
 
-  const stats = useMemo(
-    () => calculateGuestRosterStats(roster, profilesById),
-    [roster, profilesById],
-  );
-
+  const stats = calculateRosterStatistics(builderRoster, gameData);
   const items = [
     ["Points", stats.points],
     ["Models", stats.modelCount],
@@ -106,7 +93,7 @@ export function GuestRosterCard({ roster, onDelete }: GuestRosterCardProps) {
               noWrap
               sx={{ width: "100%" }}
             >
-              {armyListName?.name ?? roster.armyListId}
+              {gameData.armyList.name}
             </Typography>
           </Stack>
 

@@ -1,21 +1,8 @@
 package com.mesbg.listbuilder.armies.roster.service;
 
-import com.mesbg.listbuilder.account.AuthenticatedUserService;
-import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
+import com.mesbg.listbuilder.account.CurrentUserContext;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
-import com.mesbg.listbuilder.armies.roster.persistence.RosterUnitRepository;
-import com.mesbg.listbuilder.armies.roster.persistence.WarbandRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
-import com.mesbg.listbuilder.armies.roster.persistence.model.RosterGroupEntity;
-import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
-import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
-import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterUnitException;
-import com.mesbg.listbuilder.armies.roster.service.exception.RosterGroupNotFoundException;
-import com.mesbg.listbuilder.armies.roster.service.exception.RosterInvariantViolationException;
-import com.mesbg.listbuilder.armies.roster.service.exception.RosterLockedException;
-import com.mesbg.listbuilder.armies.roster.service.exception.RosterNotFoundException;
-import com.mesbg.listbuilder.armies.roster.service.exception.RosterUnitNotFoundException;
-import com.mesbg.listbuilder.armies.roster.service.exception.WarbandNotFoundException;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatistics;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatisticsCalculator;
 import java.util.Collection;
@@ -24,32 +11,41 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class RosterService {
 
-  private final AuthenticatedUserService authenticatedUserService;
+  private final CurrentUserContext currentUser;
+  private final RosterAccess rosterAccess;
   private final RosterRepository rosterRepository;
-  private final RosterGroupRepository rosterGroupRepository;
-  private final WarbandRepository warbandRepository;
-  private final RosterUnitRepository rosterUnitRepository;
   private final RosterStatisticsCalculator rosterStatisticsCalculator;
 
   @Transactional
   public List<RosterSnapshot> listRosters() {
-    var user = authenticatedUserService.getCurrentUser();
-    return rosterRepository.findAllByUserIdOrderByUpdatedAtDesc(user.getId()).stream()
-        .map(this::snapshot)
-        .toList();
+    var userId = currentUser.getUserId();
+
+    log.debug("Listing rosters userId={}", userId);
+
+    var rosters =
+        rosterRepository.findAllByUserIdOrderByUpdatedAtDesc(userId).stream()
+            .map(this::snapshot)
+            .toList();
+
+    log.debug("Listed rosters userId={} count={}", userId, rosters.size());
+
+    return rosters;
   }
 
   @Transactional
   public RosterSnapshot getRoster(Long rosterId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
+    log.debug("Loading roster rosterId={}", rosterId);
+
+    var roster = rosterAccess.requireRoster(rosterId);
 
     return snapshot(roster);
   }
@@ -57,13 +53,23 @@ public class RosterService {
   @Transactional
   public RosterSnapshot createRoster(
       String name, String armyListId, Integer pointsLimit, List<String> tags, Long groupId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var group = groupId == null ? null : requireGroup(groupId, user.getId());
+    log.debug(
+        "Creating roster armyListId={} pointsLimit={} groupId={} tagCount={}",
+        armyListId,
+        pointsLimit,
+        groupId,
+        tags == null ? 0 : tags.size());
+
+    var group = groupId == null ? null : rosterAccess.requireGroup(groupId);
     var normalizeTags = normalizeTags(tags);
 
     var roster =
         rosterRepository.save(
-            new RosterEntity(user, name, armyListId, pointsLimit, normalizeTags, group));
+            new RosterEntity(
+                currentUser.getUser(), name, armyListId, pointsLimit, normalizeTags, group));
+
+    log.info(
+        "Created roster rosterId={} armyListId={} groupId={}", roster.getId(), armyListId, groupId);
 
     return snapshot(roster);
   }
@@ -71,17 +77,25 @@ public class RosterService {
   @Transactional
   public RosterSnapshot updateRoster(
       Long rosterId, String name, Integer pointsLimit, List<String> tags) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
+    var roster = rosterAccess.requireRoster(rosterId);
+    var nameChanged = name != null && !name.equals(roster.getName());
+    var pointsLimitChanged = pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit());
+    var tagsChanged = tags != null;
 
-    if (name != null && !name.equals(roster.getName())) roster.setName(name);
+    log.debug(
+        "Updating roster rosterId={} nameChanged={} pointsLimitChanged={} tagsChanged={}",
+        rosterId,
+        nameChanged,
+        pointsLimitChanged,
+        tagsChanged);
 
-    if (pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit())) {
-      requireEditable(roster);
+    if (nameChanged) roster.setName(name);
+
+    if (pointsLimitChanged) {
       roster.setPointsLimit(pointsLimit);
     }
 
-    if (tags != null) {
+    if (tagsChanged) {
       roster.setTags(normalizeTags(tags));
     }
 
@@ -90,247 +104,74 @@ public class RosterService {
 
   @Transactional
   public RosterSnapshot favoriteRoster(long rosterId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
+    var roster = rosterAccess.requireRoster(rosterId);
 
     roster.setFavorite(true);
+
+    log.info("Marked roster as favorite rosterId={}", rosterId);
 
     return snapshot(roster);
   }
 
   @Transactional
   public RosterSnapshot unfavoriteRoster(long rosterId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
+    var roster = rosterAccess.requireRoster(rosterId);
 
     roster.setFavorite(false);
+
+    log.info("Removed roster from favorites rosterId={}", rosterId);
 
     return snapshot(roster);
   }
 
   @Transactional
   public RosterSnapshot lockRoster(long rosterId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
+    var roster = rosterAccess.requireRoster(rosterId);
 
     roster.setLocked(true);
+
+    log.info("Locked roster rosterId={}", rosterId);
 
     return snapshot(roster);
   }
 
   @Transactional
   public RosterSnapshot unlockRoster(long rosterId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
+    var roster = rosterAccess.requireRoster(rosterId);
 
     roster.setLocked(false);
+
+    log.info("Unlocked roster rosterId={}", rosterId);
 
     return snapshot(roster);
   }
 
   @Transactional
   public void deleteRoster(Long rosterId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    requireEditable(roster);
+    var roster = rosterAccess.requireEditable(rosterId);
+
     rosterRepository.delete(roster);
+
+    log.info("Deleted roster rosterId={}", rosterId);
   }
 
   @Transactional
   public void assignRosterToGroup(Long rosterId, Long groupId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    var group = requireGroup(groupId, user.getId());
+    var roster = rosterAccess.requireRoster(rosterId);
+    var group = rosterAccess.requireGroup(groupId);
 
     roster.setGroup(group);
+
+    log.info("Assigned roster to group rosterId={} groupId={}", rosterId, groupId);
   }
 
   @Transactional
   public void removeRosterFromGroup(Long rosterId) {
-    var user = authenticatedUserService.getCurrentUser();
-    requireRoster(rosterId, user.getId()).setGroup(null);
-  }
+    var roster = rosterAccess.requireRoster(rosterId);
 
-  @Transactional
-  public void setRosterGeneral(Long rosterId, Long unitId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    requireEditable(roster);
-    var unit =
-        rosterUnitRepository
-            .findOwnedUnitInRoster(unitId, rosterId, user.getId())
-            .orElseThrow(() -> new RosterUnitNotFoundException(unitId));
+    roster.setGroup(null);
 
-    roster.setGeneralUnit(unit);
-  }
-
-  @Transactional
-  public void clearRosterGeneral(Long rosterId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    requireEditable(roster);
-    roster.setGeneralUnit(null);
-  }
-
-  @Transactional
-  public WarbandEntity createWarband(
-      Long rosterId, String leaderProfileId, Set<String> leaderOptionIds) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-
-    requireEditable(roster);
-
-    var sortIndex =
-        roster.getWarbands().stream().mapToInt(WarbandEntity::getSortIndex).max().orElse(-1) + 1;
-
-    var warband = new WarbandEntity(roster, sortIndex);
-    var leader = new RosterUnitEntity(warband, leaderProfileId, 1, true, 0);
-    leader.getOptionIds().addAll(leaderOptionIds);
-
-    warband.getUnits().add(leader);
-    roster.getWarbands().add(warband);
-    roster.touch();
-
-    return warbandRepository.save(warband);
-  }
-
-  @Transactional
-  public void deleteWarband(Long rosterId, Long warbandId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    requireEditable(roster);
-    requireWarband(warbandId, rosterId, user.getId());
-
-    if (roster.getGeneralUnit() != null
-        && roster.getGeneralUnit().getWarband().getId().equals(warbandId)) {
-      roster.setGeneralUnit(null);
-    }
-
-    roster.getWarbands().removeIf(existing -> existing.getId().equals(warbandId));
-    roster.touch();
-  }
-
-  @Transactional
-  public RosterUnitEntity replaceWarbandLeader(
-      Long rosterId, Long warbandId, String profileId, Set<String> optionIds) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    requireEditable(roster);
-    var warband = requireWarband(warbandId, rosterId, user.getId());
-
-    var leader =
-        warband.getUnits().stream()
-            .filter(RosterUnitEntity::isLeader)
-            .findFirst()
-            .orElseThrow(
-                () ->
-                    new IllegalStateException(
-                        "Warband " + warbandId + " does not contain a leader"));
-
-    leader.setProfileId(profileId);
-    leader.setQuantity(1);
-    leader.getOptionIds().clear();
-    leader.getOptionIds().addAll(optionIds);
-    roster.touch();
-
-    return leader;
-  }
-
-  @Transactional
-  public RosterUnitEntity addFollower(
-      Long rosterId, Long warbandId, String profileId, int quantity, Set<String> optionIds) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    requireEditable(roster);
-    var warband = requireWarband(warbandId, rosterId, user.getId());
-
-    var sortIndex =
-        warband.getUnits().stream().mapToInt(RosterUnitEntity::getSortIndex).max().orElse(0) + 1;
-
-    var unit = new RosterUnitEntity(warband, profileId, quantity, false, sortIndex);
-    unit.getOptionIds().addAll(optionIds);
-
-    warband.getUnits().add(unit);
-    roster.touch();
-
-    return rosterUnitRepository.save(unit);
-  }
-
-  @Transactional
-  public RosterUnitEntity updateUnit(
-      Long rosterId, Long warbandId, Long unitId, Integer quantity, Set<String> optionIds) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    requireEditable(roster);
-    var unit =
-        rosterUnitRepository
-            .findOwnedUnit(unitId, warbandId, rosterId, user.getId())
-            .orElseThrow(() -> new RosterUnitNotFoundException(unitId));
-
-    if (quantity != null) {
-      if (unit.isLeader() && quantity != 1) {
-        throw new RosterInvariantViolationException("A warband leader must have quantity 1");
-      }
-      if (quantity < 1) {
-        throw new InvalidRosterUnitException("Unit quantity must be at least 1");
-      }
-      unit.setQuantity(quantity);
-    }
-
-    if (optionIds != null) {
-      unit.getOptionIds().clear();
-      unit.getOptionIds().addAll(optionIds);
-    }
-
-    roster.touch();
-    return unit;
-  }
-
-  @Transactional
-  public void deleteUnit(Long rosterId, Long warbandId, Long unitId) {
-    var user = authenticatedUserService.getCurrentUser();
-    var roster = requireRoster(rosterId, user.getId());
-    requireEditable(roster);
-    var unit =
-        rosterUnitRepository
-            .findOwnedUnit(unitId, warbandId, rosterId, user.getId())
-            .orElseThrow(() -> new RosterUnitNotFoundException(unitId));
-
-    if (unit.isLeader()) {
-      throw new RosterInvariantViolationException(
-          "The warband leader cannot be deleted independently");
-    }
-
-    if (roster.getGeneralUnit() != null && roster.getGeneralUnit().getId().equals(unitId)) {
-      roster.setGeneralUnit(null);
-    }
-
-    unit.getWarband().getUnits().removeIf(existing -> existing.getId().equals(unitId));
-    roster.touch();
-  }
-
-  private RosterEntity requireRoster(Long rosterId, Long userId) {
-    return rosterRepository
-        .findByIdAndUserId(rosterId, userId)
-        .orElseThrow(() -> new RosterNotFoundException(rosterId));
-  }
-
-  private RosterGroupEntity requireGroup(Long groupId, Long userId) {
-    return rosterGroupRepository
-        .findByIdAndUserId(groupId, userId)
-        .orElseThrow(() -> new RosterGroupNotFoundException(groupId));
-  }
-
-  private WarbandEntity requireWarband(Long warbandId, Long rosterId, Long userId) {
-    return warbandRepository
-        .findOwnedWarband(warbandId, rosterId, userId)
-        .orElseThrow(() -> new WarbandNotFoundException(warbandId));
-  }
-
-  private void requireEditable(RosterEntity roster) {
-    if (roster.isLocked()) {
-      throw new RosterLockedException(roster.getId());
-    }
+    log.info("Removed roster from group rosterId={}", rosterId);
   }
 
   private RosterSnapshot snapshot(RosterEntity roster) {
@@ -338,7 +179,7 @@ public class RosterService {
     return new RosterSnapshot(roster, statistics);
   }
 
-  private Set<String> normalizeTags(Collection<String> tags) {
+  public static Set<String> normalizeTags(Collection<String> tags) {
     if (tags == null) {
       return Set.of();
     }

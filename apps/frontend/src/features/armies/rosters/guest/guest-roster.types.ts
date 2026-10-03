@@ -5,6 +5,9 @@ export interface GuestRoster {
   pointsLimit?: number;
   tags?: string[];
 
+  armyOptionIds: string[];
+  generalUnitId: string | null;
+
   warbands: GuestWarband[];
 
   createdAt: string;
@@ -13,23 +16,14 @@ export interface GuestRoster {
 
 export interface GuestWarband {
   id: string;
-  leader: GuestRosterUnit;
+  leader: GuestRosterUnit | null;
   followers: GuestRosterUnit[];
 }
 
 export interface GuestRosterUnit {
   id: string;
-  profileId: string;
+
+  armyListProfileId: string;
   quantity: number;
-
-  // TODO: additional fields
-}
-
-export interface GuestRosterStats {
-  points: number;
-  modelCount: number;
-  warbandCount: number;
-  might: number;
-  bowCount: number;
-  throwingWeaponCount: number;
+  optionIds: string[];
 }

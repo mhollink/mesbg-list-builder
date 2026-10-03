@@ -14,7 +14,7 @@ const mocks = vi.hoisted(() => ({
   rootState: { isLoading: false },
 }));
 
-vi.mock("../../../api/roster-api", () => ({
+vi.mock("../../../api/rosters-api", () => ({
   useMoveRosterToGroupMutation: () => [mocks.moveToGroup, mocks.groupState],
   useMoveRosterToRootMutation: () => [mocks.moveToRoot, mocks.rootState],
 }));

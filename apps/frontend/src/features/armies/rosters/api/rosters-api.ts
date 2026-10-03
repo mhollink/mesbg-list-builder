@@ -1,27 +1,22 @@
 import type {
   AssignRosterToGroupRequest,
-  CreateFollowerRequest,
   CreateRosterRequest,
-  CreateWarbandRequest,
   Roster,
   RosterSummary,
-  RosterUnit,
   UpdateRosterRequest,
-  UpdateRosterUnitRequest,
-  Warband,
 } from "@mlb/api-client";
 
-import { rostersApi } from "~/api/api.ts";
+import { rostersClient } from "~/api/api.ts";
 import { toApiError } from "~/api/api-error.ts";
 import { serverApi } from "~/api/server-api.ts";
 
-export const rosterApi = serverApi.injectEndpoints({
+export const rostersApi = serverApi.injectEndpoints({
   endpoints: (builder) => ({
     getRosters: builder.query<RosterSummary[], void>({
       queryFn: async () => {
         try {
           return {
-            data: await rostersApi.listRosters(),
+            data: await rostersClient.listRosters(),
           };
         } catch (error) {
           return {
@@ -44,7 +39,7 @@ export const rosterApi = serverApi.injectEndpoints({
       queryFn: async (rosterId) => {
         try {
           return {
-            data: await rostersApi.getRoster({
+            data: await rostersClient.getRoster({
               rosterId,
             }),
           };
@@ -64,7 +59,7 @@ export const rosterApi = serverApi.injectEndpoints({
       queryFn: async (request) => {
         try {
           return {
-            data: await rostersApi.createRoster({
+            data: await rostersClient.createRoster({
               createRosterRequest: request,
             }),
           };
@@ -85,7 +80,7 @@ export const rosterApi = serverApi.injectEndpoints({
       queryFn: async ({ rosterId, request }) => {
         try {
           return {
-            data: await rostersApi.updateRoster({
+            data: await rostersClient.updateRoster({
               rosterId,
               updateRosterRequest: request,
             }),
@@ -107,7 +102,7 @@ export const rosterApi = serverApi.injectEndpoints({
       queryFn: async (rosterId) => {
         try {
           return {
-            data: await rostersApi.favoriteRoster({ rosterId }),
+            data: await rostersClient.favoriteRoster({ rosterId }),
           };
         } catch (error) {
           return {
@@ -125,7 +120,7 @@ export const rosterApi = serverApi.injectEndpoints({
       queryFn: async (rosterId) => {
         try {
           return {
-            data: await rostersApi.unfavoriteRoster({ rosterId }),
+            data: await rostersClient.unfavoriteRoster({ rosterId }),
           };
         } catch (error) {
           return {
@@ -143,7 +138,7 @@ export const rosterApi = serverApi.injectEndpoints({
       queryFn: async (rosterId) => {
         try {
           return {
-            data: await rostersApi.lockRoster({ rosterId }),
+            data: await rostersClient.lockRoster({ rosterId }),
           };
         } catch (error) {
           return {
@@ -161,7 +156,7 @@ export const rosterApi = serverApi.injectEndpoints({
       queryFn: async (rosterId) => {
         try {
           return {
-            data: await rostersApi.unlockRoster({ rosterId }),
+            data: await rostersClient.unlockRoster({ rosterId }),
           };
         } catch (error) {
           return {
@@ -178,7 +173,7 @@ export const rosterApi = serverApi.injectEndpoints({
     deleteRoster: builder.mutation<void, number>({
       queryFn: async (rosterId) => {
         try {
-          await rostersApi.deleteRoster({
+          await rostersClient.deleteRoster({
             rosterId,
           });
 
@@ -198,97 +193,10 @@ export const rosterApi = serverApi.injectEndpoints({
       ],
     }),
 
-    createWarband: builder.mutation<
-      Warband,
-      { rosterId: number; request: CreateWarbandRequest }
-    >({
-      queryFn: async ({ rosterId, request }) => {
-        try {
-          return {
-            data: await rostersApi.createWarband({
-              rosterId,
-              createWarbandRequest: request,
-            }),
-          };
-        } catch (error) {
-          return {
-            error: toApiError(error),
-          };
-        }
-      },
-
-      invalidatesTags: (_result, _error, { rosterId }) => [
-        { type: "Roster", id: rosterId },
-        { type: "Roster", id: "LIST" },
-      ],
-    }),
-
-    createFollower: builder.mutation<
-      RosterUnit,
-      {
-        rosterId: number;
-        warbandId: number;
-        request: CreateFollowerRequest;
-      }
-    >({
-      queryFn: async ({ rosterId, warbandId, request }) => {
-        try {
-          return {
-            data: await rostersApi.createWarbandFollower({
-              rosterId,
-              warbandId,
-              createFollowerRequest: request,
-            }),
-          };
-        } catch (error) {
-          return {
-            error: toApiError(error),
-          };
-        }
-      },
-
-      invalidatesTags: (_result, _error, { rosterId }) => [
-        { type: "Roster", id: rosterId },
-        { type: "Roster", id: "LIST" },
-      ],
-    }),
-
-    updateUnit: builder.mutation<
-      RosterUnit,
-      {
-        rosterId: number;
-        warbandId: number;
-        unitId: number;
-        request: UpdateRosterUnitRequest;
-      }
-    >({
-      queryFn: async ({ rosterId, warbandId, unitId, request }) => {
-        try {
-          return {
-            data: await rostersApi.updateWarbandUnit({
-              rosterId,
-              warbandId,
-              unitId,
-              updateRosterUnitRequest: request,
-            }),
-          };
-        } catch (error) {
-          return {
-            error: toApiError(error),
-          };
-        }
-      },
-
-      invalidatesTags: (_result, _error, { rosterId }) => [
-        { type: "Roster", id: rosterId },
-        { type: "Roster", id: "LIST" },
-      ],
-    }),
-
     moveRosterToGroup: builder.mutation<void, AssignRosterToGroupRequest>({
       queryFn: async ({ rosterId, groupId }) => {
         try {
-          await rostersApi.assignRosterToGroup({ rosterId, groupId });
+          await rostersClient.assignRosterToGroup({ rosterId, groupId });
           return {
             data: undefined,
           };
@@ -307,7 +215,7 @@ export const rosterApi = serverApi.injectEndpoints({
     moveRosterToRoot: builder.mutation<void, number>({
       queryFn: async (rosterId) => {
         try {
-          await rostersApi.removeRosterFromGroup({ rosterId });
+          await rostersClient.removeRosterFromGroup({ rosterId });
           return {
             data: undefined,
           };
@@ -335,9 +243,6 @@ export const {
   useUnfavoriteRosterMutation,
   useLockRosterMutation,
   useUnlockRosterMutation,
-  useCreateWarbandMutation,
-  useCreateFollowerMutation,
-  useUpdateUnitMutation,
   useMoveRosterToGroupMutation,
   useMoveRosterToRootMutation,
-} = rosterApi;
+} = rostersApi;

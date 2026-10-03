@@ -7,7 +7,7 @@ import type {
 import { configureStore } from "@reduxjs/toolkit";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { rosterApi } from "./roster-api.ts";
+import { rostersApi } from "./rosters-api.ts";
 import { serverApi } from "~/api/server-api.ts";
 
 const api = vi.hoisted(() => ({
@@ -20,18 +20,15 @@ const api = vi.hoisted(() => ({
   lockRoster: vi.fn(),
   unlockRoster: vi.fn(),
   deleteRoster: vi.fn(),
-  createWarband: vi.fn(),
-  createWarbandFollower: vi.fn(),
-  updateWarbandUnit: vi.fn(),
   assignRosterToGroup: vi.fn(),
   removeRosterFromGroup: vi.fn(),
 }));
 
 vi.mock("~/api/api.ts", () => ({
-  rostersApi: api,
+  rostersClient: api,
 }));
 
-describe("rosterApi", () => {
+describe("rostersApi", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -46,7 +43,7 @@ describe("rosterApi", () => {
     api.listRosters.mockResolvedValue(response);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.getRosters.initiate(),
+      rostersApi.endpoints.getRosters.initiate(),
     );
 
     expect(api.listRosters).toHaveBeenCalledOnce();
@@ -62,7 +59,7 @@ describe("rosterApi", () => {
     api.getRoster.mockResolvedValue(response);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.getRoster.initiate(42),
+      rostersApi.endpoints.getRoster.initiate(42),
     );
 
     expect(api.getRoster).toHaveBeenCalledWith({
@@ -89,7 +86,7 @@ describe("rosterApi", () => {
     api.createRoster.mockResolvedValue(response);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.createRoster.initiate(request),
+      rostersApi.endpoints.createRoster.initiate(request),
     );
 
     expect(api.createRoster).toHaveBeenCalledWith({
@@ -112,7 +109,7 @@ describe("rosterApi", () => {
     api.updateRoster.mockResolvedValue(response);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.updateRoster.initiate({
+      rostersApi.endpoints.updateRoster.initiate({
         rosterId: 42,
         request,
       }),
@@ -131,7 +128,7 @@ describe("rosterApi", () => {
     api.favoriteRoster.mockResolvedValue(response);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.favoriteRoster.initiate(42),
+      rostersApi.endpoints.favoriteRoster.initiate(42),
     );
 
     expect(api.favoriteRoster).toHaveBeenCalledWith({
@@ -145,7 +142,7 @@ describe("rosterApi", () => {
     api.unfavoriteRoster.mockResolvedValue(response);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.unfavoriteRoster.initiate(42),
+      rostersApi.endpoints.unfavoriteRoster.initiate(42),
     );
 
     expect(api.unfavoriteRoster).toHaveBeenCalledWith({
@@ -159,7 +156,7 @@ describe("rosterApi", () => {
     api.lockRoster.mockResolvedValue(response);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.lockRoster.initiate(42),
+      rostersApi.endpoints.lockRoster.initiate(42),
     );
 
     expect(api.lockRoster).toHaveBeenCalledWith({
@@ -173,7 +170,7 @@ describe("rosterApi", () => {
     api.unlockRoster.mockResolvedValue(response);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.unlockRoster.initiate(42),
+      rostersApi.endpoints.unlockRoster.initiate(42),
     );
 
     expect(api.unlockRoster).toHaveBeenCalledWith({
@@ -186,7 +183,7 @@ describe("rosterApi", () => {
     api.getRoster.mockRejectedValue(new Error("Request failed"));
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.getRoster.initiate(42),
+      rostersApi.endpoints.getRoster.initiate(42),
     );
 
     expect(result).toMatchObject({
@@ -200,7 +197,7 @@ describe("rosterApi", () => {
     api.assignRosterToGroup.mockResolvedValue(undefined);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.moveRosterToGroup.initiate({
+      rostersApi.endpoints.moveRosterToGroup.initiate({
         rosterId: 42,
         groupId: 12,
       }),
@@ -218,7 +215,7 @@ describe("rosterApi", () => {
     api.removeRosterFromGroup.mockResolvedValue(undefined);
 
     const result = await createStore().dispatch(
-      rosterApi.endpoints.moveRosterToRoot.initiate(42),
+      rostersApi.endpoints.moveRosterToRoot.initiate(42),
     );
 
     expect(api.removeRosterFromGroup).toHaveBeenCalledWith({

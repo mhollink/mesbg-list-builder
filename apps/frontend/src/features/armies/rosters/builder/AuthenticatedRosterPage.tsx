@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { useGetRosterQuery } from "../api/roster-api.ts";
+import { useGetRosterQuery } from "../api/rosters-api.ts";
 import { formatArmyListId } from "~/features/reference/army-lists/army-lists.utils.ts";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 
@@ -94,7 +94,9 @@ export function AuthenticatedRosterPage({
               <Paper key={warband.id} variant="outlined" sx={{ p: 2 }}>
                 <Typography variant="h6">Warband {index + 1}</Typography>
 
-                <Typography>Leader: {warband.leader.profileId}</Typography>
+                <Typography>
+                  Leader: {warband.leader.armyListProfileId}
+                </Typography>
 
                 <Typography variant="body2" color="textSecondary">
                   {warband.followers.reduce(

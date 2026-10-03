@@ -39,8 +39,11 @@ export function filterProfiles(
         profile.name,
         profile.originName,
         ...profile.race,
+        ...profile.raceNames,
         ...profile.factions,
+        ...profile.factionNames,
         ...profile.unitTypes,
+        ...profile.unitTypeNames,
       ];
 
       const normalizedQuery = normalizeSearchText(query);
