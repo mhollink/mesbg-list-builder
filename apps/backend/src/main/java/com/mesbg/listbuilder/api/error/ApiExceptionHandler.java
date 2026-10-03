@@ -9,12 +9,14 @@ import com.mesbg.listbuilder.armies.roster.service.exception.RosterLockedExcepti
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterNotFoundException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterUnitNotFoundException;
 import com.mesbg.listbuilder.armies.roster.service.exception.WarbandNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+@Slf4j
 @RestControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -90,6 +92,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
   private ProblemDetail problem(HttpStatus status, String code, String title, String detail) {
+    log.debug("Mapping domain exception status={} code={}", status.value(), code);
 
     var problem = ProblemDetail.forStatusAndDetail(status, detail);
 

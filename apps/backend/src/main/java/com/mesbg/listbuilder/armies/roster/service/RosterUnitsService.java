@@ -11,11 +11,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class RosterUnitsService {
 
   private final RosterAccess rosterAccess;
@@ -25,6 +27,13 @@ public class RosterUnitsService {
   public RosterUnitEntity setWarbandLeader(
       Long rosterId, Long warbandId, String profileId, Set<String> optionIds) {
 
+    log.debug(
+        "Setting warband leader rosterId={} warbandId={} profileId={} optionCount={}",
+        rosterId,
+        warbandId,
+        profileId,
+        optionIds.size());
+
     var roster = rosterAccess.requireEditable(rosterId);
     var warband = rosterAccess.requireWarband(warbandId, rosterId);
 
@@ -32,10 +41,16 @@ public class RosterUnitsService {
         warband.getUnits().stream().filter(RosterUnitEntity::isLeader).findFirst().orElse(null);
 
     if (leader == null) {
+      log.debug("Creating leader for empty warband rosterId={} warbandId={}", rosterId, warbandId);
       leader = new RosterUnitEntity(warband, profileId, 1, true, -1);
       warband.getUnits().add(leader);
     } else if (roster.getGeneralUnit() != null
         && roster.getGeneralUnit().getId().equals(leader.getId())) {
+      log.debug(
+          "Clearing roster general because leader is being replaced rosterId={} warbandId={} unitId={}",
+          rosterId,
+          warbandId,
+          leader.getId());
       roster.setGeneralUnit(null);
     }
 
@@ -45,6 +60,13 @@ public class RosterUnitsService {
     leader.getOptionIds().addAll(optionIds);
 
     roster.touch();
+
+    log.debug(
+        "Set warband leader rosterId={} warbandId={} unitId={} profileId={}",
+        rosterId,
+        warbandId,
+        leader.getId(),
+        profileId);
 
     return leader;
   }
@@ -56,6 +78,14 @@ public class RosterUnitsService {
       String armyListProfileId,
       int quantity,
       Set<String> optionIds) {
+    log.debug(
+        "Adding follower rosterId={} warbandId={} profileId={} quantity={} optionCount={}",
+        rosterId,
+        warbandId,
+        armyListProfileId,
+        quantity,
+        optionIds.size());
+
     var roster = rosterAccess.requireEditable(rosterId);
     var warband = rosterAccess.requireWarband(warbandId, rosterId);
 
@@ -68,20 +98,50 @@ public class RosterUnitsService {
     warband.getUnits().add(unit);
     roster.touch();
 
-    return rosterUnitRepository.save(unit);
+    var saved = rosterUnitRepository.save(unit);
+
+    log.debug(
+        "Added follower rosterId={} warbandId={} unitId={} profileId={} position={}",
+        rosterId,
+        warbandId,
+        saved.getId(),
+        armyListProfileId,
+        sortIndex);
+
+    return saved;
   }
 
   @Transactional
   public RosterUnitEntity updateUnit(
       Long rosterId, Long warbandId, Long unitId, Integer quantity, Set<String> optionIds) {
+    log.debug(
+        "Updating roster unit rosterId={} warbandId={} unitId={} quantitySupplied={} optionsSupplied={}",
+        rosterId,
+        warbandId,
+        unitId,
+        quantity != null,
+        optionIds != null);
+
     var roster = rosterAccess.requireEditable(rosterId);
     var unit = rosterAccess.requireUnit(unitId, warbandId, rosterId);
 
     if (quantity != null) {
       if (unit.isLeader() && quantity != 1) {
+        log.warn(
+            "Rejected leader quantity change rosterId={} warbandId={} unitId={} quantity={}",
+            rosterId,
+            warbandId,
+            unitId,
+            quantity);
         throw new RosterInvariantViolationException("A warband leader must have quantity 1");
       }
       if (quantity < 1) {
+        log.warn(
+            "Rejected invalid unit quantity rosterId={} warbandId={} unitId={} quantity={}",
+            rosterId,
+            warbandId,
+            unitId,
+            quantity);
         throw new InvalidRosterUnitException("Unit quantity must be at least 1");
       }
       unit.setQuantity(quantity);
@@ -93,15 +153,27 @@ public class RosterUnitsService {
     }
 
     roster.touch();
+
+    log.debug(
+        "Updated roster unit rosterId={} warbandId={} unitId={}", rosterId, warbandId, unitId);
+
     return unit;
   }
 
   @Transactional
   public void deleteUnit(Long rosterId, Long warbandId, Long unitId) {
+    log.debug(
+        "Deleting roster unit rosterId={} warbandId={} unitId={}", rosterId, warbandId, unitId);
+
     var roster = rosterAccess.requireEditable(rosterId);
     var unit = rosterAccess.requireUnit(unitId, warbandId, rosterId);
 
     if (unit.isLeader()) {
+      log.warn(
+          "Rejected independent leader deletion rosterId={} warbandId={} unitId={}",
+          rosterId,
+          warbandId,
+          unitId);
       throw new RosterInvariantViolationException(
           "The warband leader cannot be deleted independently");
     }
@@ -112,11 +184,22 @@ public class RosterUnitsService {
 
     unit.getWarband().getUnits().removeIf(existing -> existing.getId().equals(unitId));
     roster.touch();
+
+    log.debug(
+        "Deleted roster unit rosterId={} warbandId={} unitId={}", rosterId, warbandId, unitId);
   }
 
   @Transactional
   public void moveUnit(
       Long rosterId, Long sourceWarbandId, Long unitId, Long targetWarbandId, int targetPosition) {
+
+    log.debug(
+        "Moving roster unit rosterId={} sourceWarbandId={} targetWarbandId={} unitId={} targetPosition={}",
+        rosterId,
+        sourceWarbandId,
+        targetWarbandId,
+        unitId,
+        targetPosition);
 
     var roster = rosterAccess.requireEditable(rosterId);
     var sourceWarband = rosterAccess.requireWarband(sourceWarbandId, rosterId);
@@ -127,6 +210,11 @@ public class RosterUnitsService {
 
     var unit = rosterAccess.requireUnit(unitId, sourceWarbandId, rosterId);
     if (unit.isLeader()) {
+      log.warn(
+          "Rejected independent leader move rosterId={} warbandId={} unitId={}",
+          rosterId,
+          sourceWarbandId,
+          unitId);
       throw new RosterInvariantViolationException("A warband leader cannot be moved independently");
     }
 
@@ -137,6 +225,14 @@ public class RosterUnitsService {
     }
 
     roster.touch();
+
+    log.debug(
+        "Moved roster unit rosterId={} sourceWarbandId={} targetWarbandId={} unitId={} targetPosition={}",
+        rosterId,
+        sourceWarbandId,
+        targetWarbandId,
+        unitId,
+        targetPosition);
   }
 
   private void moveWithinWarband(WarbandEntity warband, RosterUnitEntity unit, int targetPosition) {
@@ -179,6 +275,10 @@ public class RosterUnitsService {
 
   private void validatePosition(int position, int sizeAfterRemoval) {
     if (position < 0 || position > sizeAfterRemoval) {
+      log.warn(
+          "Rejected unit move outside warband targetPosition={} followerCountAfterRemoval={}",
+          position,
+          sizeAfterRemoval);
       throw new InvalidRosterUnitException("Target position is outside the warband");
     }
   }

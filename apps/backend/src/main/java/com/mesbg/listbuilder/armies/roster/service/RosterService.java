@@ -11,11 +11,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class RosterService {
 
   private final CurrentUserContext currentUser;
@@ -25,20 +27,39 @@ public class RosterService {
 
   @Transactional
   public List<RosterSnapshot> listRosters() {
-    return rosterRepository.findAllByUserIdOrderByUpdatedAtDesc(currentUser.getUserId()).stream()
-        .map(this::snapshot)
-        .toList();
+    var userId = currentUser.getUserId();
+
+    log.debug("Listing rosters userId={}", userId);
+
+    var rosters =
+        rosterRepository.findAllByUserIdOrderByUpdatedAtDesc(userId).stream()
+            .map(this::snapshot)
+            .toList();
+
+    log.debug("Listed rosters userId={} count={}", userId, rosters.size());
+
+    return rosters;
   }
 
   @Transactional
   public RosterSnapshot getRoster(Long rosterId) {
+    log.debug("Loading roster rosterId={}", rosterId);
+
     var roster = rosterAccess.requireRoster(rosterId);
+
     return snapshot(roster);
   }
 
   @Transactional
   public RosterSnapshot createRoster(
       String name, String armyListId, Integer pointsLimit, List<String> tags, Long groupId) {
+    log.debug(
+        "Creating roster armyListId={} pointsLimit={} groupId={} tagCount={}",
+        armyListId,
+        pointsLimit,
+        groupId,
+        tags == null ? 0 : tags.size());
+
     var group = groupId == null ? null : rosterAccess.requireGroup(groupId);
     var normalizeTags = normalizeTags(tags);
 
@@ -47,6 +68,9 @@ public class RosterService {
             new RosterEntity(
                 currentUser.getUser(), name, armyListId, pointsLimit, normalizeTags, group));
 
+    log.info(
+        "Created roster rosterId={} armyListId={} groupId={}", roster.getId(), armyListId, groupId);
+
     return snapshot(roster);
   }
 
@@ -54,14 +78,24 @@ public class RosterService {
   public RosterSnapshot updateRoster(
       Long rosterId, String name, Integer pointsLimit, List<String> tags) {
     var roster = rosterAccess.requireRoster(rosterId);
+    var nameChanged = name != null && !name.equals(roster.getName());
+    var pointsLimitChanged = pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit());
+    var tagsChanged = tags != null;
 
-    if (name != null && !name.equals(roster.getName())) roster.setName(name);
+    log.debug(
+        "Updating roster rosterId={} nameChanged={} pointsLimitChanged={} tagsChanged={}",
+        rosterId,
+        nameChanged,
+        pointsLimitChanged,
+        tagsChanged);
 
-    if (pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit())) {
+    if (nameChanged) roster.setName(name);
+
+    if (pointsLimitChanged) {
       roster.setPointsLimit(pointsLimit);
     }
 
-    if (tags != null) {
+    if (tagsChanged) {
       roster.setTags(normalizeTags(tags));
     }
 
@@ -74,6 +108,8 @@ public class RosterService {
 
     roster.setFavorite(true);
 
+    log.info("Marked roster as favorite rosterId={}", rosterId);
+
     return snapshot(roster);
   }
 
@@ -82,6 +118,8 @@ public class RosterService {
     var roster = rosterAccess.requireRoster(rosterId);
 
     roster.setFavorite(false);
+
+    log.info("Removed roster from favorites rosterId={}", rosterId);
 
     return snapshot(roster);
   }
@@ -92,6 +130,8 @@ public class RosterService {
 
     roster.setLocked(true);
 
+    log.info("Locked roster rosterId={}", rosterId);
+
     return snapshot(roster);
   }
 
@@ -101,6 +141,8 @@ public class RosterService {
 
     roster.setLocked(false);
 
+    log.info("Unlocked roster rosterId={}", rosterId);
+
     return snapshot(roster);
   }
 
@@ -109,6 +151,8 @@ public class RosterService {
     var roster = rosterAccess.requireEditable(rosterId);
 
     rosterRepository.delete(roster);
+
+    log.info("Deleted roster rosterId={}", rosterId);
   }
 
   @Transactional
@@ -117,6 +161,8 @@ public class RosterService {
     var group = rosterAccess.requireGroup(groupId);
 
     roster.setGroup(group);
+
+    log.info("Assigned roster to group rosterId={} groupId={}", rosterId, groupId);
   }
 
   @Transactional
@@ -124,6 +170,8 @@ public class RosterService {
     var roster = rosterAccess.requireRoster(rosterId);
 
     roster.setGroup(null);
+
+    log.info("Removed roster from group rosterId={}", rosterId);
   }
 
   private RosterSnapshot snapshot(RosterEntity roster) {

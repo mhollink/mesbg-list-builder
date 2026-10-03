@@ -9,11 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.json.JsonMapper;
 
 @Component
+@Slf4j
 public class GameDataCatalog {
 
   private static final String PROFILES_RESOURCE = "game-data/profiles.json";
@@ -25,6 +27,11 @@ public class GameDataCatalog {
   private final Map<String, Map<String, ArmyListOptionData>> armyListOptions;
 
   public GameDataCatalog(JsonMapper jsonMapper) {
+    log.debug(
+        "Loading game data profilesResource={} armyListsResource={}",
+        PROFILES_RESOURCE,
+        ARMY_LISTS_RESOURCE);
+
     var loadedProfiles = load(jsonMapper, PROFILES_RESOURCE, ProfileData[].class);
     var loadedArmyLists = load(jsonMapper, ARMY_LISTS_RESOURCE, ArmyListData[].class);
 
@@ -44,6 +51,16 @@ public class GameDataCatalog {
                 Collectors.toUnmodifiableMap(
                     ArmyListData::id,
                     armyList -> indexBy(armyList.options(), ArmyListOptionData::id)));
+
+    var armyListProfileCount = this.armyListProfiles.values().stream().mapToInt(Map::size).sum();
+    var armyListOptionCount = this.armyListOptions.values().stream().mapToInt(Map::size).sum();
+
+    log.info(
+        "Loaded game data profiles={} armyLists={} armyListProfiles={} armyListOptions={}",
+        this.profiles.size(),
+        this.armyLists.size(),
+        armyListProfileCount,
+        armyListOptionCount);
   }
 
   public ProfileData getProfile(String profileId) {
@@ -109,6 +126,7 @@ public class GameDataCatalog {
     try (var inputStream = resource.getInputStream()) {
       return List.of(jsonMapper.readValue(inputStream, type));
     } catch (IOException exception) {
+      log.error("Failed to load game data resource={}", resourcePath, exception);
       throw new IllegalStateException("Could not load game data from " + resourcePath, exception);
     }
   }

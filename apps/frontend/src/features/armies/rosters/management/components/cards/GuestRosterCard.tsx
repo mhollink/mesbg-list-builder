@@ -13,9 +13,9 @@ import { useBuilderGameData } from "../../../builder/data/useBuilderGameData";
 import { calculateRosterStatistics } from "../../../builder/domain/roster-statistics";
 import { HeraldryIcon } from "~/components/heraldry/HeraldryIcon.tsx";
 import { getArmyListHeraldry } from "~/components/heraldry/heraldry.const.ts";
+import { InvalidRoster } from "~/features/armies/rosters/builder/components/InvalidRoster.tsx";
 import { mapGuestRoster } from "~/features/armies/rosters/builder/mappers/guest-roster.mapper.ts";
 import type { GuestRoster } from "~/features/armies/rosters/guest/guest-roster.types.ts";
-import {InvalidRoster} from "~/features/armies/rosters/builder/components/InvalidRoster.tsx";
 
 interface GuestRosterCardProps {
   roster: GuestRoster;
@@ -28,7 +28,7 @@ export function GuestRosterCard({ roster, onDelete }: GuestRosterCardProps) {
   const builderRoster = useMemo(() => mapGuestRoster(roster), [roster]);
 
   if (!gameData) {
-      return <InvalidRoster />
+    return <InvalidRoster />;
   }
 
   const stats = calculateRosterStatistics(builderRoster, gameData);
