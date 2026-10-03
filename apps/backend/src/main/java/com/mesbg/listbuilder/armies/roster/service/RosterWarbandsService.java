@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class RosterWarbandsService {
 
   private final RosterAccess rosterAccess;
@@ -21,6 +23,8 @@ public class RosterWarbandsService {
 
   @Transactional
   public WarbandEntity createWarband(Long rosterId) {
+    log.debug("Creating warband rosterId={}", rosterId);
+
     var roster = rosterAccess.requireEditable(rosterId);
 
     var sortIndex = getMaxSortIndex(roster) + 1;
@@ -29,7 +33,12 @@ public class RosterWarbandsService {
     roster.getWarbands().add(warband);
     roster.touch();
 
-    return warbandRepository.save(warband);
+    var saved = warbandRepository.save(warband);
+
+    log.debug(
+        "Created warband rosterId={} warbandId={} position={}", rosterId, saved.getId(), sortIndex);
+
+    return saved;
   }
 
   private static int getMaxSortIndex(RosterEntity roster) {
@@ -38,20 +47,30 @@ public class RosterWarbandsService {
 
   @Transactional
   public void deleteWarband(Long rosterId, Long warbandId) {
+    log.debug("Deleting warband rosterId={} warbandId={}", rosterId, warbandId);
+
     var roster = rosterAccess.requireEditable(rosterId);
     var warband = rosterAccess.requireWarband(warbandId, rosterId);
 
     if (roster.getGeneralUnit() != null
         && roster.getGeneralUnit().getWarband().getId().equals(warbandId)) {
+      log.debug(
+          "Clearing roster general because its warband is being deleted rosterId={} warbandId={}",
+          rosterId,
+          warbandId);
       roster.setGeneralUnit(null);
     }
 
     roster.getWarbands().removeIf(existing -> existing.getId().equals(warband.getId()));
     roster.touch();
+
+    log.debug("Deleted warband rosterId={} warbandId={}", rosterId, warbandId);
   }
 
   @Transactional
   public WarbandEntity duplicateWarband(Long rosterId, Long warbandId) {
+    log.debug("Duplicating warband rosterId={} sourceWarbandId={}", rosterId, warbandId);
+
     var roster = rosterAccess.requireEditable(rosterId);
     var source = rosterAccess.requireWarband(warbandId, rosterId);
 
@@ -67,7 +86,16 @@ public class RosterWarbandsService {
     roster.getWarbands().add(duplicated);
     roster.touch();
 
-    return warbandRepository.save(duplicated);
+    var saved = warbandRepository.save(duplicated);
+
+    log.debug(
+        "Duplicated warband rosterId={} sourceWarbandId={} warbandId={} unitCount={}",
+        rosterId,
+        warbandId,
+        saved.getId(),
+        saved.getUnits().size());
+
+    return saved;
   }
 
   private RosterUnitEntity duplicateUnit(WarbandEntity targetWarband, RosterUnitEntity source) {
@@ -86,6 +114,12 @@ public class RosterWarbandsService {
 
   @Transactional
   public void moveWarband(Long rosterId, Long warbandId, int targetIndex) {
+    log.debug(
+        "Moving warband rosterId={} warbandId={} targetPosition={}",
+        rosterId,
+        warbandId,
+        targetIndex);
+
     var roster = rosterAccess.requireEditable(rosterId);
     var warband = rosterAccess.requireWarband(warbandId, rosterId);
 
@@ -95,8 +129,16 @@ public class RosterWarbandsService {
             .collect(Collectors.toCollection(ArrayList::new));
 
     if (targetIndex < 0 || targetIndex >= warbands.size()) {
+      log.warn(
+          "Rejected warband move outside roster rosterId={} warbandId={} targetPosition={} warbandCount={}",
+          rosterId,
+          warbandId,
+          targetIndex,
+          warbands.size());
       throw new InvalidWarbandPositionException(targetIndex);
     }
+
+    var sourceIndex = warbands.indexOf(warband);
 
     warbands.remove(warband);
     warbands.add(targetIndex, warband);
@@ -106,5 +148,12 @@ public class RosterWarbandsService {
     }
 
     roster.touch();
+
+    log.debug(
+        "Moved warband rosterId={} warbandId={} fromPosition={} toPosition={}",
+        rosterId,
+        warbandId,
+        sourceIndex,
+        targetIndex);
   }
 }

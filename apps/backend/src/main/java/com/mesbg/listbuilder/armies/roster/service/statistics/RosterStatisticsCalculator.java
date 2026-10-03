@@ -11,10 +11,12 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class RosterStatisticsCalculator {
 
   private final GameDataCatalog gameDataCatalog;
@@ -32,13 +34,26 @@ public class RosterStatisticsCalculator {
 
     var armyOptionPoints = calculateArmyOptionPoints(roster);
 
-    return new RosterStatistics(
-        unitPoints + armyOptionPoints,
-        roster.getWarbands().size(),
-        unitStatistics.stream().mapToInt(UnitStatistics::models).sum(),
-        unitStatistics.stream().mapToInt(UnitStatistics::might).sum(),
-        unitStatistics.stream().mapToInt(UnitStatistics::bows).sum(),
-        unitStatistics.stream().mapToInt(UnitStatistics::throwingWeapons).sum());
+    var statistics =
+        new RosterStatistics(
+            unitPoints + armyOptionPoints,
+            roster.getWarbands().size(),
+            unitStatistics.stream().mapToInt(UnitStatistics::models).sum(),
+            unitStatistics.stream().mapToInt(UnitStatistics::might).sum(),
+            unitStatistics.stream().mapToInt(UnitStatistics::bows).sum(),
+            unitStatistics.stream().mapToInt(UnitStatistics::throwingWeapons).sum());
+
+    log.trace(
+        "Calculated roster statistics rosterId={} points={} models={} warbands={} might={} bows={} throwingWeapons={}",
+        roster.getId(),
+        statistics.points(),
+        statistics.modelCount(),
+        statistics.warbandCount(),
+        statistics.might(),
+        statistics.bowCount(),
+        statistics.throwingWeaponCount());
+
+    return statistics;
   }
 
   private UnitStatistics calculateUnit(String armyListId, RosterUnitEntity unit) {
