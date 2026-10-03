@@ -15,10 +15,12 @@ import com.mesbg.listbuilder.armies.roster.service.exception.RosterNotFoundExcep
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterUnitNotFoundException;
 import com.mesbg.listbuilder.armies.roster.service.exception.WarbandNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class RosterAccess {
 
   private final CurrentUserContext currentUser;
@@ -42,6 +44,7 @@ public class RosterAccess {
   public RosterEntity requireEditable(Long rosterId) {
     var roster = requireRoster(rosterId);
     if (roster.isLocked()) {
+      log.warn("Rejected modification of locked roster rosterId={}", roster.getId());
       throw new RosterLockedException(roster.getId());
     }
     return roster;

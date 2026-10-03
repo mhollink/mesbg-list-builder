@@ -94,7 +94,9 @@ export function AuthenticatedRosterPage({
               <Paper key={warband.id} variant="outlined" sx={{ p: 2 }}>
                 <Typography variant="h6">Warband {index + 1}</Typography>
 
-                <Typography>Leader: {warband.leader.armyListProfileId}</Typography>
+                <Typography>
+                  Leader: {warband.leader.armyListProfileId}
+                </Typography>
 
                 <Typography variant="body2" color="textSecondary">
                   {warband.followers.reduce(
