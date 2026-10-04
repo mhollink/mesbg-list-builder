@@ -1,6 +1,7 @@
 package com.mesbg.listbuilder.account;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -15,6 +16,7 @@ public class CurrentUserContext {
   public UserEntity getUser() {
     if (user == null) {
       user = authenticatedUserService.getCurrentUser();
+      MDC.put("uid", user.getId().toString());
     }
 
     return user;

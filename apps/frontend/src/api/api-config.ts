@@ -4,7 +4,7 @@ import { keycloak } from "~/features/account/auth/keycloak.ts";
 
 export const apiConfiguration = new Configuration({
   basePath: import.meta.env.VITE_API_URL,
-
+  credentials: "include",
   accessToken: async () => {
     await keycloak.updateToken(30);
 

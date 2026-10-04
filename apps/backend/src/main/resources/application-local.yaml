@@ -3,4 +3,8 @@ server:
 
 logging:
   level:
-    com.mesbg.listbuilder: DEBUG
+    com.mesbg.listbuilder: INFO
+
+app:
+  cookies:
+    secure: false
