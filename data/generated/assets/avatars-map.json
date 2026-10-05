@@ -1,0 +1,2127 @@
+{
+  "cellSize": 200,
+  "width": 4000,
+  "height": 5400,
+  "icons": {
+    "abrakhan-merchant-guard": [
+      0,
+      0
+    ],
+    "aldor": [
+      200,
+      0
+    ],
+    "aldrac-warlord-of-carn-dum": [
+      400,
+      0
+    ],
+    "alfrid-the-councillor": [
+      600,
+      0
+    ],
+    "amdur-lord-of-blades": [
+      800,
+      0
+    ],
+    "anborn-ranger-of-ithilien": [
+      1000,
+      0
+    ],
+    "angbor-the-fearless": [
+      1200,
+      0
+    ],
+    "angmar-orc-captain": [
+      1400,
+      0
+    ],
+    "angmar-orc-shaman": [
+      1600,
+      0
+    ],
+    "angmar-orc-warrior": [
+      1800,
+      0
+    ],
+    "angmar-warg-rider": [
+      2000,
+      0
+    ],
+    "aragorn-king-elessar": [
+      2200,
+      0
+    ],
+    "aragorn-strider": [
+      2400,
+      0
+    ],
+    "aranarth": [
+      2600,
+      0
+    ],
+    "arathorn-chieftain-of-the-dunedain": [
+      2800,
+      0
+    ],
+    "argadir": [
+      3000,
+      0
+    ],
+    "arvedui-last-king-of-arnor": [
+      3200,
+      0
+    ],
+    "arwen": [
+      3400,
+      0
+    ],
+    "asfaloth": [
+      3600,
+      0
+    ],
+    "ashrak": [
+      3800,
+      0
+    ],
+    "axeman-of-lossarnach": [
+      0,
+      200
+    ],
+    "azog-the-defiler": [
+      200,
+      200
+    ],
+    "bain-son-of-bard": [
+      400,
+      200
+    ],
+    "baldo-tulpenny": [
+      600,
+      200
+    ],
+    "balin-the-dwarf-champion-of-erebor": [
+      800,
+      200
+    ],
+    "balin-the-dwarf-king-of-moria": [
+      1000,
+      200
+    ],
+    "balin-the-dwarf": [
+      1200,
+      200
+    ],
+    "bandobras-took": [
+      1400,
+      200
+    ],
+    "bard-ii-prince-of-dale": [
+      1600,
+      200
+    ],
+    "bard-the-bowman": [
+      1800,
+      200
+    ],
+    "bards-family": [
+      2000,
+      200
+    ],
+    "barliman-butterbur": [
+      2200,
+      200
+    ],
+    "barricade": [
+      2400,
+      200
+    ],
+    "barrow-wight": [
+      2600,
+      200
+    ],
+    "bat-swarm": [
+      2800,
+      200
+    ],
+    "battering-ram": [
+      3000,
+      200
+    ],
+    "beechbone": [
+      3200,
+      200
+    ],
+    "beorn": [
+      3400,
+      200
+    ],
+    "beorning": [
+      3600,
+      200
+    ],
+    "beregond-guard-of-the-citadel": [
+      3800,
+      200
+    ],
+    "bert-the-troll": [
+      0,
+      400
+    ],
+    "bifur-the-dwarf-champion-of-erebor": [
+      200,
+      400
+    ],
+    "bifur-the-dwarf": [
+      400,
+      400
+    ],
+    "bilbo-baggins-ageing-hobbit": [
+      600,
+      400
+    ],
+    "bilbo-baggins-master-burglar": [
+      800,
+      400
+    ],
+    "bilbo-baggins": [
+      1000,
+      400
+    ],
+    "bill-ferny": [
+      1200,
+      400
+    ],
+    "bill-the-pony": [
+      1400,
+      400
+    ],
+    "bill-the-troll": [
+      1600,
+      400
+    ],
+    "birchseed": [
+      1800,
+      400
+    ],
+    "black-dragon-warrior": [
+      2000,
+      400
+    ],
+    "black-guard-drummer": [
+      2200,
+      400
+    ],
+    "black-guard-of-barad-dur": [
+      2400,
+      400
+    ],
+    "black-numenorean-knight": [
+      2600,
+      400
+    ],
+    "black-numenorean-marshal": [
+      2800,
+      400
+    ],
+    "black-numenorean-warrior": [
+      3000,
+      400
+    ],
+    "blackroot-vale-archer": [
+      3200,
+      400
+    ],
+    "bofur-the-dwarf-champion-of-erebor": [
+      3400,
+      400
+    ],
+    "bofur-the-dwarf": [
+      3600,
+      400
+    ],
+    "boiling-oil": [
+      3800,
+      400
+    ],
+    "bolg-spawn-of-azog": [
+      0,
+      600
+    ],
+    "bombur-the-dwarf-champion-of-erebor": [
+      200,
+      600
+    ],
+    "bombur-the-dwarf": [
+      400,
+      600
+    ],
+    "boromir-captain-of-the-white-tower": [
+      600,
+      600
+    ],
+    "boromir-of-gondor": [
+      800,
+      600
+    ],
+    "braga-captain-of-the-guard": [
+      1000,
+      600
+    ],
+    "brand-king-of-dale": [
+      1200,
+      600
+    ],
+    "brorgir-the-conjurer": [
+      1400,
+      600
+    ],
+    "buhrdur-hill-troll-chieftain": [
+      1600,
+      600
+    ],
+    "captain-of-arnor": [
+      1800,
+      600
+    ],
+    "captain-of-carn-dum": [
+      2000,
+      600
+    ],
+    "captain-of-dale": [
+      2200,
+      600
+    ],
+    "captain-of-dol-amroth": [
+      2400,
+      600
+    ],
+    "captain-of-minas-tirith": [
+      2600,
+      600
+    ],
+    "captain-of-numenor": [
+      2800,
+      600
+    ],
+    "captain-of-rohan": [
+      3000,
+      600
+    ],
+    "captain-of-the-black-guard": [
+      3200,
+      600
+    ],
+    "castellan-of-dol-guldur": [
+      3400,
+      600
+    ],
+    "cave-drake": [
+      3600,
+      600
+    ],
+    "cave-troll": [
+      3800,
+      600
+    ],
+    "celeborn-lord-of-lothlorien": [
+      0,
+      800
+    ],
+    "cirdan": [
+      200,
+      800
+    ],
+    "cirion-lieutenant-of-amon-barad": [
+      400,
+      800
+    ],
+    "citadel-guard": [
+      600,
+      800
+    ],
+    "clansman-of-lamedon": [
+      800,
+      800
+    ],
+    "corsair-ballista": [
+      1000,
+      800
+    ],
+    "corsair-bosun": [
+      1200,
+      800
+    ],
+    "corsair-captain-general": [
+      1400,
+      800
+    ],
+    "corsair-captain": [
+      1600,
+      800
+    ],
+    "corsair-crossbowman": [
+      1800,
+      800
+    ],
+    "corsair-of-umbar": [
+      2000,
+      800
+    ],
+    "corsair-reaver": [
+      2200,
+      800
+    ],
+    "corsair-siege-crew": [
+      2400,
+      800
+    ],
+    "crebain": [
+      2600,
+      800
+    ],
+    "dain-ironfoot-king-under-the-mountain": [
+      2800,
+      800
+    ],
+    "dain-ironfoot-lord-of-the-iron-hills": [
+      3000,
+      800
+    ],
+    "dalamyr-fleetmaster-of-umbar": [
+      3200,
+      800
+    ],
+    "dale-siege-crew": [
+      3400,
+      800
+    ],
+    "damrod": [
+      3600,
+      800
+    ],
+    "delgamar-gatemaster-of-umbar": [
+      3800,
+      800
+    ],
+    "denethor": [
+      0,
+      1000
+    ],
+    "deorwine-chief-of-the-kings-knights": [
+      200,
+      1000
+    ],
+    "dori-the-dwarf-champion-of-erebor": [
+      400,
+      1000
+    ],
+    "dori-the-dwarf": [
+      600,
+      1000
+    ],
+    "dragon-cult-acolyte": [
+      800,
+      1000
+    ],
+    "dragon": [
+      1000,
+      1000
+    ],
+    "drar": [
+      1200,
+      1000
+    ],
+    "druzhag-the-beastcaller": [
+      1400,
+      1000
+    ],
+    "duinhir-lord-of-the-blackroot-vale": [
+      1600,
+      1000
+    ],
+    "dunlending-chieftain": [
+      1800,
+      1000
+    ],
+    "dunlending-horseman": [
+      2000,
+      1000
+    ],
+    "dunlending-huscarl": [
+      2200,
+      1000
+    ],
+    "dunlending-warrior": [
+      2400,
+      1000
+    ],
+    "durburz-goblin-king-of-moria": [
+      2600,
+      1000
+    ],
+    "durin-king-of-khazad-dum": [
+      2800,
+      1000
+    ],
+    "dwalin-the-dwarf-champion-of-erebor": [
+      3000,
+      1000
+    ],
+    "dwalin-the-dwarf": [
+      3200,
+      1000
+    ],
+    "dwarf-captain": [
+      3400,
+      1000
+    ],
+    "dwarf-king": [
+      3600,
+      1000
+    ],
+    "dwarf-ranger": [
+      3800,
+      1000
+    ],
+    "dwarf-shieldbearer": [
+      0,
+      1200
+    ],
+    "dwarf-warrior": [
+      200,
+      1200
+    ],
+    "dwarven-ballista": [
+      400,
+      1200
+    ],
+    "dweller-in-the-dark": [
+      600,
+      1200
+    ],
+    "earnur-last-king-of-gondor": [
+      800,
+      1200
+    ],
+    "easterling-captain": [
+      1000,
+      1200
+    ],
+    "easterling-dragon-knight": [
+      1200,
+      1200
+    ],
+    "easterling-kataphrakt-captain": [
+      1400,
+      1200
+    ],
+    "easterling-kataphrakt": [
+      1600,
+      1200
+    ],
+    "easterling-war-priest": [
+      1800,
+      1200
+    ],
+    "easterling-warrior": [
+      2000,
+      1200
+    ],
+    "elendil": [
+      2200,
+      1200
+    ],
+    "elfhelm-captain-of-rohan": [
+      2400,
+      1200
+    ],
+    "elladan": [
+      2600,
+      1200
+    ],
+    "elrohir": [
+      2800,
+      1200
+    ],
+    "elrond": [
+      3000,
+      1200
+    ],
+    "ent": [
+      3200,
+      1200
+    ],
+    "eomer": [
+      3400,
+      1200
+    ],
+    "eorl-the-young": [
+      3600,
+      1200
+    ],
+    "eowyn": [
+      3800,
+      1200
+    ],
+    "erebor-dwarf-captain": [
+      0,
+      1400
+    ],
+    "erebor-dwarf-warrior": [
+      200,
+      1400
+    ],
+    "erestor": [
+      400,
+      1400
+    ],
+    "erkenbrand-captain-of-rohan": [
+      600,
+      1400
+    ],
+    "faramir": [
+      800,
+      1400
+    ],
+    "farmer-maggot": [
+      1000,
+      1400
+    ],
+    "farmer-tolman-cotton": [
+      1200,
+      1400
+    ],
+    "fell-warg-mount": [
+      1400,
+      1400
+    ],
+    "fell-warg": [
+      1600,
+      1400
+    ],
+    "feral-uruk-hai": [
+      1800,
+      1400
+    ],
+    "fili-the-dwarf-champion-of-erebor": [
+      2000,
+      1400
+    ],
+    "fili-the-dwarf": [
+      2200,
+      1400
+    ],
+    "fimbul-hunter-orc-captain": [
+      2400,
+      1400
+    ],
+    "fledgeling-great-eagle": [
+      2600,
+      1400
+    ],
+    "floi-stonehand": [
+      2800,
+      1400
+    ],
+    "folco-boffin": [
+      3000,
+      1400
+    ],
+    "forlong-the-fat": [
+      3200,
+      1400
+    ],
+    "fraecht-vassal-of-the-witch-king": [
+      3400,
+      1400
+    ],
+    "frealaf": [
+      3600,
+      1400
+    ],
+    "freca": [
+      3800,
+      1400
+    ],
+    "fredegar-fatty-bolger": [
+      0,
+      1600
+    ],
+    "frida-tallspear": [
+      200,
+      1600
+    ],
+    "frodo-baggins": [
+      400,
+      1600
+    ],
+    "frodo-of-the-nine-fingers": [
+      600,
+      1600
+    ],
+    "galadhrim-captain": [
+      800,
+      1600
+    ],
+    "galadhrim-knight": [
+      1000,
+      1600
+    ],
+    "galadhrim-warrior": [
+      1200,
+      1600
+    ],
+    "galadriel-lady-of-light": [
+      1400,
+      1600
+    ],
+    "galadriel-lady-of-lothlorien": [
+      1600,
+      1600
+    ],
+    "gamling": [
+      1800,
+      1600
+    ],
+    "gandalf-the-grey-hobbit": [
+      2000,
+      1600
+    ],
+    "gandalf-the-grey": [
+      2200,
+      1600
+    ],
+    "gandalf-the-white": [
+      2400,
+      1600
+    ],
+    "general-targg": [
+      2600,
+      1600
+    ],
+    "ghan-buri-ghan": [
+      2800,
+      1600
+    ],
+    "gil-galad": [
+      3000,
+      1600
+    ],
+    "gildor-inglorion": [
+      3200,
+      1600
+    ],
+    "gimli": [
+      3400,
+      1600
+    ],
+    "girion-lord-of-dale": [
+      3600,
+      1600
+    ],
+    "gloin-the-dwarf-champion-of-erebor": [
+      3800,
+      1600
+    ],
+    "gloin-the-dwarf": [
+      0,
+      1800
+    ],
+    "glorfindel-lord-of-the-west": [
+      200,
+      1800
+    ],
+    "glorfindel": [
+      400,
+      1800
+    ],
+    "goblin-captain": [
+      600,
+      1800
+    ],
+    "goblin-mercenary-captain": [
+      800,
+      1800
+    ],
+    "goblin-mercenary": [
+      1000,
+      1800
+    ],
+    "goblin-warrior": [
+      1200,
+      1800
+    ],
+    "goldberry": [
+      1400,
+      1800
+    ],
+    "golfimbul-orc-captain": [
+      1600,
+      1800
+    ],
+    "gollum": [
+      1800,
+      1800
+    ],
+    "gondor-avenger-bolt-thrower": [
+      2000,
+      1800
+    ],
+    "gondor-battlecry-trebuchet": [
+      2200,
+      1800
+    ],
+    "gorbag": [
+      2400,
+      1800
+    ],
+    "goroth-captain-of-the-morannon": [
+      2600,
+      1800
+    ],
+    "gorulf-ironskin": [
+      2800,
+      1800
+    ],
+    "gothmog": [
+      3000,
+      1800
+    ],
+    "gothmogs-enforcer": [
+      3200,
+      1800
+    ],
+    "great-beast-howdah": [
+      3400,
+      1800
+    ],
+    "great-beast-of-gorgoroth": [
+      3600,
+      1800
+    ],
+    "great-beast": [
+      3800,
+      1800
+    ],
+    "great-eagle-mount": [
+      0,
+      2000
+    ],
+    "great-eagle": [
+      200,
+      2000
+    ],
+    "great-elk": [
+      400,
+      2000
+    ],
+    "grim-hammer-captain": [
+      600,
+      2000
+    ],
+    "grim-hammer-warrior": [
+      800,
+      2000
+    ],
+    "grima": [
+      1000,
+      2000
+    ],
+    "grimbeorn-the-bear": [
+      1200,
+      2000
+    ],
+    "grimbeorn": [
+      1400,
+      2000
+    ],
+    "grimbold-of-grimslade": [
+      1600,
+      2000
+    ],
+    "grinnah-goblin-jailer": [
+      1800,
+      2000
+    ],
+    "grip-fang-and-wolf": [
+      2000,
+      2000
+    ],
+    "grishnakh": [
+      2200,
+      2000
+    ],
+    "groblog": [
+      2400,
+      2000
+    ],
+    "guard-of-the-fountain-court": [
+      2600,
+      2000
+    ],
+    "guard-of-the-galadhrim-court": [
+      2800,
+      2000
+    ],
+    "gulavhar-the-terror-of-arnor": [
+      3000,
+      2000
+    ],
+    "gundabad-berserker": [
+      3200,
+      2000
+    ],
+    "gundabad-catapult-troll": [
+      3400,
+      2000
+    ],
+    "gundabad-ogre": [
+      3600,
+      2000
+    ],
+    "gundabad-orc-captain": [
+      3800,
+      2000
+    ],
+    "gundabad-orc-warrior": [
+      0,
+      2200
+    ],
+    "gundabad-troll": [
+      200,
+      2200
+    ],
+    "guritz": [
+      400,
+      2200
+    ],
+    "gwaihir": [
+      600,
+      2200
+    ],
+    "halbarad": [
+      800,
+      2200
+    ],
+    "haldir-galadhrim-captain": [
+      1000,
+      2200
+    ],
+    "haleth-prince-of-rohan": [
+      1200,
+      2200
+    ],
+    "haleth-son-of-hama": [
+      1400,
+      2200
+    ],
+    "half-troll": [
+      1600,
+      2200
+    ],
+    "hama-captain-of-rohan": [
+      1800,
+      2200
+    ],
+    "hama-prince-of-rohan": [
+      2000,
+      2200
+    ],
+    "hamfast-gaffer-gamgee": [
+      2200,
+      2200
+    ],
+    "haradrim-chieftain": [
+      2400,
+      2200
+    ],
+    "haradrim-commander": [
+      2600,
+      2200
+    ],
+    "haradrim-king": [
+      2800,
+      2200
+    ],
+    "haradrim-raider": [
+      3000,
+      2200
+    ],
+    "haradrim-taskmaster": [
+      3200,
+      2200
+    ],
+    "haradrim-warrior": [
+      3400,
+      2200
+    ],
+    "hasharin": [
+      3600,
+      2200
+    ],
+    "helm-hammerhand-king-of-rohan": [
+      3800,
+      2200
+    ],
+    "helm-hammerhand-wraith-of-the-hornburg": [
+      0,
+      2400
+    ],
+    "hera-daughter-of-helm": [
+      200,
+      2400
+    ],
+    "hera-the-bride-of-death": [
+      400,
+      2400
+    ],
+    "herald-of-the-dead": [
+      600,
+      2400
+    ],
+    "herald": [
+      800,
+      2400
+    ],
+    "hilda-bianca": [
+      1000,
+      2400
+    ],
+    "hill-tribes-chieftain": [
+      1200,
+      2400
+    ],
+    "hill-tribesman": [
+      1400,
+      2400
+    ],
+    "hill-troll": [
+      1600,
+      2400
+    ],
+    "hobbit-archer": [
+      1800,
+      2400
+    ],
+    "hobbit-militia": [
+      2000,
+      2400
+    ],
+    "hobbit-shirriff": [
+      2200,
+      2400
+    ],
+    "holfoot-bracegirdle-shirriff-leader": [
+      2400,
+      2400
+    ],
+    "hunter-orc-captain": [
+      2600,
+      2400
+    ],
+    "hunter-orc-warg-rider": [
+      2800,
+      2400
+    ],
+    "hunter-orc-warrior": [
+      3000,
+      2400
+    ],
+    "hurin-the-tall-warden-of-the-keys": [
+      3200,
+      2400
+    ],
+    "ingold-warden-of-the-rammas-echor": [
+      3400,
+      2400
+    ],
+    "irolas": [
+      3600,
+      2400
+    ],
+    "iron-guard": [
+      3800,
+      2400
+    ],
+    "iron-hills-ballista": [
+      0,
+      2600
+    ],
+    "iron-hills-captain": [
+      200,
+      2600
+    ],
+    "iron-hills-chariot-mount": [
+      400,
+      2600
+    ],
+    "iron-hills-chariot": [
+      600,
+      2600
+    ],
+    "iron-hills-goat-rider": [
+      800,
+      2600
+    ],
+    "iron-hills-siege-crew": [
+      1000,
+      2600
+    ],
+    "iron-hills-warrior": [
+      1200,
+      2600
+    ],
+    "isengard-assault-ballista": [
+      1400,
+      2600
+    ],
+    "isengard-orc-captain": [
+      1600,
+      2600
+    ],
+    "isengard-orc-shaman": [
+      1800,
+      2600
+    ],
+    "isengard-orc-warrior": [
+      2000,
+      2600
+    ],
+    "isengard-troll": [
+      2200,
+      2600
+    ],
+    "isengard-warg-rider": [
+      2400,
+      2600
+    ],
+    "isengard-warg": [
+      2600,
+      2600
+    ],
+    "isildur": [
+      2800,
+      2600
+    ],
+    "kardush-the-firecaller": [
+      3000,
+      2600
+    ],
+    "khamul-the-easterling-mordor": [
+      3200,
+      2600
+    ],
+    "khamul-the-easterling": [
+      3400,
+      2600
+    ],
+    "khandish-charioteer": [
+      3600,
+      2600
+    ],
+    "khandish-chieftain": [
+      3800,
+      2600
+    ],
+    "khandish-horseman": [
+      0,
+      2800
+    ],
+    "khandish-king": [
+      200,
+      2800
+    ],
+    "khandish-warrior": [
+      400,
+      2800
+    ],
+    "khazad-guard": [
+      600,
+      2800
+    ],
+    "kili-the-dwarf-champion-of-erebor": [
+      800,
+      2800
+    ],
+    "kili-the-dwarf": [
+      1000,
+      2800
+    ],
+    "king-of-men-arnor": [
+      1200,
+      2800
+    ],
+    "king-of-men-dale": [
+      1400,
+      2800
+    ],
+    "king-of-men-gondor": [
+      1600,
+      2800
+    ],
+    "king-of-men-numenor": [
+      1800,
+      2800
+    ],
+    "king-of-men-rohan": [
+      2000,
+      2800
+    ],
+    "king-of-the-dead": [
+      2200,
+      2800
+    ],
+    "kings-champion": [
+      2400,
+      2800
+    ],
+    "kings-huntsman": [
+      2600,
+      2800
+    ],
+    "knight-of-arnor": [
+      2800,
+      2800
+    ],
+    "knight-of-dale": [
+      3000,
+      2800
+    ],
+    "knight-of-dol-amroth": [
+      3200,
+      2800
+    ],
+    "knight-of-minas-tirith": [
+      3400,
+      2800
+    ],
+    "knight-of-the-white-tower": [
+      3600,
+      2800
+    ],
+    "lake-town-guard-captain": [
+      3800,
+      2800
+    ],
+    "lake-town-guard": [
+      0,
+      3000
+    ],
+    "lake-town-militia-captain": [
+      200,
+      3000
+    ],
+    "lake-town-militia": [
+      400,
+      3000
+    ],
+    "legolas-greenleaf-prince-of-mirkwood": [
+      600,
+      3000
+    ],
+    "legolas": [
+      800,
+      3000
+    ],
+    "lief-page-of-helm": [
+      1000,
+      3000
+    ],
+    "lindir": [
+      1200,
+      3000
+    ],
+    "lobelia-sackville-baggins": [
+      1400,
+      3000
+    ],
+    "lord-thorne-of-the-wold": [
+      1600,
+      3000
+    ],
+    "lothlorien-captain": [
+      1800,
+      3000
+    ],
+    "lothlorien-stormcaller": [
+      2000,
+      3000
+    ],
+    "lothlorien-warrior": [
+      2200,
+      3000
+    ],
+    "lotho-sackville-baggins": [
+      2400,
+      3000
+    ],
+    "lurtz": [
+      2600,
+      3000
+    ],
+    "mablung-ranger-of-ithilien": [
+      2800,
+      3000
+    ],
+    "madril": [
+      3000,
+      3000
+    ],
+    "mahud-beastmaster-chieftain": [
+      3200,
+      3000
+    ],
+    "mahud-king": [
+      3400,
+      3000
+    ],
+    "mahud-raider": [
+      3600,
+      3000
+    ],
+    "mahud-tribesmaster": [
+      3800,
+      3000
+    ],
+    "mahud-warrior": [
+      0,
+      3200
+    ],
+    "malbeth-the-seer": [
+      200,
+      3200
+    ],
+    "man-at-arms-of-dol-amroth": [
+      400,
+      3200
+    ],
+    "mardin-the-kings-ward": [
+      600,
+      3200
+    ],
+    "mauhur": [
+      800,
+      3200
+    ],
+    "meriadoc-brandybuck-captain-of-the-shire": [
+      1000,
+      3200
+    ],
+    "meriadoc-brandybuck-rohan": [
+      1200,
+      3200
+    ],
+    "meriadoc-brandybuck": [
+      1400,
+      3200
+    ],
+    "minas-tirith-siege-crew": [
+      1600,
+      3200
+    ],
+    "mirkwood-elf-captain": [
+      1800,
+      3200
+    ],
+    "mirkwood-elf-knight": [
+      2000,
+      3200
+    ],
+    "mirkwood-elf-warrior": [
+      2200,
+      3200
+    ],
+    "mirkwood-giant-spider": [
+      2400,
+      3200
+    ],
+    "mirkwood-hunting-spider": [
+      2600,
+      3200
+    ],
+    "mirkwood-ranger-captain": [
+      2800,
+      3200
+    ],
+    "mirkwood-ranger": [
+      3000,
+      3200
+    ],
+    "morannon-orc-captain": [
+      3200,
+      3200
+    ],
+    "morannon-orc-warrior": [
+      3400,
+      3200
+    ],
+    "mordor-orc-captain": [
+      3600,
+      3200
+    ],
+    "mordor-orc-commander": [
+      3800,
+      3200
+    ],
+    "mordor-orc-drummer": [
+      0,
+      3400
+    ],
+    "mordor-orc-shaman": [
+      200,
+      3400
+    ],
+    "mordor-orc-taskmaster": [
+      400,
+      3400
+    ],
+    "mordor-orc-warrior": [
+      600,
+      3400
+    ],
+    "mordor-siege-bow": [
+      800,
+      3400
+    ],
+    "mordor-troll-chieftain-general": [
+      1000,
+      3400
+    ],
+    "mordor-troll-chieftain": [
+      1200,
+      3400
+    ],
+    "mordor-troll": [
+      1400,
+      3400
+    ],
+    "mordor-uruk-hai-captain": [
+      1600,
+      3400
+    ],
+    "mordor-uruk-hai": [
+      1800,
+      3400
+    ],
+    "mordor-war-catapult": [
+      2000,
+      3400
+    ],
+    "mordor-warg-rider": [
+      2200,
+      3400
+    ],
+    "morgul-stalker": [
+      2400,
+      3400
+    ],
+    "moria-blackshield-captain": [
+      2600,
+      3400
+    ],
+    "moria-blackshield-drum": [
+      2800,
+      3400
+    ],
+    "moria-blackshield-shaman": [
+      3000,
+      3400
+    ],
+    "moria-blackshield-warrior": [
+      3200,
+      3400
+    ],
+    "moria-goblin-captain": [
+      3400,
+      3400
+    ],
+    "moria-goblin-drum": [
+      3600,
+      3400
+    ],
+    "moria-goblin-prowler": [
+      3800,
+      3400
+    ],
+    "moria-goblin-shaman": [
+      0,
+      3600
+    ],
+    "moria-goblin-warrior": [
+      200,
+      3600
+    ],
+    "mouth-of-sauron": [
+      400,
+      3600
+    ],
+    "mumak-war-leader": [
+      600,
+      3600
+    ],
+    "murin": [
+      800,
+      3600
+    ],
+    "muzgur-orc-shaman": [
+      1000,
+      3600
+    ],
+    "narzug-hunter-orc-captain": [
+      1200,
+      3600
+    ],
+    "nazthak-orc-captain": [
+      1400,
+      3600
+    ],
+    "noldorin-exiles": [
+      1600,
+      3600
+    ],
+    "nori-the-dwarf-champion-of-erebor": [
+      1800,
+      3600
+    ],
+    "nori-the-dwarf": [
+      2000,
+      3600
+    ],
+    "oin-the-dwarf-champion-of-erebor": [
+      2200,
+      3600
+    ],
+    "oin-the-dwarf": [
+      2400,
+      3600
+    ],
+    "olwyn-shieldmaiden-of-rohan": [
+      2600,
+      3600
+    ],
+    "orc-commander": [
+      2800,
+      3600
+    ],
+    "orc-tracker": [
+      3000,
+      3600
+    ],
+    "ori-the-dwarf-champion-of-erebor": [
+      3200,
+      3600
+    ],
+    "ori-the-dwarf": [
+      3400,
+      3600
+    ],
+    "orophin-galadhrim-captain": [
+      3600,
+      3600
+    ],
+    "osgiliath-veteran": [
+      3800,
+      3600
+    ],
+    "palace-guard-captain": [
+      0,
+      3800
+    ],
+    "palace-guard": [
+      200,
+      3800
+    ],
+    "paladin-took-thain-of-the-shire": [
+      400,
+      3800
+    ],
+    "percy-lake-town-archer": [
+      600,
+      3800
+    ],
+    "peregrin-took-captain-of-the-shire": [
+      800,
+      3800
+    ],
+    "peregrin-took-gondor": [
+      1000,
+      3800
+    ],
+    "peregrin-took": [
+      1200,
+      3800
+    ],
+    "prince-imrahil": [
+      1400,
+      3800
+    ],
+    "radagast-the-brown": [
+      1600,
+      3800
+    ],
+    "rallying-point": [
+      1800,
+      3800
+    ],
+    "ranger-of-arnor": [
+      2000,
+      3800
+    ],
+    "ranger-of-gondor": [
+      2200,
+      3800
+    ],
+    "ranger-of-the-north": [
+      2400,
+      3800
+    ],
+    "raza-fang-of-the-serpent": [
+      2600,
+      3800
+    ],
+    "razgush-war-leader-of-the-north": [
+      2800,
+      3800
+    ],
+    "rider-of-rohan": [
+      3000,
+      3800
+    ],
+    "rider-of-the-dead": [
+      3200,
+      3800
+    ],
+    "ringwraith": [
+      3400,
+      3800
+    ],
+    "rivendell-captain": [
+      3600,
+      3800
+    ],
+    "rivendell-knight": [
+      3800,
+      3800
+    ],
+    "rivendell-stormcaller": [
+      0,
+      4000
+    ],
+    "rivendell-warrior": [
+      200,
+      4000
+    ],
+    "robin-smallburrow-hobbit-shirriff": [
+      400,
+      4000
+    ],
+    "rocks": [
+      600,
+      4000
+    ],
+    "rohan-outrider": [
+      800,
+      4000
+    ],
+    "rohan-royal-guard": [
+      1000,
+      4000
+    ],
+    "rohirrim-traitor": [
+      1200,
+      4000
+    ],
+    "rosie-cotton": [
+      1400,
+      4000
+    ],
+    "rowan-thistlewood": [
+      1600,
+      4000
+    ],
+    "royal-war-mumak": [
+      1800,
+      4000
+    ],
+    "ruffian": [
+      2000,
+      4000
+    ],
+    "rumil-warden-of-caras-galadhon": [
+      2200,
+      4000
+    ],
+    "rutabi-general-of-the-dragon-legion": [
+      2400,
+      4000
+    ],
+    "samwise-gamgee": [
+      2600,
+      4000
+    ],
+    "samwise-the-brave": [
+      2800,
+      4000
+    ],
+    "saruman-good": [
+      3000,
+      4000
+    ],
+    "saruman": [
+      3200,
+      4000
+    ],
+    "sauron-the-necromancer": [
+      3400,
+      4000
+    ],
+    "serpent-guard": [
+      3600,
+      4000
+    ],
+    "serpent-rider": [
+      3800,
+      4000
+    ],
+    "shade": [
+      0,
+      4200
+    ],
+    "shadowfax": [
+      200,
+      4200
+    ],
+    "shagrat": [
+      400,
+      4200
+    ],
+    "shank-and-wrot": [
+      600,
+      4200
+    ],
+    "shank": [
+      800,
+      4200
+    ],
+    "sharkey-and-worm": [
+      1000,
+      4200
+    ],
+    "sharkey": [
+      1200,
+      4200
+    ],
+    "sharku": [
+      1400,
+      4200
+    ],
+    "shelob": [
+      1600,
+      4200
+    ],
+    "sid-briarthorn": [
+      1800,
+      4200
+    ],
+    "siege-ladder": [
+      2000,
+      4200
+    ],
+    "siege-tower": [
+      2200,
+      4200
+    ],
+    "sigrid": [
+      2400,
+      4200
+    ],
+    "smaug": [
+      2600,
+      4200
+    ],
+    "smeagol": [
+      2800,
+      4200
+    ],
+    "snaga": [
+      3000,
+      4200
+    ],
+    "snow-troll": [
+      3200,
+      4200
+    ],
+    "son-of-eorl": [
+      3400,
+      4200
+    ],
+    "spectre": [
+      3600,
+      4200
+    ],
+    "spiked-barricade": [
+      3800,
+      4200
+    ],
+    "suladan-the-serpent-lord": [
+      0,
+      4400
+    ],
+    "tauriel-ranger-of-mirkwood": [
+      200,
+      4400
+    ],
+    "ted-sandyman": [
+      400,
+      4400
+    ],
+    "the-abyssal-knight": [
+      600,
+      4400
+    ],
+    "the-balrog": [
+      800,
+      4400
+    ],
+    "the-betrayer": [
+      1000,
+      4400
+    ],
+    "the-dark-headsman": [
+      1200,
+      4400
+    ],
+    "the-dark-lord-sauron": [
+      1400,
+      4400
+    ],
+    "the-dark-marshal": [
+      1600,
+      4400
+    ],
+    "the-dragon-emperor-of-rhun": [
+      1800,
+      4400
+    ],
+    "the-dwimmerlaik": [
+      2000,
+      4400
+    ],
+    "the-forsaken": [
+      2200,
+      4400
+    ],
+    "the-gatekeeper-of-bree": [
+      2400,
+      4400
+    ],
+    "the-goblin-king": [
+      2600,
+      4400
+    ],
+    "the-goblin-scribe": [
+      2800,
+      4400
+    ],
+    "the-golden-king-of-abrakhan": [
+      3000,
+      4400
+    ],
+    "the-keeper-of-the-dungeons": [
+      3200,
+      4400
+    ],
+    "the-knight-of-umbar": [
+      3400,
+      4400
+    ],
+    "the-lingering-shadow": [
+      3600,
+      4400
+    ],
+    "the-master-of-lake-town": [
+      3800,
+      4400
+    ],
+    "the-shadow-lord": [
+      0,
+      4600
+    ],
+    "the-shadow-of-rhudaur": [
+      200,
+      4600
+    ],
+    "the-slayer-of-men": [
+      400,
+      4600
+    ],
+    "the-spider-queen": [
+      600,
+      4600
+    ],
+    "the-tainted": [
+      800,
+      4600
+    ],
+    "the-undying": [
+      1000,
+      4600
+    ],
+    "the-watcher-in-the-water": [
+      1200,
+      4600
+    ],
+    "the-white-warg": [
+      1400,
+      4600
+    ],
+    "the-witch-king-of-angmar": [
+      1600,
+      4600
+    ],
+    "the-witch-king-of-mordor": [
+      1800,
+      4600
+    ],
+    "theoden": [
+      2000,
+      4600
+    ],
+    "theodred": [
+      2200,
+      4600
+    ],
+    "thorin-iii-stonehelm": [
+      2400,
+      4600
+    ],
+    "thorin-oakenshield-king-under-the-mountain": [
+      2600,
+      4600
+    ],
+    "thorin-oakenshield": [
+      2800,
+      4600
+    ],
+    "thrain-son-of-thror": [
+      3000,
+      4600
+    ],
+    "thrain-the-broken": [
+      3200,
+      4600
+    ],
+    "thranduil-king-of-the-woodland-realm": [
+      3400,
+      4600
+    ],
+    "thror-king-under-the-mountain": [
+      3600,
+      4600
+    ],
+    "thrydan-wolfsbane": [
+      3800,
+      4600
+    ],
+    "tilda": [
+      0,
+      4800
+    ],
+    "tom-bombadil": [
+      200,
+      4800
+    ],
+    "tom-the-troll": [
+      400,
+      4800
+    ],
+    "treebeard": [
+      600,
+      4800
+    ],
+    "troll-brute-mount": [
+      800,
+      4800
+    ],
+    "troll-brute": [
+      1000,
+      4800
+    ],
+    "ugluk": [
+      1200,
+      4800
+    ],
+    "uruk-hai-berserker": [
+      1400,
+      4800
+    ],
+    "uruk-hai-captain-general": [
+      1600,
+      4800
+    ],
+    "uruk-hai-captain": [
+      1800,
+      4800
+    ],
+    "uruk-hai-demolition-team": [
+      2000,
+      4800
+    ],
+    "uruk-hai-drummer": [
+      2200,
+      4800
+    ],
+    "uruk-hai-scout-captain": [
+      2400,
+      4800
+    ],
+    "uruk-hai-scout": [
+      2600,
+      4800
+    ],
+    "uruk-hai-shaman": [
+      2800,
+      4800
+    ],
+    "uruk-hai-siege-crew": [
+      3000,
+      4800
+    ],
+    "uruk-hai-warrior": [
+      3200,
+      4800
+    ],
+    "vault-warden-team": [
+      3400,
+      4800
+    ],
+    "vrasku": [
+      3600,
+      4800
+    ],
+    "war-bat": [
+      3800,
+      4800
+    ],
+    "war-drake-of-rhun": [
+      0,
+      5000
+    ],
+    "war-mumak-of-harad": [
+      200,
+      5000
+    ],
+    "warg-marauder": [
+      400,
+      5000
+    ],
+    "warrior-of-arnor": [
+      600,
+      5000
+    ],
+    "warrior-of-carn-dum": [
+      800,
+      5000
+    ],
+    "warrior-of-dale": [
+      1000,
+      5000
+    ],
+    "warrior-of-minas-tirith": [
+      1200,
+      5000
+    ],
+    "warrior-of-numenor": [
+      1400,
+      5000
+    ],
+    "warrior-of-rohan": [
+      1600,
+      5000
+    ],
+    "warrior-of-the-dead": [
+      1800,
+      5000
+    ],
+    "watcher-of-karna": [
+      2000,
+      5000
+    ],
+    "werewolf": [
+      2200,
+      5000
+    ],
+    "wild-man-chieftain": [
+      2400,
+      5000
+    ],
+    "wild-man-oathmaker": [
+      2600,
+      5000
+    ],
+    "wild-man-of-dunland": [
+      2800,
+      5000
+    ],
+    "wild-warg-chieftain-general": [
+      3000,
+      5000
+    ],
+    "wild-warg-chieftain": [
+      3200,
+      5000
+    ],
+    "wild-warg": [
+      3400,
+      5000
+    ],
+    "will-whitfoot-mayor-of-michel-delving": [
+      3600,
+      5000
+    ],
+    "windlance": [
+      3800,
+      5000
+    ],
+    "wood-elf-sentinel": [
+      0,
+      5200
+    ],
+    "worm": [
+      200,
+      5200
+    ],
+    "woses-warrior": [
+      400,
+      5200
+    ],
+    "wrot": [
+      600,
+      5200
+    ],
+    "wulf": [
+      800,
+      5200
+    ],
+    "yazneg-hunter-orc-captain": [
+      1000,
+      5200
+    ],
+    "young-balin-the-dwarf": [
+      1200,
+      5200
+    ],
+    "young-dwalin-the-dwarf": [
+      1400,
+      5200
+    ],
+    "young-thorin-oakenshield": [
+      1600,
+      5200
+    ],
+    "zagdush-orc-captain": [
+      1800,
+      5200
+    ]
+  }
+}
