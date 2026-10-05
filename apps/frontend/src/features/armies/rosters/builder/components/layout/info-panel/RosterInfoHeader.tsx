@@ -1,11 +1,11 @@
+import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import type { BuilderRoster } from "~/features/armies/rosters/builder/domain/roster.types.ts";
 import type { LocalizedArmyList } from "~/features/reference/army-lists/army-lists.types.ts";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
-import Stack from "@mui/material/Stack";
 
 interface RosterInfoHeaderProps {
   roster: BuilderRoster;
@@ -29,7 +29,7 @@ export function RosterInfoHeader({
         direction="row"
         spacing={2}
         useFlexGap
-        sx={{alignItems: "flex-start"}}
+        sx={{ alignItems: "flex-start" }}
       >
         <Box sx={{ flex: 1, minWidth: 0 }}>
           <Typography
@@ -43,11 +43,7 @@ export function RosterInfoHeader({
             {roster.name}
           </Typography>
 
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            sx={{ mt: 0.75 }}
-          >
+          <Typography variant="body2" color="textSecondary" sx={{ mt: 0.75 }}>
             {armyList.name}
           </Typography>
         </Box>
