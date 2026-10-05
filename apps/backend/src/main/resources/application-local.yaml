@@ -3,7 +3,7 @@ server:
 
 logging:
   level:
-    com.mesbg.listbuilder: INFO
+    com.mesbg.listbuilder: TRACE
 
 app:
   cookies:

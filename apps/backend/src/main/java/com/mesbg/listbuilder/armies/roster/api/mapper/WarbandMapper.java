@@ -20,16 +20,11 @@ public abstract class WarbandMapper {
 
   @AfterMapping
   protected void mapUnits(WarbandEntity entity, @MappingTarget Warband dto) {
-    var leader =
-        entity.getUnits().stream()
-            .filter(RosterUnitEntity::isLeader)
-            .findFirst()
-            .orElseThrow(
-                () ->
-                    new IllegalStateException(
-                        "Warband %s has no leader".formatted(entity.getId())));
-
-    dto.setLeader(rosterUnitMapper.toDto(leader));
+    entity.getUnits().stream()
+        .filter(RosterUnitEntity::isLeader)
+        .findFirst()
+        .map(rosterUnitMapper::toDto)
+        .ifPresent(dto::setLeader);
 
     dto.setFollowers(
         entity.getUnits().stream()
