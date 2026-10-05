@@ -6,9 +6,9 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { useAppDispatch, useAppSelector } from "~/app/store/hooks.ts";
-import { GuestRosterCard } from "~/features/armies/rosters/guest/components/GuestRosterCard.tsx";
 import { selectGuestRoster } from "~/features/armies/rosters/guest/guest-roster.selectors.ts";
 import { clearGuestRoster } from "~/features/armies/rosters/guest/guest-roster.slice.ts";
+import { GuestRosterCard } from "~/features/armies/rosters/management/components/cards/GuestRosterCard.tsx";
 import { CreateRosterDialog } from "~/features/armies/rosters/management/components/dialogs/CreateRosterDialog.tsx";
 import { useRosterDialogs } from "~/features/armies/rosters/management/hooks/useRosterDialogs.ts";
 

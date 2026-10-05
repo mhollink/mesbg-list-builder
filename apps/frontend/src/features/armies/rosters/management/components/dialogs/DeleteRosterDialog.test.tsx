@@ -11,7 +11,7 @@ const mocks = vi.hoisted(() => ({
   state: { isLoading: false, isError: false },
 }));
 
-vi.mock("../../../api/roster-api.ts", () => ({
+vi.mock("../../../api/rosters-api.ts", () => ({
   useDeleteRosterMutation: () => [mocks.deleteRoster, mocks.state],
 }));
 

@@ -5,7 +5,7 @@ import {
   useLockRosterMutation,
   useUnfavoriteRosterMutation,
   useUnlockRosterMutation,
-} from "~/features/armies/rosters/api/roster-api.ts";
+} from "~/features/armies/rosters/api/rosters-api.ts";
 
 export function useRosterMetadata(roster: RosterSummary) {
   const [favoriteRoster, favorite] = useFavoriteRosterMutation();

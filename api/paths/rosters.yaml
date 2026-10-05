@@ -473,9 +473,6 @@ RosterWarbands:
     security:
       - bearerAuth: []
 
-    requestBody:
-      required: false
-
     responses:
       "201":
         description: Warband created.

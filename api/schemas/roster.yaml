@@ -141,6 +141,7 @@ Roster:
     - locked
     - tags
     - generalUnitId
+    - armyOptionIds
     - points
     - warbandCount
     - modelCount
@@ -190,6 +191,13 @@ Roster:
         type: string
       default: []
       description: Free-form labels attached to the roster.
+
+    armyOptionIds:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+      default: [ ]
 
     generalUnitId:
       type: integer

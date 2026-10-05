@@ -15,7 +15,7 @@ const api = vi.hoisted(() => ({
 }));
 
 vi.mock("~/api/api.ts", () => ({
-  rosterGroupsApi: api,
+  rosterGroupsClient: api,
 }));
 
 describe("rosterGroupApi", () => {

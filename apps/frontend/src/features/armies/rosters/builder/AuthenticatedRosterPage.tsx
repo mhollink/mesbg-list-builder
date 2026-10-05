@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { useGetRosterQuery } from "../api/roster-api.ts";
+import { useGetRosterQuery } from "../api/rosters-api.ts";
 import { formatArmyListId } from "~/features/reference/army-lists/army-lists.utils.ts";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 

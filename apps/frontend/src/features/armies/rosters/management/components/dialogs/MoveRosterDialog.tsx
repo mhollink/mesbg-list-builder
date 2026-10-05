@@ -13,7 +13,7 @@ import type { RosterGroup, RosterSummary } from "@mlb/api-client";
 import {
   useMoveRosterToGroupMutation,
   useMoveRosterToRootMutation,
-} from "../../../api/roster-api";
+} from "../../../api/rosters-api.ts";
 import { flattenRosterGroups } from "../../roster-groups.utils";
 
 interface MoveRosterDialogProps {

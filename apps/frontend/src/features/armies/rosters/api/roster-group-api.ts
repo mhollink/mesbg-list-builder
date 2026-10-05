@@ -6,7 +6,7 @@ import type {
   UpdateRosterGroupOperationRequest,
 } from "@mlb/api-client";
 
-import { rosterGroupsApi } from "~/api/api.ts";
+import { rosterGroupsClient } from "~/api/api.ts";
 import { toApiError } from "~/api/api-error.ts";
 import { serverApi } from "~/api/server-api.ts";
 
@@ -16,7 +16,7 @@ export const rosterGroupApi = serverApi.injectEndpoints({
       queryFn: async () => {
         try {
           return {
-            data: await rosterGroupsApi.listRosterGroups(),
+            data: await rosterGroupsClient.listRosterGroups(),
           };
         } catch (error) {
           return { error: toApiError(error) };
@@ -29,7 +29,7 @@ export const rosterGroupApi = serverApi.injectEndpoints({
       queryFn: async (request) => {
         try {
           return {
-            data: await rosterGroupsApi.createRosterGroup({
+            data: await rosterGroupsClient.createRosterGroup({
               createRosterGroupRequest: request,
             }),
           };
@@ -47,7 +47,7 @@ export const rosterGroupApi = serverApi.injectEndpoints({
       queryFn: async (request) => {
         try {
           return {
-            data: await rosterGroupsApi.updateRosterGroup({
+            data: await rosterGroupsClient.updateRosterGroup({
               groupId: request.groupId,
               updateRosterGroupRequest: request.updateRosterGroupRequest,
             }),
@@ -62,7 +62,7 @@ export const rosterGroupApi = serverApi.injectEndpoints({
     deleteRosterGroup: builder.mutation<void, number>({
       queryFn: async (groupId) => {
         try {
-          await rosterGroupsApi.deleteRosterGroup({ groupId });
+          await rosterGroupsClient.deleteRosterGroup({ groupId });
           return {
             data: undefined,
           };
@@ -76,7 +76,7 @@ export const rosterGroupApi = serverApi.injectEndpoints({
     moveRosterGroup: builder.mutation<void, MoveRosterGroupRequest>({
       queryFn: async (request) => {
         try {
-          await rosterGroupsApi.moveRosterGroup({
+          await rosterGroupsClient.moveRosterGroup({
             groupId: request.groupId,
             parentGroupId: request.parentGroupId,
           });
@@ -94,7 +94,7 @@ export const rosterGroupApi = serverApi.injectEndpoints({
       {
         queryFn: async (request) => {
           try {
-            await rosterGroupsApi.moveRosterGroupToRoot({
+            await rosterGroupsClient.moveRosterGroupToRoot({
               groupId: request.groupId,
             });
             return {

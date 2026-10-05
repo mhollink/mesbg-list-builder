@@ -5,7 +5,7 @@ import type { DragDropProvider } from "@dnd-kit/react";
 import {
   useMoveRosterToGroupMutation,
   useMoveRosterToRootMutation,
-} from "../../api/roster-api";
+} from "../../api/rosters-api.ts";
 import {
   useMoveRosterGroupMutation,
   useMoveRosterGroupToRootMutation,

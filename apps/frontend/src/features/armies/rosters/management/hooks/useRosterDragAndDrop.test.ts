@@ -13,7 +13,7 @@ const mocks = vi.hoisted(() => ({
   moveGroupToRootUnwrap: vi.fn(),
 }));
 
-vi.mock("~/features/armies/rosters/api/roster-api.ts", () => ({
+vi.mock("~/features/armies/rosters/api/rosters-api.ts", () => ({
   useMoveRosterToGroupMutation: () => [mocks.moveRosterToGroup],
   useMoveRosterToRootMutation: () => [mocks.moveRosterToRoot],
 }));
