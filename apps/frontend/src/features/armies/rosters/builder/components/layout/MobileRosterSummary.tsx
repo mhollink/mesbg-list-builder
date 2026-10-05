@@ -72,20 +72,17 @@ export function MobileRosterSummary({
             px: 2,
             py: 1.25,
             alignItems: "center",
-            justifyContent: "space-between"
+            justifyContent: "space-between",
           }}
         >
           <Box>
-            <Typography variant="body2" sx={{fontWeight: 600}}>
+            <Typography variant="body2" sx={{ fontWeight: 600 }}>
               {formatPoints(roster, statistics)}
               {" · "}
               {statistics.modelCount} models
             </Typography>
 
-            <Typography
-              variant="caption"
-              color="text.secondary"
-            >
+            <Typography variant="caption" color="text.secondary">
               {statistics.bowCount} bows
               {" · "}
               {statistics.throwingWeaponCount} throwing weapons
@@ -95,23 +92,16 @@ export function MobileRosterSummary({
           <Stack
             direction="row"
             spacing={0.75}
-            sx={{alignItems: "center", flexShrink: 0}}
+            sx={{ alignItems: "center", flexShrink: 0 }}
           >
             {issueCount > 0 && (
-              <ErrorOutlineRoundedIcon
-                color="warning"
-                fontSize="small"
-              />
+              <ErrorOutlineRoundedIcon color="warning" fontSize="small" />
             )}
 
             <Typography
               variant="body2"
-              color={
-                issueCount > 0
-                  ? "warning.main"
-                  : "text.secondary"
-              }
-              sx={{fontWeight: 600}}
+              color={issueCount > 0 ? "warning.main" : "text.secondary"}
+              sx={{ fontWeight: 600 }}
             >
               {formatIssueCount(issueCount)}
             </Typography>

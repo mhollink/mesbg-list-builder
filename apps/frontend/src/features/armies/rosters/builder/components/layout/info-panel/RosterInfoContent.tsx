@@ -24,18 +24,17 @@ export function RosterInfoContent({
   armyList,
   statistics,
   issueCount,
-  onClose
+  onClose,
 }: RosterInfoContentProps) {
   const { openRuleDrawer } = useDrawerStack();
 
   return (
-    <Stack sx={{ minHeight: "100%",           overflowY: "auto", }}>
-      <RosterInfoHeader roster={roster} armyList={armyList}         onClose={onClose} />
+    <Stack sx={{ minHeight: "100%", overflowY: "auto" }}>
+      <RosterInfoHeader roster={roster} armyList={armyList} onClose={onClose} />
 
       <Divider />
 
-      <Box
-      >
+      <Box>
         <RosterOverview
           roster={roster}
           statistics={statistics}
