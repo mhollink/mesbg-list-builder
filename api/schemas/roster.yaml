@@ -325,7 +325,8 @@ Warband:
 
     leader:
       nullable: true
-      $ref: "#/RosterUnit"
+      allOf:
+        - $ref: "#/RosterUnit"
 
     followers:
       type: array

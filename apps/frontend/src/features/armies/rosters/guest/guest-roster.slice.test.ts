@@ -10,6 +10,8 @@ const guestRoster: GuestRoster = {
   id: "guest",
   name: "Ugluk's Scouts",
   armyListId: "ugluks-scouts",
+  armyOptionIds: [],
+  generalUnitId: null,
   pointsLimit: 500,
   tags: ["Tournament"],
   warbands: [],

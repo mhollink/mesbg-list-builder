@@ -107,6 +107,8 @@ function guestRoster(): GuestRoster {
     id: "guest",
     name: "Guest Mordor",
     armyListId: "mordor",
+    armyOptionIds: [],
+    generalUnitId: null,
     tags: [],
     warbands: [],
     createdAt: "",
