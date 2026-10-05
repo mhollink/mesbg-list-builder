@@ -5,6 +5,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 
+import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
 import type {
   LocalizedProfile,
   ProfileRow,
@@ -60,6 +61,7 @@ export function ProfileListRow({
         borderColor: "divider",
       }}
     >
+      <ProfileAvatar profileId={row.profile.profile} sx={{ mr: 2 }} />
       <ListItemText
         primary={row.profile.name}
         secondary={row.profile.originName}

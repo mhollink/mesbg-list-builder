@@ -26,10 +26,7 @@ interface SpriteSheetConfig {
   sourceDir: string;
   cellSize: number;
   columns: number;
-  transform?: (
-    image: sharp,
-    cellSize: number,
-  ) => Promise<Buffer>;
+  transform?: (image: sharp, cellSize: number) => Promise<Buffer>;
 }
 
 const spriteSheets: SpriteSheetConfig[] = [
@@ -67,9 +64,7 @@ async function createBlackIcon(
     .toBuffer();
 }
 
-async function generateSpriteSheet(
-  config: SpriteSheetConfig,
-): Promise<void> {
+async function generateSpriteSheet(config: SpriteSheetConfig): Promise<void> {
   const files = (await readdir(config.sourceDir))
     .filter((file) => file.toLowerCase().endsWith(".png"))
     .sort((a, b) => a.localeCompare(b));
@@ -122,15 +117,9 @@ async function generateSpriteSheet(
     icons[iconId] = [x, y];
   }
 
-  const outputImage = path.join(
-    OUTPUT_DIR,
-    `${config.name}.webp`,
-  );
+  const outputImage = path.join(OUTPUT_DIR, `${config.name}.webp`);
 
-  const outputMap = path.join(
-    OUTPUT_DIR,
-    `${config.name}-map.json`,
-  );
+  const outputMap = path.join(OUTPUT_DIR, `${config.name}-map.json`);
 
   await sharp({
     create: {
@@ -154,21 +143,13 @@ async function generateSpriteSheet(
     icons,
   };
 
-  await writeFile(
-    outputMap,
-    `${JSON.stringify(manifest, null, 2)}\n`,
-    "utf8",
-  );
+  await writeFile(outputMap, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 
   console.log(`Created spritesheet: ${outputImage}`);
   console.log(`Created mapping: ${outputMap}`);
   console.log(`Images: ${files.length}`);
-  console.log(
-    `Grid: ${config.columns} columns x ${rows} rows`,
-  );
-  console.log(
-    `Size: ${sheetWidth}x${sheetHeight}`,
-  );
+  console.log(`Grid: ${config.columns} columns x ${rows} rows`);
+  console.log(`Size: ${sheetWidth}x${sheetHeight}`);
 }
 
 async function main(): Promise<void> {
