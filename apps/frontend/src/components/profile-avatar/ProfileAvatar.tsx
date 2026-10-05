@@ -7,7 +7,7 @@ interface AvatarMap {
   cellSize: number;
   width: number;
   height: number;
-  icons: Record<string, [number, number]>;
+  icons: Record<string, number[]>;
 }
 
 const avatars = avatarMap as AvatarMap;
