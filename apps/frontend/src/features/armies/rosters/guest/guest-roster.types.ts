@@ -13,16 +13,16 @@ export interface GuestRoster {
 
 export interface GuestWarband {
   id: string;
-  leader: GuestRosterUnit;
+  leader: GuestRosterUnit | null;
   followers: GuestRosterUnit[];
 }
 
 export interface GuestRosterUnit {
   id: string;
+
   profileId: string;
   quantity: number;
-
-  // TODO: additional fields
+  optionIds: string[];
 }
 
 export interface GuestRosterStats {

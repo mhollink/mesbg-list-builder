@@ -25,7 +25,7 @@ vi.mock("~/features/account/auth/keycloak.ts", () => ({
   keycloak: mocks.keycloak,
 }));
 
-vi.mock("~/features/armies/rosters/api/roster-api.ts", () => ({
+vi.mock("~/features/armies/rosters/api/rosters-api.ts", () => ({
   useCreateRosterMutation: () => [
     mocks.createAccountRoster,
     {
