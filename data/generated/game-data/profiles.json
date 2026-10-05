@@ -26994,39 +26994,6 @@
     "wargear": []
   },
   {
-    "profile": "firefoot",
-    "origin": "mounts",
-    "alignment": "good",
-    "race": [
-      "horse"
-    ],
-    "factions": [
-      "rohan"
-    ],
-    "unitTypes": [
-      "mount"
-    ],
-    "baseSize": "40mm",
-    "selectable": false,
-    "source": {
-      "book": "armies-of-the-lord-of-the-rings",
-      "page": 33
-    },
-    "stats": {
-      "type": "warrior",
-      "mv": "12",
-      "fv": "2",
-      "sv": "6",
-      "s": "3",
-      "d": "4",
-      "a": "0",
-      "w": "1",
-      "c": "7",
-      "i": "7"
-    },
-    "wargear": []
-  },
-  {
     "profile": "galadhrim-steed",
     "origin": "mounts",
     "alignment": "good",
