@@ -9,6 +9,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { DebugKeyword, DebugSection, DebugValue } from "./DebugSection";
+import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
 import { DebugProfileRules } from "~/features/admin-data-checker/DebugProfileRules.tsx";
 import { ProfileStats } from "~/features/reference/profiles/components/profile-drawer/ProfileStats.tsx";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
@@ -41,7 +42,7 @@ function DebugProfile({
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "100px minmax(0, 1fr) 150px",
+          gridTemplateColumns: "100px 100px minmax(0, 1fr) 150px",
         }}
       >
         <Box
@@ -64,7 +65,17 @@ function DebugProfile({
           <Typography variant="h4">{profile.source.page}</Typography>
         </Box>
 
-        <Box sx={{ p: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ProfileAvatar profileId={profile.profile} size={80} />
+        </Box>
+
+        <Box sx={{ py: 2 }}>
           <Typography
             variant="body2"
             color="textSecondary"
