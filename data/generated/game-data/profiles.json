@@ -6383,7 +6383,7 @@
       "elf"
     ],
     "factions": [
-      "lothl-rien"
+      "lothlorien"
     ],
     "unitTypes": [
       "hero",
@@ -6637,7 +6637,7 @@
       "elf"
     ],
     "factions": [
-      "lothl-rien"
+      "lothlorien"
     ],
     "unitTypes": [
       "hero",
@@ -6686,6 +6686,12 @@
     ],
     "options": [
       {
+        "id": "heavy-armour",
+        "points": 10,
+        "requirements": [],
+        "effects": []
+      },
+      {
         "id": "elf-bow",
         "points": 5,
         "requirements": [],
@@ -6693,19 +6699,13 @@
       },
       {
         "id": "elven-cloak",
-        "points": 0,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "heavy-armour",
-        "points": 10,
+        "points": 5,
         "requirements": [],
         "effects": []
       },
       {
         "id": "elven-cloak",
-        "points": 5,
+        "points": 0,
         "requirements": [],
         "effects": []
       }
@@ -7569,14 +7569,14 @@
     ],
     "options": [
       {
-        "id": "shield",
-        "points": 5,
+        "id": "horse-elf-bow-and-elven-lance",
+        "points": 30,
         "requirements": [],
         "effects": []
       },
       {
-        "id": "horse-elf-bow-and-elven-lance",
-        "points": 30,
+        "id": "shield",
+        "points": 5,
         "requirements": [],
         "effects": []
       }
@@ -8018,7 +8018,14 @@
       "c": "-",
       "i": "-"
     },
-    "wargear": []
+    "wargear": [],
+    "profileRules": [
+      {
+        "id": "orc-archers",
+        "type": "passive",
+        "option": ""
+      }
+    ]
   },
   {
     "profile": "mordor-orc-commander",
@@ -8083,11 +8090,10 @@
     "unitTypes": [
       "warrior",
       "infantry",
-      "monster",
       "beast",
       "swarm"
     ],
-    "baseSize": "60mm",
+    "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9081,7 +9087,7 @@
     "unitTypes": [
       "war-beast"
     ],
-    "baseSize": "120mm-oval",
+    "baseSize": "120mm oval",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -9117,6 +9123,9 @@
     "additionalProfiles": [
       "great-beast-howdah",
       "mordor-orc-commander"
+    ],
+    "additionalText": [
+      "text-1"
     ],
     "profileRules": [
       {
@@ -9691,6 +9700,9 @@
       "heroic-resolve",
       "heroic-march"
     ],
+    "additionalProfiles": [
+      "khandish-chariot"
+    ],
     "options": [
       {
         "id": "khandish-chariot",
@@ -9800,6 +9812,9 @@
       "heroic-strength",
       "heroic-strike"
     ],
+    "additionalProfiles": [
+      "war-camel"
+    ],
     "options": [
       {
         "id": "war-camel",
@@ -9855,15 +9870,12 @@
         "parameter": "blowpipe"
       }
     ],
+    "additionalProfiles": [
+      "war-camel"
+    ],
     "options": [
       {
         "id": "blowpipe",
-        "points": 1,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "spear",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -9927,6 +9939,9 @@
         "parameter": "blowpipe"
       }
     ],
+    "additionalProfiles": [
+      "war-camel"
+    ],
     "options": [
       {
         "id": "war-camel",
@@ -9942,12 +9957,6 @@
       },
       {
         "id": "shield",
-        "points": 5,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "war-spear",
         "points": 5,
         "requirements": [],
         "effects": []
@@ -10215,6 +10224,9 @@
         "id": "hatred",
         "parameter": "dwarf"
       }
+    ],
+    "additionalText": [
+      "text-1"
     ],
     "profileRules": [
       {
@@ -10583,7 +10595,7 @@
     },
     "wargear": [
       "heavy-armour",
-      "hand-and-a-half-weapon"
+      "hand-weapon"
     ],
     "heroicActions": [
       "heroic-channelling"
@@ -10928,6 +10940,23 @@
       {
         "id": "burly"
       }
+    ],
+    "profileRules": [
+      {
+        "id": "the-golden-throne",
+        "type": "passive",
+        "option": ""
+      },
+      {
+        "id": "riches-beyond-renown",
+        "type": "active",
+        "option": ""
+      },
+      {
+        "id": "the-lure-of-wealth",
+        "type": "active",
+        "option": ""
+      }
     ]
   },
   {
@@ -10970,7 +10999,7 @@
       "fate": "2"
     },
     "wargear": [
-      "heavy-armour",
+      "armour-of-the-sundered-land",
       "hand-weapon"
     ],
     "heroicActions": [
@@ -11310,6 +11339,44 @@
         "type": "passive",
         "option": ""
       }
+    ],
+    "magicPowers": [
+      {
+        "id": "compel",
+        "cast": "3+",
+        "range": "12",
+        "target": ""
+      },
+      {
+        "id": "transfix",
+        "cast": "3+",
+        "range": "12",
+        "target": ""
+      },
+      {
+        "id": "drain-courage",
+        "cast": "4+",
+        "range": "12",
+        "target": ""
+      },
+      {
+        "id": "black-dart",
+        "cast": "5+",
+        "range": "6",
+        "target": ""
+      },
+      {
+        "id": "wither",
+        "cast": "5+",
+        "range": "12",
+        "target": ""
+      },
+      {
+        "id": "instill-fear",
+        "cast": "6+",
+        "range": "self",
+        "target": ""
+      }
     ]
   },
   {
@@ -11570,7 +11637,7 @@
       "warrior",
       "cavalry"
     ],
-    "baseSize": "",
+    "baseSize": "40mm",
     "selectable": true,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -11802,14 +11869,7 @@
       "c": "-",
       "i": "-"
     },
-    "wargear": [],
-    "profileRules": [
-      {
-        "id": "orc-archers",
-        "type": "passive",
-        "option": ""
-      }
-    ]
+    "wargear": []
   },
   {
     "profile": "haradrim-commander",
@@ -14461,6 +14521,12 @@
     ],
     "options": [
       {
+        "id": "the-banner-of-minas-tirith",
+        "points": 40,
+        "requirements": [],
+        "effects": []
+      },
+      {
         "id": "horse",
         "points": 20,
         "requirements": [],
@@ -14469,12 +14535,6 @@
       {
         "id": "shield",
         "points": 5,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "the-banner-of-minas-tirith",
-        "points": 40,
         "requirements": [],
         "effects": []
       }
@@ -14571,8 +14631,7 @@
     ],
     "unitTypes": [
       "hero",
-      "infantry",
-      "unique"
+      "infantry"
     ],
     "baseSize": "25mm",
     "selectable": true,
@@ -15371,7 +15430,7 @@
     "unitTypes": [
       "siege-engine"
     ],
-    "baseSize": "120mm",
+    "baseSize": "120mm oval",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -15408,6 +15467,11 @@
       }
     ],
     "profileRules": [
+      {
+        "id": "flaming-ammunition",
+        "type": "to-be-removed",
+        "option": ""
+      },
       {
         "id": "area-effect",
         "type": "active",
@@ -16752,7 +16816,7 @@
     ],
     "unitTypes": [
       "warrior",
-      "infantry"
+      "cavalry"
     ],
     "baseSize": "25mm",
     "selectable": true,
@@ -16788,6 +16852,9 @@
       {
         "id": "spectral-walk"
       }
+    ],
+    "additionalProfiles": [
+      "spectral-steed"
     ]
   },
   {
@@ -16852,13 +16919,13 @@
         "effects": []
       },
       {
-        "id": "shield",
+        "id": "bow",
         "points": 1,
         "requirements": [],
         "effects": []
       },
       {
-        "id": "bow",
+        "id": "shield",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -16910,13 +16977,13 @@
         "effects": []
       },
       {
-        "id": "shield",
+        "id": "longbow",
         "points": 1,
         "requirements": [],
         "effects": []
       },
       {
-        "id": "longbow",
+        "id": "shield",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -17469,8 +17536,11 @@
       },
       {
         "id": "leader",
-        "parameter": "sons-of-eorl"
+        "parameter": "son-of-eorl"
       }
+    ],
+    "additionalProfiles": [
+      "felarof"
     ],
     "profileRules": [
       {
@@ -17601,6 +17671,9 @@
         "id": "horse-lord"
       }
     ],
+    "additionalText": [
+      "text-1"
+    ],
     "profileRules": [
       {
         "id": "horn-of-the-hammerhand",
@@ -17721,6 +17794,12 @@
         "id": "woodland-creature"
       }
     ],
+    "additionalProfiles": [
+      "noldorin-exiles"
+    ],
+    "additionalText": [
+      "text-1"
+    ],
     "magicPowers": [
       {
         "id": "transfix",
@@ -17784,6 +17863,9 @@
       {
         "id": "mighty-blow"
       }
+    ],
+    "additionalText": [
+      "text-1"
     ]
   },
   {
@@ -18359,7 +18441,7 @@
     ],
     "unitTypes": [
       "warrior",
-      "cavalry"
+      "infantry"
     ],
     "baseSize": "25mm",
     "selectable": true,
@@ -20904,9 +20986,9 @@
       "fv": "2",
       "sv": "6",
       "s": "2",
-      "d": "3",
+      "d": "2",
       "a": "2",
-      "w": "4",
+      "w": "3",
       "c": "8",
       "i": "7"
     },
@@ -21053,7 +21135,7 @@
     "unitTypes": [
       "siege-engine"
     ],
-    "baseSize": "105mm",
+    "baseSize": "105mm oval",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -22789,6 +22871,30 @@
     ],
     "options": [
       {
+        "id": "banner-and-light-shield",
+        "points": 26,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "war-horn-and-light-shield",
+        "points": 26,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "banner",
+        "points": 25,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "war-horn",
+        "points": 25,
+        "requirements": [],
+        "effects": []
+      },
+      {
         "id": "light-shield-and-flaming-brand",
         "points": 2,
         "requirements": [],
@@ -22796,6 +22902,12 @@
       },
       {
         "id": "bow",
+        "points": 1,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "flaming-brand",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -22814,12 +22926,6 @@
       },
       {
         "id": "two-handed-weapon",
-        "points": 1,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "flaming-brand",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -24554,13 +24660,13 @@
         "effects": []
       },
       {
-        "id": "shield",
+        "id": "bow",
         "points": 1,
         "requirements": [],
         "effects": []
       },
       {
-        "id": "bow",
+        "id": "shield",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -24613,7 +24719,7 @@
       "c": "6",
       "i": "5",
       "might": "3",
-      "will": "1",
+      "will": "2",
       "fate": "1"
     },
     "wargear": [
@@ -25606,7 +25712,7 @@
     "unitTypes": [
       "siege-engine"
     ],
-    "baseSize": "120mm",
+    "baseSize": "120mm oval",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -25647,6 +25753,16 @@
       }
     ],
     "profileRules": [
+      {
+        "id": "severed-heads",
+        "type": "to-be-removed",
+        "option": ""
+      },
+      {
+        "id": "flaming-ammunition",
+        "type": "to-be-removed",
+        "option": ""
+      },
       {
         "id": "troll-loader",
         "type": "active",
@@ -26041,7 +26157,7 @@
       "beast",
       "unique"
     ],
-    "baseSize": "60mm",
+    "baseSize": "80mm",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26467,8 +26583,12 @@
     "race": [
       "fell-beast"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "mordor"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "60mm",
     "selectable": false,
     "source": {
@@ -26487,7 +26607,9 @@
       "c": "7",
       "i": "8"
     },
-    "wargear": [],
+    "wargear": [
+      "claws-and-teeth-hand-weapons"
+    ],
     "specialRules": [
       {
         "id": "dominant",
@@ -26500,10 +26622,10 @@
         "id": "large-target"
       },
       {
-        "id": "terror"
+        "id": "monstrous-charge"
       },
       {
-        "id": "monstrous-charge"
+        "id": "terror"
       }
     ],
     "profileRules": [
@@ -26521,8 +26643,12 @@
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -26550,8 +26676,13 @@
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "hero",
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -26587,8 +26718,12 @@
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "rohan"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -26617,19 +26752,63 @@
     ]
   },
   {
-    "profile": "brego",
+    "profile": "brego-aragorn",
     "origin": "mounts",
     "alignment": "good",
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
       "page": 13
+    },
+    "stats": {
+      "type": "warrior",
+      "mv": "10",
+      "fv": "2",
+      "sv": "6",
+      "s": "3",
+      "d": "4",
+      "a": "0",
+      "w": "1",
+      "c": "6",
+      "i": "6"
+    },
+    "wargear": [],
+    "profileRules": [
+      {
+        "id": "sure-footed-steed",
+        "type": "active",
+        "option": ""
+      }
+    ]
+  },
+  {
+    "profile": "brego-theodred",
+    "origin": "mounts",
+    "alignment": "good",
+    "race": [
+      "horse"
+    ],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
+    "baseSize": "40mm",
+    "selectable": false,
+    "source": {
+      "book": "armies-of-the-lord-of-the-rings",
+      "page": 32
     },
     "stats": {
       "type": "warrior",
@@ -26659,8 +26838,12 @@
     "race": [
       "fell-beast"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "mordor"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "60mm",
     "selectable": false,
     "source": {
@@ -26679,7 +26862,9 @@
       "c": "7",
       "i": "8"
     },
-    "wargear": [],
+    "wargear": [
+      "claws-and-teeth-hand-weapons"
+    ],
     "specialRules": [
       {
         "id": "dominant",
@@ -26692,10 +26877,10 @@
         "id": "large-target"
       },
       {
-        "id": "terror"
+        "id": "monstrous-charge"
       },
       {
-        "id": "monstrous-charge"
+        "id": "terror"
       }
     ],
     "profileRules": [
@@ -26714,7 +26899,9 @@
       "warg"
     ],
     "factions": [],
-    "unitTypes": [],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -26741,14 +26928,18 @@
     ]
   },
   {
-    "profile": "feralof",
+    "profile": "felarof",
     "origin": "mounts",
     "alignment": "good",
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "rohan"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -26776,8 +26967,12 @@
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "rohan"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -26799,14 +26994,18 @@
     "wargear": []
   },
   {
-    "profile": "firefoot-with-armour",
+    "profile": "firefoot",
     "origin": "mounts",
     "alignment": "good",
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "rohan"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -26819,7 +27018,7 @@
       "fv": "2",
       "sv": "6",
       "s": "3",
-      "d": "5",
+      "d": "4",
       "a": "0",
       "w": "1",
       "c": "7",
@@ -26835,7 +27034,9 @@
       "horse"
     ],
     "factions": [],
-    "unitTypes": [],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -26869,8 +27070,10 @@
       "horse"
     ],
     "factions": [],
-    "unitTypes": [],
-    "baseSize": "40mm",
+    "unitTypes": [
+      "mount"
+    ],
+    "baseSize": "60mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -26905,7 +27108,9 @@
       "eagle"
     ],
     "factions": [],
-    "unitTypes": [],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "60mm",
     "selectable": false,
     "source": {
@@ -26955,7 +27160,9 @@
       "elk"
     ],
     "factions": [],
-    "unitTypes": [],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "50mm",
     "selectable": false,
     "source": {
@@ -26996,7 +27203,9 @@
       "horse"
     ],
     "factions": [],
-    "unitTypes": [],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27076,9 +27285,13 @@
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
-    "baseSize": "170mm",
+    "factions": [
+      "khand"
+    ],
+    "unitTypes": [
+      "chariot"
+    ],
+    "baseSize": "60mm",
     "selectable": false,
     "source": {
       "book": "evil-legacies-of-middle-earth-pdf",
@@ -27149,7 +27362,7 @@
     ],
     "factions": [],
     "unitTypes": [],
-    "baseSize": "120mm",
+    "baseSize": "120mm oval",
     "selectable": false,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -27195,8 +27408,12 @@
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27234,8 +27451,12 @@
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "rohan"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27270,8 +27491,12 @@
     "race": [
       "horse"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "rohan"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27306,8 +27531,12 @@
     "race": [
       "spirit"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27473,8 +27702,12 @@
     "race": [
       "camel"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "mahud"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27890,9 +28123,9 @@
       "w": "3",
       "c": "4",
       "i": "5",
-      "might": "2",
-      "will": "1",
-      "fate": "2"
+      "might": "3",
+      "will": "3",
+      "fate": "3"
     },
     "wargear": [
       "heavy-armour",
@@ -27914,10 +28147,20 @@
         "parameter": "rohan-royal-guard"
       }
     ],
+    "additionalProfiles": [
+      "firefoot-with-armour",
+      "firefoot"
+    ],
     "options": [
       {
         "id": "firefoot-with-armour",
         "points": 25,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "firefoot",
+        "points": 20,
         "requirements": [],
         "effects": []
       },
@@ -27930,12 +28173,6 @@
       {
         "id": "throwing-spears",
         "points": 5,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "firefoot",
-        "points": 20,
         "requirements": [],
         "effects": []
       }
@@ -27988,7 +28225,7 @@
       "i": "5",
       "might": "2",
       "will": "2",
-      "fate": "2"
+      "fate": "3"
     },
     "wargear": [
       "hand-weapon"
@@ -28005,6 +28242,9 @@
       {
         "id": "horse-lord"
       }
+    ],
+    "additionalProfiles": [
+      "meriadoc-brandybuck-rohan"
     ],
     "options": [
       {
@@ -29227,19 +29467,11 @@
         "parameter": "rohan-royal-guard"
       }
     ],
+    "additionalProfiles": [
+      "snowmane-with-armour",
+      "snowmane"
+    ],
     "options": [
-      {
-        "id": "exchange-armour-for-heavy-armour",
-        "points": 5,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "shield",
-        "points": 5,
-        "requirements": [],
-        "effects": []
-      },
       {
         "id": "snowmane-with-armour",
         "points": 25,
@@ -29249,6 +29481,18 @@
       {
         "id": "snowmane",
         "points": 20,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "exchange-armour-for-heavy-armour",
+        "points": 5,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "shield",
+        "points": 5,
         "requirements": [],
         "effects": []
       }
@@ -29328,9 +29572,12 @@
         "parameter": "rohan-royal-guard"
       }
     ],
+    "additionalProfiles": [
+      "brego-theodred"
+    ],
     "options": [
       {
-        "id": "brego",
+        "id": "brego-theodred",
         "points": 20,
         "requirements": [],
         "effects": []
@@ -29407,13 +29654,13 @@
         "effects": []
       },
       {
-        "id": "shield",
+        "id": "bow",
         "points": 1,
         "requirements": [],
         "effects": []
       },
       {
-        "id": "bow",
+        "id": "shield",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -29878,7 +30125,7 @@
     },
     "wargear": [
       "ring-of-barahir",
-      "hand-and-a-half-sword"
+      "hand-and-a-half-weapon"
     ],
     "heroicActions": [
       "heroic-resolve",
@@ -29899,6 +30146,9 @@
       {
         "id": "resistant-to-magic"
       }
+    ],
+    "additionalProfiles": [
+      "brego-aragorn"
     ],
     "options": [
       {
@@ -29926,7 +30176,7 @@
         "effects": []
       },
       {
-        "id": "brego",
+        "id": "brego-aragorn",
         "points": 20,
         "requirements": [],
         "effects": []
@@ -30798,6 +31048,9 @@
         "parameter": "range-8-strength-1"
       }
     ],
+    "additionalProfiles": [
+      "grip-fang-and-wolf"
+    ],
     "profileRules": [
       {
         "id": "get-out-of-my-fields",
@@ -31374,6 +31627,12 @@
         "points": 25,
         "requirements": [],
         "effects": []
+      },
+      {
+        "id": "horse",
+        "points": 20,
+        "requirements": [],
+        "effects": []
       }
     ],
     "profileRules": [
@@ -31870,7 +32129,6 @@
     "profile": "grip-fang-and-wolf",
     "origin": "the-free-peoples",
     "alignment": "good",
-    "points": 25,
     "race": [
       "dog"
     ],
@@ -31921,7 +32179,7 @@
     "profile": "gwaihir",
     "origin": "the-free-peoples",
     "alignment": "good",
-    "points": 150,
+    "points": 200,
     "race": [
       "eagle"
     ],
@@ -32309,7 +32567,7 @@
       "fate": "3"
     },
     "wargear": [
-      "elven-made-weapon",
+      "elven-hand-weapon",
       "elf-bow"
     ],
     "heroicActions": [
@@ -33676,22 +33934,14 @@
         "id": "woodland-creature"
       }
     ],
+    "additionalProfiles": [
+      "meriadoc-brandybuck",
+      "peregrin-took"
+    ],
     "options": [
       {
         "id": "merry-and-pippin",
         "points": 10,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "elven-cloak-merry",
-        "points": 5,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "elven-cloak-pippin",
-        "points": 5,
         "requirements": [],
         "effects": []
       }
@@ -33699,7 +33949,7 @@
     "profileRules": [
       {
         "id": "merry-and-pippin",
-        "type": "passive",
+        "type": "to-be-removed",
         "option": ""
       },
       {
@@ -33840,7 +34090,6 @@
     "profile": "shank",
     "origin": "the-hill-tribes",
     "alignment": "evil",
-    "points": 150,
     "race": [
       "orc"
     ],
@@ -33903,17 +34152,17 @@
     "origin": "the-hill-tribes",
     "alignment": "evil",
     "race": [
-      "orc"
+      "troll"
     ],
     "factions": [
       "mordor"
     ],
     "unitTypes": [
-      "hero",
+      "warrior",
       "infantry",
-      "unique"
+      "monster"
     ],
-    "baseSize": "25mm",
+    "baseSize": "50mm",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -34122,7 +34371,7 @@
     "specialRules": [
       {
         "id": "master-of-battle",
-        "parameter": "4"
+        "parameter": "plus-4"
       },
       {
         "id": "hatred",
@@ -34251,6 +34500,30 @@
       }
     ],
     "options": [
+      {
+        "id": "banner-and-light-shield",
+        "points": 26,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "war-horn-and-light-shield",
+        "points": 26,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "banner",
+        "points": 25,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "war-horn",
+        "points": 25,
+        "requirements": [],
+        "effects": []
+      },
       {
         "id": "light-shield-and-flaming-brand",
         "points": 2,
@@ -34422,13 +34695,13 @@
         "effects": []
       },
       {
-        "id": "shield",
+        "id": "bow",
         "points": 1,
         "requirements": [],
         "effects": []
       },
       {
-        "id": "bow",
+        "id": "shield",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -34447,18 +34720,12 @@
     "origin": "the-hill-tribes",
     "alignment": "evil",
     "points": 150,
-    "race": [
-      "orc"
-    ],
+    "race": [],
     "factions": [
       "mordor"
     ],
-    "unitTypes": [
-      "hero",
-      "infantry",
-      "unique"
-    ],
-    "baseSize": "25mm",
+    "unitTypes": [],
+    "baseSize": "",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -34481,6 +34748,9 @@
       "shank",
       "wrot",
       "snow-troll"
+    ],
+    "additionalText": [
+      "text-1"
     ]
   },
   {

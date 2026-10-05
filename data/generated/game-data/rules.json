@@ -1056,5 +1056,29 @@
       "book": "rules-manual",
       "page": 109
     }
+  },
+  {
+    "id": "static",
+    "category": "siege-equipment",
+    "source": {
+      "book": "rules-manual",
+      "page": 140
+    }
+  },
+  {
+    "id": "arcing-shot",
+    "category": "siege-equipment",
+    "source": {
+      "book": "rules-manual",
+      "page": 141
+    }
+  },
+  {
+    "id": "direct-shot",
+    "category": "siege-equipment",
+    "source": {
+      "book": "rules-manual",
+      "page": 141
+    }
   }
 ]
