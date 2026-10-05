@@ -62,25 +62,28 @@ public class RosterStatisticsCalculator {
         gameDataCatalog.getArmyListProfile(armyListId, unit.getArmyListProfileId());
 
     var profile = gameDataCatalog.getProfile(armyListProfile.profileId());
-
     var options = getEffectiveOptions(armyListProfile, unit);
-
     var quantity = unit.getQuantity();
-
-    var points = (profile.points() + calculateOptionPoints(profile, options)) * quantity;
-
+    int pointsPerUnit = profile.points() + calculateOptionPoints(profile, options);
+    var points = pointsPerUnit * quantity;
     var might = getMight(profile) * quantity;
-
     var equipment = getEffectiveEquipment(profile, armyListProfile, options);
-
     var countsTowardsWeaponLimits = armyListProfile.isWarrior();
-
     var bows = countsTowardsWeaponLimits && equipment.stream().anyMatch(this::isBow) ? quantity : 0;
 
     var throwingWeapons =
         countsTowardsWeaponLimits && equipment.stream().anyMatch(this::isThrowingWeapon)
             ? quantity
             : 0;
+
+    log.trace(
+        "Calculated unit statistics unit={} id={} points={} ppu={} bow={} throw={}",
+        unit.getArmyListProfileId(),
+        unit.getId(),
+        points,
+        pointsPerUnit,
+        bows,
+        throwingWeapons);
 
     return new UnitStatistics(points, quantity, might, bows, throwingWeapons);
   }

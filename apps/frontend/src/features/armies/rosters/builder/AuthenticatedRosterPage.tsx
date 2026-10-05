@@ -95,7 +95,7 @@ export function AuthenticatedRosterPage({
                 <Typography variant="h6">Warband {index + 1}</Typography>
 
                 <Typography>
-                  Leader: {warband.leader.armyListProfileId}
+                  Leader: {warband.leader?.armyListProfileId ?? "not-available"}
                 </Typography>
 
                 <Typography variant="body2" color="textSecondary">
