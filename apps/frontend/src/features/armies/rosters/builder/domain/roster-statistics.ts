@@ -142,3 +142,35 @@ function isThrowingWeapon(equipmentId: string): boolean {
     equipmentId.includes("-and-throwing-")
   );
 }
+
+export function calculateWarbandPoints(
+  warband: BuilderRoster["warbands"][number],
+  gameData: BuilderGameData,
+): number {
+  let points = 0;
+
+  if (warband.leader) {
+    points += calculateUnitPoints(warband.leader, gameData);
+  }
+
+  for (const follower of warband.followers) {
+    points += calculateUnitPoints(follower, gameData);
+  }
+
+  return points;
+}
+
+function calculateUnitPoints(
+  unit: BuilderUnit,
+  gameData: BuilderGameData,
+): number {
+  const armyListProfile = gameData.armyListProfilesById.get(
+    unit.armyListProfileId,
+  );
+
+  if (!armyListProfile) {
+    return 0;
+  }
+
+  return getUnitTotalCost(unit, armyListProfile);
+}

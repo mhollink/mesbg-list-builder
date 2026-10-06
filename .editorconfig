@@ -1,0 +1,30 @@
+root = true
+
+# Default for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Java - Spotless / google-java-format
+[*.java]
+indent_style = space
+indent_size = 2
+continuation_indent_size = 4
+max_line_length = 100
+
+# Frontend - Biome
+[*.{js,jsx,ts,tsx,json,jsonc,css}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# YAML
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
