@@ -222,6 +222,7 @@ export function CreateRosterDialog({
                 <Box
                   component="li"
                   {...props}
+                  key={option.id}
                   sx={{
                     ...props.style,
                     display: "flex",
