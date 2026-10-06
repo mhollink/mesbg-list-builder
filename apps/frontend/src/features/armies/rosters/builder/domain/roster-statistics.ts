@@ -1,5 +1,9 @@
 import type { BuilderGameData } from "../data/builder-game-data.types.ts";
 import type { BuilderRoster, BuilderUnit } from "./roster.types.ts";
+import {
+  getEffectiveUnitOptions,
+  getUnitTotalCost,
+} from "~/features/armies/rosters/builder/domain/option-rules.ts";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
 
@@ -52,14 +56,12 @@ function addUnitStatistics(
   }
 
   const profile = armyListProfile.profile;
-  const options = getEffectiveOptions(unit, armyListProfile);
+  const options = getEffectiveUnitOptions(unit, armyListProfile);
   const quantity = unit.quantity;
 
   statistics.modelCount += quantity;
 
-  statistics.points +=
-    (getProfilePoints(profile) + getOptionPoints(options)) * quantity;
-
+  statistics.points += getUnitTotalCost(unit, armyListProfile);
   statistics.might += getMight(profile) * quantity;
 
   if (armyListProfile.tier !== "warrior") {
@@ -96,35 +98,6 @@ function calculateArmyOptionPoints(
 
     return total + (option?.points ?? 0);
   }, 0);
-}
-
-function getEffectiveOptions(
-  unit: BuilderUnit,
-  armyListProfile: LocalizedArmyListProfile,
-) {
-  const optionIds = new Set(unit.optionIds);
-
-  for (const option of armyListProfile.options) {
-    if (option.state === "preselected") {
-      optionIds.add(option.id);
-    }
-  }
-
-  return [...optionIds].flatMap((optionId) => {
-    const option = armyListProfile.options.find(
-      (candidate) => candidate.id === optionId,
-    );
-
-    return option ? [option] : [];
-  });
-}
-
-function getProfilePoints(profile: LocalizedProfile): number {
-  return profile.points ?? 0;
-}
-
-function getOptionPoints(options: LocalizedArmyListProfile["options"]): number {
-  return options.reduce((total, option) => total + (option.points ?? 0), 0);
 }
 
 function getMight(profile: LocalizedProfile): number {

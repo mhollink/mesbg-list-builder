@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
 import type { BuilderWarband } from "../../domain/roster.types.ts";
 import type { WarbandCapacity } from "../../domain/warband-rules.ts";
+import { UnitCard } from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 
 interface WarbandCardProps {
   index: number;
@@ -22,12 +24,14 @@ export function WarbandCard({
   gameData,
   capacity,
 }: WarbandCardProps) {
+  const { openProfileDrawer } = useDrawerStack();
+
   const leader = warband.leader
     ? gameData.armyListProfilesById.get(warband.leader.armyListProfileId)
     : undefined;
 
   return (
-    <Paper variant="outlined">
+    <Paper variant="outlined" elevation={10}>
       <Stack>
         <Stack
           sx={{
@@ -53,19 +57,12 @@ export function WarbandCard({
 
         <Box sx={{ p: 2 }}>
           {leader ? (
-            <Stack spacing={0.5}>
-              <Typography variant="overline" color="text.secondary">
-                Leader
-              </Typography>
-
-              <Typography sx={{ fontWeight: 600 }}>
-                {leader.profile.name}
-              </Typography>
-
-              <Typography variant="body2" color="text.secondary">
-                {leader.tierName}
-              </Typography>
-            </Stack>
+            <UnitCard
+              unit={warband.leader}
+              profile={leader}
+              onOpenProfile={() => openProfileDrawer(leader.profile.profile)}
+              onOptionsChange={(options) => console.log(options)}
+            />
           ) : (
             <Stack spacing={0.5}>
               <Typography variant="overline" color="text.secondary">
@@ -81,7 +78,7 @@ export function WarbandCard({
           <>
             <Divider />
 
-            <Stack spacing={1} sx={{ p: 2 }}>
+            <Stack spacing={2} sx={{ p: 2 }}>
               <Typography variant="overline" color="text.secondary">
                 Followers
               </Typography>
@@ -92,22 +89,16 @@ export function WarbandCard({
                 );
 
                 return (
-                  <Stack
+                  <UnitCard
                     key={follower.id}
-                    sx={{
-                      direction: "row",
-                      justifyContent: "space-between",
-                      gap: 2,
-                    }}
-                  >
-                    <Typography variant="body2">
-                      {profile?.profile.name ?? follower.armyListProfileId}
-                    </Typography>
-
-                    <Typography variant="body2" color="text.secondary">
-                      × {follower.quantity}
-                    </Typography>
-                  </Stack>
+                    unit={follower}
+                    profile={profile}
+                    onOpenProfile={() => openProfileDrawer(profile.profileId)}
+                    onOptionsChange={(options) => console.log(options)}
+                    showUnitCost={
+                      !profile.profile.unitTypeNames.includes("unique")
+                    }
+                  />
                 );
               })}
             </Stack>
