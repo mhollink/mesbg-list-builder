@@ -154,6 +154,96 @@ install_make() {
   fail "Could not determine how to install Make on this system."
 }
 
+install_docker() {
+  log "Installing Docker..."
+
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    command_exists brew || fail "Homebrew is required to install Docker automatically."
+
+    brew install --cask docker
+
+    echo "Docker Desktop has been installed."
+    echo "Starting Docker Desktop..."
+
+    open -a Docker
+    return
+  fi
+
+  if command_exists apt-get; then
+    sudo apt-get update
+    sudo apt-get install -y docker.io docker-compose-v2
+
+    sudo systemctl enable --now docker
+
+    # Allow Docker usage without sudo in future shells.
+    sudo usermod -aG docker "$USER"
+
+    return
+  fi
+
+  if command_exists dnf; then
+    sudo dnf install -y docker docker-compose-plugin
+    sudo systemctl enable --now docker
+
+    sudo usermod -aG docker "$USER"
+    return
+  fi
+
+  if command_exists pacman; then
+    sudo pacman -S --needed docker docker-compose
+    sudo systemctl enable --now docker
+
+    sudo usermod -aG docker "$USER"
+    return
+  fi
+
+  fail "Could not determine how to install Docker on this system."
+}
+
+wait_for_docker() {
+  log "Waiting for Docker..."
+
+  local attempts=0
+
+  until docker info >/dev/null 2>&1; do
+    attempts=$((attempts + 1))
+
+    if (( attempts >= 60 )); then
+      fail "Docker is installed but the Docker daemon is not running."
+    fi
+
+    sleep 2
+  done
+
+  echo "Docker is running."
+}
+
+ensure_docker() {
+  log "Checking Docker..."
+
+  if ! command_exists docker; then
+    install_docker
+  else
+    echo "Docker is already installed."
+  fi
+
+  command_exists docker || fail "Docker was installed but is not available on PATH."
+
+  if ! docker compose version >/dev/null 2>&1; then
+    fail "Docker Compose v2 is required. Expected 'docker compose' to be available."
+  fi
+
+  # Docker Desktop does not necessarily start automatically after installation.
+  if [[ "$OSTYPE" == "darwin"* ]] && ! docker info >/dev/null 2>&1; then
+    open -a Docker
+  fi
+
+  wait_for_docker
+
+  echo "$(docker --version)"
+  echo "$(docker compose version)"
+}
+
 ensure_make() {
   log "Checking Make..."
 
@@ -192,13 +282,14 @@ main() {
   ensure_java
   ensure_node
   ensure_pnpm
+  ensure_docker
   ensure_make
   install_dependencies
 
   log "Setup complete."
   echo
   echo "You can now run:"
-  echo "  make"
+  echo "  make setup"
 }
 
 main "$@"

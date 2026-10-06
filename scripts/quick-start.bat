@@ -37,6 +37,9 @@ if errorlevel 1 exit /b 1
 call :ensure_pnpm
 if errorlevel 1 exit /b 1
 
+call :ensure_docker
+if errorlevel 1 exit /b 1
+
 call :ensure_make
 if errorlevel 1 exit /b 1
 
@@ -49,7 +52,7 @@ echo Setup complete.
 echo ========================================
 echo.
 echo You can now run:
-echo   make
+echo   make setup
 echo.
 
 exit /b 0
@@ -253,6 +256,105 @@ if not exist "%USERPROFILE%\.bash_profile" if not exist "%USERPROFILE%\.bash_log
 )
 
 exit /b 0
+
+
+:ensure_docker
+
+echo.
+echo Checking Docker...
+
+where docker >nul 2>&1
+
+if not errorlevel 1 (
+    goto docker_available
+)
+
+where winget >nul 2>&1
+
+if errorlevel 1 (
+    echo ERROR: winget is required to install Docker automatically.
+    exit /b 1
+)
+
+echo Installing Docker Desktop...
+
+winget install ^
+    --id Docker.DockerDesktop ^
+    --exact ^
+    --accept-package-agreements ^
+    --accept-source-agreements
+
+if errorlevel 1 (
+    echo ERROR: Failed to install Docker Desktop.
+    exit /b 1
+)
+
+REM Docker Desktop normally exposes docker.exe here.
+set "DOCKER_BIN=C:\Program Files\Docker\Docker\resources\bin"
+
+if exist "%DOCKER_BIN%\docker.exe" (
+    set "PATH=%DOCKER_BIN%;%PATH%"
+)
+
+where docker >nul 2>&1
+
+if errorlevel 1 (
+    echo ERROR: Docker was installed but is not available on PATH.
+    echo Open a new terminal and run this script again.
+    exit /b 1
+)
+
+:docker_available
+
+docker compose version >nul 2>&1
+
+if errorlevel 1 (
+    echo ERROR: Docker Compose v2 is required.
+    exit /b 1
+)
+
+docker info >nul 2>&1
+
+if not errorlevel 1 (
+    goto docker_running
+)
+
+echo Docker Desktop is not running.
+echo Starting Docker Desktop...
+
+if exist "%ProgramFiles%\Docker\Docker\Docker Desktop.exe" (
+    start "" "%ProgramFiles%\Docker\Docker\Docker Desktop.exe"
+) else (
+    echo ERROR: Docker Desktop could not be located.
+    exit /b 1
+)
+
+echo Waiting for Docker Desktop...
+
+set /a DOCKER_ATTEMPTS=0
+
+:wait_for_docker
+
+docker info >nul 2>&1
+
+if not errorlevel 1 goto docker_running
+
+set /a DOCKER_ATTEMPTS+=1
+
+if !DOCKER_ATTEMPTS! GEQ 60 (
+    echo ERROR: Docker Desktop did not become ready.
+    exit /b 1
+)
+
+timeout /t 2 /nobreak >nul
+goto wait_for_docker
+
+:docker_running
+
+for /f "tokens=*" %%v in ('docker --version') do echo %%v
+for /f "tokens=*" %%v in ('docker compose version') do echo %%v
+
+goto :eof
 
 
 :ensure_make
