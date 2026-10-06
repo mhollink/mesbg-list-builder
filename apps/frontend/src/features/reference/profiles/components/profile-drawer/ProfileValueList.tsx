@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 
 import { ProfileSection } from "./ProfileSection";
+import { RuleText } from "~/features/reference/shared/components/rule-text/RuleText.tsx";
 
 interface ProfileValueListProps {
   title: string;
@@ -21,16 +21,16 @@ export function ProfileValueList({
   return (
     <ProfileSection title={title}>
       {display === "inline" ? (
-        <Typography>
+        <RuleText>
           {new Intl.ListFormat("en-GB", {
             style: "long",
             type: "conjunction",
           }).format(values)}
-        </Typography>
+        </RuleText>
       ) : (
         <Stack sx={{ gap: 0.5 }}>
           {values.map((value) => (
-            <Typography key={value}>{value}</Typography>
+            <RuleText key={value}>{value}</RuleText>
           ))}
         </Stack>
       )}
