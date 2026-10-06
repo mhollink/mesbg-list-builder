@@ -1,16 +1,17 @@
-import type { ReactNode } from "react";
+import Chip from "@mui/material/Chip";
+import type {ReactNode} from "react";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { getUnitCost, getUnitTotalCost } from "../../domain/option-rules.ts";
-import type { BuilderUnit } from "../../domain/roster.types.ts";
-import { UnitHeroicStats } from "./UnitHeroicStats.tsx";
-import { UnitOptions } from "./UnitOptions.tsx";
-import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
-import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
+import {getUnitCost, getUnitTotalCost} from "../../domain/option-rules.ts";
+import type {BuilderUnit} from "../../domain/roster.types.ts";
+import {UnitHeroicStats} from "./UnitHeroicStats.tsx";
+import {UnitOptions} from "./UnitOptions.tsx";
+import {ProfileAvatar} from "~/components/profile-avatar/ProfileAvatar.tsx";
+import type {LocalizedArmyListProfile} from "~/features/reference/army-lists/army-lists.types.ts";
 
 interface UnitCardProps {
   unit: BuilderUnit;
@@ -26,28 +27,28 @@ interface UnitCardProps {
 }
 
 export function UnitCard({
-  unit,
-  profile,
-  readonly = false,
-  showUnitCost = false,
-  controls,
-  onOpenProfile,
-  onOptionsChange,
-}: UnitCardProps) {
+                           unit,
+                           profile,
+                           readonly = false,
+                           showUnitCost = false,
+                           controls,
+                           onOpenProfile,
+                           onOptionsChange,
+                         }: UnitCardProps) {
   const unitCost = getUnitCost(unit, profile);
-
   const totalCost = getUnitTotalCost(unit, profile);
+  const unique = profile.profile.unitTypes.includes("unique");
 
   return (
-    <Paper variant="outlined">
-      <Stack spacing={2} sx={{ p: 2 }}>
+    <Paper variant="outlined" elevation={5}>
+      <Stack spacing={2} sx={{p: 2}}>
         <Stack
           direction="row"
           spacing={2}
           useFlexGap
-          sx={{ alignItems: "flex-start" }}
+          sx={{alignItems: "flex-start"}}
         >
-          <ProfileAvatar profileId={profile.profileId} />
+          <ProfileAvatar profileId={profile.profileId}/>
 
           <Box
             sx={{
@@ -85,6 +86,7 @@ export function UnitCard({
                     },
                   }}
                 >
+                  {!unique && <span>{unit.quantity} &times;</span>}{" "}
                   {profile.profile.name}
                 </Typography>
 
@@ -92,42 +94,49 @@ export function UnitCard({
                   direction="row"
                   spacing={1}
                   useFlexGap
-                  sx={{ mt: 0.5, alignItems: "center", flexWrap: "wrap" }}
+                  sx={{
+                    mt: 0.5,
+                    alignItems: "center",
+                    flexWrap: "wrap",
+                    display: {
+                      xs: profile.tier === "warrior" ? "none" : "flex",
+                      sm: "flex"
+                    }
+                }}
                 >
-                  <Typography variant="caption" color="text.secondary">
-                    {profile.tierName}
-                  </Typography>
-
-                  <UnitHeroicStats profile={profile.profile} />
+                  <Chip variant="outlined" color="default" label={profile.tierName} size="small"/>
+                  <UnitHeroicStats profile={profile.profile}/>
                 </Stack>
               </Box>
 
-              <Box
+              <Stack
+                direction={{xs: "row", sm: "column"}}
+                spacing={{xs: 1, sm: 0}}
                 sx={{
                   textAlign: {
                     xs: "left",
                     sm: "right",
                   },
                   flexShrink: 0,
+                  alignItems: "end",
                 }}
               >
-                <Typography sx={{ fontWeight: 700 }}>
+                <Typography sx={{fontWeight: 700}}>
                   {totalCost} pts
                 </Typography>
-
                 {showUnitCost && unit.quantity > 1 && (
-                  <Typography variant="caption" color="textSecondary">
+                  <Typography color="textSecondary">
                     {unitCost} pts each
                   </Typography>
                 )}
-              </Box>
+              </Stack>
             </Stack>
           </Box>
         </Stack>
 
         {profile.options.length > 0 && (
           <>
-            <Divider />
+            <Divider/>
 
             <UnitOptions
               unit={unit}
@@ -140,7 +149,7 @@ export function UnitCard({
 
         {controls && (
           <>
-            <Divider />
+            <Divider/>
             {controls}
           </>
         )}
