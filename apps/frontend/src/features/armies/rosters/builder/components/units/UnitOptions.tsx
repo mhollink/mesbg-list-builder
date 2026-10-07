@@ -88,6 +88,7 @@ function UnitOption({ option, unit, disabled, toggleOption }: UnitOptionProps) {
         <Switch
           id={id}
           checked={checked}
+          color="primary"
           disabled={disabled || preselected}
           onChange={(_, checked) => toggleOption(option.id, checked)}
         />
