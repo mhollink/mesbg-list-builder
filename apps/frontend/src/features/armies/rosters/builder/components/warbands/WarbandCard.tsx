@@ -8,12 +8,13 @@ import Collapse from "@mui/material/Collapse";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 
 import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
 import type { BuilderWarband } from "../../domain/roster.types.ts";
 import type { WarbandCapacity } from "../../domain/warband-rules.ts";
-import IconButton from "~/components/icon-button/IconButton";
+import IconButton from "~/components/icon-button";
 import { FollowerRow } from "~/features/armies/rosters/builder/components/units/FollowerRow.tsx";
 import { LeaderRow } from "~/features/armies/rosters/builder/components/units/LeaderRow.tsx";
 import { calculateWarbandPoints } from "~/features/armies/rosters/builder/domain/roster-statistics.ts";
@@ -23,6 +24,7 @@ interface WarbandCardProps {
   warband: BuilderWarband;
   gameData: BuilderGameData;
   capacity: WarbandCapacity;
+  readonly?: boolean;
 }
 
 export function WarbandCard({
@@ -30,13 +32,17 @@ export function WarbandCard({
   warband,
   capacity,
   gameData,
+  readonly = false,
 }: WarbandCardProps) {
   const points = calculateWarbandPoints(warband, gameData);
   const [open, setOpen] = useState(true);
 
   const actions: WarbandHeaderActions = {
+    readonly,
     collapsed: open,
     toggleCollapse: () => setOpen(!open),
+    deleteWarband: () => console.log("Delete warband..."),
+    duplicateWarband: () => console.log("duplicate warband..."),
   };
 
   return (
@@ -56,7 +62,12 @@ export function WarbandCard({
         />
         <Divider />
         <Box sx={{ p: 2 }}>
-          <LeaderRow leader={warband.leader} gameData={gameData} />
+          <LeaderRow
+            leader={warband.leader}
+            gameData={gameData}
+            readonly={readonly}
+            collapsed={!open}
+          />
         </Box>
         {warband.followers.length > 0 && (
           <Collapse in={open}>
@@ -67,6 +78,7 @@ export function WarbandCard({
                   key={follower.id}
                   follower={follower}
                   gameData={gameData}
+                  readonly={readonly}
                 />
               ))}
             </Stack>
@@ -78,8 +90,11 @@ export function WarbandCard({
 }
 
 interface WarbandHeaderActions {
+  readonly: boolean;
   collapsed: boolean;
   toggleCollapse: () => void;
+  deleteWarband: () => void;
+  duplicateWarband: () => void;
 }
 
 interface WarbandHeaderProps {
@@ -157,34 +172,46 @@ function MobileWarbandHeader({
   );
 }
 
-function WarbandActions({ toggleCollapse, collapsed }: WarbandHeaderActions) {
+function WarbandActions({
+  readonly,
+  collapsed,
+  toggleCollapse,
+  deleteWarband,
+  duplicateWarband,
+}: WarbandHeaderActions) {
   return (
     <Stack
       direction="row"
       spacing={2}
       sx={{ flexGrow: 1, justifyContent: "flex-end" }}
     >
-      <IconButton
-        color="#333"
-        aria-label="collapse warband"
-        onClick={toggleCollapse}
-      >
-        {collapsed ? <UnfoldLessIcon /> : <UnfoldMoreIcon />}
-      </IconButton>
-      <IconButton
-        color="#66F"
-        aria-label="collapse warband"
-        onClick={() => console.log("clicked")}
-      >
-        <CopyAllIcon />
-      </IconButton>
-      <IconButton
-        color="#F00"
-        aria-label="delete warband"
-        onClick={() => console.log("clicked")}
-      >
-        <DeleteOutlinedIcon />
-      </IconButton>
+      <Tooltip title="collapse warband" placement="top">
+        <IconButton aria-label="collapse warband" onClick={toggleCollapse}>
+          {collapsed ? <UnfoldLessIcon /> : <UnfoldMoreIcon />}
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="duplicate warband" placement="top">
+        <IconButton
+          tone="info"
+          aria-label="duplicate warband"
+          onClick={duplicateWarband}
+          disabled={readonly}
+        >
+          <CopyAllIcon />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="delete warband" placement="top">
+        <IconButton
+          tone="error"
+          aria-label="delete warband"
+          onClick={deleteWarband}
+          disabled={readonly}
+        >
+          <DeleteOutlinedIcon />
+        </IconButton>
+      </Tooltip>
     </Stack>
   );
 }

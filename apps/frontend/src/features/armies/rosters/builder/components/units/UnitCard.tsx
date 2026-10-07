@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
+import Collapse from "@mui/material/Collapse";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
@@ -17,6 +18,7 @@ interface UnitCardProps {
   unit: BuilderUnit;
   profile: LocalizedArmyListProfile;
 
+  collapsed?: boolean;
   readonly?: boolean;
   showUnitCost?: boolean;
 
@@ -29,6 +31,7 @@ interface UnitCardProps {
 export function UnitCard({
   unit,
   profile,
+  collapsed = false,
   readonly = false,
   showUnitCost = false,
   controls,
@@ -40,7 +43,7 @@ export function UnitCard({
   const unique = profile.profile.unitTypes.includes("unique");
 
   return (
-    <Paper variant="outlined" elevation={5}>
+    <Paper variant="outlined">
       <Stack spacing={2} sx={{ p: 2 }}>
         <Stack
           direction="row"
@@ -139,25 +142,28 @@ export function UnitCard({
           </Box>
         </Stack>
 
-        {profile.options.length > 0 && (
-          <>
-            <Divider />
+        <Collapse in={!collapsed}>
+          <Stack spacing={2}>
+            {profile.options.length > 0 && (
+              <>
+                <Divider />
+                <UnitOptions
+                  unit={unit}
+                  profile={profile}
+                  disabled={readonly}
+                  onChange={onOptionsChange}
+                />
+              </>
+            )}
 
-            <UnitOptions
-              unit={unit}
-              profile={profile}
-              disabled={readonly}
-              onChange={onOptionsChange}
-            />
-          </>
-        )}
-
-        {controls && (
-          <>
-            <Divider />
-            {controls}
-          </>
-        )}
+            {controls && !readonly && (
+              <>
+                <Divider />
+                {controls}
+              </>
+            )}
+          </Stack>
+        </Collapse>
       </Stack>
     </Paper>
   );

@@ -1,10 +1,21 @@
+import { getContrastRatio } from "@mui/material";
 import {
+  alpha,
   createTheme,
   type PaletteMode,
   type ThemeOptions,
 } from "@mui/material/styles";
 
 import type { ThemeColorTokens } from "./theme.types";
+
+export function tokenize(color: string) {
+  return {
+    main: color,
+    light: alpha(color, 0.5),
+    dark: alpha(color, 0.9),
+    contrastText: getContrastRatio(color, "#fff") > 4.5 ? "#fff" : "#111",
+  };
+}
 
 export function createAppTheme(colors: ThemeColorTokens, mode: PaletteMode) {
   const options: ThemeOptions = {
@@ -22,6 +33,10 @@ export function createAppTheme(colors: ThemeColorTokens, mode: PaletteMode) {
       secondary: {
         main: colors.brand.secondary,
       },
+
+      tertiary: tokenize(colors.brand.tertiary),
+      accent: tokenize(colors.brand.accent),
+      highlight: tokenize(colors.brand.highlight),
 
       background: {
         default: colors.surface.background,
