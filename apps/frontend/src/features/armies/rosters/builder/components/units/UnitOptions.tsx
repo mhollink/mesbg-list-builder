@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import type { BuilderUnit } from "../../domain/roster.types.ts";
-import Switch from "~/components/switch/Switch";
+import Switch from "~/components/switch";
 import type {
   LocalizedArmyListProfile,
   LocalizedArmyListProfileOption,

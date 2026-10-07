@@ -110,6 +110,7 @@ export function WarbandList({
           warband={warband}
           gameData={gameData}
           capacity={getWarbandCapacity(warband)}
+          readonly={roster.locked}
         />
       ))}
 

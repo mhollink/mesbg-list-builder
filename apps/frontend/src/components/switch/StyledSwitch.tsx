@@ -1,7 +1,7 @@
 import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 
-export const SwitchComponent = styled(Switch)(() => ({
+export const StyledSwitch = styled(Switch)(() => ({
   padding: 8,
   "& .MuiSwitch-track": {
     borderRadius: 22 / 2,
@@ -14,4 +14,4 @@ export const SwitchComponent = styled(Switch)(() => ({
   },
 }));
 
-export default SwitchComponent;
+export default StyledSwitch;
