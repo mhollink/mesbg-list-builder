@@ -1,4 +1,5 @@
 import { useId } from "react";
+import FormHelperText from "@mui/material/FormHelperText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
@@ -41,6 +42,12 @@ export function UnitOptions({
 
   return (
     <Stack spacing={-0.5}>
+      {profile.profile.optionLimits?.min === 1 && (
+        <FormHelperText>
+          A {profile.profile.name} must have one of the following options for
+          the listed points cost.
+        </FormHelperText>
+      )}
       {profile.options.map((option) => (
         <UnitOption
           key={option.id}

@@ -39,7 +39,7 @@ export function generateProfiles(
 
   const optionsByProfile = buildOptions(optionData);
   const optionLimitsByProfile = new Map(
-    optionData.limits.map(({profile, ...limits}) => [profile, limits]),
+    optionData.limits.map(({ profile, ...limits }) => [profile, limits]),
   );
 
   return profileData.profiles.map((row) => {
@@ -74,7 +74,7 @@ export function generateProfiles(
       ),
       ...optionalArray("additionalText", splitList(row.additional_text)),
       ...optionalArray("options", optionsByProfile.get(row.id) ?? []),
-      ...(optionLimits ? {optionLimits}: {}),
+      ...(optionLimits ? { optionLimits } : {}),
       ...optionalArray(
         "profileRules",
         mapRules(rulesByProfile.get(row.id) ?? []),

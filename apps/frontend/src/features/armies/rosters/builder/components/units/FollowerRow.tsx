@@ -1,21 +1,17 @@
-import type {BuilderUnit} from "~/features/armies/rosters/builder/domain/roster.types.ts";
-import type {
-  BuilderGameData
-} from "~/features/armies/rosters/builder/data/builder-game-data.types.ts";
-import {useDrawerStack} from "~/features/drawer-stack/hooks/useDrawerStack.ts";
-import {UnitCard} from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
+import { UnitCard } from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
+import type { BuilderGameData } from "~/features/armies/rosters/builder/data/builder-game-data.types.ts";
+import type { BuilderUnit } from "~/features/armies/rosters/builder/domain/roster.types.ts";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 
 interface FollowerRowProps {
   follower: BuilderUnit;
   gameData: BuilderGameData;
 }
 
-export function FollowerRow({follower, gameData}: FollowerRowProps) {
-  const {openProfileDrawer} = useDrawerStack();
+export function FollowerRow({ follower, gameData }: FollowerRowProps) {
+  const { openProfileDrawer } = useDrawerStack();
 
-  const profile = gameData.armyListProfilesById.get(
-    follower.armyListProfileId,
-  );
+  const profile = gameData.armyListProfilesById.get(follower.armyListProfileId);
 
   return (
     <UnitCard
@@ -24,9 +20,7 @@ export function FollowerRow({follower, gameData}: FollowerRowProps) {
       profile={profile}
       onOpenProfile={() => openProfileDrawer(profile.profileId)}
       onOptionsChange={(options) => console.log(options)}
-      showUnitCost={
-        !profile.profile.unitTypeNames.includes("unique")
-      }
+      showUnitCost={!profile.profile.unitTypeNames.includes("unique")}
     />
   );
 }

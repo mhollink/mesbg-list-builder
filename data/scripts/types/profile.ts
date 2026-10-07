@@ -72,8 +72,8 @@ export interface OptionEffect {
 }
 
 export interface OptionLimits {
-  min?: number,
-  max?: number
+  min?: number;
+  max?: number;
 }
 
 export type ProfileAlignment = "good" | "evil" | "both" | "siege-equipment";
