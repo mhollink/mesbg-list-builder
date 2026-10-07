@@ -13,6 +13,7 @@ import type {
 } from "../../domain/roster.types.ts";
 import type { WarbandCapacity } from "../../domain/warband-rules.ts";
 import { WarbandCard } from "./WarbandCard.tsx";
+import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
 
 interface WarbandListProps {
   roster: BuilderRoster;
@@ -22,7 +23,7 @@ interface WarbandListProps {
 
   getWarbandCapacity(warband: BuilderWarband): WarbandCapacity;
 
-  onAddWarband(): Promise<void>;
+  actions: RosterPersistence;
 }
 
 export function WarbandList({
@@ -30,7 +31,7 @@ export function WarbandList({
   gameData,
   canAddWarband,
   getWarbandCapacity,
-  onAddWarband,
+  actions,
 }: WarbandListProps) {
   const [adding, setAdding] = useState(false);
   const [addFailed, setAddFailed] = useState(false);
@@ -40,7 +41,7 @@ export function WarbandList({
     setAddFailed(false);
 
     try {
-      await onAddWarband();
+      await actions.createWarband();
     } catch {
       setAddFailed(true);
     } finally {
@@ -111,6 +112,7 @@ export function WarbandList({
           gameData={gameData}
           capacity={getWarbandCapacity(warband)}
           readonly={roster.locked}
+          actions={actions}
         />
       ))}
 

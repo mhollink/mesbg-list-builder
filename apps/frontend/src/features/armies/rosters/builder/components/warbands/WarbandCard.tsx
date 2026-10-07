@@ -13,6 +13,7 @@ import { MobileWarbandHeader, WarbandHeader } from "./WarbandHeader.tsx";
 import { FollowerRow } from "~/features/armies/rosters/builder/components/units/FollowerRow.tsx";
 import { LeaderRow } from "~/features/armies/rosters/builder/components/units/LeaderRow.tsx";
 import { calculateWarbandPoints } from "~/features/armies/rosters/builder/domain/roster-statistics.ts";
+import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
 
 export interface WarbandCardProps {
   index: number;
@@ -20,6 +21,7 @@ export interface WarbandCardProps {
   gameData: BuilderGameData;
   capacity: WarbandCapacity;
   readonly?: boolean;
+  actions: RosterPersistence;
 }
 
 export function WarbandCard({
@@ -28,18 +30,24 @@ export function WarbandCard({
   capacity,
   gameData,
   readonly = false,
+  actions,
 }: WarbandCardProps) {
   const points = calculateWarbandPoints(warband, gameData);
   const [open, setOpen] = useState(true);
 
-  const actions: WarbandHeaderActions = {
+  const headerActions: WarbandHeaderActions = {
     readonly,
     collapsed: open,
     toggleCollapse: () => setOpen(!open),
-    deleteWarband: () => console.log("Delete warband..."),
-    duplicateWarband: () => console.log("duplicate warband..."),
-  };
 
+    deleteWarband: () => {
+      void actions.deleteWarband(warband.id);
+    },
+
+    duplicateWarband: () => {
+      void actions.duplicateWarband(warband.id);
+    },
+  };
   return (
     <Paper variant="outlined" elevation={10}>
       <Stack>
@@ -47,19 +55,21 @@ export function WarbandCard({
           index={index}
           points={points}
           capacity={capacity}
-          actions={actions}
+          actions={headerActions}
         />
         <WarbandHeader
           index={index}
           points={points}
           capacity={capacity}
-          actions={actions}
+          actions={headerActions}
         />
         <Divider />
         <Box sx={{ p: 2 }}>
           <LeaderRow
+            warbandId={warband.id}
             leader={warband.leader}
             gameData={gameData}
+            actions={actions}
             readonly={readonly}
             collapsed={!open}
           />
@@ -71,8 +81,10 @@ export function WarbandCard({
               {warband.followers.map((follower) => (
                 <FollowerRow
                   key={follower.id}
+                  warbandId={warband.id}
                   follower={follower}
                   gameData={gameData}
+                  actions={actions}
                   readonly={readonly}
                 />
               ))}

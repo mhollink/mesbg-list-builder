@@ -53,7 +53,7 @@ export function RosterBuilder({ roster, persistence }: RosterBuilderProps) {
             gameData={builder.gameData}
             canAddWarband={builder.canAddWarband}
             getWarbandCapacity={builder.getWarbandCapacity}
-            onAddWarband={builder.actions.createWarband}
+            actions={builder.actions}
           />
         </Stack>
       </Box>
