@@ -251,7 +251,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "angmar-warg-rider",
@@ -316,7 +319,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "aranarth",
@@ -3396,6 +3402,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "mountain-fighters",
@@ -3472,7 +3481,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "dwarven-ballista",
@@ -3632,7 +3644,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "fili-the-dwarf",
@@ -4448,6 +4463,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "mattock",
@@ -7193,6 +7211,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "elven-glaive",
@@ -7437,6 +7458,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "kings-guard",
@@ -8715,7 +8739,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "dweller-in-the-dark",
@@ -11740,6 +11767,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "twin-blades",
@@ -12568,7 +12598,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "dalamyr-fleetmaster-of-umbar",
@@ -13170,7 +13203,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "haradrim-taskmaster",
@@ -13292,7 +13328,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "hasharin",
@@ -14769,7 +14808,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "clansman-of-lamedon",
@@ -16599,6 +16641,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "loyal-to-the-captains",
@@ -16930,7 +16975,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "warrior-of-numenor",
@@ -16988,7 +17036,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "warrior-of-the-dead",
@@ -19322,7 +19373,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "gundabad-troll",
@@ -21372,7 +21426,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "isengard-troll",
@@ -21542,7 +21599,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "lurtz",
@@ -22696,7 +22756,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "wild-man-chieftain",
@@ -23977,6 +24040,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "onwards-men-of-esgaroth",
@@ -24229,7 +24295,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "windlance",
@@ -25347,7 +25416,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "mordor-siege-bow",
@@ -25843,7 +25915,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "mouth-of-sauron",
@@ -29633,6 +29708,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "spear-mastery",
@@ -34674,6 +34752,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "spear-mastery",
@@ -35188,6 +35269,9 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 1
+    },
     "profileRules": [
       {
         "id": "troll-chain",
@@ -35303,6 +35387,10 @@
         "effects": []
       }
     ],
+    "optionLimits": {
+      "min": 0,
+      "max": 2
+    },
     "profileRules": [
       {
         "id": "breathe-fire",
@@ -36016,7 +36104,10 @@
         "requirements": [],
         "effects": []
       }
-    ]
+    ],
+    "optionLimits": {
+      "min": 1
+    }
   },
   {
     "profile": "the-balrog",
