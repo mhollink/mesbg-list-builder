@@ -32,7 +32,7 @@ export function UnitActions({
             size="small"
             onClick={onDuplicate}
             aria-label="Duplicate unit"
-            tone="info"
+            tone="primary"
           >
             <CopyAllIcon fontSize="small" />
           </IconButton>
