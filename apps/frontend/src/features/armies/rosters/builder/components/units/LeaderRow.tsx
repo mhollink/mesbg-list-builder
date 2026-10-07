@@ -42,6 +42,13 @@ export function LeaderRow({
   const leaderProfile = gameData.armyListProfilesById.get(
     leader.armyListProfileId,
   );
+
+  if (!leaderProfile) {
+    throw new Error(
+      `Could not find profile for follower unit: ${leader.armyListProfileId}`,
+    );
+  }
+
   return (
     <UnitCard
       unit={leader}

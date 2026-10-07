@@ -21,7 +21,12 @@ export function FollowerRow({
   const { openProfileDrawer } = useDrawerStack();
 
   const profile = gameData.armyListProfilesById.get(follower.armyListProfileId);
-  const unique = profile.profile.unitTypes.includes("unique");
+
+  if (!profile) {
+    throw new Error(
+      `Could not find profile for follower unit: ${follower.armyListProfileId}`,
+    );
+  }
 
   function handleOptionsChange(optionIds: string[]) {
     console.log("Options changed", optionIds);
@@ -69,7 +74,7 @@ export function FollowerRow({
           />
 
           <UnitActions
-            canDuplicate={!unique}
+            canDuplicate={!profile.profile.unitTypes.includes("unique")}
             canReplace
             canDelete
             onDuplicate={handleDuplicate}

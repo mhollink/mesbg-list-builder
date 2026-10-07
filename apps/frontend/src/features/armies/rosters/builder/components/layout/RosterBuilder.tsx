@@ -44,7 +44,7 @@ export function RosterBuilder({ roster, persistence }: RosterBuilderProps) {
           <MobileRosterSummary
             roster={builder.roster}
             statistics={builder.statistics}
-            issueCount={builder.issues.length}
+            issueCount={builder.issues?.length ?? 0}
             onClick={() => setInfoOpen(true)}
           />
 
@@ -62,7 +62,7 @@ export function RosterBuilder({ roster, persistence }: RosterBuilderProps) {
         roster={builder.roster}
         armyList={builder.gameData.armyList}
         statistics={builder.statistics}
-        issueCount={builder.issues.length}
+        issueCount={builder.issues?.length ?? 0}
         mobileOpen={infoOpen}
         onMobileClose={() => setInfoOpen(false)}
       />
