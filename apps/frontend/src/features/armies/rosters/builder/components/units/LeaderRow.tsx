@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
@@ -19,23 +20,47 @@ interface LeaderRowProps {
   actions: RosterPersistence;
   readonly?: boolean;
   collapsed?: boolean;
+
+  onSelectLeader: () => void;
 }
 
-export function LeaderRow({ leader, ...props }: LeaderRowProps) {
+export function LeaderRow({
+  leader,
+  onSelectLeader,
+  ...props
+}: LeaderRowProps) {
   if (!leader) {
-    // TODO: Proper warning/hint to instruct user to select a leader.
     return (
-      <Stack spacing={0.5}>
+      <Stack
+        spacing={1.5}
+        sx={{
+          alignItems: "flex-start",
+        }}
+      >
         <Typography variant="overline" color="text.secondary">
           Leader
         </Typography>
 
-        <Typography color="text.secondary">No leader selected</Typography>
+        <Typography color="text.secondary">
+          Select a leader before adding followers to this warband.
+        </Typography>
+
+        {!props.readonly && (
+          <Button variant="contained" onClick={onSelectLeader}>
+            Select leader
+          </Button>
+        )}
       </Stack>
     );
   }
 
-  return <SelectedLeaderRow leader={leader} {...props} />;
+  return (
+    <SelectedLeaderRow
+      leader={leader}
+      onSelectLeader={onSelectLeader}
+      {...props}
+    />
+  );
 }
 
 function SelectedLeaderRow({
@@ -45,6 +70,7 @@ function SelectedLeaderRow({
   actions,
   readonly,
   collapsed,
+  onSelectLeader,
 }: Omit<LeaderRowProps, "leader"> & {
   leader: BuilderUnit;
 }) {
@@ -80,12 +106,7 @@ function SelectedLeaderRow({
             justifyContent: "flex-end",
           }}
         >
-          <UnitActions
-            canReplace
-            onReplace={() => {
-              // picker later
-            }}
-          />
+          <UnitActions canReplace onReplace={onSelectLeader} />
         </Stack>
       }
     />
