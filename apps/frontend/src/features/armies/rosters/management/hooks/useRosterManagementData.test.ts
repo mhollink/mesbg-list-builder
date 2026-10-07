@@ -9,7 +9,7 @@ const mocks = vi.hoisted(() => ({
   groupsQuery: vi.fn(),
 }));
 
-vi.mock("~/features/armies/rosters/api/roster-api.ts", () => ({
+vi.mock("~/features/armies/rosters/api/rosters-api.ts", () => ({
   useGetRostersQuery: mocks.rostersQuery,
 }));
 

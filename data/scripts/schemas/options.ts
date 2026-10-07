@@ -1,6 +1,10 @@
 import { z } from "zod";
 
-import { optionalStringCellSchema, requiredStringCellSchema } from "./common";
+import {
+  optionalNumberCellSchema,
+  optionalStringCellSchema,
+  requiredStringCellSchema,
+} from "./common";
 
 export const optionRowSchema = z.object({
   profile: requiredStringCellSchema,
@@ -25,10 +29,17 @@ export const optionEffectRowSchema = z.object({
   value: optionalStringCellSchema,
 });
 
+export const optionLimitRowSchema = z.object({
+  profile: requiredStringCellSchema,
+  min: optionalNumberCellSchema,
+  max: optionalNumberCellSchema,
+});
+
 export const optionWorkbookSchema = z.object({
   options: z.array(optionRowSchema),
   requirements: z.array(optionRequirementRowSchema),
   effects: z.array(optionEffectRowSchema),
+  limits: z.array(optionLimitRowSchema),
 });
 
 export type OptionWorkbook = z.infer<typeof optionWorkbookSchema>;

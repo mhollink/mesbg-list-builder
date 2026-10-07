@@ -71,6 +71,11 @@ export interface OptionEffect {
   value?: string;
 }
 
+export interface OptionLimits {
+  min?: number;
+  max?: number;
+}
+
 export type ProfileAlignment = "good" | "evil" | "both" | "siege-equipment";
 
 export interface Profile {
@@ -91,6 +96,7 @@ export interface Profile {
   additionalProfiles?: string[];
   additionalText?: string[];
   options?: ProfileOption[];
+  optionLimits?: OptionLimits;
   profileRules?: ProfileRule[];
   magicPowers?: MagicPower[];
 }

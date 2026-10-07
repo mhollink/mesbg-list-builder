@@ -38,9 +38,13 @@ export function generateProfiles(
   );
 
   const optionsByProfile = buildOptions(optionData);
+  const optionLimitsByProfile = new Map(
+    optionData.limits.map(({ profile, ...limits }) => [profile, limits]),
+  );
 
   return profileData.profiles.map((row) => {
     const stats = statsByProfile.get(row.id);
+    const optionLimits = optionLimitsByProfile.get(row.id);
 
     if (!stats) {
       throw new Error(`Missing stats for profile '${row.id}'`);
@@ -70,6 +74,7 @@ export function generateProfiles(
       ),
       ...optionalArray("additionalText", splitList(row.additional_text)),
       ...optionalArray("options", optionsByProfile.get(row.id) ?? []),
+      ...(optionLimits ? { optionLimits } : {}),
       ...optionalArray(
         "profileRules",
         mapRules(rulesByProfile.get(row.id) ?? []),

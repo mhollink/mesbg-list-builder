@@ -12,6 +12,8 @@ const guestRoster: GuestRoster = {
   id: "guest",
   name: "Persistent roster",
   armyListId: "mordor",
+  armyOptionIds: [],
+  generalUnitId: null,
   tags: [],
   warbands: [],
   createdAt: "",

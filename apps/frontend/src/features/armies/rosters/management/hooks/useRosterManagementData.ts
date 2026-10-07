@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import { useGetRostersQuery } from "~/features/armies/rosters/api/roster-api.ts";
 import { useGetRosterGroupsQuery } from "~/features/armies/rosters/api/roster-group-api.ts";
+import { useGetRostersQuery } from "~/features/armies/rosters/api/rosters-api.ts";
 
 export function useRosterManagementData() {
   const rostersQuery = useGetRostersQuery();

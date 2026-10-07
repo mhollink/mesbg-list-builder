@@ -10,6 +10,7 @@ import type {
   ArmyListProfileSelector,
   ArmyListRequirement,
   ArmyListRule,
+  ArmyListTier,
   ArmyListWarbandDefinition,
   ArmyListWarbandStructure,
 } from "../types";
@@ -61,20 +62,20 @@ export function generateArmyList(
 
     const general = mapGeneralRule(generalRuleRows, row.id);
 
+    const profiles = profileRows.map((profile) =>
+      mapArmyListProfile(
+        profile,
+        profileOptionsByArmyAndProfile.get(compositeKey(row.id, profile.id)) ??
+          [],
+      ),
+    );
     return {
       id: row.id,
       alignment: row.alignment,
 
-      profiles: profileRows.map((profile) =>
-        mapArmyListProfile(
-          profile,
-          profileOptionsByArmyAndProfile.get(
-            compositeKey(row.id, profile.id),
-          ) ?? [],
-        ),
-      ),
+      profiles: profiles,
 
-      warbands: mapWarbands(row, warbandRows),
+      warbands: mapWarbands(row, warbandRows, profiles),
 
       ...(general ? { general } : {}),
 
@@ -135,7 +136,12 @@ function mapProfileOption(row: ProfileOptionRow): ArmyListProfileOption {
 function mapWarbands(
   armyList: ArmyListRow,
   rows: WarbandRow[],
+  profiles: ArmyListProfile[],
 ): ArmyListWarbandStructure {
+  const tiers = Object.fromEntries(
+    profiles.map((profile) => [profile.id, profile.tier]),
+  );
+
   switch (armyList.warband_mode) {
     case "single":
       return {
@@ -145,13 +151,13 @@ function mapWarbands(
     case "standard":
       return {
         type: "standard",
-        definitions: rows.map(mapWarbandDefinition),
+        definitions: rows.map((row) => mapWarbandDefinition(row, tiers)),
       };
 
     case "choice":
       return {
         type: "choice",
-        definitions: rows.map(mapWarbandDefinition),
+        definitions: rows.map((row) => mapWarbandDefinition(row, tiers)),
 
         ...(armyList.single_warband_unit_types.length > 0
           ? {
@@ -170,15 +176,36 @@ function mapWarbands(
   }
 }
 
-function mapWarbandDefinition(row: WarbandRow): ArmyListWarbandDefinition {
+function getMaxSizeByTier(tier: ArmyListTier): number | null {
+  switch (tier) {
+    case "hero-of-legend":
+      return 18;
+    case "hero-of-valour":
+      return 15;
+    case "hero-of-fortitude":
+      return 12;
+    case "minor-hero":
+      return 6;
+    case "independent-hero":
+    case "warrior":
+      return 0;
+
+    default:
+      return null;
+  }
+}
+
+function mapWarbandDefinition(
+  row: WarbandRow,
+  profileTierMap: Record<string, ArmyListTier>,
+): ArmyListWarbandDefinition {
+  const maxSize: number | null =
+    row.max_size ?? getMaxSizeByTier(profileTierMap[row.leader]);
   return {
     id: row.id,
-
-    ...(row.leader ? { leaderId: row.leader } : {}),
-
+    leaderId: row.leader,
     followerIds: row.followers,
-
-    ...(row.max_size !== undefined ? { maxSize: row.max_size } : {}),
+    ...(maxSize !== null ? { maxSize } : {}),
   };
 }
 

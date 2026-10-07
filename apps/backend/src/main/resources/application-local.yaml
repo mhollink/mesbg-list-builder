@@ -1,0 +1,10 @@
+server:
+  port: 8180
+
+logging:
+  level:
+    com.mesbg.listbuilder: TRACE
+
+app:
+  cookies:
+    secure: false
