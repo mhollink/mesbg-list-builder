@@ -62,21 +62,20 @@ Checkbox convention:
 | Area                               | Initial assessment                   |
 |------------------------------------|--------------------------------------|
 | Application shell and navigation   | `IN PROGRESS`                        |
-| Rosters and roster organisation    | `MISSING`                            |
-| Roster builder                     | `MISSING`                            |
-| List validation and calculations   | `MISSING`                            |
+| Rosters and roster organisation    | `PARITY`                             |
+| Roster builder                     | `IN PROGRESS`                        |
+| List validation and calculations   | `IN PROGRESS`                        |
 | Sharing, exports, printable output | `MISSING`                            |
 | Profiles and rules reference       | `IN PROGRESS` / `CHANGED-EQUIVALENT` |
 | Collection                         | `MISSING`                            |
 | Game Mode                          | `MISSING`                            |
 | Match History                      | `MISSING`                            |
-| Accounts and sync                  | `MISSING`                            |
+| Accounts and sync                  | `IN PROGRESS`                        |
 | Settings and preferences           | `IN PROGRESS`                        |
-| Data pipeline and data semantics   | `IN PROGRESS` / `CHANGED-EQUIVALENT` |
-| Community and informational pages  | `IN PROGRESS`                        |
+| Data pipeline and data semantics   | `CHANGED-EQUIVALENT`                 |
+| Community and informational pages  | `PARITY`                             |
 | Cross-cutting UX and resilience    | `IN PROGRESS`                        |
 | Rewrite-only features              | `NEW`, non-blocking                  |
-
 
 # APP – Application shell and navigation
 
@@ -85,11 +84,11 @@ Checkbox convention:
     - The rewrite has a real `HomePage`.
     - Parity does not require reproducing the old layout.
 
-- [ ] **APP-002 - Responsive primary navigation** `IN PROGRESS`
+- [x] **APP-002 - Responsive primary navigation** `CHANGED-EQUIVALENT`
     - Users must be able to reach all parity-required areas on desktop and mobile.
     - Verify collapsed/mobile navigation behavior when the parity features are added.
 
-- [ ] **APP-003 - Roster navigation hierarchy** `MISSING`
+- [x] **APP-003 - Roster navigation hierarchy** `INTENTIONALLY REMOVED`
     - v2024 exposes roster groups and optionally individual rosters from navigation.
     - Replacement may use the new information architecture, but fast access to roster groups/rosters must remain
       practical.
@@ -98,7 +97,7 @@ Checkbox convention:
     - v2024 marks rosters that currently have a Game Mode session in progress.
     - Equivalent status visibility may live somewhere other than the sidebar.
 
-- [ ] **APP-005 - Hide individual rosters from navigation preference** `MISSING`
+- [x] **APP-005 - Hide individual rosters from navigation preference** `INTENTIONALLY REMOVED`
     - v2024 lets users reduce navigation clutter while retaining group navigation.
     - May be intentionally removed if the new navigation makes the preference unnecessary. If so, mark
       `INTENTIONALLY REMOVED` and record the replacement UX.
@@ -122,7 +121,7 @@ Checkbox convention:
     - The rewrite has a dedicated Feedback page.
     - Verify it remains easy to report both application bugs and data/rule corrections.
 
-- [ ] **APP-010 - FAQ and Errata external access** `NEEDS VERIFICATION`
+- [x] **APP-010 - FAQ and Errata external access** `CHANGED-EQUIVALENT`
     - v2024 includes direct access to FAQs and Errata.
     - Keep an obvious route to the official/current source.
 
@@ -156,22 +155,22 @@ Checkbox convention:
 
 ## Roster lifecycle
 
-- [ ] **ROS-001 - Create a roster** `MISSING`
+- [x] **ROS-001 - Create a roster** `PARITY`
     - User can create a roster from the Rosters area.
 
-- [ ] **ROS-002 - Optional roster name with sensible default** `MISSING`
+- [x] **ROS-002 - Optional roster name with sensible default** `PARITY`
     - v2024 allows creation without entering a custom name.
 
-- [ ] **ROS-003 - Select an army list during creation** `MISSING`
+- [x] **ROS-003 - Select an army list during creation** `PARITY`
     - Selection must use the new army-list data model.
 
-- [ ] **ROS-004 - Search army lists by army-list name** `MISSING`
+- [x] **ROS-004 - Search army lists by army-list name** `PARITY`
     - Creation flow must remain usable with a large number of lists.
 
-- [ ] **ROS-005 - Search army lists by hero name** `MISSING`
+- [x] **ROS-005 - Search army lists by hero name** `CHANGED-EQUIVALENT`
     - v2024 allows searching for a hero and choosing an army list that contains that hero.
 
-- [ ] **ROS-006 - Auto-add searched hero when creating from hero search** `MISSING`
+- [x] **ROS-006 - Auto-add searched hero when creating from hero search** `INTENTIONALLY REMOVED`
     - If the user creates a roster through a hero search result, that hero is added to the created roster.
 
 - [ ] **ROS-007 - Create unrestricted custom Good roster** `MISSING`
@@ -180,18 +179,18 @@ Checkbox convention:
 - [ ] **ROS-008 - Create unrestricted custom Evil roster** `MISSING`
     - v2024 supports custom Evil rosters outside normal army-list restrictions.
 
-- [ ] **ROS-009 - Open and edit an existing roster** `MISSING`
+- [x] **ROS-009 - Open and edit an existing roster** `PARITY`
 
-- [ ] **ROS-010 - Rename roster** `MISSING`
+- [x] **ROS-010 - Rename roster** `PARITY`
 
-- [ ] **ROS-011 - Edit roster metadata** `MISSING`
+- [x] **ROS-011 - Edit roster metadata** `PARITY`
     - Includes at least name, army-list-related metadata, tags, point limit, and other retained roster configuration.
 
-- [ ] **ROS-012 - Change army list while editing roster** `MISSING`
+- [x] **ROS-012 - Change army list while editing roster** `INTENTIONALLY REMOVED`
     - v2024 permits this but clears the existing roster because selections may no longer be valid.
     - Replacement must make this destructive consequence explicit.
 
-- [ ] **ROS-013 - Delete roster with confirmation** `MISSING`
+- [x] **ROS-013 - Delete roster with confirmation** `PARITY`
 
 - [ ] **ROS-014 - Bulk-delete rosters** `MISSING`
 
@@ -230,27 +229,27 @@ Checkbox convention:
 
 ## Roster groups
 
-- [ ] **ROS-026 - Create an empty roster group** `MISSING`
+- [x] **ROS-026 - Create an empty roster group** `PARITY`
 
-- [ ] **ROS-027 - Name roster groups** `MISSING`
+- [x] **ROS-027 - Name roster groups** `PARITY`
 
-- [ ] **ROS-028 - Allow groups with duplicate display names** `MISSING`
+- [x] **ROS-028 - Allow groups with duplicate display names** `PARITY`
     - Internal identity must not depend on display-name uniqueness.
 
 - [ ] **ROS-029 - Select an icon for a roster group** `MISSING`
 
-- [ ] **ROS-030 - Rename/update roster group** `MISSING`
+- [x] **ROS-030 - Rename/update roster group** `PARITY`
 
-- [ ] **ROS-031 - Move roster into a group** `MISSING`
+- [x] **ROS-031 - Move roster into a group** `PARITY`
 
-- [ ] **ROS-032 - Move roster out of a group** `MISSING`
+- [x] **ROS-032 - Move roster out of a group** `PARITY`
 
-- [ ] **ROS-033 - Create nested groups** `MISSING`
+- [x] **ROS-033 - Create nested groups** `PARITY`
     - v2024 supports parent-child group relationships.
 
-- [ ] **ROS-034 - Move groups between nesting levels** `MISSING`
+- [x] **ROS-034 - Move groups between nesting levels** `PARITY`
 
-- [ ] **ROS-035 - Group breadcrumbs** `MISSING`
+- [x] **ROS-035 - Group breadcrumbs** `PARITY`
     - Users can understand and navigate the current nested group location.
 
 - [ ] **ROS-036 - Disband group while preserving rosters** `MISSING`
@@ -260,22 +259,22 @@ Checkbox convention:
     - **Acceptance:** this remains semantically distinct from disbanding and requires an appropriately strong
       confirmation.
 
-- [ ] **ROS-038 - Drag and drop roster grouping** `MISSING`
+- [x] **ROS-038 - Drag and drop roster grouping** `PARITY`
     - Exact interaction may change, but quick reorganisation must remain available.
 
-- [ ] **ROS-039 - Drag and drop nested group organisation** `MISSING`
+- [x] **ROS-039 - Drag and drop nested group organisation** `PARITY`
 
-- [ ] **ROS-040 - Lock roster-page drag and drop** `MISSING`
+- [x] **ROS-040 - Lock roster-page drag and drop** `INTENTIONALLY REMOVED`
     - v2024 supports disabling drag/drop to avoid accidental changes, especially on touch devices.
 
-- [ ] **ROS-041 - Persist roster-page drag/drop lock** `MISSING`
+- [x] **ROS-041 - Persist roster-page drag/drop lock** `INTENTIONALLY REMOVED`
 
-- [ ] **ROS-042 - Import roster into the currently opened group** `MISSING`
+- [x] **ROS-042 - Import roster into the currently opened group** `INTENTIONALLY REMOVED`
     - v2024 preserves the user's current group context when importing.
 
 ## Roster-card actions
 
-- [ ] **ROS-043 - Open roster builder from roster card** `MISSING`
+- [x] **ROS-043 - Open roster builder from roster card** `PARITY`
 
 - [ ] **ROS-044 - Start Game Mode from roster card/menu** `MISSING`
 
