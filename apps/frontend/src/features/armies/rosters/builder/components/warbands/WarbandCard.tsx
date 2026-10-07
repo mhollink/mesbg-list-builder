@@ -182,7 +182,7 @@ function WarbandActions({
   return (
     <Stack
       direction="row"
-      spacing={2}
+      spacing={1}
       sx={{ flexGrow: 1, justifyContent: "flex-end" }}
     >
       <Tooltip title="collapse warband" placement="top">

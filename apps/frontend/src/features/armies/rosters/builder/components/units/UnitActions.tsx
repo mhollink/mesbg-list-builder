@@ -25,7 +25,7 @@ export function UnitActions({
   onDelete,
 }: UnitActionsProps) {
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row" spacing={1}>
       {canDuplicate && (
         <Tooltip title="Duplicate unit" placement="top">
           <IconButton
