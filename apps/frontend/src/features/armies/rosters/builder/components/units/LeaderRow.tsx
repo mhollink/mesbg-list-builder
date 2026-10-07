@@ -32,21 +32,40 @@ export function LeaderRow({
   if (!leader) {
     return (
       <Stack
-        spacing={1.5}
+        spacing={2}
         sx={{
-          alignItems: "flex-start",
+          py: 3,
+          px: 2,
+          alignItems: "center",
+          textAlign: "center",
         }}
       >
-        <Typography variant="overline" color="text.secondary">
-          Leader
+        <Typography variant="h6">
+          Select a leader
         </Typography>
 
-        <Typography color="text.secondary">
-          Select a leader before adding followers to this warband.
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ maxWidth: 420 }}
+        >
+          Choose a leader to configure this warband and add followers.
         </Typography>
 
         {!props.readonly && (
-          <Button variant="contained" onClick={onSelectLeader}>
+          <Button
+            variant="contained"
+            onClick={onSelectLeader}
+            sx={{
+              width: {
+                xs: "100%",
+                sm: "auto",
+              },
+              minWidth: {
+                sm: 180,
+              },
+            }}
+          >
             Select leader
           </Button>
         )}

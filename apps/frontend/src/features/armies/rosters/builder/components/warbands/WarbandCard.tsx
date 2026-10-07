@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -29,6 +29,8 @@ export interface WarbandCardProps {
   actions: RosterPersistence;
   availableLeaders: LocalizedArmyListProfile[];
   availableFollowers: LocalizedArmyListProfile[];
+  autoOpenLeaderPicker?: boolean;
+  onLeaderPickerOpened?: () => void;
 }
 
 export function WarbandCard({
@@ -40,6 +42,8 @@ export function WarbandCard({
   actions,
   availableLeaders,
   availableFollowers,
+                              autoOpenLeaderPicker,
+                              onLeaderPickerOpened
 }: WarbandCardProps) {
   const points = calculateWarbandPoints(warband, gameData);
   const [open, setOpen] = useState(true);
@@ -63,6 +67,22 @@ export function WarbandCard({
 
   const handleAddFollower = async (profile: LocalizedArmyListProfile) =>
     await actions.addFollower(warband.id, profile.id, 1, []);
+
+  useEffect(() => {
+    if (
+      autoOpenLeaderPicker &&
+      !warband.leader &&
+      !readonly
+    ) {
+      setLeaderPickerOpen(true);
+      onLeaderPickerOpened?.();
+    }
+  }, [
+    autoOpenLeaderPicker,
+    onLeaderPickerOpened,
+    readonly,
+    warband.leader,
+  ]);
 
   return (
     <>
@@ -113,11 +133,26 @@ export function WarbandCard({
             <>
               <Divider />
 
-              <Box sx={{ p: 2 }}>
+              <Box
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 <Button
                   variant="outlined"
                   startIcon={<AddIcon />}
                   onClick={() => setFollowerPickerOpen(true)}
+                  sx={{
+                    width: {
+                      xs: "100%",
+                      sm: "auto",
+                    },
+                    minWidth: {
+                      sm: 180,
+                    },
+                  }}
                 >
                   Add follower
                 </Button>
