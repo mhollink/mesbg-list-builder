@@ -14,6 +14,7 @@ import type {
 import type { WarbandCapacity } from "../../domain/warband-rules.ts";
 import { WarbandCard } from "./WarbandCard.tsx";
 import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
+import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
 interface WarbandListProps {
   roster: BuilderRoster;
@@ -23,6 +24,10 @@ interface WarbandListProps {
 
   getWarbandCapacity(warband: BuilderWarband): WarbandCapacity;
 
+  getAvailableLeaders(warband: BuilderWarband): LocalizedArmyListProfile[];
+
+  getAvailableFollowers(warband: BuilderWarband): LocalizedArmyListProfile[];
+
   actions: RosterPersistence;
 }
 
@@ -30,6 +35,8 @@ export function WarbandList({
   roster,
   gameData,
   canAddWarband,
+  getAvailableFollowers,
+  getAvailableLeaders,
   getWarbandCapacity,
   actions,
 }: WarbandListProps) {
@@ -111,6 +118,8 @@ export function WarbandList({
           warband={warband}
           gameData={gameData}
           capacity={getWarbandCapacity(warband)}
+          availableLeaders={getAvailableLeaders(warband)}
+          availableFollowers={getAvailableFollowers(warband)}
           readonly={roster.locked}
           actions={actions}
         />
