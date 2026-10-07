@@ -3,7 +3,7 @@ import { z } from "zod";
 import {
   optionalNumberCellSchema,
   optionalStringCellSchema,
-  requiredStringCellSchema
+  requiredStringCellSchema,
 } from "./common";
 
 export const optionRowSchema = z.object({
@@ -32,14 +32,14 @@ export const optionEffectRowSchema = z.object({
 export const optionLimitRowSchema = z.object({
   profile: requiredStringCellSchema,
   min: optionalNumberCellSchema,
-  max: optionalNumberCellSchema
+  max: optionalNumberCellSchema,
 });
 
 export const optionWorkbookSchema = z.object({
   options: z.array(optionRowSchema),
   requirements: z.array(optionRequirementRowSchema),
   effects: z.array(optionEffectRowSchema),
-  limits: z.array(optionLimitRowSchema)
+  limits: z.array(optionLimitRowSchema),
 });
 
 export type OptionWorkbook = z.infer<typeof optionWorkbookSchema>;

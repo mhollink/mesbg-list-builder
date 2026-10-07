@@ -54,5 +54,5 @@ export function UnitHeroicStats({ profile }: UnitHeroicStatsProps) {
         {might} / {will} / {fate}
       </Typography>
     </Stack>
-    );
+  );
 }

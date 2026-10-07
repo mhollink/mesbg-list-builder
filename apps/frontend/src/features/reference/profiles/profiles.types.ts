@@ -87,6 +87,7 @@ export interface Profile {
   additionalProfiles?: string[];
   additionalText?: string[];
   options?: ProfileOption[];
+  optionLimits?: { min?: number; max?: number };
   profileRules?: ProfileRule[];
   magicPowers?: MagicPower[];
 }

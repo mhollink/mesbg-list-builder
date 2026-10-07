@@ -10,6 +10,6 @@ export function loadOptions(optionsWorkbookPath: string): OptionWorkbook {
     options: readSheet(workbook, "Options"),
     requirements: readSheet(workbook, "Option Requirements"),
     effects: readSheet(workbook, "Option Effects"),
-    limits: readSheet(workbook, "Option Limits")
+    limits: readSheet(workbook, "Option Limits"),
   });
 }
