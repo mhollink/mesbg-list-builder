@@ -22,7 +22,7 @@ interface StyledIconButtonProps extends IconButtonProps {
 export const StyledIconButton = styled(IconButton, {
   shouldForwardProp: (prop) => prop !== "tone" && prop !== "filled",
 })<StyledIconButtonProps>(({ theme, tone, filled = false }) => {
-  const palette: PaletteColor = theme.palette[tone] ?? tokenize("#333");
+  const palette: PaletteColor = tone ? theme.palette[tone] : tokenize("#333");
 
   return {
     borderRadius: theme.shape.borderRadius,
