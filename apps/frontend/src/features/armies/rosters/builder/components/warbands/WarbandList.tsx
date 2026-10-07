@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
@@ -43,18 +43,53 @@ export function WarbandList({
   const [adding, setAdding] = useState(false);
   const [addFailed, setAddFailed] = useState(false);
 
+  const knownWarbandIds = useRef(
+    new Set(roster.warbands.map((warband) => warband.id)),
+  );
+
+  const [openLeaderForWarbandId, setOpenLeaderForWarbandId] =
+    useState<BuilderWarband["id"] | null>(null);
+
+  const [awaitingNewWarband, setAwaitingNewWarband] =
+    useState(false);
+
   const handleAdd = async () => {
     setAdding(true);
     setAddFailed(false);
+    setAwaitingNewWarband(true);
 
     try {
       await actions.createWarband();
     } catch {
+      setAwaitingNewWarband(false);
       setAddFailed(true);
     } finally {
       setAdding(false);
     }
   };
+
+  useEffect(() => {
+    const currentIds = new Set(
+      roster.warbands.map((warband) => warband.id),
+    );
+
+    if (awaitingNewWarband) {
+      const createdWarband = roster.warbands.find(
+        (warband) =>
+          !knownWarbandIds.current.has(warband.id),
+      );
+
+      if (createdWarband) {
+        setOpenLeaderForWarbandId(
+          createdWarband.id,
+        );
+
+        setAwaitingNewWarband(false);
+      }
+    }
+
+    knownWarbandIds.current = currentIds;
+  }, [roster.warbands, awaitingNewWarband]);
 
   if (roster.warbands.length === 0) {
     return (
@@ -122,6 +157,8 @@ export function WarbandList({
           availableFollowers={getAvailableFollowers(warband)}
           readonly={roster.locked}
           actions={actions}
+          autoOpenLeaderPicker={openLeaderForWarbandId === warband.id}
+          onLeaderPickerOpened={() => setOpenLeaderForWarbandId(null)}
         />
       ))}
 
