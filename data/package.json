@@ -10,8 +10,8 @@
     "build:image-sheet": "tsx scripts/generate-spritesheet.ts"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.14",
-    "@types/node": "^26.6.3",
+    "@biomejs/biome": "2.5.15",
+    "@types/node": "^26.6.4",
     "chokidar-cli": "^3.0.0",
     "sharp": "^0.35.5",
     "tsx": "^4.23.15",
