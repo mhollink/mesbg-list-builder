@@ -6,6 +6,8 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
+import { DragDropProvider } from "@dnd-kit/react";
+
 import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
 import type {
   BuilderRoster,
@@ -13,6 +15,7 @@ import type {
 } from "../../domain/roster.types.ts";
 import type { WarbandCapacity } from "../../domain/warband-rules.ts";
 import { WarbandCard } from "./WarbandCard.tsx";
+import { useRosterSorting } from "~/features/armies/rosters/builder/hooks/useRosterSorting.ts";
 import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
@@ -42,16 +45,17 @@ export function WarbandList({
 }: WarbandListProps) {
   const [adding, setAdding] = useState(false);
   const [addFailed, setAddFailed] = useState(false);
+  const dnd = useRosterSorting(roster, actions);
 
   const knownWarbandIds = useRef(
     new Set(roster.warbands.map((warband) => warband.id)),
   );
 
-  const [openLeaderForWarbandId, setOpenLeaderForWarbandId] =
-    useState<BuilderWarband["id"] | null>(null);
+  const [openLeaderForWarbandId, setOpenLeaderForWarbandId] = useState<
+    BuilderWarband["id"] | null
+  >(null);
 
-  const [awaitingNewWarband, setAwaitingNewWarband] =
-    useState(false);
+  const [awaitingNewWarband, setAwaitingNewWarband] = useState(false);
 
   const handleAdd = async () => {
     setAdding(true);
@@ -69,20 +73,15 @@ export function WarbandList({
   };
 
   useEffect(() => {
-    const currentIds = new Set(
-      roster.warbands.map((warband) => warband.id),
-    );
+    const currentIds = new Set(roster.warbands.map((warband) => warband.id));
 
     if (awaitingNewWarband) {
       const createdWarband = roster.warbands.find(
-        (warband) =>
-          !knownWarbandIds.current.has(warband.id),
+        (warband) => !knownWarbandIds.current.has(warband.id),
       );
 
       if (createdWarband) {
-        setOpenLeaderForWarbandId(
-          createdWarband.id,
-        );
+        setOpenLeaderForWarbandId(createdWarband.id);
 
         setAwaitingNewWarband(false);
       }
@@ -146,21 +145,31 @@ export function WarbandList({
         <Alert severity="error">The warband could not be created.</Alert>
       )}
 
-      {roster.warbands.map((warband, index) => (
-        <WarbandCard
-          key={warband.id}
-          index={index}
-          warband={warband}
-          gameData={gameData}
-          capacity={getWarbandCapacity(warband)}
-          availableLeaders={getAvailableLeaders(warband)}
-          availableFollowers={getAvailableFollowers(warband)}
-          readonly={roster.locked}
-          actions={actions}
-          autoOpenLeaderPicker={openLeaderForWarbandId === warband.id}
-          onLeaderPickerOpened={() => setOpenLeaderForWarbandId(null)}
-        />
-      ))}
+      {dnd.isError && (
+        <Alert severity="error">The follower could not be moved.</Alert>
+      )}
+
+      <DragDropProvider
+        onDragOver={dnd.handleDragOver}
+        onDragEnd={dnd.handleDragEnd}
+      >
+        {roster.warbands.map((warband, index) => (
+          <WarbandCard
+            key={warband.id}
+            index={index}
+            warband={warband}
+            gameData={gameData}
+            capacity={getWarbandCapacity(warband)}
+            availableLeaders={getAvailableLeaders(warband)}
+            availableFollowers={getAvailableFollowers(warband)}
+            readonly={roster.locked}
+            isDropTarget={dnd.targetWarbandId === warband.id}
+            actions={actions}
+            autoOpenLeaderPicker={openLeaderForWarbandId === warband.id}
+            onLeaderPickerOpened={() => setOpenLeaderForWarbandId(null)}
+          />
+        ))}
+      </DragDropProvider>
 
       {canAddWarband && (
         <Button

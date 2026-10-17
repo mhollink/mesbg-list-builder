@@ -1,4 +1,9 @@
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
+
+import { useSortable } from "@dnd-kit/react/sortable";
 
 import { UnitActions } from "~/features/armies/rosters/builder/components/units/UnitActions.tsx";
 import { UnitCard } from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
@@ -15,6 +20,7 @@ import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts"
 interface FollowerRowProps {
   warbandId: BuilderWarbandId;
   follower: BuilderUnit;
+  index: number;
   gameData: BuilderGameData;
   readonly?: boolean;
   actions: RosterPersistence;
@@ -23,6 +29,7 @@ interface FollowerRowProps {
 export function FollowerRow({
   warbandId,
   follower,
+  index,
   gameData,
   readonly = false,
   actions,
@@ -36,6 +43,18 @@ export function FollowerRow({
     unit: follower,
     warbandId,
     updateUnit: actions.updateUnit,
+  });
+  const { ref, handleRef, isDragging } = useSortable({
+    id: follower.id,
+    index,
+    group: warbandId,
+    type: "follower",
+    accept: "follower",
+    disabled: readonly,
+    data: {
+      kind: "follower",
+      warbandId,
+    },
   });
 
   const profile = gameData.armyListProfilesById.get(follower.armyListProfileId);
@@ -77,44 +96,71 @@ export function FollowerRow({
 
   const unique = profile.profile.unitTypes.includes("unique");
   return (
-    <UnitCard
-      key={follower.id}
-      unit={draftFollower}
-      profile={profile}
-      onOpenProfile={() => openProfileDrawer(profile.profileId)}
-      onOptionsChange={handleOptionsChange}
-      showUnitCost={!unique}
-      readonly={readonly}
-      controls={
-        <Stack
-          direction="row"
-          spacing={2}
-          useFlexGap
-          sx={{
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          {!unique ? (
-            <UnitQuantityControls
-              quantity={draftFollower.quantity}
-              disabled={readonly}
-              onChange={handleQuantityChange}
-            />
-          ) : (
-            <span />
-          )}
+    <Box
+      ref={ref}
+      sx={{
+        position: "relative",
+        opacity: isDragging ? 0.5 : 1,
+      }}
+    >
+      <IconButton
+        ref={handleRef}
+        aria-label="Move unit"
+        disabled={readonly}
+        sx={{
+          position: "absolute",
+          top: 20,
+          left: 10,
+          zIndex: 1,
+          cursor: "grab",
 
-          <UnitActions
-            canDuplicate={!unique}
-            canReplace
-            canDelete
-            onDuplicate={handleDuplicate}
-            onReplace={handleReplace}
-            onDelete={handleDelete}
-          />
-        </Stack>
-      }
-    />
+          "&:active": {
+            cursor: "grabbing",
+          },
+        }}
+      >
+        <DragIndicatorIcon />
+      </IconButton>
+      <UnitCard
+        key={follower.id}
+        unit={draftFollower}
+        profile={profile}
+        onOpenProfile={() => openProfileDrawer(profile.profileId)}
+        onOptionsChange={handleOptionsChange}
+        showUnitCost={!unique}
+        readonly={readonly}
+        draggable={!readonly}
+        controls={
+          <Stack
+            direction="row"
+            spacing={2}
+            useFlexGap
+            sx={{
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            {!unique ? (
+              <UnitQuantityControls
+                quantity={draftFollower.quantity}
+                disabled={readonly}
+                onChange={handleQuantityChange}
+              />
+            ) : (
+              <span />
+            )}
+
+            <UnitActions
+              canDuplicate={!unique}
+              canReplace
+              canDelete
+              onDuplicate={handleDuplicate}
+              onReplace={handleReplace}
+              onDelete={handleDelete}
+            />
+          </Stack>
+        }
+      />
+    </Box>
   );
 }
