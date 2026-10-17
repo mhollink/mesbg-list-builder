@@ -21,6 +21,7 @@ interface UnitCardProps {
   collapsed?: boolean;
   readonly?: boolean;
   showUnitCost?: boolean;
+  draggable?: boolean;
 
   controls?: ReactNode;
 
@@ -34,6 +35,7 @@ export function UnitCard({
   collapsed = false,
   readonly = false,
   showUnitCost = false,
+  draggable = false,
   controls,
   onOpenProfile,
   onOptionsChange,
@@ -49,7 +51,10 @@ export function UnitCard({
           direction="row"
           spacing={2}
           useFlexGap
-          sx={{ alignItems: "flex-start" }}
+          sx={{
+            alignItems: "flex-start",
+            pl: draggable ? 5 : 0,
+          }}
         >
           <ProfileAvatar profileId={profile.profileId} />
 

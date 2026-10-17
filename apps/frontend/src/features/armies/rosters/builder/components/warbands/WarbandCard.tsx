@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -6,6 +6,9 @@ import Collapse from "@mui/material/Collapse";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
+
+import { CollisionPriority } from "@dnd-kit/abstract";
+import { useDroppable } from "@dnd-kit/react";
 
 import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
 import type { BuilderWarband } from "../../domain/roster.types.ts";
@@ -26,6 +29,7 @@ export interface WarbandCardProps {
   gameData: BuilderGameData;
   capacity: WarbandCapacity;
   readonly?: boolean;
+  isDropTarget: boolean;
   actions: RosterPersistence;
   availableLeaders: LocalizedArmyListProfile[];
   availableFollowers: LocalizedArmyListProfile[];
@@ -41,14 +45,30 @@ export function WarbandCard({
   readonly = false,
   actions,
   availableLeaders,
+  isDropTarget,
   availableFollowers,
-                              autoOpenLeaderPicker,
-                              onLeaderPickerOpened
+  autoOpenLeaderPicker,
+  onLeaderPickerOpened,
 }: WarbandCardProps) {
   const points = calculateWarbandPoints(warband, gameData);
   const [open, setOpen] = useState(true);
   const [leaderPickerOpen, setLeaderPickerOpen] = useState(false);
   const [followerPickerOpen, setFollowerPickerOpen] = useState(false);
+
+  const { ref: warbandDropRef } = useDroppable({
+    id: `warband:${warband.id}`,
+    type: "warband",
+    accept: "follower",
+
+    collisionPriority: CollisionPriority.Low,
+
+    disabled: readonly || !warband.leader,
+
+    data: {
+      kind: "warband",
+      warbandId: warband.id,
+    },
+  });
 
   const headerActions: WarbandHeaderActions = {
     readonly,
@@ -69,24 +89,24 @@ export function WarbandCard({
     await actions.addFollower(warband.id, profile.id, 1, []);
 
   useEffect(() => {
-    if (
-      autoOpenLeaderPicker &&
-      !warband.leader &&
-      !readonly
-    ) {
+    if (autoOpenLeaderPicker && !warband.leader && !readonly) {
       setLeaderPickerOpen(true);
       onLeaderPickerOpened?.();
     }
-  }, [
-    autoOpenLeaderPicker,
-    onLeaderPickerOpened,
-    readonly,
-    warband.leader,
-  ]);
+  }, [autoOpenLeaderPicker, onLeaderPickerOpened, readonly, warband.leader]);
 
   return (
     <>
-      <Paper variant="outlined" elevation={10}>
+      <Paper
+        ref={warbandDropRef}
+        variant="outlined"
+        elevation={10}
+        sx={{
+          outline: isDropTarget ? "2px solid" : undefined,
+          outlineColor: "primary.main",
+          outlineOffset: 2,
+        }}
+      >
         <Stack>
           <MobileWarbandHeader
             index={index}
@@ -116,11 +136,12 @@ export function WarbandCard({
             <Collapse in={open}>
               <Divider />
               <Stack spacing={2} sx={{ p: 2 }}>
-                {warband.followers.map((follower) => (
+                {warband.followers.map((follower, index) => (
                   <FollowerRow
                     key={follower.id}
                     warbandId={warband.id}
                     follower={follower}
+                    index={index}
                     gameData={gameData}
                     actions={actions}
                     readonly={readonly}

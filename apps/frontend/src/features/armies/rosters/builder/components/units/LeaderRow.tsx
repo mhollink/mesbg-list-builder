@@ -40,9 +40,7 @@ export function LeaderRow({
           textAlign: "center",
         }}
       >
-        <Typography variant="h6">
-          Select a leader
-        </Typography>
+        <Typography variant="h6">Select a leader</Typography>
 
         <Typography
           variant="body2"
