@@ -120,7 +120,7 @@ export function FollowerRow({
       <IconButton
         ref={handleRef}
         aria-label="Move unit"
-        disabled={readonly}
+        disabled={readonly || sortingDisabled}
         sx={{
           position: "absolute",
           top: 20,

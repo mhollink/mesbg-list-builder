@@ -71,6 +71,9 @@ export function WarbandList({
   const [movingWarband, setMovingWarband] = useState(false);
   const [moveError, setMoveError] = useState(false);
 
+  const canReorderWarbands =
+    !roster.locked && !movingWarband && !dnd.isDragging && !dnd.isSaving;
+
   const handleAdd = async () => {
     setAdding(true);
     setAddFailed(false);
@@ -188,7 +191,6 @@ export function WarbandList({
         <Alert severity="error">The warband could not be moved.</Alert>
       )}
 
-
       {dnd.isError && (
         <Alert severity="error">The follower could not be moved.</Alert>
       )}
@@ -209,15 +211,13 @@ export function WarbandList({
             availableLeaders={getAvailableLeaders(warband)}
             availableFollowers={getAvailableFollowers(warband)}
             readonly={roster.locked}
-            sortingDisabled={dnd.isSaving}
+            sortingDisabled={dnd.isSaving || movingWarband}
             actions={actions}
             autoOpenLeaderPicker={openLeaderForWarbandId === warband.id}
             onLeaderPickerOpened={() => setOpenLeaderForWarbandId(null)}
-            canMoveUp={!roster.locked && !movingWarband && index > 0}
+            canMoveUp={canReorderWarbands && index > 0}
             canMoveDown={
-              !roster.locked &&
-              !movingWarband &&
-              index < roster.warbands.length - 1
+              canReorderWarbands && index < roster.warbands.length - 1
             }
             onMoveUp={() => void handleMoveWarband(warband, index - 1)}
             onMoveDown={() => void handleMoveWarband(warband, index + 1)}
