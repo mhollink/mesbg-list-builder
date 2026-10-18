@@ -20,7 +20,7 @@ export function WarbandOrderControls({
 }: WarbandOrderControlsProps) {
   return (
     <Stack direction="row" spacing={1}>
-      <Tooltip title="Move warband up" placement="top"  >
+      <Tooltip title="Move warband up" placement="top">
         <span>
           <IconButton
             aria-label="Move warband up"

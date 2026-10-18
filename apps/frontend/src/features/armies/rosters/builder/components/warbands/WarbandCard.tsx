@@ -69,7 +69,7 @@ export function WarbandCard({
     type: "warband",
     accept: "follower",
     collisionPriority: CollisionPriority.Low,
-    disabled: readonly || sortingDisabled,
+    disabled: readonly || sortingDisabled || !warband.leader,
     data: {
       kind: "warband",
       warbandId: warband.id,
@@ -103,10 +103,7 @@ export function WarbandCard({
 
   return (
     <>
-      <Paper
-        ref={warbandDropRef}
-        variant="outlined"
-      >
+      <Paper ref={warbandDropRef} variant="outlined">
         <Stack>
           <MobileWarbandHeader
             index={index}
