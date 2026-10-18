@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
@@ -6,17 +6,31 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import {DragDropProvider} from "@dnd-kit/react";
+import {
+  DragDropProvider,
+  KeyboardSensor,
+  PointerSensor,
+} from "@dnd-kit/react";
 
-import type {BuilderGameData} from "../../data/builder-game-data.types.ts";
-import type {BuilderRoster, BuilderWarband,} from "../../domain/roster.types.ts";
-import type {WarbandCapacity} from "../../domain/warband-rules.ts";
-import {WarbandCard} from "./WarbandCard.tsx";
-import {useRosterSorting} from "~/features/armies/rosters/builder/hooks/useRosterSorting.ts";
+import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
 import type {
-  RosterPersistence
-} from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
-import type {LocalizedArmyListProfile} from "~/features/reference/army-lists/army-lists.types.ts";
+  BuilderRoster,
+  BuilderWarband,
+} from "../../domain/roster.types.ts";
+import type { WarbandCapacity } from "../../domain/warband-rules.ts";
+import { WarbandCard } from "./WarbandCard.tsx";
+import { useRosterSorting } from "~/features/armies/rosters/builder/hooks/useRosterSorting.ts";
+import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
+import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
+
+const sensors = [
+  PointerSensor.configure({
+    activatorElements(source) {
+      return source.handle ? [source.handle] : [];
+    },
+  }),
+  KeyboardSensor,
+];
 
 interface WarbandListProps {
   roster: BuilderRoster;
@@ -33,14 +47,14 @@ interface WarbandListProps {
 }
 
 export function WarbandList({
-                              roster,
-                              gameData,
-                              canAddWarband,
-                              getAvailableFollowers,
-                              getAvailableLeaders,
-                              getWarbandCapacity,
-                              actions,
-                            }: WarbandListProps) {
+  roster,
+  gameData,
+  canAddWarband,
+  getAvailableFollowers,
+  getAvailableLeaders,
+  getWarbandCapacity,
+  actions,
+}: WarbandListProps) {
   const [adding, setAdding] = useState(false);
   const [addFailed, setAddFailed] = useState(false);
   const dnd = useRosterSorting(roster, actions);
@@ -54,6 +68,8 @@ export function WarbandList({
   >(null);
 
   const [awaitingNewWarband, setAwaitingNewWarband] = useState(false);
+  const [movingWarband, setMovingWarband] = useState(false);
+  const [moveError, setMoveError] = useState(false);
 
   const handleAdd = async () => {
     setAdding(true);
@@ -69,6 +85,31 @@ export function WarbandList({
       setAdding(false);
     }
   };
+
+  async function handleMoveWarband(
+    warband: BuilderWarband,
+    targetIndex: number,
+  ) {
+    if (
+      movingWarband ||
+      roster.locked ||
+      targetIndex < 0 ||
+      targetIndex >= roster.warbands.length
+    ) {
+      return;
+    }
+
+    setMovingWarband(true);
+    setMoveError(false);
+
+    try {
+      await actions.moveWarband(warband.id, targetIndex);
+    } catch {
+      setMoveError(true);
+    } finally {
+      setMovingWarband(false);
+    }
+  }
 
   useEffect(() => {
     const currentIds = new Set(roster.warbands.map((warband) => warband.id));
@@ -115,7 +156,7 @@ export function WarbandList({
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{mt: 0.5}}
+                sx={{ mt: 0.5 }}
               >
                 Add a warband to start building this roster.
               </Typography>
@@ -124,7 +165,7 @@ export function WarbandList({
             {canAddWarband && (
               <Button
                 variant="contained"
-                startIcon={<AddIcon/>}
+                startIcon={<AddIcon />}
                 disabled={adding}
                 onClick={() => void handleAdd()}
               >
@@ -143,15 +184,22 @@ export function WarbandList({
         <Alert severity="error">The warband could not be created.</Alert>
       )}
 
+      {moveError && (
+        <Alert severity="error">The warband could not be moved.</Alert>
+      )}
+
+
       {dnd.isError && (
         <Alert severity="error">The follower could not be moved.</Alert>
       )}
 
       <DragDropProvider
+        sensors={sensors}
+        onDragStart={dnd.handleDragStart}
         onDragOver={dnd.handleDragOver}
         onDragEnd={dnd.handleDragEnd}
       >
-        {roster.warbands.map((warband, index) => (
+        {dnd.warbands.map((warband, index) => (
           <WarbandCard
             key={warband.id}
             index={index}
@@ -161,9 +209,18 @@ export function WarbandList({
             availableLeaders={getAvailableLeaders(warband)}
             availableFollowers={getAvailableFollowers(warband)}
             readonly={roster.locked}
+            sortingDisabled={dnd.isSaving}
             actions={actions}
             autoOpenLeaderPicker={openLeaderForWarbandId === warband.id}
             onLeaderPickerOpened={() => setOpenLeaderForWarbandId(null)}
+            canMoveUp={!roster.locked && !movingWarband && index > 0}
+            canMoveDown={
+              !roster.locked &&
+              !movingWarband &&
+              index < roster.warbands.length - 1
+            }
+            onMoveUp={() => void handleMoveWarband(warband, index - 1)}
+            onMoveDown={() => void handleMoveWarband(warband, index + 1)}
           />
         ))}
       </DragDropProvider>
@@ -171,7 +228,7 @@ export function WarbandList({
       {canAddWarband && (
         <Button
           variant="outlined"
-          startIcon={<AddIcon/>}
+          startIcon={<AddIcon />}
           disabled={adding}
           onClick={() => void handleAdd()}
           sx={{
