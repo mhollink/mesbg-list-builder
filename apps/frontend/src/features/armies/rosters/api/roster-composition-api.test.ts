@@ -25,11 +25,11 @@ describe("rosterCompositionApi", () => {
 
   it("sets army options", async () => {
     const request: UpdateRosterArmyOptionsRequest = {
-      optionIds: new Set("campfire"),
+      optionIds: ["campfire"],
     };
     const response = {
       id: 42,
-      armyOptionIds: new Set("campfire"),
+      armyOptionIds: ["campfire"],
     } as RosterSummary;
 
     client.setRosterArmyOptions.mockResolvedValue(response);

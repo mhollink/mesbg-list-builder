@@ -119,7 +119,7 @@ describe("useAuthenticatedRosterPersistence", () => {
       warbandId: 10,
       request: {
         armyListProfileId: "witch-king",
-        optionIds: new Set(["horse"]),
+        optionIds: ["horse"],
       },
     });
 
@@ -129,7 +129,7 @@ describe("useAuthenticatedRosterPersistence", () => {
       request: {
         armyListProfileId: "orc-warrior",
         quantity: 4,
-        optionIds: new Set(["shield"]),
+        optionIds: ["shield"],
       },
     });
 
@@ -139,7 +139,7 @@ describe("useAuthenticatedRosterPersistence", () => {
       unitId: 100,
       request: {
         quantity: 6,
-        optionIds: new Set(["shield"]),
+        optionIds: ["shield"],
       },
     });
 
@@ -182,7 +182,7 @@ describe("useAuthenticatedRosterPersistence", () => {
     expect(mocks.setArmyOptions).toHaveBeenCalledWith({
       rosterId: 42,
       request: {
-        optionIds: new Set(["extra-rule", "another-rule"]),
+        optionIds: ["extra-rule", "another-rule"],
       },
     });
 
