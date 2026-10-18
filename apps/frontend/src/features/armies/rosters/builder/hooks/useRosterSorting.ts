@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import type { DragEndEvent, DragOverEvent } from "@dnd-kit/react";
+import type {
+  DragEndEvent,
+  DragOverEvent,
+  DragStartEvent,
+} from "@dnd-kit/react";
 import { isSortable } from "@dnd-kit/react/sortable";
 
 import type {
   BuilderRoster,
   BuilderUnitId,
+  BuilderWarband,
   BuilderWarbandId,
 } from "~/features/armies/rosters/builder/domain/roster.types.ts";
 import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
@@ -14,34 +19,66 @@ export function useRosterSorting(
   roster: BuilderRoster,
   actions: RosterPersistence,
 ) {
+  /*
+   * Local representation of the warbands.
+   *
+   * We render this instead of roster.warbands so a server
+   * refetch cannot replace the sortable structure while
+   * dnd-kit is actively dragging.
+   */
+  const [warbands, setWarbands] = useState(roster.warbands);
+
   const [targetWarbandId, setTargetWarbandId] =
     useState<BuilderWarbandId | null>(null);
+
   const [isError, setIsError] = useState(false);
+
+  const isDraggingRef = useRef(false);
+
+  /*
+   * Synchronize the local representation with the actual
+   * roster whenever there is no active drag operation.
+   */
+  useEffect(() => {
+    if (!isDraggingRef.current) {
+      setWarbands(roster.warbands);
+    }
+  }, [roster.warbands]);
+
+  const handleDragStart = (_event: DragStartEvent) => {
+    isDraggingRef.current = true;
+
+    setIsError(false);
+  };
 
   const handleDragOver = (event: DragOverEvent) => {
     const { source, target } = event.operation;
 
-    if (!target) {
+    if (!source || !target || !isSortable(source)) {
       setTargetWarbandId(null);
       return;
     }
 
-    // Directly over the warband fallback target.
+    /*
+     * If we're directly over the warband fallback target,
+     * use its explicit ID.
+     */
     if (target.data?.kind === "warband") {
       setTargetWarbandId(target.data.warbandId as BuilderWarbandId);
+
       return;
     }
 
-    // Directly over one of its sortable followers.
-    if (isSortable(target) && target.group != null) {
-      setTargetWarbandId(target.group as BuilderWarbandId);
-      return;
-    }
-
-    // With optimistic sorting, the source's current group
-    // may already represent the warband it has moved over.
-    if (isSortable(source) && source.group != null) {
+    /*
+     * Optimistic sorting updates source.group as the item
+     * moves between sortable groups.
+     *
+     * This also works when source/target refer to the same
+     * sortable element during optimistic sorting.
+     */
+    if (source.group != null) {
       setTargetWarbandId(source.group as BuilderWarbandId);
+
       return;
     }
 
@@ -49,57 +86,177 @@ export function useRosterSorting(
   };
 
   const handleDragEnd = async (event: DragEndEvent) => {
+    /*
+     * The drag operation itself has finished. Server data may
+     * safely synchronize again after this point.
+     */
+    isDraggingRef.current = false;
+
     setTargetWarbandId(null);
+
     if (event.canceled) {
+      /*
+       * React state was never changed during dragging, so
+       * there is nothing to roll back.
+       */
+      setWarbands(roster.warbands);
+
       return;
     }
 
     const { source, target } = event.operation;
 
-    if (!source || !target || !isSortable(source)) {
+    if (
+      !source ||
+      !target ||
+      !isSortable(source) ||
+      source.initialGroup == null
+    ) {
       return;
     }
 
     const sourceWarbandId = source.initialGroup as BuilderWarbandId;
 
-    // Dropped directly on a follower.
-    if (isSortable(target)) {
-      await actions.moveUnit(
-        sourceWarbandId,
-        source.id as BuilderUnitId,
-        target.group as BuilderWarbandId,
-        target.index,
-      );
+    const sourceIndex = source.initialIndex;
 
-      return;
-    }
+    let destinationWarbandId: BuilderWarbandId;
+    let destinationIndex: number;
 
-    // Dropped somewhere on the warband itself.
+    /*
+     * Dropping directly on the warband itself means:
+     *
+     * append the follower to the end of that warband.
+     */
     if (target.data?.kind === "warband") {
-      const targetWarbandId = target.data.warbandId as BuilderWarbandId;
+      destinationWarbandId = target.data.warbandId as BuilderWarbandId;
 
-      const targetWarband = roster.warbands.find(
-        (warband) => warband.id === targetWarbandId,
+      const targetWarband = warbands.find(
+        (warband) => warband.id === destinationWarbandId,
       );
 
       if (!targetWarband) {
         return;
       }
 
+      /*
+       * When appending within the same warband, removal of the
+       * source decreases its length by one.
+       */
+      destinationIndex =
+        sourceWarbandId === destinationWarbandId
+          ? Math.max(0, targetWarband.followers.length - 1)
+          : targetWarband.followers.length;
+    } else {
+      /*
+       * For a normal sortable drop, optimistic sorting has
+       * already calculated the final group and index for us.
+       */
+      if (source.group == null) {
+        return;
+      }
+
+      destinationWarbandId = source.group as BuilderWarbandId;
+
+      destinationIndex = source.index;
+    }
+
+    /*
+     * Nothing changed.
+     */
+    if (
+      sourceWarbandId === destinationWarbandId &&
+      sourceIndex === destinationIndex
+    ) {
+      return;
+    }
+
+    /*
+     * Commit dnd-kit's optimistic position into React state.
+     *
+     * At this point the DOM has already visually moved there,
+     * so React simply catches up with what the user saw.
+     */
+    setWarbands((current) =>
+      moveFollower(
+        current,
+        source.id as BuilderUnitId,
+        destinationWarbandId,
+        destinationIndex,
+      ),
+    );
+
+    try {
       await actions.moveUnit(
         sourceWarbandId,
         source.id as BuilderUnitId,
-        targetWarbandId,
-        targetWarband.followers.length,
+        destinationWarbandId,
+        destinationIndex,
       );
+    } catch {
+      /*
+       * Persistence failed, so restore the authoritative
+       * roster.
+       */
+      setWarbands(roster.warbands);
+      setIsError(true);
     }
   };
 
   return {
+    warbands,
+
+    handleDragStart,
     handleDragOver,
     handleDragEnd,
+
     targetWarbandId,
     isError,
+
     clearError: () => setIsError(false),
   };
+}
+
+function moveFollower(
+  warbands: BuilderWarband[],
+  unitId: BuilderUnitId,
+  targetWarbandId: BuilderWarbandId,
+  targetIndex: number,
+): BuilderWarband[] {
+  const follower = warbands
+    .flatMap((warband) => warband.followers)
+    .find((candidate) => candidate.id === unitId);
+
+  if (!follower) {
+    return warbands;
+  }
+
+  /*
+   * Remove the follower from whichever warband currently
+   * contains it.
+   *
+   * Removing by ID also guarantees that an accidental
+   * duplicate cannot survive this operation.
+   */
+  const withoutFollower = warbands.map((warband) => ({
+    ...warband,
+
+    followers: warband.followers.filter((candidate) => candidate.id !== unitId),
+  }));
+
+  return withoutFollower.map((warband) => {
+    if (warband.id !== targetWarbandId) {
+      return warband;
+    }
+
+    const followers = [...warband.followers];
+
+    const position = Math.max(0, Math.min(targetIndex, followers.length));
+
+    followers.splice(position, 0, follower);
+
+    return {
+      ...warband,
+      followers,
+    };
+  });
 }

@@ -87,7 +87,6 @@ RosterSummary:
 
     armyOptionIds:
       type: array
-      uniqueItems: true
       items:
         type: string
       default: [ ]
@@ -194,7 +193,6 @@ Roster:
 
     armyOptionIds:
       type: array
-      uniqueItems: true
       items:
         type: string
       default: [ ]
@@ -307,7 +305,6 @@ UpdateRosterArmyOptionsRequest:
   properties:
     optionIds:
       type: array
-      uniqueItems: true
       items:
         type: string
 
@@ -355,7 +352,6 @@ RosterUnit:
 
     optionIds:
       type: array
-      uniqueItems: true
       items:
         type: string
 
@@ -372,7 +368,6 @@ LeaderInput:
 
     optionIds:
       type: array
-      uniqueItems: true
       items:
         type: string
 
@@ -394,7 +389,6 @@ CreateFollowerRequest:
 
     optionIds:
       type: array
-      uniqueItems: true
       items:
         type: string
 
@@ -409,7 +403,6 @@ UpdateRosterUnitRequest:
 
     optionIds:
       type: array
-      uniqueItems: true
       items:
         type: string
 

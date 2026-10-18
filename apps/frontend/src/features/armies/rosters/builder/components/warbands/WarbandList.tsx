@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
@@ -6,23 +6,21 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { DragDropProvider } from "@dnd-kit/react";
+import {DragDropProvider} from "@dnd-kit/react";
 
-import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
+import type {BuilderGameData} from "../../data/builder-game-data.types.ts";
+import type {BuilderRoster, BuilderWarband,} from "../../domain/roster.types.ts";
+import type {WarbandCapacity} from "../../domain/warband-rules.ts";
+import {WarbandCard} from "./WarbandCard.tsx";
+import {useRosterSorting} from "~/features/armies/rosters/builder/hooks/useRosterSorting.ts";
 import type {
-  BuilderRoster,
-  BuilderWarband,
-} from "../../domain/roster.types.ts";
-import type { WarbandCapacity } from "../../domain/warband-rules.ts";
-import { WarbandCard } from "./WarbandCard.tsx";
-import { useRosterSorting } from "~/features/armies/rosters/builder/hooks/useRosterSorting.ts";
-import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
-import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
+  RosterPersistence
+} from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
+import type {LocalizedArmyListProfile} from "~/features/reference/army-lists/army-lists.types.ts";
 
 interface WarbandListProps {
   roster: BuilderRoster;
   gameData: BuilderGameData;
-
   canAddWarband: boolean;
 
   getWarbandCapacity(warband: BuilderWarband): WarbandCapacity;
@@ -35,14 +33,14 @@ interface WarbandListProps {
 }
 
 export function WarbandList({
-  roster,
-  gameData,
-  canAddWarband,
-  getAvailableFollowers,
-  getAvailableLeaders,
-  getWarbandCapacity,
-  actions,
-}: WarbandListProps) {
+                              roster,
+                              gameData,
+                              canAddWarband,
+                              getAvailableFollowers,
+                              getAvailableLeaders,
+                              getWarbandCapacity,
+                              actions,
+                            }: WarbandListProps) {
   const [adding, setAdding] = useState(false);
   const [addFailed, setAddFailed] = useState(false);
   const dnd = useRosterSorting(roster, actions);
@@ -117,7 +115,7 @@ export function WarbandList({
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ mt: 0.5 }}
+                sx={{mt: 0.5}}
               >
                 Add a warband to start building this roster.
               </Typography>
@@ -126,7 +124,7 @@ export function WarbandList({
             {canAddWarband && (
               <Button
                 variant="contained"
-                startIcon={<AddIcon />}
+                startIcon={<AddIcon/>}
                 disabled={adding}
                 onClick={() => void handleAdd()}
               >
@@ -163,7 +161,6 @@ export function WarbandList({
             availableLeaders={getAvailableLeaders(warband)}
             availableFollowers={getAvailableFollowers(warband)}
             readonly={roster.locked}
-            isDropTarget={dnd.targetWarbandId === warband.id}
             actions={actions}
             autoOpenLeaderPicker={openLeaderForWarbandId === warband.id}
             onLeaderPickerOpened={() => setOpenLeaderForWarbandId(null)}
@@ -174,7 +171,7 @@ export function WarbandList({
       {canAddWarband && (
         <Button
           variant="outlined"
-          startIcon={<AddIcon />}
+          startIcon={<AddIcon/>}
           disabled={adding}
           onClick={() => void handleAdd()}
           sx={{

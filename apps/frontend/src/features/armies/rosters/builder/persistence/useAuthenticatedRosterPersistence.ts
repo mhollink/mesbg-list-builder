@@ -77,7 +77,7 @@ export function useAuthenticatedRosterPersistence(
         warbandId: numericWarbandId(warbandId),
         request: {
           armyListProfileId,
-          optionIds: new Set(optionIds),
+          optionIds,
         },
       }).unwrap();
     },
@@ -89,7 +89,7 @@ export function useAuthenticatedRosterPersistence(
         request: {
           armyListProfileId,
           quantity,
-          optionIds: new Set(optionIds),
+          optionIds,
         },
       }).unwrap();
     },
@@ -101,7 +101,7 @@ export function useAuthenticatedRosterPersistence(
         unitId: numericUnitId(unitId),
         request: {
           quantity: changes.quantity,
-          optionIds: changes.optionIds ? new Set(changes.optionIds) : undefined,
+          optionIds: changes.optionIds,
         },
       }).unwrap();
     },
@@ -143,7 +143,7 @@ export function useAuthenticatedRosterPersistence(
       await setArmyOptions({
         rosterId,
         request: {
-          optionIds: new Set(optionIds),
+          optionIds,
         },
       }).unwrap();
     },

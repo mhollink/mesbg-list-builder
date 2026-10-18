@@ -1,6 +1,8 @@
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
+import StyledIconButton from "~/components/icon-button";
 import {
   WarbandActions,
   type WarbandHeaderActions,
@@ -12,6 +14,7 @@ interface WarbandHeaderProps {
   points: number;
   capacity: WarbandCapacity;
   actions: WarbandHeaderActions;
+  dragHandleRef?: (element: Element | null) => void;
 }
 
 export function WarbandHeader({
@@ -19,6 +22,7 @@ export function WarbandHeader({
   capacity,
   points,
   actions,
+  dragHandleRef,
 }: WarbandHeaderProps) {
   return (
     <Stack
@@ -30,7 +34,17 @@ export function WarbandHeader({
         alignItems: "center",
       }}
     >
-      <Stack direction="row" spacing={2} useFlexGap>
+      <Stack
+        direction="row"
+        spacing={2}
+        useFlexGap
+        sx={{ alignItems: "center" }}
+      >
+        {dragHandleRef && (
+          <StyledIconButton ref={dragHandleRef}>
+            <DragIndicatorIcon />
+          </StyledIconButton>
+        )}
         <Typography>
           Warband: <b>{index + 1}</b>
         </Typography>
@@ -54,10 +68,12 @@ export function MobileWarbandHeader({
   points,
   capacity,
   actions,
+  dragHandleRef,
 }: WarbandHeaderProps) {
   return (
     <Stack
       direction="row"
+      spacing={2}
       sx={{
         display: { sx: "flex", sm: "none" },
         p: 2,
@@ -65,6 +81,11 @@ export function MobileWarbandHeader({
         alignItems: "center",
       }}
     >
+      {dragHandleRef && (
+        <StyledIconButton ref={dragHandleRef}>
+          <DragIndicatorIcon />
+        </StyledIconButton>
+      )}
       <Stack>
         <Typography>
           Points: <b>{points}</b>
