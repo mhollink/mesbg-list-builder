@@ -5,6 +5,7 @@ import com.mesbg.listbuilder.armies.roster.service.RosterCompositionService;
 import com.mesbg.listbuilder.generated.api.RosterCompositionApi;
 import com.mesbg.listbuilder.generated.model.RosterSummary;
 import com.mesbg.listbuilder.generated.model.UpdateRosterArmyOptionsRequest;
+import java.util.HashSet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +32,7 @@ public class RosterCompositionController implements RosterCompositionApi {
   @Override
   public ResponseEntity<RosterSummary> setRosterArmyOptions(
       Long rosterId, UpdateRosterArmyOptionsRequest request) {
-    var snapshot = rosterService.setArmyOptions(rosterId, request.getOptionIds());
+    var snapshot = rosterService.setArmyOptions(rosterId, new HashSet<>(request.getOptionIds()));
     return ResponseEntity.ok(rosterMapper.toSummary(snapshot.roster(), snapshot.statistics()));
   }
 }

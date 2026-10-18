@@ -8,6 +8,7 @@ import com.mesbg.listbuilder.generated.model.LeaderInput;
 import com.mesbg.listbuilder.generated.model.MoveRosterUnitRequest;
 import com.mesbg.listbuilder.generated.model.RosterUnit;
 import com.mesbg.listbuilder.generated.model.UpdateRosterUnitRequest;
+import java.util.HashSet;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +56,11 @@ public class RosterUnitsController implements RosterUnitsApi {
 
     var unit =
         rosterUnitsService.updateUnit(
-            rosterId, warbandId, unitId, request.getQuantity(), request.getOptionIds());
+            rosterId,
+            warbandId,
+            unitId,
+            request.getQuantity(),
+            request.getOptionIds() != null ? new HashSet<>(request.getOptionIds()) : null);
 
     return ResponseEntity.ok(rosterUnitMapper.toDto(unit));
   }

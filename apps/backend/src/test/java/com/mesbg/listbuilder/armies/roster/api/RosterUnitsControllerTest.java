@@ -13,6 +13,7 @@ import com.mesbg.listbuilder.armies.roster.api.mapper.RosterUnitMapper;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.service.RosterUnitsService;
 import com.mesbg.listbuilder.generated.model.RosterUnit;
+import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -182,7 +183,7 @@ class RosterUnitsControllerTest {
     unit.setId(id);
     unit.setArmyListProfileId(profileId);
     unit.setQuantity(1);
-    unit.setOptionIds(Set.of());
+    unit.setOptionIds(List.of());
 
     return unit;
   }

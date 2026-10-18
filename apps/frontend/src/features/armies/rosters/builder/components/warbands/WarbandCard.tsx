@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 
 import { CollisionPriority } from "@dnd-kit/abstract";
-import { useDroppable } from "@dnd-kit/react";
+import { useSortable } from "@dnd-kit/react/sortable";
 
 import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
 import type { BuilderWarband } from "../../domain/roster.types.ts";
@@ -29,7 +29,6 @@ export interface WarbandCardProps {
   gameData: BuilderGameData;
   capacity: WarbandCapacity;
   readonly?: boolean;
-  isDropTarget: boolean;
   actions: RosterPersistence;
   availableLeaders: LocalizedArmyListProfile[];
   availableFollowers: LocalizedArmyListProfile[];
@@ -45,7 +44,6 @@ export function WarbandCard({
   readonly = false,
   actions,
   availableLeaders,
-  isDropTarget,
   availableFollowers,
   autoOpenLeaderPicker,
   onLeaderPickerOpened,
@@ -55,15 +53,17 @@ export function WarbandCard({
   const [leaderPickerOpen, setLeaderPickerOpen] = useState(false);
   const [followerPickerOpen, setFollowerPickerOpen] = useState(false);
 
-  const { ref: warbandDropRef } = useDroppable({
-    id: `warband:${warband.id}`,
+  const {
+    ref: warbandDropRef,
+    handleRef,
+    isDropTarget,
+  } = useSortable({
+    id: warband.id,
+    index,
     type: "warband",
-    accept: "follower",
-
+    accept: ["warband"],
     collisionPriority: CollisionPriority.Low,
-
     disabled: readonly || !warband.leader,
-
     data: {
       kind: "warband",
       warbandId: warband.id,
@@ -94,7 +94,7 @@ export function WarbandCard({
       onLeaderPickerOpened?.();
     }
   }, [autoOpenLeaderPicker, onLeaderPickerOpened, readonly, warband.leader]);
-
+  
   return (
     <>
       <Paper
@@ -113,12 +113,14 @@ export function WarbandCard({
             points={points}
             capacity={capacity}
             actions={headerActions}
+            dragHandleRef={handleRef}
           />
           <WarbandHeader
             index={index}
             points={points}
             capacity={capacity}
             actions={headerActions}
+            dragHandleRef={handleRef}
           />
           <Divider />
           <Box sx={{ p: 2 }}>

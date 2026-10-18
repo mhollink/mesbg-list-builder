@@ -44,6 +44,7 @@ export function FollowerRow({
     warbandId,
     updateUnit: actions.updateUnit,
   });
+
   const { ref, handleRef, isDragging } = useSortable({
     id: follower.id,
     index,
@@ -53,6 +54,7 @@ export function FollowerRow({
     disabled: readonly,
     data: {
       kind: "follower",
+      followerId: follower.id,
       warbandId,
     },
   });
