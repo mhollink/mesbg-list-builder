@@ -1,12 +1,11 @@
-import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import StyledIconButton from "~/components/icon-button";
 import {
   WarbandActions,
   type WarbandHeaderActions,
 } from "~/features/armies/rosters/builder/components/warbands/WarbandActions.tsx";
+import { WarbandOrderControls } from "~/features/armies/rosters/builder/components/warbands/WarbandOrderControls.tsx";
 import type { WarbandCapacity } from "~/features/armies/rosters/builder/domain/warband-rules.ts";
 
 interface WarbandHeaderProps {
@@ -14,7 +13,11 @@ interface WarbandHeaderProps {
   points: number;
   capacity: WarbandCapacity;
   actions: WarbandHeaderActions;
-  dragHandleRef?: (element: Element | null) => void;
+
+  canMoveUp: boolean;
+  canMoveDown: boolean;
+  onMoveUp: () => void;
+  onMoveDown: () => void;
 }
 
 export function WarbandHeader({
@@ -22,7 +25,10 @@ export function WarbandHeader({
   capacity,
   points,
   actions,
-  dragHandleRef,
+  canMoveDown,
+  canMoveUp,
+  onMoveDown,
+  onMoveUp,
 }: WarbandHeaderProps) {
   return (
     <Stack
@@ -40,11 +46,12 @@ export function WarbandHeader({
         useFlexGap
         sx={{ alignItems: "center" }}
       >
-        {dragHandleRef && (
-          <StyledIconButton ref={dragHandleRef}>
-            <DragIndicatorIcon />
-          </StyledIconButton>
-        )}
+        <WarbandOrderControls
+          canMoveUp={canMoveUp}
+          canMoveDown={canMoveDown}
+          onMoveUp={onMoveUp}
+          onMoveDown={onMoveDown}
+        />
         <Typography>
           Warband: <b>{index + 1}</b>
         </Typography>
@@ -68,7 +75,10 @@ export function MobileWarbandHeader({
   points,
   capacity,
   actions,
-  dragHandleRef,
+  canMoveDown,
+  canMoveUp,
+  onMoveDown,
+  onMoveUp,
 }: WarbandHeaderProps) {
   return (
     <Stack
@@ -81,11 +91,12 @@ export function MobileWarbandHeader({
         alignItems: "center",
       }}
     >
-      {dragHandleRef && (
-        <StyledIconButton ref={dragHandleRef}>
-          <DragIndicatorIcon />
-        </StyledIconButton>
-      )}
+      <WarbandOrderControls
+        canMoveUp={canMoveUp}
+        canMoveDown={canMoveDown}
+        onMoveUp={onMoveUp}
+        onMoveDown={onMoveDown}
+      />
       <Stack>
         <Typography>
           Points: <b>{points}</b>

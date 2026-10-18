@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 
 import { CollisionPriority } from "@dnd-kit/abstract";
-import { useSortable } from "@dnd-kit/react/sortable";
+import { useDroppable } from "@dnd-kit/react";
 
 import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
 import type { BuilderWarband } from "../../domain/roster.types.ts";
@@ -20,6 +20,7 @@ import { LeaderPicker } from "~/features/armies/rosters/builder/components/picke
 import { FollowerRow } from "~/features/armies/rosters/builder/components/units/FollowerRow.tsx";
 import { LeaderRow } from "~/features/armies/rosters/builder/components/units/LeaderRow.tsx";
 import { calculateWarbandPoints } from "~/features/armies/rosters/builder/domain/roster-statistics.ts";
+import { warbandSortId } from "~/features/armies/rosters/builder/hooks/roster-sort-layout.ts";
 import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
@@ -29,11 +30,16 @@ export interface WarbandCardProps {
   gameData: BuilderGameData;
   capacity: WarbandCapacity;
   readonly?: boolean;
+  sortingDisabled?: boolean;
   actions: RosterPersistence;
   availableLeaders: LocalizedArmyListProfile[];
   availableFollowers: LocalizedArmyListProfile[];
   autoOpenLeaderPicker?: boolean;
   onLeaderPickerOpened?: () => void;
+  canMoveUp: boolean;
+  canMoveDown: boolean;
+  onMoveUp: () => void;
+  onMoveDown: () => void;
 }
 
 export function WarbandCard({
@@ -47,23 +53,23 @@ export function WarbandCard({
   availableFollowers,
   autoOpenLeaderPicker,
   onLeaderPickerOpened,
+  sortingDisabled,
+  canMoveDown,
+  canMoveUp,
+  onMoveDown,
+  onMoveUp,
 }: WarbandCardProps) {
   const points = calculateWarbandPoints(warband, gameData);
   const [open, setOpen] = useState(true);
   const [leaderPickerOpen, setLeaderPickerOpen] = useState(false);
   const [followerPickerOpen, setFollowerPickerOpen] = useState(false);
 
-  const {
-    ref: warbandDropRef,
-    handleRef,
-    isDropTarget,
-  } = useSortable({
-    id: warband.id,
-    index,
+  const { ref: warbandDropRef } = useDroppable({
+    id: warbandSortId(warband.id),
     type: "warband",
-    accept: ["warband"],
+    accept: "follower",
     collisionPriority: CollisionPriority.Low,
-    disabled: readonly || !warband.leader,
+    disabled: readonly || sortingDisabled,
     data: {
       kind: "warband",
       warbandId: warband.id,
@@ -94,18 +100,12 @@ export function WarbandCard({
       onLeaderPickerOpened?.();
     }
   }, [autoOpenLeaderPicker, onLeaderPickerOpened, readonly, warband.leader]);
-  
+
   return (
     <>
       <Paper
         ref={warbandDropRef}
         variant="outlined"
-        elevation={10}
-        sx={{
-          outline: isDropTarget ? "2px solid" : undefined,
-          outlineColor: "primary.main",
-          outlineOffset: 2,
-        }}
       >
         <Stack>
           <MobileWarbandHeader
@@ -113,14 +113,20 @@ export function WarbandCard({
             points={points}
             capacity={capacity}
             actions={headerActions}
-            dragHandleRef={handleRef}
+            canMoveDown={canMoveDown}
+            onMoveDown={onMoveDown}
+            canMoveUp={canMoveUp}
+            onMoveUp={onMoveUp}
           />
           <WarbandHeader
             index={index}
             points={points}
             capacity={capacity}
             actions={headerActions}
-            dragHandleRef={handleRef}
+            canMoveDown={canMoveDown}
+            onMoveDown={onMoveDown}
+            canMoveUp={canMoveUp}
+            onMoveUp={onMoveUp}
           />
           <Divider />
           <Box sx={{ p: 2 }}>
@@ -147,6 +153,7 @@ export function WarbandCard({
                     gameData={gameData}
                     actions={actions}
                     readonly={readonly}
+                    sortingDisabled={sortingDisabled}
                   />
                 ))}
               </Stack>

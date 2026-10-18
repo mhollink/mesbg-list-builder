@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
+import { Feedback } from "@dnd-kit/dom";
 import { useSortable } from "@dnd-kit/react/sortable";
 
 import { UnitActions } from "~/features/armies/rosters/builder/components/units/UnitActions.tsx";
@@ -13,6 +14,10 @@ import type {
   BuilderUnit,
   BuilderWarbandId,
 } from "~/features/armies/rosters/builder/domain/roster.types.ts";
+import {
+  followerSortId,
+  warbandSortId,
+} from "~/features/armies/rosters/builder/hooks/roster-sort-layout.ts";
 import { useDebouncedUnitUpdate } from "~/features/armies/rosters/builder/hooks/useDebouncedUnitUpdate.ts";
 import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
 import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
@@ -23,6 +28,7 @@ interface FollowerRowProps {
   index: number;
   gameData: BuilderGameData;
   readonly?: boolean;
+  sortingDisabled?: boolean;
   actions: RosterPersistence;
 }
 
@@ -32,6 +38,7 @@ export function FollowerRow({
   index,
   gameData,
   readonly = false,
+  sortingDisabled,
   actions,
 }: FollowerRowProps) {
   const { openProfileDrawer } = useDrawerStack();
@@ -46,12 +53,17 @@ export function FollowerRow({
   });
 
   const { ref, handleRef, isDragging } = useSortable({
-    id: follower.id,
+    id: followerSortId(follower.id),
     index,
-    group: warbandId,
+    group: warbandSortId(warbandId),
     type: "follower",
     accept: "follower",
-    disabled: readonly,
+    disabled: readonly || sortingDisabled,
+    plugins: [
+      Feedback.configure({
+        feedback: "clone",
+      }),
+    ],
     data: {
       kind: "follower",
       followerId: follower.id,
@@ -115,6 +127,7 @@ export function FollowerRow({
           left: 10,
           zIndex: 1,
           cursor: "grab",
+          touchAction: "none",
 
           "&:active": {
             cursor: "grabbing",
