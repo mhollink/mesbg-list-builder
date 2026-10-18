@@ -14,7 +14,7 @@ describe("mapApiRoster", () => {
       favorite: true,
       locked: false,
       tags: ["Tournament"],
-      armyOptionIds: new Set(["extra-rule"]),
+      armyOptionIds: ["extra-rule"],
       generalUnitId: 100,
 
       points: 500,
@@ -31,14 +31,14 @@ describe("mapApiRoster", () => {
             id: 100,
             armyListProfileId: "witch-king",
             quantity: 1,
-            optionIds: new Set(["horse"]),
+            optionIds: ["horse"],
           },
           followers: [
             {
               id: 101,
               armyListProfileId: "orc-warrior",
               quantity: 4,
-              optionIds: new Set(["shield"]),
+              optionIds: ["shield"],
             },
           ],
         },
@@ -88,7 +88,7 @@ describe("mapApiRoster", () => {
       favorite: false,
       locked: false,
       tags: [],
-      armyOptionIds: new Set(),
+      armyOptionIds: [],
       generalUnitId: null,
 
       points: 0,
