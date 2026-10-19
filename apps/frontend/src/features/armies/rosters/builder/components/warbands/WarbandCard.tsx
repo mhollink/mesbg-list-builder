@@ -11,7 +11,7 @@ import { CollisionPriority } from "@dnd-kit/abstract";
 import { useDroppable } from "@dnd-kit/react";
 
 import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
-import type { BuilderWarband } from "../../domain/roster.types.ts";
+import type {BuilderUnitId, BuilderWarband} from "../../domain/roster.types.ts";
 import type { WarbandCapacity } from "../../domain/warband-rules.ts";
 import type { WarbandHeaderActions } from "./WarbandActions.tsx";
 import { MobileWarbandHeader, WarbandHeader } from "./WarbandHeader.tsx";
@@ -29,6 +29,7 @@ export interface WarbandCardProps {
   warband: BuilderWarband;
   gameData: BuilderGameData;
   capacity: WarbandCapacity;
+  generalId?: BuilderUnitId;
   readonly?: boolean;
   sortingDisabled?: boolean;
   actions: RosterPersistence;
@@ -47,6 +48,7 @@ export function WarbandCard({
   warband,
   capacity,
   gameData,
+                              generalId,
   readonly = false,
   actions,
   availableLeaders,
@@ -126,10 +128,11 @@ export function WarbandCard({
             onMoveUp={onMoveUp}
           />
           <Divider />
-          <Box sx={{ p: 2 }}>
+          <Box sx={{ p: 1 }}>
             <LeaderRow
               warbandId={warband.id}
               leader={warband.leader}
+              generalId={generalId}
               gameData={gameData}
               actions={actions}
               readonly={readonly}
@@ -140,7 +143,7 @@ export function WarbandCard({
           {warband.followers.length > 0 && (
             <Collapse in={open}>
               <Divider />
-              <Stack spacing={2} sx={{ p: 2 }}>
+              <Stack spacing={0.5} sx={{ p: 1 }}>
                 {warband.followers.map((follower, index) => (
                   <FollowerRow
                     key={follower.id}
@@ -159,10 +162,9 @@ export function WarbandCard({
           {open && warband.leader && !readonly && (
             <>
               <Divider />
-
               <Box
                 sx={{
-                  p: 2,
+                  p: 1,
                   display: "flex",
                   justifyContent: "center",
                 }}
@@ -177,7 +179,7 @@ export function WarbandCard({
                       sm: "auto",
                     },
                     minWidth: {
-                      sm: 180,
+                      sm: 240,
                     },
                   }}
                 >
