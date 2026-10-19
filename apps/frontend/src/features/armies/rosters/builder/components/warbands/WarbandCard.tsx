@@ -11,7 +11,10 @@ import { CollisionPriority } from "@dnd-kit/abstract";
 import { useDroppable } from "@dnd-kit/react";
 
 import type { BuilderGameData } from "../../data/builder-game-data.types.ts";
-import type {BuilderUnitId, BuilderWarband} from "../../domain/roster.types.ts";
+import type {
+  BuilderUnitId,
+  BuilderWarband,
+} from "../../domain/roster.types.ts";
 import type { WarbandCapacity } from "../../domain/warband-rules.ts";
 import type { WarbandHeaderActions } from "./WarbandActions.tsx";
 import { MobileWarbandHeader, WarbandHeader } from "./WarbandHeader.tsx";
@@ -48,7 +51,7 @@ export function WarbandCard({
   warband,
   capacity,
   gameData,
-                              generalId,
+  generalId,
   readonly = false,
   actions,
   availableLeaders,

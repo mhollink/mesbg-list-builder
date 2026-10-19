@@ -7,8 +7,8 @@ import { Feedback } from "@dnd-kit/dom";
 import { useSortable } from "@dnd-kit/react/sortable";
 
 import { UnitActions } from "~/features/armies/rosters/builder/components/units/controls/UnitActions.tsx";
-import { UnitCard } from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
 import { UnitQuantityControls } from "~/features/armies/rosters/builder/components/units/controls/UnitQuantityControls.tsx";
+import { UnitCard } from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
 import type { BuilderGameData } from "~/features/armies/rosters/builder/data/builder-game-data.types.ts";
 import type {
   BuilderUnit,
@@ -78,12 +78,6 @@ export function FollowerRow({
     );
   }
 
-  function handleOptionsChange(optionIds: string[]) {
-    updateFollower({
-      optionIds,
-    });
-  }
-
   function handleQuantityChange(quantity: number) {
     updateFollower({
       quantity,
@@ -137,7 +131,6 @@ export function FollowerRow({
         unit={draftFollower}
         profile={profile}
         onOpenProfile={() => openProfileDrawer(profile.profileId)}
-        onOptionsChange={handleOptionsChange}
         showUnitCost={!unique}
         readonly={readonly}
         draggable={!readonly}

@@ -2,32 +2,23 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import {
-  UnitActions
-} from "~/features/armies/rosters/builder/components/units/controls/UnitActions.tsx";
-import {UnitCard} from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
+import { GeneralToggle } from "~/features/armies/rosters/builder/components/units/controls/GeneralToggle.tsx";
+import { UnitActions } from "~/features/armies/rosters/builder/components/units/controls/UnitActions.tsx";
+import { UnitCard } from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
+import type { BuilderGameData } from "~/features/armies/rosters/builder/data/builder-game-data.types.ts";
 import type {
-  BuilderGameData
-} from "~/features/armies/rosters/builder/data/builder-game-data.types.ts";
-import type {
-  BuilderUnit, BuilderUnitId,
+  BuilderUnit,
+  BuilderUnitId,
   BuilderWarbandId,
 } from "~/features/armies/rosters/builder/domain/roster.types.ts";
-import {
-  useDebouncedUnitUpdate
-} from "~/features/armies/rosters/builder/hooks/useDebouncedUnitUpdate.ts";
-import type {
-  RosterPersistence
-} from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
-import {useDrawerStack} from "~/features/drawer-stack/hooks/useDrawerStack.ts";
-import {
-  GeneralToggle
-} from "~/features/armies/rosters/builder/components/units/controls/GeneralToggle.tsx";
+import { useDebouncedUnitUpdate } from "~/features/armies/rosters/builder/hooks/useDebouncedUnitUpdate.ts";
+import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 
 interface LeaderRowProps {
   warbandId: BuilderWarbandId;
   leader: BuilderUnit | null;
-  generalId: BuilderUnitId;
+  generalId: BuilderUnitId | null;
   gameData: BuilderGameData;
   actions: RosterPersistence;
   readonly?: boolean;
@@ -37,10 +28,10 @@ interface LeaderRowProps {
 }
 
 export function LeaderRow({
-                            leader,
-                            onSelectLeader,
-                            ...props
-                          }: LeaderRowProps) {
+  leader,
+  onSelectLeader,
+  ...props
+}: LeaderRowProps) {
   if (!leader) {
     return (
       <Stack
@@ -57,7 +48,7 @@ export function LeaderRow({
         <Typography
           variant="body2"
           color="text.secondary"
-          sx={{maxWidth: 420}}
+          sx={{ maxWidth: 420 }}
         >
           Choose a leader to configure this warband and add followers.
         </Typography>
@@ -93,21 +84,18 @@ export function LeaderRow({
 }
 
 function SelectedLeaderRow({
-                             leader,
-                             warbandId,
+  leader,
+  warbandId,
   generalId,
-                             gameData,
-                             actions,
-                             readonly,
-                             collapsed,
-                             onSelectLeader,
-                           }: Omit<LeaderRowProps, "leader"> & {
+  gameData,
+  actions,
+  readonly,
+  collapsed,
+  onSelectLeader,
+}: Omit<LeaderRowProps, "leader"> & {
   leader: BuilderUnit;
 }) {
-
-  console.log(generalId);
-
-  const {openProfileDrawer} = useDrawerStack();
+  const { openProfileDrawer } = useDrawerStack();
   const leaderProfile = gameData.armyListProfilesById.get(
     leader.armyListProfileId,
   );
@@ -118,7 +106,7 @@ function SelectedLeaderRow({
     );
   }
 
-  const {unit: draftLeader, update} = useDebouncedUnitUpdate({
+  const { unit: draftLeader } = useDebouncedUnitUpdate({
     unit: leader,
     warbandId,
     updateUnit: actions.updateUnit,
@@ -129,7 +117,6 @@ function SelectedLeaderRow({
       unit={draftLeader}
       profile={leaderProfile}
       onOpenProfile={() => openProfileDrawer(leaderProfile.profile.profile)}
-      onOptionsChange={(optionIds) => update({optionIds})}
       collapsed={collapsed}
       readonly={readonly}
       controls={
@@ -145,10 +132,14 @@ function SelectedLeaderRow({
           <GeneralToggle
             isGeneral={leader.id === generalId}
             isFixedGeneral={false}
-            onSetGeneral={(value) => value ? void actions.setGeneral(leader.id) : void actions.clearGeneral()}
+            onSetGeneral={(value) =>
+              value
+                ? void actions.setGeneral(leader.id)
+                : void actions.clearGeneral()
+            }
           />
 
-          <UnitActions canEdit onEdit={onSelectLeader}/>
+          <UnitActions canEdit onEdit={onSelectLeader} />
         </Stack>
       }
     />

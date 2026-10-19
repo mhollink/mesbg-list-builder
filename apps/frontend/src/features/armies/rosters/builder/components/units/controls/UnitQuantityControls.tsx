@@ -6,13 +6,13 @@ import Typography from "@mui/material/Typography";
 
 interface UnitQuantityControlsProps {
   quantity: number;
-  disabled: boolean;
+  disabled?: boolean;
   onChange: (quantity: number) => void;
 }
 
 export function UnitQuantityControls({
   quantity,
-  disabled,
+  disabled = false,
   onChange,
 }: UnitQuantityControlsProps) {
   return (
