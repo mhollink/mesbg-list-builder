@@ -165,7 +165,9 @@ export function WarbandCard({
                     actions={actions}
                     readonly={readonly}
                     sortingDisabled={sortingDisabled}
-                    onEdit={() => setFollowerEditor({type: "edit", unit: follower})}
+                    onEdit={() =>
+                      setFollowerEditor({ type: "edit", unit: follower })
+                    }
                   />
                 ))}
               </Stack>
