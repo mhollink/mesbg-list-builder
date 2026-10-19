@@ -27,13 +27,15 @@ export function UnitConfigurationHeader({
           useFlexGap
           sx={{ alignItems: "flex-start" }}
         >
-          <IconButton
-            onClick={onBack}
-            aria-label="Back to unit selection"
-            sx={{ mt: -0.5, ml: -1 }}
-          >
-            <ArrowBackIcon />
-          </IconButton>
+          {onBack && (
+            <IconButton
+              onClick={onBack}
+              aria-label="Back to unit selection"
+              sx={{ mt: -0.5, ml: -1 }}
+            >
+              <ArrowBackIcon />
+            </IconButton>
+          )}
 
           <Box sx={{ flex: 1, minWidth: 0 }}>
             <Typography

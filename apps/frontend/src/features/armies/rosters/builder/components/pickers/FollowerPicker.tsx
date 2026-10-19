@@ -6,6 +6,7 @@ import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/a
 interface FollowerPickerProps {
   open: boolean;
   profiles: readonly LocalizedArmyListProfile[];
+  initialProfile?: LocalizedArmyListProfile;
   existingUnits?: readonly BuilderUnit[];
   onClose: () => void;
   onSave: (

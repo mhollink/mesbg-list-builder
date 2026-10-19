@@ -18,13 +18,14 @@ import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts"
 interface LeaderRowProps {
   warbandId: BuilderWarbandId;
   leader: BuilderUnit | null;
-  generalId: BuilderUnitId | null;
+  generalId?: BuilderUnitId | null;
   gameData: BuilderGameData;
   actions: RosterPersistence;
   readonly?: boolean;
   collapsed?: boolean;
 
   onSelectLeader: () => void;
+  onEditLeader: () => void;
 }
 
 export function LeaderRow({
@@ -91,7 +92,7 @@ function SelectedLeaderRow({
   actions,
   readonly,
   collapsed,
-  onSelectLeader,
+  onEditLeader,
 }: Omit<LeaderRowProps, "leader"> & {
   leader: BuilderUnit;
 }) {
@@ -139,7 +140,7 @@ function SelectedLeaderRow({
             }
           />
 
-          <UnitActions canEdit onEdit={onSelectLeader} />
+          <UnitActions canEdit onEdit={onEditLeader} />
         </Stack>
       }
     />

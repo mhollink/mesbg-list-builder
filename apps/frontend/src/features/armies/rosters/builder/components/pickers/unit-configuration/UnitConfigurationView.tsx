@@ -26,7 +26,7 @@ import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/a
 export interface UnitConfigurationViewProps {
   profile: LocalizedArmyListProfile;
   existingUnits?: readonly BuilderUnit[];
-  onBack: () => void;
+  onBack?: () => void;
   onClose: () => void;
   onSave: (loadouts: UnitLoadout[]) => Promise<void>;
 }
@@ -84,17 +84,20 @@ export function UnitConfigurationView({
     0,
   );
   const pointsDifference = points - previousPoints;
+  const standardCost = getUnitCost(
+    toDraftUnit(profile, {
+      optionIds: [],
+      quantity: 1,
+    }),
+    profile,
+  );
 
-  // Keep the existing UnitLoadoutSelection API while making loadouts
-  // domain-based rather than coupling them to one option ID.
   const displayedLoadouts = Object.fromEntries(
     warriorDrafts.map((draft) => [
       draft.key,
       {
         name: draft.name,
-        pp:
-          getUnitCost(toDraftUnit(profile, draft), profile) -
-          (profile.profile.points ?? 0),
+        pp: getUnitCost(toDraftUnit(profile, draft), profile) - standardCost,
         quantity: draft.quantity,
       },
     ]),
