@@ -6,9 +6,9 @@ import Stack from "@mui/material/Stack";
 import { Feedback } from "@dnd-kit/dom";
 import { useSortable } from "@dnd-kit/react/sortable";
 
-import { UnitActions } from "~/features/armies/rosters/builder/components/units/UnitActions.tsx";
+import { UnitActions } from "~/features/armies/rosters/builder/components/units/controls/UnitActions.tsx";
 import { UnitCard } from "~/features/armies/rosters/builder/components/units/UnitCard.tsx";
-import { UnitQuantityControls } from "~/features/armies/rosters/builder/components/units/UnitQuantityControls.tsx";
+import { UnitQuantityControls } from "~/features/armies/rosters/builder/components/units/controls/UnitQuantityControls.tsx";
 import type { BuilderGameData } from "~/features/armies/rosters/builder/data/builder-game-data.types.ts";
 import type {
   BuilderUnit,
@@ -90,17 +90,14 @@ export function FollowerRow({
     });
   }
 
-  function handleDuplicate() {
+  function handleEdit() {
+    // TODO: Implement edit drawer
     void actions.addFollower(
       warbandId,
       draftFollower.armyListProfileId,
       draftFollower.quantity,
       [...draftFollower.optionIds],
     );
-  }
-
-  function handleReplace() {
-    // Open follower picker here later.
   }
 
   function handleDelete() {
@@ -123,12 +120,11 @@ export function FollowerRow({
         disabled={readonly || sortingDisabled}
         sx={{
           position: "absolute",
-          top: 20,
-          left: 10,
+          right: 1,
+          top: 1,
           zIndex: 1,
           cursor: "grab",
           touchAction: "none",
-
           "&:active": {
             cursor: "grabbing",
           },
@@ -148,7 +144,7 @@ export function FollowerRow({
         controls={
           <Stack
             direction="row"
-            spacing={2}
+            spacing={1}
             useFlexGap
             sx={{
               alignItems: "center",
@@ -166,11 +162,9 @@ export function FollowerRow({
             )}
 
             <UnitActions
-              canDuplicate={!unique}
-              canReplace
+              canEdit
               canDelete
-              onDuplicate={handleDuplicate}
-              onReplace={handleReplace}
+              onEdit={handleEdit}
               onDelete={handleDelete}
             />
           </Stack>

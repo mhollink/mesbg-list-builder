@@ -1,18 +1,15 @@
-import type { ReactNode } from "react";
+import type {ReactNode} from "react";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import Collapse from "@mui/material/Collapse";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { getUnitCost, getUnitTotalCost } from "../../domain/option-rules.ts";
-import type { BuilderUnit } from "../../domain/roster.types.ts";
-import { UnitHeroicStats } from "./UnitHeroicStats.tsx";
-import { UnitOptions } from "./UnitOptions.tsx";
-import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
-import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
+import {getUnitCost, getUnitTotalCost} from "../../domain/option-rules.ts";
+import type {BuilderUnit} from "../../domain/roster.types.ts";
+import {ProfileAvatar} from "~/components/profile-avatar/ProfileAvatar.tsx";
+import type {LocalizedArmyListProfile} from "~/features/reference/army-lists/army-lists.types.ts";
 
 interface UnitCardProps {
   unit: BuilderUnit;
@@ -30,34 +27,30 @@ interface UnitCardProps {
 }
 
 export function UnitCard({
-  unit,
-  profile,
-  collapsed = false,
-  readonly = false,
-  showUnitCost = false,
-  draggable = false,
-  controls,
-  onOpenProfile,
-  onOptionsChange,
-}: UnitCardProps) {
+                           unit,
+                           profile,
+                           collapsed = false,
+                           readonly = false,
+                           showUnitCost = false,
+                           draggable = false,
+                           controls,
+                           onOpenProfile,
+                         }: UnitCardProps) {
   const unitCost = getUnitCost(unit, profile);
   const totalCost = getUnitTotalCost(unit, profile);
   const unique = profile.profile.unitTypes.includes("unique");
 
   return (
     <Paper variant="outlined">
-      <Stack spacing={2} sx={{ p: 2 }}>
+      <Stack spacing={1} sx={{p: 1}}>
         <Stack
           direction="row"
-          spacing={2}
-          useFlexGap
+          spacing={1}
           sx={{
-            alignItems: "flex-start",
-            pl: draggable ? 5 : 0,
+            pr: draggable ? 4 : 0
           }}
         >
-          <ProfileAvatar profileId={profile.profileId} />
-
+          <ProfileAvatar profileId={profile.profileId}/>
           <Box
             sx={{
               flex: 1,
@@ -75,7 +68,7 @@ export function UnitCard({
                 justifyContent: "space-between",
               }}
             >
-              <Box>
+              <Stack direction="column" spacing={0}>
                 <Typography
                   component="button"
                   type="button"
@@ -88,6 +81,7 @@ export function UnitCard({
                     font: "inherit",
                     fontWeight: 700,
                     cursor: "pointer",
+                    textAlign: "start",
 
                     "&:hover": {
                       textDecoration: "underline",
@@ -97,34 +91,18 @@ export function UnitCard({
                   {!unique && <span>{unit.quantity} &times;</span>}{" "}
                   {profile.profile.name}
                 </Typography>
-
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  useFlexGap
-                  sx={{
-                    mt: 0.5,
-                    alignItems: "center",
-                    flexWrap: "wrap",
-                    display: {
-                      xs: profile.tier === "warrior" ? "none" : "flex",
-                      sm: "flex",
-                    },
-                  }}
-                >
-                  <Chip
-                    variant="outlined"
-                    color="default"
-                    label={profile.tierName}
-                    size="small"
-                  />
-                  <UnitHeroicStats profile={profile.profile} />
-                </Stack>
-              </Box>
+                <Typography color="textSecondary">
+                  {unit.optionIds
+                    .map(oid => profile.options.find(option => option.id === oid))
+                    .filter(option => !!option)
+                    .map(option => option.name)
+                    .join(" - ")}
+                </Typography>
+              </Stack>
 
               <Stack
-                direction={{ xs: "row", sm: "column" }}
-                spacing={{ xs: 1, sm: 0 }}
+                direction={{xs: "row", sm: "column"}}
+                spacing={{xs: 1, sm: 0}}
                 sx={{
                   textAlign: {
                     xs: "left",
@@ -134,7 +112,7 @@ export function UnitCard({
                   alignItems: "end",
                 }}
               >
-                <Typography sx={{ fontWeight: 700 }}>
+                <Typography sx={{fontWeight: 700}}>
                   {totalCost} pts
                 </Typography>
                 {showUnitCost && unit.quantity > 1 && (
@@ -147,28 +125,14 @@ export function UnitCard({
           </Box>
         </Stack>
 
-        <Collapse in={!collapsed}>
-          <Stack spacing={2}>
-            {profile.options.length > 0 && (
-              <>
-                <Divider />
-                <UnitOptions
-                  unit={unit}
-                  profile={profile}
-                  disabled={readonly}
-                  onChange={onOptionsChange}
-                />
-              </>
-            )}
-
-            {controls && !readonly && (
-              <>
-                <Divider />
-                {controls}
-              </>
-            )}
-          </Stack>
-        </Collapse>
+        {controls && !readonly && (
+          <Collapse in={!collapsed}>
+            <Stack spacing={1}>
+              <Divider/>
+              {controls}
+            </Stack>
+          </Collapse>
+        )}
       </Stack>
     </Paper>
   );

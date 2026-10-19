@@ -16,7 +16,7 @@ export function UnitQuantityControls({
   onChange,
 }: UnitQuantityControlsProps) {
   return (
-    <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
+    <Stack direction="row" spacing={0} sx={{ alignItems: "center" }}>
       <IconButton
         size="small"
         disabled={disabled || quantity <= 1}

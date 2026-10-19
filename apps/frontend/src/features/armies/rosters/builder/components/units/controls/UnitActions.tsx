@@ -1,53 +1,35 @@
-import CopyAllIcon from "@mui/icons-material/CopyAll";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
 
 import IconButton from "~/components/icon-button";
 
 interface UnitActionsProps {
-  canDuplicate?: boolean;
-  canReplace?: boolean;
+  canEdit?: boolean;
   canDelete?: boolean;
 
-  onDuplicate?: () => void;
-  onReplace?: () => void;
+  onEdit?: () => void;
   onDelete?: () => void;
 }
 
 export function UnitActions({
-  canDuplicate = false,
-  canReplace = false,
+  canEdit = false,
   canDelete = false,
-  onDuplicate,
-  onReplace,
+  onEdit,
   onDelete,
 }: UnitActionsProps) {
   return (
     <Stack direction="row" spacing={1}>
-      {canDuplicate && (
-        <Tooltip title="Duplicate unit" placement="top">
+      {canEdit && (
+        <Tooltip title="Edit unit" placement="top">
           <IconButton
             size="small"
-            onClick={onDuplicate}
-            aria-label="Duplicate unit"
+            onClick={onEdit}
+            aria-label="Edit unit"
             tone="primary"
           >
-            <CopyAllIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-      )}
-
-      {canReplace && (
-        <Tooltip title="Replace unit" placement="top">
-          <IconButton
-            size="small"
-            onClick={onReplace}
-            aria-label="Replace unit"
-            tone="warning"
-          >
-            <SwapHorizOutlinedIcon fontSize="small" />
+            <EditOutlinedIcon fontSize="small" />
           </IconButton>
         </Tooltip>
       )}

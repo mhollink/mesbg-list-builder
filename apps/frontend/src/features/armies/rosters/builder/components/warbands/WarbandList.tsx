@@ -207,6 +207,7 @@ export function WarbandList({
             index={index}
             warband={warband}
             gameData={gameData}
+            generalId={roster.generalUnitId}
             capacity={getWarbandCapacity(warband)}
             availableLeaders={getAvailableLeaders(warband)}
             availableFollowers={getAvailableFollowers(warband)}

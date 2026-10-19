@@ -12,7 +12,7 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import { UnitHeroicStats } from "../units/UnitHeroicStats.tsx";
+import { UnitHeroicStats } from "./UnitHeroicStats.tsx";
 import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
