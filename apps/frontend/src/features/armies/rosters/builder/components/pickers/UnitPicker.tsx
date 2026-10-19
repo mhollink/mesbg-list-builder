@@ -18,6 +18,7 @@ interface UnitPickerProps {
   open: boolean;
   title: string;
   profiles: readonly LocalizedArmyListProfile[];
+  initialProfile?: LocalizedArmyListProfile;
   existingUnits?: readonly BuilderUnit[];
   onSave: (
     profile: LocalizedArmyListProfile,
@@ -30,11 +31,16 @@ export function UnitPicker({
   open,
   title,
   profiles,
-  onClose,
+  initialProfile,
   existingUnits,
+  onClose,
   onSave,
 }: UnitPickerProps) {
-  const [view, setView] = useState<PickerView>({ type: "selection" });
+  const [view, setView] = useState<PickerView>(() =>
+    initialProfile
+      ? { type: "configuration", profile: initialProfile }
+      : { type: "selection" },
+  );
 
   function handleSelect(profile: LocalizedArmyListProfile) {
     setView({
@@ -76,13 +82,9 @@ export function UnitPicker({
           key={view.profile.id}
           profile={view.profile}
           existingUnits={existingUnits}
-          onBack={handleBack}
+          onBack={initialProfile ? undefined : handleBack}
           onClose={onClose}
-          onSave={async (loadouts) => {
-            await onSave(view.profile, loadouts);
-            // Navigate after a confirmed save. For leader edits, close.
-            // For follower creation, optionally return to the selector.
-          }}
+          onSave={(loadouts) => onSave(view.profile, loadouts)}
         />
       )}
     </Drawer>

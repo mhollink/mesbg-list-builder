@@ -29,6 +29,7 @@ interface FollowerRowProps {
   gameData: BuilderGameData;
   readonly?: boolean;
   sortingDisabled?: boolean;
+  onEdit: () => void;
   actions: RosterPersistence;
 }
 
@@ -39,6 +40,7 @@ export function FollowerRow({
   gameData,
   readonly = false,
   sortingDisabled,
+  onEdit,
   actions,
 }: FollowerRowProps) {
   const { openProfileDrawer } = useDrawerStack();
@@ -82,16 +84,6 @@ export function FollowerRow({
     updateFollower({
       quantity,
     });
-  }
-
-  function handleEdit() {
-    // TODO: Implement edit drawer
-    void actions.addFollower(
-      warbandId,
-      draftFollower.armyListProfileId,
-      draftFollower.quantity,
-      [...draftFollower.optionIds],
-    );
   }
 
   function handleDelete() {
@@ -157,7 +149,7 @@ export function FollowerRow({
             <UnitActions
               canEdit
               canDelete
-              onEdit={handleEdit}
+              onEdit={onEdit}
               onDelete={handleDelete}
             />
           </Stack>
