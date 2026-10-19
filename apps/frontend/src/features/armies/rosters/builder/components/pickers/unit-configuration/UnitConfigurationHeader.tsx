@@ -6,22 +6,21 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import type { UnitConfigurationViewProps } from "./UnitConfigurationView";
+import type { UnitConfigurationViewProps } from "./UnitConfigurationView.tsx";
+
+type UnitConfigurationHeaderProps = Pick<
+  UnitConfigurationViewProps,
+  "profile" | "onBack" | "onClose"
+>;
 
 export function UnitConfigurationHeader({
   profile,
   onBack,
   onClose,
-}: UnitConfigurationViewProps) {
+}: UnitConfigurationHeaderProps) {
   return (
     <>
-      <Box
-        sx={{
-          px: { xs: 2.5, sm: 4 },
-          pt: 3,
-          pb: 2.5,
-        }}
-      >
+      <Box sx={{ px: { xs: 2.5, sm: 4 }, pt: 3, pb: 2.5 }}>
         <Stack
           direction="row"
           spacing={2}
@@ -40,15 +39,10 @@ export function UnitConfigurationHeader({
             <Typography
               variant="h5"
               component="h2"
-              sx={{
-                fontWeight: 700,
-                lineHeight: 1.2,
-                mb: 0.5,
-              }}
+              sx={{ fontWeight: 700, lineHeight: 1.2, mb: 0.5 }}
             >
               Configure loadout(s)
             </Typography>
-
             <Typography variant="body2" color="textSecondary">
               {profile.profile.name}
             </Typography>

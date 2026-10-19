@@ -20,6 +20,10 @@ import type { WarbandHeaderActions } from "./WarbandActions.tsx";
 import { MobileWarbandHeader, WarbandHeader } from "./WarbandHeader.tsx";
 import { FollowerPicker } from "~/features/armies/rosters/builder/components/pickers/FollowerPicker.tsx";
 import { LeaderPicker } from "~/features/armies/rosters/builder/components/pickers/LeaderPicker.tsx";
+import {
+  saveFollowerLoadouts,
+  saveLeaderLoadouts,
+} from "~/features/armies/rosters/builder/components/pickers/unit-configuration/unit-configuration.persistence.ts";
 import { FollowerRow } from "~/features/armies/rosters/builder/components/units/FollowerRow.tsx";
 import { LeaderRow } from "~/features/armies/rosters/builder/components/units/LeaderRow.tsx";
 import { calculateWarbandPoints } from "~/features/armies/rosters/builder/domain/roster-statistics.ts";
@@ -92,12 +96,6 @@ export function WarbandCard({
       void actions.duplicateWarband(warband.id);
     },
   };
-
-  const handleSelectLeader = async (profile: LocalizedArmyListProfile) =>
-    await actions.setLeader(warband.id, profile.id, []);
-
-  const handleAddFollower = async (profile: LocalizedArmyListProfile) =>
-    await actions.addFollower(warband.id, profile.id, 1, []);
 
   useEffect(() => {
     if (autoOpenLeaderPicker && !warband.leader && !readonly) {
@@ -197,15 +195,25 @@ export function WarbandCard({
       <LeaderPicker
         open={leaderPickerOpen}
         profiles={availableLeaders}
+        existingUnits={warband.leader ? [warband.leader] : []}
         onClose={() => setLeaderPickerOpen(false)}
-        onSelect={handleSelectLeader}
+        onSave={(profile, loadouts) =>
+          saveLeaderLoadouts(warband, profile, loadouts, actions).then(() =>
+            setLeaderPickerOpen(false),
+          )
+        }
       />
 
       <FollowerPicker
         open={followerPickerOpen}
         profiles={availableFollowers}
+        existingUnits={warband.followers}
         onClose={() => setFollowerPickerOpen(false)}
-        onSelect={handleAddFollower}
+        onSave={(profile, loadouts) =>
+          saveFollowerLoadouts(warband, profile, loadouts, actions).then(() =>
+            setFollowerPickerOpen(false),
+          )
+        }
       />
     </>
   );
