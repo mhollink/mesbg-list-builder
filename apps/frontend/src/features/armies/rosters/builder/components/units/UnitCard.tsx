@@ -1,4 +1,4 @@
-import type {ReactNode} from "react";
+import type { ReactNode } from "react";
 import Box from "@mui/material/Box";
 import Collapse from "@mui/material/Collapse";
 import Divider from "@mui/material/Divider";
@@ -6,51 +6,47 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import {getUnitCost, getUnitTotalCost} from "../../domain/option-rules.ts";
-import type {BuilderUnit} from "../../domain/roster.types.ts";
-import {ProfileAvatar} from "~/components/profile-avatar/ProfileAvatar.tsx";
-import type {LocalizedArmyListProfile} from "~/features/reference/army-lists/army-lists.types.ts";
+import { getUnitCost, getUnitTotalCost } from "../../domain/option-rules.ts";
+import type { BuilderUnit } from "../../domain/roster.types.ts";
+import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
+import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
 interface UnitCardProps {
   unit: BuilderUnit;
   profile: LocalizedArmyListProfile;
-
   collapsed?: boolean;
   readonly?: boolean;
   showUnitCost?: boolean;
   draggable?: boolean;
-
   controls?: ReactNode;
-
   onOpenProfile: () => void;
-  onOptionsChange: (optionIds: string[]) => void;
 }
 
 export function UnitCard({
-                           unit,
-                           profile,
-                           collapsed = false,
-                           readonly = false,
-                           showUnitCost = false,
-                           draggable = false,
-                           controls,
-                           onOpenProfile,
-                         }: UnitCardProps) {
+  unit,
+  profile,
+  collapsed = false,
+  readonly = false,
+  showUnitCost = false,
+  draggable = false,
+  controls,
+  onOpenProfile,
+}: UnitCardProps) {
   const unitCost = getUnitCost(unit, profile);
   const totalCost = getUnitTotalCost(unit, profile);
   const unique = profile.profile.unitTypes.includes("unique");
 
   return (
     <Paper variant="outlined">
-      <Stack spacing={1} sx={{p: 1}}>
+      <Stack spacing={1} sx={{ p: 1 }}>
         <Stack
           direction="row"
           spacing={1}
           sx={{
-            pr: draggable ? 4 : 0
+            pr: draggable ? 4 : 0,
           }}
         >
-          <ProfileAvatar profileId={profile.profileId}/>
+          <ProfileAvatar profileId={profile.profileId} />
           <Box
             sx={{
               flex: 1,
@@ -93,16 +89,18 @@ export function UnitCard({
                 </Typography>
                 <Typography color="textSecondary">
                   {unit.optionIds
-                    .map(oid => profile.options.find(option => option.id === oid))
-                    .filter(option => !!option)
-                    .map(option => option.name)
+                    .map((oid) =>
+                      profile.options.find((option) => option.id === oid),
+                    )
+                    .filter((option) => !!option)
+                    .map((option) => option.name)
                     .join(" - ")}
                 </Typography>
               </Stack>
 
               <Stack
-                direction={{xs: "row", sm: "column"}}
-                spacing={{xs: 1, sm: 0}}
+                direction={{ xs: "row", sm: "column" }}
+                spacing={{ xs: 1, sm: 0 }}
                 sx={{
                   textAlign: {
                     xs: "left",
@@ -112,7 +110,7 @@ export function UnitCard({
                   alignItems: "end",
                 }}
               >
-                <Typography sx={{fontWeight: 700}}>
+                <Typography sx={{ fontWeight: 700 }}>
                   {totalCost} pts
                 </Typography>
                 {showUnitCost && unit.quantity > 1 && (
@@ -128,7 +126,7 @@ export function UnitCard({
         {controls && !readonly && (
           <Collapse in={!collapsed}>
             <Stack spacing={1}>
-              <Divider/>
+              <Divider />
               {controls}
             </Stack>
           </Collapse>

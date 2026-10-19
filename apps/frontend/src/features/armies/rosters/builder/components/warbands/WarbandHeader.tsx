@@ -42,7 +42,7 @@ export function WarbandHeader({
     >
       <Stack
         direction="row"
-        spacing={{xs: 1, sm: 2}}
+        spacing={{ xs: 1, sm: 2 }}
         sx={{ alignItems: "center" }}
       >
         <WarbandOrderControls
@@ -82,7 +82,7 @@ export function MobileWarbandHeader({
   return (
     <Stack
       direction="row"
-      spacing={{xs: 1, sm: 2}}
+      spacing={{ xs: 1, sm: 2 }}
       sx={{
         p: 1,
         display: { sx: "flex", sm: "none" },
