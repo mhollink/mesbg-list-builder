@@ -1,25 +1,24 @@
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import ListItemButton from "@mui/material/ListItemButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
-import { UnitHeroicStats } from "~/features/armies/rosters/builder/components/pickers/unit-picker/UnitHeroicStats.tsx";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
 interface PickerRowProps {
   profile: LocalizedArmyListProfile;
   onSelect: () => void;
+  onQuickAdd?: () => void;
 }
 
-export function PickerRow({ profile, onSelect }: PickerRowProps) {
+export function PickerRow({ profile, onSelect, onQuickAdd }: PickerRowProps) {
   const points = getInitialPoints(profile);
 
   return (
-    <ListItemButton
-      onClick={onSelect}
-      sx={{px: 3, py: 1.5}}
-    >
+    <ListItemButton onClick={onSelect} sx={{ px: 3, py: 1.5 }}>
       <ProfileAvatar profileId={profile.profileId} size={52} sx={{ mr: 2 }} />
 
       <Box
@@ -57,10 +56,25 @@ export function PickerRow({ profile, onSelect }: PickerRowProps) {
           </Typography>
         </Stack>
 
-        {profile.profile.stats.type === "hero" && (
-          <Box sx={{ mt: 1 }}>
-            <UnitHeroicStats profile={profile.profile} />
-          </Box>
+        {profile.profile.stats.type !== "warrior" && (
+          <Stack direction="row" spacing={2}>
+            <Button
+              variant="text"
+              size="small"
+              endIcon={<ChevronRightIcon />}
+              onClick={(clickEvent) => {
+                clickEvent.stopPropagation();
+                onQuickAdd();
+              }}
+              sx={{
+                textTransform: "none",
+                justifyContent: "flex-start",
+                p: 0,
+              }}
+            >
+              Add without extra options
+            </Button>
+          </Stack>
         )}
       </Box>
     </ListItemButton>
