@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import Box from "@mui/material/Box";
@@ -9,7 +9,9 @@ import List from "@mui/material/List";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import ListSubheader from "@mui/material/ListSubheader";
 
+import { createTierGroups } from "~/features/reference/army-lists/army-list-composition.utils.ts";
 import { PickerRow } from "~/features/armies/rosters/builder/components/pickers/unit-picker/PickerRow.tsx";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
@@ -28,20 +30,24 @@ export function UnitSelectionView({
 }: UnitSelectionViewProps) {
   const [search, setSearch] = useState("");
 
-  const filteredProfiles = useMemo(() => {
+  const profileGroups = useMemo(() => {
     const query = search.trim().toLowerCase();
 
-    if (!query) {
-      return profiles;
-    }
-
-    return profiles.filter((profile) => {
-      return (
+    const filteredProfiles = profiles.filter(
+      (profile) =>
+        !query ||
         profile.profile.name.toLowerCase().includes(query) ||
-        profile.tierName.toLowerCase().includes(query)
-      );
-    });
+        profile.tierName.toLowerCase().includes(query),
+    );
+
+    return createTierGroups(filteredProfiles).map((group) => ({
+      ...group,
+      profiles: [...group.profiles].sort((a, b) =>
+        a.profile.name.localeCompare(b.profile.name),
+      ),
+    }));
   }, [profiles, search]);
+
 
   return (
     <Stack sx={{ minHeight: "100%" }}>
@@ -100,28 +106,44 @@ export function UnitSelectionView({
           overflowY: "auto",
         }}
       >
-        {filteredProfiles.length === 0 ? (
-          <Typography
-            color="text.secondary"
-            sx={{
-              px: 3,
-              py: 4,
-              textAlign: "center",
-            }}
-          >
-            No available profiles
-          </Typography>
-        ) : (
-          <List disablePadding>
-            {filteredProfiles.map((profile) => (
-              <PickerRow
-                key={profile.id}
-                profile={profile}
-                onSelect={() => onSelect(profile)}
-              />
-            ))}
-          </List>
-        )}
+        {profileGroups.length === 0 ? (
+            <Typography
+              color="text.secondary"
+              sx={{
+                px: 3,
+                py: 4,
+                textAlign: "center",
+              }}
+            >
+              No available profiles
+            </Typography>
+          ) : (
+            <List disablePadding>
+              {profileGroups.map((group) => (
+                <Fragment key={group.tier}>
+                  <ListSubheader disableSticky>
+                    <Divider textAlign="left" >
+                      <Typography
+                        variant="overline"
+                        color="textSecondary"
+                        sx={{ whiteSpace: "nowrap" }}
+                      >
+                        {group.profiles[0].tierName}
+                      </Typography>
+                    </Divider>
+                  </ListSubheader>
+
+                  {group.profiles.map((profile) => (
+                    <PickerRow
+                      key={profile.id}
+                      profile={profile}
+                      onSelect={() => onSelect(profile)}
+                    />
+                  ))}
+                </Fragment>
+              ))}
+            </List>
+          )}
       </Box>
     </Stack>
   );

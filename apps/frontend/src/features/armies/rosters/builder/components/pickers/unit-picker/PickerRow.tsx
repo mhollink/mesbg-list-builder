@@ -18,12 +18,7 @@ export function PickerRow({ profile, onSelect }: PickerRowProps) {
   return (
     <ListItemButton
       onClick={onSelect}
-      sx={{
-        px: 3,
-        py: 1.5,
-        borderBottom: 1,
-        borderColor: "divider",
-      }}
+      sx={{px: 3, py: 1.5}}
     >
       <ProfileAvatar profileId={profile.profileId} size={52} sx={{ mr: 2 }} />
 
@@ -48,10 +43,6 @@ export function PickerRow({ profile, onSelect }: PickerRowProps) {
               }}
             >
               {profile.profile.name}
-            </Typography>
-
-            <Typography variant="body2" color="text.secondary">
-              {profile.tierName}
             </Typography>
           </Box>
 
