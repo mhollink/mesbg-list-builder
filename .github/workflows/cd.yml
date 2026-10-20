@@ -100,7 +100,7 @@ jobs:
         run: |
           IMPORT_CHANGES="$(
             rsync \
-              -rlz \
+              -rlcz \
               --delete \
               --omit-dir-times \
               --itemize-changes \
@@ -111,7 +111,7 @@ jobs:
 
           THEME_CHANGES="$(
             rsync \
-              -rlz \
+              -rlcz \
               --delete \
               --omit-dir-times \
               --itemize-changes \
@@ -120,36 +120,37 @@ jobs:
               "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/mesbg/keycloak/themes/"
           )"
 
-          printf '%s\n' "$IMPORT_CHANGES"
-          printf '%s\n' "$THEME_CHANGES"
-
           if [[ -n "$IMPORT_CHANGES" || -n "$THEME_CHANGES" ]]; then
+            printf '%s\n' "$IMPORT_CHANGES" "$THEME_CHANGES"
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
+            echo "No Keycloak configuration changes detected."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Deploy backend
-        env:
-          KEYCLOAK_CHANGED: ${{ steps.keycloak.outputs.changed }}
         run: |
-          ssh "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
-            "KEYCLOAK_CHANGED='${KEYCLOAK_CHANGED}' bash -s" <<'EOF'
+          ssh "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" bash -s <<'EOF'
             set -euo pipefail
 
             cd /opt/mesbg
 
-            docker compose pull backend keycloak
-            docker compose up -d backend
-
-            if [[ "$KEYCLOAK_CHANGED" == "true" ]]; then
-              echo "Keycloak configuration changed, recreating container..."
-              docker compose up -d --force-recreate keycloak
-            else
-              docker compose up -d keycloak
-            fi
-
+            docker compose pull backend
+            docker compose up -d --no-deps backend
             docker image prune -f
+          EOF
+
+      - name: Apply Keycloak configuration changes
+        if: steps.keycloak.outputs.changed == 'true'
+        run: |
+          ssh "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" bash -s <<'EOF'
+            set -euo pipefail
+
+            cd /opt/mesbg
+
+            echo "Keycloak configuration changed, recreating container..."
+            docker compose pull keycloak
+            docker compose up -d --no-deps --force-recreate keycloak
           EOF
 
       - name: Deploy frontend
