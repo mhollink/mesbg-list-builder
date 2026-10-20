@@ -56,7 +56,7 @@ export function PickerRow({ profile, onSelect, onQuickAdd }: PickerRowProps) {
           </Typography>
         </Stack>
 
-        {profile.profile.stats.type !== "warrior" && (
+        {profile.profile.stats.type !== "warrior" && onQuickAdd && (
           <Stack direction="row" spacing={2}>
             <Button
               variant="text"
