@@ -1,0 +1,21 @@
+{
+  "project": {
+    "eyebrow": "About the project",
+    "title": "MESBG List Builder",
+    "introduction": "A free, community-driven companion for Middle-earth Strategy Battle Game players. Build your armies, explore profiles and rules, and spend less time managing lists and more time enjoying the hobby.",
+    "history": "MESBG List Builder started as a personal project to make creating and managing army lists a little easier. Over time, it grew into a tool used by players throughout the Middle-earth community, shaped by their feedback, suggestions, and contributions.",
+    "today": "The application is currently being rebuilt from the ground up. Much of the work focuses on bringing familiar functionality back on a more maintainable foundation, while improving the experience and making room for future features. Development remains a hobby project, driven by a shared enthusiasm for the game.",
+    "featuresButton": "Explore the features",
+    "githubButton": "View on GitHub",
+    "disclaimer": "MESBG List Builder is an independent, fan-made project and is not affiliated with or endorsed by Games Workshop."
+  },
+  "team": {
+    "title": "Meet the team",
+    "description": "MESBG List Builder is a passion project brought to life by a small team of dedicated Middle-earth enthusiasts. From writing code to maintaining game data, each of us contributes in our own way to making the tool better for the community."
+  },
+  "supporters": {
+    "title": "Our supporters",
+    "description": "A special thank you to everyone helping make continued development of MESBG List Builder possible.",
+    "action": "Support on Patreon"
+  }
+}

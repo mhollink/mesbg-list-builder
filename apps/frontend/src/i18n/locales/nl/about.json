@@ -1,0 +1,21 @@
+{
+  "project": {
+    "eyebrow": "Over het project",
+    "title": "MESBG List Builder",
+    "introduction": "Een gratis, door de community ondersteunde applicatie voor spelers van Middle-earth Strategy Battle Game. Stel je legers samen, bekijk profielen en spelregels en besteed minder tijd aan het beheren van lijsten en meer tijd aan de hobby.",
+    "history": "MESBG List Builder begon als een persoonlijk project om het samenstellen en beheren van legers eenvoudiger te maken. Inmiddels is het uitgegroeid tot een hulpmiddel voor spelers binnen de Middle-earth-community, mede dankzij hun feedback, suggesties en bijdragen.",
+    "today": "De applicatie wordt momenteel volledig opnieuw opgebouwd. Daarbij ligt de nadruk op het terugbrengen van vertrouwde functionaliteit op een beter onderhoudbare basis, het verbeteren van de gebruikservaring en het mogelijk maken van toekomstige uitbreidingen. De ontwikkeling blijft een hobbyproject, gedreven door een gedeelde passie voor het spel.",
+    "featuresButton": "Bekijk de functies",
+    "githubButton": "Bekijk op GitHub",
+    "disclaimer": "MESBG List Builder is een onafhankelijk fanproject en is niet verbonden aan of goedgekeurd door Games Workshop."
+  },
+  "team": {
+    "title": "Maak kennis met het team",
+    "description": "MESBG List Builder is een passieproject van een klein team enthousiaste Middle-earth-spelers. Van het ontwikkelen van de applicatie tot het onderhouden van spelgegevens: ieder van ons draagt op zijn eigen manier bij aan een betere tool voor de community."
+  },
+  "supporters": {
+    "title": "Onze supporters",
+    "description": "Een speciaal bedankje aan iedereen die de verdere ontwikkeling van MESBG List Builder mogelijk maakt.",
+    "action": "Steun ons op Patreon"
+  }
+}

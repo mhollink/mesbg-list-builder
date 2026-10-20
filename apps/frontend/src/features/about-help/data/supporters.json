@@ -1,0 +1,64 @@
+[
+  {
+    "id": "tyson-gowler",
+    "name": "Tyson Gowler",
+    "tier": "Hero of Legend",
+    "avatarUrl": "/supporters/tyson.png"
+  },
+  {
+    "id": "andrew-lister",
+    "name": "Andrew Lister",
+    "tier": "Hero of Valour"
+  },
+  {
+    "id": "mathias-schmidt",
+    "name": "Mathias Schmidt",
+    "tier": "Hero of Fortitude",
+    "avatarUrl": "/supporters/mathias-schmidt.png"
+  },
+  {
+    "id": "eddie",
+    "name": "Eddie",
+    "tier": "Minor Hero",
+    "avatarUrl": "/supporters/eddie.png"
+  },
+  {
+    "id": "alex",
+    "name": "Alex",
+    "avatarUrl": "team/alex.webp"
+  },
+  {
+    "id": "steve-mitchel",
+    "name": "Steve Mitchell",
+    "tier": "Minor Hero",
+    "avatarUrl": "/supporters/steve.png"
+  },
+  {
+    "id": "william-ciattoni",
+    "name": "William ciattoni",
+    "tier": "Rank and File Warrior",
+    "avatarUrl": "/supporters/ciattoni.png"
+  },
+  {
+    "id": "johan-runesson",
+    "name": "Johan Runesson",
+    "tier": "Rank and File Warrior",
+    "avatarUrl": "/supporters/johan.png"
+  },
+  {
+    "id": "joshua-bond",
+    "name": "Joshua Bond",
+    "tier": "Minor Hero",
+    "avatarUrl": "/supporters/joshua-bond.png"
+  },
+  {
+    "id": "william-lange",
+    "name": "William Lange",
+    "tier": "Hero of Legend"
+  },
+  {
+    "id": "stefan",
+    "name": "Stefan",
+    "tier": "Rank and File Warrior"
+  }
+]

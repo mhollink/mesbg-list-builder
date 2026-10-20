@@ -16,6 +16,7 @@ import { GeneralSettings } from "../features/settings/components/general/General
 import { PrivacySettings } from "../features/settings/components/privacy/PrivacySettings.tsx";
 import { SettingsPage } from "../features/settings/SettingsPage.tsx";
 import { AppLayout } from "./AppLayout.tsx";
+import { AboutPage } from "~/features/about-help/AboutPage.tsx";
 import { DebugProfiles } from "~/features/admin-data-checker/DebugProfiles.tsx";
 import { RosterPage } from "~/features/armies/rosters/builder/RosterPage.tsx";
 import { RostersPage } from "~/features/armies/rosters/management/RostersPage.tsx";
@@ -199,6 +200,10 @@ export const router = createBrowserRouter([
         ],
       },
 
+      {
+        path: "about",
+        element: <AboutPage />,
+      },
       {
         path: "feedback",
         element: <FeedbackPage />,
