@@ -27,37 +27,14 @@ interface UnitPickerProps {
   onClose: () => void;
 }
 
-export function UnitPicker({
-  open,
-  title,
-  profiles,
-  initialProfile,
-  existingUnits,
-  onClose,
-  onSave,
-}: UnitPickerProps) {
-  const [view, setView] = useState<PickerView>(() =>
-    initialProfile
-      ? { type: "configuration", profile: initialProfile }
-      : { type: "selection" },
-  );
+type UnitPickerFlowProps = Omit<UnitPickerProps, "open">;
 
-  function handleSelect(profile: LocalizedArmyListProfile) {
-    setView({
-      type: "configuration",
-      profile,
-    });
-  }
-
-  function handleBack() {
-    setView({ type: "selection" });
-  }
-
+export function UnitPicker({ open, ...flowProps }: UnitPickerProps) {
   return (
     <Drawer
       anchor="right"
       open={open}
-      onClose={onClose}
+      onClose={flowProps.onClose}
       slotProps={{
         paper: {
           sx: {
@@ -70,23 +47,53 @@ export function UnitPicker({
         },
       }}
     >
-      {view.type === "selection" ? (
-        <UnitSelectionView
-          title={title}
-          profiles={profiles}
-          onSelect={handleSelect}
-          onClose={onClose}
-        />
-      ) : (
-        <UnitConfigurationView
-          key={view.profile.id}
-          profile={view.profile}
-          existingUnits={existingUnits}
-          onBack={initialProfile ? undefined : handleBack}
-          onClose={onClose}
-          onSave={(loadouts) => onSave(view.profile, loadouts)}
-        />
-      )}
+      <UnitPickerFlow {...flowProps} />
     </Drawer>
+  );
+}
+
+function UnitPickerFlow({
+  title,
+  profiles,
+  initialProfile,
+  existingUnits,
+  onClose,
+  onSave,
+}: UnitPickerFlowProps) {
+  const [view, setView] = useState<PickerView>(() =>
+    initialProfile
+      ? { type: "configuration", profile: initialProfile }
+      : { type: "selection" },
+  );
+
+  const [startedWithProfile] = useState(() => initialProfile !== undefined);
+
+  function handleSelect(profile: LocalizedArmyListProfile) {
+    setView({
+      type: "configuration",
+      profile,
+    });
+  }
+
+  function handleBack() {
+    setView({ type: "selection" });
+  }
+
+  return view.type === "selection" ? (
+    <UnitSelectionView
+      title={title}
+      profiles={profiles}
+      onSelect={handleSelect}
+      onClose={onClose}
+    />
+  ) : (
+    <UnitConfigurationView
+      key={view.profile.id}
+      profile={view.profile}
+      existingUnits={existingUnits}
+      onBack={startedWithProfile ? undefined : handleBack}
+      onClose={onClose}
+      onSave={(loadouts) => onSave(view.profile, loadouts)}
+    />
   );
 }
