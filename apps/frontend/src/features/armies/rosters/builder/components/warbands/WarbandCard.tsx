@@ -205,53 +205,47 @@ export function WarbandCard({
         </Stack>
       </Paper>
 
-      {leaderEditor !== null && (
-        <LeaderPicker
-          open
-          profiles={availableLeaders}
-          initialProfile={
-            leaderEditor === "edit" && warband.leader
-              ? gameData.armyListProfilesById.get(
-                  warband.leader.armyListProfileId,
-                )
-              : undefined
-          }
-          existingUnits={warband.leader ? [warband.leader] : []}
-          onClose={() => setLeaderEditor(null)}
-          onSave={async (profile, loadouts) => {
-            await saveLeaderLoadouts(warband, profile, loadouts, actions);
-            setLeaderEditor(null);
-          }}
-        />
-      )}
+      <LeaderPicker
+        open={leaderEditor !== null}
+        profiles={availableLeaders}
+        initialProfile={
+          leaderEditor === "edit" && warband.leader
+            ? gameData.armyListProfilesById.get(
+                warband.leader.armyListProfileId,
+              )
+            : undefined
+        }
+        existingUnits={warband.leader ? [warband.leader] : []}
+        onClose={() => setLeaderEditor(null)}
+        onSave={async (profile, loadouts) => {
+          await saveLeaderLoadouts(warband, profile, loadouts, actions);
+          setLeaderEditor(null);
+        }}
+      />
 
-      {followerEditor !== null && (
-        <FollowerPicker
-          open
-          profiles={availableFollowers}
-          initialProfile={
-            followerEditor.type === "edit"
-              ? gameData.armyListProfilesById.get(
-                  followerEditor.unit.armyListProfileId,
-                )
-              : undefined
-          }
-          existingUnits={
-            followerEditor.type === "edit"
-              ? warband.followers.map((unit) =>
-                  unit.id === followerEditor.unit.id
-                    ? followerEditor.unit
-                    : unit,
-                )
-              : warband.followers
-          }
-          onClose={() => setFollowerEditor(null)}
-          onSave={async (profile, loadouts) => {
-            await saveFollowerLoadouts(warband, profile, loadouts, actions);
-            setFollowerEditor(null);
-          }}
-        />
-      )}
+      <FollowerPicker
+        open={followerEditor !== null}
+        profiles={availableFollowers}
+        initialProfile={
+          followerEditor?.type === "edit"
+            ? gameData.armyListProfilesById.get(
+                followerEditor.unit.armyListProfileId,
+              )
+            : undefined
+        }
+        existingUnits={
+          followerEditor?.type === "edit"
+            ? warband.followers.map((unit) =>
+                unit.id === followerEditor.unit.id ? followerEditor.unit : unit,
+              )
+            : warband.followers
+        }
+        onClose={() => setFollowerEditor(null)}
+        onSave={async (profile, loadouts) => {
+          await saveFollowerLoadouts(warband, profile, loadouts, actions);
+          setFollowerEditor(null);
+        }}
+      />
     </>
   );
 }
