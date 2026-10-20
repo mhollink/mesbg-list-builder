@@ -6,7 +6,11 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { getUnitCost, getUnitTotalCost,   getEffectiveUnitOptions,} from "../../domain/option-rules.ts";
+import {
+  getEffectiveUnitOptions,
+  getUnitCost,
+  getUnitTotalCost,
+} from "../../domain/option-rules.ts";
 import type { BuilderUnit } from "../../domain/roster.types.ts";
 import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";

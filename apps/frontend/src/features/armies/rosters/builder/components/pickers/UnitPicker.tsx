@@ -84,10 +84,14 @@ function UnitPickerFlow({
       title={title}
       profiles={profiles}
       onSelect={handleSelect}
-      onQuickAdd={(profile: LocalizedArmyListProfile) => onSave(profile, [{
-        quantity: 1,
-        optionIds: []
-      }])}
+      onQuickAdd={(profile: LocalizedArmyListProfile) =>
+        onSave(profile, [
+          {
+            quantity: 1,
+            optionIds: [],
+          },
+        ])
+      }
       onClose={onClose}
     />
   ) : (
