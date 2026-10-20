@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { getUnitCost, getUnitTotalCost } from "../../domain/option-rules.ts";
+import { getUnitCost, getUnitTotalCost,   getEffectiveUnitOptions,} from "../../domain/option-rules.ts";
 import type { BuilderUnit } from "../../domain/roster.types.ts";
 import { ProfileAvatar } from "~/components/profile-avatar/ProfileAvatar.tsx";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
@@ -32,6 +32,7 @@ export function UnitCard({
   controls,
   onOpenProfile,
 }: UnitCardProps) {
+  const effectiveOptions = getEffectiveUnitOptions(unit, profile);
   const unitCost = getUnitCost(unit, profile);
   const totalCost = getUnitTotalCost(unit, profile);
   const unique = profile.profile.unitTypes.includes("unique");
@@ -88,13 +89,7 @@ export function UnitCard({
                   {profile.profile.name}
                 </Typography>
                 <Typography color="textSecondary">
-                  {unit.optionIds
-                    .map((oid) =>
-                      profile.options.find((option) => option.id === oid),
-                    )
-                    .filter((option) => !!option)
-                    .map((option) => option.name)
-                    .join(" - ")}
+                  {effectiveOptions.map((option) => option.name).join(" · ")}
                 </Typography>
               </Stack>
 
