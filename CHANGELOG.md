@@ -4,16 +4,20 @@ All notable changes to MESBG List Builder are documented in this file.
 
 The format is based on Keep a Changelog and releases follow Semantic Versioning.
 
-## \[2.0.0-alpha.20\] - 2026-10-20
+## \[2.0.0-alpha.21\] - 2026-10-21
 
 ### Added
 
-- Group unit profiles by tier in `UnitSelectionView`
-- Add "Quick Add" button to `PickerRow` for fast unit selection without extra options
-- Simplify unit option rendering with `getEffectiveUnitOptions`
+- Add `ScrollRestoration` to `AppLayout` for automatic scroll to top
+- Add scroll restoration to rule and profile drawers
+- Add "About" page with project details, team info, and supporter wall
+- Add navigation links towards new About page
 
 ### Fixed
 
-- Keep unit selector drawers mounted to enable the slide animations
-- Pass promise return to onQuickAdd
-- Ensure `onQuickAdd` is checked before rendering button in `PickerRow`
+- Prevent scroll reset when opening or closing drawers
+- Normalize profile letters to handle accented characters
+
+### Changed
+
+- Cast raw supporter data to Supporter type
