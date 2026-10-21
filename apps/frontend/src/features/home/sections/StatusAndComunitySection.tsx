@@ -9,7 +9,9 @@ import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-
+import { Link as RouterLink } from "react-router";
+import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
+import Link from "@mui/material/Link";
 import { PreviewRow } from "../components/PreviewRow.tsx";
 import { formatDate } from "~/i18n/formatDate.ts";
 
@@ -80,6 +82,30 @@ export function StatusAndCommunitySection() {
                 {t("community.description")}
               </Typography>
             </Stack>
+
+            <Stack spacing={0.5} sx={{ pt: 1 }}>
+              <Typography variant="body2" color="textSecondary">
+                {t("community.aboutPrompt")}
+              </Typography>
+
+              <Link
+                component={RouterLink}
+                to="/about"
+                underline="hover"
+                sx={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  alignSelf: "flex-start",
+                  gap: 0.5,
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                }}
+              >
+                {t("community.aboutLink")}
+                <ArrowForwardOutlinedIcon fontSize="small" />
+              </Link>
+            </Stack>
+
           </CardContent>
 
           <CardActions sx={{ px: 2, pb: 2, gap: 1, flexWrap: "wrap" }}>
