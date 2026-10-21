@@ -10,13 +10,20 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { useRuleDrawer } from "../../hooks/useRuleDrawer.ts";
+import { useDrawerScrollRestoration } from "~/features/drawer-stack/hooks/useDrawerScrollRestoration.ts";
 import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 import type { Rule } from "~/features/reference/rules/rules.types.ts";
 import { RuleText } from "~/features/reference/shared/components/rule-text/RuleText.tsx";
 
-export function RuleDrawer() {
+interface RuleDrawerProps {
+  scrollPositions?: Map<string, number>;
+}
+
+export function RuleDrawer({ scrollPositions }: RuleDrawerProps) {
   const { openRuleDrawer } = useDrawerStack();
   const { open, rule, close, canGoBack, goBack } = useRuleDrawer();
+  const { paperRef, onScroll, onEnter, onEntered } =
+    useDrawerScrollRestoration(open, scrollPositions);
 
   return (
     <Drawer
@@ -25,6 +32,8 @@ export function RuleDrawer() {
       onClose={close}
       slotProps={{
         paper: {
+          ref: paperRef,
+          onScroll,
           sx: {
             width: {
               xs: "100%",
@@ -33,6 +42,10 @@ export function RuleDrawer() {
             },
             maxWidth: "100%",
           },
+        },
+        transition: {
+          onEnter,
+          onEntered,
         },
       }}
     >
