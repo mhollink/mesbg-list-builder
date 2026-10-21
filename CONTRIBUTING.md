@@ -26,6 +26,8 @@ including application changes, accessibility improvements, documentation, transl
     * [Formatting and builds](#formatting-and-builds)
     * [Commit messages](#commit-messages)
         * [Commit types](#commit-types)
+        * [Commit scopes](#commit-scopes)
+        * [Pre-release fixes](#pre-release-fixes)
         * [Data corrections are fixes](#data-corrections-are-fixes)
         * [Breaking changes](#breaking-changes)
     * [Pull requests](#pull-requests)
@@ -295,26 +297,28 @@ request.
 
 ## Commit messages
 
-This repository uses **Conventional Commits**.
+This repository uses **Conventional Commits**, validated on every pull request.
 
-Use the following format:
+Use the following format, with one required scope and an optional second scope:
 
 ```text
-<type>(optional-scope): <description>
+<type>(<scope>[,<scope>]): <description>
 ```
 
 Examples:
 
 ```text
-feat(frontend): add profile keyword filtering
+feat(frontend,builder): add army list general validations
 
-fix(data): correct Prince Imrahil points
+fix(backend,rosters): correct warband duplication
 
-fix(frontend): preserve drawer history on browser back
+fixup(frontend,drawers): preserve scroll position in the new drawer navigation
+
+fix(data,profiles): correct Prince Imrahil points
 
 refactor(data): simplify profile generation
 
-docs: document local development
+docs(docs): document local development
 
 chore(release): v2.0.0-alpha.10
 ```
@@ -323,34 +327,56 @@ chore(release): v2.0.0-alpha.10
 
 Use the type that best describes the effect of the change.
 
-| Type       | Use for                                               |
-|------------|-------------------------------------------------------|
-| `feat`     | New user-facing functionality                         |
-| `fix`      | Bug fixes and corrections                             |
-| `perf`     | Performance improvements                              |
-| `refactor` | Structural changes without intended behaviour changes |
-| `docs`     | Documentation-only changes                            |
-| `test`     | Test changes                                          |
-| `style`    | Formatting or style-only changes                      |
-| `build`    | Build-system or dependency changes                    |
-| `ci`       | CI/CD configuration                                   |
-| `chore`    | Repository maintenance                                |
-| `revert`   | Reverting an earlier change                           |
+| Type       | Use for                                                    |
+|------------|------------------------------------------------------------|
+| `feat`     | New user-facing functionality                              |
+| `fix`      | Fixes for behaviour or data already available in a release |
+| `fixup`    | Fixes to functionality introduced since the last release   |
+| `perf`     | Performance improvements                                   |
+| `refactor` | Structural changes without intended behaviour changes      |
+| `docs`     | Documentation-only changes                                 |
+| `test`     | Test changes                                               |
+| `style`    | Formatting or style-only changes                           |
+| `build`    | Build-system or dependency changes                         |
+| `ci`       | CI/CD configuration                                        |
+| `chore`    | Repository maintenance                                     |
+| `revert`   | Reverting an earlier change                                |
 
-Scopes are optional but useful for identifying the affected area.
+### Commit scopes
 
-Common scopes include:
+Every commit must include at least one of the following scopes. Prefer the most specific meaningful scope, rather than
+including every affected directory.
+
+| Category  | Allowed scopes                                                                                                                          |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| Technical | `frontend`, `backend`, `api`, `data`, `e2e`, `infra`, `ci`, `release`, `deps`, `docs`, `tooling`                                        |
+| Feature   | `builder`, `rosters`, `collection`, `games`, `tournaments`, `reference`, `auth`, `profiles`, `rules`, `armies`, `account`, `navigation` |
+
+One scope is enough for most commits. If a change genuinely spans two areas, separate the scopes with a comma without
+spaces, for example `feat(frontend,reference): ...` or `fix(backend,builder): ...`. A technical scope identifies the
+application layer; a feature scope identifies the affected domain. Using one of each is useful but not mandatory.
+
+For a new scope, update both this table and `commitlint.config.mjs` in the same pull request. Scope names should be
+lowercase and use hyphens when needed. Avoid inventing a new scope for a one-off change when an existing scope fits.
+
+### Pre-release fixes
+
+Use `fixup` for in-place corrections to new work **not yet shipped in a tagged release**. These commits remain in Git
+history but are excluded from the generated changelog. Use `fix` for a bug in previously released functionality, even
+when the correction is small.
 
 ```text
-frontend
-backend
-data
-release
+feat(frontend,builder): restore drawer scroll position
+fixup(frontend,builder): correct restoration when switching drawer types
 ```
+
+This `fixup:` type is a project convention. It is **not** Git's special `fixup!` autosquash message. Avoid marking
+`fixup` commits as breaking changes; release-impacting changes belong under an appropriate visible type.
 
 ### Data corrections are fixes
 
-Corrections to game data that affect what users see should normally use `fix(data)`.
+Corrections to game data that affect what users already see should normally use `fix(data)` or `fix(data,profiles)`.
+Corrections to as-yet-unreleased data changes can use `fixup(data,profiles)`.
 
 For example:
 
@@ -361,11 +387,11 @@ fix(data): correct Grimbeorn base size
 Avoid classifying user-visible corrections as generic maintenance:
 
 ```text
-chore: update profiles
+chore(data): update profiles
 ```
 
-The changelog is generated from Conventional Commits, and `chore` commits are intentionally excluded from the
-user-facing changelog.
+The changelog is generated from Conventional Commits, and `chore` and `fixup` commits are intentionally excluded from
+the user-facing changelog.
 
 ### Breaking changes
 
@@ -469,7 +495,8 @@ The following commit types currently appear in the changelog:
 - `refactor`
 - `revert`
 
-Maintenance-oriented commits such as `docs`, `test`, `build`, `ci`, and `chore` are excluded.
+Maintenance-oriented commits such as `docs`, `test`, `build`, `ci`, and `chore` are excluded. The `fixup` type is
+also excluded because it describes corrections to functionality that has not yet been released.
 
 Release commits use:
 
