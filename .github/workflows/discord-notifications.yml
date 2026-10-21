@@ -1,0 +1,129 @@
+name: Discord Development Notifications
+on:
+  pull_request:
+    types: [closed]
+    branches: [master]
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  merged-feature:
+    name: Announce merged pull request
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post commit headlines to Discord
+        uses: actions/github-script@v8
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_DEVELOPMENT_WEBHOOK }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr = context.payload.pull_request;
+            const commits = await github.paginate(github.rest.pulls.listCommits, {
+              owner, repo, pull_number: pr.number, per_page: 100,
+            });
+
+            const prefix = `\`${pr.head.ref}\` → \`${pr.base.ref}\`\n\n**Commits (${pr.commits}):**\n`;
+            let description = prefix;
+            let shown = 0;
+
+            for (const { sha, html_url, commit } of commits) {
+              const headline = commit.message.split(/\r?\n/, 1)[0].slice(0, 180);
+              const line = `• [${sha.slice(0, 7)}](${html_url}) ${headline}\n`;
+              if (description.length + line.length > 3600) break;
+              description += line;
+              shown++;
+            }
+
+            if (shown < pr.commits) {
+              description += `\n... and ${pr.commits - shown} more. See the pull request for the full history.`;
+            }
+
+            const response = await fetch(process.env.DISCORD_WEBHOOK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                username: 'MESBG Development',
+                allowed_mentions: { parse: [] },
+                embeds: [{
+                  title: `Merged: ${pr.title}`.slice(0, 256),
+                  url: pr.html_url,
+                  description,
+                  color: 5793266,
+                  footer: { text: `Pull request #${pr.number}` },
+                }],
+              }),
+            });
+            if (!response.ok) {
+              throw new Error(`Discord webhook returned HTTP ${response.status}`);
+            }
+
+  release-tag:
+    name: Announce tagged release
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post tagged changelog section to Discord
+        uses: actions/github-script@v8
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_DEVELOPMENT_WEBHOOK }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const tag = context.ref.replace('refs/tags/', '');
+            const version = tag.replace(/^v/, '');
+            const { data } = await github.rest.repos.getContent({
+              owner, repo, path: 'CHANGELOG.md', ref: tag,
+            });
+            if (!('content' in data)) {
+              throw new Error('CHANGELOG.md could not be read from the tag');
+            }
+
+            const lines = Buffer.from(data.content, 'base64')
+              .toString('utf8')
+              .split(/\r?\n/);
+            const start = lines.findIndex(line =>
+              line.startsWith('## ') &&
+              (line.includes(`[${version}]`) || line.includes(`\\[${version}\\]`))
+            );
+            if (start === -1) {
+              throw new Error(`No CHANGELOG.md section found for ${version}`);
+            }
+
+            const next = lines.findIndex((line, index) => index > start && line.startsWith('## '));
+            const section = lines.slice(start + 1, next === -1 ? undefined : next)
+              .join('\n').trim();
+            const notesUrl = `${context.serverUrl}/${owner}/${repo}/blob/${tag}/CHANGELOG.md`;
+            const truncated = section.length > 3800;
+            const description = truncated
+              ? `${section.slice(0, 3800)}\n\n[Read full release notes](${notesUrl})`
+              : section || 'No changes listed in the changelog.';
+
+            const response = await fetch(process.env.DISCORD_WEBHOOK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                username: 'MESBG Development',
+                allowed_mentions: { parse: [] },
+                embeds: [{
+                  title: `MESBG List Builder ${tag}`,
+                  url: notesUrl,
+                  description,
+                  color: 5763719,
+                  footer: { text: `Published ${tag}` },
+                }],
+              }),
+            });
+            if (!response.ok) {
+              throw new Error(`Discord webhook returned HTTP ${response.status}`);
+            }
