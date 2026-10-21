@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink, Outlet, ScrollRestoration } from "react-router";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import MenuOutlined from "@mui/icons-material/MenuOutlined";
 import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
