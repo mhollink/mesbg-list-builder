@@ -12,10 +12,17 @@ import { ProfileRuleLinks } from "./ProfileRuleLinks";
 import { ProfileSource } from "./ProfileSource";
 import { ProfileStats } from "./ProfileStats";
 import { ProfileValueList } from "./ProfileValueList";
+import { useDrawerScrollRestoration } from "~/features/drawer-stack/hooks/useDrawerScrollRestoration.ts";
 
-export function ProfileDrawer() {
+interface ProfileDrawerProps {
+  scrollPositions?: Map<string, number>;
+}
+
+export function ProfileDrawer({ scrollPositions }: ProfileDrawerProps) {
   const { open, content, close, canGoBack, goBack, openRule, openProfile } =
     useProfileDrawer();
+  const { paperRef, onScroll, onEnter, onEntered } =
+    useDrawerScrollRestoration(open, scrollPositions);
 
   return (
     <Drawer
@@ -24,6 +31,8 @@ export function ProfileDrawer() {
       onClose={close}
       slotProps={{
         paper: {
+          ref: paperRef,
+          onScroll,
           sx: {
             width: {
               xs: "100%",
@@ -32,6 +41,10 @@ export function ProfileDrawer() {
             },
             maxWidth: "100%",
           },
+        },
+        transition: {
+          onEnter,
+          onEntered,
         },
       }}
     >
