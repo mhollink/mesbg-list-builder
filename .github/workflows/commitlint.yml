@@ -1,0 +1,23 @@
+name: Commit messages
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  commitlint:
+    name: Validate conventional commits
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Validate pull request commits
+        uses: wagoid/commitlint-github-action@v6
+        with:
+          configFile: commitlint.config.mjs
+          helpURL: https://github.com/mhollink/mesbg-list-builder/blob/master/CONTRIBUTING.md#commit-messages
