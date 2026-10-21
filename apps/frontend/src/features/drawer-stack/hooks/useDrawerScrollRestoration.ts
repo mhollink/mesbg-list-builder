@@ -1,6 +1,6 @@
-import type {UIEvent} from "react";
-import {useCallback, useLayoutEffect, useRef} from "react";
-import {useLocation} from "react-router";
+import type { UIEvent } from "react";
+import { useCallback, useLayoutEffect, useRef } from "react";
+import { useLocation } from "react-router";
 
 export function useDrawerScrollRestoration(
   open: boolean,
