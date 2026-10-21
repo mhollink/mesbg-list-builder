@@ -16,6 +16,15 @@ vi.mock("../../hooks/useRuleDrawer.ts", () => ({
   useRuleDrawer: mocks.useRuleDrawer,
 }));
 
+vi.mock("~/features/drawer-stack/hooks/useDrawerScrollRestoration.ts", () => ({
+  useDrawerScrollRestoration: () => ({
+    paperRef: { current: null },
+    onScroll: vi.fn(),
+    onEnter: vi.fn(),
+    onEntered: vi.fn(),
+  }),
+}));
+
 vi.mock("~/features/drawer-stack/hooks/useDrawerStack.ts", () => ({
   useDrawerStack: () => ({
     openRuleDrawer: mocks.openRuleDrawer,
@@ -92,7 +101,7 @@ describe("RuleDrawer", () => {
       goBack: vi.fn(),
     });
 
-    render(<RuleDrawer />);
+    render(<RuleDrawer scrollPositions={new Map()} />);
 
     expect(screen.queryByTestId("rule-drawer")).not.toBeInTheDocument();
   });
@@ -106,7 +115,7 @@ describe("RuleDrawer", () => {
       goBack: vi.fn(),
     });
 
-    render(<RuleDrawer />);
+    render(<RuleDrawer scrollPositions={new Map()} />);
 
     expect(screen.getByRole("heading", { name: "Terror" })).toBeInTheDocument();
     expect(screen.getByText("Special Rule")).toBeInTheDocument();
@@ -130,7 +139,7 @@ describe("RuleDrawer", () => {
       goBack,
     });
 
-    render(<RuleDrawer />);
+    render(<RuleDrawer scrollPositions={new Map()} />);
 
     await user.click(
       screen.getByRole("button", { name: "Back to previous item" }),

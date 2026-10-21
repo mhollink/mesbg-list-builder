@@ -16,6 +16,15 @@ vi.mock("../../hooks/useProfileDrawer", () => ({
   useProfileDrawer: mocks.useProfileDrawer,
 }));
 
+vi.mock("~/features/drawer-stack/hooks/useDrawerScrollRestoration.ts", () => ({
+  useDrawerScrollRestoration: () => ({
+    paperRef: { current: null },
+    onScroll: vi.fn(),
+    onEnter: vi.fn(),
+    onEntered: vi.fn(),
+  }),
+}));
+
 vi.mock("@mui/material/Drawer", () => ({
   default: ({
     open,
@@ -178,7 +187,7 @@ describe("ProfileDrawer", () => {
       openProfile: vi.fn(),
     });
 
-    render(<ProfileDrawer />);
+    render(<ProfileDrawer scrollPositions={new Map()} />);
 
     expect(screen.queryByTestId("profile-drawer")).not.toBeInTheDocument();
   });
@@ -194,7 +203,7 @@ describe("ProfileDrawer", () => {
       openProfile: vi.fn(),
     });
 
-    render(<ProfileDrawer />);
+    render(<ProfileDrawer scrollPositions={new Map()} />);
 
     expect(screen.getByText("Aragorn")).toBeInTheDocument();
     expect(screen.getByText("profile-stats")).toBeInTheDocument();
@@ -224,7 +233,7 @@ describe("ProfileDrawer", () => {
       openProfile,
     });
 
-    render(<ProfileDrawer />);
+    render(<ProfileDrawer scrollPositions={new Map()} />);
 
     await user.click(screen.getByRole("button", { name: "header-back" }));
     await user.click(screen.getByRole("button", { name: "Terror" }));

@@ -16,7 +16,7 @@ import type { Rule } from "~/features/reference/rules/rules.types.ts";
 import { RuleText } from "~/features/reference/shared/components/rule-text/RuleText.tsx";
 
 interface RuleDrawerProps {
-  scrollPositions?: Map<string, number>;
+  scrollPositions: Map<string, number>;
 }
 
 export function RuleDrawer({ scrollPositions }: RuleDrawerProps) {
