@@ -308,6 +308,14 @@ UpdateRosterArmyOptionsRequest:
       items:
         type: string
 
+CreateWarbandRequest:
+  type: object
+  required:
+    - leader
+  properties:
+    leader:
+      $ref: "#/LeaderInput"
+
 Warband:
   type: object
   required:
