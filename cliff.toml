@@ -37,16 +37,18 @@ filter_commits = false
 
 commit_parsers = [
     { message = "^feat", group = "<!-- 0 -->Added" },
+    { message = "^fixup", skip = true },
     { message = "^fix", group = "<!-- 1 -->Fixed" },
-    { message = "^perf", group = "<!-- 2 -->Performance" },
-    { message = "^refactor", group = "<!-- 3 -->Changed" },
+    { message = "^change", group = "<!-- 2 -->Changed" },
+    { message = "^perf", group = "<!-- 3 -->Performance" },
     { message = "^revert", group = "<!-- 4 -->Reverted" },
 
-    { message = "^docs", skip = true },
-    { message = "^style", skip = true },
+    { message = "^refactor", skip = true },
     { message = "^test", skip = true },
+    { message = "^style", skip = true },
     { message = "^build", skip = true },
     { message = "^ci", skip = true },
+    { message = "^docs", skip = true },
     { message = "^chore", skip = true },
 ]
 
