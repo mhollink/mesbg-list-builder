@@ -143,12 +143,15 @@
       },
       "title": "Help improve the List Builder",
       "description": "The List Builder improves through player feedback. Share missing options, data mistakes or ideas that would make the tool better at the table.",
+      "aboutPrompt": "Curious who's behind the List Builder?",
+      "aboutLink": "Meet the team and our supporters",
       "report": "Report issue",
       "support": "Support development"
     },
     "disclaimer": "MESBG List Builder is an unofficial fan-made utility for the Middle-earth Strategy Battle Game. It is not affiliated with or endorsed by Games Workshop, Middle-earth Enterprises or their partners."
   },
   "links": {
+    "about": "About the project",
     "privacy": "Privacy",
     "fair-use": "Fair use",
     "support": "Support"

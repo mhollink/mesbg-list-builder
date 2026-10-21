@@ -21,6 +21,10 @@ export const LinkStrip = () => {
           flexWrap: "wrap",
         }}
       >
+        <Link component={RouterLink} to="/about">
+          {t("about")}
+        </Link>
+
         <Link component={RouterLink} to="/policies#privacy">
           {t("privacy")}
         </Link>
