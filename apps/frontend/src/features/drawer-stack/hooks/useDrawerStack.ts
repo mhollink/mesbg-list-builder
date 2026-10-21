@@ -19,11 +19,14 @@ export function useDrawerStack() {
 
   const openDrawer = useCallback(
     (drawer: OpenDrawer) => {
-      setSearchParams((params) => {
-        const next = new URLSearchParams(params);
-        next.append("drawer", serializeDrawer(drawer));
-        return next;
-      });
+      setSearchParams(
+        (params) => {
+          const next = new URLSearchParams(params);
+          next.append("drawer", serializeDrawer(drawer));
+          return next;
+        },
+        { preventScrollReset: true },
+      );
     },
     [setSearchParams],
   );
@@ -47,11 +50,14 @@ export function useDrawerStack() {
   }, [navigate]);
 
   const closeDrawer = useCallback(() => {
-    setSearchParams((params) => {
-      const next = new URLSearchParams(params);
-      next.delete("drawer");
-      return next;
-    });
+    setSearchParams(
+      (params) => {
+        const next = new URLSearchParams(params);
+        next.delete("drawer");
+        return next;
+      },
+      { preventScrollReset: true },
+    );
   }, [setSearchParams]);
 
   return {
