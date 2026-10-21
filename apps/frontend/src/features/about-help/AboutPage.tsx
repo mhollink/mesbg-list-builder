@@ -14,7 +14,7 @@ import teamMembers from "./data/team-members.tsx";
 import { TeamMemberCard } from "~/features/about-help/components/TeamMemberCard.tsx";
 import type { Supporter } from "~/features/about-help/types/supporter.types.ts";
 
-const supporters: readonly Supporter[] = supporterData;
+const supporters = supporterData as readonly Supporter[];
 
 export function AboutPage() {
   return (
