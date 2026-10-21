@@ -473,6 +473,13 @@ RosterWarbands:
     security:
       - bearerAuth: []
 
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/CreateWarbandRequest"
+
     responses:
       "201":
         description: Warband created.
