@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { NavLink, Outlet } from "react-router";
+import { NavLink, Outlet, ScrollRestoration } from "react-router";
 import MenuOutlined from "@mui/icons-material/MenuOutlined";
 import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
 import AppBar from "@mui/material/AppBar";
@@ -215,6 +215,7 @@ export const AppLayout = () => {
           </RosterCreationProvider>
 
           <DrawerStack />
+          <ScrollRestoration />
         </Box>
       </Box>
     </Box>
