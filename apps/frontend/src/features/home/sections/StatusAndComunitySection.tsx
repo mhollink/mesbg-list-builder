@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { Link as RouterLink } from "react-router";
+import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
 import Button from "@mui/material/Button";
@@ -7,11 +9,10 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Link as RouterLink } from "react-router";
-import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import Link from "@mui/material/Link";
+
 import { PreviewRow } from "../components/PreviewRow.tsx";
 import { formatDate } from "~/i18n/formatDate.ts";
 
@@ -105,7 +106,6 @@ export function StatusAndCommunitySection() {
                 <ArrowForwardOutlinedIcon fontSize="small" />
               </Link>
             </Stack>
-
           </CardContent>
 
           <CardActions sx={{ px: 2, pb: 2, gap: 1, flexWrap: "wrap" }}>
