@@ -7,7 +7,12 @@ import { ALPHABET } from "~/features/reference/shared/reference.constants.ts";
 import { normalizeSearchText } from "~/utils/normalize.ts";
 
 export function getProfileLetter(name: string): string {
-  const letter = name.trim().charAt(0).toUpperCase();
+  const letter = name
+    .trim()
+    .charAt(0)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toUpperCase();
 
   return ALPHABET.includes(letter) ? letter : "#";
 }
