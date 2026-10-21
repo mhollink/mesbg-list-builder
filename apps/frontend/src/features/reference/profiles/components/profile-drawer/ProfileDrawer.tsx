@@ -21,8 +21,10 @@ interface ProfileDrawerProps {
 export function ProfileDrawer({ scrollPositions }: ProfileDrawerProps) {
   const { open, content, close, canGoBack, goBack, openRule, openProfile } =
     useProfileDrawer();
-  const { paperRef, onScroll, onEnter, onEntered } =
-    useDrawerScrollRestoration(open, scrollPositions);
+  const { paperRef, onScroll, onEnter, onEntered } = useDrawerScrollRestoration(
+    open,
+    scrollPositions,
+  );
 
   return (
     <Drawer

@@ -22,8 +22,10 @@ interface RuleDrawerProps {
 export function RuleDrawer({ scrollPositions }: RuleDrawerProps) {
   const { openRuleDrawer } = useDrawerStack();
   const { open, rule, close, canGoBack, goBack } = useRuleDrawer();
-  const { paperRef, onScroll, onEnter, onEntered } =
-    useDrawerScrollRestoration(open, scrollPositions);
+  const { paperRef, onScroll, onEnter, onEntered } = useDrawerScrollRestoration(
+    open,
+    scrollPositions,
+  );
 
   return (
     <Drawer
