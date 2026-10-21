@@ -15,7 +15,7 @@ import { ProfileValueList } from "./ProfileValueList";
 import { useDrawerScrollRestoration } from "~/features/drawer-stack/hooks/useDrawerScrollRestoration.ts";
 
 interface ProfileDrawerProps {
-  scrollPositions?: Map<string, number>;
+  scrollPositions: Map<string, number>;
 }
 
 export function ProfileDrawer({ scrollPositions }: ProfileDrawerProps) {
