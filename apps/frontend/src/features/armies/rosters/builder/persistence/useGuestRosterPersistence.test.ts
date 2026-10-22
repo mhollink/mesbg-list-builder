@@ -12,7 +12,6 @@ import {
   moveGuestWarband,
   setGuestArmyOptions,
   setGuestGeneral,
-  setGuestLeader,
   updateGuestUnit,
 } from "~/features/armies/rosters/guest/guest-roster.slice.ts";
 import type { GuestRoster } from "~/features/armies/rosters/guest/guest-roster.types.ts";
@@ -38,17 +37,25 @@ describe("useGuestRosterPersistence", () => {
     vi.restoreAllMocks();
   });
 
-  it("creates a new empty warband", async () => {
+  it("creates a new warband", async () => {
     mockUuid("00000000-0000-4000-8000-000000000001");
 
     const { result } = renderHook(() => useGuestRosterPersistence());
 
-    await result.current.createWarband();
+    await result.current.createWarband({
+        armyListProfileId: "gothmog",
+        optionIds: ["warg"],
+    });
 
     expect(mocks.dispatch).toHaveBeenCalledWith(
       addGuestWarband({
         id: "00000000-0000-4000-8000-000000000001",
-        leader: null,
+        leader: {
+          id: "00000000-0000-4000-8000-000000000001",
+          armyListProfileId: "gothmog",
+          optionIds: ["warg"],
+          quantity: 1
+        },
         followers: [],
       }),
     );
@@ -105,50 +112,6 @@ describe("useGuestRosterPersistence", () => {
             optionIds: ["shield"],
           },
         ],
-      }),
-    );
-  });
-
-  it("reuses the existing leader id when replacing a leader", async () => {
-    const { result } = renderHook(() => useGuestRosterPersistence());
-
-    await result.current.setLeader("warband-1", "gothmog", ["warg"]);
-
-    expect(mocks.dispatch).toHaveBeenCalledWith(
-      setGuestLeader({
-        warbandId: "warband-1",
-
-        leader: {
-          id: "leader-1",
-          armyListProfileId: "gothmog",
-          quantity: 1,
-          optionIds: ["warg"],
-        },
-      }),
-    );
-  });
-
-  it("creates a new leader id for a leaderless warband", async () => {
-    mocks.roster = guestRoster();
-
-    mocks.roster.warbands[1].leader = null;
-
-    mockUuid("00000000-0000-4000-8000-000000000020");
-
-    const { result } = renderHook(() => useGuestRosterPersistence());
-
-    await result.current.setLeader("warband-2", "orc-captain", []);
-
-    expect(mocks.dispatch).toHaveBeenCalledWith(
-      setGuestLeader({
-        warbandId: "warband-2",
-
-        leader: {
-          id: "00000000-0000-4000-8000-000000000020",
-          armyListProfileId: "orc-captain",
-          quantity: 1,
-          optionIds: [],
-        },
       }),
     );
   });

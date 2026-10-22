@@ -15,11 +15,6 @@ interface MoveWarbandPayload {
   position: number;
 }
 
-interface SetLeaderPayload {
-  warbandId: string;
-  leader: GuestRosterUnit;
-}
-
 interface AddFollowerPayload {
   warbandId: string;
   follower: GuestRosterUnit;
@@ -117,26 +112,6 @@ const guestRosterSlice = createSlice({
       const [warband] = state.roster.warbands.splice(currentIndex, 1);
 
       state.roster.warbands.splice(position, 0, warband);
-    },
-
-    setGuestLeader: (state, action: PayloadAction<SetLeaderPayload>) => {
-      if (!state.roster) {
-        return;
-      }
-
-      const warband = state.roster.warbands.find(
-        (candidate) => candidate.id === action.payload.warbandId,
-      );
-
-      if (!warband) {
-        return;
-      }
-
-      if (warband.leader && warband.leader.id === state.roster.generalUnitId) {
-        state.roster.generalUnitId = null;
-      }
-
-      warband.leader = action.payload.leader;
     },
 
     addGuestFollower: (state, action: PayloadAction<AddFollowerPayload>) => {
@@ -275,8 +250,6 @@ export const {
   addGuestWarband,
   deleteGuestWarband,
   moveGuestWarband,
-
-  setGuestLeader,
 
   addGuestFollower,
   updateGuestUnit,

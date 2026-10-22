@@ -9,7 +9,6 @@ const mocks = vi.hoisted(() => ({
   duplicateWarband: vi.fn(),
   moveWarband: vi.fn(),
 
-  setLeader: vi.fn(),
   createFollower: vi.fn(),
   updateUnit: vi.fn(),
   deleteUnit: vi.fn(),
@@ -30,7 +29,6 @@ vi.mock("~/features/armies/rosters/api/roster-warband-api.ts", () => ({
 }));
 
 vi.mock("~/features/armies/rosters/api/roster-unit-api.ts", () => ({
-  useSetLeaderMutation: () => [mocks.setLeader],
   useCreateFollowerMutation: () => [mocks.createFollower],
   useUpdateUnitMutation: () => [mocks.updateUnit],
   useDeleteUnitMutation: () => [mocks.deleteUnit],
@@ -54,7 +52,6 @@ describe("useAuthenticatedRosterPersistence", () => {
     mocks.duplicateWarband.mockReturnValue({ unwrap: mocks.unwrap });
     mocks.moveWarband.mockReturnValue({ unwrap: mocks.unwrap });
 
-    mocks.setLeader.mockReturnValue({ unwrap: mocks.unwrap });
     mocks.createFollower.mockReturnValue({ unwrap: mocks.unwrap });
     mocks.updateUnit.mockReturnValue({ unwrap: mocks.unwrap });
     mocks.deleteUnit.mockReturnValue({ unwrap: mocks.unwrap });
@@ -68,13 +65,20 @@ describe("useAuthenticatedRosterPersistence", () => {
   it("persists warband operations", async () => {
     const { result } = renderHook(() => useAuthenticatedRosterPersistence(42));
 
-    await result.current.createWarband();
+    await result.current.createWarband({
+      armyListProfileId: "gothmog",
+      optionIds: ["warg"],
+    });
     await result.current.deleteWarband(10);
     await result.current.duplicateWarband(11);
     await result.current.moveWarband(12, 2);
 
     expect(mocks.createWarband).toHaveBeenCalledWith({
       rosterId: 42,
+      leader: {
+        armyListProfileId: "gothmog",
+        optionIds: ["warg"],
+      }
     });
 
     expect(mocks.deleteWarband).toHaveBeenCalledWith({
@@ -101,8 +105,6 @@ describe("useAuthenticatedRosterPersistence", () => {
   it("persists unit operations", async () => {
     const { result } = renderHook(() => useAuthenticatedRosterPersistence(42));
 
-    await result.current.setLeader(10, "witch-king", ["horse"]);
-
     await result.current.addFollower(10, "orc-warrior", 4, ["shield"]);
 
     await result.current.updateUnit(10, 100, {
@@ -113,15 +115,6 @@ describe("useAuthenticatedRosterPersistence", () => {
     await result.current.deleteUnit(10, 101);
 
     await result.current.moveUnit(10, 102, 11, 2);
-
-    expect(mocks.setLeader).toHaveBeenCalledWith({
-      rosterId: 42,
-      warbandId: 10,
-      request: {
-        armyListProfileId: "witch-king",
-        optionIds: ["horse"],
-      },
-    });
 
     expect(mocks.createFollower).toHaveBeenCalledWith({
       rosterId: 42,
@@ -159,7 +152,7 @@ describe("useAuthenticatedRosterPersistence", () => {
       },
     });
 
-    expect(mocks.unwrap).toHaveBeenCalledTimes(5);
+    expect(mocks.unwrap).toHaveBeenCalledTimes(4);
   });
 
   it("persists roster composition operations", async () => {

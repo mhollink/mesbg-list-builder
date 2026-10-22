@@ -13,7 +13,6 @@ import reducer, {
   replaceGuestRoster,
   setGuestArmyOptions,
   setGuestGeneral,
-  setGuestLeader,
   updateGuestUnit,
 } from "./guest-roster.slice.ts";
 import type { GuestRoster } from "./guest-roster.types.ts";
@@ -59,7 +58,12 @@ describe("guestRosterSlice", () => {
         stateWith(guestRoster()),
         addGuestWarband({
           id: "warband-3",
-          leader: null,
+          leader: {
+            id: "new-leader",
+            armyListProfileId: "gothmog",
+            quantity: 1,
+            optionIds: ["warg"],
+          },
           followers: [],
         }),
       );
@@ -68,7 +72,12 @@ describe("guestRosterSlice", () => {
 
       expect(state.roster?.warbands[2]).toEqual({
         id: "warband-3",
-        leader: null,
+        leader: {
+          id: "new-leader",
+          armyListProfileId: "gothmog",
+          quantity: 1,
+          optionIds: ["warg"],
+        },
         followers: [],
       });
     });
@@ -137,89 +146,6 @@ describe("guestRosterSlice", () => {
       );
 
       expect(state.roster).toEqual(guestRoster());
-    });
-  });
-
-  describe("leaders", () => {
-    it("sets a leader on a leaderless warband", () => {
-      const roster = guestRoster();
-      roster.warbands[1].leader = null;
-
-      const state = reducer(
-        stateWith(roster),
-        setGuestLeader({
-          warbandId: "warband-2",
-          leader: {
-            id: "new-leader",
-            armyListProfileId: "gothmog",
-            quantity: 1,
-            optionIds: ["warg"],
-          },
-        }),
-      );
-
-      expect(state.roster?.warbands[1].leader).toEqual({
-        id: "new-leader",
-        armyListProfileId: "gothmog",
-        quantity: 1,
-        optionIds: ["warg"],
-      });
-    });
-
-    it("replaces an existing leader", () => {
-      const state = reducer(
-        stateWith(guestRoster()),
-        setGuestLeader({
-          warbandId: "warband-2",
-          leader: {
-            id: "leader-2",
-            armyListProfileId: "gothmog",
-            quantity: 1,
-            optionIds: ["warg"],
-          },
-        }),
-      );
-
-      expect(state.roster?.warbands[1].leader).toEqual({
-        id: "leader-2",
-        armyListProfileId: "gothmog",
-        quantity: 1,
-        optionIds: ["warg"],
-      });
-    });
-
-    it("clears the general when replacing the current general leader", () => {
-      const state = reducer(
-        stateWith(guestRoster()),
-        setGuestLeader({
-          warbandId: "warband-1",
-          leader: {
-            id: "leader-1",
-            armyListProfileId: "gothmog",
-            quantity: 1,
-            optionIds: [],
-          },
-        }),
-      );
-
-      expect(state.roster?.generalUnitId).toBeNull();
-    });
-
-    it("does not clear the general when replacing another leader", () => {
-      const state = reducer(
-        stateWith(guestRoster()),
-        setGuestLeader({
-          warbandId: "warband-2",
-          leader: {
-            id: "leader-2",
-            armyListProfileId: "gothmog",
-            quantity: 1,
-            optionIds: [],
-          },
-        }),
-      );
-
-      expect(state.roster?.generalUnitId).toBe("leader-1");
     });
   });
 

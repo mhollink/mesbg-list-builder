@@ -1,6 +1,5 @@
 import type {
   CreateFollowerRequest,
-  LeaderInput,
   RosterUnit,
   UpdateRosterUnitRequest,
 } from "@mlb/api-client";
@@ -11,7 +10,6 @@ import { rosterUnitApi } from "./roster-unit-api.ts";
 import { serverApi } from "~/api/server-api.ts";
 
 const client = vi.hoisted(() => ({
-  setWarbandLeader: vi.fn(),
   createWarbandFollower: vi.fn(),
   updateWarbandUnit: vi.fn(),
   deleteWarbandUnit: vi.fn(),
@@ -25,34 +23,6 @@ vi.mock("~/api/api.ts", () => ({
 describe("rosterUnitApi", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-  });
-
-  it("sets a warband leader", async () => {
-    const request: LeaderInput = {
-      armyListProfileId: "orc-captain",
-      optionIds: ["shield"],
-    };
-    const response = unit({
-      armyListProfileId: "orc-captain",
-      optionIds: ["shield"],
-    });
-
-    client.setWarbandLeader.mockResolvedValue(response);
-
-    const result = await createStore().dispatch(
-      rosterUnitApi.endpoints.setLeader.initiate({
-        rosterId: 42,
-        warbandId: 23,
-        request,
-      }),
-    );
-
-    expect(client.setWarbandLeader).toHaveBeenCalledWith({
-      rosterId: 42,
-      warbandId: 23,
-      leaderInput: request,
-    });
-    expect(result.data).toEqual(response);
   });
 
   it("creates a follower", async () => {
