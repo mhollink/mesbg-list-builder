@@ -7,8 +7,11 @@ on:
     branches:
       - master
 
-  # Allows explicitly rebuilding/redeploying the current master commit.
+  # Allows explicitly running CI on a branch without deploying.
   workflow_dispatch:
+
+  # Reused by CD to build and test the published release tag.
+  workflow_call:
 
 permissions:
   contents: read
@@ -61,7 +64,7 @@ jobs:
         run: pnpm --filter @mlb/data build
 
       - name: Validate deployment configuration
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v')
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
           VITE_KEYCLOAK_URL: ${{ vars.VITE_KEYCLOAK_URL }}
@@ -82,7 +85,7 @@ jobs:
         run: pnpm --filter @mlb/frontend build
 
       - name: Upload frontend artifact
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-artifact@v7
         with:
           name: frontend-${{ github.sha }}
@@ -118,13 +121,13 @@ jobs:
         run: ./mvnw --batch-mode verify
 
       - name: Build backend image artifact
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        if: startsWith(github.ref, 'refs/tags/v')
         run: |
           ./mvnw --batch-mode jib:buildTar \
             -Dimage="${BACKEND_IMAGE}:sha-${GITHUB_SHA}"
 
       - name: Upload backend image artifact
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-artifact@v7
         with:
           name: backend-image-${{ github.sha }}

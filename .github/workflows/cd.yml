@@ -1,13 +1,9 @@
 name: CD
 
 on:
-  workflow_run:
-    workflows:
-      - CI
-    types:
-      - completed
-    branches:
-      - master
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   actions: read
@@ -22,13 +18,46 @@ env:
   BACKEND_IMAGE: ghcr.io/mhollink/mesbg-list-builder-backend
 
 jobs:
+  validate-release:
+    name: Validate release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Verify release tag and master ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! "${GITHUB_REF_NAME}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([.-][0-9A-Za-z.-]+)?$ ]]; then
+            echo "Expected a version tag such as v1.2.3."
+            exit 1
+          fi
+
+          if [[ "$(git log -1 --format=%s)" != "chore(release): ${GITHUB_REF_NAME}" ]]; then
+            echo "Tag must point to its matching release commit."
+            exit 1
+          fi
+
+          git fetch --no-tags origin '+refs/heads/master:refs/remotes/origin/master'
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/master; then
+            echo "The release commit must already be on master."
+            exit 1
+          fi
+
+  build:
+    name: Build and test release
+    needs: validate-release
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+
   deploy:
     name: Deploy
-    if: >
-      github.event.workflow_run.conclusion == 'success' &&
-      (github.event.workflow_run.event == 'push' ||
-       github.event.workflow_run.event == 'workflow_dispatch')
-
+    needs: build
     runs-on: ubuntu-latest
 
     environment: production
@@ -37,23 +66,19 @@ jobs:
       - name: Checkout deployment configuration
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.sha }}
 
       - name: Download frontend artifact
         uses: actions/download-artifact@v8
         with:
-          name: frontend-${{ github.event.workflow_run.head_sha }}
+          name: frontend-${{ github.sha }}
           path: artifacts/frontend
-          run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download backend image artifact
         uses: actions/download-artifact@v8
         with:
-          name: backend-image-${{ github.event.workflow_run.head_sha }}
+          name: backend-image-${{ github.sha }}
           path: artifacts/backend
-          run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log in to GHCR
         uses: docker/login-action@v4
@@ -64,7 +89,7 @@ jobs:
 
       - name: Publish backend image
         env:
-          IMAGE_TAG: sha-${{ github.event.workflow_run.head_sha }}
+          IMAGE_TAG: sha-${{ github.sha }}
         run: |
           docker load --input artifacts/backend/jib-image.tar
 
