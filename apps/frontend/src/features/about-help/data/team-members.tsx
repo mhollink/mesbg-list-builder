@@ -96,4 +96,54 @@ export default [
       </Stack>
     ),
   },
+  {
+    name: "Josh",
+    role: "Game Data & Rules Maintainer",
+    involvementTitle: "Project involvement",
+    avatarSrc: "/team/josh.webp",
+    bio: (
+      <Stack spacing={1.5}>
+        <Typography>
+          Behind every army list in MESBG List Builder is a considerable amount
+          of game data, and Josh is one of the people helping make sure that
+          information is accurate.
+        </Typography>
+        <Typography>
+          While the application itself provides the tools to build an army,
+          those tools are only as reliable as the rules behind them. Josh
+          focuses on getting those details right, from individual rules to the
+          information that determines how an army can be built.
+        </Typography>
+        <Typography>
+          It's work that often goes unnoticed when everything functions
+          correctly, but makes a real difference to the people using the
+          builder.
+        </Typography>
+      </Stack>
+    ),
+    involvement: (
+      <Stack spacing={1.5}>
+        <Typography>
+          Josh has played an important role in maintaining and improving the
+          game's data across both the original builder and its successor.
+        </Typography>
+        <Typography>
+          For the new version, Marcel prepared the initial data import, after
+          which Josh took on the considerable task of reviewing the rules
+          individually, identifying inaccuracies, and making corrections where
+          needed.
+        </Typography>
+        <Typography>
+          His contributions also extend to the original builder, where he helped
+          keep the game data up to date following Games Workshop's FAQ and
+          Errata releases.
+        </Typography>
+        <Typography>
+          Thanks to his work, the builder's underlying data has become more
+          accurate and reliable, allowing players to spend less time questioning
+          the rules and more time building their armies.
+        </Typography>
+      </Stack>
+    ),
+  },
 ] satisfies TeamMemberCardProps[];
