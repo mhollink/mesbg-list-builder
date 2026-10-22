@@ -81,7 +81,6 @@ export function UnitSelectionView({
 
       <Box sx={{ px: 3, py: 2 }}>
         <TextField
-          autoFocus
           fullWidth
           size="small"
           placeholder="Search profiles"
