@@ -1,18 +1,11 @@
-import { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 
 import { UnitConfigurationView } from "~/features/armies/rosters/builder/components/pickers/unit-configuration/UnitConfigurationView.tsx";
 import type { UnitLoadout } from "~/features/armies/rosters/builder/components/pickers/unit-configuration/unit-configuration.utils.ts";
 import { UnitSelectionView } from "~/features/armies/rosters/builder/components/pickers/unit-picker/UnitSelectionView.tsx";
 import type { BuilderUnit } from "~/features/armies/rosters/builder/domain/roster.types.ts";
+import { useBuilderPickerHistory } from "~/features/armies/rosters/builder/hooks/useBuilderPickerHistory.ts";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
-
-type PickerView =
-  | { type: "selection" }
-  | {
-      type: "configuration";
-      profile: LocalizedArmyListProfile;
-    };
 
 interface UnitPickerProps {
   open: boolean;
@@ -25,17 +18,18 @@ interface UnitPickerProps {
     profile: LocalizedArmyListProfile,
     loadouts: UnitLoadout[],
   ) => Promise<void>;
-  onClose: () => void;
 }
 
 type UnitPickerFlowProps = Omit<UnitPickerProps, "open">;
 
 export function UnitPicker({ open, ...flowProps }: UnitPickerProps) {
+  const { close } = useBuilderPickerHistory();
+
   return (
     <Drawer
       anchor="right"
       open={open}
-      onClose={flowProps.onClose}
+      onClose={close}
       slotProps={{
         paper: {
           sx: {
@@ -58,17 +52,13 @@ function UnitPickerFlow({
   profiles,
   initialProfile,
   existingUnits,
-  onClose,
   onSave,
   continuous,
 }: UnitPickerFlowProps) {
-  const [view, setView] = useState<PickerView>(() =>
-    initialProfile
-      ? { type: "configuration", profile: initialProfile }
-      : { type: "selection" },
-  );
-
-  const [startedWithProfile] = useState(() => initialProfile !== undefined);
+  const history = useBuilderPickerHistory();
+  const selectedProfile =
+    initialProfile ??
+    profiles.find((profile) => profile.id === history.profileId);
 
   async function handleSave(
     profile: LocalizedArmyListProfile,
@@ -77,45 +67,33 @@ function UnitPickerFlow({
     await onSave(profile, loadouts);
 
     if (continuous) {
-      setView({ type: "selection" });
+      // Quick-add stays in selection. Configured leaders return to selection.
+      if (history.profileId) {
+        history.back();
+      }
     } else {
-      onClose();
+      history.close();
     }
   }
 
-  function handleSelect(profile: LocalizedArmyListProfile) {
-    setView({
-      type: "configuration",
-      profile,
-    });
-  }
-
-  function handleBack() {
-    setView({ type: "selection" });
-  }
-
-  return view.type === "selection" ? (
+  return selectedProfile === undefined ? (
     <UnitSelectionView
       title={title}
       profiles={profiles}
-      onSelect={handleSelect}
+      onSelect={(profile) => history.configure(profile.id)}
       onQuickAdd={(profile: LocalizedArmyListProfile) =>
-        handleSave(profile, [
-          {
-            quantity: 1,
-            optionIds: [],
-          },
-        ])
+        handleSave(profile, [{ quantity: 1, optionIds: [] }])
       }
-      onClose={onClose}
+      onClose={history.close}
     />
   ) : (
     <UnitConfigurationView
-      profile={view.profile}
+      key={selectedProfile.id}
+      profile={selectedProfile}
       existingUnits={existingUnits}
-      onBack={startedWithProfile ? undefined : handleBack}
-      onClose={onClose}
-      onSave={(loadouts) => handleSave(view.profile, loadouts)}
+      onBack={initialProfile ? undefined : history.back}
+      onClose={history.close}
+      onSave={(loadouts) => handleSave(selectedProfile, loadouts)}
     />
   );
 }
