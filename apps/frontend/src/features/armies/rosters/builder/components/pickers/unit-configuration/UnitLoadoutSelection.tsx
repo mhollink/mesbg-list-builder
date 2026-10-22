@@ -12,13 +12,45 @@ interface Loadout {
 
 interface UnitLoadoutSelectionProps {
   loadouts: Record<string, Loadout>;
+  quantityOnly: boolean;
   handleChangeQuantity: (option: string, quantity: number) => void;
 }
 
 export function UnitLoadoutSelection({
   loadouts,
+  quantityOnly,
   handleChangeQuantity,
 }: UnitLoadoutSelectionProps) {
+  const standardEntry = Object.entries(loadouts)[0];
+
+  if (quantityOnly && standardEntry) {
+    const [key, loadout] = standardEntry;
+
+    return (
+      <>
+        <Stack
+          direction="row"
+          sx={{
+            p: 2,
+            my: 1,
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Typography variant="h6" component="h3" sx={{ fontWeight: 700 }}>
+            Quantity
+          </Typography>
+
+          <UnitLoadoutQuantityControls
+            quantity={loadout.quantity}
+            onChange={(value) => handleChangeQuantity(key, value)}
+          />
+        </Stack>
+        <Divider />
+      </>
+    );
+  }
+
   return (
     <>
       <Stack spacing={1} sx={{ p: 2, my: 1 }}>

@@ -53,6 +53,9 @@ export function UnitConfigurationView({
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(false);
 
+  const quantityOnly = profile.options.every(
+    (option) => option.state === "preselected",
+  );
   const preselectedOptions = profile.options.filter(
     (option) => option.state === "preselected",
   );
@@ -223,6 +226,7 @@ export function UnitConfigurationView({
         ) : (
           <UnitLoadoutSelection
             loadouts={displayedLoadouts}
+            quantityOnly={quantityOnly}
             handleChangeQuantity={changeWarriorQuantity}
           />
         )}
