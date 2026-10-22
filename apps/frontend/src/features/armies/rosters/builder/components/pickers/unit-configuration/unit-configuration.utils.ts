@@ -67,12 +67,12 @@ export function createWarriorDrafts(
 
   // An optionless warrior has exactly one available configuration.
   // If a regular option is mandatory, do not offer an empty loadout.
-  if (optionalOptions.length === 0 || preselectedCount >= minimumOptions) {
+  const onlyStandardEquipment = optionalOptions.length === 0;
+  if (onlyStandardEquipment || preselectedCount >= minimumOptions) {
     addDraft(
       [],
-      optionalOptions.length === 0
-        ? "Standard equipment"
-        : "No additional equipment",
+      onlyStandardEquipment ? "Standard equipment" : "No additional equipment",
+      onlyStandardEquipment && existingUnits.length === 0 ? 1 : 0,
     );
   }
 
