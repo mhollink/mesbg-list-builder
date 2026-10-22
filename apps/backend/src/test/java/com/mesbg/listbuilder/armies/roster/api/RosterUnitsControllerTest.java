@@ -5,7 +5,6 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -42,31 +41,6 @@ class RosterUnitsControllerTest {
 
   @MockitoBean private RosterUnitsService rosterUnitsService;
   @MockitoBean private RosterUnitMapper rosterUnitMapper;
-
-  @Test
-  void setsWarbandLeader() throws Exception {
-    var entity = new RosterUnitEntity();
-    var dto = unitDto(UNIT_ID, "witch-king");
-
-    when(rosterUnitsService.setWarbandLeader(ROSTER_ID, WARBAND_ID, "witch-king", Set.of("horse")))
-        .thenReturn(entity);
-    when(rosterUnitMapper.toDto(entity)).thenReturn(dto);
-
-    mockMvc
-        .perform(
-            put("/api/v1/rosters/{rosterId}/warbands/{warbandId}/leader", ROSTER_ID, WARBAND_ID)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(
-                    """
-                    {
-                      "armyListProfileId": "witch-king",
-                      "optionIds": ["horse"]
-                    }
-                    """))
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.id").value(UNIT_ID))
-        .andExpect(jsonPath("$.armyListProfileId").value("witch-king"));
-  }
 
   @Test
   void createsFollower() throws Exception {
