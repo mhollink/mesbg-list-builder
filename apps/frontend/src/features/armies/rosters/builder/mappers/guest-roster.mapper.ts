@@ -29,9 +29,7 @@ export function mapGuestRoster(roster: GuestRoster): BuilderRoster {
 function mapGuestWarband(warband: GuestWarband): BuilderWarband {
   return {
     id: warband.id,
-
-    leader: warband.leader ? mapGuestUnit(warband.leader) : null,
-
+    leader: mapGuestUnit(warband.leader),
     followers: warband.followers.map(mapGuestUnit),
   };
 }

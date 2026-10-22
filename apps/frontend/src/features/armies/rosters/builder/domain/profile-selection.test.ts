@@ -218,7 +218,9 @@ describe("profile selection", () => {
 });
 
 function builderRoster(
-  options: { leaderProfileId?: string; followerProfileId?: string } = {},
+  options: { leaderProfileId: string; followerProfileId?: string } = {
+    leaderProfileId: "gothmog",
+  },
 ): BuilderRoster {
   return {
     id: "guest",
@@ -233,14 +235,12 @@ function builderRoster(
       {
         id: "warband",
 
-        leader: options.leaderProfileId
-          ? {
-              id: "leader",
-              armyListProfileId: options.leaderProfileId,
-              quantity: 1,
-              optionIds: [],
-            }
-          : null,
+        leader: {
+          id: "leader",
+          armyListProfileId: options.leaderProfileId,
+          quantity: 1,
+          optionIds: [],
+        },
 
         followers: options.followerProfileId
           ? [

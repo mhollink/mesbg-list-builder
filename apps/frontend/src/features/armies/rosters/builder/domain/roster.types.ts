@@ -21,7 +21,7 @@ export interface BuilderRoster {
 export interface BuilderWarband {
   id: BuilderWarbandId;
 
-  leader: BuilderUnit | null;
+  leader: BuilderUnit;
   followers: BuilderUnit[];
 }
 

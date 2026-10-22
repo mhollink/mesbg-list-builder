@@ -78,44 +78,4 @@ describe("mapApiRoster", () => {
       ],
     });
   });
-
-  it("supports a leaderless warband", () => {
-    const roster: Roster = {
-      id: 42,
-      name: "Mordor",
-      armyListId: "mordor",
-      groupId: 7,
-      favorite: false,
-      locked: false,
-      tags: [],
-      armyOptionIds: [],
-      generalUnitId: null,
-
-      points: 0,
-      warbandCount: 1,
-      modelCount: 0,
-      might: 0,
-      bowCount: 0,
-      throwingWeaponCount: 0,
-
-      warbands: [
-        {
-          id: 10,
-          leader: null,
-          followers: [],
-        },
-      ],
-
-      createdAt: "2026-09-01T12:00:00Z",
-      updatedAt: "2026-09-01T12:00:00Z",
-    };
-
-    const result = mapApiRoster(roster);
-
-    expect(result.warbands[0]).toEqual({
-      id: 10,
-      leader: null,
-      followers: [],
-    });
-  });
 });

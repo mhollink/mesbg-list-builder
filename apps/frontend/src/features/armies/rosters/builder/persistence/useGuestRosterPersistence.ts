@@ -53,9 +53,7 @@ export function useGuestRosterPersistence(): RosterPersistence {
       dispatch(
         addGuestWarband({
           id: crypto.randomUUID(),
-
-          leader: source.leader ? cloneUnit(source.leader) : null,
-
+          leader: cloneUnit(source.leader),
           followers: source.followers.map(cloneUnit),
         }),
       );

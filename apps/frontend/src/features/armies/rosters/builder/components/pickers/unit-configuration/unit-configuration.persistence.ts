@@ -21,13 +21,14 @@ export async function saveLeaderLoadouts(
     throw new Error("A leader must have exactly one equipment configuration.");
   }
 
-  if (warband.leader?.armyListProfileId === profile.id) {
-    await actions.updateUnit(warband.id, warband.leader.id, {
-      optionIds: loadout.optionIds,
-    });
-  } else {
-    await actions.setLeader(warband.id, profile.id, loadout.optionIds);
+  const leader = warband.leader;
+  if (!leader || leader.armyListProfileId !== profile.id) {
+    throw new Error("An existing warband leader cannot be replaced.");
   }
+
+  await actions.updateUnit(warband.id, warband.leader.id, {
+    optionIds: loadout.optionIds,
+  });
 }
 
 export async function saveFollowerLoadouts(

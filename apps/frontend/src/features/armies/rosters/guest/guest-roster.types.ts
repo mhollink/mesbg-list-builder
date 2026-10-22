@@ -16,7 +16,7 @@ export interface GuestRoster {
 
 export interface GuestWarband {
   id: string;
-  leader: GuestRosterUnit | null;
+  leader: GuestRosterUnit;
   followers: GuestRosterUnit[];
 }
 

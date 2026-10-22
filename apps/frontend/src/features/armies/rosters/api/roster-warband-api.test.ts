@@ -21,10 +21,15 @@ describe("rosterWarbandApi", () => {
     vi.clearAllMocks();
   });
 
-  it("creates an empty warband", async () => {
+  it("creates an new warband", async () => {
     const response = {
       id: 23,
-      leader: null,
+      leader: {
+        id: 40,
+        quantity: 1,
+        armyListProfileId: "gothmog",
+        optionIds: ["warg"],
+      },
       followers: [],
     } as Warband;
 
@@ -35,8 +40,8 @@ describe("rosterWarbandApi", () => {
         rosterId: 42,
         leader: {
           armyListProfileId: "gothmog",
-          optionIds: ["warg"]
-        }
+          optionIds: ["warg"],
+        },
       }),
     );
 
@@ -45,9 +50,9 @@ describe("rosterWarbandApi", () => {
       createWarbandRequest: {
         leader: {
           armyListProfileId: "gothmog",
-          optionIds: ["warg"]
-        }
-      }
+          optionIds: ["warg"],
+        },
+      },
     });
     expect(result.data).toEqual(response);
   });
@@ -72,7 +77,12 @@ describe("rosterWarbandApi", () => {
   it("duplicates a warband", async () => {
     const response = {
       id: 24,
-      leader: null,
+      leader: {
+        id: 40,
+        quantity: 1,
+        armyListProfileId: "gothmog",
+        optionIds: ["warg"],
+      },
       followers: [],
     } as Warband;
 
