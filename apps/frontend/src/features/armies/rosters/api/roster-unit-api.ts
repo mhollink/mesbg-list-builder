@@ -1,6 +1,5 @@
 import type {
   CreateFollowerRequest,
-  LeaderInput,
   RosterUnit,
   UpdateRosterUnitRequest,
 } from "@mlb/api-client";
@@ -11,35 +10,6 @@ import { serverApi } from "~/api/server-api.ts";
 
 export const rosterUnitApi = serverApi.injectEndpoints({
   endpoints: (builder) => ({
-    setLeader: builder.mutation<
-      RosterUnit,
-      {
-        rosterId: number;
-        warbandId: number;
-        request: LeaderInput;
-      }
-    >({
-      queryFn: async ({ rosterId, warbandId, request }) => {
-        try {
-          return {
-            data: await rosterUnitsClient.setWarbandLeader({
-              rosterId,
-              warbandId,
-              leaderInput: request,
-            }),
-          };
-        } catch (error) {
-          return {
-            error: toApiError(error),
-          };
-        }
-      },
-
-      invalidatesTags: (_result, _error, { rosterId }) => [
-        { type: "Roster", id: rosterId },
-      ],
-    }),
-
     createFollower: builder.mutation<
       RosterUnit,
       {
@@ -171,7 +141,6 @@ export const rosterUnitApi = serverApi.injectEndpoints({
 });
 
 export const {
-  useSetLeaderMutation,
   useCreateFollowerMutation,
   useUpdateUnitMutation,
   useDeleteUnitMutation,

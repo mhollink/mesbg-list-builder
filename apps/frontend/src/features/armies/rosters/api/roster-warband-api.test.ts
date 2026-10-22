@@ -33,11 +33,21 @@ describe("rosterWarbandApi", () => {
     const result = await createStore().dispatch(
       rosterWarbandApi.endpoints.createWarband.initiate({
         rosterId: 42,
+        leader: {
+          armyListProfileId: "gothmog",
+          optionIds: ["warg"]
+        }
       }),
     );
 
     expect(client.createWarband).toHaveBeenCalledWith({
       rosterId: 42,
+      createWarbandRequest: {
+        leader: {
+          armyListProfileId: "gothmog",
+          optionIds: ["warg"]
+        }
+      }
     });
     expect(result.data).toEqual(response);
   });

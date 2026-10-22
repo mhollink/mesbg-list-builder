@@ -9,19 +9,16 @@ export interface UpdateBuilderUnit {
 }
 
 export interface RosterPersistence {
-  createWarband(): Promise<void>;
+  createWarband(leader: {
+    armyListProfileId: string;
+    optionIds: string[];
+  }): Promise<void>;
 
   deleteWarband(warbandId: BuilderWarbandId): Promise<void>;
 
   duplicateWarband(warbandId: BuilderWarbandId): Promise<void>;
 
   moveWarband(warbandId: BuilderWarbandId, position: number): Promise<void>;
-
-  setLeader(
-    warbandId: BuilderWarbandId,
-    armyListProfileId: string,
-    optionIds: string[],
-  ): Promise<void>;
 
   addFollower(
     warbandId: BuilderWarbandId,

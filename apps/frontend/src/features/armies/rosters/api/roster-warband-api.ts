@@ -1,4 +1,4 @@
-import type { MoveWarbandRequest, Warband } from "@mlb/api-client";
+import type { LeaderInput, MoveWarbandRequest, Warband } from "@mlb/api-client";
 
 import { rosterWarbandsClient } from "~/api/api.ts";
 import { toApiError } from "~/api/api-error.ts";
@@ -6,12 +6,16 @@ import { serverApi } from "~/api/server-api.ts";
 
 export const rosterWarbandApi = serverApi.injectEndpoints({
   endpoints: (builder) => ({
-    createWarband: builder.mutation<Warband, { rosterId: number }>({
-      queryFn: async ({ rosterId }) => {
+    createWarband: builder.mutation<
+      Warband,
+      { rosterId: number; leader: LeaderInput }
+    >({
+      queryFn: async ({ rosterId, leader }) => {
         try {
           return {
             data: await rosterWarbandsClient.createWarband({
               rosterId,
+              createWarbandRequest: { leader },
             }),
           };
         } catch (error) {

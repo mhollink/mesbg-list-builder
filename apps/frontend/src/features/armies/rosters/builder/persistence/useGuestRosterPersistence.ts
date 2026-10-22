@@ -15,7 +15,6 @@ import {
   moveGuestWarband,
   setGuestArmyOptions,
   setGuestGeneral,
-  setGuestLeader,
   updateGuestUnit,
 } from "~/features/armies/rosters/guest/guest-roster.slice.ts";
 import type {
@@ -29,11 +28,16 @@ export function useGuestRosterPersistence(): RosterPersistence {
   const roster = useAppSelector(selectGuestRoster);
 
   return {
-    async createWarband() {
+    async createWarband({ armyListProfileId, optionIds }) {
       dispatch(
         addGuestWarband({
           id: crypto.randomUUID(),
-          leader: null,
+          leader: {
+            id: crypto.randomUUID(),
+            armyListProfileId,
+            quantity: 1,
+            optionIds,
+          },
           followers: [],
         }),
       );
@@ -62,25 +66,6 @@ export function useGuestRosterPersistence(): RosterPersistence {
         moveGuestWarband({
           warbandId: guestWarbandId(warbandId),
           position,
-        }),
-      );
-    },
-
-    async setLeader(warbandId, armyListProfileId, optionIds) {
-      const id = guestWarbandId(warbandId);
-
-      const warband = findWarband(roster, id);
-
-      dispatch(
-        setGuestLeader({
-          warbandId: id,
-
-          leader: {
-            id: warband.leader?.id ?? crypto.randomUUID(),
-            armyListProfileId,
-            quantity: 1,
-            optionIds,
-          },
         }),
       );
     },
