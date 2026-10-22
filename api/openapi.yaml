@@ -36,7 +36,7 @@ paths:
 
   /api/v1/rosters/{rosterId}/army-options:
     $ref: "./paths/rosters.yaml#/RosterArmyOptions"
-  
+
   /api/v1/rosters/{rosterId}/favorite:
     $ref: "./paths/rosters.yaml#/RosterFavorite"
 
@@ -63,9 +63,6 @@ paths:
 
   /api/v1/rosters/{rosterId}/warbands/{warbandId}/duplicate:
     $ref: "./paths/rosters.yaml#/RosterWarbandDuplication"
-
-  /api/v1/rosters/{rosterId}/warbands/{warbandId}/leader:
-    $ref: "./paths/rosters.yaml#/RosterWarbandLeader"
 
   /api/v1/rosters/{rosterId}/warbands/{warbandId}/followers:
     $ref: "./paths/rosters.yaml#/RosterWarbandFollowers"
