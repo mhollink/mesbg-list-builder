@@ -24,54 +24,6 @@ public class RosterUnitsService {
   private final RosterUnitRepository rosterUnitRepository;
 
   @Transactional
-  public RosterUnitEntity setWarbandLeader(
-      Long rosterId, Long warbandId, String profileId, Set<String> optionIds) {
-
-    log.debug(
-        "Setting warband leader rosterId={} warbandId={} profileId={} optionCount={}",
-        rosterId,
-        warbandId,
-        profileId,
-        optionIds.size());
-
-    var roster = rosterAccess.requireEditable(rosterId);
-    var warband = rosterAccess.requireWarband(warbandId, rosterId);
-
-    var leader =
-        warband.getUnits().stream().filter(RosterUnitEntity::isLeader).findFirst().orElse(null);
-
-    if (leader == null) {
-      log.debug("Creating leader for empty warband rosterId={} warbandId={}", rosterId, warbandId);
-      leader = new RosterUnitEntity(warband, profileId, 1, true, -1);
-      warband.getUnits().add(leader);
-    } else if (roster.getGeneralUnit() != null
-        && roster.getGeneralUnit().getId().equals(leader.getId())) {
-      log.debug(
-          "Clearing roster general because leader is being replaced rosterId={} warbandId={} unitId={}",
-          rosterId,
-          warbandId,
-          leader.getId());
-      roster.setGeneralUnit(null);
-    }
-
-    leader.setArmyListProfileId(profileId);
-    leader.setQuantity(1);
-    leader.getOptionIds().clear();
-    leader.getOptionIds().addAll(optionIds);
-
-    roster.touch();
-
-    log.debug(
-        "Set warband leader rosterId={} warbandId={} unitId={} profileId={}",
-        rosterId,
-        warbandId,
-        leader.getId(),
-        profileId);
-
-    return leader;
-  }
-
-  @Transactional
   public RosterUnitEntity addFollower(
       Long rosterId,
       Long warbandId,

@@ -4,7 +4,6 @@ import com.mesbg.listbuilder.armies.roster.api.mapper.RosterUnitMapper;
 import com.mesbg.listbuilder.armies.roster.service.RosterUnitsService;
 import com.mesbg.listbuilder.generated.api.RosterUnitsApi;
 import com.mesbg.listbuilder.generated.model.CreateFollowerRequest;
-import com.mesbg.listbuilder.generated.model.LeaderInput;
 import com.mesbg.listbuilder.generated.model.MoveRosterUnitRequest;
 import com.mesbg.listbuilder.generated.model.RosterUnit;
 import com.mesbg.listbuilder.generated.model.UpdateRosterUnitRequest;
@@ -20,20 +19,6 @@ public class RosterUnitsController implements RosterUnitsApi {
 
   private final RosterUnitsService rosterUnitsService;
   private final RosterUnitMapper rosterUnitMapper;
-
-  @Override
-  public ResponseEntity<RosterUnit> setWarbandLeader(
-      Long rosterId, Long warbandId, LeaderInput request) {
-
-    var leader =
-        rosterUnitsService.setWarbandLeader(
-            rosterId,
-            warbandId,
-            request.getArmyListProfileId(),
-            Set.copyOf(request.getOptionIds()));
-
-    return ResponseEntity.ok(rosterUnitMapper.toDto(leader));
-  }
 
   @Override
   public ResponseEntity<RosterUnit> createWarbandFollower(

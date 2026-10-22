@@ -3,6 +3,7 @@ package com.mesbg.listbuilder.armies.roster.api;
 import com.mesbg.listbuilder.armies.roster.api.mapper.WarbandMapper;
 import com.mesbg.listbuilder.armies.roster.service.RosterWarbandsService;
 import com.mesbg.listbuilder.generated.api.RosterWarbandsApi;
+import com.mesbg.listbuilder.generated.model.CreateWarbandRequest;
 import com.mesbg.listbuilder.generated.model.MoveWarbandRequest;
 import com.mesbg.listbuilder.generated.model.Warband;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +18,9 @@ public class RosterWarbandsController implements RosterWarbandsApi {
   private final WarbandMapper warbandMapper;
 
   @Override
-  public ResponseEntity<Warband> createWarband(Long rosterId) {
-    var warband = rosterWarbandService.createWarband(rosterId);
+  public ResponseEntity<Warband> createWarband(
+      Long rosterId, CreateWarbandRequest createWarbandRequest) {
+    var warband = rosterWarbandService.createWarband(rosterId, createWarbandRequest.getLeader());
 
     return ResponseEntity.status(201).body(warbandMapper.toDto(warband));
   }

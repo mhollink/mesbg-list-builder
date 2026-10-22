@@ -5,6 +5,7 @@ import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidWarbandPositionException;
+import com.mesbg.listbuilder.generated.model.LeaderInput;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.stream.Collectors;
@@ -22,13 +23,17 @@ public class RosterWarbandsService {
   private final WarbandRepository warbandRepository;
 
   @Transactional
-  public WarbandEntity createWarband(Long rosterId) {
+  public WarbandEntity createWarband(Long rosterId, LeaderInput leaderInput) {
     log.debug("Creating warband rosterId={}", rosterId);
 
     var roster = rosterAccess.requireEditable(rosterId);
 
     var sortIndex = getMaxSortIndex(roster) + 1;
     var warband = new WarbandEntity(roster, sortIndex);
+
+    var leader = new RosterUnitEntity(warband, leaderInput.getArmyListProfileId(), 1, true, -1);
+    leader.getOptionIds().addAll(leaderInput.getOptionIds());
+    warband.getUnits().add(leader);
 
     roster.getWarbands().add(warband);
     roster.touch();

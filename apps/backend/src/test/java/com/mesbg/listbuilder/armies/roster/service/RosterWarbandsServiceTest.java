@@ -25,6 +25,8 @@ import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidWarbandPositionException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterLockedException;
 import com.mesbg.listbuilder.armies.roster.service.exception.WarbandNotFoundException;
+import com.mesbg.listbuilder.generated.model.LeaderInput;
+import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -73,10 +75,11 @@ class RosterWarbandsServiceTest {
     when(warbandRepository.save(any(WarbandEntity.class)))
         .thenAnswer(invocation -> invocation.getArgument(0));
 
-    var result = warbandsService.createWarband(ROSTER_ID);
+    LeaderInput leaderInput = new LeaderInput("aragorn-king-elessar", List.of());
+    var result = warbandsService.createWarband(ROSTER_ID, leaderInput);
 
     assertThat(result.getSortIndex()).isEqualTo(6);
-    assertThat(result.getUnits()).isEmpty();
+    assertThat(result.getUnits()).hasSize(1);
     assertThat(roster.getWarbands()).contains(result);
     assertThat(roster.getUpdatedAt()).isNotNull();
   }
@@ -89,7 +92,8 @@ class RosterWarbandsServiceTest {
     when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
-    assertThatThrownBy(() -> warbandsService.createWarband(ROSTER_ID))
+    LeaderInput leaderInput = new LeaderInput("aragorn-king-elessar", List.of());
+    assertThatThrownBy(() -> warbandsService.createWarband(ROSTER_ID, leaderInput))
         .isInstanceOf(RosterLockedException.class);
 
     verify(warbandRepository, never()).save(any());

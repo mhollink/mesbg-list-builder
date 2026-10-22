@@ -2,16 +2,17 @@ package com.mesbg.listbuilder.armies.roster.api;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.mesbg.listbuilder.armies.roster.api.mapper.WarbandMapper;
 import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.service.RosterWarbandsService;
+import com.mesbg.listbuilder.generated.model.LeaderInput;
+import com.mesbg.listbuilder.generated.model.RosterUnit;
 import com.mesbg.listbuilder.generated.model.Warband;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.security.oauth2.server.resource.autoconfigure.OAuth2ResourceServerAutoConfiguration;
@@ -33,6 +34,7 @@ class RosterWarbandsControllerTest {
 
   private static final long ROSTER_ID = 42L;
   private static final long WARBAND_ID = 23L;
+  private static final long LEADER_ID = 80L;
 
   @Autowired private MockMvc mockMvc;
 
@@ -43,16 +45,28 @@ class RosterWarbandsControllerTest {
   void createsEmptyWarband() throws Exception {
     var entity = new WarbandEntity();
     var dto = warbandDto(WARBAND_ID);
+    var input = leaderInput();
 
-    when(rosterWarbandsService.createWarband(ROSTER_ID)).thenReturn(entity);
+    when(rosterWarbandsService.createWarband(ROSTER_ID, input)).thenReturn(entity);
     when(warbandMapper.toDto(entity)).thenReturn(dto);
 
     mockMvc
-        .perform(post("/api/v1/rosters/{rosterId}/warbands", ROSTER_ID))
+        .perform(
+            post("/api/v1/rosters/{rosterId}/warbands", ROSTER_ID)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    """
+                    {
+                      "leader": {
+                        "armyListProfileId": "aragorn-king-elessar",
+                        "optionIds": []
+                      }
+                    }
+                    """))
         .andExpect(status().isCreated())
         .andExpect(jsonPath("$.id").value(WARBAND_ID));
 
-    verify(rosterWarbandsService).createWarband(ROSTER_ID);
+    verify(rosterWarbandsService).createWarband(ROSTER_ID, input);
   }
 
   @Test
@@ -81,10 +95,10 @@ class RosterWarbandsControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     """
-                    {
-                      "position": 1
-                    }
-                    """))
+                        {
+                          "position": 1
+                        }
+                        """))
         .andExpect(status().isNoContent());
 
     verify(rosterWarbandsService).moveWarband(ROSTER_ID, WARBAND_ID, 1);
@@ -99,9 +113,22 @@ class RosterWarbandsControllerTest {
     verify(rosterWarbandsService).deleteWarband(ROSTER_ID, WARBAND_ID);
   }
 
-  private Warband warbandDto(long id) {
+  private Warband warbandDto(long id, RosterUnit leader) {
     var warband = new Warband();
     warband.setId(id);
+    warband.setLeader(leader);
     return warband;
+  }
+
+  private Warband warbandDto(long id) {
+    return warbandDto(id, new RosterUnit(LEADER_ID, "aragorn-king-elessar", 1, List.of()));
+  }
+
+  private LeaderInput leaderInput(List<String> options) {
+    return new LeaderInput("aragorn-king-elessar", options);
+  }
+
+  private LeaderInput leaderInput() {
+    return leaderInput(List.of());
   }
 }
