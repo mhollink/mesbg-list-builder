@@ -25,6 +25,7 @@ import type { WarbandCapacity } from "../../domain/warband-rules.ts";
 import type { UnitLoadout } from "../pickers/unit-configuration/unit-configuration.utils.ts";
 import { WarbandCard } from "./WarbandCard.tsx";
 import { LeaderPicker } from "~/features/armies/rosters/builder/components/pickers/LeaderPicker.tsx";
+import { useBuilderPickerHistory } from "~/features/armies/rosters/builder/hooks/useBuilderPickerHistory.ts";
 import { useRosterSorting } from "~/features/armies/rosters/builder/hooks/useRosterSorting.ts";
 import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
@@ -64,7 +65,8 @@ export function WarbandList({
   actions,
 }: WarbandListProps) {
   const dnd = useRosterSorting(roster, actions);
-  const [creationMode, setCreationMode] = useState<CreationMode | null>(null);
+  const { picker, openPicker } = useBuilderPickerHistory();
+  const creationMode = picker?.type === "warband-create" ? picker.mode : null;
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
   const [movingWarband, setMovingWarband] = useState(false);
   const [moveError, setMoveError] = useState(false);
@@ -75,7 +77,7 @@ export function WarbandList({
 
   function openCreator(mode: CreationMode) {
     setMenuAnchor(null);
-    setCreationMode(mode);
+    openPicker({ type: "warband-create", mode });
   }
 
   async function handleCreateWarband(
@@ -239,7 +241,6 @@ export function WarbandList({
         open={creationMode !== null}
         continuous={creationMode === "continuous"}
         profiles={getAvailableLeaders()}
-        onClose={() => setCreationMode(null)}
         onSave={handleCreateWarband}
       />
     </Stack>

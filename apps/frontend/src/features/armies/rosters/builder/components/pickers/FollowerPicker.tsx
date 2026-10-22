@@ -8,7 +8,6 @@ interface FollowerPickerProps {
   profiles: readonly LocalizedArmyListProfile[];
   initialProfile?: LocalizedArmyListProfile;
   existingUnits?: readonly BuilderUnit[];
-  onClose: () => void;
   onSave: (
     profile: LocalizedArmyListProfile,
     loadouts: UnitLoadout[],
