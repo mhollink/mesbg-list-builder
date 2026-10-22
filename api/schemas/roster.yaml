@@ -329,9 +329,7 @@ Warband:
       format: int64
 
     leader:
-      nullable: true
-      allOf:
-        - $ref: "#/RosterUnit"
+      $ref: "#/RosterUnit"
 
     followers:
       type: array
