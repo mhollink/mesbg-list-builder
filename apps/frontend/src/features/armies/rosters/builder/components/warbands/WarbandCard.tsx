@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -32,8 +32,6 @@ import { warbandSortId } from "~/features/armies/rosters/builder/hooks/roster-so
 import type { RosterPersistence } from "~/features/armies/rosters/builder/persistence/roster-persistence.types.ts";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
-type LeaderEditor = "select" | "edit" | null;
-
 type FollowerEditor =
   | { type: "select" }
   | { type: "edit"; unit: BuilderUnit }
@@ -50,8 +48,6 @@ export interface WarbandCardProps {
   actions: RosterPersistence;
   availableLeaders: LocalizedArmyListProfile[];
   availableFollowers: LocalizedArmyListProfile[];
-  autoOpenLeaderPicker?: boolean;
-  onLeaderPickerOpened?: () => void;
   canMoveUp: boolean;
   canMoveDown: boolean;
   onMoveUp: () => void;
@@ -68,8 +64,6 @@ export function WarbandCard({
   actions,
   availableLeaders,
   availableFollowers,
-  autoOpenLeaderPicker,
-  onLeaderPickerOpened,
   sortingDisabled,
   canMoveDown,
   canMoveUp,
@@ -79,7 +73,7 @@ export function WarbandCard({
   const points = calculateWarbandPoints(warband, gameData);
   const [open, setOpen] = useState(true);
 
-  const [leaderEditor, setLeaderEditor] = useState<LeaderEditor>(null);
+  const [leaderEditor, setLeaderEditor] = useState<boolean>(false);
   const [followerEditor, setFollowerEditor] = useState<FollowerEditor>(null);
 
   const { ref: warbandDropRef } = useDroppable({
@@ -105,13 +99,6 @@ export function WarbandCard({
       void actions.duplicateWarband(warband.id);
     },
   };
-
-  useEffect(() => {
-    if (autoOpenLeaderPicker && !warband.leader && !readonly) {
-      setLeaderEditor("select");
-      onLeaderPickerOpened?.();
-    }
-  }, [autoOpenLeaderPicker, onLeaderPickerOpened, readonly, warband.leader]);
 
   return (
     <>
@@ -147,8 +134,7 @@ export function WarbandCard({
               actions={actions}
               readonly={readonly}
               collapsed={!open}
-              onSelectLeader={() => setLeaderEditor("select")}
-              onEditLeader={() => setLeaderEditor("edit")}
+              onEditLeader={() => setLeaderEditor(true)}
             />
           </Box>
           {warband.followers.length > 0 && (
@@ -206,20 +192,16 @@ export function WarbandCard({
       </Paper>
 
       <LeaderPicker
-        open={leaderEditor !== null}
+        open={leaderEditor}
         profiles={availableLeaders}
-        initialProfile={
-          leaderEditor === "edit" && warband.leader
-            ? gameData.armyListProfilesById.get(
-                warband.leader.armyListProfileId,
-              )
-            : undefined
-        }
+        initialProfile={gameData.armyListProfilesById.get(
+          warband.leader.armyListProfileId,
+        )}
         existingUnits={warband.leader ? [warband.leader] : []}
-        onClose={() => setLeaderEditor(null)}
+        onClose={() => setLeaderEditor(false)}
         onSave={async (profile, loadouts) => {
           await saveLeaderLoadouts(warband, profile, loadouts, actions);
-          setLeaderEditor(null);
+          setLeaderEditor(false);
         }}
       />
 

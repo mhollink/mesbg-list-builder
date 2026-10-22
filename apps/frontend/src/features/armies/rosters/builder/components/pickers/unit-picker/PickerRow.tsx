@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,10 +12,33 @@ import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/a
 interface PickerRowProps {
   profile: LocalizedArmyListProfile;
   onSelect: () => void;
-  onQuickAdd?: () => void;
+  onQuickAdd?: () => Promise<void>;
 }
 
 export function PickerRow({ profile, onSelect, onQuickAdd }: PickerRowProps) {
+  const [saving, setSaving] = useState(false);
+  const [quickAddError, setQuickAddError] = useState(false);
+
+  const handleQuickAdd = async () => {
+    if (saving) return;
+    if (onQuickAdd === undefined) {
+      throw new Error(
+        "Should only allow quick add when the function is assigned.",
+      );
+    }
+
+    setSaving(true);
+    setQuickAddError(false);
+
+    try {
+      await onQuickAdd();
+    } catch {
+      setQuickAddError(true);
+    } finally {
+      setSaving(false);
+    }
+  };
+
   const points = getInitialPoints(profile);
 
   return (
@@ -55,27 +79,35 @@ export function PickerRow({ profile, onSelect, onQuickAdd }: PickerRowProps) {
             {points} pts
           </Typography>
         </Stack>
-
         {profile.profile.stats.type !== "warrior" && onQuickAdd && (
-          <Stack direction="row" spacing={2}>
-            <Button
-              variant="text"
-              size="small"
-              endIcon={<ChevronRightIcon />}
-              onClick={(clickEvent) => {
-                clickEvent.stopPropagation();
-                onQuickAdd();
-              }}
-              sx={{
-                textTransform: "none",
-                justifyContent: "flex-start",
-                p: 0,
-              }}
+          <Stack spacing={0.5} sx={{ alignItems: "flex-start" }}>
+            <Box
+              sx={{ display: "inline-flex" }}
+              onClick={(event) => event.stopPropagation()}
             >
-              Add without extra options
-            </Button>
+              <Button
+                variant="text"
+                size="small"
+                endIcon={<ChevronRightIcon />}
+                onClick={handleQuickAdd}
+                disabled={saving}
+                sx={{
+                  textTransform: "none",
+                  justifyContent: "flex-start",
+                  p: 0,
+                }}
+              >
+                {saving ? "Adding..." : "Add without extra options"}
+              </Button>
+            </Box>
+
+            {quickAddError && (
+              <Typography variant="caption" color="error" role="alert">
+                Could not add this profile. Please try again.
+              </Typography>
+            )}
           </Stack>
-        )}
+        )}{" "}
       </Box>
     </ListItemButton>
   );

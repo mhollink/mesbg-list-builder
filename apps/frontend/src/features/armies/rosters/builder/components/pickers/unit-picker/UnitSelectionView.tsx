@@ -20,7 +20,7 @@ interface UnitSelectionViewProps {
   onClose: () => void;
   profiles: readonly LocalizedArmyListProfile[];
   onSelect: (profile: LocalizedArmyListProfile) => void;
-  onQuickAdd: (profile: LocalizedArmyListProfile) => void;
+  onQuickAdd: (profile: LocalizedArmyListProfile) => Promise<void>;
 }
 
 export function UnitSelectionView({

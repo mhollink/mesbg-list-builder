@@ -23,7 +23,7 @@ export function mapApiRoster(roster: Roster): BuilderRoster {
 function mapWarband(warband: Warband): BuilderWarband {
   return {
     id: warband.id,
-    leader: warband.leader ? mapRosterUnit(warband.leader) : null,
+    leader: mapRosterUnit(warband.leader),
     followers: warband.followers.map(mapRosterUnit),
   };
 }

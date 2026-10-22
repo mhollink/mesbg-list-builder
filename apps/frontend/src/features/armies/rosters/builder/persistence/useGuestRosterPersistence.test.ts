@@ -43,8 +43,8 @@ describe("useGuestRosterPersistence", () => {
     const { result } = renderHook(() => useGuestRosterPersistence());
 
     await result.current.createWarband({
-        armyListProfileId: "gothmog",
-        optionIds: ["warg"],
+      armyListProfileId: "gothmog",
+      optionIds: ["warg"],
     });
 
     expect(mocks.dispatch).toHaveBeenCalledWith(
@@ -54,7 +54,7 @@ describe("useGuestRosterPersistence", () => {
           id: "00000000-0000-4000-8000-000000000001",
           armyListProfileId: "gothmog",
           optionIds: ["warg"],
-          quantity: 1
+          quantity: 1,
         },
         followers: [],
       }),

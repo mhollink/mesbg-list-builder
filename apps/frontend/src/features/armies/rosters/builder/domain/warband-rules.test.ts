@@ -32,18 +32,6 @@ describe("warband rules", () => {
     );
   });
 
-  it("does not resolve a definition without a leader", () => {
-    const gameData = createGameData([
-      {
-        id: "captain-warband",
-        leaderId: "captain",
-        followerIds: ["orc"],
-      },
-    ]);
-
-    expect(findWarbandDefinition(warband(), gameData)).toBeUndefined();
-  });
-
   it("returns the complete follower set from the definition", () => {
     const gameData = createGameData([
       {
@@ -79,7 +67,12 @@ describe("warband rules", () => {
   it("counts follower quantities rather than entries", () => {
     const value: BuilderWarband = {
       id: "warband",
-      leader: null,
+      leader: {
+        id: 40,
+        quantity: 1,
+        armyListProfileId: "gothmog",
+        optionIds: ["warg"],
+      },
 
       followers: [
         {
@@ -209,18 +202,16 @@ describe("warband rules", () => {
   });
 });
 
-function warband(leaderProfileId?: string): BuilderWarband {
+function warband(leaderProfileId: string): BuilderWarband {
   return {
     id: "warband",
 
-    leader: leaderProfileId
-      ? {
-          id: "leader",
-          armyListProfileId: leaderProfileId,
-          quantity: 1,
-          optionIds: [],
-        }
-      : null,
+    leader: {
+      id: "leader",
+      armyListProfileId: leaderProfileId,
+      quantity: 1,
+      optionIds: [],
+    },
 
     followers: [],
   };

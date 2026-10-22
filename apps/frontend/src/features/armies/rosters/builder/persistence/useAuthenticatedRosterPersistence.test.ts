@@ -78,7 +78,7 @@ describe("useAuthenticatedRosterPersistence", () => {
       leader: {
         armyListProfileId: "gothmog",
         optionIds: ["warg"],
-      }
+      },
     });
 
     expect(mocks.deleteWarband).toHaveBeenCalledWith({

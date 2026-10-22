@@ -20,6 +20,7 @@ interface UnitPickerProps {
   profiles: readonly LocalizedArmyListProfile[];
   initialProfile?: LocalizedArmyListProfile;
   existingUnits?: readonly BuilderUnit[];
+  continuous?: boolean;
   onSave: (
     profile: LocalizedArmyListProfile,
     loadouts: UnitLoadout[],
@@ -59,6 +60,7 @@ function UnitPickerFlow({
   existingUnits,
   onClose,
   onSave,
+  continuous,
 }: UnitPickerFlowProps) {
   const [view, setView] = useState<PickerView>(() =>
     initialProfile
@@ -67,6 +69,19 @@ function UnitPickerFlow({
   );
 
   const [startedWithProfile] = useState(() => initialProfile !== undefined);
+
+  async function handleSave(
+    profile: LocalizedArmyListProfile,
+    loadouts: UnitLoadout[],
+  ) {
+    await onSave(profile, loadouts);
+
+    if (continuous) {
+      setView({ type: "selection" });
+    } else {
+      onClose();
+    }
+  }
 
   function handleSelect(profile: LocalizedArmyListProfile) {
     setView({
@@ -85,7 +100,7 @@ function UnitPickerFlow({
       profiles={profiles}
       onSelect={handleSelect}
       onQuickAdd={(profile: LocalizedArmyListProfile) =>
-        onSave(profile, [
+        handleSave(profile, [
           {
             quantity: 1,
             optionIds: [],
@@ -96,12 +111,11 @@ function UnitPickerFlow({
     />
   ) : (
     <UnitConfigurationView
-      key={view.profile.id}
       profile={view.profile}
       existingUnits={existingUnits}
       onBack={startedWithProfile ? undefined : handleBack}
       onClose={onClose}
-      onSave={(loadouts) => onSave(view.profile, loadouts)}
+      onSave={(loadouts) => handleSave(view.profile, loadouts)}
     />
   );
 }

@@ -9,6 +9,7 @@ interface LeaderPickerProps {
   initialProfile?: LocalizedArmyListProfile;
   existingUnits?: readonly BuilderUnit[];
   onClose: () => void;
+  continuous?: boolean;
   onSave: (
     profile: LocalizedArmyListProfile,
     loadouts: UnitLoadout[],

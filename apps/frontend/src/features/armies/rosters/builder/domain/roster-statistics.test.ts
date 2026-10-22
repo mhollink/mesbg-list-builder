@@ -143,7 +143,12 @@ describe("calculateRosterStatistics", () => {
       warbands: [
         {
           id: 10,
-          leader: null,
+          leader: {
+            id: 40,
+            quantity: 1,
+            armyListProfileId: "gothmog",
+            optionIds: ["warg"],
+          },
           followers: [
             {
               id: 1,
@@ -174,7 +179,12 @@ describe("calculateRosterStatistics", () => {
       warbands: [
         {
           id: 10,
-          leader: null,
+          leader: {
+            id: 40,
+            quantity: 1,
+            armyListProfileId: "gothmog",
+            optionIds: ["warg"],
+          },
           followers: [
             {
               id: 1,
