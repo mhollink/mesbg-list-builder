@@ -294,6 +294,9 @@
       "hand-weapon",
       "warg"
     ],
+    "additionalProfiles": [
+      "warg-mount"
+    ],
     "options": [
       {
         "id": "shield-and-throwing-spears",
@@ -510,6 +513,9 @@
         "id": "master-of-battle",
         "parameter": "5"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ]
   },
   {
@@ -858,6 +864,9 @@
       "heroic-strike",
       "heroic-challenge"
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "armoured-horse-and-lance",
@@ -996,6 +1005,10 @@
       {
         "id": "woodland-creature"
       }
+    ],
+    "additionalProfiles": [
+      "asfaloth",
+      "horse"
     ],
     "options": [
       {
@@ -1282,6 +1295,9 @@
         "id": "hatred",
         "parameter": "angmar"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ]
   },
   {
@@ -2871,6 +2887,9 @@
         "id": "fearless"
       }
     ],
+    "additionalProfiles": [
+      "war-boar"
+    ],
     "options": [
       {
         "id": "war-boar",
@@ -3492,7 +3511,9 @@
     "alignment": "good",
     "points": 70,
     "race": [],
-    "factions": [],
+    "factions": [
+      "khazad-dum"
+    ],
     "unitTypes": [
       "siege-engine"
     ],
@@ -3809,6 +3830,9 @@
       "heroic-channelling",
       "heroic-strike",
       "heroic-defence"
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -4251,11 +4275,17 @@
     "specialRules": [
       {
         "id": "master-of-battle",
-        "parameter": "5"
+        "parameter": "plus-5"
       },
       {
         "id": "shieldwall"
       }
+    ],
+    "additionalProfiles": [
+      "iron-hills-chariot"
+    ],
+    "additionalText": [
+      "text-1"
     ],
     "options": [
       {
@@ -4294,7 +4324,7 @@
       "warrior",
       "chariot"
     ],
-    "baseSize": "170mm",
+    "baseSize": "170mm oval",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -4378,6 +4408,9 @@
       "heavy-armour",
       "war-spear",
       "hand-weapon",
+      "war-goat"
+    ],
+    "additionalProfiles": [
       "war-goat"
     ],
     "options": [
@@ -5258,7 +5291,7 @@
       "heroic-strike",
       "heroic-strength",
       "heroic-challenge",
-      "heroic-resolve"
+      "heroic-march"
     ],
     "specialRules": [
       {
@@ -5338,7 +5371,7 @@
     ],
     "heroicActions": [
       "heroic-strike",
-      "heroic-defence"
+      "heroic-strength"
     ],
     "specialRules": [
       {
@@ -5706,6 +5739,9 @@
         "id": "expert-rider"
       }
     ],
+    "additionalProfiles": [
+      "asfaloth"
+    ],
     "options": [
       {
         "id": "asfaloth",
@@ -5981,6 +6017,9 @@
         "id": "woodland-creature"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -6056,6 +6095,9 @@
       {
         "id": "woodland-creature"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -6141,6 +6183,9 @@
       {
         "id": "woodland-creature"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -6289,6 +6334,9 @@
       {
         "id": "woodland-creature"
       }
+    ],
+    "additionalProfiles": [
+      "galadrim-steed"
     ],
     "options": [
       {
@@ -6794,6 +6842,9 @@
         "id": "woodland-creature"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "orcrist",
@@ -7131,7 +7182,7 @@
     "wargear": [
       "heavy-armour",
       "horse",
-      "elven-hand-and-a-half-weapons"
+      "elven-hand-and-a-half-weapon"
     ],
     "specialRules": [
       {
@@ -7140,6 +7191,9 @@
       {
         "id": "woodland-creature"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "profileRules": [
       {
@@ -7446,13 +7500,13 @@
         "effects": []
       },
       {
-        "id": "shield",
+        "id": "elven-spear",
         "points": 1,
         "requirements": [],
         "effects": []
       },
       {
-        "id": "elven-spear",
+        "id": "shield",
         "points": 1,
         "requirements": [],
         "effects": []
@@ -7653,6 +7707,9 @@
       {
         "id": "woodland-creature"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -8612,6 +8669,9 @@
       "shield",
       "horse"
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "profileRules": [
       {
         "id": "slay-their-horses",
@@ -8962,6 +9022,9 @@
     "heroicActions": [
       "heroic-challenge",
       "heroic-strike"
+    ],
+    "additionalProfiles": [
+      "warg-mount"
     ],
     "options": [
       {
@@ -9326,6 +9389,9 @@
         "id": "bane-of-kings"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -9473,6 +9539,9 @@
         "id": "will-of-evil"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -9571,6 +9640,9 @@
         "parameter": "3"
       }
     ],
+    "additionalProfiles": [
+      "khandish-chariot"
+    ],
     "options": [
       {
         "id": "exchange-hand-and-a-half-weapon-for-bow",
@@ -9631,6 +9703,9 @@
     "heroicActions": [
       "heroic-march"
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -9678,6 +9753,9 @@
       "hand-and-a-half-weapon",
       "hand-weapon",
       "bow",
+      "horse"
+    ],
+    "additionalProfiles": [
       "horse"
     ]
   },
@@ -10642,6 +10720,9 @@
         "id": "will-of-evil"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -10752,6 +10833,9 @@
       {
         "id": "will-of-evil"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -10864,6 +10948,9 @@
       {
         "id": "will-of-evil"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -11044,6 +11131,9 @@
         "id": "will-of-evil"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -11159,6 +11249,9 @@
       {
         "id": "will-of-evil"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -11347,6 +11440,9 @@
         "id": "will-of-evil"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -11463,6 +11559,9 @@
         "id": "will-of-evil"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -11577,6 +11676,9 @@
         "id": "mighty-blow"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -11685,7 +11787,7 @@
     "wargear": [],
     "additionalProfiles": [
       "moria-goblin-warrior",
-      "warg-mount"
+      "warg-mount-mount"
     ],
     "additionalText": [
       "text-1"
@@ -11899,7 +12001,10 @@
       "c": "-",
       "i": "-"
     },
-    "wargear": []
+    "wargear": [],
+    "additionalText": [
+      "text-1"
+    ]
   },
   {
     "profile": "haradrim-commander",
@@ -11969,7 +12074,10 @@
       "c": "-",
       "i": "-"
     },
-    "wargear": []
+    "wargear": [],
+    "additionalText": [
+      "text-1"
+    ]
   },
   {
     "profile": "mahud-beastmaster-chieftain",
@@ -12008,7 +12116,7 @@
     },
     "wargear": [
       "armour",
-      "spear",
+      "hand-weapon",
       "war-horn"
     ],
     "heroicActions": [
@@ -12075,6 +12183,9 @@
       {
         "id": "unyielding-combat-stance"
       }
+    ],
+    "additionalProfiles": [
+      "armoured-horse"
     ],
     "options": [
       {
@@ -12272,7 +12383,10 @@
     "alignment": "evil",
     "points": 70,
     "race": [],
-    "factions": [],
+    "factions": [
+      "corsair",
+      "umbar"
+    ],
     "unitTypes": [
       "siege-engine"
     ],
@@ -13178,6 +13292,9 @@
         "parameter": "bow"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "banner",
@@ -13449,6 +13566,13 @@
       "heroic-strength",
       "heroic-challenge"
     ],
+    "additionalProfiles": [
+      "royal-war-mumak",
+      "howdah"
+    ],
+    "additionalText": [
+      "text-1"
+    ],
     "profileRules": [
       {
         "id": "long-bladed-spear",
@@ -13606,7 +13730,7 @@
     "unitTypes": [
       "war-beast"
     ],
-    "baseSize": "180x140mm",
+    "baseSize": "180x140mm oval",
     "selectable": false,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -13815,6 +13939,9 @@
       {
         "id": "poisoned-attacks"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ]
   },
   {
@@ -13878,6 +14005,9 @@
         "id": "leader",
         "parameter": "serpent-rider"
       }
+    ],
+    "additionalProfiles": [
+      "armoured-horse"
     ],
     "options": [
       {
@@ -14038,16 +14168,12 @@
     "origin": "fallen-realms",
     "alignment": "evil",
     "points": 250,
-    "race": [
-      "mumak"
-    ],
+    "race": [],
     "factions": [
       "harad"
     ],
-    "unitTypes": [
-      "war-beast"
-    ],
-    "baseSize": "180x140mm",
+    "unitTypes": [],
+    "baseSize": "",
     "selectable": true,
     "source": {
       "book": "armies-of-the-lord-of-the-rings",
@@ -14055,35 +14181,25 @@
     },
     "stats": {
       "type": "warrior",
-      "mv": "8",
-      "fv": "4",
-      "sv": "6",
-      "s": "10",
-      "d": "7",
-      "a": "3",
-      "w": "10",
-      "c": "7",
-      "i": "9"
+      "mv": "-",
+      "fv": "-",
+      "sv": "-",
+      "s": "-",
+      "d": "-",
+      "a": "-",
+      "w": "-",
+      "c": "-",
+      "i": "-"
     },
-    "wargear": [
-      "tusks-and-huge-stomping-feet-hand-weapons"
-    ],
-    "specialRules": [
-      {
-        "id": "dominant",
-        "parameter": "10"
-      },
-      {
-        "id": "large-target"
-      },
-      {
-        "id": "terror"
-      }
-    ],
+    "wargear": [],
     "additionalProfiles": [
-      "mumak-howdah",
       "haradrim-commander",
+      "mumak",
+      "mumak-howdah",
       "mahud-beastmaster-chieftain"
+    ],
+    "additionalText": [
+      "text-1"
     ],
     "options": [
       {
@@ -14127,6 +14243,85 @@
         "points": 10,
         "requirements": [],
         "effects": []
+      }
+    ],
+    "profileRules": [
+      {
+        "id": "gnarled-hide",
+        "type": "passive",
+        "option": ""
+      },
+      {
+        "id": "rocks",
+        "type": "active",
+        "option": ""
+      },
+      {
+        "id": "sigils-of-defiance",
+        "type": "passive",
+        "option": ""
+      },
+      {
+        "id": "tusk-weapons",
+        "type": "active",
+        "option": ""
+      },
+      {
+        "id": "foul-temperament",
+        "type": "passive",
+        "option": ""
+      },
+      {
+        "id": "rappelling-lines",
+        "type": "passive",
+        "option": ""
+      }
+    ]
+  },
+  {
+    "profile": "mumak",
+    "origin": "fallen-realms",
+    "alignment": "evil",
+    "race": [
+      "mumak"
+    ],
+    "factions": [
+      "harad"
+    ],
+    "unitTypes": [
+      "war-beast"
+    ],
+    "baseSize": "180x140mm oval",
+    "selectable": false,
+    "source": {
+      "book": "armies-of-the-lord-of-the-rings",
+      "page": 192
+    },
+    "stats": {
+      "type": "warrior",
+      "mv": "8",
+      "fv": "4",
+      "sv": "6",
+      "s": "10",
+      "d": "7",
+      "a": "3",
+      "w": "10",
+      "c": "7",
+      "i": "9"
+    },
+    "wargear": [
+      "tusks-and-huge-stomping-feet-hand-weapons"
+    ],
+    "specialRules": [
+      {
+        "id": "dominant",
+        "parameter": "10"
+      },
+      {
+        "id": "large-target"
+      },
+      {
+        "id": "terror"
       }
     ],
     "profileRules": [
@@ -14301,6 +14496,9 @@
       {
         "id": "resistant-to-magic"
       }
+    ],
+    "additionalProfiles": [
+      "armoured-horse"
     ],
     "options": [
       {
@@ -14558,6 +14756,9 @@
         "parameter": "citadel-guard"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "the-banner-of-minas-tirith",
@@ -14640,6 +14841,9 @@
     ],
     "heroicActions": [
       "heroic-march"
+    ],
+    "additionalProfiles": [
+      "armoured-horse"
     ],
     "options": [
       {
@@ -15175,6 +15379,9 @@
         "id": "woodland-creature"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -15690,6 +15897,9 @@
       "heroic-strike",
       "heroic-strength"
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -15893,6 +16103,9 @@
         "id": "resistant-to-magic"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -15965,6 +16178,9 @@
         "id": "fearless"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -16036,6 +16252,9 @@
       "heroic-march",
       "heroic-strike",
       "heroic-resolve"
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -16129,6 +16348,9 @@
         "id": "shieldwall"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -16205,6 +16427,9 @@
       {
         "id": "resistant-to-magic"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -16289,6 +16514,9 @@
       {
         "id": "horse-lord"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -16425,6 +16653,9 @@
       "hand-weapon",
       "shield"
     ],
+    "additionalProfiles": [
+      "armoured-horse"
+    ],
     "options": [
       {
         "id": "armoured-horse-and-banner",
@@ -16509,6 +16740,9 @@
       {
         "id": "shieldwall"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -16762,6 +16996,9 @@
       "heroic-strike",
       "heroic-strength",
       "heroic-defence"
+    ],
+    "additionalProfiles": [
+      "armoured-horse"
     ],
     "options": [
       {
@@ -17355,6 +17592,9 @@
         "parameter": "range-8-strength-1"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "profileRules": [
       {
         "id": "clean-strike",
@@ -17721,6 +17961,9 @@
       {
         "id": "horse-lord"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "additionalText": [
       "text-1"
@@ -18522,6 +18765,9 @@
         "id": "expert-rider"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -18582,6 +18828,9 @@
       {
         "id": "expert-rider"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "profileRules": [
       {
@@ -18695,7 +18944,16 @@
         "id": "burly"
       }
     ],
+    "additionalProfiles": [
+      "the-white-warg-mount"
+    ],
     "options": [
+      {
+        "id": "the-white-warg",
+        "points": 50,
+        "requirements": [],
+        "effects": []
+      },
       {
         "id": "stone-flail",
         "points": 15,
@@ -18705,12 +18963,6 @@
       {
         "id": "heavy-armour",
         "points": 10,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "the-white-warg",
-        "points": 50,
         "requirements": [],
         "effects": []
       }
@@ -18792,6 +19044,9 @@
         "id": "ancient-enemies",
         "parameter": "elf"
       }
+    ],
+    "additionalProfiles": [
+      "fell-warg-mount"
     ],
     "options": [
       {
@@ -18906,6 +19161,9 @@
       {
         "id": "expert-rider"
       }
+    ],
+    "additionalProfiles": [
+      "fell-warg-mount"
     ],
     "options": [
       {
@@ -19126,7 +19384,7 @@
       "page": 127
     },
     "stats": {
-      "type": "warrior",
+      "type": "hero",
       "mv": "6",
       "fv": "7",
       "sv": "4",
@@ -19135,11 +19393,14 @@
       "a": "3",
       "w": "5",
       "c": "6",
-      "i": "7"
+      "i": "7",
+      "might": "0",
+      "will": "0",
+      "fate": "0"
     },
     "wargear": [
-      "catapult",
-      "metal-gauntlets"
+      "metal-gauntlets",
+      "catapult"
     ],
     "specialRules": [
       {
@@ -19161,14 +19422,12 @@
         "parameter": "elf"
       }
     ],
+    "additionalText": [
+      "text-1"
+    ],
     "profileRules": [
       {
-        "id": "catapult",
-        "type": "active",
-        "option": ""
-      },
-      {
-        "id": "area-effect",
+        "id": "metal-gauntlets",
         "type": "active",
         "option": ""
       },
@@ -19178,7 +19437,12 @@
         "option": ""
       },
       {
-        "id": "metal-gauntlets",
+        "id": "catapult",
+        "type": "active",
+        "option": ""
+      },
+      {
+        "id": "area-effect",
         "type": "active",
         "option": ""
       }
@@ -19190,7 +19454,7 @@
     "alignment": "evil",
     "points": 60,
     "race": [
-      "troll"
+      "ogre"
     ],
     "factions": [
       "gundabad"
@@ -19500,6 +19764,9 @@
     "heroicActions": [
       "heroic-march"
     ],
+    "additionalProfiles": [
+      "fell-warg-mount"
+    ],
     "options": [
       {
         "id": "fell-warg",
@@ -19565,6 +19832,9 @@
       "armour",
       "hand-weapons",
       "fell-warg"
+    ],
+    "additionalProfiles": [
+      "fell-warg-mount"
     ],
     "options": [
       {
@@ -20506,7 +20776,7 @@
       "page": 131
     },
     "stats": {
-      "type": "warrior",
+      "type": "hero",
       "mv": "6",
       "fv": "6",
       "sv": "4",
@@ -20515,7 +20785,10 @@
       "a": "2",
       "w": "1",
       "c": "4",
-      "i": "5"
+      "i": "5",
+      "might": "3",
+      "will": "1",
+      "fate": "0"
     },
     "wargear": [
       "armour",
@@ -20632,7 +20905,8 @@
     ],
     "unitTypes": [
       "warrior",
-      "infantry"
+      "infantry",
+      "beast"
     ],
     "baseSize": "40mm",
     "selectable": true,
@@ -20721,6 +20995,9 @@
       {
         "id": "expert-rider"
       }
+    ],
+    "additionalProfiles": [
+      "fell-warg-mount"
     ],
     "options": [
       {
@@ -21573,6 +21850,9 @@
       "armour",
       "hand-weapon",
       "warg"
+    ],
+    "additionalProfiles": [
+      "warg-mount"
     ],
     "options": [
       {
@@ -23006,7 +23286,6 @@
     "profile": "bain-son-of-bard",
     "origin": "kingdoms-of-men",
     "alignment": "good",
-    "points": 25,
     "race": [
       "man"
     ],
@@ -23057,7 +23336,6 @@
     "profile": "sigrid",
     "origin": "kingdoms-of-men",
     "alignment": "good",
-    "points": 0,
     "race": [
       "man"
     ],
@@ -23110,7 +23388,6 @@
     "profile": "tilda",
     "origin": "kingdoms-of-men",
     "alignment": "good",
-    "points": 25,
     "race": [
       "man"
     ],
@@ -23242,6 +23519,11 @@
     "wargear": [
       "unarmed"
     ],
+    "specialRules": [
+      {
+        "id": "fearful"
+      }
+    ],
     "profileRules": [
       {
         "id": "dubious-counsel",
@@ -23370,16 +23652,14 @@
         "parameter": "tilda"
       }
     ],
+    "additionalProfiles": [
+      "windlance",
+      "horse"
+    ],
     "options": [
       {
         "id": "windlance",
         "points": 50,
-        "requirements": [],
-        "effects": []
-      },
-      {
-        "id": "armour-and-horse",
-        "points": 20,
         "requirements": [],
         "effects": []
       },
@@ -23417,7 +23697,7 @@
     "profile": "bards-family",
     "origin": "kingdoms-of-men",
     "alignment": "good",
-    "points": 25,
+    "points": 60,
     "race": [
       "man"
     ],
@@ -23448,9 +23728,6 @@
       "i": "-"
     },
     "wargear": [],
-    "heroicActions": [
-      "heroic-strike"
-    ],
     "additionalProfiles": [
       "bain-son-of-bard",
       "sigrid",
@@ -24288,12 +24565,6 @@
         "points": 1,
         "requirements": [],
         "effects": []
-      },
-      {
-        "id": "spear",
-        "points": 1,
-        "requirements": [],
-        "effects": []
       }
     ],
     "optionLimits": {
@@ -24325,10 +24596,7 @@
       "d": "10",
       "w": "3"
     },
-    "wargear": [
-      "armour",
-      "hand-weapon"
-    ],
+    "wargear": [],
     "specialRules": [
       {
         "id": "direct-shot"
@@ -24481,6 +24749,9 @@
         "id": "terror"
       }
     ],
+    "additionalProfiles": [
+      "armoured-horse"
+    ],
     "options": [
       {
         "id": "exchange-lance-for-banner",
@@ -24548,6 +24819,9 @@
       {
         "id": "terror"
       }
+    ],
+    "additionalProfiles": [
+      "armoured-horse"
     ],
     "options": [
       {
@@ -24862,6 +25136,9 @@
         "id": "master-of-battle",
         "parameter": "2"
       }
+    ],
+    "additionalProfiles": [
+      "warg-mount"
     ],
     "options": [
       {
@@ -25890,6 +26167,9 @@
       "hand-weapon",
       "warg"
     ],
+    "additionalProfiles": [
+      "warg-mount"
+    ],
     "options": [
       {
         "id": "shield-and-throwing-spears",
@@ -25974,6 +26254,9 @@
         "id": "terror"
       }
     ],
+    "additionalProfiles": [
+      "armoured-horse"
+    ],
     "options": [
       {
         "id": "armoured-horse",
@@ -26014,7 +26297,6 @@
     "profile": "ringwraith",
     "origin": "mordor",
     "alignment": "evil",
-    "points": 120,
     "race": [
       "spirit",
       "ringwraith"
@@ -26066,6 +26348,11 @@
         "id": "will-of-evil"
       }
     ],
+    "additionalProfiles": [
+      "armoured-fell-beast",
+      "fell-beast",
+      "horse"
+    ],
     "options": [
       {
         "id": "2a-2m-14w-2f",
@@ -26100,6 +26387,12 @@
       {
         "id": "2a-1m-10w-1f",
         "points": 90,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "id": "1a-0m-7w-0f",
+        "points": 60,
         "requirements": [],
         "effects": []
       },
@@ -26486,7 +26779,6 @@
     "profile": "the-witch-king-of-mordor",
     "origin": "mordor",
     "alignment": "evil",
-    "points": 80,
     "race": [
       "spirit",
       "ringwraith"
@@ -26543,6 +26835,11 @@
       {
         "id": "will-of-evil"
       }
+    ],
+    "additionalProfiles": [
+      "armoured-fell-beast",
+      "fell-beast",
+      "horse"
     ],
     "options": [
       {
@@ -26973,7 +27270,9 @@
     "race": [
       "warg"
     ],
-    "factions": [],
+    "factions": [
+      "see-rider"
+    ],
     "unitTypes": [
       "mount"
     ],
@@ -27069,13 +27368,48 @@
     "wargear": []
   },
   {
+    "profile": "firefoot-with-armour",
+    "origin": "mounts",
+    "alignment": "good",
+    "race": [
+      "horse"
+    ],
+    "factions": [
+      "rohan"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
+    "baseSize": "40mm",
+    "selectable": false,
+    "source": {
+      "book": "armies-of-the-lord-of-the-rings",
+      "page": 33
+    },
+    "stats": {
+      "type": "warrior",
+      "mv": "12",
+      "fv": "2",
+      "sv": "6",
+      "s": "3",
+      "d": "5",
+      "a": "0",
+      "w": "1",
+      "c": "7",
+      "i": "7"
+    },
+    "wargear": []
+  },
+  {
     "profile": "galadhrim-steed",
     "origin": "mounts",
     "alignment": "good",
     "race": [
       "horse"
     ],
-    "factions": [],
+    "factions": [
+      "see-rider"
+    ],
     "unitTypes": [
       "mount"
     ],
@@ -27111,7 +27445,9 @@
     "race": [
       "horse"
     ],
-    "factions": [],
+    "factions": [
+      "see-rider"
+    ],
     "unitTypes": [
       "mount"
     ],
@@ -27149,9 +27485,13 @@
     "race": [
       "eagle"
     ],
-    "factions": [],
+    "factions": [
+      "misty-mountains"
+    ],
     "unitTypes": [
-      "mount"
+      "warrior",
+      "mount",
+      "monster"
     ],
     "baseSize": "60mm",
     "selectable": false,
@@ -27171,7 +27511,9 @@
       "c": "4",
       "i": "4"
     },
-    "wargear": [],
+    "wargear": [
+      "claws-and-beak-hand-weapon"
+    ],
     "specialRules": [
       {
         "id": "dominant",
@@ -27201,7 +27543,9 @@
     "race": [
       "elk"
     ],
-    "factions": [],
+    "factions": [
+      "mirkwood"
+    ],
     "unitTypes": [
       "mount"
     ],
@@ -27244,7 +27588,9 @@
     "race": [
       "horse"
     ],
-    "factions": [],
+    "factions": [
+      "see-rider"
+    ],
     "unitTypes": [
       "mount"
     ],
@@ -27267,58 +27613,6 @@
       "i": "7"
     },
     "wargear": []
-  },
-  {
-    "profile": "iron-hills-chariot-mount",
-    "origin": "mounts",
-    "alignment": "good",
-    "race": [
-      "goat"
-    ],
-    "factions": [],
-    "unitTypes": [],
-    "baseSize": "170mm",
-    "selectable": false,
-    "source": {
-      "book": "armies-of-the-hobbit",
-      "page": 31
-    },
-    "stats": {
-      "type": "warrior",
-      "mv": "8",
-      "fv": "4",
-      "sv": "4",
-      "s": "4",
-      "d": "8",
-      "a": "2",
-      "w": "4",
-      "c": "6",
-      "i": "6"
-    },
-    "wargear": [],
-    "specialRules": [
-      {
-        "id": "dominant",
-        "parameter": "4"
-      }
-    ],
-    "profileRules": [
-      {
-        "id": "rapid-fire-bolt-thrower",
-        "type": "active",
-        "option": ""
-      },
-      {
-        "id": "chariot-charge",
-        "type": "active",
-        "option": ""
-      },
-      {
-        "id": "dwarven-crew",
-        "type": "active",
-        "option": ""
-      }
-    ]
   },
   {
     "profile": "khandish-chariot",
@@ -27373,8 +27667,12 @@
     "race": [
       "pony"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27402,8 +27700,12 @@
     "race": [
       "rabbit"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "chariot"
+    ],
     "baseSize": "120mm oval",
     "selectable": false,
     "source": {
@@ -27614,8 +27916,13 @@
     "race": [
       "warg"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "gundabad"
+    ],
+    "unitTypes": [
+      "hero",
+      "mount"
+    ],
     "baseSize": "50mm",
     "selectable": false,
     "source": {
@@ -27637,7 +27944,9 @@
       "will": "1",
       "fate": "1"
     },
-    "wargear": [],
+    "wargear": [
+      "claws-and-teeth-hand-weapons"
+    ],
     "specialRules": [
       {
         "id": "fearless"
@@ -27658,65 +27967,18 @@
     ]
   },
   {
-    "profile": "troll-brute-mount",
-    "origin": "mounts",
-    "alignment": "evil",
-    "race": [
-      "troll"
-    ],
-    "factions": [],
-    "unitTypes": [],
-    "baseSize": "80mm",
-    "selectable": false,
-    "source": {
-      "book": "armies-of-the-hobbit",
-      "page": 125
-    },
-    "stats": {
-      "type": "warrior",
-      "mv": "6",
-      "fv": "5",
-      "sv": "6",
-      "s": "7",
-      "d": "6",
-      "a": "3",
-      "w": "4",
-      "c": "6",
-      "i": "9"
-    },
-    "wargear": [],
-    "specialRules": [
-      {
-        "id": "dominant",
-        "parameter": "5"
-      },
-      {
-        "id": "terror"
-      },
-      {
-        "id": "fearless"
-      },
-      {
-        "id": "large-target"
-      }
-    ],
-    "profileRules": [
-      {
-        "id": "trample",
-        "type": "active",
-        "option": ""
-      }
-    ]
-  },
-  {
     "profile": "war-boar",
     "origin": "mounts",
     "alignment": "good",
     "race": [
       "boar"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27784,8 +28046,12 @@
     "race": [
       "goat"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27825,8 +28091,12 @@
     "race": [
       "warg"
     ],
-    "factions": [],
-    "unitTypes": [],
+    "factions": [
+      "see-rider"
+    ],
+    "unitTypes": [
+      "mount"
+    ],
     "baseSize": "40mm",
     "selectable": false,
     "source": {
@@ -27961,6 +28231,9 @@
         "id": "horse-lord"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -28044,6 +28317,9 @@
         "parameter": "rohan-royal-guard"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -28115,6 +28391,9 @@
       {
         "id": "horse-lord"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -28468,6 +28747,9 @@
         "parameter": "theoden"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "royal-standard-of-rohan",
@@ -28543,6 +28825,9 @@
       {
         "id": "horse-lord"
       }
+    ],
+    "additionalProfiles": [
+      "armoured-horse"
     ],
     "options": [
       {
@@ -28748,6 +29033,9 @@
         "id": "sharpshooter"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -28826,6 +29114,9 @@
         "id": "leader",
         "parameter": "rohan-royal-guard"
       }
+    ],
+    "additionalProfiles": [
+      "armoured-horse"
     ],
     "options": [
       {
@@ -28996,6 +29287,9 @@
         "id": "horse-lord"
       }
     ],
+    "additionalProfiles": [
+      "ashere"
+    ],
     "options": [
       {
         "id": "ashere",
@@ -29141,6 +29435,9 @@
         "id": "horse-lord"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -29283,6 +29580,9 @@
         "parameter": "hera"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -29343,6 +29643,9 @@
       {
         "id": "expert-rider"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -29417,6 +29720,9 @@
       {
         "id": "expert-rider"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {
@@ -30013,7 +30319,7 @@
       "monster",
       "unique"
     ],
-    "baseSize": "231x133mm",
+    "baseSize": "231x133mm oval",
     "selectable": true,
     "source": {
       "book": "armies-of-the-hobbit",
@@ -30943,6 +31249,9 @@
       "heroic-strength",
       "heroic-defence"
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "shield",
@@ -31491,6 +31800,9 @@
         "id": "resistant-to-magic"
       }
     ],
+    "additionalProfiles": [
+      "pony"
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -31665,6 +31977,10 @@
       "heroic-channelling",
       "heroic-strike",
       "heroic-defence"
+    ],
+    "additionalProfiles": [
+      "gandalfs-cart",
+      "horse"
     ],
     "options": [
       {
@@ -32627,6 +32943,9 @@
         "id": "woodland-creature"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -32922,6 +33241,9 @@
         "parameter": "range-8-strength-1"
       }
     ],
+    "additionalProfiles": [
+      "pony"
+    ],
     "additionalText": [
       "text-1"
     ],
@@ -33136,6 +33458,9 @@
         "parameter": "range-8-strength-1"
       }
     ],
+    "additionalProfiles": [
+      "pony"
+    ],
     "additionalText": [
       "text-1"
     ],
@@ -33211,6 +33536,10 @@
       {
         "id": "woodland-creature"
       }
+    ],
+    "additionalProfiles": [
+      "great-eagle-mount",
+      "radagasts-sleigh"
     ],
     "options": [
       {
@@ -33555,6 +33884,9 @@
         "parameter": "range-8-strength-1"
       }
     ],
+    "additionalProfiles": [
+      "pony"
+    ],
     "options": [
       {
         "id": "elven-cloak",
@@ -33671,7 +34003,7 @@
       {
         "id": "foil-magic",
         "cast": "4+",
-        "range": "18",
+        "range": "12",
         "target": ""
       },
       {
@@ -34423,6 +34755,9 @@
         "parameter": "rohan"
       }
     ],
+    "additionalProfiles": [
+      "horse"
+    ],
     "options": [
       {
         "id": "horse",
@@ -34855,6 +35190,9 @@
         "id": "hatred",
         "parameter": "rohan"
       }
+    ],
+    "additionalProfiles": [
+      "horse"
     ],
     "options": [
       {

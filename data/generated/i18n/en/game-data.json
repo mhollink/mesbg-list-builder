@@ -80,7 +80,8 @@
         "kraken": "Kraken",
         "mahud": "Mahûd",
         "man": "Man",
-        "mumak": "Mumak",
+        "mumak": "Mûmak",
+        "ogre": "Ogre",
         "orc": "Orc",
         "pony": "Pony",
         "rabbit": "Rabbit",
@@ -112,6 +113,7 @@
       "self": "Self"
     },
     "options": {
+      "1a-0m-7w-0f": "1A / 0M / 7W / 0F",
       "2a-1m-10w-1f": "2A / 1M / 10W / 1F",
       "2a-2m-14w-2f": "2A / 2M / 14W / 2F",
       "3a-3m-18w-3f": "3A / 3M / 18W / 3F",
@@ -149,7 +151,7 @@
       "esgaroth-bow": "Esgaroth bow",
       "exchange-armour-and-bow-for-heavy-armour": "Exchange armour and bow for heavy armour",
       "exchange-armour-for-heavy-armour": "Exchange armour for heavy armour",
-      "exchange-club-for-scythe-gauntlets": "Exchange club for Scythe Gauntlets",
+      "exchange-club-for-scythe-gauntlets": "Exchange Crushing Club for Scythe Gauntlets",
       "exchange-elven-lance-for-banner": "Exchange Elven lance for banner",
       "exchange-elven-pike-for-banner-and-elven-hand-weapon": "Exchange Elven pike for banner and Elven hand weapon",
       "exchange-great-bow-for-armour-and-horse": "Exchange great bow for armour and horse",
@@ -217,7 +219,7 @@
       "snowmane-with-armour": "Snowmane with armour",
       "spear": "Spear",
       "sting": "Sting",
-      "stone-flail": "Stone flail",
+      "stone-flail": "Stone Flail",
       "superior-intellect": "Superior Intellect",
       "swap-hand-and-a-half-weapon-for-great-bow": "Swap hand-and-a-half weapon for great bow",
       "swap-shield-for-war-drum-isengard": "Swap shield for war drum (Isengard)",
@@ -307,7 +309,7 @@
         "name": "Alfrid the Councillor",
         "rules": {
           "dubious-counsel": {
-            "description": "At the start of his Activation, Alfrid may choose a single other friendly Lake-town Hero model within 6\" of him. Roll a D6 and consult the table below to see what effect Alfrid's counsel has had. Alfrid may spend his Will Points to alter the score on the D6 either up or down by 1 for each Will Point spent in this manner.\r\n<ol>\r\n<li>The chosen Hero loses a Might Point and Alfrid gains a Might Point. If the chosen Hero has no Might Points remaining, this has no effect.</li>\r\n<li>The chosen Hero immediately regains a single Will Point spent earlier in the battle.</li>\r\n<li>The chosen Hero may re-roll To Wound Rolls of a natural 1 when making Strikes until the end of the turn.</li>\r\n<li> The chosen Hero gains the Fearless special rule until the end of the turn.</li>\r\n<li> The chosen Hero increases their Fight Value by 1 until the end of the turn.</li>\r\n<li> The chosen Hero immediately regains a single Might Point spent earlier in the battle.</li>\r\n</ol>",
+            "description": "At the start of his Activation, Alfrid may choose a single other friendly <b>Lake-town Hero</b> model within 6\" of him. Roll a D6 and consult the table below to see what effect Alfrid's counsel has had. Alfrid may spend his Will Points to alter the score on the D6 either up or down by 1 for each Will Point spent in this manner.\r\n<ol>\r\n<li>The chosen <b>Hero</b> loses a Might Point and Alfrid gains a Might Point. If the chosen <b>Hero</b> has no Might Points remaining, this has no effect.</li>\r\n<li>The chosen<b>Hero</b> immediately regains a single Will Point spent earlier in the battle.</li>\r\n<li>The chosen <b>Hero</b> may re-roll To Wound Rolls of a natural 1 when making Strikes until the end of the turn.</li>\r\n<li> The chosen <b>Hero</b> gains the <rule id=\"fearless\">Fearless</rule> special rule until the end of the turn.</li>\r\n<li> The chosen <b>Hero</b> increases their Fight Value by 1 until the end of the turn.</li>\r\n<li> The chosen <b>Hero</b> immediately regains a single Might Point spent earlier in the battle.</li>\r\n</ol>",
             "name": "Dubious Counsel"
           }
         }
@@ -513,16 +515,16 @@
         "name": "Azog the Defiler",
         "rules": {
           "general-of-the-north": {
-            "description": "Azog's Stand Fast has a range of 12\", and also affects friendly Orc Hero models.",
+            "description": "The range of Azog’s Stand Fast is 12\" rather than 6\". Additionally, friendly <b>Orc Hero</b> models can benefit from Azog’s Stand Fast.",
             "name": "General of the North"
           },
           "i-am-the-master": {
-            "description": "When making Strikes against an enemy Hero, he may use this rule. A To Wound roll of a natural 3+ will always count as successful, regardless of the Hero's Defence.",
+            "description": "When Azog makes Strikes against an enemy Hero, he may choose to use this special rule. If he does, then a roll of a natural 3+ will always count as a successful To Wound Roll, regardless of the Hero model’s Defence.",
             "name": "I am the Master"
           },
           "stone-flail": {
-            "description": "Two-handed weapon. If Azog uses this in a Combat, he gains Mighty Blow and reduces his Fight value to 6 for that Combat, even after a Heroic Strike. Any model struck by it and not slain is knocked Prone at the end of the combat.",
-            "name": "Stone flail"
+            "description": "This is a <b>Unique</b> <rule id=\"two-handed-weapon\">two-handed weapon</rule>. If Azog uses the Stone Flail during a Combat, he gains the <rule id=\"mighty-blow\">Mighty Blow</rule> special rule, though reduces his Fight Value to 6 for the duration of the Combat – even after a <rule id=\"heroic-strike\">Heroic Strike</rule>. Additionally, any model that is struck by the Stone Flail and not slain will be Knocked Prone at the end of the Combat.",
+            "name": "The Stone Flail"
           }
         }
       },
@@ -530,7 +532,7 @@
         "name": "Bain, Son of Bard",
         "rules": {
           "family-bond": {
-            "description": "Whilst within 3\" of Sigrid or Tilda, Bain increases his Attacks to 2, and gains a bonus of +1 to his Courage tests.",
+            "description": "Whilst within 3\" of either Sigrid or Tilda (or both), Bain increases his Attacks to 2 and gains a bonus of +1 to his Courage Tests.",
             "name": "Family Bond"
           }
         }
@@ -552,7 +554,7 @@
         "name": "Balin the Dwarf, Champion of Erebor",
         "rules": {
           "longbeard": {
-            "description": "After the Priority roll has taken place, Balin may spend a Will point to enable his controlling player to re-roll their D6 in the Priority roll.",
+            "description": "During the Priority Phase, after the roll for Priority has taken place, Balin can spend a Will Point to allow his controlling player to re-roll their roll for Priority.",
             "name": "Longbeard"
           }
         }
@@ -574,7 +576,7 @@
         "name": "Balin the Dwarf",
         "rules": {
           "longbeard": {
-            "description": "After the Priority roll has taken place, Balin may spend a Will point to enable his controlling player to re-roll their D6 in the Priority roll.",
+            "description": "During the Priority Phase, after the roll for Priority has taken place, Balin can spend a Will Point to allow his controlling player to re-roll their roll for Priority.",
             "name": "Longbeard"
           }
         }
@@ -601,28 +603,28 @@
         "name": "Bard the Bowman",
         "rules": {
           "rapid-fire": {
-            "description": "If Bard hits a target with his great bow, he may make another shooting attack with his great bow that targets a model within 3\" of the initial target - it may even be the same target. If that second shot also hits, then Bard may Shoot again as described above. Bard can make a maximum of three shots per turn as a result of this special rule.",
+            "description": "If Bard hits a target with his great bow, he may make another shooting attack with his great bow that targets a model within 3\" of the initial target – it may even be the same target. If that second shot also hits, then Bard may Shoot again as described above. Bard can make a maximum of three shots per turn as a result of this special rule.",
             "name": "Rapid Fire"
           },
           "swift-shot": {
-            "description": "Never suffers -1 penalty for moving and shooting.",
+            "description": "Bard never suffers the -1 penalty To Hit for Moving and Shooting.",
             "name": "Swift Shot"
           },
           "the-black-arrow": {
-            "description": "If Bard takes the Windlance, then once per game Bard can fire the Black Arrow. If he does, declare this before rolling To Hit. Bard may re-roll any failed To Hit and In The Way rolls. Furthermore, do not roll on the Scatter Table- a successful To Hit Roll against a Battlefield Target will always count as a Dead On result.",
+            "description": "If he is upgraded to take the Windlance, then once per game Bard can fire the Black Arrow instead of shooting normally. If he does, declare that he is using the Black Arrow before rolling To Hit. When shooting the Black Arrow, Bard may re-roll any failed To Hit Rolls and any failed In The Way Tests. Furthermore, do not roll on the Scatter Table shooting the Black Arrow – a successful To Hit Roll against a Battlefield Target will always count as a Dead On result.",
             "name": "The Black Arrow"
           },
           "windlance-trained": {
-            "description": "If Bard takes a Windlance, he will be the only crew. but can move more than 6\" away, and rotate it without any penalty. Windlance attacks against Monster models gain a +1 bonus to any rolls on the Scatter Table.",
+            "description": "If Bard is upgraded to take a Windlance, then he counts as the only crew for the <b>Siege Engine</b>. However, unlike normal Siege Engine crew, Bard may Move further than 6\" away from the Windlance at any point and may rotate it without suffering the-1 penalty to his rolls To Hit. Additionally, when making a shooting attack with the Windlance that targets a <b>Monster</b> model, Bard gains a bonus of +1 to any rolls on the Scatter Table.",
             "name": "Windlance Trained"
           }
         }
       },
       "bards-family": {
         "additional-text": {
-          "text-1": "If any member of Bard's Family is slain, Bard must always Charge any enemy that killed one of his children if he able to do so for the rest of the game. If he is in range of multiple enemy targets that he must Charge, then the controlling player may choose one of them."
+          "text-1": "Bard’s Family is made up of Bain, son of Bard, and Sigrid & Tilda, and will count as three models. You may only include Bard’s Family in your Army if it also includes Bard the Bowman, in which case they must always be included as part of Bard’s Warband. \r\nIf any member of Bard’s Family is slain, then make a note of the model that killed them. For the remainder of the game, whenever Bard Activates if he can Charge an enemy model then he must do so; if he is able to Charge an enemy model that killed a member of his family, then he must prioritise that model to Charge. If when Bard Activates he can Charge multiple enemy models that have killed members of his family (if applicable), then he may choose which of them he must Charge."
         },
-        "name": "Bard's Family"
+        "name": "Bards Family"
       },
       "barliman-butterbur": {
         "name": "Barliman Butterbur",
@@ -689,7 +691,7 @@
         "name": "Beorn the Bear",
         "rules": {
           "berserk": {
-            "description": "When Beorn the Bear begins his Activation, he must check to see if he can Charge an enemy model. If he can then he may not change form during this Activation and he must Charge an enemy model if possible. Additionally, Beorn the Bear may not benefit from the Heroic Actions of other friendly models, with the exception of friendly Bear models, and friendly models may not benefit from the Heroic Actions or Stand Fast of Beorn unless they have the Beorning keyword.",
+            "description": "When Beorn the Bear begins his Activation, he must check to see if he can Charge an enemy model. If he can then he may not change form during this Activation and he must Charge an enemy model if possible. Additionally, Beorn the Bear may not benefit from the Heroic Actions of other friendly models, with the exception of friendly Bear models, and friendly models may not benefit from the Heroic Actions or Stand Fast of Beorn unless they have the <b>Beorning</b> keyword.",
             "name": "Berserk"
           },
           "crushing-strength": {
@@ -697,7 +699,7 @@
             "name": "Crushing Strength"
           },
           "skin-changer": {
-            "description": "At the start of his Activation, Beorn can change his form from Bear to Man. If he does, place the Man model in base contact with the Bear model, and then remove the Bear model from play. If there is no space to place the Man model, then Beorn cannot transform. Once he has transformed, Beorn may continue his Activation as normal, including Charging, in which case check the Line of Sight from the newly placed Man model to determine whether Beorn can Charge. Once Beorn has transformed, he uses the Beorn profile - though his Wounds, Might, Will and Fate Points remain the same between both profiles.",
+            "description": "At the beginning of his Activation, Beorn can change his form from <b>Man</b> to <b>Bear</b>. If he does, place the <b>Bear model</b> in base contact with the <b>Man</b> model, and then remove the <b>Man model</b> from play. If there is no space to place the <b>Bear</b> model, then Beorn cannot transform. Once he has transformed, Beorn the Bear may continue his Activation as normal, including Charging in which case check the Line of Sight from the newly placed <b>Bear</b> model to determine whether Beorn can Charge. Once Beorn has transformed, he uses the Beorn the Bear profile - though his Wounds, Might, Will and Fate Points remain the same between both profiles.",
             "name": "Skin-changer"
           }
         }
@@ -706,7 +708,7 @@
         "name": "Beorn",
         "rules": {
           "skin-changer": {
-            "description": "At the start of his Activation, Beorn can change his form from Man to Bear. If he does, place the Bear model in base contact with the Man model, and then remove the Man model from play. If there is no space to place the Bear model, then Beorn cannot transform. Once he has transformed, Beorn the Bear may continue his Activation as normal, including Charging, in which case check the Line of Sight from the newly placed Bear model to determine whether Beorn can Charge. Once Beorn has transformed, he uses the Beorn the Bear profile - though his Wounds, Might, Will and Fate Points remain the same between both profiles.",
+            "description": "At the beginning of his Activation, Beorn can change his form from <b>Man</b> to <b>Bear</b>. If he does, place the <b>Bear model</b> in base contact with the <b>Man</b> model, and then remove the <b>Man model</b> from play. If there is no space to place the <b>Bear</b> model, then Beorn cannot transform. Once he has transformed, Beorn the Bear may continue his Activation as normal, including Charging in which case check the Line of Sight from the newly placed <b>Bear</b> model to determine whether Beorn can Charge. Once Beorn has transformed, he uses the Beorn the Bear profile - though his Wounds, Might, Will and Fate Points remain the same between both profiles.",
             "name": "Skin-changer"
           }
         }
@@ -733,11 +735,11 @@
         "name": "Bert the Troll",
         "rules": {
           "keep-em-for-later": {
-            "description": "If this model wins a Duel Roll, they may choose a single enemy model on a 25mm base instead of making Strikes or using a Brutal Power Attack. The chosen model is stuffed into a bag and suffers the effects of the Paralyse Magical Power; however, the effects will not immediately end should this model have no Will Points or be slain. If the model is still Paralysed at the end of the game, then they will count as slain and be removed as a casualty.",
+            "description": "If this model wins a Duel Roll, they may choose a single enemy model on a 25mm base instead of making Strikes or using a Brutal Power Attack. The chosen model is stuffed into a bag and suffers the effects of the <rule id=\"paralyse\">Paralyse</rule> Magical Power; however, the effects will not immediately end should this model have no Will Points or be slain. If the model is still Paralysed at the end of the game, then they will count as slain and be removed as a casualty.",
             "name": "Keep 'em for Later"
           },
           "roast-em-slowly": {
-            "description": "Instead of making Strikes, if he is within 6\" of a Campfire, Bert may choose a single enemy model involved in the Combat. The chosen model is then placed in base contact with the Campfire and is immediately Set Ablaze.",
+            "description": "Instead of making Strikes, if he is within 6\" of a Campfire, Bert may choose a single enemy model involved in the Combat. The chosen model is then placed in base contact with the Campfire and is immediately <rule id=\"set-ablaze\">Set Ablaze</rule>.",
             "name": "Roast 'em slowly"
           }
         }
@@ -746,8 +748,8 @@
         "name": "Bifur the Dwarf, Champion of Erebor",
         "rules": {
           "embedded-axe-blade": {
-            "description": "If Bifur wins a Duel roll, he may make a single Strength 4 Strike against one enemy in the Combat, but will not be doubled if they are Trapped. If he wounds them, the axe-blade in his skull is removed. From that point onwards in each Move phase, before the Declare Heroic Actions step, Bifur may take an Intelligence test. If passed, he may declare a Heroic Move that turn for free.",
-            "name": "Embedded Axe-blade"
+            "description": "If Bifur wins a Duel Roll, then he may choose to headbutt an enemy model instead of making Strikes. If he does, choose a single enemy model involved in the Combat. The chosen model suffers a single Strength 4 Strike from Bifur, though this will not be doubled if the chosen model is Trapped. If Bifur Wounds the chosen model with this Strike, then the axe-blade will have been freed from his skull. From this point on at the start of each Move Phase, before the Declare Heroic Actions step, Bifur may take an Intelligence Test; if the test is passed, Bifur may declare a <rule id=\"heroic-move\">Heroic Move</rule> that turn for free.",
+            "name": "Embedded Axe"
           }
         }
       },
@@ -755,12 +757,12 @@
         "name": "Bifur the Dwarf",
         "rules": {
           "boar-spear": {
-            "description": "Can be used as a spear or two-handed weapon.",
+            "description": "This can be used as either a <rule id=\"spear\">spear</rule> or a <rule id=\"two-handed-weapon\">two-handed weapon</rule>.",
             "name": "Boar Spear"
           },
           "embedded-axe-blade": {
-            "description": "If Bifur wins a Duel roll, he may make a single Strength 4 Strike against one enemy in the Combat, but will not be doubled if they are Trapped. If he wounds them, the axe-blade in his skull is removed. From that point onwards in each Move phase, before the Declare Heroic Actions step, Bifur may take an Intelligence test. If passed, he may declare a Heroic Move that turn for free.",
-            "name": "Embedded Axe-blade"
+            "description": "If Bifur wins a Duel Roll, then he may choose to headbutt an enemy model instead of making Strikes. If he does, choose a single enemy model involved in the Combat. The chosen model suffers a single Strength 4 Strike from Bifur, though this will not be doubled if the chosen model is Trapped. If Bifur Wounds the chosen model with this Strike, then the axe-blade will have been freed from his skull. From this point on at the start of each Move Phase, before the Declare Heroic Actions step, Bifur may take an Intelligence Test; if the test is passed, Bifur may declare a <rule id=\"heroic-move\">Heroic Move</rule> that turn for free.",
+            "name": "Embedded Axe"
           }
         }
       },
@@ -768,7 +770,7 @@
         "name": "Bilbo Baggins, Ageing Hobbit",
         "rules": {
           "mithril-coat": {
-            "description": "This is a <b>Unique</b> piece of <rule id=\"mithril-armour\">Mithril armour</rule>. Additionally, the wearer may re-roll Fate rolls of a 1.",
+            "description": "This is a <b>Unique</b> piece of <rule id=\"mithril-armour\">Mithril armour</rule>. Additionally, the wearer may re-roll Fate Rolls of a 1.",
             "name": "Mithril Coat"
           },
           "slip-away": {
@@ -776,7 +778,7 @@
             "name": "Slip Away"
           },
           "sting": {
-            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> hand weapon. A model gains a bonus of +1 to their Strength when making strikes with Sting.",
+            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> hand weapon. A model gains a bonus of +1 to their Strength when making Strikes with Sting.",
             "name": "Sting"
           }
         }
@@ -789,11 +791,11 @@
             "name": "It has not yet Awoken"
           },
           "mithril-coat": {
-            "description": "This is a <b>Unique</b> piece of <rule id=\"mithril-armour\">Mithril armour</rule>. Additionally, the wearer may re-roll Fate rolls of a 1.",
+            "description": "This is a <b>Unique</b> piece of <rule id=\"mithril-armour\">Mithril armour</rule>. Additionally, the wearer may re-roll Fate Rolls of a 1.",
             "name": "Mithril Coat"
           },
           "sting": {
-            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> hand weapon. A model gains a bonus of +1 to their Strength when making strikes with Sting.",
+            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> hand weapon. A model gains a bonus of +1 to their Strength when making Strikes with Sting.",
             "name": "Sting"
           }
         }
@@ -802,11 +804,11 @@
         "name": "Bilbo Baggins",
         "rules": {
           "it-has-not-yet-awoken": {
-            "description": "Bilbo ignores Sauron's Will section of the One Ring rules. If Bilbo if the only model left on his side, he is not removed as a casualty if he is wearing the Ring.",
+            "description": "Bilbo ignores the Sauron's Will section of the rules for the One Ring. Furthermore, if Bilbo is the only model left on his controlling player's side, and is wearing the One Ring, he is not removed as a casualty as would usually be the case.",
             "name": "It has not yet Awoken"
           },
           "sting": {
-            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> hand weapon. A model gains a bonus of +1 to their Strength when making strikes with Sting.",
+            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> hand weapon. A model gains a bonus of +1 to their Strength when making Strikes with Sting.",
             "name": "Sting"
           }
         }
@@ -846,11 +848,11 @@
         "rules": {
           "keep-em-for-later": {
             "description": "If this model wins a Duel Roll, they may choose a single enemy model on a 25mm base instead of making Strikes or using a Brutal Power Attack. The chosen model is stuffed into a bag and suffers the effects of the Paralyse Magical Power; however, the effects will not immediately end should this model have no Will Points or be slain. If the model is still Paralysed at the end of the game, then they will count as slain and be removed as a casualty.",
-            "name": "Keep 'em for Later"
+            "name": "Keep 'em for later"
           },
           "mince-em-fine": {
             "description": "Instead of making Strikes, Bill may choose a single enemy model involved in the Combat. Bill and the chosen model both roll a D6 and add their respective Strength characteristics. If Bill scores higher after adding Strength characteristics, then the chosen model suffers a number of Wounds equal to the difference between the two scores.",
-            "name": "Mince 'em Fine"
+            "name": "Mince 'em fine"
           }
         }
       },
@@ -930,7 +932,7 @@
         "name": "Bofur the Dwarf, Champion of Erebor",
         "rules": {
           "steadfast": {
-            "description": "When a friendly Erebor Hero model within 3\" of Bofur is affected by an enemy special rule or Magical Power, they may roll a D6. On a 3+, the model will ignore the effects. For Magical Powers, any Resist tests must be made before using this special rule.",
+            "description": "Whenever a friendly <b>Erebor Hero</b> model within 3\" of Bofur is affected by an enemy special rule or Magical Power, they may roll a D6. On a 3+, the model will ignore its effects. In the case of a Magical Power, any Resist Tests must be made before using this specia lrule.",
             "name": "Steadfast"
           }
         }
@@ -939,11 +941,11 @@
         "name": "Bofur the Dwarf",
         "rules": {
           "mattock": {
-            "description": "Two-handed weapon, where if this model wins a Duel roll, they may choose to try and knock down an enemy instead of making Strikes. Choose a single enemy in the combat, and both models roll a D6, adding their Strength values. If this model has an equal or higher result, then the chosen enemy is knocked Prone. This may be done before any other friendly models make their Strikes.",
+            "description": "This is a <rule id=\"two-handed-weapon\">two-handed weapon</rule>. Additionally, if a model wielding a Mattock wins a Duel Roll they may choose to try to knock down an enemy model instead of making Strikes. If they do, choose a single enemy model involved in the Combat. This model and the chosen model both roll a single D6 and add their Strength characteristic. If this model rolls equal to or higher than the chosen model, then the chosen model is immediately knocked Prone. This may be done before any other friendly models make their Strikes.",
             "name": "Mattock"
           },
           "steadfast": {
-            "description": "When a friendly Thorin's Company model within 3\" of Bofur is affected by an enemy special rule or Magical Power, they may roll a D6. On a 3+, the model will ignore the effects. For Magical Powers, any Resist tests must be made before using this special rule.",
+            "description": "Whenever a friendly <b>Thorin’s Company</b> model within 3\" of Bofur is affected by an enemy special rule or Magical Power, they may roll a D6. On a 3+, the model will ignore its effects. In the case of a Magical Power, any Resist Tests must be made before using this specia lrule.",
             "name": "Steadfast"
           }
         }
@@ -961,7 +963,7 @@
         "name": "Bolg, Spawn of Azog",
         "rules": {
           "the-bringer-of-death": {
-            "description": "Keep track of how many enemies that Bolg kills in Combat. After two kills, Bolg gains Terror. After five kills, Bolg gains Harbinger of Evil (12\"). After eight kills, Bolg gains Mighty Hero.",
+            "description": "Keep a track of how many enemy models Bolg kills in Combat. Once he has killed two or more enemies, Bolg gains the <rule id=\"terror\">Terror</rule> special rule. Once he has killed five or more models, Bolg gains the <rule id=\"harbinger-of-evil\">Harbinger of Evil (12\")</rule> special rule. Once he has killed eight or more models, Bolg gains the <rule id=\"mighty-hero\">Mighty Hero</rule> special rule.",
             "name": "The Bringer of Death"
           }
         }
@@ -970,15 +972,15 @@
         "name": "Bombur the Dwarf, Champion of Erebor",
         "rules": {
           "flail": {
-            "description": "Hand-and-a-half weapon, if the bearer wins a Duel roll then they can either make Strikes as normal, or make a single Strike against each enemy model involved in the Combat.",
+            "description": "This is a <rule id=\"hand-and-a-half-weapon\">hand-and-a-half-weapon</rule>. Additionally if the bearer wins a Duel Roll, then they can either make Strikes as normal or make a single Strike against each enemy model that was involved in the Combat.",
             "name": "Flail"
           },
           "lumbering": {
-            "description": "If Bombur rolls a natural 6 on a Jump, Climb, Leap or Swim test, he must re-roll the result. Additionally, he may not declare Heroic Moves.",
+            "description": "Bombur may not declare <rule id=\"heroic-move\">Heroic Moves</rule>. Additionally, if Bombur rolls a natural 6 on a Jump, Climb, Leap or Swim Test, then he must re-roll the result.",
             "name": "Lumbering"
           },
           "raising-spirits": {
-            "description": "Once per turn in his Activation, choose a friendly Thorin's Company model within 3\" and roll a D6. On a 4+, they regain a lost Will point.",
+            "description": "Once per turn, during his Activation, Bombur can choose a friendly <b>Erebor Hero</b> model within 3\" and roll a D6. On a 4+, the chosen model regains a single Will Point spent earlier in the battle.",
             "name": "Raising Spirits"
           }
         }
@@ -987,11 +989,11 @@
         "name": "Bombur the Dwarf",
         "rules": {
           "lumbering": {
-            "description": "If Bombur rolls a natural 6 on a Jump, Climb, Leap or Swim test, he must re-roll the result. Additionally, he may not declare Heroic Moves.",
+            "description": "Bombur may not declare <rule id=\"heroic-move\">Heroic Moves</rule>. Additionally, if Bombur rolls a natural 6 on a Jump, Climb, Leap or Swim Test, then he must re-roll the result.",
             "name": "Lumbering"
           },
           "raising-spirits": {
-            "description": "Once per turn in his Activation, choose a friendly Thorin's Company model within 3\" and roll a D6. On a 4+, they regain a lost Will point.",
+            "description": "Once per turn, during his Activation, Bombur can choose a friendly <b>Thorin’s Company</b> model within 3\" and roll a D6. On a 4+, the chosen model regains a single Will Point spent earlier in the battle.",
             "name": "Raising Spirits"
           }
         }
@@ -1030,11 +1032,11 @@
         "name": "Braga, Captain of the Guard",
         "rules": {
           "captain-of-the-guard": {
-            "description": "So long as Braga has Will points remaining, friendly Lake-town Guard Captains and Lake-town Guard within 3\" of him count as having Dominant (2).",
+            "description": "So long as Braga has Will Points remaining, friendly Lake town Guard Captains and Lake-town Guard within 3\" of him count as having the <rule id=\"dominant\">Dominant (2)</rule> special rule.",
             "name": "Captain of the Guard"
           },
           "the-masters-puppet": {
-            "description": "Whilst within 6\" and Line of Sight of the Master of Lake-town, Braga automatically passes all Courage Tests he is required to take and may re-roll all failed To Wound Rolls when making Strikes. This special rule has no effect if the Master of Lake-town has no Will Points remaining.",
+            "description": "Whilst within 6\" and Line of Sight of the Master o Lake town, Braga automatically passes all Courage Tests he is required to take and may re-roll all failed To Wound Rolls when making Strikes. This special rule has no effect if the Master of Lake-town has no Will Points remaining.",
             "name": "The Master's Puppet"
           }
         }
@@ -1197,11 +1199,11 @@
         "name": "Cave Troll",
         "rules": {
           "troll-chain": {
-            "description": "A throwing weapon with Strength 5 and range 3'.",
+            "description": "This is a <rule id=\"throwing-weapons\">throwing weapon</rule> with a range of 3\" and a Strength of 5.",
             "name": "Troll Chain"
           },
           "troll-spear": {
-            "description": "A spear that deals 2 Wounds rather than 1 when rolling a natural 6 on the To Wound roll when making Strikes. This rule only applies when this model is not Supporting.",
+            "description": "This is a <rule id=\"spear\">spear</rule>. Additionally, if this model is not Supporting, any To Wound Rolls of a natural 6 it makes when making Strikes that are not prevented will deal 2 Wounds rather than 1.",
             "name": "Troll Spear"
           }
         }
@@ -1285,7 +1287,7 @@
       },
       "corsair-ballista": {
         "additional-text": {
-          "text-1": "Crewed by three Corsair Siege Crew, one of which is the Siege Veteran."
+          "text-1": "A Corsair Ballista is a Small <b>Siege Engine</b>, and is crewed by three Corsair Siege Crew, one of which is a Siege Veteran"
         },
         "name": "Corsair Ballista",
         "rules": {
@@ -1294,7 +1296,7 @@
             "name": "Bladed Bolts"
           },
           "piercing-shot": {
-            "description": "A model that is hit by the shot of a Ballista will be flung back D6\" directly away from the Ballista if it has a Strength of 5 or lower. Any model that is passed over by the flung model suffers a Strength 5 hit and will be knocked Prone. If the flung model comes into contact with a piece of impassable terrain or a model with a Strength of 6 or higher, then it will stop and both the flung model and the model or piece of terrain that was hit will suffer one Strength 6 hit. After being flung back, the flung model will be knocked Prone if they survive. If after the model is flung back it would finish over other models and it has survived, then move the other models the minimum distance possible to allow the flung model to be placed where it has landed.",
+            "description": "A model that is hit by the shot of a Corsair Ballista will be flung back D6\" directly away from the Ballista if it has a Strength of 5 or lower. Any model that is passed over by the flung model suffers a Strength 5 hit and will be knocked Prone. If the flung model comes into contact with a piece of impassable terrain or a model with a Strength of 6 or higher, then it will stop and both the flung model and the model or piece of terrain that was hit will suffer one Strength 6 hit. After being flung back, the flung model will be knocked Prone if they survive. If after the model is flung back it would finish over other models and it has survived, then move the other models the minimum distance possible to allow the flung model to be placed where it has landed.",
             "name": "Piercing Shot"
           }
         }
@@ -1303,7 +1305,7 @@
         "name": "Corsair Bo'sun",
         "rules": {
           "commanding-bellow": {
-            "description": "Friendly Corsair models treat a Corsair Bo'sun as a banner.",
+            "description": "Friendly <b>Corsair</b> models treat a Corsair Bo'sun as a <rule id=\"banner\">banner</rule>.",
             "name": "Commanding Bellow"
           }
         }
@@ -1372,19 +1374,19 @@
         "name": "Dáin Ironfoot, Lord of the Iron Hills",
         "rules": {
           "fearsome-charge": {
-            "description": "If Dain Charges into Combat, he gains Terror for the rest of that turn.",
+            "description": "If Dáin Charges into Combat, then until the end of turn he counts as having the <rule id=\"terror\">Terror</rule> special rule.",
             "name": "Fearsome Charge"
           },
           "fiery-temper": {
-            "description": "After killing his first enemy, Dain must always Charge if able to do so for the rest of the game.",
+            "description": "After Dáin has killed an enemy model, then from that point onwards whenever Dáin Moves,he must always Charge an enemy model if possible.",
             "name": "Fiery Temper"
           },
           "headbutt": {
-            "description": "If Dain wins a Duel but fails to slay every enemy in his Combat, select one enemy 25mm model and roll a D6. On a 5+, that model is immediately knocked Prone.",
+            "description": "If Dáin wins a Duel Roll but fails to slay every enemy model involved in the Combat, he may choose a single enemy model on a 25mm base involved in the Combat and roll a D6. On a 5+, the chosen model is immediately knocked Prone.",
             "name": "Headbutt"
           },
           "lord-of-the-iron-hills": {
-            "description": "Iron Hills models within 12\" of Dain automatically pass all Courage tests they are required to take.",
+            "description": "Friendly <b>Iron Hills</b> models within 12\" of Dáin automatically pass all Courage Tests they are required to take.",
             "name": "Lord of the Iron Hills"
           }
         }
@@ -1445,7 +1447,7 @@
         "name": "Dori the Dwarf, Champion of Erebor",
         "rules": {
           "a-good-sort": {
-            "description": "Whilst within 3\" of either Ori or Nori, Dori increases his Attacks to 3 and may re-roll any rolls of a 1 in his Duel rolls.",
+            "description": "Whilst within 3\" of either Ori or Nori, Dori increases his Attacks to 3 and may re-roll any rolls of a 1 in his Duel Rolls.",
             "name": "A Good Sort"
           }
         }
@@ -1454,7 +1456,7 @@
         "name": "Dori the Dwarf",
         "rules": {
           "a-good-sort": {
-            "description": "Whilst within 3\" of either Ori or Nori, Dori increases his Attacks to 3 and may re-roll any rolls of a 1 in his Duel rolls.",
+            "description": "Whilst within 3\" of either Ori or Nori, Dori increases his Attacks to 3 and may re-roll any rolls of a 1 in his Duel Rolls.",
             "name": "A Good Sort"
           }
         }
@@ -1617,15 +1619,15 @@
         "name": "Dwalin the Dwarf, Champion of Erebor",
         "rules": {
           "grasper-and-keeper": {
-            "description": "Hand weapons for which Dwalin gains +1 Attack when using Grasper & Keeper, and any To Wound rolls of a natural 6, and not prevented, will cause 2 Wounds rather than 1.",
+            "description": "These are <b>Unique</b> hand weapons. Additionally, a model gains a bonus of +1 to its Attacks characteristic when using Grasper & Keeper, and any To Wound Rolls of a natural 6 that are not prevented will deal 2 Wounds rather than 1.",
             "name": "Grasper & Keeper"
           },
           "the-kings-axemen": {
-            "description": "At the start of a Combat, if Dwalin is within 3\" of Thorin, he can increase his Strength by 1 when making Strikes should he win the Duel roll. However, if he loses the Duel roll, he will reduce his Defence by D3 until the end of the combat.",
+            "description": "At the beginning of a Combat, so long as he is within 3\" of Thorin, Dwalin can use this special rule. If he does, Dwalin increases his Strength by 1 when making Strikes should he win the DuelRoll; however, if he loses the Duel Roll he will reduce his Defence by D3 until the end of the Combat, before any enemy models make Strikes.",
             "name": "The King's Axemen"
           },
           "weapon-master": {
-            "description": "Dwalin is never considered Unarmed.",
+            "description": "Dwalin is never considered to be <rule id=\"unarmed\">Unarmed</rule>.",
             "name": "Weapon Master"
           }
         }
@@ -1634,11 +1636,11 @@
         "name": "Dwalin the Dwarf",
         "rules": {
           "grasper-and-keeper": {
-            "description": "Hand weapons for which Dwalin gains +1 Attack when using Grasper & Keeper, and any To Wound rolls of a natural 6, and not prevented, will cause 2 Wounds rather than 1.",
+            "description": "These are <b>Unique</b> hand weapons. Additionally, a model gains a bonus of +1 to its Attacks characteristic when using Grasper & Keeper, and any To Wound Rolls of a natural 6 that are not prevented will deal 2 Wounds rather than 1.",
             "name": "Grasper & Keeper"
           },
           "weapon-master": {
-            "description": "Dwalin is never considered Unarmed.",
+            "description": "Dwalin is never considered to be <rule id=\"unarmed\">Unarmed</rule>.",
             "name": "Weapon Master"
           }
         }
@@ -1650,7 +1652,7 @@
         "name": "Dwarf King",
         "rules": {
           "dwarven-lords": {
-            "description": "A Dwarf King will always have the Faction keyword of the most common type of Dwarf model in the same Army. They will gain a special rule depending on the keyword they have: Erebor - gains Ancient Enemies (Orc) Iron Hills - gains Fearless. Khazad-dum - gains throwing weapons.",
+            "description": "A Dwarf King will always have the Faction Keyword of the most common type of <b>Dwarf</b> model in the same Army. So, if the majority of friendly <b>Dwarf</b> models have the <b>Erebor</b> Keyword, then the Dwarf King will also have the <b>Erebor</b> Keyword. A Dwarf King will gain a special rule depending on the Keyword they have, as listed below:<ul><li><b>Erebor</b> – This model gains the <rule id=\"ancient-enemies\">Ancient Enemies (<b>Orc</b>)</rule> special rule.</li><li><b>Iron Hills</b> – This model gains the <rule id=\"fearless\">Fearless</rule> special rule.</li><li><b>Khazad-dûm</b> – This model gains <rule id=\"throwing-weapons\">throwing weapons</rule>.</li></ul>",
             "name": "Dwarven Lords"
           }
         }
@@ -2033,19 +2035,19 @@
         "name": "Feralóf"
       },
       "fili-the-dwarf-champion-of-erebor": {
-        "name": "Fili the Dwarf, Champion of Erebor",
+        "name": "Fíli the Dwarf, Champion of Erebor",
         "rules": {
           "combat-synergy": {
-            "description": "At the start of any phase, before the Declare Heroic Actions step, if Kili and Fili are within 1\" of each other, then they can swap places and not have it count as Moving. If they do this, then during the Fight phase of that turn they may re-roll a single D6 in the Duel roll.",
+            "description": "At the start of any Phase, before the Declare Heroic Actions step, if Kíli and Fíli are within 1\" of each other then they can swap places with each other – this does not count as Moving. If they have used this special rule during a turn, then during the Fight Phase of that turn they may each re-roll a single D6 when making a Duel Roll.",
             "name": "Combat Synergy"
           }
         }
       },
       "fili-the-dwarf": {
-        "name": "Fili the Dwarf",
+        "name": "Fíli the Dwarf",
         "rules": {
           "combat-synergy": {
-            "description": "At the start of any phase, before the Declare Heroic Actions step, if Kili and Fili are within 1\" of each other, then they can swap places and not have it count as Moving. If they do this, then during the Fight phase of that turn they may re-roll a single D6 in the Duel roll.",
+            "description": "At the start of any Phase, before the Declare Heroic Actions step, if Kíli and Fíli are within 1\" of each other then they can swap places with each other – this does not count as Moving. If they have used this special rule during a turn, then during the Fight Phase of that turn they may each re-roll a single D6 when making a Duel Roll.",
             "name": "Combat Synergy"
           }
         }
@@ -2054,7 +2056,7 @@
         "name": "Fimbul, Hunter Orc Captain",
         "rules": {
           "hunt-master": {
-            "description": "Whilst he has the Cavalry keyword, Fimbul does not suffer any penalties for Moving through Difficult Terrain, and therefore may still gain bonuses for Charging. Also, whilst he has the Cavalry keyword, Fimbul gains +1 to his Fight value on a turn in which he Charges.",
+            "description": "Whilst he has the <b>Cavalry</b> keyword, Fimbul does not suffer any penalties for Moving through Difficult Terrain, and therefore may still gain the bonuses for Charging whilst in Difficult Terrain. Additionally, whilst he has the <b>Cavalry</b> keyword, Fimbul gains a bonus of +1 to his Fight Value on a turn in which he Charges.",
             "name": "Hunt Master"
           }
         }
@@ -2177,11 +2179,11 @@
         "name": "Frodo Baggins",
         "rules": {
           "mithril-coat": {
-            "description": "This is a <b>Unique</b> piece of <rule id=\"mithril-armour\">Mithril armour</rule>. Additionally, the wearer may re-roll Fate rolls of a 1.",
+            "description": "This is a <b>Unique</b> piece of <rule id=\"mithril-armour\">Mithril armour</rule>. Additionally, the wearer may re-roll Fate Rolls of a 1.",
             "name": "Mithril Coat"
           },
           "sting": {
-            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> hand weapon. A model gains a bonus of +1 to their Strength when making strikes with Sting.",
+            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> hand weapon. A model gains a bonus of +1 to their Strength when making Strikes with Sting.",
             "name": "Sting"
           }
         }
@@ -2230,23 +2232,23 @@
         "name": "Galadriel, Lady of Light",
         "rules": {
           "go-back-to-the-void-from-whence-you-came": {
-            "description": "Galadriel may target any enemy with Banishment as if it were a Spirit model, though non-Spirit models targeted will gain an extra free Will point to their Resist test. Once per game instead of casting a Magical Power, as long as she has at least 1 Will point, she may choose an enemy within 6\", who immediately suffers D3 Wounds. After doing this, her Will points becomes 0, she is placed Prone, and no longer benefits from her The Lady of Lorien or War Aspect special rules (and thus becomes Unarmed).",
-            "name": "Go back to the void, from whence you came!"
+            "description": "Galadriel may target any enemy model with the <rule id=\"banishment\">Banishment</rule> Magical Power as if it was a <b>Spirit</b> model; though non-<b>Spirit</b> models targeted in this way gain an additional free Will Point when attempting to Resist this Magical Power. Once per game, so long as she has at least 1 Will Point remaining, Galadriel may use this special rule instead of attempting to Cast a Magical Power. If she does, then Galadriel may choose a single enemy model within 6\". The chosen model immediately suffers D3 Wounds. After using this special rule, Galadriel reduces her Will Points to 0, is placed Prone, and no longer benefits from her The Lady of Lórien or War Aspect special rules (this will mean she is then <rule id=\"unarmed\">Unarmed</rule>).",
+            "name": "\"Go back to the void, from whence you came!\""
           },
           "nenya": {
-            "description": "Galadriel may re-roll any failed Fate rolls.",
+            "description": "This is a <b>Unique</b> piece of Wargear. Galadriel may re-roll any failed Fate rolls.",
             "name": "Nenya"
           },
           "the-lady-of-lorien": {
-            "description": "Galadriel gains a free Will point at the start of each turn. If it is not spent by the end of the turn, then it is lost.",
-            "name": "The Lady of Lorien"
+            "description": "Galadriel gains a free Will Point at the start of each turn. If this free Will Point is not spent by the end of the turn, it is lost.",
+            "name": "The Lady of Lórien"
           },
           "the-light-of-earendil": {
-            "description": "At any point during her Activation, Galadriel can roll a D6. On a 3+, she counts as having cast the Blinding Light Magical Power. This does not prevent her from casting another Magical Power during her Activation.",
-            "name": "The Light of Earendil"
+            "description": "This is a <b>Unique</b> piece of Wargear. At any point during her Activation, Galadriel can use the Light of Eärendil to roll a D6. On a 3+, Galadriel counts as having Cast the <rule id=\"blinding-light\">Blinding Light</rule> Magical Power. This does not prevent Galadriel from attempting to Cast another Magical Power during her Activation.",
+            "name": "The Light of Eärendil"
           },
           "war-aspect": {
-            "description": "Enemies within 6\" of Galadriel suffer a -1 penalty to any Courage tests. Additionally, Galadriel never counts as Unarmed.",
+            "description": "Enemy models within 6\" of Galadriel suffer a -1 penalty to any Courage Tests they take. Additionally, Galadriel never counts as <rule id=\"unarmed\">Unarmed</rule>.",
             "name": "War Aspect"
           }
         }
@@ -2502,29 +2504,29 @@
         "name": "Girion, Lord of Dale",
         "rules": {
           "lord-of-dale": {
-            "description": "Girion's Stand Fast is 12\", and friendly Dale models within 3\" of him may re-roll To Wound rolls of a natural 1 when making Strikes.",
+            "description": "Girion’s Stand Fast is 12\" rather than 6\". Additionally, friendly Dale models within3\"ofGirionmayre-roll ToWoundRollsofanatural1when makingStrikes.",
             "name": "Lord of Dale"
           },
           "windlance-trained": {
-            "description": "If Girion takes a Windlance, he will be the only crew, but can move more than 6\" away, and rotate it without any penalty. Windlance attacks against Monster models gain a +1 bonus to any rolls on the Scatter Table.",
+            "description": "If Girion is upgraded to take a Windlance, then he counts as the only crew for the <b>Siege Engine</b>. However, unlike normal Siege Engine crew, Girion may Move further than 6\" away from the Windlance at any point and may rotate it without suffering the-1 penalty to his rolls To Hit. Additionally, when making a shooting attack with the Windlance that targets a <b>Monster</b> model, Girion gains a bonus of +1 to any rolls on the Scatter Table.",
             "name": "Windlance Trained"
           }
         }
       },
       "gloin-the-dwarf-champion-of-erebor": {
-        "name": "Gloin the Dwarf, Champion of Erebor",
+        "name": "Glóin the Dwarf, Champion of Erebor",
         "rules": {
           "axe-mastery": {
-            "description": "If outnumbered in a Combat, Gloin increases his Attacks to 4 for the duration of that combat.",
+            "description": "If Glóin is outnumbered in a Combat, he increases his Attacks to 4 for the duration of the Combat.",
             "name": "Axe Mastery"
           }
         }
       },
       "gloin-the-dwarf": {
-        "name": "Gloin the Dwarf",
+        "name": "Glóin the Dwarf",
         "rules": {
           "axe-mastery": {
-            "description": "If outnumbered in a Combat, Gloin increases his Attacks to 4 for the duration of that combat.",
+            "description": "If Glóin is outnumbered in a Combat, he increases his Attacks to 4 for the duration of the Combat.",
             "name": "Axe Mastery"
           }
         }
@@ -2550,7 +2552,7 @@
         "name": "Goblin Captain",
         "rules": {
           "chittering-hordes": {
-            "description": "This model may Support as if it had a spear, with the exception that they can only Support another model with this special rule. A model Supporting whilst using this special rule cannot also use a two-handed weapon in the same Combat.",
+            "description": "This model may Support as if it had a <rule id=\"spear\">spear</rule>, with the exception that they can only Support another model with this special rule. A model Supporting whilst using this special rule cannot also use a <rule id=\"two-handed-weapon\">two-handed weapon</rule> in the same Combat.",
             "name": "Chittering Hordes"
           }
         }
@@ -2559,11 +2561,11 @@
         "name": "Goblin Mercenary Captain",
         "rules": {
           "chittering-hordes": {
-            "description": "This model can support other models who also have the Chittering Hordes rule, as if they had a spear. Supporting models cannot use a two-handed weapon in the same Combat.",
+            "description": "This model may Support as if it had a <rule id=\"spear\">spear</rule>, with the exception that they can only Support another model with this special rule. A model Supporting whilst using this special rule cannot also use a <rule id=\"two-handed-weapon\">two-handed weapon</rule> in the same Combat.",
             "name": "Chittering Hordes"
           },
           "mercenary-ambush": {
-            "description": "Warbands lead by a Goblin Mercenary Captain that contain solely Goblin Mercenaries do not have to deploy at the start of the game, as they may be kept in reserve. If you choose to do so, then from turn 2 onwards, the Captain must take an Intelligence test at the end of each of the controlling player's Activation phases. If passed, the player decides whether the warband arrives. If failed, the opposing player decides. If they arrive, they should be fully placed within a terrain piece that the entire warband can hide within or behind. They cannot be placed in enemy Control Zones, cannot Move that turn, but may otherwise act normally. If the Mercenaries cannot be placed as described above, then they may arrive from any board edge via the rules for Reinforcements.",
+            "description": "Warbands led by a Goblin Mercenary Captain that contain only Goblin Mercenaries do not have to be deployed at the start of the game. Instead, they may be kept in reserve if their controlling player wishes. \r\nIf they are kept in reserve, then from turn 2 onwards at the end of each of their controlling player’s Activation Phases, the Goblin Mercenary Captain must take an Intelligence Test. If the test is passed, then their controlling player may decide whether or not they arrive. If the test is failed, then the opposing player may decide whether or not they arrive. \r\nWhen the Goblin Mercenaries arrive, their controlling player places the Warband fully within or in base contact with an eligible terrain piece on the board. For a terrain piece to be eligible it needs to be large enough for the entire Warband to hide in or behind, such as a wood, building, rocky outcrop, etc. It is important to discuss with your opponent before the game begins exactly what counts as an eligible terrain piece.\r\nModels placed on the board in this manner cannot be placed in the Control Zones of enemy models, and cannot Move during that turn but may otherwise act normally. If the entire Warband cannot be placed as described above, then the Warband may Move onto the board from any table edge via the rules for Reinforcements.",
             "name": "Mercenary Ambush"
           }
         }
@@ -2572,11 +2574,11 @@
         "name": "Goblin Mercenary",
         "rules": {
           "chittering-hordes": {
-            "description": "This model can support other models who also have the Chittering Hordes rule, as if they had a spear. Supporting models cannot use a two-handed weapon in the same Combat.",
+            "description": "This model may Support as if it had a <rule id=\"spear\">spear</rule>, with the exception that they can only Support another model with this special rule. A model Supporting whilst using this special rule cannot also use a <rule id=\"two-handed-weapon\">two-handed weapon</rule> in the same Combat.",
             "name": "Chittering Hordes"
           },
           "mercenary-ambush": {
-            "description": "Warbands lead by a Goblin Mercenary Captain that contain solely Goblin Mercenaries do not have to deploy at the start of the game, as they may be kept in reserve. If you choose to do so, then from turn 2 onwards, the Captain must take an Intelligence test at the end of each of the controlling player's Activation phases. If passed, the player decides whether the warband arrives. If failed, the opposing player decides. If they arrive, they should be fully placed within a terrain piece that the entire warband can hide within or behind. They cannot be placed in enemy Control Zones, cannot Move that turn, but may otherwise act normally. If the Mercenaries cannot be placed as described above, then they may arrive from any board edge via the rules for Reinforcements.",
+            "description": "Warbands led by a Goblin Mercenary Captain that contain only Goblin Mercenaries do not have to be deployed at the start of the game. Instead, they may be kept in reserve if their controlling player wishes. \r\nIf they are kept in reserve, then from turn 2 onwards at the end of each of their controlling player’s Activation Phases, the Goblin Mercenary Captain must take an Intelligence Test. If the test is passed, then their controlling player may decide whether or not they arrive. If the test is failed, then the opposing player may decide whether or not they arrive. \r\nWhen the Goblin Mercenaries arrive, their controlling player places the Warband fully within or in base contact with an eligible terrain piece on the board. For a terrain piece to be eligible it needs to be large enough for the entire Warband to hide in or behind, such as a wood, building, rocky outcrop, etc. It is important to discuss with your opponent before the game begins exactly what counts as an eligible terrain piece.\r\nModels placed on the board in this manner cannot be placed in the Control Zones of enemy models, and cannot Move during that turn but may otherwise act normally. If the entire Warband cannot be placed as described above, then the Warband may Move onto the board from any table edge via the rules for Reinforcements.",
             "name": "Mercenary Ambush"
           }
         }
@@ -2585,7 +2587,7 @@
         "name": "Goblin Warrior",
         "rules": {
           "chittering-hordes": {
-            "description": "This model may Support as if it had a spear, with the exception that they can only Support another model with this special rule. A model Supporting whilst using this special rule cannot also use a two-handed weapon in the same Combat.",
+            "description": "This model may Support as if it had a <rule id=\"spear\">spear</rule>, with the exception that they can only Support another model with this special rule. A model Supporting whilst using this special rule cannot also use a <rule id=\"two-handed-weapon\">two-handed weapon</rule> in the same Combat.",
             "name": "Chittering Hordes"
           }
         }
@@ -2618,12 +2620,12 @@
       },
       "gollum": {
         "additional-text": {
-          "text-1": "Gollum has strong, strangling fingers and so is never considered to be Unarmed - ever! If your opponent does not have a Ringbearer in their Army, then Gollum carries the One Ring."
+          "text-1": "Gollum has strong, strangling fingers and so is never considered to be <rule id=\"unarmed\">Unarmed</rule> - ever! If your opponent does not have a Ringbearer in their Army, then Gollum carries the One Ring."
         },
         "name": "Gollum",
         "rules": {
           "the-precious": {
-            "description": "If your opponent's Army contains a Ringbearer, then when Gollum Moves, he must always Charge the enemy Ringbearer if possible. Additionally, if Gollum kills the enemy Ringbearer in Combat, then he will automatically regain the One Ring - from that point onwards he counts as having it as part of his Wargear.",
+            "description": "If your opponent’s Army contains a Ringbearer, then when Gollum Moves, he must always Charge the enemy Ringbearer if possible. Additionally, if Gollum kills the enemy Ringbearer in Combat, then he will automatically regain the One Ring – from that point onwards he counts as having it as part of his Wargear.",
             "name": "The Precious"
           }
         }
@@ -2740,7 +2742,7 @@
       },
       "great-eagle-mount": {
         "additional-text": {
-          "text-1": "If Radagast dismounts from the Great Eagle, it will automatically pass its Courage test for being a Separated Mount."
+          "text-1": "If Radagast dismounts from the Great Eagle, it will automatically pass its Courage Test for being a Separated Mount."
         },
         "name": "Great Eagle"
       },
@@ -2751,7 +2753,7 @@
         "name": "Great Elk",
         "rules": {
           "majestic-steed": {
-            "description": "In a turn in which Thranduil Charges into Combat, he resolves his Strikes at Strength 5. Additionally, each time this model Charges into Combat, it will inflict a single Strength 4 hit upon one model it has Charged (Cavalry models suffer this hit on both the rider and the Mount). If after this hit Thranduil is no longer Engaged in Combat, he may continue his Move in any way his controlling player wishes; stopping straight away, Charging another enemy model, or anything in between.",
+            "description": "In a turn in which Thranduil Charges into Combat, he resolves his Strikes at Strength5. Additionally, each time this model Charges into Combat, it will inflict a single Strength 4 hit upon one model it has Charged (<b>Cavalry</b> models suffer this hit on both the rider and the <b>Mount</b>). If after this hit Thranduil is no longer Engaged in Combat, he may continue his Move in any way his controlling player wishes; stopping straight away, Charging another enemy model, or anything in between.",
             "name": "Majestic Steed"
           }
         }
@@ -2760,7 +2762,7 @@
         "name": "Grim Hammer Captain",
         "rules": {
           "mattock": {
-            "description": "Two-handed weapon, where if this model wins a Duel roll, they may choose to try and knock down an enemy instead of making Strikes. Choose a single enemy in the combat, and both models roll a D6, adding their Strength values. If this model has an equal or higher result, then the chosen enemy is knocked Prone. This may be done before any other friendly models make their Strikes.",
+            "description": "This is a <rule id=\"two-handed-weapon\">two-handed weapon</rule>. Additionally, if a model wielding a Mattock wins a Duel Roll they may choose to try to knock down an enemy model instead of making Strikes. If they do, choose a single enemy model involved in the Combat. This model and the chosen model both roll a single D6 and add their Strength characteristic. If this model rolls equal to or higher than the chosen model, then the chosen model is immediately knocked Prone. This may be done before any other friendly models make their Strikes.",
             "name": "Mattock"
           }
         }
@@ -2769,7 +2771,7 @@
         "name": "Grim Hammer Warrior",
         "rules": {
           "mattock": {
-            "description": "Two-handed weapon, where if this model wins a Duel roll, they may choose to try and knock down an enemy instead of making Strikes. Choose a single enemy in the combat, and both models roll a D6, adding their Strength values. If this model has an equal or higher result, then the chosen enemy is knocked Prone. This may be done before any other friendly models make their Strikes.",
+            "description": "This is a <rule id=\"two-handed-weapon\">two-handed weapon</rule>. Additionally, if a model wielding a Mattock wins a Duel Roll they may choose to try to knock down an enemy model instead of making Strikes. If they do, choose a single enemy model involved in the Combat. This model and the chosen model both roll a single D6 and add their Strength characteristic. If this model rolls equal to or higher than the chosen model, then the chosen model is immediately knocked Prone. This may be done before any other friendly models make their Strikes.",
             "name": "Mattock"
           }
         }
@@ -2827,12 +2829,12 @@
         "name": "Grinnah, Goblin Jailer",
         "rules": {
           "chittering-hordes": {
-            "description": "This model may Support as if it had a spear, with the exception that they can only Support another model with this special rule. A model Supporting whilst using this special rule cannot also use a two-handed weapon in the same Combat.",
+            "description": "This model may Support as if it had a <rule id=\"spear\">spear</rule>, with the exception that they can only Support another model with this special rule. A model Supporting whilst using this special rule cannot also use a <rule id=\"two-handed-weapon\">two-handed weapon</rule> in the same Combat.",
             "name": "Chittering Hordes"
           },
           "swap-with-me": {
-            "description": "At the start of the Fight Phase, before the Declare Heroic Actions Step, Grinnah can choose a friendly Goblin model on a 25mm base within 3\" and swap places with it. This does not count as Moving.",
-            "name": "Swap with Me"
+            "description": "At the start of the Fight Phase, before the Declare Heroic Actions Step, Grinnah can choose a friendly <b>Goblin</b> model on a 25mm base within 3\" and swap places with it. This does not count as Moving.",
+            "name": "Swap with me"
           }
         }
       },
@@ -2907,28 +2909,31 @@
         "name": "Gundabad Catapult Troll",
         "rules": {
           "area-effect": {
-            "description": "After rolling To Hit against a Battlefield Target, all other models within 2\" of them suffer a Strength 5 and will be knocked Prone.",
+            "description": "After rolling To Hit against the actual target, if the actual target was a Battlefield Target then all other models within 2\" of the actual target suffer a Strength 5 hit and, if they survive, will be knocked Prone.",
             "name": "Area Effect"
           },
           "catapult": {
-            "description": "A Siege Engine with range 12\" - 96\" and Strength 10. May still fire in same turn the troll has Moved, but will only hit on the roll of a natural 6. May still fire while Engaged in Combat, but on a To Hit roll of a natural 1, the troll suffers a Wound. Does not have a normal siege crew, and can always be fired if the troll is alive. Other models can never fire this catapult as Untrained Crew. The catapult cannot be destroyed as normal if an enemy spends an entire turn in base contact.",
+            "description": "The Catapult on the back of the Catapult Troll can be fired in the same way as a normal <b>Siege Engine</b>; it has a range of 12\"-96\" and has a Strength of 10. The Catapult may still be fired even if the Troll has Moved, even up to its full Move Value; however, in either instance it will only ever hit on the roll of a natural 6. The Catapult may still be fired if the Troll is Engaged in Combat; however, if a natural 1 is rolled when rolling To Hit in this instance, the Catapult will malfunction and the Troll will suffer a Wound. \r\nThe Catapult does not have a conventional crew, and therefore can always be fired so long as the Troll is still alive. Additionally, other models can never fire this Catapult as Untrained Crew. Additionally, unlike other <b>Siege Engine</b> models, the Catapult cannot be destroyed by an enemy model spending an entire turn in base contact with it. \r\nThe Catapult has the following special rules: <rule id=\"arcing-shot\"><b>Arcing Shot</b></rule>",
             "name": "Catapult"
           },
           "goblin-crew": {
-            "description": "If the troll wins a Combat, then after making Strikes, the Goblins may make D6 additional strikes with Strength 3. If the troll uses a Brutal Power Attack that ends the Combat, then the Goblins will not get these additional Strikes.",
+            "description": "If the Catapult Troll wins a Combat, then after making any Strikes, the Goblins may make D6 additional Strikes following all the usual rules. These Strikes are resolved at Strength 3. Note that if the Catapult Troll uses a Brutal Power Attack that immediately ends the Combat, then the Goblins will not get these additional Strikes.",
             "name": "Goblin Crew"
           },
           "metal-gauntlets": {
-            "description": "Any Strikes made by the model are resolved as Strength 10. Also, this model may re-roll the dice when determining the Hurl Distance when using Hurl Brutal Power Attack.",
+            "description": "Any Strikes made by this model are resolved at Strength 10. Additionally, this model may re-roll the dice when determining the Hurl Distance when using the Hurl Brutal Power Attack.",
             "name": "Metal Gauntlets"
           }
+        },
+        "additional-text": {
+          "text-1": "A Gundabad Catapult Troll is an unusual <b>Siege Engine</b> in that it uses a combined profile for the entire model. As a result, the Catapult doesn’t have its own Defence and Wounds values and cannot be targeted separately; instead if the Troll is slain, the whole model is removed from play as a casualty. The Troll is considered to be the Siege Veteran, though it does not have any Might, Will or Fate Points."
         }
       },
       "gundabad-ogre": {
         "name": "Gundabad Ogre",
         "rules": {
           "relentless-advance": {
-            "description": "Ogres can pass through friendly Orc, Goblin and Bat models when they Charge into Combat, but not when forced to Move from Magical Powers or special rules. Each model they pass through suffers a Strength 3 hit. Any model that the Ogre ends their move on is automatically slain.",
+            "description": "This model may Move through friendly <b>Orc</b>, <b>Goblin</b> or <b>Bat</b> models when they Charge into Combat, though not when forced to Move by the effects of an enemy Magical Power or special rule. Each friendly model Moved through in this way immediately suffers a Strength 3 hit. This model may finish its Move overlapping friendly models, though any friendly models it finishes its Move overlapping will automatically be slain.",
             "name": "Relentless Advance"
           }
         }
@@ -2943,7 +2948,7 @@
         "name": "Gundabad Troll",
         "rules": {
           "crushing-club": {
-            "description": "Any strikes made with this weapon count as having the Mighty Blow special rule. Also, any model struck by this weapon and not slain must roll a D6 at the end of the Combat. On a 3+, that model is immediately knocked Prone.",
+            "description": "Any Strikes made by a Gundabad Troll armed with a Crushing Club count as having the <rule id=\"mighty-blow\">Mighty Blow</rule> special rule. Additionally, any model struck by a Crushing Club and not slain must roll a D6 at the end of the Combat. On a 3+, the model is immediately knocked Prone.",
             "name": "Crushing Club"
           },
           "scythe-gauntlets": {
@@ -3177,8 +3182,8 @@
         "name": "Hilda-Bianca",
         "rules": {
           "stand-by-our-men": {
-            "description": "If Hilda-Bianca Charges into Combat, then during the ensuing Fight phase, she and friendly Lake-town Warrior models within 3\" of her gain a bonus of +1 To Wound when making Strikes.",
-            "name": "Stand by our Men!"
+            "description": "If Hilda-Bianca Charges into Combat, then during the ensuing Fight Phase, Hilda-Bianca and friendly <b>Lake-town Warrior</b> models within 3\" of her gain a bonus of +1 To Wound when making Strikes.",
+            "name": "\"Stand by our Men!\""
           }
         }
       },
@@ -3225,7 +3230,10 @@
         "name": "Horse"
       },
       "howdah": {
-        "name": "Howdah"
+        "name": "Howdah",
+        "additional-text": {
+          "text-1": "The Howdah has a capacity of 12 models in addition to the Mûmak War Leader, who is placed on the forked wooden platform at the front of the Howdah and always counts as being in the Howdah. The only other models theHowdah may include are Haradrim Warriors."
+        }
       },
       "hunter-orc-captain": {
         "name": "Hunter Orc Captain",
@@ -3298,20 +3306,20 @@
       },
       "iron-hills-ballista": {
         "additional-text": {
-          "text-1": "Crewed by four Iron Hills Siege Crew, one of which is the Siege Veteran."
+          "text-1": "An Iron Hills Ballista is a Large <b>Siege Engine</b>, and is crewed by four Iron Hills Siege Crew, one of which is a Siege Veteran"
         },
         "name": "Iron Hills Ballista",
         "rules": {
           "accurate": {
-            "description": "An Iron Hills Ballista will only Scatter 3\" rather than 6\"",
+            "description": "An Iron Hills Ballista will only Scatter 3\" rather than 6\".",
             "name": "Accurate"
           },
           "area-effect": {
-            "description": "After rolling To Hit against the target, if the target was a Battlefield Target then all other models within 2\" of them suffer a Strength 5 hit and, if they survive, will be knocked Prone.",
+            "description": "After rolling To Hit against the actual target, if the actual target was a Battlefield Target then all other models within 2\" of the actual target suffer a Strength 5 hit and, if they survive, will be knocked Prone.",
             "name": "Area Effect"
           },
           "the-old-twirly-whirlies": {
-            "description": "This ballista always counts as declaring a Heroic Shoot each Shoot phase for free. When a target is hit, draw 1mm line between centre of the Ballista and the target's base. For that turn, any shooting attacks of Strength 6 or lower cannot be made if they cross that line, or if the shooting target is within 3\" of the line. Similarly in both cases, shooting attacks above Strength 6 must roll a D6. On a 5+, the shot is prevented.",
+            "description": "An Iron Hills Ballista always counts as declaring a Heroic Shoot each Shoot Phase for free. When the Ballista hits a target, place a 25mm marker directly underneath the actual target, then draw a 1mm wide line from the centre of the Iron Hills Ballista to the centre of the marker. Any shooting attacks (friend or foe) that have a Strength of 6 or lower cannot be made if they cross the line, or if they target a model within 3\" of the line. If a shooting attack that has a Strength of 7 or higher crosses the line, or targets a model within 3\" of the line, roll a D6. On a 5+ the shooting attack is immediately cancelled and does not hit its target – otherwise it will hit as normal. At the end of the turn, remove any markers placed by this special rule.",
             "name": "The Old Twirly Whirlies"
           }
         }
@@ -3320,41 +3328,27 @@
         "name": "Iron Hills Captain",
         "rules": {
           "mattock": {
-            "description": "Two-handed weapon, where if this model wins a Duel roll, they may choose to try and knock down an enemy instead of making Strikes. Choose a single enemy in the combat, and both models roll a D6, adding their Strength values. If this model has an equal or higher result, then the chosen enemy is knocked Prone. This may be done before any other friendly models make their Strikes.",
+            "description": "This is a <rule id=\"two-handed-weapon\">two-handed weapon</rule>. Additionally, if a model wielding a Mattock wins a Duel Roll they may choose to try to knock down an enemy model instead of making Strikes. If they do, choose a single enemy model involved in the Combat. This model and the chosen model both roll a single D6 and add their Strength characteristic. If this model rolls equal to or higher than the chosen model, then the chosen model is immediately knocked Prone. This may be done before any other friendly models make their Strikes.",
             "name": "Mattock"
           }
-        }
-      },
-      "iron-hills-chariot-mount": {
-        "name": "Iron Hills Chariot",
-        "rules": {
-          "chariot-charge": {
-            "description": "When moving via Chariot Charge, the Chariot will inflict 3 Strength 6 hits.",
-            "name": "Chariot Charge"
-          },
-          "dwarven-crew": {
-            "description": "Any Iron Hills Warrior that ends their Activation in base contact may join its crew. That Warrior is removed as a casualty and then the chariot immediately regains a Wound lost earlier in the battle.",
-            "name": "Dwarven Crew"
-          },
-          "rapid-fire-bolt-thrower": {
-            "description": "A crossbow that fires D6 shots per turn. Only has a limited field of fire 45 degrees to its left or right (can be measured by placing Chariot Pivot Template with the X over the bolt thrower and dotted line running down the wooden shaft connecting the goats). This chariot may move and shoot without any -1 penalty. Can also shoot when Engaged in Combat, with no In The Way tests for models it is in Combat with.",
-            "name": "Rapid-fire Bolt Thrower"
-          }
+        },
+        "additional-text": {
+          "text-1": "If taken on an Iron Hills Chariot and the Captain dismounts from the Chariot, do not remove the Chariot from play. The Chariot will remain in play as a standard Iron Hills Chariot with the same number of Wounds remaining as it had before the Iron Hills Captain dismounted"
         }
       },
       "iron-hills-chariot": {
         "name": "Iron Hills Chariot",
         "rules": {
           "chariot-charge": {
-            "description": "When moving via Chariot Charge, the Chariot will inflict 3 Strength 6 hits.",
+            "description": "When an Iron Hills Chariot Moves via Chariot Charge, it will inflict 3 Strength 6 Impact Hits.",
             "name": "Chariot Charge"
           },
           "dwarven-crew": {
-            "description": "Any Iron Hills Warrior that ends their Activation in base contact may join its crew. That Warrior is removed as a casualty and then the chariot immediately regains a Wound lost earlier in the battle.",
+            "description": "Any <b>Iron Hills Warrior</b> that ends their Activation in base contact with an Iron Hills Chariot may join its crew. If it does, remove the <b>Iron Hills Warrior</b> from the board as a Casualty. The Iron Hills Chariot then immediately regains a single Wound lost earlier in the battle.",
             "name": "Dwarven Crew"
           },
           "rapid-fire-bolt-thrower": {
-            "description": "A crossbow that fires D6 shots per turn. Only has a limited field of fire 45 degrees to its left or right (can be measured by placing Chariot Pivot Template with the X over the bolt thrower and dotted line running down the wooden shaft connecting the goats). This chariot may move and shoot without any -1 penalty. Can also shoot when Engaged in Combat, with no In The Way tests for models it is in Combat with.",
+            "description": "This is a crossbow that fires D6 shots per turn rather than just one. A Rapid-fire Bolt Thrower only has a limited field of fire of 45° to its left or right, which can be measured by placing the Chariot Pivot Template with the X over the bolt thrower and the dotted line running down the wooden shaft connecting the goats – this is the Chariot’s field of fire. \r\nAn Iron Hills Chariot may still shoot even if it has Moved that turn, and never suffers the -1 penalty for Moving and Shooting. \r\nAn Iron Hills Chariot may still Shoot even if it is Engaged in Combat, and does not need to take In The Way Tests for models it is in Combat with.",
             "name": "Rapid-fire Bolt Thrower"
           }
         }
@@ -3369,7 +3363,7 @@
         "name": "Iron Hills Warrior",
         "rules": {
           "mattock": {
-            "description": "Two-handed weapon, where if this model wins a Duel roll, they may choose to try and knock down an enemy instead of making Strikes. Choose a single enemy in the combat, and both models roll a D6, adding their Strength values. If this model has an equal or higher result, then the chosen enemy is knocked Prone. This may be done before any other friendly models make their Strikes.",
+            "description": "This is a <rule id=\"two-handed-weapon\">two-handed weapon</rule>. Additionally, if a model wielding a Mattock wins a Duel Roll they may choose to try to knock down an enemy model instead of making Strikes. If they do, choose a single enemy model involved in the Combat. This model and the chosen model both roll a single D6 and add their Strength characteristic. If this model rolls equal to or higher than the chosen model, then the chosen model is immediately knocked Prone. This may be done before any other friendly models make their Strikes.",
             "name": "Mattock"
           }
         }
@@ -3492,18 +3486,18 @@
         }
       },
       "khamul-the-easterling": {
-        "name": "Khamul the Easterling",
+        "name": "Khamûl the Easterling",
         "rules": {
           "one-of-nine": {
-            "description": "Maximum of nine Nazgul models in your Army. Hero models wearing the One Ring are not invisible to these models.",
+            "description": "You can include up to a maximum of nine Nazgûl of Dol Guldur in your Army – each of the options can be taken once, unless otherwise stated. Additionally, a model wearing the One Ring is not Invisible to this model as it is to others.",
             "name": "One of Nine"
           },
           "rhunish-fury": {
             "description": "Khamul has 3 Attacks instead of 2.",
-            "name": "Rhunish Fury"
+            "name": "Rhûnish Fury"
           },
           "unholy-resurrection": {
-            "description": "When slain, place a marker where this model was killed. Models may not overlap these markers for any reason. During the Priority phase of each turn, after Priority has been determined, roll a D6. On a 3+, remove the marker and immediately place this model anywhere within 3\" of the marker, but not in base contact with it. If this is not possible, place the model where the marker was. On a 1-2, the model is slain and the marker is removed. The Necromancer can use his Will points to improve this roll, as long as the Nazgul are in range of the Necromancer's Master of the Nazgul special rule. Whilst the marker is in play, this model counts as being on the board for the purpose of determining if your army is Broken or reduced to 25%. However, a marker cannot hold objectives, and this model still counts as being slain for any special rules that come into effect when a model is slain, such as a Heroic Combat. If this model is slain by a Magical Power or an Elven weapon, they suffer a -1 penalty to their roll. When the game ends, any markers still on the board are removed and the associated models will be counted as casualties.",
+            "description": "If this model is slain, instead of removing them as a casualty place a 25mm Marker where they were slain – models may not overlap these Markers for any reason. During the Priority Phase of each turn, after Priority has been determined, roll a D6 for this model’s Marker. On a 3+, immediately place this model anywhere within 3\" of the Marker, so long as it is not in base contact with the Marker. If this is not possible, place this model where their Marker was. In either case, remove the Marker after rolling. On a 1-2, the model is slain and removed as a casualty – remove the Marker from the board. Whilst the Nazgûl of Dol Guldur are in range of the Necromancer’s Master of the Nazgûl special rule (depending on how many Will Points he has remaining), the Necromancer can spend his Will Points to improve this roll. For each Will Point the Necromancer spends in this way, improve the Unholy Resurrection roll by 1. \r\nWhilst the Marker is in play, this model counts as on the board for the purpose of determining whether your Army is Broken or reduced to 25%. However, a Marker cannot hold Objectives and the model will still count as being slain for the purpose of any special rules that come into effect when a model is slain, such as a <rule id=\"heroic-combat\">Heroic Combat</rule>. \r\nIf this model is slain by a Magical Power or an <rule id=\"elven-weapon\">Elven</rule> weapon, then they suffer a -1 penalty to their rolls for this special rule. \r\nWhen the game ends, any Markers on the board are removed and the models associated with them count as a casualty.",
             "name": "Unholy Resurrection"
           }
         }
@@ -3548,19 +3542,19 @@
         "name": "Khazâd Guard"
       },
       "kili-the-dwarf-champion-of-erebor": {
-        "name": "Kili the Dwarf, Champion of Erebor",
+        "name": "Kíli the Dwarf, Champion of Erebor",
         "rules": {
           "combat-synergy": {
-            "description": "At the start of any phase, before the Declare Heroic Actions step, if Kili and Fili are within 1\" of each other, then they can swap places and not have it count as Moving. If they do this, then during the Fight phase of that turn they may re-roll a single D6 in the Duel roll.",
+            "description": "At the start of any Phase, before the Declare Heroic Actions step, if Kíli and Fíli are within 1\" of each other then they can swap places with each other – this does not count as Moving. If they have used this special rule during a turn, then during the Fight Phase of that turn they may each re-roll a single D6 when making a Duel Roll.",
             "name": "Combat Synergy"
           }
         }
       },
       "kili-the-dwarf": {
-        "name": "Kili the Dwarf",
+        "name": "Kíli the Dwarf",
         "rules": {
           "combat-synergy": {
-            "description": "At the start of any phase, before the Declare Heroic Actions step, if Kili and Fili are within 1\" of each other, then they can swap places and not have it count as Moving. If they do this, then during the Fight phase of that turn they may re-roll a single D6 in the Duel roll.",
+            "description": "At the start of any Phase, before the Declare Heroic Actions step, if Kíli and Fíli are within 1\" of each other then they can swap places with each other – this does not count as Moving. If they have used this special rule during a turn, then during the Fight Phase of that turn they may each re-roll a single D6 when making a Duel Roll.",
             "name": "Combat Synergy"
           }
         }
@@ -3658,7 +3652,7 @@
         "name": "Lake-town Guard Captain",
         "rules": {
           "everyone-has-a-price": {
-            "description": "Whilst within 6\" and Line of Sight of the Master of Lake-town, this model may re-roll failed To Wound rolls of a natural 1 when making Strikes. This rule has no effect if the Master of Lake-town has no Will points remaining.",
+            "description": "Whilst within 6\" and Line of Sight of the Master of Lake-town, this model may re-roll failed To Wound Rolls of a natural 1 when making Strikes. This special rule has no effect if the Master of Lake-town has no Will Points remaining.",
             "name": "Everyone has a Price"
           }
         }
@@ -3667,7 +3661,7 @@
         "name": "Lake-town Guard",
         "rules": {
           "everyone-has-a-price": {
-            "description": "Whilst within 6\" and Line of Sight of the Master of Lake-town, this model may re-roll failed To Wound rolls of a natural 1 when making Strikes. This rule has no effect if the Master of Lake-town has no Will points remaining.",
+            "description": "Whilst within 6\" and Line of Sight of the Master of Lake-town, this model may re-roll failed To Wound Rolls of a natural 1 when making Strikes. This special rule has no effect if the Master of Lake-town has no Will Points remaining.",
             "name": "Everyone has a Price"
           }
         }
@@ -3679,7 +3673,7 @@
         "name": "Lake-town Militia",
         "rules": {
           "onwards-men-of-esgaroth": {
-            "description": "Lake-town Militia that are within 3\" of a friendly Lake-town Hero model who is Engaged in Combat automatically pass any Courage tests they are required to make for being in a Broken army.",
+            "description": "Whilst within 3\" of a friendly <b>Lake-town Hero</b> who is Engaged in Combat, this model automatically passes any Courage Tests they are required to take for being part of a Broken Army.",
             "name": "Onwards Men of Esgaroth"
           }
         }
@@ -3688,15 +3682,15 @@
         "name": "Legolas Greenleaf, Prince of Mirkwood",
         "rules": {
           "deadly-shot": {
-            "description": "Legolas can make three shooting attacks instead of one during the Shoot Phase, using all the normal rules for shooting. He can still shoot whilst Engaged in Combat, and does not  suffer the -1 penalty To Hit for Moving and Shooting, as long as he has the Infantry keyword. He can also shoot at models he is Engaged in Combat with, requiring no In The Way tests (though they may still block Line of Sight).",
+            "description": "Legolas may make three shooting attacks during the Shoot Phase instead of one, using all the normal rules for shooting. <u>Additionally, Legolas may still make shooting attacks whilst he is Engaged in Combat if there are no other friendly models engaged in the same combat, and does not suffer the -1 penalty To Hit for Moving and Shooting so long as he has the <b>Infantry</b> keyword. If Legolas shoots whilst he is Engaged in Combat, he may shoot at enemy models he is Engaged in Combat with, and does not need to make In The Way Tests for shooting at models he is Engaged in Combat with (though they may still block Line of Sight as normal).</u>",
             "name": "Deadly Shot"
           },
           "orcrist": {
-            "description": "Elven hand-and-a-half weapon, with Orcbane, Goblinbane and Uruk-haibane, Terror (Goblin), Terror (Orc) and Terror (Uruk-hai) special rules.",
+            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> <rule id=\"hand-and-a-half-weapon\">hand-and-a-half-weapon</rule>. Orcrist has the <b>Orc</b><rule id=\"bane-weapons\">bane</rule>, <b>Goblin</b>bane and <b>Uruk-hai</b>bane special rules. Additionally, the wielder of Orcrist has the <rule id=\"terror\">Terror</rule> (<b>Orc</b>), Terror (<b>Goblin</b>) and Terror (<b>Uruk-hai</b>) special rules.",
             "name": "Orcrist"
           },
           "pinpoint-shot": {
-            "description": "Instead of shooting normally, Legolas can make a single shot against an enemy Engaged in Combat with himself or a friendly model. If the To Hit roll is successful, he doesn’t need to make any In The Way rolls - the shot will automatically hit its target.",
+            "description": "Instead of shooting normally, Legolas may make a single shooting attack against an enemy model Engaged in Combat with a friendly model (including himself). If he does, then if the To Hit Roll is successful, Legolas doesn’t need to make any In The Way Rolls – the shot will automatically hit its target.",
             "name": "Pinpoint Shot"
           }
         }
@@ -3954,7 +3948,7 @@
         "name": "Mirkwood Elf Captain",
         "rules": {
           "elven-glaive": {
-            "description": "Elven spear, when Engaged in Combat and not being Supported, this model may either gain a bonus of +1 Attack for the Duel roll or +1 Attack when making Strikes. This must be decided before the Duel roll takes place.",
+            "description": "This is an <rule id=\"elven-weapon\">Elven</rule> <rule id=\"spear\">spear</rule>. Additionally, a model armed with this weapon that is Engaged in Combat and is not being Supported may either gain a bonus of +1 Attacks for their Duel Roll, or +1 Attacks when making Strikes. This must be decided before the Duel Roll takes place.",
             "name": "Elven Glaive"
           }
         }
@@ -3963,7 +3957,7 @@
         "name": "Mirkwood Elf Knight",
         "rules": {
           "kings-knights": {
-            "description": "Whilst they have the Cavalry keyword, this model gains a bonus of +1 Fight and +1 Defence whilst within 6\" of Thranduil.",
+            "description": "Whilst they have the <b>Cavalry</b> keyword, this model gains a bonus of +1 to their Fight Value and +1 to their Defence whilst within 6\" of Thranduil.",
             "name": "King's Knights"
           }
         }
@@ -3972,7 +3966,7 @@
         "name": "Mirkwood Elf Warrior",
         "rules": {
           "elven-glaive": {
-            "description": "Elven spear, when Engaged in Combat and not being Supported, this model may either gain a bonus of +1 Attack for the Duel roll or +1 Attack when making Strikes. This must be decided before the Duel roll takes place.",
+            "description": "This is an <rule id=\"elven-weapon\">Elven</rule> <rule id=\"spear\">spear</rule>. Additionally, a model armed with this weapon that is Engaged in Combat and is not being Supported may either gain a bonus of +1 Attacks for their Duel Roll, or +1 Attacks when making Strikes. This must be decided before the Duel Roll takes place.",
             "name": "Elven Glaive"
           }
         }
@@ -3981,7 +3975,7 @@
         "name": "Mirkwood Giant Spider",
         "rules": {
           "spider-webs": {
-            "description": "A Mirkwood Spider can shoot webs, treated as a throwing weapon with a range of 8\". If the spider hits its target, do not roll To Wound. Instead, the model suffers the effects of the Paralyse Magical Power, however the effects will not immediately end should this model have no Will points or be slain. If this hits a Cavalry model, both the rider and mount will be hit. A Hero model hit may spend a Fate point to avoid its effects If the Hero is a Cavalry model, this would negate the effects on both the rider and mount.",
+            "description": "A Mirkwood Giant Spider can shoot spider webs; these are treated as throwing weapons with a range of 8\". If a model is hit by a webs shot by a Mirkwood Giant Spider, no To Wound Roll is made. Instead, the hit model is immediately counted as being under the effects of the <rule id=\"paralyse\">Paralyse</rule> Magical Power; however, the effects will not immediately end should this model have no Will Points or be slain. If a <b>Cavalry</b> model is hit by this shooting attack, do not roll to see which part of the model (rider or <b>Mount</b>) is hit; both are automatically hit. A <b>Hero</b> model hit by a web may spend a Fate Point to avoid its effects. If they do, reduce their Fate Points by 1 and the webs have no effect. If the <b>Hero</b> is a <b>Cavalry</b> model, then a Fate Point spent in this manner will negate the webs on both rider and <b>Mount</b>.",
             "name": "Spider Webs"
           }
         }
@@ -3990,7 +3984,7 @@
         "name": "Mirkwood Hunting Spider",
         "rules": {
           "silent-hunters": {
-            "description": "If a Mirkwood Hunting Spider is within a piece of woodland terrain, such as a forest, or is partially concealed by a piece of woodland terrain, then they cannot be seen by enemy models unless they are within 6\" of the Mirkwood Hunting Spider.",
+            "description": "If a Mirkwood Hunting Spider is within a piece of woodland terrain (such as a forest), or is partially concealed by a piece of woodland terrain, then they cannot be seen by enemy models unless they are within 6\" of the Mirkwood Hunting Spider.",
             "name": "Silent Hunters"
           }
         }
@@ -3999,7 +3993,7 @@
         "name": "Mirkwood Ranger Captain",
         "rules": {
           "knife-fighters": {
-            "description": "If Outnumbered in Combat, then before making their Duel roll, this model gains +1 Attack for each model they are Engaged in Combat with, after the first, up to the a maximum of 3 bonus Attacks. This bonus lasts until the end of the Combat.",
+            "description": "If this model is Outnumbered in a Combat, then before making their Duel Roll they gain an additional Attack for each model they are Engaged in Combat with after the first, to a maximum of 3 bonus Attacks. This bonus lasts until the end of the Combat.",
             "name": "Knife Fighters"
           }
         }
@@ -4008,7 +4002,7 @@
         "name": "Mirkwood Ranger",
         "rules": {
           "knife-fighters": {
-            "description": "If Outnumbered in Combat, then before making their Duel roll, this model gains +1 Attack for each model they are Engaged in Combat with, after the first, up to the a maximum of 3 bonus Attacks. This bonus lasts until the end of the Combat.",
+            "description": "If this model is Outnumbered in a Combat, then before making their Duel Roll they gain an additional Attack for each model they are Engaged in Combat with after the first, to a maximum of 3 bonus Attacks. This bonus lasts until the end of the Combat.",
             "name": "Knife Fighters"
           }
         }
@@ -4252,23 +4246,29 @@
         }
       },
       "mumak-howdah": {
-        "name": "Howdah"
+        "name": "Howdah",
+        "additional-text": {
+          "text-1": "The Howdah has a capacity of 12 models in addition to the Mûmak War Leader, who is placed on the forked wooden platform at the front of the Howdah and always counts as being in the Howdah. The only other models theHowdah may include are Haradrim Warriors."
+        }
       },
       "mumak-war-leader": {
-        "name": "Mumak War Leader",
+        "name": "Mûmak War Leader",
         "rules": {
           "high-king-of-the-south": {
-            "description": "The Mumak War Leader's Stand Fast is 12\", and his warband may deploy within 12\" of him rather than 6\", and may be deployed outside of the Howdah. Measure the 12\" range from the base of the Mumak.",
+            "description": "The range of the Mûmak War Leader’s Stand Fast is 12\" rather than 6\". Additionally, models in the Mûmak War Leader’s Warband can be deployed within 12\" rather than 6\" – even outside the Howdah if they wish. Measure this range from the base of the Royal War Mûmak.",
             "name": "High King of the South"
           },
           "imposing-presence": {
-            "description": "Whilst mounted on the Royal War Mumak, the first time each turn an enemy model declares a Heroic move within 12\", roll a D6. On a 4+, the action is cancelled and the Might point is lost. Measure the 12\" range from the base of the Mumak.",
+            "description": "Whilst atop his Royal War Mûmak, the first time each turn an enemy model within 12\" of the Mûmak War Leader declares a Heroic Move, roll a D6. On a 4+, the Heroic Move is cancelled and the Might Point spent is lost. Measure this range from the base of the Royal War Mûmak.",
             "name": "Imposing Presence"
           },
           "long-bladed-spear": {
-            "description": "Can be a spear or a two-handed weapon.",
+            "description": "This weapon can either be used as a <rule id=\"spear\">spear</rule> or a <rule id=\"two-handed-weapon\">two-handed weapon</rule>.",
             "name": "Long-bladed Spear"
           }
+        },
+        "additional-text": {
+          "text-1": "The Mûmak War Leader comprises the Mûmak War Leader, Royal War Mûmak, and a Howdah."
         }
       },
       "murin": {
@@ -4304,7 +4304,7 @@
         "name": "Narzug, Hunter Orc Captain",
         "rules": {
           "lethal-aim": {
-            "description": "Each Turn, Narzug gains a free Might point that can only be spent during a shooting attack on either the To Hit, To Wound or In The Way roll. If this point is not spent by the end of the turn, it is lost.",
+            "description": "Each turn, Narzug gains a free Might Point that can only be spent during a shooting attack on either a To Hit Roll, a To Wound Roll, or an In The Way Test. If this free Might Point is not spent by the end of the turn, it is lost.",
             "name": "Lethal Aim"
           }
         }
@@ -4331,11 +4331,11 @@
         "name": "Nori the Dwarf, Champion of Erebor",
         "rules": {
           "just-a-couple-of-keepsakes": {
-            "description": "When Nori is carrying an Objective in Scenarios, he may re-roll all failed To Wound rolls when making Strikes. However, he may never pass the Objective to a friendly model.",
-            "name": "Just a couple of keepsakes"
+            "description": "Whilst Nori is carrying an Objective in Scenarios where this applies, he may re-roll all failed To Wound Rolls when making Strikes. However, Nori may never pass an Objective Marker to a friendly model.",
+            "name": "\"Just a couple of keepsakes\""
           },
           "weapon-master": {
-            "description": "Nori is never considered Unarmed.",
+            "description": "Nori is never considered to be <rule id=\"unarmed\">Unarmed</rule>.",
             "name": "Weapon Master"
           }
         }
@@ -4344,45 +4344,45 @@
         "name": "Nori the Dwarf",
         "rules": {
           "just-a-couple-of-keepsakes": {
-            "description": "When Nori is carrying an Objective in Scenarios, he may re-roll all failed To Wound rolls when making Strikes. However, he may never pass the Objective to a friendly model.",
-            "name": "Just a couple of keepsakes"
+            "description": "Whilst Nori is carrying an Objective in Scenarios where this applies, he may re-roll all failed To Wound Rolls when making Strikes. However, Nori may never pass an Objective Marker to a friendly model.",
+            "name": "\"Just a couple of keepsakes\""
           },
           "weapon-master": {
-            "description": "Nori is never considered Unarmed.",
+            "description": "Nori is never considered to be <rule id=\"unarmed\">Unarmed</rule>.",
             "name": "Weapon Master"
           }
         }
       },
       "oin-the-dwarf-champion-of-erebor": {
-        "name": "Oin the Dwarf, Champion of Erebor",
+        "name": "Óin the Dwarf, Champion of Erebor",
         "rules": {
           "healing-herbs": {
-            "description": "At any point during his Activation, Oin can choose a friendly Thorin's Company model in base contact and roll a D6. On a 4+, they regain a lost Wound. Can only be used once per turn.",
+            "description": "At any point during his Activation, Óin can choose a friendly <b>Erebor Hero</b>model in base contact and roll a D6. On a 4+, the chosen model immediately regains a Wound lost earlier in the battle. Óin can only use this special rule once per turn.",
             "name": "Healing Herbs"
           },
           "hearing-trumpet": {
-            "description": "When an enemy Hero declares a Heroic Action within 6\" of Oin, roll a D6. On a 5+, Oin can declare it for free. However, on a natural 1, he loses a Will point. If he already has no Will points left, then he cannot Move during that turn.",
+            "description": "Whenever an enemy <b>Hero</b> declares a Heroic Action within 6\" of Óin, you may roll a D6. On a 5+, Óin may immediately declare the same Heroic Action for free. However, on a natural 1, Óin immediately loses a Will Point. If he cannot lose a Will Point in this manner, then Óin cannot Move during that turn as he tries to fix his Hearing Trumpet.",
             "name": "Hearing Trumpet"
           },
           "reading-the-portents": {
-            "description": "During the Fight phase, Oin can spend a Will point to enable a friendly model within 6\" to re-roll one dice in their Duel roll. This may be used multiple times in the same Fight Phase.",
+            "description": "During the Fight Phase, Óin can spend a Will Point to allow a friendly <b>Erebor Heroy</b> model within 6\" to re-roll a single dice during their Duel Roll. Óin can use this special rule multiple times during the same Fight Phase, so long as he has Will Points remaining.",
             "name": "Reading the Portents"
           }
         }
       },
       "oin-the-dwarf": {
-        "name": "Oin the Dwarf",
+        "name": "Óin the Dwarf",
         "rules": {
           "healing-herbs": {
-            "description": "At any point during his Activation, Oin can choose a friendly Thorin's Company model in base contact and roll a D6. On a 4+, they regain a lost Wound. Can only be used once per turn.",
+            "description": "At any point during his Activation, Óin can choose a friendly <b>Thorin’s Company</b>model in base contact and roll a D6. On a 4+, the chosen model immediately regains a Wound lost earlier in the battle. Óin can only use this special rule once per turn.",
             "name": "Healing Herbs"
           },
           "hearing-trumpet": {
-            "description": "When an enemy Hero declares a Heroic Action within 6\" of Oin, roll a D6. On a 5+, Oin can declare it for free. However, on a natural 1, he loses a Will point. If he already has no Will points left, then he cannot Move during that turn.",
+            "description": "Whenever an enemy <b>Hero</b> declares a Heroic Action within 6\" of Óin, you may roll a D6. On a 5+, Óin may immediately declare the same Heroic Action for free. However, on a natural 1, Óin immediately loses a Will Point. If he cannot lose a Will Point in this manner, then Óin cannot Move during that turn as he tries to fix his Hearing Trumpet.",
             "name": "Hearing Trumpet"
           },
           "reading-the-portents": {
-            "description": "During the Fight phase, Oin can spend a Will point to enable a friendly model within 6\" to re-roll one dice in their Duel roll. This may be used multiple times in the same Fight Phase.",
+            "description": "During the Fight Phase, Óin can spend a Will Point to allow a friendly <b>Thorin’s Company</b> model within 6\" to re-roll a single dice during their Duel Roll. Óin can use this special rule multiple times during the same Fight Phase, so long as he has Will Points remaining.",
             "name": "Reading the Portents"
           }
         }
@@ -4406,11 +4406,11 @@
         "name": "Ori the Dwarf, Champion of Erebor",
         "rules": {
           "chronicler": {
-            "description": "If a friendly Erebor Hero within 6\" and Line of Sight of Ori slays an enemy Hero or Monster, that model may regain a lost point of either Might, Will or Fate. If all their point stores are already full, then Ori may choose a different friendly Erebor Hero within 6\" and Line of Sight to regain it instead.",
+            "description": "Whenever a friendly <b>Erebor Hero</b> model within 6\" and Line of Sight of Ori slays an enemy <b>Hero</b> or <b>Monster</b>, then that <b>Erebor Hero</b> model may immediately regain a single point of either Might, Will or Fate spent earlier in the battle. If they are unable to regain a point of Might, Will or Fate, because their stores of each are full, then you may choose a different friendly <b>Erebor Hero</b> model within 6\" and Line of Sight of Ori to regain it instead",
             "name": "Chronicler"
           },
           "protect-the-young": {
-            "description": "Other friendly Erebor Hero models within 6\" of Ori do not suffer the -1 penalty to their Duel roll for using a two-handed weapon.",
+            "description": "Other friendly <b>Erebor Hero</b> models within 6\" of Ori do not suffer the -1 penalty to their Duel Roll for fighting with a <rule id=\"two-handed-weapon\">two-handed weapon</rule>.",
             "name": "Protect the Young"
           }
         }
@@ -4419,11 +4419,11 @@
         "name": "Ori the Dwarf",
         "rules": {
           "chronicler": {
-            "description": "If a friendly Erebor Hero within 6\" and Line of Sight of Ori slays an enemy Hero or Monster, that model may regain a lost point of either Might, Will or Fate. If all their point stores are already full, then Ori may choose a different friendly Erebor Hero within 6\" and Line of Sight to regain it instead.",
+            "description": "Whenever a friendly <b>Thorin’s Company</b> model within 6\" and Line of Sight of Ori slays an enemy <b>Hero</b> or <b>Monster</b>, then that <b>Thorin’s Company</b> model may immediately regain a single point of either Might, Will or Fate spent earlier in the battle. If they are unable to regain a point of Might, Will or Fate, because their stores of each are full, then you may choose a different friendly <b>Thorin’s Company</b> model within 6\" and Line of Sight of Ori to regain it instead",
             "name": "Chronicler"
           },
           "deadeye": {
-            "description": "If Ori scores a 6 when rolling To Hit, the target immediately suffers a single Wound and Ori may ignore any In The Way tests.",
+            "description": "If Ori scores a natural 6 when rolling To Hit with his sling, then do not make an In The Way Tests or roll To Wound. Instead the target will automatically suffer a single Wound.",
             "name": "Deadeye"
           }
         }
@@ -4450,7 +4450,7 @@
         "name": "Palace Guard Captain",
         "rules": {
           "kings-guard": {
-            "description": "Whilst within 3\" of Thranduil, this model gains a bonus of +1 to their Fight value.",
+            "description": "Whilst within 3\" of Thranduil, this model gains a bonus of +1 to their Fight Value.",
             "name": "King's Guard"
           }
         }
@@ -4459,7 +4459,7 @@
         "name": "Palace Guard",
         "rules": {
           "kings-guard": {
-            "description": "Whilst within 3\" of Thranduil, this model gains a bonus of +1 to their Fight value.",
+            "description": "Whilst within 3\" of Thranduil, this model gains a bonus of +1 to their Fight Value.",
             "name": "King's Guard"
           }
         }
@@ -4484,8 +4484,8 @@
         "name": "Percy, Lake-town Archer",
         "rules": {
           "archers-this-way": {
-            "description": "friendly Lake-town models within 6\" and in Line of Sight of Percy may re-roll To Hit results of a 1, when making shooting attacks.",
-            "name": "Archers, This Way!"
+            "description": "Friendly <b>Lake-town</b> models within 6\" and Line of Sight of Percy may re-roll To Hit Rolls of a 1 when making Shooting Attacks.",
+            "name": "\"Archers, this way!\""
           }
         }
       },
@@ -4556,23 +4556,23 @@
         "name": "Radagast the Brown",
         "rules": {
           "master-of-birds": {
-            "description": "Radagast always has Line of Sight to any point on the battlefield. Friendly Eagle models within 12\" of Radagast gain Resistant to Magic.",
+            "description": "Radagast is always assumed to have Line of Sight to anywhere on the battlefield. Additionally, friendly <b>Eagle</b> models within 12\" of Radagast gain the <rule id=\"resistant-to-magic\">Resistant to Magic</rule> special rule.",
             "name": "Master of Birds"
           },
           "sebastian": {
-            "description": "During a Combat, Radagast may roll an additional D6 in the Duel roll, and an additional Strike if he wins, with Strength 1. This additional Strike cannot be modified by Might.",
+            "description": "This is a <b>Unique</b> piece of Wargear. During a Combat, Radagast may roll an additional D6 in his Duel Roll, and may make an additional Strike if he wins the Combat. This additional D6 cannot be modified by Might, and is treated as being Strength 1 when making Strikes - roll a separate dice for Sebastian to make sure.",
             "name": "Sebastian"
           }
         }
       },
       "radagasts-sleigh": {
         "additional-text": {
-          "text-1": "If Radagast dismounts from his Sleigh, it must be removed from play."
+          "text-1": "If Radagast dismounts, remove the Sleigh from play."
         },
         "name": "Radagast's Sleigh",
         "rules": {
           "chariot-charge": {
-            "description": "When Radagast's Sleigh Moves via Chariot Charge, it will inflict 2 Strength 4 Impact hits.",
+            "description": "When Radagast's Sleigh Moves via Chariot Charge, it will inflict 2 Strength 4 Impact Hits.",
             "name": "Chariot Charge"
           }
         }
@@ -4793,18 +4793,18 @@
         }
       },
       "royal-war-mumak": {
-        "name": "Royal War Mumak",
+        "name": "Royal War Mûmak",
         "rules": {
           "awesome-presence": {
-            "description": "Friendly models treat this model as a banner with a range of 6\".",
+            "description": "Friendly models treat this model as a <rule id=\"banner\">banner</rule> with a range of 6\".",
             "name": "Awesome Presence"
           },
           "sigils-of-defiance": {
-            "description": "The Royal War Mumak and any models in the Howdah gain Resistant to Magic, and whenever they suffer a Wound they may roll a D6. On a natural 6, the Wound is prevented.",
+            "description": "The Royal War Mûmak and any models in the Howdah gain the <rule id=\"resistant-to-magic\">Resistant to Magic</rule> special rule, and whenever they suffer a Wound they may roll a D6. On a natural 6, the Wound is prevented.",
             "name": "Sigils of Defiance"
           },
           "trample": {
-            "description": "When the Royal War Mumak Tramples, it will inflict 4 Strength 9 Impact Hits.",
+            "description": "When the Royal War Mûmak Tramples, it will inflict 4 Strength 9 Impact Hits.",
             "name": "Trample"
           }
         }
@@ -4894,19 +4894,19 @@
             "name": "Transfix"
           }
         },
-        "name": "Saruman",
+        "name": "Saruman the White",
         "rules": {
           "consuming-rivalry": {
-            "description": "Saruman may never benefit from a friendly Gandalf the Grey's Heroic Actions or targeted by his Magical Powers.",
+            "description": "Saruman may never benefit from a Heroic Action declared by Gandalf the Grey, nor may he be targeted by any Magical Power Cast by a friendly Gandalf the Grey.",
             "name": "Consuming Rivalry"
           },
           "lord-of-the-istari": {
-            "description": "At the start of each Move Phase, before the Declare Heroic Actions step, Saruman may choose an enemy within 6\" and Line of Sight, which must take an Intelligence test. If failed, that model cannot Activate this turn.",
+            "description": "At the beginning of each Move Phase, before the Declare Heroic Actions Step, Saruman may choose a single enemy model within 6\" and Line of Sight. The chosen model must immediately take an Intelligence Test. If the test is failed, the chosen model cannot be Activated that turn.",
             "name": "Lord of the Istari"
           },
           "voice-of-curunir": {
-            "description": "Saruman's Stand Fast! Range is 12\", and affects Hero models.",
-            "name": "Voice of Curunir"
+            "description": "The range of Saruman’s Stand Fast is 12\" rather than 6\". Additionally, friendly <b>Hero</b> models can benefit from Saruman’s Stand Fast.",
+            "name": "Voice of Curunír"
           }
         }
       },
@@ -4986,16 +4986,16 @@
         "name": "Sauron, The Necromancer",
         "rules": {
           "drain-soul": {
-            "description": "Any model that suffers a Wound from the Necromancer in Combat, and is not prevented, will be automatically slain.",
+            "description": "A model that suffers a Wound from the Necromancer in Combat, which is not then prevented, will automatically have their Wounds reduced to 0, causing them to be slain and removed as a casualty.",
             "name": "Drain Soul"
           },
           "he-cannot-yet-take-physical-form": {
-            "description": "The Necromancer may use Will points as Fate points.",
-            "name": "He cannot yet take Physical Form"
+            "description": "The Necromancer may use his Will Points as Fate Points if he wishes.",
+            "name": "He cannot yet take physical form"
           },
           "master-of-the-nazgul": {
-            "description": "Any friendly Nazgul of Dol Guldur in your Army gains a +1 bonus to rolls for their Unholy Resurrection rule, depending on if they are in range of the Necromancer. If he has 20+ Will points remaining, the range of this rule is 18\". For between 10 and 19 Will points, the range is 12\". For 9 or less Will points, the range is 6\".",
-            "name": "Master of the Nazgul"
+            "description": "Any friendly Nazgûl of Dol Guldur in the same Army as the Necromancer gain a bonus of +1 to any rolls for their Unholy Resurrection special rule, depending on if they are in range of the Necromancer. If the Necromancer has 20+ Will Points remaining, then the range of this special rule is 18\". If the Necromancer has between 10 and 19 Will Points remaining, then the range of this special rule is 12\". If the Necromancer has 9 or fewer Will Points remaining, then the range of this special rule is 6\".",
+            "name": "Master of the Nazgûl"
           }
         }
       },
@@ -5163,8 +5163,8 @@
         "name": "Sigrid",
         "rules": {
           "da-down-here": {
-            "description": "Whilst within 6\" of Sigrid or Tilda, Bard the Bowman gains a bonus of +1 to his Fight Value. If Bard the Bowman is within 6\" of both Sigrid and Tilda, then he will gain a bonus of +1 to his Fight Value and may re-roll a single D6 when making a Duel Roll. Additionally, during the Declare Heroic Actions Step of the Fight Phase, if Sigrid or Tilda are within 6\" of Bard and are Engaged in Combat, then Bard may declare a Heroic Combat for free. If this Heroic Combat is successful, then Bard must use the following Move to join Sigrid's or Tilda's Combat. If this is not possible, then Bard must move as close as possible to Sigrid or Tilda. Bard cannot use this special rule whilst he is in the same Combat as either Sigrid or Tilda, unless the other one of Sigrid or Tilda is in a different Combat within 6\".",
-            "name": "Da! Down here!"
+            "description": "Whilst within 6\" of Sigrid or Tilda, Bard the Bowman gains a bonus of +1 to his Fight Value. If Bard the Bowman is within 6\" of both Sigrid and Tilda, then he will gain a bonus of +1 to his Fight Value and may re-roll a single D6 when makinga Duel Roll. Additionally, during the Declare Heroic Actions Step of the Fight Phase, if Sigrid or Tilda are within 6\" of Bard and are Engaged in Combat, then Bard may declare a <rule id=\"heroic-combat\">Heroic Combat</rule> for free. If this Heroic Combat is successful, then Bard must use the following Move to join Sigrid’s or Tilda’s Combat. If this is not possible, then Bard must move as close as possible to Sigrid or Tilda. Bard cannot use this special rule whilst he is in the same Combat as either Sigrid or Tilda, unless the other one of Sigrid or Tilda is in a different Combat within 6\".",
+            "name": "\"Da! Down here!\""
           }
         }
       },
@@ -5183,31 +5183,31 @@
         "name": "Smaug",
         "rules": {
           "breathe-fire": {
-            "description": "This is treated as a bow with range 18\". If the shot hits, the target and all models within 2\" suffer a Strength 10 hit. Any model that suffers a Wound which is not prevented is slain, otherwise they are Set Ablaze. If a model is immune to fire-based based attacks, they are immune to this shooting attack.",
+            "description": "Smaug can breathe fire as a shooting attack. This is treated as a bow with a range of 18\". If the shot hits a model, then the hit model and all models within 2\" of them immediately suffer a Strength 10 hit, and any model that suffers a Wound from this shot which is not prevented will immediately be slain and removed as a casualty. Any model hit by this shooting attack and not slain will be <rule id=\"set-ablaze\">Set Ablaze</rule>. This is a fire based attack, so if a model is immune to fire-based attacks, they are immune to this shooting attack.",
             "name": "Breathe Fire"
           },
           "colossal-frame": {
-            "description": "Enemies may still shoot Smaug even if he is Engaged in Combat. No In The Way test is required for friendly models he is Engaged in Combat with.",
+            "description": "Enemy models may still target Smaug with shooting attacks even if he is Engaged in Combat. If they do, they do not need to take In The Way Tests for friendly models Smaug is Engaged in Combat with.",
             "name": "Colossal Frame"
           },
           "desolator-of-the-north": {
-            "description": "Smaug may spend a free Will point each turn. If it is not spent by the end of the turn, then the point is lost.",
+            "description": "Smaug gains a free Will Point at the start of each turn. If this free Will Point is not spent by the end of the turn, it is lost.",
             "name": "Desolator of the North"
           },
           "i-am-fire-i-am-death": {
-            "description": "Immune to fire-based attacks.",
-            "name": "I am fire, I am death"
+            "description": "Smaug is immune to any fire-based attacks.",
+            "name": "\"I am fire, I am death\""
           },
           "immovable-object": {
-            "description": "Cannot be knocked Prone, or forced to Move by Magic Powers and special rules. Smaug never counts as Trapped and never backs away - his opponent must always Back Away instead.",
+            "description": "Smaug can never be knocked Prone and can never be forced to Move by the effects of enemy Magical Powers or special rules. If Smaug loses a Duel Roll then he will never count as Trapped and does not Back Away – his opponent must Back Away instead.",
             "name": "Immovable Object"
           },
           "missing-scale": {
-            "description": "If a model rolls a natural 6 on a shooting attack against Smaug, and the To Wound roll is also successful, he will suffer a number of Wounds equal to the strength of the missile weapon.",
+            "description": "If a model rolls a natural 6 when making a shooting attack that targets Smaug, and then successfully rolls To Wound with that shooting attack, then Smaug will suffer a number of Wounds equal to the Strength of the Missile Weapon that made the shooting attack.",
             "name": "Missing Scale"
           },
           "unstoppable-momentum": {
-            "description": "Instead of making Strikes, Smaug can make a single Strength 9 hit on every model he is Engaged with.",
+            "description": "Instead of making Strikes, Smaug can instead make a single Strength 9 hit on every enemy model he is Engaged in Combat with.",
             "name": "Unstoppable Momentum"
           }
         }
@@ -5312,11 +5312,11 @@
         "name": "Tauriel, Ranger of Mirkwood",
         "rules": {
           "blade-mistress": {
-            "description": "If Outnumbered in Combat, then before making her Duel roll, Tauriel gains +1 Attack for each model she is Engaged in Combat with, after the first. This bonus lasts until the end of the Combat.",
+            "description": "If Tauriel is Outnumbered in a Combat, then before making her Duel Roll she gains an additional Attack for each model she is Engaged in Combat with after the first. This bonus lasts until the end of the Combat.",
             "name": "Blade Mistress"
           },
           "vengeful-fury": {
-            "description": "If Kili is in your army and killed, Tauriel gains Strength 5 and is reduced to Defence 4 for the remainder of the battle. Additionally, if Kili is killed, Tauriel must always Charge an enemy model when she Activates if possible.",
+            "description": "If your Army also includes Kíli, and he is removed as a casualty, then Tauriel’s Strength is increased to 5 and her Defence reduced to 4 for the remainder of the battle. Additionally, if Kíli is slain, then Tauriel must always Charge an enemy model when she Activates if possible.",
             "name": "Vengeful Fury"
           }
         }
@@ -5334,15 +5334,15 @@
         "name": "The Abyssal Knight",
         "rules": {
           "one-of-nine": {
-            "description": "Maximum of nine Nazgul models in your Army. Hero models wearing the One Ring are not invisible to these models.",
+            "description": "You can include up to a maximum of nine Nazgûl of Dol Guldur in your Army – each of the options can be taken once, unless otherwise stated. Additionally, a model wearing the One Ring is not Invisible to this model as it is to others.",
             "name": "One of Nine"
           },
           "spiritual-displacement": {
-            "description": "You may include up to two Abyssal Knights. At the start of the Move phase before the Declare Heroic Actions step, the controlling player may remove one of the Abyssal Knights and place them anywhere within 3\" of the other Abyssal Knight. It may not be placed in base contact with an enemy, and does not count as Moving. Only one Abyssal Knight may use this special rule per turn.",
+            "description": "An Army may include up to two Abyssal Knights. At the start of the Move Phase, before the Declare Heroic Actions Step, the controlling player may remove one of the Abyssal Knights from the battlefield and place them anywhere within 3\" of the other Abyssal Knight (only one of the Abyssal Knights can use this special rule each turn). A model may not be placed in base contact with an enemy model as part of this special rule. This does not count as Moving.",
             "name": "Spiritual Displacement"
           },
           "unholy-resurrection": {
-            "description": "When slain, place a marker where this model was killed. Models may not overlap these markers for any reason. During the Priority phase of each turn, after Priority has been determined, roll a D6. On a 3+, remove the marker and immediately place this model anywhere within 3\" of the marker, but not in base contact with it. If this is not possible, place the model where the marker was. On a 1-2, the model is slain and the marker is removed. The Necromancer can use his Will points to improve this roll, as long as the Nazgul are in range of the Necromancer's Master of the Nazgul special rule. Whilst the marker is in play, this model counts as being on the board for the purpose of determining if your army is Broken or reduced to 25%. However, a marker cannot hold objectives, and this model still counts as being slain for any special rules that come into effect when a model is slain, such as a Heroic Combat. If this model is slain by a Magical Power or an Elven weapon, they suffer a -1 penalty to their roll. When the game ends, any markers still on the board are removed and the associated models will be counted as casualties.",
+            "description": "If this model is slain, instead of removing them as a casualty place a 25mm Marker where they were slain – models may not overlap these Markers for any reason. During the Priority Phase of each turn, after Priority has been determined, roll a D6 for this model’s Marker. On a 3+, immediately place this model anywhere within 3\" of the Marker, so long as it is not in base contact with the Marker. If this is not possible, place this model where their Marker was. In either case, remove the Marker after rolling. On a 1-2, the model is slain and removed as a casualty – remove the Marker from the board. Whilst the Nazgûl of Dol Guldur are in range of the Necromancer’s Master of the Nazgûl special rule (depending on how many Will Points he has remaining), the Necromancer can spend his Will Points to improve this roll. For each Will Point the Necromancer spends in this way, improve the Unholy Resurrection roll by 1. \r\nWhilst the Marker is in play, this model counts as on the board for the purpose of determining whether your Army is Broken or reduced to 25%. However, a Marker cannot hold Objectives and the model will still count as being slain for the purpose of any special rules that come into effect when a model is slain, such as a <rule id=\"heroic-combat\">Heroic Combat</rule>. \r\nIf this model is slain by a Magical Power or an <rule id=\"elven-weapon\">Elven</rule> weapon, then they suffer a -1 penalty to their rolls for this special rule. \r\nWhen the game ends, any Markers on the board are removed and the models associated with them count as a casualty.",
             "name": "Unholy Resurrection"
           }
         }
@@ -5351,19 +5351,19 @@
         "name": "The Balrog",
         "rules": {
           "demon-of-the-ancient-world": {
-            "description": "The Balrog may declare a Heroic Combat each turn for free. Special rules or wargear that would slay the Balrog instantly (such as a Morgul Blade) will only inflict half of the Balrog's starting Wounds rather than all of them.",
+            "description": "The Balrog may declare a <rule id=\"heroic-combat\">Heroic Combat</rule> each turn for free. Additionally, special rules or Wargear that would slay the Balrog instantly (such as the King of the Dead’s Drain Soul or a Morgul Blade) will only inflict half of the Balrog’s starting Wounds rather than all of them.",
             "name": "Demon of the Ancient World"
           },
           "fiery-lash": {
-            "description": "Throwing weapon with Strength 7, range 8. If the target is not slain and is not immune to fire-based attacks, it is pulled into base contact with the Balrog. For Cavalry, the whole model is dragged in this way. If the model cannot be placed in base contact, then it is not moved at all. Also, if the target is pulled into contact with other enemy models, it is not Engaged in Combat with them, only the Balrog.",
+            "description": "This is a <rule id=\"throwing-weapons\">throwing weapon</rule> with a range of 8\" and a Strength of 7. Additionally, a model that is hit by this weapon and is not slain will be removed from the board and then placed anywhere in base contact with the Balrog, as chosen by the Balrog’s controlling player. A ,b>Cavalry</b> model that is hit will have the whole model dragged in this way. If, for whatever reason, the model cannot be placed in base contact, then it is not moved at all. If a model placed in this way would end up in base contact with other enemy models in addition to the Balrog, then those models do not count as being Engaged in Combat with the placed model unless they subsequently Charge the placed model. This is a fire-based attack, so if a model is immune to fire-based attacks, they are immune to this attack.",
             "name": "Fiery Lash"
           },
           "flame-of-udun": {
-            "description": "If an enemy is Wounded, and not slain at the end of a Combat, roll a D6. On 6, the model is Set Ablaze, unless they are immune to fire-based attacks. The Balrog is itself immune to fire-based attacks.",
-            "name": "Flame of Udun"
+            "description": "The Balrog is never considered to be <rule id=\"unarmed\">Unarmed</rule>. Additionally, at the end of a Combat involving the Balrog, any model that suffered a Wound from the Balrog (even if the Wound is prevented) and was not slain must roll a D6. On a natural 6, the model is immediately <rule id=\"set-ablaze\">Set Ablaze</rule>. If a model is immune to fire-based attacks, they will still suffer Wounds from the Balrog’s Strikes as normal, but can not be Set Ablaze. The Balrog is itself immune to fire-based attacks.",
+            "name": "Flame of Udûn"
           },
           "goblin-mastery": {
-            "description": "Moria Goblin models within 6\" automatically pass Courage tests they are required to make.",
+            "description": "Friendly <b>Moria Goblin</b> models within 6\" of the Balrog automatically pass any Courage Tests they are required to make.",
             "name": "Goblin Mastery"
           }
         }
@@ -5401,15 +5401,15 @@
         "name": "The Dark Headsman",
         "rules": {
           "executioner": {
-            "description": "If this model rolls a natural 6 during a Duel roll, then it gains Mighty Blow for any Strikes it makes during that Combat.",
+            "description": "If this model rolls a natural 6 during a Duel Roll, then any Strikes it makes during that Combat have the <rule id=\"mighty-blow\">Mighty Blow</rule> special rule.",
             "name": "Executioner"
           },
           "one-of-nine": {
-            "description": "Maximum of nine Nazgul models in your Army. Hero models wearing the One Ring are not invisible to these models.",
+            "description": "You can include up to a maximum of nine Nazgûl of Dol Guldur in your Army – each of the options can be taken once, unless otherwise stated. Additionally, a model wearing the One Ring is not Invisible to this model as it is to others.",
             "name": "One of Nine"
           },
           "unholy-resurrection": {
-            "description": "When slain, place a marker where this model was killed. Models may not overlap these markers for any reason. During the Priority phase of each turn, after Priority has been determined, roll a D6. On a 3+, remove the marker and immediately place this model anywhere within 3\" of the marker, but not in base contact with it. If this is not possible, place the model where the marker was. On a 1-2, the model is slain and the marker is removed. The Necromancer can use his Will points to improve this roll, as long as the Nazgul are in range of the Necromancer's Master of the Nazgul special rule. Whilst the marker is in play, this model counts as being on the board for the purpose of determining if your army is Broken or reduced to 25%. However, a marker cannot hold objectives, and this model still counts as being slain for any special rules that come into effect when a model is slain, such as a Heroic Combat. If this model is slain by a Magical Power or an Elven weapon, they suffer a -1 penalty to their roll. When the game ends, any markers still on the board are removed and the associated models will be counted as casualties.",
+            "description": "If this model is slain, instead of removing them as a casualty place a 25mm Marker where they were slain – models may not overlap these Markers for any reason. During the Priority Phase of each turn, after Priority has been determined, roll a D6 for this model’s Marker. On a 3+, immediately place this model anywhere within 3\" of the Marker, so long as it is not in base contact with the Marker. If this is not possible, place this model where their Marker was. In either case, remove the Marker after rolling. On a 1-2, the model is slain and removed as a casualty – remove the Marker from the board. Whilst the Nazgûl of Dol Guldur are in range of the Necromancer’s Master of the Nazgûl special rule (depending on how many Will Points he has remaining), the Necromancer can spend his Will Points to improve this roll. For each Will Point the Necromancer spends in this way, improve the Unholy Resurrection roll by 1. \r\nWhilst the Marker is in play, this model counts as on the board for the purpose of determining whether your Army is Broken or reduced to 25%. However, a Marker cannot hold Objectives and the model will still count as being slain for the purpose of any special rules that come into effect when a model is slain, such as a <rule id=\"heroic-combat\">Heroic Combat</rule>. \r\nIf this model is slain by a Magical Power or an <rule id=\"elven-weapon\">Elven</rule> weapon, then they suffer a -1 penalty to their rolls for this special rule. \r\nWhen the game ends, any Markers on the board are removed and the models associated with them count as a casualty.",
             "name": "Unholy Resurrection"
           }
         }
@@ -5538,11 +5538,11 @@
         "name": "The Forsaken",
         "rules": {
           "one-of-nine": {
-            "description": "Maximum of nine Nazgul models in your Army. Hero models wearing the One Ring are not invisible to these models.",
+            "description": "You can include up to a maximum of nine Nazgûl of Dol Guldur in your Army – each of the options can be taken once, unless otherwise stated. Additionally, a model wearing the One Ring is not Invisible to this model as it is to others.",
             "name": "One of Nine"
           },
           "unholy-resurrection": {
-            "description": "When slain, place a marker where this model was killed. Models may not overlap these markers for any reason. During the Priority phase of each turn, after Priority has been determined, roll a D6. On a 3+, remove the marker and immediately place this model anywhere within 3\" of the marker, but not in base contact with it. If this is not possible, place the model where the marker was. On a 1-2, the model is slain and the marker is removed. The Necromancer can use his Will points to improve this roll, as long as the Nazgul are in range of the Necromancer's Master of the Nazgul special rule. Whilst the marker is in play, this model counts as being on the board for the purpose of determining if your army is Broken or reduced to 25%. However, a marker cannot hold objectives, and this model still counts as being slain for any special rules that come into effect when a model is slain, such as a Heroic Combat. If this model is slain by a Magical Power or an Elven weapon, they suffer a -1 penalty to their roll. When the game ends, any markers still on the board are removed and the associated models will be counted as casualties.",
+            "description": "If this model is slain, instead of removing them as a casualty place a 25mm Marker where they were slain – models may not overlap these Markers for any reason. During the Priority Phase of each turn, after Priority has been determined, roll a D6 for this model’s Marker. On a 3+, immediately place this model anywhere within 3\" of the Marker, so long as it is not in base contact with the Marker. If this is not possible, place this model where their Marker was. In either case, remove the Marker after rolling. On a 1-2, the model is slain and removed as a casualty – remove the Marker from the board. Whilst the Nazgûl of Dol Guldur are in range of the Necromancer’s Master of the Nazgûl special rule (depending on how many Will Points he has remaining), the Necromancer can spend his Will Points to improve this roll. For each Will Point the Necromancer spends in this way, improve the Unholy Resurrection roll by 1. \r\nWhilst the Marker is in play, this model counts as on the board for the purpose of determining whether your Army is Broken or reduced to 25%. However, a Marker cannot hold Objectives and the model will still count as being slain for the purpose of any special rules that come into effect when a model is slain, such as a <rule id=\"heroic-combat\">Heroic Combat</rule>. \r\nIf this model is slain by a Magical Power or an <rule id=\"elven-weapon\">Elven</rule> weapon, then they suffer a -1 penalty to their rolls for this special rule. \r\nWhen the game ends, any Markers on the board are removed and the models associated with them count as a casualty.",
             "name": "Unholy Resurrection"
           }
         }
@@ -5564,15 +5564,15 @@
         "name": "The Goblin King",
         "rules": {
           "blubbery-mass": {
-            "description": "Each time the Goblin King suffers a Wound, roll a D6. On a 3+ the Wound is prevented. Wounds caused by Magical Powers or Elven weapons in Combat ignore this special rule. Wounds caused by Elven missile weapons will cause the Goblin King to suffer a -1 penalty to this roll.",
+            "description": "Each time the Goblin King suffers a Wound, roll a D6. On a 3+ the Wound is prevented. Wounds caused by Magical Powers or <rule id=\"elven-weapon\">Elven</rule> weapons in Combat ignore this special rule. Wounds caused by Elven missile weapons will cause the Goblin King to suffer a-1 penalty to this roll.",
             "name": "Blubbery Mass"
           },
           "goblin-projectile": {
-            "description": "During the Shoot Phase, if the Goblin King is in base contact with a friendly Goblin model and neither are Engaged in Combat, then the Goblin King can make a shooting attack - this has a range of 12\" and counts as a throwing weapon. Remove the friendly Goblin model as a casualty, and then make the To Hit Roll and any In The Way Tests as normal. The shot is resolved at a Strength of 8, and any model that is hit will automatically be knocked Prone.",
+            "description": "During the Shoot Phase, if the Goblin King is in base contact with a friendly <b>Goblin</b> model and neither are Engaged in Combat, then the Goblin King can make a shooting attack - this has a range of 12\" and counts as a <rule id=\"throwing-weapons\">throwing weapon</rule>. Remove the friendly <b>Goblin</b> model as a casualty, and then make the To Hit Roll and any In The Way Tests as normal. The shot is resolved at a Strength of 8, and any model that is hit will automatically be knocked Prone.",
             "name": "Goblin Projectile"
           },
           "relentless-advance": {
-            "description": "The Goblin King may Move through friendly Goblin models when he Charges into Combat, though not when forced to Move by the effects of an enemy Magical Power or special rule. Each friendly Goblin model Moved through in this way immediately suffers a Strength 3 hit. The Goblin King may finish his Move overlapping friendly models, through any friendly models he finishes his Move overlapping will automatically be slain.",
+            "description": "The Goblin King may Move through friendly <b>Goblin</b> models when he charges into Combat, though not when forced to Move by the effects of an enemy Magical Power or special rule. Each friendly <b>Goblin</b> model Moved through in this way immediately suffers a Strength 3 hit. The Goblin King may finish his Move overlapping friendly models, though any friendly models he finishes his Move overlapping will automatically be slain.",
             "name": "Relentless Advance"
           }
         }
@@ -5581,8 +5581,8 @@
         "name": "The Goblin Scribe",
         "rules": {
           "always-more-where-they-came-from": {
-            "description": "\"If the Goblin King declares a Heroic Move whilst within 6\" of the Goblin Scribe and chooses to call With Me, then it will affect all friendly models on the battlefield rather than just those within 6",
-            "name": "Always more where they came from"
+            "description": "If the Goblin King declares a <rule id=\"heroic-move\">Heroic Move</rule> whilst within 6\" of the Goblin Scribe and chooses to call With Me, then it will affect all friendly models on the battlefield rather than just those within 6\", and affected models do not have to finish their Activation within 6\" of the Goblin King. Additionally, any friendly <b>Goblin Hero</b> that begins their Activation within 3\" of the Goblin Scribe can choose to spend a Might Point. If they do, the Goblin King regains a Might Point spent earlier in the battle. This special rule can only be used once per turn.",
+            "name": "The Goblin King's Command"
           },
           "immobile": {
             "description": "The Goblin Scribe cannot Move, and will always count as Trapped should it lose a Duel Roll. Additionally, friendly models may carry the Goblin Scribe in which case it will count as a Heavy Object, and must always be put down after a model carrying it has finished its Move. In Scenarios where models Move onto the board, the Goblin Scribe may be carried on by friendly models.",
@@ -5611,11 +5611,11 @@
         "name": "The Keeper of the Dungeons",
         "rules": {
           "torturer": {
-            "description": "Keep track of each model he kills. After one kill, he may re-roll To Wound rolls of a natural 1 when making Strikes. After three kills, he gains Terror. After five kills, he may re-roll all failed To Wound rolls when making Strikes.",
+            "description": "Keep track of how many enemy models the Keeper of the Dungeons kills in Combat. Once he has killed one or more enemies, the Keeper of the Dungeons may re-roll To Wound Rolls of a natural 1 when making Strikes. Once he has killed three or more models, the Keeper of the Dungeons gains the Terror special rule. Once he has killed five or more models, the Keeper of the Dungeons may re-roll all failed To Wound Rolls when making Strikes.",
             "name": "Torturer"
           },
           "you-have-something-my-master-wants": {
-            "description": "The Keeper of the Dungeons gains a +1 bonus To Wound when making Strikes against any model carrying a ring of power - Nenya, Narya or Vilya, the Ring of Durin, or the One Ring.",
+            "description": "The Keeper of the Dungeons gains a bonus of +1 To Wound when making Strikes against any model carrying a ring of power – either Narya, Nenya, Vilya, the Ring of Durin, or the One Ring.",
             "name": "You have something my Master wants!"
           }
         }
@@ -5657,15 +5657,15 @@
         "name": "The Lingering Shadow",
         "rules": {
           "one-of-nine": {
-            "description": "Maximum of nine Nazgul models in your Army. Hero models wearing the One Ring are not invisible to these models.",
+            "description": "You can include up to a maximum of nine Nazgûl of Dol Guldur in your Army – each of the options can be taken once, unless otherwise stated. Additionally, a model wearing the One Ring is not Invisible to this model as it is to others.",
             "name": "One of Nine"
           },
           "unholy-resurrection": {
-            "description": "When slain, place a marker where this model was killed. Models may not overlap these markers for any reason. During the Priority phase of each turn, after Priority has been determined, roll a D6. On a 3+, remove the marker and immediately place this model anywhere within 3\" of the marker, but not in base contact with it. If this is not possible, place the model where the marker was. On a 1-2, the model is slain and the marker is removed. The Necromancer can use his Will points to improve this roll, as long as the Nazgul are in range of the Necromancer's Master of the Nazgul special rule. Whilst the marker is in play, this model counts as being on the board for the purpose of determining if your army is Broken or reduced to 25%. However, a marker cannot hold objectives, and this model still counts as being slain for any special rules that come into effect when a model is slain, such as a Heroic Combat. If this model is slain by a Magical Power or an Elven weapon, they suffer a -1 penalty to their roll. When the game ends, any markers still on the board are removed and the associated models will be counted as casualties.",
+            "description": "If this model is slain, instead of removing them as a casualty place a 25mm Marker where they were slain – models may not overlap these Markers for any reason. During the Priority Phase of each turn, after Priority has been determined, roll a D6 for this model’s Marker. On a 3+, immediately place this model anywhere within 3\" of the Marker, so long as it is not in base contact with the Marker. If this is not possible, place this model where their Marker was. In either case, remove the Marker after rolling. On a 1-2, the model is slain and removed as a casualty – remove the Marker from the board. Whilst the Nazgûl of Dol Guldur are in range of the Necromancer’s Master of the Nazgûl special rule (depending on how many Will Points he has remaining), the Necromancer can spend his Will Points to improve this roll. For each Will Point the Necromancer spends in this way, improve the Unholy Resurrection roll by 1. \r\nWhilst the Marker is in play, this model counts as on the board for the purpose of determining whether your Army is Broken or reduced to 25%. However, a Marker cannot hold Objectives and the model will still count as being slain for the purpose of any special rules that come into effect when a model is slain, such as a <rule id=\"heroic-combat\">Heroic Combat</rule>. \r\nIf this model is slain by a Magical Power or an <rule id=\"elven-weapon\">Elven</rule> weapon, then they suffer a -1 penalty to their rolls for this special rule. \r\nWhen the game ends, any Markers on the board are removed and the models associated with them count as a casualty.",
             "name": "Unholy Resurrection"
           },
           "unnatural-speed": {
-            "description": "At the start of the Move phase before the Declare Heroic Actions step, the controlling player may remove this model and place them anywhere within 3\" of where they were. It may not be placed in base contact with an enemy, and does not count as Moving.",
+            "description": "At the start of the Move Phase, before the Declare Heroic Actions Step, the controlling player may remove the Lingering Shadow from the battlefield and place them anywhere within 3\" of where they were. The Lingering Shadow may not be placed in base contact with an enemy model as part of this special rule. This does not count as Moving.",
             "name": "Unnatural Speed"
           }
         }
@@ -5678,11 +5678,11 @@
             "name": "Moneybags"
           },
           "price-of-greed": {
-            "description": "At the beginning of the game, your opponent must choose one of their Hero models to be the bearer of a large sum of gold. If the chosen Hero model Moves into base contact with the Master of Lake-town, then the Master of Lake-town must immediately take a Courage Test. If the test is failed, then the Master of Lake-town immediately flees and is removed as a casualty.",
+            "description": "At the beginning of the game, your opponent must choose one of their <b>Hero</b> models to be the bearer of a large sum of gold. If the chosen <b>Hero</b> model Moves into base contact with the Master of Lake-town, then the Master of Lake-town must immediately take a CourageTest. If the test is failed, then the Master of Lake-town immediately flees and is removed as a casualty.",
             "name": "Price of Greed"
           },
           "save-the-gold": {
-            "description": "Whenever an enemy Hero model within 3\" of the Master of Lake-town is removed as a casualty, the Master of Lake-town immediately regains a single Will Point spent earlier in the battle. Additionally, if the Master of Lake-town is in base contact with an Objective Marker during the End Phase of a turn, he may regain a single Will Point spent earlier in the battle.",
+            "description": "Whenever an enemy <b>Hero</b> model within 3\" of the Master of Lake town is removed as a casualty, the Master of Lake-town immediately regains a single Will Point spent earlier in the battle. Additionally, if the Master of Lake-town is in base contact with an Objective Marker during the End Phase of a turn, he may regain a single Will Point spent earlier in the battle.",
             "name": "Save the Gold!"
           }
         }
@@ -5747,15 +5747,15 @@
         "name": "The Slayer of Men",
         "rules": {
           "angmar-arise": {
-            "description": "You may include up to two Slayers of Men. This model may re-roll failed To Wound rolls when making Strikes against an enemy Hero. Whilst this model is within 1\" of the other Slayer of Men, this model gains the Burly special rule.",
+            "description": "An Army may include up to two Slayers of Men. A model with this special rule may re-roll failed To Wound Rolls when making Strikes against an enemy <b>Hero</b> model. Whilst this model is within 1\" of the other Slayer of Men, this model has the <rule id=\"burly\">Burly</rule> special rule.",
             "name": "Angmar Arise"
           },
           "one-of-nine": {
-            "description": "Maximum of nine Nazgul models in your Army. Hero models wearing the One Ring are not invisible to these models.",
+            "description": "You can include up to a maximum of nine Nazgûl of Dol Guldur in your Army – each of the options can be taken once, unless otherwise stated. Additionally, a model wearing the One Ring is not Invisible to this model as it is to others.",
             "name": "One of Nine"
           },
           "unholy-resurrection": {
-            "description": "When slain, place a marker where this model was killed. Models may not overlap these markers for any reason. During the Priority phase of each turn, after Priority has been determined, roll a D6. On a 3+, remove the marker and immediately place this model anywhere within 3\" of the marker, but not in base contact with it. If this is not possible, place the model where the marker was. On a 1-2, the model is slain and the marker is removed. The Necromancer can use his Will points to improve this roll, as long as the Nazgul are in range of the Necromancer's Master of the Nazgul special rule. Whilst the marker is in play, this model counts as being on the board for the purpose of determining if your army is Broken or reduced to 25%. However, a marker cannot hold objectives, and this model still counts as being slain for any special rules that come into effect when a model is slain, such as a Heroic Combat. If this model is slain by a Magical Power or an Elven weapon, they suffer a -1 penalty to their roll. When the game ends, any markers still on the board are removed and the associated models will be counted as casualties.",
+            "description": "If this model is slain, instead of removing them as a casualty place a 25mm Marker where they were slain – models may not overlap these Markers for any reason. During the Priority Phase of each turn, after Priority has been determined, roll a D6 for this model’s Marker. On a 3+, immediately place this model anywhere within 3\" of the Marker, so long as it is not in base contact with the Marker. If this is not possible, place this model where their Marker was. In either case, remove the Marker after rolling. On a 1-2, the model is slain and removed as a casualty – remove the Marker from the board. Whilst the Nazgûl of Dol Guldur are in range of the Necromancer’s Master of the Nazgûl special rule (depending on how many Will Points he has remaining), the Necromancer can spend his Will Points to improve this roll. For each Will Point the Necromancer spends in this way, improve the Unholy Resurrection roll by 1. \r\nWhilst the Marker is in play, this model counts as on the board for the purpose of determining whether your Army is Broken or reduced to 25%. However, a Marker cannot hold Objectives and the model will still count as being slain for the purpose of any special rules that come into effect when a model is slain, such as a <rule id=\"heroic-combat\">Heroic Combat</rule>. \r\nIf this model is slain by a Magical Power or an <rule id=\"elven-weapon\">Elven</rule> weapon, then they suffer a -1 penalty to their rolls for this special rule. \r\nWhen the game ends, any Markers on the board are removed and the models associated with them count as a casualty.",
             "name": "Unholy Resurrection"
           }
         }
@@ -5819,23 +5819,23 @@
         "name": "The Watcher in the Water",
         "rules": {
           "dragged-to-the-depths": {
-            "description": "If within 6\" of water, select a single enemy involved in the Combat and roll a D6. On a 2+, the model suffers a Wound, and if not prevented, will be immediately slain. The Watcher is then removed from the battlefield and its controlling player must roll to see if it arrives again in the same manner as described in the From the Deep special rule.",
+            "description": "Instead of making Strikes, if the Watcher is within 6\" of a water feature it may use this Brutal Power Attack. If it does, select a single enemy model that was involved in the Combat and roll a D6. On a 2+, the model suffers a Wound and, if the Wound is not prevented, the model will immediately be slain. The Watcher is then removed from the battlefield and its controlling player must roll to see if it enters the battlefield again in the same manner as described in the From the Deep special rule.",
             "name": "Dragged to the Depths"
           },
           "from-the-deep": {
-            "description": "Never part of another Hero's Warband and deploys in a special way. During each Priority, if you wish for The Watcher to arrive, roll a D6. On a 3+, place it anywhere on the board, but not in a way that will displace other models. The Watcher cannot Charge in a turn in which it arrives.",
+            "description": "The Watcher in the Water can never be part of another <b>Hero</b> model’s Warband. When you deploy your Army, do not deploy the Watcher in the Water – keep it aside for later. During the Priority Phase, after Priority has been determined, the Watcher’s controlling player must decide if they wish for the Watcher to enter play. If they do, they must roll a D6 and on a 3+ the Watcher is ready to enterplay. If this roll is failed, you must roll in each subsequent Priority Phase until the Watcher is ready to enter play.\r\nWhen the Watcher is ready to enter play, immediately place it anywhere on the battlefield; however, the Watcher cannot displace other models when it enters play in this manner. \r\nThe Watcher in the Water cannot Charge on the turn in which it arrives, but may otherwise act normally.",
             "name": "From the Deep"
           },
           "grasping-tentacles": {
-            "description": "In the Shoot phase, The Watcher may make D6 shooting attacks, even in Engaged in Combat. These have Strength 3 and range 6\", and never require In The Way rolls. It can still shoot whilst moving and never suffers the -1 penalty. Any target hit and not slain is placed in base contact with The Watcher. If the model cannot be placed in base contact, then it is not moved at all. Also, if the target is pulled into contact with other enemy models, it is not Engaged in Combat with them, only The Watcher.",
+            "description": "In the Shoot Phase, the Watcher in the Water ma ymake D6 shooting attacks. These have a range of 6\", a Strength of 3 and never require In The Way Rolls. The Watcher can still make these shooting attacks regardless of how far it Moved in the Move Phase, and never suffers the -1 penalty for Moving and Shooting. \r\nAdditionally, any model that is hit by a tentacle and is not slain will be removed from the board and then placed anywhere in base contact with the Watcher in the Water, as chosen by the Watcher in the Water’s controlling player. A <b>Cavalry</b> model that is hit will have the whole model dragged in this way. \r\nIf, for whatever reason, the model cannot be placed in base contact, then it is not moved at all. If a model placed in this way would end up in base contact with other enemy models in addition to the Watcher, then those models do not count as being Engaged in Combat with the placed model unless they subsequently Charge the placed model. The Watcher can still make these shooting attacks whilst it is Engaged in Combat.",
             "name": "Grasping Tentacles"
           },
           "many-tentacles": {
-            "description": "At 3 Wounds or less, Attack value becomes 3.",
+            "description": "Whilst the Watcher in the Water has 3 or fewer Wounds remaining, its Attacks are reduced to 3.",
             "name": "Many Tentacles"
           },
           "water-dweller": {
-            "description": "Whilst within any water, The Watcher is never slowed, can still Shoot, and always counts as rolling a 6 on the Swim Chart. Also increases Move value to 8\" and gains Monstrous Charge.",
+            "description": "The Watcher in the Water is never slowed when Moving within a water feature, can still Shoot whilst within deep water, and always counts as rolling a 6 on the Swim Chart. Additionally, whilst within a water feature, the Watcher in the Water increases its Move Value to 8\" and gains the <rule id=\"monstrous-charge\">Monstrous Charge</rule> special rule.",
             "name": "Water Dweller"
           }
         }
@@ -5844,7 +5844,7 @@
         "name": "The White Warg",
         "rules": {
           "pack-master": {
-            "description": "Once separated from Azog, only Warg models may benefit from the White Warg's Stand Fast And benefit from its Heroic Actions.",
+            "description": "Once the White Warg is separated from Azog, only <b>Warg</b> models may benefit from its Heroic Actions or Stand Fast.",
             "name": "Pack Master"
           }
         }
@@ -5853,15 +5853,15 @@
         "name": "The Witch-king of Angmar",
         "rules": {
           "angmar-arisen": {
-            "description": "The Witch-king has Fight 6 rather than 5, and 3 Might instead of 1.",
-            "name": "Angmar Arisen"
+            "description": "The Witch-king has a Fight Value of 6 rather than 5, and 3 Might Points rather than 1.",
+            "name": "Angmar Arise"
           },
           "one-of-nine": {
-            "description": "Maximum of nine Nazgul models in your Army. Hero models wearing the One Ring are not invisible to these models.",
+            "description": "You can include up to a maximum of nine Nazgûl of Dol Guldur in your Army – each of the options can be taken once, unless otherwise stated. Additionally, a model wearing the One Ring is not Invisible to this model as it is to others.",
             "name": "One of Nine"
           },
           "unholy-resurrection": {
-            "description": "When slain, place a marker where this model was killed. Models may not overlap these markers for any reason. During the Priority phase of each turn, after Priority has been determined, roll a D6. On a 3+, remove the marker and immediately place this model anywhere within 3\" of the marker, but not in base contact with it. If this is not possible, place the model where the marker was. On a 1-2, the model is slain and the marker is removed. The Necromancer can use his Will points to improve this roll, as long as the Nazgul are in range of the Necromancer's Master of the Nazgul special rule. Whilst the marker is in play, this model counts as being on the board for the purpose of determining if your army is Broken or reduced to 25%. However, a marker cannot hold objectives, and this model still counts as being slain for any special rules that come into effect when a model is slain, such as a Heroic Combat. If this model is slain by a Magical Power or an Elven weapon, they suffer a -1 penalty to their roll. When the game ends, any markers still on the board are removed and the associated models will be counted as casualties.",
+            "description": "If this model is slain, instead of removing them as a casualty place a 25mm Marker where they were slain – models may not overlap these Markers for any reason. During the Priority Phase of each turn, after Priority has been determined, roll a D6 for this model’s Marker. On a 3+, immediately place this model anywhere within 3\" of the Marker, so long as it is not in base contact with the Marker. If this is not possible, place this model where their Marker was. In either case, remove the Marker after rolling. On a 1-2, the model is slain and removed as a casualty – remove the Marker from the board. Whilst the Nazgûl of Dol Guldur are in range of the Necromancer’s Master of the Nazgûl special rule (depending on how many Will Points he has remaining), the Necromancer can spend his Will Points to improve this roll. For each Will Point the Necromancer spends in this way, improve the Unholy Resurrection roll by 1. \r\nWhilst the Marker is in play, this model counts as on the board for the purpose of determining whether your Army is Broken or reduced to 25%. However, a Marker cannot hold Objectives and the model will still count as being slain for the purpose of any special rules that come into effect when a model is slain, such as a <rule id=\"heroic-combat\">Heroic Combat</rule>. \r\nIf this model is slain by a Magical Power or an <rule id=\"elven-weapon\">Elven</rule> weapon, then they suffer a -1 penalty to their rolls for this special rule. \r\nWhen the game ends, any Markers on the board are removed and the models associated with them count as a casualty.",
             "name": "Unholy Resurrection"
           }
         }
@@ -5893,7 +5893,7 @@
         "name": "The Witch-king of Angmar",
         "rules": {
           "crown-of-morgul": {
-            "description": "Enemies within 6\" or those who Charge the Witch-king cannot benefit from automatically passing Courage tests, except for Heroic Resolve. Additionally, once per game, at the start of any Fight phase, you can imbue great power to his hand weapon, and until the end of the turn, any model that suffers a Wound from the Witch-king is Set Ablaze.",
+            "description": "This is a <b>Unique</b> piece of Wargear. Whilst wearing the Crown of Morgul, enemy models within 6\" of the Witch-king, or attempting to Charge the Witch-king, cannot benefit from special rules that would allow them to automatically pass Courage Tests, with the exception of <rule id=\"heroic-resolve\">Heroic Resolve</rule>. Additionally, once per game, at the start of any Fight Phase, the Witch-king can imbue its great power to ignite his hand weapon – until the end of the turn, any model that suffers a Wound from a Strike made by the Witch-king is <rule id=\"set-ablaze\">Set Ablaze</rule>.",
             "name": "Crown of Morgul"
           },
           "morgul-blade": {
@@ -5941,15 +5941,15 @@
         "name": "Thorin Oakenshield, King Under the Mountain",
         "rules": {
           "ancestral-fury": {
-            "description": "If Thorin Charges into Combat with the Infantry keyword, he may declare a free Heroic Combat in the Fight phase.",
+            "description": "If Thorin Charges into Combat whilst he has the <b>Infantry</b> keyword, then during the Fight Phase he may declare a <rule id=\"heroic-combat\">Heroic Combat</rule> for free.",
             "name": "Ancestral Fury"
           },
           "du-bekar": {
-            "description": "Friendly Dwarf models treat Thorin as a banner.",
-            "name": "Du Bekar"
+            "description": "Friendly <b>Dwarf</b> models treat Thorin as a <rule id=\"banner\">banner</rule>.",
+            "name": "Du Bekâr"
           },
           "orcrist": {
-            "description": "Elven hand-and-a-half weapon, with Orcbane, Goblinbane and Uruk-haibane, Terror (Goblin), Terror (Orc) and Terror (Uruk-hai) special rules.",
+            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> <rule id=\"hand-and-a-half-weapon\">hand-and-a-half-weapon</rule>. Orcrist has the <b>Orc</b><rule id=\"bane-weapons\">bane</rule>, <b>Goblin</b>bane and <b>Uruk-hai</b>bane special rules. Additionally, the wielder of Orcrist has the <rule id=\"terror\">Terror</rule> (<b>Orc</b>), Terror (<b>Goblin</b>) and Terror (<b>Uruk-hai</b>) special rules.",
             "name": "Orcrist"
           }
         }
@@ -5958,44 +5958,44 @@
         "name": "Thorin Oakenshield",
         "rules": {
           "loyalty-honour-a-willing-heart-i-can-ask-no-more-than-that": {
-            "description": "Friendly Thorin's Company models within 6\" of Thorin may re-roll To Wound rolls on a natural 1 when making Strikes. Also, they may benefit from Thorin's Stand Fast.",
-            "name": "Loyalty, honour, a willing heart. I can ask no more than that"
+            "description": "Friendly <b>Thorin’s Company</b> models within 6\" of Thorin may re-roll To Wound Rolls of a natural 1 when making Strikes. Additionally, friendly <b>Thorin’s Company</b> models may benefit from Thorin’s Stand Fast.",
+            "name": "\"Loyalty, honour, a willing heart. I can ask no more than that\""
           },
           "orcrist": {
-            "description": "Elven hand-and-a-half weapon, with Orcbane, Goblinbane and Uruk-haibane, Terror (Goblin), Terror (Orc) and Terror (Uruk-hai) special rules.",
+            "description": "This is a <b>Unique</b> <rule id=\"elven-weapon\">Elven</rule> <rule id=\"hand-and-a-half-weapon\">hand-and-a-half-weapon</rule>. Orcrist has the <b>Orc</b><rule id=\"bane-weapons\">bane</rule>, <b>Goblin</b>bane and <b>Uruk-hai</b>bane special rules. Additionally, the wielder of Orcrist has the <rule id=\"terror\">Terror</rule> (<b>Orc</b>), Terror (<b>Goblin</b>) and Terror (<b>Uruk-hai</b>) special rules.",
             "name": "Orcrist"
           },
           "the-oakenshield": {
-            "description": "If Thorin uses Shielding in a Combat and wins, he may make a single Strength 4 Strike against one enemy involved in the Combat.",
+            "description": "This is a <b>Unique</b> shield. Additionally, if Thorin elects to shield with the Oakenshield and wins the Combat, then he may inflict a single Strength 4 hit on one enemy model involved in theCombat.",
             "name": "The Oakenshield"
           }
         }
       },
       "thrain-son-of-thror": {
         "additional-text": {
-          "text-1": "If your army does not include Thror, Thrain carries the Ring of Durin."
+          "text-1": "If your army does not include Thrór, then Thráin carries the Ring of Durin."
         },
-        "name": "Thrain, Son of Thror",
+        "name": "Thráin, Son of Thrór",
         "rules": {
           "durins-heir": {
-            "description": "Thrain's Stand Fast has a range of 12\" and also affects friendly Dwarf Hero models.",
+            "description": "Thráin’s Stand Fast has a range of 12\". Additionally, friendly <b>Dwarf Hero</b> models may benefit from Thráin’s Stand Fast.",
             "name": "Durin's Heir"
           },
           "the-ring-of-durin": {
-            "description": "If Thrain carries the Ring of Durin, once per game after the Priority roll has taken place, you may re-roll the Priority roll.",
+            "description": "This is a <b>Unique</b> piece of wargear. Once per game during the Priority phase, after the roll for Priority has taken place, the bearer of the Ring of Durin can re-roll their side's Priority Roll.",
             "name": "The Ring of Durin"
           }
         }
       },
       "thrain-the-broken": {
-        "name": "Thrain the Broken",
+        "name": "Thráin the Broken",
         "rules": {
           "gandalfs-intervention": {
-            "description": "If when Thrain takes his Intelligence Test for his Shattered Spirit special rule he is within 3\" of a friendly Gandalf the Grey, then he may alter a single dice rolled as part of his Intelligence Test by 1, either up or down. If after this alteration the score of the Intelligence Test is a double, then Thrain may gain the benefits of rolling a double as described in his Shattered Spirit special rule.",
+            "description": "If when Thráin takes his Intelligence Test for his Shattered Spirit special rule he is within 3\"of a friendly Gandalf the Grey, then he may alter a single dice rolled as part of his Intelligence Test by 1, either up or down. If after this alteration the score of the Intelligence Test is a double, then Thráin may gain the benefits of rolling a double as described in his Shattered Spirit special rule.",
             "name": "Gandalf's Intervention"
           },
           "shattered-spirit": {
-            "description": "At the start of the Move Phase, before the Declare Heroic Actions Step, Thrain must take an Intelligence Test. If the test is passed, Thrain acts normally during the turn. If the test is passed on a double (i.e., both dice show the same score) then until the end of the turn, Thrain increases his Attacks to 3, his Strength to 4, and gains the Fearless special rule. If the test is failed, then the opposing player controls Thrain as if he was one of their models, and will Activate Thrain during their own Activation Phase. Though he is being controlled by the opposing player, Thrain cannot be targeted with shooting attacks, Magical Powers or special rules that affect enemy models. Additionally, if Thrain was a Good model, then other Good models cannot make Strikes against him should they beat him in a Combat or make Shooting Attacks if he would be In The Way as with any other Good model.",
+            "description": "At the start of the Move Phase, before the Declare Heroic Actions Step, Thráin must take an Intelligence Test. If the test is passed, Thráin acts normally during the turn. If the test is passed on a double (i.e., both dice show the same score)then until the end of the turn,Thráin increases his Attacks to 3, his Strength to 4, and gains the Fearless special rule. If the test is failed, then the opposing player controls Thráin as if he was one of their models, and will Activate Thráin during their own Activation Phase. Though he is being controlled by the opposing player, Thráin cannot be targeted with shooting attacks, Magical Powers or special rules that affect enemy models. Additionally, if Thráin was a Good model, then other Good models cannot make Strikes against him should they beat him in a Combat or make Shooting Attacks if he would be In The Way as with any other Good model.",
             "name": "Shattered Spirit"
           }
         }
@@ -6004,31 +6004,31 @@
         "name": "Thranduil, King of the Woodland Realm",
         "rules": {
           "bladelord": {
-            "description": "If Outnumbered in a Combat, Thranduil may re-roll To Wound Rolls of a natural 1 when making Strikes. If he has the Infantry keyword, Thranduil may instead re-roll all failed To Wound Rolls when making Strikes.",
+            "description": "If he is Outnumbered in a Combat, Thranduil may re-roll To Wound Rolls of a natural 1 when making Strikes. If he has the <b>Infantry</b> keyword and is Outnumbered in a Combat, Thranduil may instead re-roll all failed To Wound Rolls when making Strikes.",
             "name": "Bladelord"
           },
           "do-not-talk-to-me-of-dragon-fire": {
-            "description": "At the beginning of his Activation, Thranduil can spend a Will Point. If he does, then until the end of the turn Thranduil gains Terror. Additionally, if Thranduil has the Infantry keyword, then each enemy model within 3\" of him, that is not Engaged in Combat, must take a Courage Test in an order chosen by Thranduil's controlling player. If the test is failed, they must immediately Move directly away from Thranduil as far as they can, up to the limit of their Move Value. Models Moved by this special rule cannot Move again during the turn, but may otherwise act normally.",
-            "name": "Do not talk to me of Dragon fire"
+            "description": "At the beginning of his Activation, Thranduil can spend a Will Point to use this special rule. If he does, then until the end of the turn Thranduil has the <rule id=\"terror\">Terror</rule> special rule. Additionally, if Thranduil has the <b>Infantry</b> Keyword when he uses this special rule, then each enemy model within 3\" of him, that is not Engaged in Combat, must take a Courage Test in an order chosen by Thranduil’s controlling player. If the test is failed, they must immediately Move Directly Away from Thranduil as far as they can,up to the limit of their Move Value. Models Moved by this special rule cannot Move again during the turn, but may otherwise act normally.",
+            "name": "\"Do not talk to me of Dragon fire\""
           },
           "fury-of-the-elvenking": {
-            "description": "If Outnumbered in a Combat, and successfully kills all enemy models that he was Engaged in Combat with, then in the following turn Thranduil may declare a Heroic Combat for free.",
+            "description": "If Thranduil is Outnumbered in a Combat, and successfully kills all enemy models that he was Engaged in Combat with, then in the following turn Thranduil may declare a Heroic Combat for free.",
             "name": "Fury of the Elvenking"
           }
         }
       },
       "thror-king-under-the-mountain": {
         "additional-text": {
-          "text-1": "Any Grim Hammer Warriors upgraded to Guardians of the King in Thror's warband will have a Strength value of 4."
+          "text-1": "Grim Hammer Warriors in Thrór’s Warband may be upgraded to Guardians of the King for +1 point per model. Guardians of the King have a Strength of 4."
         },
-        "name": "Thror, King Under the Mountain",
+        "name": "Thrór, King Under the Mountain",
         "rules": {
           "arkenstone": {
-            "description": "Thror passes Fate rolls on a 3+, rather than 4+. Also, if the result of a Fate roll is 4+, that roll is free, and does not cost a point of Fate.",
+            "description": "This is a <b>Unique</b> piece of wargear. The bearer of the Arkenstone passes Fate Rolls on a 3+. Additionally, when making a Fate Roll, if the result is a 4 or better, then the Fate Point is free and is not spent.",
             "name": "Arkenstone"
           },
           "the-ring-of-durin": {
-            "description": "Once per game, after the Priority roll has taken place, you may re-roll the Priority roll.",
+            "description": "This is a <b>Unique</b> piece of wargear. Once per game during the Priority phase, after the roll for Priority has taken place, the bearer of the Ring of Durin can re-roll their side's Priority Roll.",
             "name": "The Ring of Durin"
           }
         }
@@ -6046,8 +6046,8 @@
         "name": "Tilda",
         "rules": {
           "da-down-here": {
-            "description": "Whilst within 6\" of Sigrid or Tilda, Bard the Bowman gains a bonus of +1 to his Fight Value. If Bard the Bowman is within 6\" of both Sigrid and Tilda, then he will gain a bonus of +1 to his Fight Value and may re-roll a single D6 when making a Duel Roll. Additionally, during the Declare Heroic Actions Step of the Fight Phase, if Sigrid or Tilda are within 6\" of Bard and are Engaged in Combat, then Bard may declare a Heroic Combat for free. If this Heroic Combat is successful, then Bard must use the following Move to join Sigrid's or Tilda's Combat. If this is not possible, then Bard must move as close as possible to Sigrid or Tilda. Bard cannot use this special rule whilst he is in the same Combat as either Sigrid or Tilda, unless the other one of Sigrid or Tilda is in a different Combat within 6\".",
-            "name": "Da! Down here!"
+            "description": "Whilst within 6\" of Sigrid or Tilda, Bard the Bowman gains a bonus of +1 to his Fight Value. If Bard the Bowman is within 6\" of both Sigrid and Tilda, then he will gain a bonus of +1 to his Fight Value and may re-roll a single D6 when makinga Duel Roll. Additionally, during the Declare Heroic Actions Step of the Fight Phase, if Sigrid or Tilda are within 6\" of Bard and are Engaged in Combat, then Bard may declare a <rule id=\"heroic-combat\">Heroic Combat</rule> for free. If this Heroic Combat is successful, then Bard must use the following Move to join Sigrid’s or Tilda’s Combat. If this is not possible, then Bard must move as close as possible to Sigrid or Tilda. Bard cannot use this special rule whilst he is in the same Combat as either Sigrid or Tilda, unless the other one of Sigrid or Tilda is in a different Combat within 6\".",
+            "name": "\"Da! Down here!\""
           }
         }
       },
@@ -6076,7 +6076,7 @@
             "name": "Keep 'em for Later"
           },
           "lingering-cold": {
-            "description": "At the start of any Combat involving Tom, he may spend a Will Point to use this special rule. If he does, he may choose a single enemy model he is Engaged in Combat with. The chosen model immediately halves their Fight Value until the end of the turn.",
+            "description": "At the start of any Combat involvingTom, he may spend a Will Point to use this special rule. If he does, he may choose a single enemy model he is Engaged in Combat with. The chosen model immediately halves their Fight Value until the end of the turn.",
             "name": "Lingering Cold"
           },
           "squash-em-into-jelly": {
@@ -6098,15 +6098,6 @@
           }
         }
       },
-      "troll-brute-mount": {
-        "name": "Troll Brute",
-        "rules": {
-          "trample": {
-            "description": "When a Troll Brute Tramples, it will inflict 2 Strength 10 hits.",
-            "name": "Trample"
-          }
-        }
-      },
       "troll-brute": {
         "additional-text": {
           "text-1": "A Troll Brute comprises an Orc Commander and the actual Troll Brute."
@@ -6114,7 +6105,7 @@
         "name": "Troll Brute",
         "rules": {
           "trample": {
-            "description": "When a Troll Brute Tramples, it will inflict 2 Strength 10 hits.",
+            "description": "When a Troll Brute Tramples, it will inflict 2 Strength 10 Impact Hits.",
             "name": "Trample"
           }
         }
@@ -6162,7 +6153,7 @@
             "name": "Attacking the Charge"
           },
           "demolition-charges": {
-            "description": "During the Fight Phase, after any Heroic Combats have been resolved, a model with a torch can attempt to detonate the Demolition Charge if they are in base contact with it and are not Engaged in Combat. A model may only attempt to detonate a Demolition Charge if the resulting explosion would hit a Siege Target or at least two enemy models. A model that wishes to detonate the Demolition Charge must first take a CourageTest. If the test is failed, the Demolition Charge cannot be detonated. If the test is passed, the Demolition Charge will go off–roll on the Detonation Table on page 169 of Armies of the LOTR. \r\nA model without a torch can still attempt to detonate a Demolition Charge, though it will be harder to do. Any model from the same army as the Demolition Charge can attempt\r\nto detonate it by taking a Courage Test as described above. However, if the test is passed, roll a D6 – the Demolition Charge will only go off on the roll of a natural 6.",
+            "description": "During the Fight Phase, after any Heroic Combats have been resolved, a model with a torch can attempt to detonate the Demolition Charge if they are in base contact with it and are not Engaged in Combat. A model may only attempt to detonate a Demolition Charge if the resulting explosion would hit a Siege Target or at least two enemy models. A model that wishes to detonate the Demolition Charge must first take a CourageTest. If the test is failed, the Demolition Charge cannot be detonated. If the test is passed, the Demolition Charge will go off–roll on the Detonation Table. (LINK TO BE ADDED)\r\nA model without a torch can still attempt to detonate a Demolition Charge, though it will be harder to do. Any model from the same army as the Demolition Charge can attempt\r\nto detonate it by taking a Courage Test as described above. However, if the test is passed, roll a D6 – the Demolition Charge will only go off on the roll of a natural 6.",
             "name": "Demolition Charges"
           },
           "moving-the-charge": {
@@ -6217,7 +6208,7 @@
             "name": "Piercing Talons"
           },
           "pluck": {
-            "description": "If this model Charges into Combat, choose a single enemy model on a 25mm base that the War Bat Moved over and roll a D6. On a 4+, the chosen model is immediately knocked Prone.",
+            "description": "If this model Charges into Combat, choose a single enemy model on a 25mm base that this model Moved over and roll a D6. On a 4+, the chosen model is immediately knocked Prone.",
             "name": "Pluck"
           }
         }
@@ -6247,23 +6238,59 @@
         "name": "War Goat",
         "rules": {
           "devastating-charge": {
-            "description": "When this model Charges against one or more 25mm models, roll a D6 for each. On a 5+, that model is immediately knocked Prone.",
+            "description": "When this model Charges into Combat against one or more models on a 25mm base, roll a D6 for each. On a 5+, that model is immediately knocked Prone.",
             "name": "Devastating Charge"
           }
         }
       },
       "war-mumak-of-harad": {
-        "name": "War Mumak of Harad",
+        "name": "War Mûmak of Harad",
+        "additional-text": {
+          "text-1": "A War Mûmak of Harad comprises a Haradrim Commander, Mûmak, and a Howdah."
+        },
+        "rules": {
+          "gnarled-hide": {
+            "description": "The Mûmak has a Defence of 8 rather than 7.",
+            "name": "Gnarled Hide"
+          },
+          "mahud-beastmaster-chieftain": {
+            "description": "The Haradrim Commander is replaced by a Mahûd Beastmaster Chieftain, which is placed on the forked wooden platform at the front of the Howdah.",
+            "name": "Mahûd Beastmaster Chieftain"
+          },
+          "rocks": {
+            "description": "If they do not Move during their Activation, models in the Howdah can make a shooting attack with a range of 8\" and a Strength of 6 instead of using a different shooting attack.",
+            "name": "Rocks"
+          },
+          "sigils-of-defiance": {
+            "description": "The Mûmak and any models in the Howdah gain the <rule id=\"resistant-to-magic\">Resistant to Magic</rule> special rule, and whenever they suffer a Wound they may roll a D6. On a natural 6, the Wound is prevented.",
+            "name": "Sigils of Defiance"
+          },
+          "tusk-weapons": {
+            "description": "When the Mûmak Tramples, it will inflict 4 Strength 9 Impact Hits rather than 3.",
+            "name": "Tusk Weapons"
+          },
+          "foul-temperament": {
+            "description": "The Mûmak has 4 Attacks rather than 3; however, it suffers a-1 penalty to its Courage Tests when seeing if it will Stampede.",
+            "name": "Foul Temperament"
+          },
+          "rappelling-lines": {
+            "description": "Models in the Howdah may attempt to dismount during their Activation by rolling a D6. On a 2+, the model successfully dismounts and is placed in base contact with the Mûmak. However, on a 1 the model suffers Falling Damage – if it survives, place it in base contact with the Mûmak. A model that successfully dismounts (though not if it rolled a 1) may then continue its Activation as normal, even Charging if it wishes, though may not make a shooting attack that turn.",
+            "name": "Rappelling Lines"
+          }
+        }
+      },
+      "mumak": {
         "rules": {
           "awesome-presence": {
-            "description": "Friendly models treat this model as a banner with a range of 6\".",
+            "description": "Friendly models treat this model as a <rule id=\"banner\">banner</rule> with a range of 6\".",
             "name": "Awesome Presence"
           },
           "trample": {
-            "description": "When a Mumak Tramples, it will inflict 3 Strength 9 Impact Hits.",
+            "description": "When a Mûmak Tramples, it will inflict 3 Strength 9 Impact Hits.",
             "name": "Trample"
           }
-        }
+        },
+        "name": "Mûmak"
       },
       "warg-marauder": {
         "additional-text": {
@@ -6401,11 +6428,11 @@
         "name": "Windlance",
         "rules": {
           "acurate": {
-            "description": "A Windlance will only scatter 3\" rather than 6\"",
+            "description": "A Windlance will only scatter 3\" rather than 6\".",
             "name": "Acurate"
           },
           "piercing-shot": {
-            "description": "A model hit will be flung back D3\" if it has a Strength of 5 or lower. Any models passed over are knocked prone and take a Strength 5 hit. The flung model stops if it hits impassable terrain or a model with Strength 6 or higher, and both take a Strength 6 hit. The flung model is knocked prone if it survives. If the flung model would end its movement over other models, those models are moved the minimum distance to allow the flung model to be placed.",
+            "description": "A model that is hit by the shot of a Windlance will be flung back D6\" directly away from the Windlance if it has a Strength of 5 or lower. Any model that is passed over by the flung model suffers a Strength 5 hit and will be knocked Prone. If the flung model comes into contact with a piece of impassable terrain or a model with a Strength of 6 or higher, then it will stop and both the flung model and the model or piece of terrain that was hit will suffer one Strength 6 hit. After being flung back, the flung model will be knocked Prone if they survive. If after the model is flung back it would finish over other models and it has survived, then simply move the other models  the minimum distance possible to allow the flung model to be placed where it has landed.",
             "name": "Piercing Shot"
           }
         }
@@ -6461,7 +6488,7 @@
         "name": "Yazneg, Hunter Orc Captain",
         "rules": {
           "the-price-of-failure": {
-            "description": "At the beginning of a Combat he is involved in, if Yazneg is within 3\" of Azog, he can declare this rule before the Duel roll is made. If he does so, then Yazneg may re-roll any number of dice during the Duel roll. However, if he uses this rule and fails to win the Duel roll, then he immediately suffers a single Wound.",
+            "description": "At the beginning of a Combat he is involved in, if he is within 3\" of Azog, Yazneg can declare he is using this special rule before the Duel Roll is made. If he does, then Yazneg may re-roll any number of dice during the Duel Roll. However, if Yazneg uses this special rule and fails to win the Duel Roll, then he immediately suffers a single Wound.",
             "name": "The Price of Failure"
           }
         }
@@ -6470,7 +6497,7 @@
         "name": "Young Balin the Dwarf",
         "rules": {
           "longbeard": {
-            "description": "After the Priority roll has taken place, Balin may spend a Will point to enable his controlling player to re-roll their D6 in the Priority roll.",
+            "description": "During the Priority Phase, after the roll for Priority has taken place, Balin can spend a Will Point to allow his controlling player to re-roll their roll for Priority.",
             "name": "Longbeard"
           }
         }
@@ -6479,15 +6506,15 @@
         "name": "Young Dwalin the Dwarf",
         "rules": {
           "dwarven-fury": {
-            "description": "At the start of a Combat, roll a D6. On a 5+, Dwalin may re-roll failed To Wound rolls in that combat. However on a 1, Dwalin reduces his Fight value by D3 before the Duel roll takes place.",
+            "description": "At the start of a Combat involving Dwalin ,roll a D6. On a 5+, Dwalin may re-roll failed To Wound Rolls during that Combat. On a 2-4, nothing happens and the Combat proceeds as normal. However on a 1, Dwalin reduces his Fight Value by D3 before the Duel Roll takes place.",
             "name": "Dwarven Fury"
           },
           "grasper-and-keeper": {
-            "description": "Hand weapons for which Dwalin gains +1 Attack when using Grasper & Keeper, and any To Wound rolls of a natural 6, and not prevented, will cause 2 Wounds rather than 1.",
+            "description": "These are <b>Unique</b> hand weapons. Additionally, a model gains a bonus of +1 to its Attacks characteristic when using Grasper & Keeper, and any To Wound Rolls of a natural 6 that are not prevented will deal 2 Wounds rather than 1.",
             "name": "Grasper & Keeper"
           },
           "weapon-master": {
-            "description": "Dwalin is never considered Unarmed.",
+            "description": "Dwalin is never considered to be <rule id=\"unarmed\">Unarmed</rule>.",
             "name": "Weapon Master"
           }
         }
@@ -6496,11 +6523,11 @@
         "name": "Young Thorin Oakenshield",
         "rules": {
           "the-oakenshield": {
-            "description": "If Thorin uses Shielding in a Combat and wins, he may make a single Strength 4 Strike against one enemy involved in the Combat.",
+            "description": "This is a <b>Unique</b> shield. Additionally, if Thorin elects to shield with the Oakenshield and wins the Combat, then he may inflict a single Strength 4 hit on one enemy model involved in theCombat.",
             "name": "The Oakenshield"
           },
           "to-arms": {
-            "description": "Once per game at the start of his Activation, this rule may be declared. All friendly Erebor models within 3\" of Thorin gain +1 Strength until the end of that turn.",
+            "description": "Once per game, at the start of his Activation, Thorin can declare he is using this special rule. If he does, then until the end of the turn all friendly <b>Erebor</b> models within 3\" of Thorin increase their Strength by 1.",
             "name": "To Arms!"
           }
         }
@@ -6660,7 +6687,7 @@
       "lance": "Lance",
       "large-venomous-fangs-hand-weapons": "Large venomous fangs (hand weapons)",
       "light-armour": "Light armour",
-      "long-bladed-spear": "long-bladed spear",
+      "long-bladed-spear": "Long-bladed Spear",
       "longbow": "Longbow",
       "master-forged-two-handed-weapon": "Master Forged two-handed weapon",
       "mattock": "Mattock",
@@ -6683,18 +6710,18 @@
       "pony": "Pony",
       "rapid-fire-bolt-thrower": "Rapid-fire Bolt Thrower",
       "razor-sharp-teeth-and-talons-hand-weapons": "Razor-sharp teeth and talons (hand weapons)",
-      "razor-sharp-teeth-massive-talons-hand-weapons": "Razor-sharp teeth, massive talons (hand weapons)",
+      "razor-sharp-teeth-massive-talons-hand-weapons": "Razor-sharp teeth and massive talons (hand weapons)",
       "riding-dagger": "Riding Dagger",
       "ring-of-barahir": "Ring of Barahir",
       "ring-of-durin": "Ring of Durin",
       "roots-and-branches-hand-weapon": "Roots and branches (hand weapon)",
       "royal-palanquin": "Royal Palanquin",
-      "royal-war-mumak": "Royal War Mumak",
+      "royal-war-mumak": "Royal War Mûmak",
       "sebastian": "Sebastian",
       "serpent-banner": "Serpent Banner",
       "shield": "Shield",
       "short-bow": "short bow",
-      "sling": "sling",
+      "sling": "Sling",
       "smoke-bombs": "Smoke Bombs",
       "spear": "Spear",
       "spectral-hands-hand-weapons": "Spectral hands (hand weapons)",
@@ -6713,7 +6740,7 @@
       "the-golden-throne": "The Golden Throne",
       "the-horn-of-lossarnach": "The Horn of Lossarnach",
       "the-horn-of-zirakzigil": "The Horn of Zirakzigil",
-      "the-light-of-earendil": "The Light of Earendil",
+      "the-light-of-earendil": "The Light of Eärendil",
       "the-oakenshield": "The Oakenshield",
       "the-one-ring": "The One Ring",
       "the-ring-of-durin": "The Ring of Durin",
@@ -6723,7 +6750,7 @@
       "throwing-weapons": "Throwing weapons",
       "torozul": "Torozul",
       "troll-chain": "Troll Chain",
-      "tusks-and-huge-stomping-feet-hand-weapons": "Tusks and huge stomping feet (hand weapons)",
+      "tusks-and-huge-stomping-feet-hand-weapons": "Tusks and huge, stomping feet (hand weapons)",
       "two-hand-weapons": "Two hand weapons",
       "two-handed-weapon": "Two-handed weapon",
       "umbrella": "Umbrella",
@@ -7457,7 +7484,7 @@
       }
     },
     "army-of-thror": {
-      "name": "Army of Thror",
+      "name": "Army of Thrór",
       "rules": {
         "additional-01": {
           "description": "An Army of Thror Army may have up to 50% of its Warrior models armed with throwing weapons rather than the usual 33%."
