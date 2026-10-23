@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Post commit headlines to Discord
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_DEVELOPMENT_WEBHOOK }}
         with:
@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Post tagged changelog section to Discord
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_DEVELOPMENT_WEBHOOK }}
         with:
