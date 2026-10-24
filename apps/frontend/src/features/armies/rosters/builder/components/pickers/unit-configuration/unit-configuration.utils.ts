@@ -1,4 +1,5 @@
 import type { BuilderUnit } from "../../../domain/roster.types.ts";
+import type { WarbandCapacity } from "../../../domain/warband-rules.ts";
 import type {
   LocalizedArmyListProfile,
   LocalizedArmyListProfileOption,
@@ -98,6 +99,18 @@ export function getEquipmentSelectionLimits(
     maximum,
     valid: count >= minimum && count <= maximum,
   };
+}
+
+export function getRemainingWarbandSlots(
+  capacity: Pick<WarbandCapacity, "current" | "maximum"> | undefined,
+  quantity: number,
+  originalQuantity = 0,
+): number | undefined {
+  if (capacity?.maximum === undefined) {
+    return undefined;
+  }
+
+  return capacity.maximum - (capacity.current - originalQuantity + quantity);
 }
 
 export function toDraftUnit(

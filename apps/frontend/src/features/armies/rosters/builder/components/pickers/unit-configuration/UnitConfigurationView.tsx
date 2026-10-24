@@ -14,16 +14,19 @@ import { UnitLoadoutSelection } from "./UnitLoadoutSelection.tsx";
 import { UnitSummary } from "./UnitSummary.tsx";
 import {
   getEquipmentSelectionLimits,
+  getRemainingWarbandSlots,
   normalizeOptionIds,
   toDraftUnit,
   toggleUnitOption,
   type UnitLoadout,
 } from "./unit-configuration.utils.ts";
+import type { WarbandCapacity } from "~/features/armies/rosters/builder/domain/warband-rules.ts";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
 export interface UnitConfigurationViewProps {
   profile: LocalizedArmyListProfile;
   unit?: BuilderUnit;
+  capacity?: WarbandCapacity;
   onBack?: () => void;
   onClose: () => void;
   onSave: (loadout: UnitLoadout) => Promise<void>;
@@ -32,6 +35,7 @@ export interface UnitConfigurationViewProps {
 export function UnitConfigurationView({
   profile,
   unit,
+  capacity,
   onBack,
   onClose,
   onSave,
@@ -54,6 +58,9 @@ export function UnitConfigurationView({
   const points = getUnitTotalCost(toDraftUnit(profile, current), profile);
   const previousPoints = unit ? getUnitTotalCost(unit, profile) : 0;
   const pointsDifference = points - previousPoints;
+  const remainingSlots = isHero
+    ? undefined
+    : getRemainingWarbandSlots(capacity, current.quantity, unit?.quantity ?? 0);
 
   function toggleOption(optionId: string, checked: boolean) {
     setOptionIds((previous) =>
@@ -100,6 +107,7 @@ export function UnitConfigurationView({
           selectedOptionIds={optionIds}
           quantity={current.quantity}
           showQuantity={!isHero}
+          remainingSlots={remainingSlots}
           disabled={saving}
           onToggleOption={toggleOption}
           onChangeQuantity={(next) => setQuantity(Math.max(1, next))}
