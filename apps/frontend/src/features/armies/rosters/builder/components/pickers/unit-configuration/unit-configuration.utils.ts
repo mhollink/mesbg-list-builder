@@ -1,21 +1,26 @@
 import type { BuilderUnit } from "../../../domain/roster.types.ts";
-import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
+import type {
+  LocalizedArmyListProfile,
+  LocalizedArmyListProfileOption,
+} from "~/features/reference/army-lists/army-lists.types.ts";
 
+/** One persisted roster entry, potentially representing multiple identical models. */
 export interface UnitLoadout {
   optionIds: string[];
   quantity: number;
 }
 
-export interface WarriorDraftLoadout extends UnitLoadout {
-  key: string;
-  name: string;
+export function isSpecialUpgrade(
+  option: LocalizedArmyListProfileOption,
+): boolean {
+  return option.category === "special-upgrade";
 }
 
 export function normalizeOptionIds(
   profile: LocalizedArmyListProfile,
   optionIds: readonly string[],
 ): string[] {
-  // Preselected equipment is included automatically by getUnitCost.
+  // Preselected options are implicit when calculating points and displaying wargear.
   const preselected = new Set(
     profile.options
       .filter((option) => option.state === "preselected")
@@ -25,77 +30,74 @@ export function normalizeOptionIds(
   return [...new Set(optionIds)].filter((id) => !preselected.has(id)).sort();
 }
 
-export function loadoutKey(optionIds: readonly string[]): string {
-  return JSON.stringify([...new Set(optionIds)].sort());
+/**
+ * Warriors may choose one optional equipment option and one special upgrade.
+ * Heroes retain support for multiple equipment selections; upgrades are still exclusive.
+ * The preselected options remain implicit and cannot be toggled.
+ */
+export function toggleUnitOption(
+  profile: LocalizedArmyListProfile,
+  currentIds: readonly string[],
+  optionId: string,
+  checked: boolean,
+): string[] {
+  const option = profile.options.find((candidate) => candidate.id === optionId);
+  if (!option || option.state === "preselected") {
+    return normalizeOptionIds(profile, currentIds);
+  }
+
+  const isHero = profile.profile.stats.type === "hero";
+  const exclusive = isSpecialUpgrade(option) || !isHero;
+  // A compulsory upgrade cannot be replaced with an optional one.
+  if (
+    checked &&
+    isSpecialUpgrade(option) &&
+    profile.options.some(
+      (candidate) =>
+        candidate.id !== optionId &&
+        candidate.state === "preselected" &&
+        isSpecialUpgrade(candidate),
+    )
+  ) {
+    return normalizeOptionIds(profile, currentIds);
+  }
+  const next = currentIds.filter((id) => {
+    if (id === optionId) return false;
+    if (!checked || !exclusive) return true;
+
+    const other = profile.options.find((candidate) => candidate.id === id);
+    return !other || isSpecialUpgrade(other) !== isSpecialUpgrade(option);
+  });
+
+  if (checked) next.push(optionId);
+  return normalizeOptionIds(profile, next);
 }
 
-export function createWarriorDrafts(
+export function getEquipmentSelectionLimits(
   profile: LocalizedArmyListProfile,
-  existingUnits: readonly BuilderUnit[],
-): WarriorDraftLoadout[] {
-  const drafts = new Map<string, WarriorDraftLoadout>();
-  const optionalOptions = profile.options
-    .filter((option) => option.state !== "preselected")
-    .sort((a, b) => (a.points ?? 0) - (b.points ?? 0));
-
-  const addDraft = (
-    optionIds: readonly string[],
-    name: string,
-    quantity = 0,
-  ) => {
-    const normalized = normalizeOptionIds(profile, optionIds);
-    const key = loadoutKey(normalized);
-    const current = drafts.get(key);
-
-    if (current) {
-      current.quantity += quantity;
-      return;
-    }
-
-    drafts.set(key, {
-      key,
-      name,
-      optionIds: normalized,
-      quantity,
-    });
-  };
-
-  const preselectedCount = profile.options.filter(
-    (option) => option.state === "preselected",
+  selectedIds: readonly string[],
+) {
+  const count = profile.options.filter(
+    (option) =>
+      !isSpecialUpgrade(option) &&
+      (option.state === "preselected" || selectedIds.includes(option.id)),
   ).length;
-  const minimumOptions = profile.profile.optionLimits?.min ?? 0;
+  const minimum = profile.profile.optionLimits?.min ?? 0;
+  const preselectedEquipment = profile.options.filter(
+    (option) => !isSpecialUpgrade(option) && option.state === "preselected",
+  ).length;
+  const maximum =
+    profile.profile.optionLimits?.max ??
+    (profile.profile.stats.type === "hero"
+      ? Number.POSITIVE_INFINITY
+      : preselectedEquipment + 1);
 
-  // An optionless warrior has exactly one available configuration.
-  // If a regular option is mandatory, do not offer an empty loadout.
-  const onlyStandardEquipment = optionalOptions.length === 0;
-  if (onlyStandardEquipment || preselectedCount >= minimumOptions) {
-    addDraft(
-      [],
-      onlyStandardEquipment ? "Standard equipment" : "No additional equipment",
-      onlyStandardEquipment && existingUnits.length === 0 ? 1 : 0,
-    );
-  }
-
-  // Simple one-option warrior configurations.
-  // Existing multi-option/upgrade combinations are appended below.
-  for (const option of optionalOptions) {
-    addDraft([option.id], option.name);
-  }
-
-  for (const unit of existingUnits) {
-    const optionIds = normalizeOptionIds(profile, unit.optionIds);
-    const name =
-      optionIds
-        .map(
-          (id) =>
-            profile.options.find((option) => option.id === id)?.name ?? id,
-        )
-        .join(" + ") || "Standard equipment";
-
-    addDraft(optionIds, name, unit.quantity);
-  }
-
-  return [...drafts.values()];
+  return {
+    count,
+    minimum,
+    maximum,
+    valid: count >= minimum && count <= maximum,
+  };
 }
 
 export function toDraftUnit(

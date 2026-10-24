@@ -12,19 +12,16 @@ interface UnitPickerProps {
   title: string;
   profiles: readonly LocalizedArmyListProfile[];
   initialProfile?: LocalizedArmyListProfile;
-  existingUnits?: readonly BuilderUnit[];
+  unit?: BuilderUnit;
   continuous?: boolean;
   onSave: (
     profile: LocalizedArmyListProfile,
-    loadouts: UnitLoadout[],
+    loadout: UnitLoadout,
   ) => Promise<void>;
 }
 
-type UnitPickerFlowProps = Omit<UnitPickerProps, "open">;
-
 export function UnitPicker({ open, ...flowProps }: UnitPickerProps) {
   const { close } = useBuilderPickerHistory();
-
   return (
     <Drawer
       anchor="right"
@@ -33,28 +30,26 @@ export function UnitPicker({ open, ...flowProps }: UnitPickerProps) {
       slotProps={{
         paper: {
           sx: {
-            width: {
-              xs: "100%",
-              sm: 480,
-            },
+            width: { xs: "100%", sm: 680 },
             maxWidth: "100%",
           },
         },
       }}
     >
-      <UnitPickerFlow {...flowProps} />
+      <UnitPickerFlow {...flowProps} open={open} />
     </Drawer>
   );
 }
 
 function UnitPickerFlow({
+  open,
   title,
   profiles,
   initialProfile,
-  existingUnits,
+  unit,
   onSave,
   continuous,
-}: UnitPickerFlowProps) {
+}: UnitPickerProps) {
   const history = useBuilderPickerHistory();
   const selectedProfile =
     initialProfile ??
@@ -62,15 +57,12 @@ function UnitPickerFlow({
 
   async function handleSave(
     profile: LocalizedArmyListProfile,
-    loadouts: UnitLoadout[],
+    loadout: UnitLoadout,
   ) {
-    await onSave(profile, loadouts);
-
+    await onSave(profile, loadout);
     if (continuous) {
-      // Quick-add stays in selection. Configured leaders return to selection.
-      if (history.profileId) {
-        history.back();
-      }
+      // Each save adds one warband; stay in the leader selector for the next.
+      if (history.profileId) history.back();
     } else {
       history.close();
     }
@@ -81,19 +73,20 @@ function UnitPickerFlow({
       title={title}
       profiles={profiles}
       onSelect={(profile) => history.configure(profile.id)}
-      onQuickAdd={(profile: LocalizedArmyListProfile) =>
-        handleSave(profile, [{ quantity: 1, optionIds: [] }])
+      onQuickAdd={(profile) =>
+        handleSave(profile, { quantity: 1, optionIds: [] })
       }
       onClose={history.close}
     />
   ) : (
     <UnitConfigurationView
-      key={selectedProfile.id}
+      // The drawer stays mounted for animations, but reopening resets draft state.
+      key={`${selectedProfile.id}:${unit?.id ?? "new"}:${open ? "open" : "closed"}`}
       profile={selectedProfile}
-      existingUnits={existingUnits}
+      unit={unit}
       onBack={initialProfile ? undefined : history.back}
       onClose={history.close}
-      onSave={(loadouts) => handleSave(selectedProfile, loadouts)}
+      onSave={(loadout) => handleSave(selectedProfile, loadout)}
     />
   );
 }

@@ -82,11 +82,9 @@ export function WarbandList({
 
   async function handleCreateWarband(
     profile: LocalizedArmyListProfile,
-    loadouts: UnitLoadout[],
+    loadout: UnitLoadout,
   ) {
-    const loadout = loadouts[0];
-
-    if (loadouts.length !== 1 || loadout?.quantity !== 1) {
+    if (loadout.quantity !== 1) {
       setAddFailed(true);
       throw new Error("A warband requires exactly one leader.");
     }

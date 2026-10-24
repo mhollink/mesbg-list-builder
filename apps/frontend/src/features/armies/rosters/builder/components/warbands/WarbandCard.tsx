@@ -21,8 +21,8 @@ import { MobileWarbandHeader, WarbandHeader } from "./WarbandHeader.tsx";
 import { FollowerPicker } from "~/features/armies/rosters/builder/components/pickers/FollowerPicker.tsx";
 import { LeaderPicker } from "~/features/armies/rosters/builder/components/pickers/LeaderPicker.tsx";
 import {
-  saveFollowerLoadouts,
-  saveLeaderLoadouts,
+  saveFollowerLoadout,
+  saveLeaderLoadout,
 } from "~/features/armies/rosters/builder/components/pickers/unit-configuration/unit-configuration.persistence.ts";
 import { FollowerRow } from "~/features/armies/rosters/builder/components/units/FollowerRow.tsx";
 import { LeaderRow } from "~/features/armies/rosters/builder/components/units/LeaderRow.tsx";
@@ -210,9 +210,9 @@ export function WarbandCard({
         initialProfile={gameData.armyListProfilesById.get(
           warband.leader.armyListProfileId,
         )}
-        existingUnits={warband.leader ? [warband.leader] : []}
-        onSave={(profile, loadouts) =>
-          saveLeaderLoadouts(warband, profile, loadouts, actions)
+        unit={warband.leader}
+        onSave={(profile, loadout) =>
+          saveLeaderLoadout(warband, profile, loadout, actions)
         }
       />
 
@@ -226,9 +226,15 @@ export function WarbandCard({
               )
             : undefined
         }
-        existingUnits={warband.followers}
-        onSave={(profile, loadouts) =>
-          saveFollowerLoadouts(warband, profile, loadouts, actions)
+        unit={selectedFollower}
+        onSave={(profile, loadout) =>
+          saveFollowerLoadout(
+            warband,
+            profile,
+            loadout,
+            actions,
+            selectedFollower,
+          )
         }
       />
     </>
