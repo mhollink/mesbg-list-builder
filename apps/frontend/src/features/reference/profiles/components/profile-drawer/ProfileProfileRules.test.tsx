@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import { ProfileProfileRules } from "./ProfileProfileRules.tsx";
 import type { ProfileDrawerRule } from "./profile-drawer.types.ts";
+import { render, screen } from "~/test/render";
 
 vi.mock("~/features/reference/shared/components/rule-text/RuleText", () => ({
   RuleText: ({

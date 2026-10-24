@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { RostersPage } from "./RostersPage.tsx";
+import { render, screen } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   keycloak: {

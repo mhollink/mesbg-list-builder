@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import { AlphabetTabs } from "./AlphabetTabs.tsx";
+import { render, screen } from "~/test/render";
 
 describe("AlphabetTabs", () => {
   test("renders the alphabet and marks the active and available letters", () => {

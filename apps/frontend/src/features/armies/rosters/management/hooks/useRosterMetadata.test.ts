@@ -1,8 +1,8 @@
 import type { RosterSummary } from "@mlb/api-client";
-import { act, renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { useRosterMetadata } from "./useRosterMetadata.ts";
+import { act, renderHook } from "~/test/render.tsx";
 
 const mocks = vi.hoisted(() => ({
   favorite: vi.fn(),

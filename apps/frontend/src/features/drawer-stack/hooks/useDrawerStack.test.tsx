@@ -1,7 +1,7 @@
-import { act, renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { useDrawerStack } from "./useDrawerStack.ts";
+import { act, renderHook } from "~/test/render";
 
 const router = vi.hoisted(() => ({
   params: new URLSearchParams(),

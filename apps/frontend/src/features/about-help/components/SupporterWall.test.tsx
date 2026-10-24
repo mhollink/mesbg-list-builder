@@ -1,10 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { supporterTiers } from "../types/support-tiers.types.ts";
 import type { Supporter } from "../types/supporter.types.ts";
 import { sortSupporters } from "../utils/supporter-sorting.utils.ts";
 import { SupporterWall } from "./SupporterWall.tsx";
+import { fireEvent, render, screen } from "~/test/render";
 
 const supporters: Supporter[] = [
   { id: "aragorn", name: "Supporter 1", tier: "Hero of Legend" },

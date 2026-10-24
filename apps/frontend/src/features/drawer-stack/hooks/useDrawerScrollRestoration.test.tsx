@@ -1,9 +1,9 @@
 import type { UIEvent } from "react";
 
-import { act, renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { useDrawerScrollRestoration } from "./useDrawerScrollRestoration.ts";
+import { act, renderHook } from "~/test/render";
 
 const router = vi.hoisted(() => ({ key: "profile-a" }));
 

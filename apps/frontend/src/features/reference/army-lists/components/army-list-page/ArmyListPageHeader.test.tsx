@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { LocalizedArmyList } from "../../army-lists.types.ts";
 import { ArmyListPageHeader } from "./ArmyListPageHeader.tsx";
+import { render, screen } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   navigate: vi.fn(),

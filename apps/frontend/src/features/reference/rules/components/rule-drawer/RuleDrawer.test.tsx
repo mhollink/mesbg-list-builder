@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { Rule } from "../../rules.types.ts";
 import { RuleDrawer } from "./RuleDrawer.tsx";
+import { render, screen } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   useRuleDrawer: vi.fn(),

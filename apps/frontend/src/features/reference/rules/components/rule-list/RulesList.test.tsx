@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
 import type { Rule, RuleRow } from "../../rules.types.ts";
 import { RulesList } from "./RulesList.tsx";
+import { render, screen } from "~/test/render";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({

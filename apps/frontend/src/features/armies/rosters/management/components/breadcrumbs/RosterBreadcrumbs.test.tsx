@@ -1,10 +1,10 @@
 import { MemoryRouter } from "react-router";
 
 import type { RosterGroup } from "@mlb/api-client";
-import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { RosterBreadcrumbs } from "./RosterBreadcrumbs.tsx";
+import { render, screen } from "~/test/render";
 
 vi.mock("@dnd-kit/react", () => ({
   useDroppable: () => ({

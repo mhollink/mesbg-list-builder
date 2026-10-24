@@ -1,9 +1,9 @@
 import { MemoryRouter, useLocation, useNavigate } from "react-router";
 
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { useBuilderPickerHistory } from "./useBuilderPickerHistory.ts";
+import { fireEvent, render, screen, waitFor } from "~/test/render";
 
 function HistoryHarness() {
   const history = useBuilderPickerHistory();

@@ -1,9 +1,9 @@
 import type { Theme } from "@mui/material/styles";
 
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
 import { Keyword } from "./Keyword.tsx";
+import { render, screen } from "~/test/render";
 
 vi.mock("@mui/material/Typography", () => ({
   default: ({ component: Component, children, sx, ...props }: any) => {

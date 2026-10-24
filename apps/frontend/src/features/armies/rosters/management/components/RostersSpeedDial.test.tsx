@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
-import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { RostersSpeedDial } from "./RostersSpeedDial.tsx";
+import { fireEvent, render, screen } from "~/test/render";
 
 vi.mock("@mui/material/SpeedDial", () => ({
   default: ({

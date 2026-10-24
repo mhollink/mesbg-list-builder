@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import { ReferenceResultCount } from "./ReferenceResultCount.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ReferenceResultCount", () => {
   test("uses the singular label for one result", () => {

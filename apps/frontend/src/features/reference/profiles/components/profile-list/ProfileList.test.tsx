@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
 import type { LocalizedProfile, ProfileRow } from "../../profiles.types.ts";
 import { ProfileList } from "./ProfileList.tsx";
+import { render, screen } from "~/test/render";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({

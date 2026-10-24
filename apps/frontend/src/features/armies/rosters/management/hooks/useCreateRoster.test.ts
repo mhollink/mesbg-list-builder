@@ -1,10 +1,10 @@
-import { act, renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
   GuestRosterAlreadyExistsError,
   useCreateRoster,
 } from "./useCreateRoster.ts";
+import { act, renderHook } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   dispatch: vi.fn(),

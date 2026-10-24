@@ -1,10 +1,10 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import type { ArmyListMatch } from "../army-list-finder.types.ts";
 import { ArmyListFinderResultItem } from "./ArmyListFinderResultItem.tsx";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
+import { render, screen } from "~/test/render";
 
 vi.mock("./ProfileFitChip.tsx", () => ({
   ProfileFitChip: ({

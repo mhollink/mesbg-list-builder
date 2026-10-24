@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import { ErrataText } from "./ErrataText.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ErrataText", () => {
   test("renders the errata wording", () => {

@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import { ReferencePageHeader } from "./ReferencePageHeader.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ReferencePageHeader", () => {
   test("renders the page title and description", () => {

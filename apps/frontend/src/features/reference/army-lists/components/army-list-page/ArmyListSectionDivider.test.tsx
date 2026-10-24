@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import { ArmyListSectionDivider } from "./ArmyListSectionDivider.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ArmyListSectionDivider", () => {
   test("renders the section title between two dividers", () => {

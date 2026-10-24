@@ -2,10 +2,10 @@ import type { ReactNode } from "react";
 import { MemoryRouter, Route, Routes } from "react-router";
 
 import type { RosterGroup, RosterSummary } from "@mlb/api-client";
-import { renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { useRosterGroupNavigation } from "./useRosterGroupNavigation.ts";
+import { renderHook } from "~/test/render";
 
 describe("useRosterGroupNavigation", () => {
   it("returns root-level groups and rosters on the root route", () => {

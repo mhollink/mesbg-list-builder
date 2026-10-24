@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import { ProfileAutocomplete } from "./ProfileAutocomplete.tsx";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
+import { render, screen } from "~/test/render";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({

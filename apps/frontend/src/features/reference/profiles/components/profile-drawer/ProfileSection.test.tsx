@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import { ProfileSection } from "./ProfileSection.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ProfileSection", () => {
   test("renders its title and children", () => {

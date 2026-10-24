@@ -1,10 +1,10 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import type { ArmyListMatch } from "../army-list-finder.types.ts";
 import { ArmyListFinderResults } from "./ArmyListFinderResults.tsx";
 import type { LocalizedArmyList } from "~/features/reference/army-lists/army-lists.types.ts";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
+import { render, screen } from "~/test/render";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({

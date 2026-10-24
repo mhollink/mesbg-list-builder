@@ -1,4 +1,3 @@
-import { renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { useBuilderGameData } from "./useBuilderGameData.ts";
@@ -7,6 +6,7 @@ import type {
   LocalizedArmyListProfile,
 } from "~/features/reference/army-lists/army-lists.types.ts";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
+import { renderHook } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   armyLists: [] as LocalizedArmyList[],

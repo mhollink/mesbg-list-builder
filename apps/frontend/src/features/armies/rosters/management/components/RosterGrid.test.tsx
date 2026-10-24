@@ -1,8 +1,8 @@
 import type { RosterGroup, RosterSummary } from "@mlb/api-client";
-import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { RosterGrid } from "./RosterGrid.tsx";
+import { render, screen } from "~/test/render";
 
 vi.mock("~/features/reference/army-lists/hooks/useGameArmyLists.ts", () => ({
   useGameArmyLists: () => ({

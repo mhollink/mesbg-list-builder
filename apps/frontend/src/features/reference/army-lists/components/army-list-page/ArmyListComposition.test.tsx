@@ -1,10 +1,10 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import type { LocalizedArmyListProfile } from "../../army-lists.types.ts";
 import { ArmyListComposition } from "./ArmyListComposition.tsx";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
+import { render, screen } from "~/test/render";
 
 vi.mock("./ArmyListTier.tsx", () => ({
   ArmyListTier: ({

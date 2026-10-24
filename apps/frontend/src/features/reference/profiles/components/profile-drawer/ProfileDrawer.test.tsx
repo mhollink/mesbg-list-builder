@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { LocalizedProfile } from "../../profiles.types.ts";
 import { ProfileDrawer } from "./ProfileDrawer.tsx";
 import type { ProfileDrawerContent } from "./profile-drawer.types.ts";
+import { render, screen } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   useProfileDrawer: vi.fn(),

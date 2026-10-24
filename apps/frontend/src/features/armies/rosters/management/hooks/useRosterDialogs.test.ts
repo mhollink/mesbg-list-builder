@@ -1,8 +1,8 @@
 import type { RosterGroup, RosterSummary } from "@mlb/api-client";
-import { act, renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { useRosterDialogs } from "./useRosterDialogs.ts";
+import { act, renderHook } from "~/test/render";
 
 describe("useRosterDialogs", () => {
   it("opens and closes create dialogs", () => {

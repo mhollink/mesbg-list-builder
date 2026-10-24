@@ -1,10 +1,10 @@
 import type { ComponentProps } from "react";
 
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import { ReplaceGuestRosterDialog } from "./ReplaceGuestRosterDialog.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ReplaceGuestRosterDialog", () => {
   it("explains which guest roster will be replaced", () => {

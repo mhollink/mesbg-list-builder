@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
 import type { LocalizedArmyListProfile } from "../../army-lists.types.ts";
 import { ArmyListTier } from "./ArmyListTier.tsx";
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
+import { render, screen } from "~/test/render";
 
 vi.mock("./ArmyListProfile.tsx", () => ({
   ArmyListProfile: ({ profile }: { profile: LocalizedArmyListProfile }) => (

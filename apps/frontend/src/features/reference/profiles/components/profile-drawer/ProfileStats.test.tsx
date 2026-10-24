@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import { ProfileStats } from "./ProfileStats.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ProfileStats", () => {
   test("renders warrior stats", () => {

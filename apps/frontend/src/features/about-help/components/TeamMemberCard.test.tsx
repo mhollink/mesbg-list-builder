@@ -1,9 +1,9 @@
 import Typography from "@mui/material/Typography";
 
-import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { TeamMemberCard, type TeamMemberCardProps } from "./TeamMemberCard.tsx";
+import { render, screen } from "~/test/render";
 
 const member: TeamMemberCardProps = {
   name: "Marcel Hollink",
