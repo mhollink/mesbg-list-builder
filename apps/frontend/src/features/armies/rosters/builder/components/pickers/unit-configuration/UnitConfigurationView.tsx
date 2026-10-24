@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Stack from "@mui/material/Stack";
+import { alpha } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 import { getUnitCost, getUnitTotalCost } from "../../../domain/option-rules.ts";
@@ -187,6 +188,12 @@ export function UnitConfigurationView({
                     sx={{
                       alignItems: "center",
                       justifyContent: "space-between",
+                      px: 1,
+                      borderRadius: 1,
+                      bgcolor: (theme) =>
+                        checked
+                          ? alpha(theme.palette.highlight.main, 0.1)
+                          : "transparent",
                     }}
                   >
                     <FormControlLabel

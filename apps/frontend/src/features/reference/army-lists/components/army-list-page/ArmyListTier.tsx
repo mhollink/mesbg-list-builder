@@ -20,10 +20,13 @@ export function ArmyListTier({ profiles, onOpenProfile }: ArmyListTierProps) {
     <Stack sx={{ gap: 2 }}>
       <Typography
         variant="overline"
-        color="primary"
+        color="textSecondary"
         sx={{
           fontWeight: 700,
           lineHeight: 1.5,
+          pl: 1.5,
+          borderLeft: "3px solid",
+          borderColor: "tertiary.main",
         }}
       >
         {firstProfile.tierName}

@@ -10,8 +10,8 @@ export const mordorTheme: ThemePreset = {
   colors: createThemeTokens({
     primary: "#592D32",
     secondary: "#302D2D",
-    tertiary: "#76402D",
-    accent: "#D16A24",
-    highlight: "#B8322B",
+    tertiary: "#6D635A",
+    accent: "#D6BD75",
+    highlight: "#71748D",
   }),
 };

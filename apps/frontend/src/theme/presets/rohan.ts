@@ -9,9 +9,9 @@ export const rohanTheme: ThemePreset = {
 
   colors: createThemeTokens({
     primary: "#567A3E",
-    secondary: "#9A713F",
+    secondary: "#806C51",
     tertiary: "#D4B85A",
     accent: "#3E7892",
-    highlight: "#A84B37",
+    highlight: "#896D62",
   }),
 };

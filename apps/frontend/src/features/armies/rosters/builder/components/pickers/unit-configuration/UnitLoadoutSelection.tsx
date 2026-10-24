@@ -1,5 +1,6 @@
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
+import { alpha } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 import { UnitLoadoutQuantityControls } from "~/features/armies/rosters/builder/components/pickers/unit-configuration/UnitLoadoutQuantityControls.tsx";
@@ -71,6 +72,16 @@ export function UnitLoadoutSelection({
             sx={{
               justifyContent: "space-between",
               alignItems: "center",
+              px: 1,
+              py: 0.75,
+              borderRadius: 1,
+              borderLeft: "3px solid",
+              borderLeftColor:
+                loadout.quantity > 0 ? "primary.main" : "transparent",
+              bgcolor: (theme) =>
+                loadout.quantity > 0
+                  ? alpha(theme.palette.highlight.main, 0.1)
+                  : "transparent",
             }}
           >
             <Stack>

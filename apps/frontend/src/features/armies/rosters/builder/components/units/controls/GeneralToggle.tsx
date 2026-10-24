@@ -25,14 +25,18 @@ export function GeneralToggle({
           aria-pressed={isGeneral}
           disabled={isFixedGeneral}
           onClick={() => onSetGeneral(!isGeneral)}
-          tone={isGeneral ? "success" : "default"}
+          tone={isGeneral ? "accent" : "default"}
           filled
         >
           <CrownIcon fontSize="small" />
         </IconButton>
         <Typography
-          color={isGeneral ? "success" : "inherit"}
-          sx={{ display: "flex", alignItems: "center" }}
+          color="text.primary"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            fontWeight: isGeneral ? 700 : 400,
+          }}
         >
           {isGeneral ? "Army General" : "Set as General"}
         </Typography>

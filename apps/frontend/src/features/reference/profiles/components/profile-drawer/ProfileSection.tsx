@@ -15,6 +15,9 @@ export function ProfileSection({ title, children }: ProfileSectionProps) {
         sx={{
           fontWeight: 700,
           lineHeight: 1.5,
+          pl: 1.5,
+          borderLeft: "3px solid",
+          borderColor: "tertiary.main",
         }}
       >
         {title}
