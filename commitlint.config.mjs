@@ -23,6 +23,7 @@ const scopes = [
     'armies',
     'account',
     'navigation',
+    'theme'
 ];
 
 export default {
