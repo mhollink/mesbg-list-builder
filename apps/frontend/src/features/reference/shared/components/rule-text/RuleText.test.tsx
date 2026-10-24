@@ -1,24 +1,8 @@
-import type { Theme } from "@mui/material/styles";
-
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import { RuleText } from "./RuleText.tsx";
 import { render, screen, within } from "~/test/render";
-
-vi.mock("@mui/material/Typography", () => ({
-  default: ({ component: Component, children, sx, ...props }: any) => {
-    const mockTheme = {
-      appColors: { highlight: "mocked-highlight-color" },
-    } as Theme;
-    const resolvedSx = typeof sx === "function" ? sx(mockTheme) : sx;
-    return (
-      <Component data-sx={JSON.stringify(resolvedSx)} {...props}>
-        {children}
-      </Component>
-    );
-  },
-}));
 
 describe("RuleText", () => {
   test("renders separate paragraphs from newline-separated text", () => {
