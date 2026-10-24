@@ -16,6 +16,6 @@ export const conquestCreationsTheme: ThemePreset = {
     secondary: "#1990c6",
     tertiary: "#0b3859",
     accent: "#27ae60",
-    highlight: "#ff5f00",
+    highlight: "#6A69B7",
   }),
 };

@@ -10,9 +10,9 @@ export const defaultTheme: ThemePreset = {
     brand: {
       primary: "#2867A8",
       secondary: "#3E914D",
-      tertiary: "#965D2E",
+      tertiary: "#75695D",
       accent: "#E0AE22",
-      highlight: "#D04432",
+      highlight: "#7566A8",
     },
 
     surface: {

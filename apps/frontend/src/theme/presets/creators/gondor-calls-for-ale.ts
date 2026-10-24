@@ -15,7 +15,7 @@ export const gondorCallsForAleTheme: ThemePreset = {
     primary: "#02112C",
     secondary: "#334255",
     tertiary: "#EDD8BF",
-    accent: "#BE8538",
-    highlight: "#965721",
+    accent: "#D1B567",
+    highlight: "#798C82",
   }),
 };

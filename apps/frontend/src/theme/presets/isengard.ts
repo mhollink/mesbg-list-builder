@@ -10,8 +10,8 @@ export const isengardTheme: ThemePreset = {
   colors: createThemeTokens({
     primary: "#34383A",
     secondary: "#D4D0C5",
-    tertiary: "#704437",
-    accent: "#B47732",
+    tertiary: "#6E6253",
+    accent: "#C0AC75",
     highlight: "#607887",
   }),
 };
