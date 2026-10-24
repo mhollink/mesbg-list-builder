@@ -16,6 +16,6 @@ export const tabletopAllianceTheme: ThemePreset = {
     secondary: "#327FA1",
     tertiary: "#CCD7E4",
     accent: "#5B4B5A",
-    highlight: "#9B6964",
+    highlight: "#7B829F",
   }),
 };

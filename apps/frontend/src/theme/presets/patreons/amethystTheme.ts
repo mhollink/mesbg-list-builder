@@ -12,6 +12,6 @@ export const amethystTheme: ThemePreset = {
     secondary: "#8B5CF6",
     tertiary: "#3F5F8F",
     accent: "#D6A72C",
-    highlight: "#D05A9E",
+    highlight: "#BA7ACE",
   }),
 };
