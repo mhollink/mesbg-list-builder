@@ -12,13 +12,13 @@ export interface GeneralToggleProps {
 }
 
 export function GeneralToggle({
-                                isGeneral,
-                                isFixedGeneral,
-                                onSetGeneral,
-                              }: GeneralToggleProps) {
+  isGeneral,
+  isFixedGeneral,
+  onSetGeneral,
+}: GeneralToggleProps) {
   return (
     <Tooltip title={isGeneral ? "Army General" : "Set as General"}>
-      <Stack direction="row" spacing={1} sx={{justifyContent: "center"}}>
+      <Stack direction="row" spacing={1} sx={{ justifyContent: "center" }}>
         <IconButton
           size="small"
           aria-label={isGeneral ? "Army General" : "Set as General"}
@@ -28,7 +28,7 @@ export function GeneralToggle({
           tone={isGeneral ? "accent" : "default"}
           filled
         >
-          <CrownIcon fontSize="small"/>
+          <CrownIcon fontSize="small" />
         </IconButton>
         <Typography
           color="text.primary"
