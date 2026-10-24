@@ -537,7 +537,7 @@ class RosterStatisticsCalculatorTest {
   private ArmyListProfileOptionData armyListProfileOption(
       String id, String optionId, String state, Integer pointsOverride) {
 
-    return new ArmyListProfileOptionData(id, optionId, state, pointsOverride, null);
+    return new ArmyListProfileOptionData(id, optionId, state, "equipment", pointsOverride, null);
   }
 
   private ArmyListData armyList(List<ArmyListOptionData> options) {

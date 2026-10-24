@@ -1,105 +1,123 @@
 import Divider from "@mui/material/Divider";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Stack from "@mui/material/Stack";
-import { alpha } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
-import { UnitLoadoutQuantityControls } from "~/features/armies/rosters/builder/components/pickers/unit-configuration/UnitLoadoutQuantityControls.tsx";
-
-interface Loadout {
-  name: string;
-  pp: number;
-  quantity: number;
-}
+import { UnitLoadoutQuantityControls } from "./UnitLoadoutQuantityControls.tsx";
+import { isSpecialUpgrade } from "./unit-configuration.utils.ts";
+import Switch from "~/components/switch";
+import type { LocalizedArmyListProfileOption } from "~/features/reference/army-lists/army-lists.types.ts";
 
 interface UnitLoadoutSelectionProps {
-  loadouts: Record<string, Loadout>;
-  quantityOnly: boolean;
-  handleChangeQuantity: (option: string, quantity: number) => void;
+  options: readonly LocalizedArmyListProfileOption[];
+  selectedOptionIds: readonly string[];
+  quantity: number;
+  showQuantity: boolean;
+  disabled?: boolean;
+  onToggleOption: (optionId: string, checked: boolean) => void;
+  onChangeQuantity: (quantity: number) => void;
 }
 
 export function UnitLoadoutSelection({
-  loadouts,
-  quantityOnly,
-  handleChangeQuantity,
+  options,
+  selectedOptionIds,
+  quantity,
+  showQuantity,
+  disabled = false,
+  onToggleOption,
+  onChangeQuantity,
 }: UnitLoadoutSelectionProps) {
-  const standardEntry = Object.entries(loadouts)[0];
+  const upgrades = options.filter(isSpecialUpgrade);
+  const equipment = options.filter((option) => !isSpecialUpgrade(option));
+  const compulsoryUpgrade = upgrades.find(
+    (option) => option.state === "preselected",
+  );
 
-  if (quantityOnly && standardEntry) {
-    const [key, loadout] = standardEntry;
-
-    return (
+  const renderOptions = (
+    title: string,
+    entries: readonly LocalizedArmyListProfileOption[],
+  ) =>
+    entries.length > 0 && (
       <>
-        <Stack
-          direction="row"
-          sx={{
-            p: 2,
-            my: 1,
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <Stack spacing={1} sx={{ p: 2 }}>
           <Typography variant="h6" component="h3" sx={{ fontWeight: 700 }}>
-            Quantity
+            {title}
           </Typography>
-
-          <UnitLoadoutQuantityControls
-            quantity={loadout.quantity}
-            onChange={(value) => handleChangeQuantity(key, value)}
-          />
+          {entries.map((option) => {
+            const preselected = option.state === "preselected";
+            const checked =
+              preselected || selectedOptionIds.includes(option.id);
+            return (
+              <Stack
+                key={option.id}
+                direction="row"
+                sx={{
+                  px: 1,
+                  py: 0.5,
+                  borderRadius: 1,
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  bgcolor: checked ? "action.selected" : "transparent",
+                }}
+              >
+                <FormControlLabel
+                  sx={{ m: 0, minWidth: 0 }}
+                  control={
+                    <Switch
+                      checked={checked}
+                      disabled={
+                        disabled ||
+                        preselected ||
+                        (isSpecialUpgrade(option) &&
+                          compulsoryUpgrade !== undefined)
+                      }
+                      onChange={(_, next) => onToggleOption(option.id, next)}
+                    />
+                  }
+                  label={option.name}
+                />
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ ml: 1, whiteSpace: "nowrap", flexShrink: 0 }}
+                >
+                  {preselected
+                    ? "Included"
+                    : option.points === undefined
+                      ? ""
+                      : `${option.points > 0 ? "+" : ""}${option.points} pts`}
+                </Typography>
+              </Stack>
+            );
+          })}
         </Stack>
         <Divider />
       </>
     );
-  }
 
   return (
     <>
-      <Stack spacing={1} sx={{ p: 2, my: 1 }}>
-        <Typography
-          variant="h6"
-          component="h3"
-          sx={{
-            fontWeight: 700,
-          }}
-        >
-          Equipment and quantity
-        </Typography>
-
-        {Object.entries(loadouts).map(([optionId, loadout]) => (
+      {renderOptions("Special upgrades", upgrades)}
+      {renderOptions("Equipment", equipment)}
+      {showQuantity && (
+        <>
           <Stack
-            key={optionId}
             direction="row"
-            sx={{
-              justifyContent: "space-between",
-              alignItems: "center",
-              px: 1,
-              py: 0.75,
-              borderRadius: 1,
-              borderLeft: "3px solid",
-              borderLeftColor:
-                loadout.quantity > 0 ? "primary.main" : "transparent",
-              bgcolor: (theme) =>
-                loadout.quantity > 0
-                  ? alpha(theme.palette.highlight.main, 0.1)
-                  : "transparent",
-            }}
+            sx={{ p: 2, alignItems: "center", justifyContent: "space-between" }}
           >
-            <Stack>
-              <Typography sx={{ fontWeight: 700 }}>{loadout.name}</Typography>
-              <Typography color="textSecondary">
-                +{loadout.pp} points
-              </Typography>
-            </Stack>
-            <Stack>
-              <UnitLoadoutQuantityControls
-                quantity={loadout.quantity}
-                onChange={(value) => handleChangeQuantity(optionId, value)}
-              />
-            </Stack>
+            <Typography variant="h6" component="h3" sx={{ fontWeight: 700 }}>
+              Quantity
+            </Typography>
+            <UnitLoadoutQuantityControls
+              quantity={quantity}
+              minQuantity={1}
+              disabled={disabled}
+              onChange={onChangeQuantity}
+            />
           </Stack>
-        ))}
-      </Stack>
-      <Divider />
+          <Divider />
+        </>
+      )}
     </>
   );
 }

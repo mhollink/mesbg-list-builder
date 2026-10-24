@@ -6,12 +6,14 @@ import Typography from "@mui/material/Typography";
 
 interface LoadoutQuantityControlsProps {
   quantity: number;
+  minQuantity?: number;
   disabled?: boolean;
   onChange: (quantity: number) => void;
 }
 
 export function UnitLoadoutQuantityControls({
   quantity,
+  minQuantity = 1,
   disabled = false,
   onChange,
 }: LoadoutQuantityControlsProps) {
@@ -19,8 +21,8 @@ export function UnitLoadoutQuantityControls({
     <Stack direction="row" spacing={0} sx={{ alignItems: "center" }}>
       <IconButton
         size="small"
-        disabled={disabled || quantity <= 0}
-        onClick={() => onChange(quantity - 1)}
+        disabled={disabled || quantity <= minQuantity}
+        onClick={() => onChange(Math.max(minQuantity, quantity - 1))}
         aria-label="Decrease quantity"
       >
         <RemoveIcon fontSize="small" />
