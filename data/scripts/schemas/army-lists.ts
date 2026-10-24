@@ -57,6 +57,10 @@ export const profileOptionRowSchema = z.object({
     (value) => (value === "" || value == null ? undefined : value),
     z.enum(["available", "preselected"]).default("available"),
   ),
+  category: z.preprocess(
+    (value) => (value === "" || value == null ? undefined : value),
+    z.enum(["equipment", "special-upgrade"]).default("equipment"),
+  ),
 
   points_override: optionalNumberCellSchema,
 });

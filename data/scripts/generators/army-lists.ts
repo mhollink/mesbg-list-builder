@@ -126,6 +126,7 @@ function mapProfileOption(row: ProfileOptionRow): ArmyListProfileOption {
     id: row.option,
     optionId: row.option,
     state: row.state,
+    category: row.category,
 
     ...(row.points_override !== undefined
       ? { pointsOverride: row.points_override }
