@@ -1,9 +1,9 @@
 import type { RosterSummary } from "@mlb/api-client";
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { DeleteRosterDialog } from "./DeleteRosterDialog.tsx";
+import { render, screen } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   deleteRoster: vi.fn(),

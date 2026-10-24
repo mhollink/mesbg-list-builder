@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import type { ArmyListRow, LocalizedArmyList } from "../../army-lists.types.ts";
 import { ArmyListListRow } from "./ArmyListListRow.tsx";
+import { render, screen } from "~/test/render";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({

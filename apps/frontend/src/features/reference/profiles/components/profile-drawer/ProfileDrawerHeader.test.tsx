@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import type { LocalizedProfile } from "../../profiles.types.ts";
 import { ProfileDrawerHeader } from "./ProfileDrawerHeader.tsx";
+import { render, screen } from "~/test/render";
 
 const profile = {
   profile: "aragorn",

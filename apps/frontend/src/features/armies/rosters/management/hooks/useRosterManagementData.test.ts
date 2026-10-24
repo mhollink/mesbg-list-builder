@@ -1,8 +1,8 @@
 import type { RosterGroup, RosterSummary } from "@mlb/api-client";
-import { renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { useRosterManagementData } from "./useRosterManagementData.ts";
+import { renderHook } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   rostersQuery: vi.fn(),

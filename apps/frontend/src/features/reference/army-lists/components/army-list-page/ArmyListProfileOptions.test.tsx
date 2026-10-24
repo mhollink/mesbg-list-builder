@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import type { LocalizedArmyListProfileOption } from "../../army-lists.types.ts";
 import { ArmyListProfileOptions } from "./ArmyListProfileOptions.tsx";
+import { render, screen } from "~/test/render";
 
 const options = [
   {

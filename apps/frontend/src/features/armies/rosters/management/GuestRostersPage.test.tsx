@@ -1,8 +1,8 @@
-import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { GuestRostersPage } from "./GuestRostersPage.tsx";
 import type { GuestRoster } from "~/features/armies/rosters/guest/guest-roster.types.ts";
+import { fireEvent, render, screen } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   dispatch: vi.fn(),

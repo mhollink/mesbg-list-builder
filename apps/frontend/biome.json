@@ -52,7 +52,15 @@
             "noExplicitAny": "off"
           },
           "style": {
-            "noNonNullAssertion": "off"
+            "noNonNullAssertion": "off",
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "@testing-library/react": "Import from ~/test/render instead, which provides the application theme."
+                }
+              }
+            }
           }
         }
       }

@@ -1,4 +1,3 @@
-import { renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { useGuestRosterPersistence } from "./useGuestRosterPersistence.ts";
@@ -15,6 +14,7 @@ import {
   updateGuestUnit,
 } from "~/features/armies/rosters/guest/guest-roster.slice.ts";
 import type { GuestRoster } from "~/features/armies/rosters/guest/guest-roster.types.ts";
+import { renderHook } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   dispatch: vi.fn(),

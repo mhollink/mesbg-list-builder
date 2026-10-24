@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import { ProfileValueList } from "./ProfileValueList.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ProfileValueList", () => {
   test("renders nothing without values", () => {

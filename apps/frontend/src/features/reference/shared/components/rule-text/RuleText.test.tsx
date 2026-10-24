@@ -1,10 +1,10 @@
 import type { Theme } from "@mui/material/styles";
 
-import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import { RuleText } from "./RuleText.tsx";
+import { render, screen, within } from "~/test/render";
 
 vi.mock("@mui/material/Typography", () => ({
   default: ({ component: Component, children, sx, ...props }: any) => {

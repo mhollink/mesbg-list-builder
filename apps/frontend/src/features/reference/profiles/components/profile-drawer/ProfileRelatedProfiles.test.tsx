@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import { ProfileRelatedProfiles } from "./ProfileRelatedProfiles.tsx";
 import type { ProfileDrawerRelatedProfile } from "./profile-drawer.types.ts";
+import { render, screen } from "~/test/render";
 
 const profiles: ProfileDrawerRelatedProfile[] = [
   {

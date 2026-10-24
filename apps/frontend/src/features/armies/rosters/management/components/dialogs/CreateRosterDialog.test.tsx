@@ -1,9 +1,9 @@
-import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { CreateRosterDialog } from "./CreateRosterDialog.tsx";
 import { GuestRosterAlreadyExistsError } from "~/features/armies/rosters/management/hooks/useCreateRoster.ts";
+import { render, screen, waitFor } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   createRoster: vi.fn(),

@@ -1,7 +1,7 @@
-import { renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { useAuthenticatedRosterPersistence } from "./useAuthenticatedRosterPersistence.ts";
+import { renderHook } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   createWarband: vi.fn(),

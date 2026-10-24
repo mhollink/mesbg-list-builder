@@ -1,8 +1,8 @@
-import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import { ProfilesToolbar } from "./ProfilesToolbar.tsx";
+import { fireEvent, render, screen } from "~/test/render";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({

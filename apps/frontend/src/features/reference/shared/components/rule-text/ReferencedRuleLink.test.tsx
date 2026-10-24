@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, test, vi } from "vitest";
 
 import { ReferencedRuleLink } from "./ReferencedRuleLink.tsx";
+import { render, screen } from "~/test/render";
 
 describe("ReferencedRuleLink", () => {
   test("renders as a button and forwards clicks", async () => {

@@ -1,7 +1,7 @@
-import { act, renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { useRosterDragAndDrop } from "./useRosterDragAndDrop.ts";
+import { act, renderHook } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   moveRosterToGroup: vi.fn(),

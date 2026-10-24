@@ -1,11 +1,11 @@
 import { MemoryRouter } from "react-router";
 
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import type { GuestRoster } from "../../../guest/guest-roster.types.ts";
 import { GuestRosterCard } from "./GuestRosterCard.tsx";
+import { render, screen } from "~/test/render";
 
 vi.mock("~/components/heraldry/HeraldryIcon.tsx", () => ({
   HeraldryIcon: () => <span data-testid="heraldry-icon" />,

@@ -1,7 +1,7 @@
-import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
 import { ReferenceSearchField } from "./ReferenceSearchField.tsx";
+import { fireEvent, render, screen } from "~/test/render";
 
 describe("ReferenceSearchField", () => {
   test("renders the current search value and placeholder", () => {

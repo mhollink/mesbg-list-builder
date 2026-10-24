@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
 import { ProfileOptions } from "./ProfileOptions.tsx";
 import type { ProfileDrawerOption } from "./profile-drawer.types.ts";
+import { render, screen } from "~/test/render";
 
 const options: ProfileDrawerOption[] = [
   {

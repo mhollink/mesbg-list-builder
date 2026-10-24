@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
-import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { AuthenticatedRostersPage } from "./AuthenticatedRostersPage.tsx";
+import { fireEvent, render, screen } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
   useData: vi.fn(),
