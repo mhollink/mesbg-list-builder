@@ -1,23 +1,7 @@
-import type { Theme } from "@mui/material/styles";
-
-import { describe, expect, test, vi } from "vitest";
+import { describe, expect, test } from "vitest";
 
 import { Keyword } from "./Keyword.tsx";
 import { render, screen } from "~/test/render";
-
-vi.mock("@mui/material/Typography", () => ({
-  default: ({ component: Component, children, sx, ...props }: any) => {
-    const mockTheme = {
-      appColors: { highlight: "mocked-highlight-color" },
-    } as Theme;
-    const resolvedSx = typeof sx === "function" ? sx(mockTheme) : sx;
-    return (
-      <Component data-sx={JSON.stringify(resolvedSx)} {...props}>
-        {children}
-      </Component>
-    );
-  },
-}));
 
 describe("Keyword", () => {
   test("renders its content with strong semantics", () => {
