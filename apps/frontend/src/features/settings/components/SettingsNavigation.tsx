@@ -9,7 +9,7 @@ import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material/styles";
+import { alpha, useTheme } from "@mui/material/styles";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -91,6 +91,9 @@ export function SettingsNavigation() {
           "& .MuiTab-root": {
             minHeight: 48,
             justifyContent: desktop ? "flex-start" : "center",
+          },
+          "& .MuiTab-root.Mui-selected": {
+            bgcolor: (theme) => alpha(theme.palette.secondary.main, 0.1),
           },
         }}
       >

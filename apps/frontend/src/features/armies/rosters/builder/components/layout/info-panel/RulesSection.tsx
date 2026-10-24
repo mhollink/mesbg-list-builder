@@ -33,7 +33,14 @@ export function RulesSection({ title, rules, onRuleClick }: RulesSectionProps) {
 
       <Stack spacing={3}>
         {rules.map((rule) => (
-          <Box key={rule.id}>
+          <Box
+            key={rule.id}
+            sx={{
+              pl: 1.5,
+              borderLeft: "3px solid",
+              borderColor: "tertiary.main",
+            }}
+          >
             <Typography variant="subtitle2" sx={{ mb: 0.75, fontWeight: 700 }}>
               {rule.name}
             </Typography>

@@ -79,6 +79,8 @@ export function RosterGroupCard({
         width: "100%",
         maxWidth: 300,
         minHeight: 180,
+        borderTop: "3px solid",
+        borderTopColor: "secondary.main",
         outline: "2px solid",
         outlineColor: isDropTarget ? "primary.main" : "transparent",
         transition: (theme) =>

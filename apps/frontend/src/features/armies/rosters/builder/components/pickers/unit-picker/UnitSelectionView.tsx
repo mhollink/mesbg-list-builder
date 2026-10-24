@@ -122,7 +122,12 @@ export function UnitSelectionView({
             {profileGroups.map((group) => (
               <Fragment key={group.tier}>
                 <ListSubheader disableSticky>
-                  <Divider textAlign="left">
+                  <Divider
+                    textAlign="left"
+                    sx={{
+                      "&::before, &::after": { borderColor: "tertiary.main" },
+                    }}
+                  >
                     <Typography
                       variant="overline"
                       color="textSecondary"

@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
+import { alpha } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 import type { LocalizedProfile } from "~/features/reference/profiles/profiles.types.ts";
@@ -60,6 +61,11 @@ export function SelectedProfiles({
             key={profile.profile}
             label={profile.name}
             onDelete={() => onRemove(profile.profile)}
+            sx={{
+              bgcolor: (theme) => alpha(theme.palette.highlight.main, 0.12),
+              border: "1px solid",
+              borderColor: "primary.main",
+            }}
           />
         ))}
       </Stack>

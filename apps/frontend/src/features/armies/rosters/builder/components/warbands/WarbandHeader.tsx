@@ -1,4 +1,5 @@
 import Stack from "@mui/material/Stack";
+import { alpha } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 import {
@@ -35,6 +36,9 @@ export function WarbandHeader({
       direction="row"
       sx={{
         p: 1,
+        bgcolor: (theme) => alpha(theme.palette.secondary.main, 0.1),
+        borderLeft: "3px solid",
+        borderLeftColor: "secondary.main",
         display: { xs: "none", sm: "flex" },
         justifyContent: "space-between",
         alignItems: "center",
@@ -85,6 +89,9 @@ export function MobileWarbandHeader({
       spacing={{ xs: 1, sm: 2 }}
       sx={{
         p: 1,
+        bgcolor: (theme) => alpha(theme.palette.secondary.main, 0.1),
+        borderLeft: "3px solid",
+        borderLeftColor: "secondary.main",
         display: { sx: "flex", sm: "none" },
         justifyContent: "space-between",
         alignItems: "center",
