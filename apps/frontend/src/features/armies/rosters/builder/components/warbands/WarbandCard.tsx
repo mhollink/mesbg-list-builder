@@ -227,6 +227,7 @@ export function WarbandCard({
             : undefined
         }
         unit={selectedFollower}
+        capacity={capacity}
         onSave={(profile, loadout) =>
           saveFollowerLoadout(
             warband,

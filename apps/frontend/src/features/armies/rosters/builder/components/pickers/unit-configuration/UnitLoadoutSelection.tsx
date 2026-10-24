@@ -16,6 +16,7 @@ interface UnitLoadoutSelectionProps {
   disabled?: boolean;
   onToggleOption: (optionId: string, checked: boolean) => void;
   onChangeQuantity: (quantity: number) => void;
+  remainingSlots?: number;
 }
 
 export function UnitLoadoutSelection({
@@ -26,6 +27,7 @@ export function UnitLoadoutSelection({
   disabled = false,
   onToggleOption,
   onChangeQuantity,
+  remainingSlots,
 }: UnitLoadoutSelectionProps) {
   const upgrades = options.filter(isSpecialUpgrade);
   const equipment = options.filter((option) => !isSpecialUpgrade(option));
@@ -105,9 +107,23 @@ export function UnitLoadoutSelection({
             direction="row"
             sx={{ p: 2, alignItems: "center", justifyContent: "space-between" }}
           >
-            <Typography variant="h6" component="h3" sx={{ fontWeight: 700 }}>
-              Quantity
-            </Typography>
+            <Stack direction="column">
+              <Typography variant="h6" component="h3" sx={{ fontWeight: 700 }}>
+                Quantity
+              </Typography>
+              {remainingSlots !== undefined && (
+                <Typography
+                  variant="caption"
+                  color={remainingSlots < 0 ? "error" : "textSecondary"}
+                >
+                  {remainingSlots < 0
+                    ? `${-remainingSlots} over warband capacity`
+                    : `${remainingSlots} free ${
+                        remainingSlots === 1 ? "slot" : "slots"
+                      } in warband`}
+                </Typography>
+              )}
+            </Stack>
             <UnitLoadoutQuantityControls
               quantity={quantity}
               minQuantity={1}

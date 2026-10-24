@@ -4,6 +4,7 @@ import { UnitConfigurationView } from "~/features/armies/rosters/builder/compone
 import type { UnitLoadout } from "~/features/armies/rosters/builder/components/pickers/unit-configuration/unit-configuration.utils.ts";
 import { UnitSelectionView } from "~/features/armies/rosters/builder/components/pickers/unit-picker/UnitSelectionView.tsx";
 import type { BuilderUnit } from "~/features/armies/rosters/builder/domain/roster.types.ts";
+import type { WarbandCapacity } from "~/features/armies/rosters/builder/domain/warband-rules.ts";
 import { useBuilderPickerHistory } from "~/features/armies/rosters/builder/hooks/useBuilderPickerHistory.ts";
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
@@ -13,6 +14,7 @@ interface UnitPickerProps {
   profiles: readonly LocalizedArmyListProfile[];
   initialProfile?: LocalizedArmyListProfile;
   unit?: BuilderUnit;
+  capacity?: WarbandCapacity;
   continuous?: boolean;
   onSave: (
     profile: LocalizedArmyListProfile,
@@ -47,6 +49,7 @@ function UnitPickerFlow({
   profiles,
   initialProfile,
   unit,
+  capacity,
   onSave,
   continuous,
 }: UnitPickerProps) {
@@ -84,6 +87,7 @@ function UnitPickerFlow({
       key={`${selectedProfile.id}:${unit?.id ?? "new"}:${open ? "open" : "closed"}`}
       profile={selectedProfile}
       unit={unit}
+      capacity={capacity}
       onBack={initialProfile ? undefined : history.back}
       onClose={history.close}
       onSave={(loadout) => handleSave(selectedProfile, loadout)}
