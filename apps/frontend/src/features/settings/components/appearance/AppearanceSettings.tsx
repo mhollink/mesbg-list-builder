@@ -1,18 +1,17 @@
 import { type MouseEvent, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { Link as RouterLink } from "react-router";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import SettingsBrightnessRoundedIcon from "@mui/icons-material/SettingsBrightnessRounded";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
 
-import { useAppDispatch, useAppSelector } from "../../../../app/store/hooks.ts";
-import type { ThemeMode } from "../../../../theme/theme.types.ts";
-import { THEME_PRESETS } from "../../../../theme/themePresets.ts";
 import {
   setCustomPrimaryColor,
   setPreset,
@@ -20,6 +19,9 @@ import {
 } from "../../state/theme/themeSlice.ts";
 import { CustomThemeCard } from "./CustomThemeCard.tsx";
 import { ThemePresetCard } from "./ThemePresetCard.tsx";
+import { useAppDispatch, useAppSelector } from "~/app/store/hooks.ts";
+import type { ThemeMode } from "~/theme/theme.types.ts";
+import { THEME_PRESETS } from "~/theme/themePresets.ts";
 
 const allPresets = Object.values(THEME_PRESETS);
 
@@ -188,6 +190,14 @@ export function AppearanceSettings() {
             />
           ))}
         </Box>
+        <Button
+          component={RouterLink}
+          to="/community-theme-builder"
+          variant="outlined"
+          sx={{ mt: 2 }}
+        >
+          Create a community theme
+        </Button>
       </Box>
     </Stack>
   );

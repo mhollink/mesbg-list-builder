@@ -6,6 +6,7 @@ import { FeaturesPage } from "../features/about-help/FeaturesPage.tsx";
 import { FeedbackPage } from "../features/about-help/FeedbackPage.tsx";
 import { PoliciesPage } from "../features/about-help/PoliciesPage.tsx";
 import { SupportPage } from "../features/about-help/SupportPage.tsx";
+import { CommunityThemeBuilderPage } from "../features/community-theme-builder/CommunityThemeBuilderPage.tsx";
 import { HomePage } from "../features/home/HomePage.tsx";
 import { AccessibilitySettings } from "../features/settings/components/accessibility/AccessibilitySettings.tsx";
 import { AccountSettings } from "../features/settings/components/account/AccountSettings.tsx";
@@ -159,6 +160,11 @@ export const router = createBrowserRouter([
             element: <DebugProfiles />,
           },
         ],
+      },
+
+      {
+        path: "community-theme-builder",
+        element: <CommunityThemeBuilderPage />,
       },
 
       {
