@@ -17,11 +17,13 @@ export type ArmyListTier =
 export type WarbandCapability = "leader" | "follower" | "standalone";
 
 export type ArmyListProfileOptionState = "available" | "preselected";
+export type ArmyListProfileOptionCategory = "equipment" | "special-upgrade";
 
 export interface ArmyListProfileOption {
   id: string;
   optionId: string;
   state: ArmyListProfileOptionState;
+  category: ArmyListProfileOptionCategory;
   nameKeyOverride?: string;
   pointsOverride?: number;
   upgradeFrom?: string;
