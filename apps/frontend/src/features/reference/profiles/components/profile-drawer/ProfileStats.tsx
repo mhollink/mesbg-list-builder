@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+import { alpha } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -104,7 +105,10 @@ function StatsTable({ values }: { values: Stat[] }) {
               key={stat.id}
               component="th"
               scope="col"
-              sx={{ fontWeight: 700 }}
+              sx={{
+                fontWeight: 700,
+                bgcolor: (theme) => alpha(theme.palette.accent.main, 0.13),
+              }}
             >
               {stat.label}
             </TableCell>

@@ -44,11 +44,20 @@ export function ThemePresetCard({
           </Box>
 
           <Stack direction="row" spacing={1}>
-            <ColorPreview color={preset.colors.brand.primary} />
-            <ColorPreview color={preset.colors.brand.secondary} />
-            <ColorPreview color={preset.colors.brand.tertiary} />
-            <ColorPreview color={preset.colors.brand.accent} />
-            <ColorPreview color={preset.colors.brand.highlight} />
+            <ColorPreview label="Primary" color={preset.colors.brand.primary} />
+            <ColorPreview
+              label="Secondary"
+              color={preset.colors.brand.secondary}
+            />
+            <ColorPreview
+              label="Tertiary"
+              color={preset.colors.brand.tertiary}
+            />
+            <ColorPreview label="Accent" color={preset.colors.brand.accent} />
+            <ColorPreview
+              label="Highlight"
+              color={preset.colors.brand.highlight}
+            />
           </Stack>
         </Stack>
       </CardActionArea>
@@ -56,9 +65,12 @@ export function ThemePresetCard({
   );
 }
 
-function ColorPreview({ color }: { color: string }) {
+function ColorPreview({ color, label }: { color: string; label: string }) {
   return (
     <Box
+      role="img"
+      aria-label={`${label}: ${color}`}
+      title={`${label}: ${color}`}
       sx={{
         width: 32,
         height: 32,

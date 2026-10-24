@@ -148,6 +148,7 @@ export function RosterCard({
                       top: -4,
                       right: -20,
                       fontSize: 18,
+                      color: "accent.main",
                     }}
                   />
                 </Tooltip>

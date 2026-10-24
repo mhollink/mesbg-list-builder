@@ -48,7 +48,7 @@ export function UnitSummary({ profile }: UnitSummaryProps) {
                 key={unitTypeName}
                 label={unitTypeName}
                 size="small"
-                variant={"outlined"}
+                variant="outlined"
               />
             ))}
           </Stack>

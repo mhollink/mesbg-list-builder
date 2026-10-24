@@ -33,6 +33,8 @@ export function ProfileListRow({
           minHeight: 40,
           px: 2,
           bgcolor: "background.default",
+          borderLeft: "3px solid",
+          borderLeftColor: "tertiary.main",
           borderBottom: 1,
           borderColor: "divider",
           scrollMarginTop: `${RULES_TOOLBAR_HEIGHT}px`,
@@ -42,7 +44,7 @@ export function ProfileListRow({
           variant="overline"
           sx={{
             fontWeight: 700,
-            color: "primary.main",
+            color: "text.primary",
           }}
         >
           {row.letter}
