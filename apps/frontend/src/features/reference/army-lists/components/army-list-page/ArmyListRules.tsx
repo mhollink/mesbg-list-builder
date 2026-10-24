@@ -22,6 +22,9 @@ export function ArmyListRules({
           key={rule.id}
           sx={{
             gap: 1,
+            pl: 2,
+            borderLeft: "2px solid",
+            borderColor: "tertiary.main",
           }}
           component={display === "list" ? "li" : "div"}
         >
