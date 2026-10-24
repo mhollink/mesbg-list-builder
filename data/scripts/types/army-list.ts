@@ -64,6 +64,7 @@ export interface ArmyListProfileOption {
   optionId: string;
 
   state: ArmyListProfileOptionState;
+  category: ArmyListProfileOptionCategory;
 
   /**
    * Translation key to use instead of the canonical option name.
@@ -87,6 +88,7 @@ export interface ArmyListProfileOption {
 }
 
 export type ArmyListProfileOptionState = "available" | "preselected";
+export type ArmyListProfileOptionCategory = "special-upgrade" | "equipment";
 
 export interface ArmyListProfileOverrides {
   addKeywords?: string[];
