@@ -1,0 +1,283 @@
+{
+  "hero": {
+    "eyebrow": "PRODUCT ROADMAP",
+    "title": "The road ahead",
+    "description": "Explore the MESBG List Builder journey: what you can already use, what is being improved, and what we hope to build next.",
+    "summary": "Progress at a glance",
+    "summaryDetails": "{{completed}} of {{total}} roadmap deliverables available"
+  },
+  "progressLabel": "{{completed}} of {{total}} deliverables complete",
+  "timelineLabel": "Feature development timeline",
+  "legend": {
+    "label": "Roadmap status legend"
+  },
+  "statuses": {
+    "done": "Available",
+    "inProgress": "In development",
+    "planned": "Planned"
+  },
+  "stages": {
+    "available": "Available now",
+    "active": "Current focus",
+    "future": "Looking ahead"
+  },
+  "disclaimer": "Plans are indicative, not release commitments. Progress counts delivered capabilities; ongoing work is not counted as complete.",
+  "features": {
+    "reference": {
+      "title": "Reference",
+      "description": "Quick access to rules, profiles and army lists.",
+      "milestones": {
+        "rules": {
+          "title": "Game rules",
+          "description": "Browse all special rules and magical powers",
+          "deliverables": {
+            "browse": "Browse the rules reference",
+            "search": "Search and navigate rules",
+            "details": "Read full rules with source references",
+            "navigate": "Follow linked rules and navigate between drawers"
+          }
+        },
+        "profiles": {
+          "title": "Profile reference",
+          "description": "Explore units and their characteristics.",
+          "deliverables": {
+            "browse": "Browse and search profiles",
+            "details": "View statistics, rules and equipment",
+            "navigate": "Navigate related profiles and rules",
+            "source": "Locate the profile in the books",
+            "cards": "Decorative quick-reference profile cards"
+          }
+        },
+        "armies": {
+          "title": "Army lists",
+          "description": "Understand which armies can field your models.",
+          "deliverables": {
+            "browse": "Browse army lists and their rules",
+            "details": "View composition, profile options and rules",
+            "finder": "Find armies using selected profiles",
+            "create": "Create rosters directly from army lists",
+            "special": "Display army-wide options and special upgrades correctly"
+          }
+        },
+        "lookup": {
+          "title": "Quick Lookup",
+          "description": "Find what you need at the table.",
+          "deliverables": {
+            "search": "Search rules, profiles and armies globally",
+            "details": "Open search results directly in the relevant reference view"
+          }
+        }
+      }
+    },
+    "building": {
+      "title": "Army building",
+      "description": "Create, configure and validate an army roster.",
+      "milestones": {
+        "rosters": {
+          "title": "Roster management",
+          "description": "Keep your army lists organised.",
+          "deliverables": {
+            "manage": "Create, edit and manage rosters",
+            "organize": "Organize rosters into nested groups",
+            "move": "Move rosters and groups using drag and drop",
+            "favorite": "Favorite and lock rosters",
+            "summarize": "View roster statistics and army information",
+            "icons": "Custom group icons and visual identity",
+            "search": "Search through rosters and groups",
+            "sort": "Sort rosters by name, army or value",
+            "duplicate": "Duplicate created rosters for small edits"
+          }
+        },
+        "warbands": {
+          "title": "Warband building",
+          "description": "Build your army one warband at a time.",
+          "deliverables": {
+            "create": "Create a warband with its leader",
+            "units": "Configure units before adding them",
+            "reorder": "Move and reorder followers between warbands",
+            "duplicate": "Duplicate units and warbands",
+            "edge-cases": "Handle unusual warband compositions and remaining edge cases"
+          }
+        },
+        "options": {
+          "title": "Equipment and options",
+          "description": "Choose equipment with the right restrictions.",
+          "deliverables": {
+            "equipment": "Enforce equipment selection limits and required choices",
+            "preselected": "Show included equipment",
+            "restrictions": "Apply special option restrictions",
+            "upgrades": "Apply upgrade-specific changes to statistics, keywords or equipment",
+            "army": "Support army-wide options and their selection",
+            "combinations": "Disallow multiple incompatible options"
+          }
+        },
+        "rules": {
+          "title": "General and unit rules",
+          "description": "Keep leaders and followers eligible.",
+          "deliverables": {
+            "general": "Choose and display the General",
+            "leaders": "Limit followers to eligible warbands",
+            "fixed-general": "Automatically assign fixed Generals",
+            "tier-general": "Enforce eligible and highest-tier General rules"
+          }
+        },
+        "validation": {
+          "title": "Roster validation",
+          "description": "Spot issues before you play.",
+          "deliverables": {
+            "capacity": "Check warband capacity",
+            "requirements": "Validate army requirements and restrictions",
+            "limits": "Show bow- and throwing weapon limits",
+            "min-max": "Enforce minimum and maximum profile requirements",
+            "required": "Enforce required and excluded profile combinations",
+            "special": "Enforce ratios and other special composition rules",
+            "explanations": "Explain problems in context",
+            "unique": "Enforce unique hero and unit restrictions",
+            "review": "Review a roster before sharing"
+          }
+        },
+        "share": {
+          "title": "Sharing & Export",
+          "description": "Take your completed roster to the tabletop, share it with other players or use it in another application.",
+          "deliverables": {
+            "image": "Share as a visually formatted roster image for Reddit, Discord and Facebook",
+            "pdf": "Export to a clean, printable pdf-document",
+            "cards": "Download selected profiles as quick reference cards",
+            "link": "Share your roster as a read-only link",
+            "tts": "Export roster data for use in Tabletop Simulator",
+            "text": "Copy your rosters as compact readable text for forums and messaging"
+          }
+        }
+      }
+    },
+    "collection": {
+      "title": "Collection",
+      "description": "Track miniatures you own and what you still need.",
+      "milestones": {
+        "inventory": {
+          "title": "Model inventory",
+          "description": "Catalogue your models and their equipment.",
+          "deliverables": {
+            "models": "Track owned models and quantities",
+            "equipment": "Record equipment and variants",
+            "wishlist": "Create a wishlist of models your still want to get"
+          }
+        },
+        "coverage": {
+          "title": "Roster coverage",
+          "description": "See whether your collection supports a roster.",
+          "deliverables": {
+            "plan": "Discover which armies you can build with your existing collection",
+            "compare": "Compare rosters with your collection",
+            "missing": "Highlight missing miniatures"
+          }
+        }
+      }
+    },
+    "games": {
+      "title": "Games",
+      "description": "Take your armies to the tabletop, track battles as they unfold, connect with opponents and build a history of your games.",
+      "milestones": {
+        "sessions": {
+          "title": "Game sessions",
+          "description": "Start, manage and resume games using your existing army rosters.",
+          "deliverables": {
+            "start": "Start a new game from an existing roster",
+            "resume": "Save and resume ongoing games",
+            "scenarios": "Select a scenario and display objectives",
+            "finish": "Complete or abandon a game session"
+          }
+        },
+        "tracking": {
+          "title": "Live game tracking",
+          "description": "Keep track of your army's resources, casualties and battlefield status throughout the game.",
+          "deliverables": {
+            "casualties": "Track wounds and casualties for individual models",
+            "breakpoints": "Automatically calculate break points",
+            "expendables": "Track Might, Will, Fate and other expendable resources",
+            "references": "Access profiles and rules directly from the game tracker"
+          }
+        },
+        "scenarios": {
+          "title": "Turns and scenarios",
+          "description": "Follow the flow of a battle with turn tracking, scenario objectives and victory point calculations.",
+          "deliverables": {
+            "phases": "Track completed turns and the current game phase",
+            "objectives": "Follow scenario rules and track objectives",
+            "scoring": "Calculate victory points based on scenario conditions"
+          }
+        },
+        "connected": {
+          "title": "Connected games",
+          "description": "Play together with an opponent using shared, real-time game tracking across multiple devices.",
+          "deliverables": {
+            "invites": "Invite an opponent to join a game",
+            "synchronize": "Synchronize game state and trackers in real time",
+            "reconnect": "Reconnect to shared games without losing progress",
+            "resolve": "Handle conflicting changes and keep game state consistent"
+          }
+        },
+        "results": {
+          "title": "Match results and history",
+          "description": "Preserve your completed battles, review previous games and remember the moments that mattered.",
+          "deliverables": {
+            "outcomes": "Save final scores, match outcomes and played rosters",
+            "inspect": "Browse match history and review completed games",
+            "notes": "Add notes and memorable moments to your matches"
+          }
+        },
+        "statistics": {
+          "title": "Player statistics",
+          "description": "Discover patterns in your games and learn how your armies perform across different opponents and scenarios.",
+          "deliverables": {
+            "trends": "Review win rates and performance over time",
+            "army-performance": "Compare results across armies and army lists",
+            "opponents": "Analyze results against different opponents",
+            "scenarios": "Explore performance across scenarios and points levels"
+          }
+        },
+        "discovery": {
+          "title": "Player and community discovery",
+          "description": "Connect with other MESBG players, discover local communities and find your next opponent.",
+          "deliverables": {
+            "nearby-players": "Discover players in your area",
+            "local-groups": "Find local gaming clubs and communities",
+            "looking-for-game": "Find or advertise opportunities to play a game"
+          }
+        }
+      }
+    },
+    "companies": {
+      "title": "Battle Companies",
+      "description": "Follow a persistent company through a campaign.",
+      "milestones": {
+        "roster": {
+          "title": "Company management",
+          "description": "Maintain your company and its members.",
+          "deliverables": {
+            "create": "Create a Battle Company",
+            "members": "Track members and equipment"
+          }
+        },
+        "progression": {
+          "title": "Progression and aftermath",
+          "description": "Track growth and consequences between battles.",
+          "deliverables": {
+            "experience": "Track experience and advancement",
+            "aftermath": "Manage injuries and War’s Aftermath"
+          }
+        },
+        "campaign": {
+          "title": "Campaign history",
+          "description": "See how your company evolves.",
+          "deliverables": {
+            "history": "Record battles and campaign milestones",
+            "rewards": "Record rewards and changes"
+          }
+        }
+      }
+    }
+  },
+  "milestoneCount_one": "{{count}} milestone",
+  "milestoneCount_other": "{{count}} milestones"
+}
