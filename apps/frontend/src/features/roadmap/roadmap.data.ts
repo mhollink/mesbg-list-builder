@@ -2,6 +2,7 @@ import type { SvgIconComponent } from "@mui/icons-material";
 import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
 import CasinoOutlinedIcon from "@mui/icons-material/CasinoOutlined";
 import Diversity3OutlinedIcon from "@mui/icons-material/Diversity3Outlined";
+import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 
@@ -234,6 +235,37 @@ export const roadmap: readonly RoadmapFeature[] = [
           { id: "nearby-players", status: "planned" },
           { id: "local-groups", status: "planned" },
           { id: "looking-for-game", status: "planned" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "integrations",
+    stage: "future",
+    icon: HubOutlinedIcon,
+    milestones: [
+      {
+        id: "access",
+        deliverables: [
+          { id: "create", status: "planned" },
+          { id: "permissions", status: "planned" },
+          { id: "revoke", status: "planned" },
+          { id: "activity", status: "planned" },
+        ],
+      },
+      {
+        id: "rosters",
+        deliverables: [
+          { id: "list", status: "planned" },
+          { id: "details", status: "planned" },
+          { id: "privacy", status: "planned" },
+        ],
+      },
+      {
+        id: "directory",
+        deliverables: [
+          { id: "browse", status: "planned" },
+          { id: "setup", status: "planned" },
         ],
       },
     ],
