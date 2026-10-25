@@ -299,3 +299,14 @@ export const roadmap: readonly RoadmapFeature[] = [
     ],
   },
 ];
+
+// Release markers describe an indicative point in the journey, not a dependency.
+// They are deliberately excluded from feature completion calculations.
+export interface RoadmapRelease {
+  id: string;
+  afterFeatureId: string;
+}
+
+export const roadmapReleases: readonly RoadmapRelease[] = [
+  { id: "v2-public", afterFeatureId: "games" },
+];

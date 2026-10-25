@@ -22,6 +22,14 @@
     "future": "Looking ahead"
   },
   "disclaimer": "Plans are indicative, not release commitments. Progress counts delivered capabilities; ongoing work is not counted as complete.",
+  "releases": {
+    "estimate": "Estimated milestone",
+    "disclaimer": "This position is illustrative, not a release date or required development order.",
+    "v2-public": {
+      "title": "Version 2.0 public release",
+      "description": "An estimated point for a stable public release with the core features of the previous List Builder restored. Integrations and other additions may arrive earlier."
+    }
+  },
   "features": {
     "reference": {
       "title": "Reference",

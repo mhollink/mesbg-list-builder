@@ -15,10 +15,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { RoadmapProgressRing } from "./RoadmapProgressRing.tsx";
+import { RoadmapReleaseMarker } from "./RoadmapReleaseMarker.tsx";
 import {
   type DeliverableStatus,
   type RoadmapStage,
   roadmap,
+  roadmapReleases,
 } from "./roadmap.data.ts";
 import {
   getFeatureProgress,
@@ -26,6 +28,7 @@ import {
   getRoadmapProgress,
   type RoadmapProgress,
 } from "./roadmap.progress.ts";
+import { createRoadmapTimeline } from "./roadmap.timeline.ts";
 
 const statusColors = {
   done: "success.main",
@@ -90,6 +93,8 @@ function StageChip({ stage }: { stage: RoadmapStage }) {
     />
   );
 }
+
+const timeline = createRoadmapTimeline(roadmap, roadmapReleases);
 
 export function RoadmapPage() {
   const { t } = useTranslation("roadmap");
@@ -179,7 +184,18 @@ export function RoadmapPage() {
           </Stack>
 
           <Box component="section" aria-label={t("timelineLabel")}>
-            {roadmap.map((feature, index) => {
+            {timeline.map((item, index) => {
+              if (item.kind === "release") {
+                return (
+                  <RoadmapReleaseMarker
+                    key={`release-${item.release.id}`}
+                    release={item.release}
+                    hasNext={index < timeline.length - 1}
+                  />
+                );
+              }
+
+              const feature = item.feature;
               const Icon = feature.icon;
               const featureProgress = getFeatureProgress(feature);
               return (
@@ -213,7 +229,7 @@ export function RoadmapPage() {
                     >
                       <Icon aria-hidden="true" />
                     </Box>
-                    {index < roadmap.length - 1 && (
+                    {index < timeline.length - 1 && (
                       <Box
                         sx={{
                           width: 2,

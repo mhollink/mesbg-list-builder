@@ -22,6 +22,14 @@
     "future": "Toekomst"
   },
   "disclaimer": "Plannen zijn indicatief en geen toezegging van een releasedatum. Alleen opgeleverde functionaliteit telt mee als voltooid; werk in uitvoering nog niet.",
+  "releases": {
+    "estimate": "Geschatte mijlpaal",
+    "disclaimer": "De plek in de tijdlijn is indicatief, geen releasedatum of verplichte ontwikkelvolgorde.",
+    "v2-public": {
+      "title": "Publieke release van versie 2.0",
+      "description": "Een geschat moment voor een stabiele publieke release, waarbij de belangrijkste functies van de vorige List Builder weer beschikbaar zijn. Integraties en andere uitbreidingen kunnen eerder verschijnen."
+    }
+  },
   "features": {
     "reference": {
       "title": "Referentie",
