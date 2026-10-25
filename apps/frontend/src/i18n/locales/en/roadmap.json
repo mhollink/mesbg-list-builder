@@ -247,6 +247,39 @@
         }
       }
     },
+    "integrations": {
+      "title": "Integrations",
+      "description": "Connect your MESBG tools and securely use your rosters beyond the List Builder.",
+      "milestones": {
+        "access": {
+          "title": "Integration access",
+          "description": "Choose which tools can access your rosters and stay in control of your account.",
+          "deliverables": {
+            "create": "Create a separate access key for each integration",
+            "permissions": "Choose what each integration is allowed to read",
+            "revoke": "Revoke an integration's access at any time",
+            "activity": "See when an integration last used its key"
+          }
+        },
+        "rosters": {
+          "title": "Use your rosters elsewhere",
+          "description": "Use saved army lists in compatible tools without entering everything again.",
+          "deliverables": {
+            "list": "Allow connected tools to find your saved rosters",
+            "details": "Provide complete rosters, including warbands and selected equipment",
+            "privacy": "Keep personal account information private"
+          }
+        },
+        "directory": {
+          "title": "Community integrations",
+          "description": "Explore tools that work with the List Builder and learn how to connect them.",
+          "deliverables": {
+            "browse": "Discover compatible and community-built integrations",
+            "setup": "Follow simple instructions to connect each tool"
+          }
+        }
+      }
+    },
     "companies": {
       "title": "Battle Companies",
       "description": "Follow a persistent company through a campaign.",

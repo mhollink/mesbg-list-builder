@@ -247,6 +247,39 @@
         }
       }
     },
+    "integrations": {
+      "title": "Integraties",
+      "description": "Koppel andere MESBG-tools en gebruik je legerlijsten veilig buiten de List Builder.",
+      "milestones": {
+        "access": {
+          "title": "Toegang voor integraties",
+          "description": "Bepaal welke tools je legerlijsten mogen bekijken en houd zelf de controle over je account.",
+          "deliverables": {
+            "create": "Maak voor elke integratie een aparte toegangssleutel aan",
+            "permissions": "Bepaal welke gegevens een integratie mag lezen",
+            "revoke": "Trek de toegang van een integratie op elk moment in",
+            "activity": "Bekijk wanneer een integratie haar sleutel voor het laatst gebruikte"
+          }
+        },
+        "rosters": {
+          "title": "Gebruik je legerlijsten in andere tools",
+          "description": "Gebruik je opgeslagen legerlijsten in geschikte tools zonder alles opnieuw in te voeren.",
+          "deliverables": {
+            "list": "Laat gekoppelde tools je opgeslagen legerlijsten vinden",
+            "details": "Stel volledige legerlijsten beschikbaar, inclusief warbands en gekozen uitrusting",
+            "privacy": "Houd persoonlijke accountgegevens privé"
+          }
+        },
+        "directory": {
+          "title": "Integraties uit de community",
+          "description": "Ontdek tools die samenwerken met de List Builder en lees hoe je ze koppelt.",
+          "deliverables": {
+            "browse": "Ontdek geschikte integraties en tools uit de community",
+            "setup": "Volg eenvoudige instructies om een tool te koppelen"
+          }
+        }
+      }
+    },
     "companies": {
       "title": "Battle Companies",
       "description": "Volg een vaste compagnie gedurende een campagne.",
