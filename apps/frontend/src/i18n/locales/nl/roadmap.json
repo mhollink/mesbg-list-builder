@@ -1,0 +1,283 @@
+{
+  "hero": {
+    "eyebrow": "ONTWIKKELROADMAP",
+    "title": "De weg vooruit",
+    "description": "Ontdek de ontwikkeling van MESBG List Builder: wat je al kunt gebruiken, wat we verbeteren en wat we hierna willen bouwen.",
+    "summary": "Voortgang in één oogopslag",
+    "summaryDetails": "{{completed}} van {{total}} roadmaponderdelen beschikbaar"
+  },
+  "progressLabel": "{{completed}} van {{total}} onderdelen voltooid",
+  "timelineLabel": "Tijdlijn van functionaliteiten",
+  "legend": {
+    "label": "Legenda van roadmapstatussen"
+  },
+  "statuses": {
+    "done": "Beschikbaar",
+    "inProgress": "In ontwikkeling",
+    "planned": "Gepland"
+  },
+  "stages": {
+    "available": "Nu beschikbaar",
+    "active": "Huidige focus",
+    "future": "Toekomst"
+  },
+  "disclaimer": "Plannen zijn indicatief en geen toezegging van een releasedatum. Alleen opgeleverde functionaliteit telt mee als voltooid; werk in uitvoering nog niet.",
+  "features": {
+    "reference": {
+      "title": "Referentie",
+      "description": "Snel toegang tot regels, profielen en legerlijsten.",
+      "milestones": {
+        "rules": {
+          "title": "Spelregels",
+          "description": "Blader door alle speciale regels en magische krachten.",
+          "deliverables": {
+            "browse": "Blader door de regelreferentie",
+            "search": "Zoek en navigeer door regels",
+            "details": "Lees volledige regels met bronvermelding",
+            "navigate": "Volg verwijzingen naar andere regels en navigeer tussen zijpanelen"
+          }
+        },
+        "profiles": {
+          "title": "Profielen",
+          "description": "Ontdek eenheden en hun eigenschappen.",
+          "deliverables": {
+            "browse": "Blader en zoek door profielen",
+            "details": "Bekijk eigenschappen, regels en uitrusting",
+            "navigate": "Navigeer tussen gerelateerde profielen en regels",
+            "source": "Vind het profiel terug in de regelboeken",
+            "cards": "Decoratieve profielkaarten voor snelle raadpleging"
+          }
+        },
+        "armies": {
+          "title": "Legerlijsten",
+          "description": "Ontdek in welke legers je modellen ingezet mogen worden.",
+          "deliverables": {
+            "browse": "Blader door legerlijsten en hun regels",
+            "details": "Bekijk legersamenstelling, profielopties en regels",
+            "finder": "Vind legers op basis van geselecteerde profielen",
+            "create": "Maak direct vanuit een legerlijst een roster aan",
+            "special": "Toon legerbrede opties en speciale upgrades correct"
+          }
+        },
+        "lookup": {
+          "title": "Snelzoeken",
+          "description": "Vind direct wat je nodig hebt aan de speeltafel.",
+          "deliverables": {
+            "search": "Zoek overal in regels, profielen en legers",
+            "details": "Open zoekresultaten direct in de juiste referentieweergave"
+          }
+        }
+      }
+    },
+    "building": {
+      "title": "Legers bouwen",
+      "description": "Stel een leger samen, configureer het en controleer of het aan de regels voldoet.",
+      "milestones": {
+        "rosters": {
+          "title": "Lijsten beheren",
+          "description": "Houd je zelfgemaakte legerlijsten overzichtelijk en georganiseerd.",
+          "deliverables": {
+            "manage": "Maak, bewerk en beheer legerlijsten",
+            "organize": "Organiseer legerlijsten in geneste groepen",
+            "move": "Verplaats legerlijsten en groepen met slepen en neerzetten",
+            "favorite": "Markeer legerlijsten als favoriet en vergrendel ze",
+            "summarize": "Bekijk statistieken en legerinformatie per lijst",
+            "icons": "Geef groepen eigen pictogrammen en een herkenbare uitstraling",
+            "search": "Zoek door legerlijsten en groepen",
+            "sort": "Sorteer legerlijsten op naam, leger of puntenwaarde",
+            "duplicate": "Dupliceer bestaande legerlijsten om varianten te maken"
+          }
+        },
+        "warbands": {
+          "title": "Warbands samenstellen",
+          "description": "Bouw je leger warband voor warband op.",
+          "deliverables": {
+            "create": "Maak een warband aan met een leider",
+            "units": "Configureer eenheden voordat je ze toevoegt",
+            "reorder": "Verplaats en herschik volgelingen tussen warbands",
+            "duplicate": "Dupliceer eenheden en warbands",
+            "edge-cases": "Ondersteun bijzondere warbandsamenstellingen en resterende uitzonderingen"
+          }
+        },
+        "options": {
+          "title": "Uitrusting en opties",
+          "description": "Kies uitrusting binnen de geldende beperkingen.",
+          "deliverables": {
+            "equipment": "Handhaaf uitrustingslimieten en verplichte keuzes",
+            "preselected": "Toon standaard inbegrepen uitrusting",
+            "restrictions": "Pas bijzondere beperkingen voor opties toe",
+            "upgrades": "Verwerk wijzigingen aan eigenschappen, trefwoorden en uitrusting door upgrades",
+            "army": "Ondersteun het kiezen van legerbrede opties",
+            "combinations": "Voorkom combinaties van opties die niet samen toegestaan zijn"
+          }
+        },
+        "rules": {
+          "title": "Generaal- en eenheidsregels",
+          "description": "Zorg dat leiders en volgelingen aan de voorwaarden voldoen.",
+          "deliverables": {
+            "general": "Kies en toon de generaal",
+            "leaders": "Beperk volgelingen tot toegestane warbands",
+            "fixed-general": "Wijs een verplichte generaal automatisch aan",
+            "tier-general": "Handhaaf regels voor geschikte generaals en de hoogste heldenrang"
+          }
+        },
+        "validation": {
+          "title": "Lijstvalidatie",
+          "description": "Ontdek fouten in je legerlijst voordat je gaat spelen.",
+          "deliverables": {
+            "capacity": "Controleer de capaciteit van warbands",
+            "requirements": "Controleer legervereisten en beperkingen",
+            "limits": "Toon limieten voor bogen en werpwapens",
+            "min-max": "Handhaaf minimum- en maximumaantallen voor profielen",
+            "required": "Controleer verplichte en uitgesloten profielcombinaties",
+            "special": "Handhaaf verhoudingen en andere bijzondere regels voor legersamenstelling",
+            "explanations": "Leg problemen uit op de plek waar ze ontstaan",
+            "unique": "Handhaaf beperkingen voor unieke helden en eenheden",
+            "review": "Controleer een legerlijst voordat je deze deelt"
+          }
+        },
+        "share": {
+          "title": "Delen en exporteren",
+          "description": "Neem je samengestelde leger mee naar de speeltafel, deel het met andere spelers of gebruik het in een andere applicatie.",
+          "deliverables": {
+            "image": "Deel een mooi opgemaakte afbeelding van je legerlijst op Reddit, Discord of Facebook",
+            "pdf": "Exporteer je legerlijst als overzichtelijk, afdrukbaar pdf-document",
+            "cards": "Download de geselecteerde profielen als naslagkaarten",
+            "link": "Deel je legerlijst via een link met alleen-lezen-toegang",
+            "tts": "Exporteer je legerlijst voor gebruik in Tabletop Simulator",
+            "text": "Kopieer je legerlijst als compacte, leesbare tekst voor fora en berichten"
+          }
+        }
+      }
+    },
+    "collection": {
+      "title": "Collectie",
+      "description": "Houd bij welke miniaturen je bezit en wat je nog nodig hebt.",
+      "milestones": {
+        "inventory": {
+          "title": "Modellenverzameling",
+          "description": "Registreer je modellen en hun uitrusting.",
+          "deliverables": {
+            "models": "Houd bij welke modellen je bezit en hoeveel",
+            "equipment": "Leg uitrusting en varianten van modellen vast",
+            "wishlist": "Maak een verlanglijstje van modellen die je nog wilt aanschaffen"
+          }
+        },
+        "coverage": {
+          "title": "Beschikbaarheid voor legerlijsten",
+          "description": "Bekijk of je met je collectie een legerlijst kunt samenstellen.",
+          "deliverables": {
+            "plan": "Ontdek welke legers je met je bestaande collectie kunt bouwen",
+            "compare": "Vergelijk je legerlijsten met je collectie",
+            "missing": "Laat zien welke miniaturen je nog mist"
+          }
+        }
+      }
+    },
+    "games": {
+      "title": "Games",
+      "description": "Neem je legers mee naar de speeltafel, houd gevechten bij terwijl ze plaatsvinden, speel samen met tegenstanders en bouw een geschiedenis van je wedstrijden op.",
+      "milestones": {
+        "sessions": {
+          "title": "Spelsessies",
+          "description": "Start, beheer en hervat games met je bestaande legerlijsten.",
+          "deliverables": {
+            "start": "Start een nieuwe game vanuit een bestaande legerlijst",
+            "resume": "Sla lopende games op en hervat ze later",
+            "scenarios": "Kies een scenario en toon de bijbehorende doelen",
+            "finish": "Rond een spelsessie af of breek deze af"
+          }
+        },
+        "tracking": {
+          "title": "Live spelregistratie",
+          "description": "Houd tijdens een game de beschikbare middelen, verliezen en toestand van je leger bij.",
+          "deliverables": {
+            "casualties": "Houd verwondingen en uitgeschakelde modellen afzonderlijk bij",
+            "breakpoints": "Bereken breekpunten automatisch",
+            "expendables": "Houd Might, Will, Fate en andere verbruikbare middelen bij",
+            "references": "Raadpleeg profielen en regels direct vanuit de gametracker"
+          }
+        },
+        "scenarios": {
+          "title": "Beurten en scenario's",
+          "description": "Volg het verloop van een gevecht met beurtregistratie, scenariodoelen en berekening van overwinningspunten.",
+          "deliverables": {
+            "phases": "Houd voltooide beurten en de huidige spelfase bij",
+            "objectives": "Volg scenarioregels en houd doelen bij",
+            "scoring": "Bereken overwinningspunten op basis van de scenariovoorwaarden"
+          }
+        },
+        "connected": {
+          "title": "Verbonden games",
+          "description": "Speel samen met een tegenstander en houd de game op meerdere apparaten realtime bij.",
+          "deliverables": {
+            "invites": "Nodig een tegenstander uit om aan een game deel te nemen",
+            "synchronize": "Synchroniseer spelstatus en trackers in realtime",
+            "reconnect": "Maak opnieuw verbinding met een gedeelde game zonder voortgang te verliezen",
+            "resolve": "Los conflicterende wijzigingen op en houd de spelstatus consistent"
+          }
+        },
+        "results": {
+          "title": "Uitslagen en wedstrijdgeschiedenis",
+          "description": "Bewaar je gespeelde gevechten, bekijk eerdere wedstrijden en herinner je de belangrijkste momenten.",
+          "deliverables": {
+            "outcomes": "Bewaar eindscores, wedstrijduitslagen en gebruikte legerlijsten",
+            "inspect": "Blader door je wedstrijdgeschiedenis en bekijk afgeronde games",
+            "notes": "Voeg notities en bijzondere momenten toe aan je wedstrijden"
+          }
+        },
+        "statistics": {
+          "title": "Spelerstatistieken",
+          "description": "Ontdek patronen in je wedstrijden en leer hoe je legers presteren tegen verschillende tegenstanders en in verschillende scenario's.",
+          "deliverables": {
+            "trends": "Bekijk winstpercentages en prestaties door de tijd heen",
+            "army-performance": "Vergelijk resultaten tussen legers en legerlijsten",
+            "opponents": "Analyseer resultaten tegen verschillende tegenstanders",
+            "scenarios": "Bekijk prestaties per scenario en puntenlimiet"
+          }
+        },
+        "discovery": {
+          "title": "Spelers en verenigingen vinden",
+          "description": "Kom in contact met andere MESBG-spelers, ontdek lokale speelgroepen en vind je volgende tegenstander.",
+          "deliverables": {
+            "nearby-players": "Vind spelers bij jou in de buurt",
+            "local-groups": "Ontdek lokale spellenclubs en speelgemeenschappen",
+            "looking-for-game": "Vind speelafspraken of laat weten dat je een tegenstander zoekt"
+          }
+        }
+      }
+    },
+    "companies": {
+      "title": "Battle Companies",
+      "description": "Volg een vaste compagnie gedurende een campagne.",
+      "milestones": {
+        "roster": {
+          "title": "Compagnie beheren",
+          "description": "Beheer je compagnie en haar leden.",
+          "deliverables": {
+            "create": "Maak een Battle Company aan",
+            "members": "Houd leden en hun uitrusting bij"
+          }
+        },
+        "progression": {
+          "title": "Vooruitgang en nasleep",
+          "description": "Volg de ontwikkeling van je compagnie en de gevolgen van gevechten.",
+          "deliverables": {
+            "experience": "Houd ervaring en vooruitgang bij",
+            "aftermath": "Beheer verwondingen en de fase War's Aftermath"
+          }
+        },
+        "campaign": {
+          "title": "Campagnegeschiedenis",
+          "description": "Bekijk hoe je compagnie zich ontwikkelt.",
+          "deliverables": {
+            "history": "Registreer gevechten en belangrijke campagnemomenten",
+            "rewards": "Leg beloningen en wijzigingen vast"
+          }
+        }
+      }
+    }
+  },
+  "milestoneCount_one": "{{count}} mijlpaal",
+  "milestoneCount_other": "{{count}} mijlpalen"
+}

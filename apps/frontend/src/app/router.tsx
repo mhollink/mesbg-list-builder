@@ -8,6 +8,7 @@ import { PoliciesPage } from "../features/about-help/PoliciesPage.tsx";
 import { SupportPage } from "../features/about-help/SupportPage.tsx";
 import { CommunityThemeBuilderPage } from "../features/community-theme-builder/CommunityThemeBuilderPage.tsx";
 import { HomePage } from "../features/home/HomePage.tsx";
+import { RoadmapPage } from "../features/roadmap/RoadmapPage.tsx";
 import { AccessibilitySettings } from "../features/settings/components/accessibility/AccessibilitySettings.tsx";
 import { AccountSettings } from "../features/settings/components/account/AccountSettings.tsx";
 import { AppearanceSettings } from "../features/settings/components/appearance/AppearanceSettings.tsx";
@@ -165,6 +166,10 @@ export const router = createBrowserRouter([
       {
         path: "community-theme-builder",
         element: <CommunityThemeBuilderPage />,
+      },
+      {
+        path: "roadmap",
+        element: <RoadmapPage />,
       },
 
       {

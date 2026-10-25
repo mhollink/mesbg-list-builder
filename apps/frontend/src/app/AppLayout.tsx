@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { NavLink, Outlet, ScrollRestoration } from "react-router";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import MenuOutlined from "@mui/icons-material/MenuOutlined";
+import RouteOutlined from "@mui/icons-material/RouteOutlined";
 import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -102,6 +103,23 @@ export const AppLayout = () => {
         }}
       >
         <List disablePadding>
+          <ListItemButton
+            component={NavLink}
+            to="/roadmap"
+            onClick={() => setMobileOpen(false)}
+            sx={{
+              px: 2,
+              borderRadius: 1,
+              "&[aria-current='page']": {
+                bgcolor: "action.selected",
+              },
+            }}
+          >
+            <ListItemIcon>
+              <RouteOutlined />
+            </ListItemIcon>
+            <ListItemText primary={t("roadmap")} />
+          </ListItemButton>
           <ListItemButton
             component={NavLink}
             to="/about"
