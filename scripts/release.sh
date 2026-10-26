@@ -84,7 +84,6 @@ echo "Updating changelog..."
 
 update_changelog() {
   pnpm exec git-cliff \
-    --unreleased \
     --tag "v$VERSION" \
     --output CHANGELOG.md
 }
