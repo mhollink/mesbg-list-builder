@@ -21,12 +21,14 @@ import { QuickLookupSearch } from "../features/search/QuickLookupSearch.tsx";
 import { navigation } from "./navigation";
 import { RosterCreationProvider } from "~/features/armies/rosters/management/RosterCreationProvider.tsx";
 import { DrawerStack } from "~/features/drawer-stack/DrawerStack.tsx";
+import { useDrawerStack } from "~/features/drawer-stack/hooks/useDrawerStack.ts";
 
 const drawerWidth = 260;
 
 export const AppLayout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useTranslation("navigation");
+  const { openSearchDrawer } = useDrawerStack();
 
   const drawer = (
     <Box
@@ -182,7 +184,7 @@ export const AppLayout = () => {
             </Typography>
           </Box>
 
-          <QuickLookupSearch onSearch={(query) => console.log(query)} />
+          <QuickLookupSearch onSearch={openSearchDrawer} />
         </Toolbar>
       </AppBar>
 

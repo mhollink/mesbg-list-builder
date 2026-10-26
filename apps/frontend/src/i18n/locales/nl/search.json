@@ -1,0 +1,24 @@
+{
+  "title": "Zoeken",
+  "placeholder": "Zoek in regels, profielen, legerlijsten en roosters",
+  "submit": "Zoeken",
+  "close": "Zoeken sluiten",
+  "all": "Alles",
+  "start": "Voer een zoekterm in om te beginnen.",
+  "empty": "Geen resultaten gevonden.",
+  "error": "Kan deze resultaten niet laden.",
+  "retry": "Opnieuw",
+  "loading": "Resultaten laden",
+  "viewAll": "Alle resultaten bekijken",
+  "viewCategory": "Alle {{count}} resultaten bekijken",
+  "resultCount_one": "{{count}} resultaat",
+  "resultCount_other": "{{count}} resultaten",
+  "categories": {
+    "profiles": "Profielen",
+    "rules": "Regels",
+    "armies": "Legerlijsten",
+    "rosters": "Mijn roosters",
+    "companies": "Battle Companies",
+    "tournaments": "Toernooien"
+  }
+}
