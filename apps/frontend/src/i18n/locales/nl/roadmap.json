@@ -290,35 +290,99 @@
     },
     "companies": {
       "title": "Battle Companies",
-      "description": "Volg een vaste compagnie gedurende een campagne.",
+      "description": "Maak en ontwikkel een vaste Battle Company over meerdere gevechten, met individuele krijgers, live spelregistratie en een begeleide War's Aftermath.",
       "milestones": {
-        "roster": {
+        "management": {
           "title": "Compagnie beheren",
-          "description": "Beheer je compagnie en haar leden.",
+          "description": "Begin met een regelsysteem of sjabloon, of voer een bestaande compagnie opnieuw in.",
           "deliverables": {
-            "create": "Maak een Battle Company aan",
-            "members": "Houd leden en hun uitrusting bij"
+            "templates": "Maak een compagnie aan op basis van sjablonen uit boeken of de community",
+            "rulesets": "Kies welke officiële of communityregels de compagnie gebruikt",
+            "custom": "Stel een volledig aanpasbare compagnie samen",
+            "recreate": "Voer een bestaande compagnie handmatig over van papier of uit een andere tool",
+            "members": "Werf, bewerk en organiseer afzonderlijke compagnieleden",
+            "influence": "Beheer Influence en houd de compagniewaarde bij"
+          }
+        },
+        "cards": {
+          "title": "Individuele personagekaarten",
+          "description": "Toon elk lid volledig, met compacte blokken die zich aanpassen aan de beschikbare informatie.",
+          "deliverables": {
+            "details": "Toon naam, portret, basisprofiel, rang, heldenpad, puntenwaarde en level",
+            "stats": "Toon huidige eigenschappen en wijzigingen ten opzichte van het basisprofiel",
+            "sections": "Toon aanklikbare uitrusting en speciale regels, plus heldenacties en magische krachten indien van toepassing",
+            "injuries": "Houd inzetbaarheid apart bij van voorgestelde of vrij ingevoerde verwondingen",
+            "sort": "Sorteer compagnieleden op rang, level of naam"
           }
         },
         "progression": {
-          "title": "Vooruitgang en nasleep",
-          "description": "Volg de ontwikkeling van je compagnie en de gevolgen van gevechten.",
+          "title": "Personageontwikkeling",
+          "description": "Laat krijgers groeien met regelgestuurde verbeteringen en de mogelijkheid zelf wijzigingen aan te brengen.",
           "deliverables": {
-            "experience": "Houd ervaring en vooruitgang bij",
-            "aftermath": "Beheer verwondingen en de fase War's Aftermath"
+            "experience": "Houd ervaring, levels en beschikbare verbeteringen bij",
+            "paths": "Beheer promoties, heldenpaden, eigenschappen en nieuwe vaardigheden",
+            "rolls": "Gebruik digitale dobbelstenen of vul fysieke worpen in voor verbeteringstabellen",
+            "overrides": "Controleer en wijzig uitkomsten met behoud van de ontwikkelingsgeschiedenis"
           }
         },
-        "campaign": {
-          "title": "Campagnegeschiedenis",
-          "description": "Bekijk hoe je compagnie zich ontwikkelt.",
+        "battles": {
+          "title": "Gevechten met je compagnie",
+          "description": "Speel vanuit de detailpagina met dezelfde ledenkaarten in gevechtsmodus.",
           "deliverables": {
-            "history": "Registreer gevechten en belangrijke campagnemomenten",
-            "rewards": "Leg beloningen en wijzigingen vast"
+            "start": "Start en hervat een gevecht met een momentopname van de compagnie",
+            "resources": "Houd resterende Might, Will en Fate bij voor geschikte helden",
+            "wounds": "Houd resterende wonden, toegebrachte wonden en uitgeschakelde leden afzonderlijk bij",
+            "complete": "Rond een gevecht af en ga verder naar War's Aftermath"
+          }
+        },
+        "aftermath": {
+          "title": "War's Aftermath",
+          "description": "Doorloop een begeleide, hervatbare stappenwizard en verwerk alle veranderingen samen.",
+          "deliverables": {
+            "stepper": "Doorloop de nasleep per onderdeel volgens het gekozen regelsysteem",
+            "injury-rolls": "Controleer uitgeschakelde leden en bepaal verwondingen met digitale of fysieke dobbelstenen",
+            "experience": "Ken ervaring toe en pas verbeteringen per lid toe",
+            "rewards": "Verwerk Influence, beloningen en andere campagnemiddelen",
+            "recruitment": "Werf nieuwe krijgers en pas uitrusting aan tijdens de nasleep",
+            "drafts": "Sla elke stap afzonderlijk op en hervat onafgemaakte nasleep",
+            "commit": "Controleer alle wijzigingen en verwerk ze in één keer in de compagnie"
+          }
+        },
+        "history": {
+          "title": "Geschiedenis en kerkhof",
+          "description": "Bewaar een eenvoudig gevechtsoverzicht en de leden die de compagnie hebben verlaten.",
+          "deliverables": {
+            "battles": "Registreer data, scenario's, tegenstanders, uitslagen en de beginwaardes van beide compagnies",
+            "changes": "Toon de compagniewaarde en Influence voor en na iedere nasleep",
+            "graveyard": "Bewaar gesneuvelde en gepensioneerde leden met hun laatste profiel en geschiedenis op het kerkhof"
+          }
+        },
+        "shared": {
+          "title": "Gezamenlijke campagnes",
+          "description": "Breng zelfstandige compagnies eventueel samen in een campagnegroep.",
+          "deliverables": {
+            "groups": "Maak gezamenlijke campagnegroepen aan of sluit je erbij aan",
+            "companies": "Registreer compagnies en bekijk de voortgang van andere spelers",
+            "battles": "Koppel gevechten tussen deelnemende compagnies aan een campagne"
+          }
+        },
+        "maps": {
+          "title": "Campagnes met een kaart",
+          "description": "Een mogelijke uitbreiding voor territoriale campagnes op langere termijn.",
+          "deliverables": {
+            "territories": "Beheer campagnekaarten en de controle over gebieden",
+            "rewards": "Pas gebiedsbeloningen toe op deelnemende compagnies"
           }
         }
       }
+    },
+    "tournaments": {
+      "title": "Toernooien",
+      "description": "Toernooifunctionaliteit staat op de planning voor later, maar de invulling is nog niet bepaald en heeft momenteel geen prioriteit."
     }
   },
+  "scopePending": "Invulling volgt later",
+  "scopePendingDescription": "We willen dit onderdeel op een later moment uitwerken. Er zijn nog geen concrete mijlpalen of onderdelen vastgesteld.",
   "milestoneCount_one": "{{count}} mijlpaal",
   "milestoneCount_other": "{{count}} mijlpalen"
 }

@@ -307,12 +307,19 @@ export function RoadmapPage() {
                             color="textSecondary"
                             sx={{ display: "block", mt: 1 }}
                           >
-                            {t("milestoneCount", {
-                              count: feature.milestones.length,
-                            })}
+                            {feature.milestones.length > 0
+                              ? t("milestoneCount", {
+                                  count: feature.milestones.length,
+                                })
+                              : t("scopePending")}
                           </Typography>
                         </Box>
-                        <CompletionRing progress={featureProgress} size={64} />
+                        {feature.milestones.length > 0 && (
+                          <CompletionRing
+                            progress={featureProgress}
+                            size={64}
+                          />
+                        )}
                       </Stack>
                     </AccordionSummary>
                     <AccordionDetails
@@ -321,6 +328,11 @@ export function RoadmapPage() {
                     >
                       <Divider sx={{ mb: 2 }} />
                       <Stack spacing={1.5}>
+                        {feature.milestones.length === 0 && (
+                          <Typography variant="body2" color="textSecondary">
+                            {t("scopePendingDescription")}
+                          </Typography>
+                        )}
                         {feature.milestones.map((milestone) => {
                           const milestoneId = `${feature.id}.${milestone.id}`;
                           const milestoneProgress =
