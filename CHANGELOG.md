@@ -4,6 +4,12 @@ All notable changes to MESBG List Builder are documented in this file.
 
 The format is based on Keep a Changelog and releases follow Semantic Versioning.
 
+## \[2.0.0-alpha.26\] - 2026-10-26
+
+### Added
+
+- Implement RouteErrorPage with diagnostics and error handling
+
 ## \[2.0.0-alpha.25\] - 2026-10-26
 
 ### Added
