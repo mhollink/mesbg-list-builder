@@ -187,34 +187,17 @@ The format is based on Keep a Changelog and releases follow Semantic Versioning.
 
 - Upload new translations and profile data
 
-### refeactor
-
-- Create a small shared module in the reference feature
-
 ## \[2.0.0-alpha.12\] - 2026-09-13
 
 ### Added
 
 - Add army finder based on profile selection
 
-### reactor
-
-- Add missing army list profile cost
-
 ## \[2.0.0-alpha.11\] - 2026-09-13
 
 ### Added
 
 - Add an army list reference page
-
-### maintance
-
-- Add github issue templates
-
-### maintenance
-
-- Enhance security policy with vulnerability reporting details
-- Renormalize line endings and reformat code.
 
 ## \[2.0.0-alpha.9\] - 2026-09-10
 
