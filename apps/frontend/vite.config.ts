@@ -5,6 +5,12 @@ import { fileURLToPath } from "node:url";
 
 export default defineConfig(({ command }) => ({
   plugins: [react()],
+  // Alpha releases are intentionally unminified for readable error stacks.
+  // Keep source maps in all releases so deployed JS can be traced back to TSX.
+  build: {
+    minify: process.env.DEBUG_FRONTEND_BUILD === "true" ? false : undefined,
+    sourcemap: true,
+  },
   define: {
     BUILD_VERSION: JSON.stringify(process.env.npm_package_version),
     BUILD_DATE: JSON.stringify(new Date().toISOString()),

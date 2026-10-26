@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router";
 
 import { FeaturePagePlaceholder } from "../components/FeaturePagePlaceholder.tsx";
 import { NotFoundPage } from "../components/NotFoundPage.tsx";
+import { RouteErrorPage } from "../components/RouteErrorPage.tsx";
 import { FeaturesPage } from "../features/about-help/FeaturesPage.tsx";
 import { FeedbackPage } from "../features/about-help/FeedbackPage.tsx";
 import { PoliciesPage } from "../features/about-help/PoliciesPage.tsx";
@@ -33,6 +34,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <RouteErrorPage />,
     children: [
       {
         index: true,
@@ -56,6 +58,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "rosters",
+            errorElement: <RouteErrorPage />,
             children: [
               {
                 index: true,
