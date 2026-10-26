@@ -290,35 +290,99 @@
     },
     "companies": {
       "title": "Battle Companies",
-      "description": "Follow a persistent company through a campaign.",
+      "description": "Create and grow a persistent Battle Company across games, with individual warriors, live battle tracking and guided War's Aftermath.",
       "milestones": {
-        "roster": {
+        "management": {
           "title": "Company management",
-          "description": "Maintain your company and its members.",
+          "description": "Start from a supported ruleset or template, or recreate a company that is already in progress.",
           "deliverables": {
-            "create": "Create a Battle Company",
-            "members": "Track members and equipment"
+            "templates": "Create a company from book or community templates",
+            "rulesets": "Choose which published or community ruleset the company follows",
+            "custom": "Build a fully customizable company",
+            "recreate": "Manually recreate a company from paper or another tool",
+            "members": "Recruit, edit and organize individual company members",
+            "influence": "Manage Influence and track company rating"
+          }
+        },
+        "cards": {
+          "title": "Individual character cards",
+          "description": "Keep every member fully visible, with compact blocks adapting to the information available.",
+          "deliverables": {
+            "details": "Display name, portrait, base profile, rank, hero path, points and level",
+            "stats": "Show current characteristics alongside changes to the original profile",
+            "sections": "Show clickable wargear and special rules, plus heroic actions and magical powers when applicable",
+            "injuries": "Track participation status separately from suggested or custom injury descriptions",
+            "sort": "Sort company members by rank, level or name"
           }
         },
         "progression": {
-          "title": "Progression and aftermath",
-          "description": "Track growth and consequences between battles.",
+          "title": "Character progression",
+          "description": "Develop warriors with guided ruleset-based advancements and optional manual adjustments.",
           "deliverables": {
-            "experience": "Track experience and advancement",
-            "aftermath": "Manage injuries and War’s Aftermath"
+            "experience": "Track experience, levels and eligibility for advancement",
+            "paths": "Manage promotions, hero paths, characteristics and new abilities",
+            "rolls": "Use digital dice or enter physical rolls for advancement tables",
+            "overrides": "Review and override outcomes while preserving character development"
           }
         },
-        "campaign": {
-          "title": "Campaign history",
-          "description": "See how your company evolves.",
+        "battles": {
+          "title": "Company battles",
+          "description": "Play from the company detail screen using the same member cards in Battle mode.",
           "deliverables": {
-            "history": "Record battles and campaign milestones",
-            "rewards": "Record rewards and changes"
+            "start": "Start and resume a battle using a snapshot of the company",
+            "resources": "Track remaining Might, Will and Fate for eligible heroes",
+            "wounds": "Track remaining wounds, wounds inflicted and casualties for each member",
+            "complete": "Complete a battle and move into War's Aftermath"
+          }
+        },
+        "aftermath": {
+          "title": "War's Aftermath",
+          "description": "Follow a guided, resumable stepper and commit the resulting company changes together.",
+          "deliverables": {
+            "stepper": "Resolve the ruleset-specific aftermath one section at a time",
+            "injury-rolls": "Review casualties and resolve injuries using digital or physical dice",
+            "experience": "Award experience and apply advancements to individual members",
+            "rewards": "Resolve Influence, rewards and other campaign resources",
+            "recruitment": "Recruit warriors and update equipment during aftermath",
+            "drafts": "Save each aftermath step separately and resume unfinished work",
+            "commit": "Review and commit all changes to the company in one operation"
+          }
+        },
+        "history": {
+          "title": "History and graveyard",
+          "description": "Keep a concise record of battles and preserve members who have left the company.",
+          "deliverables": {
+            "battles": "Record dates, scenarios, opponents, outcomes and both companies' starting ratings",
+            "changes": "Show company rating and Influence before and after each aftermath",
+            "graveyard": "Keep fallen and retired members with their final profiles and history in the Graveyard"
+          }
+        },
+        "shared": {
+          "title": "Shared campaigns",
+          "description": "Optionally bring independent companies together in a campaign group.",
+          "deliverables": {
+            "groups": "Create and join shared campaign groups",
+            "companies": "Register companies and see other players' progress",
+            "battles": "Link battles between companies participating in a campaign"
+          }
+        },
+        "maps": {
+          "title": "Map-based campaigns",
+          "description": "A longer-term extension for territorial campaigns.",
+          "deliverables": {
+            "territories": "Manage campaign maps and territory control",
+            "rewards": "Apply territorial rewards to participating companies"
           }
         }
       }
+    },
+    "tournaments": {
+      "title": "Tournaments",
+      "description": "Tournament functionality is planned for the future, but its scope is not yet defined and is not a current development focus."
     }
   },
+  "scopePending": "Scope to be defined",
+  "scopePendingDescription": "We plan to explore this area later. Specific milestones and deliverables have not been defined yet.",
   "milestoneCount_one": "{{count}} milestone",
   "milestoneCount_other": "{{count}} milestones"
 }

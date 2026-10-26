@@ -2,6 +2,7 @@ import type { SvgIconComponent } from "@mui/icons-material";
 import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
 import CasinoOutlinedIcon from "@mui/icons-material/CasinoOutlined";
 import Diversity3OutlinedIcon from "@mui/icons-material/Diversity3Outlined";
+import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
@@ -276,27 +277,87 @@ export const roadmap: readonly RoadmapFeature[] = [
     icon: Diversity3OutlinedIcon,
     milestones: [
       {
-        id: "roster",
+        id: "management",
         deliverables: [
-          { id: "create", status: "planned" },
+          { id: "templates", status: "planned" },
+          { id: "rulesets", status: "planned" },
+          { id: "custom", status: "planned" },
+          { id: "recreate", status: "planned" },
           { id: "members", status: "planned" },
+          { id: "influence", status: "planned" },
+        ],
+      },
+      {
+        id: "cards",
+        deliverables: [
+          { id: "details", status: "planned" },
+          { id: "stats", status: "planned" },
+          { id: "sections", status: "planned" },
+          { id: "injuries", status: "planned" },
+          { id: "sort", status: "planned" },
         ],
       },
       {
         id: "progression",
         deliverables: [
           { id: "experience", status: "planned" },
-          { id: "aftermath", status: "planned" },
+          { id: "paths", status: "planned" },
+          { id: "rolls", status: "planned" },
+          { id: "overrides", status: "planned" },
         ],
       },
       {
-        id: "campaign",
+        id: "battles",
         deliverables: [
-          { id: "history", status: "planned" },
+          { id: "start", status: "planned" },
+          { id: "resources", status: "planned" },
+          { id: "wounds", status: "planned" },
+          { id: "complete", status: "planned" },
+        ],
+      },
+      {
+        id: "aftermath",
+        deliverables: [
+          { id: "stepper", status: "planned" },
+          { id: "injury-rolls", status: "planned" },
+          { id: "experience", status: "planned" },
+          { id: "rewards", status: "planned" },
+          { id: "recruitment", status: "planned" },
+          { id: "drafts", status: "planned" },
+          { id: "commit", status: "planned" },
+        ],
+      },
+      {
+        id: "history",
+        deliverables: [
+          { id: "battles", status: "planned" },
+          { id: "changes", status: "planned" },
+          { id: "graveyard", status: "planned" },
+        ],
+      },
+      {
+        id: "shared",
+        deliverables: [
+          { id: "groups", status: "planned" },
+          { id: "companies", status: "planned" },
+          { id: "battles", status: "planned" },
+        ],
+      },
+      {
+        id: "maps",
+        deliverables: [
+          { id: "territories", status: "planned" },
           { id: "rewards", status: "planned" },
         ],
       },
     ],
+  },
+  {
+    // A future feature with no detailed scope yet. Leave its progress uncounted.
+    id: "tournaments",
+    stage: "future",
+    icon: EmojiEventsOutlinedIcon,
+    milestones: [],
   },
 ];
 
