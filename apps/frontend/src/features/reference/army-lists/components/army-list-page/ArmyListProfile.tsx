@@ -19,7 +19,8 @@ export function ArmyListProfile({
   );
 
   const availableOptions = profile.options.filter(
-    (option) => option.state === "available",
+    (option) =>
+      option.state === "available" && option.category !== "special-upgrade",
   );
 
   const points =

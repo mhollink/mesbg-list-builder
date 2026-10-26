@@ -62,7 +62,6 @@ export const roadmap: readonly RoadmapFeature[] = [
           { id: "details", status: "done" },
           { id: "finder", status: "done" },
           { id: "create", status: "done" },
-          { id: "special", status: "planned" },
         ],
       },
       {
