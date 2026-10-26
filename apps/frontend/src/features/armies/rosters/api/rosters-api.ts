@@ -235,6 +235,7 @@ export const rostersApi = serverApi.injectEndpoints({
 
 export const {
   useGetRostersQuery,
+  useLazyGetRostersQuery,
   useGetRosterQuery,
   useCreateRosterMutation,
   useUpdateRosterMutation,

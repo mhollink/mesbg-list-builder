@@ -27,6 +27,7 @@ import { ArmyListPage } from "~/features/reference/army-lists/ArmyListPage.tsx";
 import { ArmyListsPage } from "~/features/reference/army-lists/ArmyListsPage.tsx";
 import { ProfilesPage } from "~/features/reference/profiles/ProfilesPage.tsx";
 import { RulesPage } from "~/features/reference/rules/RulesPage.tsx";
+import { SearchPage } from "~/features/search/page/SearchPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -43,12 +44,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "search",
-        element: (
-          <FeaturePagePlaceholder
-            title="Search"
-            description="Search through MESBG content."
-          />
-        ),
+        element: <SearchPage />,
       },
 
       {

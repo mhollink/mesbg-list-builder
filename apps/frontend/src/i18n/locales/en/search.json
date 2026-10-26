@@ -1,0 +1,24 @@
+{
+  "title": "Search",
+  "placeholder": "Search rules, profiles, armies and rosters",
+  "submit": "Search",
+  "close": "Close search",
+  "all": "All",
+  "start": "Enter a search term to begin.",
+  "empty": "No matching results.",
+  "error": "Could not load these results.",
+  "retry": "Retry",
+  "loading": "Loading results",
+  "viewAll": "View all results",
+  "viewCategory": "View all {{count}} results",
+  "resultCount_one": "{{count}} result",
+  "resultCount_other": "{{count}} results",
+  "categories": {
+    "profiles": "Profiles",
+    "rules": "Rules",
+    "armies": "Army lists",
+    "rosters": "My rosters",
+    "companies": "Battle companies",
+    "tournaments": "Tournaments"
+  }
+}
