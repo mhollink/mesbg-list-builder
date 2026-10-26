@@ -2,7 +2,7 @@
   "private": true,
   "name": "@mlb/frontend",
   "type": "module",
-  "version": "2.0.0-alpha.24",
+  "version": "2.0.0-alpha.25",
   "scripts": {
     "dev": "vite",
     "format": "biome check --write .",
