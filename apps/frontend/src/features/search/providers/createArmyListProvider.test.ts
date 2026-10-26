@@ -12,7 +12,7 @@ describe("createArmyListProvider", () => {
       profiles: [{ profile: { name: "Éomer" } }],
       specialRules: [],
       additionalRules: [],
-    } as LocalizedArmyList;
+    } as unknown as LocalizedArmyList;
     const provider = createArmyListProvider([list]);
     const response = provider.search({
       query: "eomer",
