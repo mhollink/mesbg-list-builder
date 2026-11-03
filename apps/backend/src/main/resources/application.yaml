@@ -6,7 +6,7 @@ spring:
     name: api
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/mesbg}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:21374/mesbg}
     username: ${SPRING_DATASOURCE_USERNAME:mesbg}
     password: ${SPRING_DATASOURCE_PASSWORD:mesbg}
   flyway:
@@ -20,13 +20,13 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8081/realms/mesbg}
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:21373/realms/mesbg}
 
 app:
   cookies:
     secure: true
   cors:
-    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173}
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:21371}
 
 logging:
   pattern:

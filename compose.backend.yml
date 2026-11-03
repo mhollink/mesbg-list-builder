@@ -10,7 +10,7 @@ services:
       database:
         condition: service_healthy
     ports:
-      - "8080:8080"
+      - "21375:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mariadb://database:3306/mesbg
       SPRING_DATASOURCE_USERNAME: mesbg
