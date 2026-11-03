@@ -6,7 +6,9 @@ info:
 
 servers:
   - description: "Local development server"
-    url: "http://localhost:8080/"
+    url: "http://localhost:21372/"
+  - description: "Docker-mapped development server"
+    url: "http://localhost:21375/"
   - description: "Live Production server"
     url: "https://api-next.mesbg-list-builder.com/"
 

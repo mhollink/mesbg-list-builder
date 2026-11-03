@@ -5,6 +5,14 @@ import { fileURLToPath } from "node:url";
 
 export default defineConfig(({ command }) => ({
   plugins: [react()],
+  server: {
+    port: 21371,
+    strictPort: true,
+  },
+  preview: {
+    port: 21376,
+    strictPort: true,
+  },
   // Alpha releases are intentionally unminified for readable error stacks.
   // Keep source maps in all releases so deployed JS can be traced back to TSX.
   build: {

@@ -10,7 +10,6 @@ reference, collections, games, Battle Companies, tournaments, and player discove
 > [!NOTE]
 > The current development focus is the frontend application and the game-data pipeline.
 
-
 ## Project structure
 
 ```text
@@ -129,6 +128,58 @@ make backend
 ```
 
 The frontend and backend are intentionally separate processes, so each can be restarted or debugged independently.
+
+### Development ports
+
+Local development uses a dedicated block of host ports to reduce conflicts with other projects. These are not reserved
+ports, so another application can still use them.
+
+| Port    | Component                       | Started by                            | Configuration                                            |
+|---------|---------------------------------|---------------------------------------|----------------------------------------------------------|
+| `21371` | React / Vite development server | `make frontend`                       | `apps/frontend/vite.config.ts`                           |
+| `21372` | Spring Boot API (local profile) | `make backend`                        | `apps/backend/src/main/resources/application-local.yaml` |
+| `21373` | Keycloak                        | `make start`                          | `compose.keycloak.yml`                                   |
+| `21374` | MariaDB                         | `make start`                          | `compose.database.yml`                                   |
+| `21375` | Spring Boot API (Docker)        | `docker compose up -d backend`        | `compose.backend.yml`                                    |
+| `21376` | Vite production-build preview   | `pnpm --filter @mlb/frontend preview` | `apps/frontend/vite.config.ts`                           |
+
+Docker services retain their standard **internal** ports: Spring Boot and Keycloak use `8080`, and MariaDB uses `3306`.
+Only the published host ports have changed. The MariaDB host port is bound to `127.0.0.1` only.
+
+The backend's default configuration listens on `8080` (for Docker); `make backend` activates the `local` profile and
+instead listens on `21372`. `make start` starts the database and Keycloak, not the backend container.
+
+#### Frontend environment
+
+Copy the example environment file before running the frontend:
+
+```bash
+cp apps/frontend/.env.example apps/frontend/.env.local
+```
+
+If `apps/frontend/.env.local` already exists, update its API and Keycloak URLs to the new ports instead of overwriting
+it.
+
+Vite uses `strictPort: true` and fails to start if the configured port is occupied, rather than silently selecting a
+different port and breaking OAuth redirects.
+
+#### Troubleshooting port conflicts
+
+On Linux, inspect listeners for the project's host ports:
+
+```bash
+sudo ss -ltnp | grep -E ':(2137[1-6])([^0-9]|$)'
+docker compose ps
+```
+
+Check `/proc/sys/net/ipv4/ip_local_port_range` when choosing additional ports, as this range is system-configurable. The
+selected host ports are below the usual Linux ephemeral-port range but are not exclusively reserved for this
+application.
+
+**Important:** Changing Keycloak's imported realm client URLs does not automatically update an existing realm database.
+Update its `mesbg-web` redirect URI, web origin and related URLs through the Keycloak admin console, or import into a
+new realm. Likewise, if using the Compose files on a server, update any external reverse-proxy targets and
+deployment-specific environment variables before applying the new published ports.
 
 ## Working with game data
 
