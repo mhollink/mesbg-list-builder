@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 interface LoadoutQuantityControlsProps {
   quantity: number;
   minQuantity?: number;
+  label?: string;
   disabled?: boolean;
   onChange: (quantity: number) => void;
 }
@@ -14,6 +15,7 @@ interface LoadoutQuantityControlsProps {
 export function UnitLoadoutQuantityControls({
   quantity,
   minQuantity = 1,
+  label,
   disabled = false,
   onChange,
 }: LoadoutQuantityControlsProps) {
@@ -23,7 +25,9 @@ export function UnitLoadoutQuantityControls({
         size="small"
         disabled={disabled || quantity <= minQuantity}
         onClick={() => onChange(Math.max(minQuantity, quantity - 1))}
-        aria-label="Decrease quantity"
+        aria-label={
+          label ? `Decrease quantity for ${label}` : "Decrease quantity"
+        }
       >
         <RemoveIcon fontSize="small" />
       </IconButton>
@@ -42,7 +46,9 @@ export function UnitLoadoutQuantityControls({
         size="small"
         disabled={disabled}
         onClick={() => onChange(quantity + 1)}
-        aria-label="Increase quantity"
+        aria-label={
+          label ? `Increase quantity for ${label}` : "Increase quantity"
+        }
       >
         <AddIcon fontSize="small" />
       </IconButton>

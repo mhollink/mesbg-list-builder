@@ -11,7 +11,7 @@ interface LeaderPickerProps {
   continuous?: boolean;
   onSave: (
     profile: LocalizedArmyListProfile,
-    loadout: UnitLoadout,
+    loadouts: UnitLoadout[],
   ) => Promise<void>;
 }
 

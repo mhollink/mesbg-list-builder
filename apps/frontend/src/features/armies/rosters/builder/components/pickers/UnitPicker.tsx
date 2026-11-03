@@ -14,11 +14,12 @@ interface UnitPickerProps {
   profiles: readonly LocalizedArmyListProfile[];
   initialProfile?: LocalizedArmyListProfile;
   unit?: BuilderUnit;
+  existingUnits?: readonly BuilderUnit[];
   capacity?: WarbandCapacity;
   continuous?: boolean;
   onSave: (
     profile: LocalizedArmyListProfile,
-    loadout: UnitLoadout,
+    loadouts: UnitLoadout[],
   ) => Promise<void>;
 }
 
@@ -49,6 +50,7 @@ function UnitPickerFlow({
   profiles,
   initialProfile,
   unit,
+  existingUnits,
   capacity,
   onSave,
   continuous,
@@ -60,9 +62,9 @@ function UnitPickerFlow({
 
   async function handleSave(
     profile: LocalizedArmyListProfile,
-    loadout: UnitLoadout,
+    loadouts: UnitLoadout[],
   ) {
-    await onSave(profile, loadout);
+    await onSave(profile, loadouts);
     if (continuous) {
       // Each save adds one warband; stay in the leader selector for the next.
       if (history.profileId) history.back();
@@ -77,7 +79,7 @@ function UnitPickerFlow({
       profiles={profiles}
       onSelect={(profile) => history.configure(profile.id)}
       onQuickAdd={(profile) =>
-        handleSave(profile, { quantity: 1, optionIds: [] })
+        handleSave(profile, [{ quantity: 1, optionIds: [] }])
       }
       onClose={history.close}
     />
@@ -87,10 +89,11 @@ function UnitPickerFlow({
       key={`${selectedProfile.id}:${unit?.id ?? "new"}:${open ? "open" : "closed"}`}
       profile={selectedProfile}
       unit={unit}
+      existingUnits={existingUnits}
       capacity={capacity}
       onBack={initialProfile ? undefined : history.back}
       onClose={history.close}
-      onSave={(loadout) => handleSave(selectedProfile, loadout)}
+      onSave={(loadouts) => handleSave(selectedProfile, loadouts)}
     />
   );
 }
