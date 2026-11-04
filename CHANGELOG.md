@@ -4,6 +4,16 @@ All notable changes to MESBG List Builder are documented in this file.
 
 The format is based on Keep a Changelog and releases follow Semantic Versioning.
 
+## \[2.0.0-alpha.27\] - 2026-11-04
+
+### Fixed
+
+- Resolve local development port conflict
+
+### Reverted
+
+- Replace multi-loadout logic with single unit configuration
+
 ## \[2.0.0-alpha.26\] - 2026-10-26
 
 ### Added
