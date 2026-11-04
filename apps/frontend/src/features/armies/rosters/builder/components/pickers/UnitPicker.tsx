@@ -14,11 +14,12 @@ interface UnitPickerProps {
   profiles: readonly LocalizedArmyListProfile[];
   initialProfile?: LocalizedArmyListProfile;
   unit?: BuilderUnit;
+  existingUnits?: readonly BuilderUnit[];
   capacity?: WarbandCapacity;
   continuous?: boolean;
   onSave: (
     profile: LocalizedArmyListProfile,
-    loadout: UnitLoadout,
+    loadouts: UnitLoadout[],
   ) => Promise<void>;
 }
 
@@ -49,6 +50,7 @@ function UnitPickerFlow({
   profiles,
   initialProfile,
   unit,
+  existingUnits,
   capacity,
   onSave,
   continuous,
@@ -57,12 +59,20 @@ function UnitPickerFlow({
   const selectedProfile =
     initialProfile ??
     profiles.find((profile) => profile.id === history.profileId);
+  const matchingUnits = existingUnits?.filter(
+    (candidate) => candidate.armyListProfileId === selectedProfile?.id,
+  );
+  const editingUnit =
+    unit ??
+    (selectedProfile?.profile.stats.type === "hero"
+      ? matchingUnits?.[0]
+      : undefined);
 
   async function handleSave(
     profile: LocalizedArmyListProfile,
-    loadout: UnitLoadout,
+    loadouts: UnitLoadout[],
   ) {
-    await onSave(profile, loadout);
+    await onSave(profile, loadouts);
     if (continuous) {
       // Each save adds one warband; stay in the leader selector for the next.
       if (history.profileId) history.back();
@@ -76,21 +86,36 @@ function UnitPickerFlow({
       title={title}
       profiles={profiles}
       onSelect={(profile) => history.configure(profile.id)}
-      onQuickAdd={(profile) =>
-        handleSave(profile, { quantity: 1, optionIds: [] })
-      }
+      onQuickAdd={(profile) => {
+        if (
+          existingUnits?.some(
+            (existing) => existing.armyListProfileId === profile.id,
+          )
+        ) {
+          history.configure(profile.id);
+          return Promise.resolve();
+        }
+        return handleSave(profile, [{ quantity: 1, optionIds: [] }]);
+      }}
       onClose={history.close}
     />
   ) : (
     <UnitConfigurationView
       // The drawer stays mounted for animations, but reopening resets draft state.
-      key={`${selectedProfile.id}:${unit?.id ?? "new"}:${open ? "open" : "closed"}`}
+      key={`${selectedProfile.id}:${editingUnit?.id ?? "new"}:${open ? "open" : "closed"}`}
       profile={selectedProfile}
-      unit={unit}
+      unit={editingUnit}
+      existingUnits={
+        selectedProfile.profile.stats.type === "hero"
+          ? undefined
+          : matchingUnits?.length
+            ? matchingUnits
+            : undefined
+      }
       capacity={capacity}
       onBack={initialProfile ? undefined : history.back}
       onClose={history.close}
-      onSave={(loadout) => handleSave(selectedProfile, loadout)}
+      onSave={(loadouts) => handleSave(selectedProfile, loadouts)}
     />
   );
 }

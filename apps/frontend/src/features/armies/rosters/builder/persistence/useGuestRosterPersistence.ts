@@ -13,6 +13,7 @@ import {
   deleteGuestWarband,
   moveGuestUnit,
   moveGuestWarband,
+  replaceGuestFollowerLoadouts,
   setGuestArmyOptions,
   setGuestGeneral,
   updateGuestUnit,
@@ -28,6 +29,51 @@ export function useGuestRosterPersistence(): RosterPersistence {
   const roster = useAppSelector(selectGuestRoster);
 
   return {
+    async replaceFollowerLoadouts(warbandId, armyListProfileId, loadouts) {
+      // Prepare IDs outside the reducer; the reducer itself must be pure.
+      const keyFor = (options: readonly string[]) =>
+        JSON.stringify([...new Set(options)].sort());
+      const keys = new Set<string>();
+      for (const loadout of loadouts) {
+        const key = keyFor(loadout.optionIds);
+        if (
+          !Number.isInteger(loadout.quantity) ||
+          loadout.quantity < 1 ||
+          keys.has(key)
+        ) {
+          throw new Error("Invalid or duplicate follower loadout");
+        }
+        keys.add(key);
+      }
+      const warband = findWarband(roster, guestWarbandId(warbandId));
+      const existing = warband.followers.filter(
+        (unit) => unit.armyListProfileId === armyListProfileId,
+      );
+      const exact = new Map<string, GuestRosterUnit>();
+      const spare: GuestRosterUnit[] = [];
+      for (const unit of existing) {
+        const key = keyFor(unit.optionIds);
+        if (keys.has(key) && !exact.has(key)) exact.set(key, unit);
+        else spare.push(unit);
+      }
+      const resolved = loadouts.map(({ quantity, optionIds }) => {
+        const old = exact.get(keyFor(optionIds)) ?? spare.shift();
+        return {
+          id: old?.id ?? crypto.randomUUID(),
+          armyListProfileId,
+          quantity,
+          optionIds: [...new Set(optionIds)].sort(),
+        };
+      });
+      dispatch(
+        replaceGuestFollowerLoadouts({
+          warbandId: guestWarbandId(warbandId),
+          armyListProfileId,
+          loadouts: resolved,
+        }),
+      );
+    },
+
     async createWarband({ armyListProfileId, optionIds }) {
       dispatch(
         addGuestWarband({

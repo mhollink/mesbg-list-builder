@@ -10,6 +10,7 @@ import reducer, {
   type GuestRosterState,
   moveGuestUnit,
   moveGuestWarband,
+  replaceGuestFollowerLoadouts,
   replaceGuestRoster,
   setGuestArmyOptions,
   setGuestGeneral,
@@ -172,6 +173,44 @@ describe("guestRosterSlice", () => {
         quantity: 3,
         optionIds: ["spear"],
       });
+    });
+
+    it("replaces one profile's loadouts as one state transition", () => {
+      const roster = guestRoster();
+      roster.warbands[0].followers.push({
+        id: "other",
+        armyListProfileId: "another-profile",
+        quantity: 2,
+        optionIds: [],
+      });
+      const state = reducer(
+        stateWith(roster),
+        replaceGuestFollowerLoadouts({
+          warbandId: "warband-1",
+          armyListProfileId: "orc-warrior",
+          loadouts: [
+            {
+              id: "follower-1",
+              armyListProfileId: "orc-warrior",
+              quantity: 6,
+              optionIds: ["shield"],
+            },
+            {
+              id: "new",
+              armyListProfileId: "orc-warrior",
+              quantity: 3,
+              optionIds: ["upgrade"],
+            },
+          ],
+        }),
+      );
+      expect(state.roster?.warbands[0].followers.map(({ id }) => id)).toEqual([
+        "follower-1",
+        "other",
+        "new",
+      ]);
+      expect(state.roster?.warbands[0].followers[0].quantity).toBe(6);
+      expect(state.roster?.warbands[0].leader.id).toBe("leader-1");
     });
 
     it("updates follower quantity", () => {

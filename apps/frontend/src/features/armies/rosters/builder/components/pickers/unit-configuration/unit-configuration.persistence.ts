@@ -4,6 +4,7 @@ import type {
 } from "../../../domain/roster.types.ts";
 import type { RosterPersistence } from "../../../persistence/roster-persistence.types.ts";
 import {
+  loadoutKey,
   normalizeOptionIds,
   type UnitLoadout,
 } from "./unit-configuration.utils.ts";
@@ -60,4 +61,45 @@ export async function saveFollowerLoadout(
       optionIds,
     );
   }
+}
+
+/** Save a complete set of configurations for one follower profile. */
+export async function saveFollowerLoadouts(
+  warband: BuilderWarband,
+  profile: LocalizedArmyListProfile,
+  loadouts: readonly UnitLoadout[],
+  actions: RosterPersistence,
+  existingUnits?: readonly BuilderUnit[],
+): Promise<void> {
+  const actual = warband.followers.filter(
+    (unit) => unit.armyListProfileId === profile.id,
+  );
+  if (existingUnits !== undefined) {
+    // Never silently replace a wider profile scope than the drawer displayed.
+    const shown = new Set(existingUnits.map((unit) => unit.id));
+    if (
+      shown.size !== actual.length ||
+      actual.some((unit) => !shown.has(unit.id))
+    ) {
+      throw new Error(
+        "The follower configurations changed. Reopen the drawer to refresh them.",
+      );
+    }
+  } else if (actual.length > 0) {
+    throw new Error("Existing followers must be opened in editing mode.");
+  }
+
+  const seen = new Set<string>();
+  const normalized = loadouts.map(({ optionIds, quantity }) => {
+    if (!Number.isInteger(quantity) || quantity < 1) {
+      throw new Error("Follower quantities must be positive integers.");
+    }
+    const options = normalizeOptionIds(profile, optionIds);
+    const key = loadoutKey(options);
+    if (seen.has(key)) throw new Error("Duplicate follower configuration.");
+    seen.add(key);
+    return { quantity, optionIds: options };
+  });
+
+  await actions.replaceFollowerLoadouts(warband.id, profile.id, normalized);
 }

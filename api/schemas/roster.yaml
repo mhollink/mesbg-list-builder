@@ -398,6 +398,34 @@ CreateFollowerRequest:
       items:
         type: string
 
+FollowerLoadoutInput:
+  type: object
+  required:
+    - quantity
+    - optionIds
+  properties:
+    quantity:
+      type: integer
+      minimum: 1
+    optionIds:
+      type: array
+      items:
+        type: string
+
+ReplaceFollowerLoadoutsRequest:
+  type: object
+  required:
+    - armyListProfileId
+    - loadouts
+  properties:
+    armyListProfileId:
+      type: string
+      minLength: 1
+    loadouts:
+      type: array
+      items:
+        $ref: "#/FollowerLoadoutInput"
+
 UpdateRosterUnitRequest:
   type: object
   minProperties: 1

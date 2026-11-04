@@ -1,5 +1,6 @@
 import type {
   CreateFollowerRequest,
+  ReplaceFollowerLoadoutsRequest,
   RosterUnit,
   UpdateRosterUnitRequest,
 } from "@mlb/api-client";
@@ -34,6 +35,32 @@ export const rosterUnitApi = serverApi.injectEndpoints({
         }
       },
 
+      invalidatesTags: (_result, _error, { rosterId }) => [
+        { type: "Roster", id: rosterId },
+      ],
+    }),
+
+    replaceFollowerLoadouts: builder.mutation<
+      RosterUnit[],
+      {
+        rosterId: number;
+        warbandId: number;
+        request: ReplaceFollowerLoadoutsRequest;
+      }
+    >({
+      queryFn: async ({ rosterId, warbandId, request }) => {
+        try {
+          return {
+            data: await rosterUnitsClient.replaceWarbandFollowerLoadouts({
+              rosterId,
+              warbandId,
+              replaceFollowerLoadoutsRequest: request,
+            }),
+          };
+        } catch (error) {
+          return { error: toApiError(error) };
+        }
+      },
       invalidatesTags: (_result, _error, { rosterId }) => [
         { type: "Roster", id: rosterId },
       ],
@@ -142,6 +169,7 @@ export const rosterUnitApi = serverApi.injectEndpoints({
 
 export const {
   useCreateFollowerMutation,
+  useReplaceFollowerLoadoutsMutation,
   useUpdateUnitMutation,
   useDeleteUnitMutation,
   useMoveUnitMutation,

@@ -10,6 +10,7 @@ const mocks = vi.hoisted(() => ({
   moveWarband: vi.fn(),
 
   createFollower: vi.fn(),
+  replaceFollowerLoadouts: vi.fn(),
   updateUnit: vi.fn(),
   deleteUnit: vi.fn(),
   moveUnit: vi.fn(),
@@ -30,6 +31,7 @@ vi.mock("~/features/armies/rosters/api/roster-warband-api.ts", () => ({
 
 vi.mock("~/features/armies/rosters/api/roster-unit-api.ts", () => ({
   useCreateFollowerMutation: () => [mocks.createFollower],
+  useReplaceFollowerLoadoutsMutation: () => [mocks.replaceFollowerLoadouts],
   useUpdateUnitMutation: () => [mocks.updateUnit],
   useDeleteUnitMutation: () => [mocks.deleteUnit],
   useMoveUnitMutation: () => [mocks.moveUnit],
@@ -53,6 +55,7 @@ describe("useAuthenticatedRosterPersistence", () => {
     mocks.moveWarband.mockReturnValue({ unwrap: mocks.unwrap });
 
     mocks.createFollower.mockReturnValue({ unwrap: mocks.unwrap });
+    mocks.replaceFollowerLoadouts.mockReturnValue({ unwrap: mocks.unwrap });
     mocks.updateUnit.mockReturnValue({ unwrap: mocks.unwrap });
     mocks.deleteUnit.mockReturnValue({ unwrap: mocks.unwrap });
     mocks.moveUnit.mockReturnValue({ unwrap: mocks.unwrap });
@@ -153,6 +156,26 @@ describe("useAuthenticatedRosterPersistence", () => {
     });
 
     expect(mocks.unwrap).toHaveBeenCalledTimes(4);
+  });
+
+  it("saves follower configurations in a single batch", async () => {
+    const { result } = renderHook(() => useAuthenticatedRosterPersistence(42));
+    await result.current.replaceFollowerLoadouts(10, "orc-warrior", [
+      { optionIds: ["shield"], quantity: 4 },
+      { optionIds: ["bow"], quantity: 2 },
+    ]);
+    expect(mocks.replaceFollowerLoadouts).toHaveBeenCalledWith({
+      rosterId: 42,
+      warbandId: 10,
+      request: {
+        armyListProfileId: "orc-warrior",
+        loadouts: [
+          { optionIds: ["shield"], quantity: 4 },
+          { optionIds: ["bow"], quantity: 2 },
+        ],
+      },
+    });
+    expect(mocks.unwrap).toHaveBeenCalledTimes(1);
   });
 
   it("persists roster composition operations", async () => {

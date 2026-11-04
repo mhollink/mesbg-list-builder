@@ -9,6 +9,7 @@ import {
   deleteGuestWarband,
   moveGuestUnit,
   moveGuestWarband,
+  replaceGuestFollowerLoadouts,
   setGuestArmyOptions,
   setGuestGeneral,
   updateGuestUnit,
@@ -133,6 +134,35 @@ describe("useGuestRosterPersistence", () => {
           quantity: 6,
           optionIds: ["spear"],
         },
+      }),
+    );
+  });
+
+  it("reuses matching follower IDs while adding new configurations", async () => {
+    mockUuid("00000000-0000-4000-8000-000000000031");
+    const { result } = renderHook(() => useGuestRosterPersistence());
+    await result.current.replaceFollowerLoadouts("warband-1", "orc-warrior", [
+      { quantity: 6, optionIds: ["shield"] },
+      { quantity: 2, optionIds: ["spear"] },
+    ]);
+    expect(mocks.dispatch).toHaveBeenCalledWith(
+      replaceGuestFollowerLoadouts({
+        warbandId: "warband-1",
+        armyListProfileId: "orc-warrior",
+        loadouts: [
+          {
+            id: "follower-1",
+            armyListProfileId: "orc-warrior",
+            quantity: 6,
+            optionIds: ["shield"],
+          },
+          {
+            id: "00000000-0000-4000-8000-000000000031",
+            armyListProfileId: "orc-warrior",
+            quantity: 2,
+            optionIds: ["spear"],
+          },
+        ],
       }),
     );
   });

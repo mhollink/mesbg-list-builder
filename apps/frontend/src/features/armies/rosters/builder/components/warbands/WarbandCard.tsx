@@ -22,6 +22,7 @@ import { FollowerPicker } from "~/features/armies/rosters/builder/components/pic
 import { LeaderPicker } from "~/features/armies/rosters/builder/components/pickers/LeaderPicker.tsx";
 import {
   saveFollowerLoadout,
+  saveFollowerLoadouts,
   saveLeaderLoadout,
 } from "~/features/armies/rosters/builder/components/pickers/unit-configuration/unit-configuration.persistence.ts";
 import { FollowerRow } from "~/features/armies/rosters/builder/components/units/FollowerRow.tsx";
@@ -80,6 +81,17 @@ export function WarbandCard({
     (picker?.type === "follower-edit" &&
       picker.warbandId === warbandId &&
       selectedFollower !== undefined);
+  const editingProfile = selectedFollower
+    ? gameData.armyListProfilesById.get(selectedFollower.armyListProfileId)
+    : undefined;
+  const editingFollowers = selectedFollower
+    ? editingProfile?.profile.stats.type === "hero"
+      ? [selectedFollower]
+      : warband.followers.filter(
+          (follower) =>
+            follower.armyListProfileId === selectedFollower.armyListProfileId,
+        )
+    : undefined;
 
   const { ref: warbandDropRef } = useDroppable({
     id: warbandSortId(warband.id),
@@ -211,9 +223,13 @@ export function WarbandCard({
           warband.leader.armyListProfileId,
         )}
         unit={warband.leader}
-        onSave={(profile, loadout) =>
-          saveLeaderLoadout(warband, profile, loadout, actions)
-        }
+        onSave={(profile, loadouts) => {
+          const loadout = loadouts[0];
+          if (!loadout || loadouts.length !== 1) {
+            throw new Error("A leader requires one configuration.");
+          }
+          return saveLeaderLoadout(warband, profile, loadout, actions);
+        }}
       />
 
       <FollowerPicker
@@ -227,16 +243,37 @@ export function WarbandCard({
             : undefined
         }
         unit={selectedFollower}
+        existingUnits={editingFollowers ?? warband.followers}
         capacity={capacity}
-        onSave={(profile, loadout) =>
-          saveFollowerLoadout(
+        onSave={(profile, loadouts) => {
+          if (profile.profile.stats.type === "hero") {
+            const loadout = loadouts[0];
+            if (!loadout || loadouts.length !== 1) {
+              throw new Error("A hero requires one configuration.");
+            }
+            const existing =
+              selectedFollower ??
+              warband.followers.find(
+                (follower) => follower.armyListProfileId === profile.id,
+              );
+            return saveFollowerLoadout(
+              warband,
+              profile,
+              loadout,
+              actions,
+              existing,
+            );
+          }
+          return saveFollowerLoadouts(
             warband,
             profile,
-            loadout,
+            loadouts,
             actions,
-            selectedFollower,
-          )
-        }
+            warband.followers.filter(
+              (follower) => follower.armyListProfileId === profile.id,
+            ),
+          );
+        }}
       />
     </>
   );

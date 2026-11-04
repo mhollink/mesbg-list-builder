@@ -124,3 +124,100 @@ export function toDraftUnit(
     quantity: loadout.quantity,
   };
 }
+
+/** A selectable equipment/upgrade combination in the warrior editor. */
+export interface WarriorDraftLoadout extends UnitLoadout {
+  key: string;
+  name: string;
+  /** Null represents a regular warrior without a special upgrade. */
+  upgradeId: string | null;
+}
+
+export function loadoutKey(optionIds: readonly string[]): string {
+  return JSON.stringify([...new Set(optionIds)].sort());
+}
+
+/**
+ * Builds one row per valid equipment choice and upgrade. Persisted combinations
+ * are also kept, so a change to game data cannot silently remove roster units.
+ */
+export function createWarriorDrafts(
+  profile: LocalizedArmyListProfile,
+  existingUnits: readonly BuilderUnit[] = [],
+): WarriorDraftLoadout[] {
+  const drafts = new Map<string, WarriorDraftLoadout>();
+  const equipment = profile.options
+    .filter(
+      (option) => !isSpecialUpgrade(option) && option.state === "available",
+    )
+    .sort((a, b) => (a.points ?? 0) - (b.points ?? 0));
+  const upgrades = profile.options.filter(isSpecialUpgrade);
+  const compulsoryUpgrade = upgrades.find(
+    (option) => option.state === "preselected",
+  );
+  const upgradeChoices: (LocalizedArmyListProfileOption | undefined)[] =
+    compulsoryUpgrade
+      ? [compulsoryUpgrade]
+      : [
+          undefined,
+          ...upgrades.filter((option) => option.state === "available"),
+        ];
+
+  const add = (ids: readonly string[], quantity = 0) => {
+    const optionIds = normalizeOptionIds(profile, ids);
+    const key = loadoutKey(optionIds);
+    const present = drafts.get(key);
+    if (present) {
+      present.quantity += quantity;
+      return;
+    }
+
+    const upgrade = upgrades.find(
+      (option) =>
+        option.state === "preselected" || optionIds.includes(option.id),
+    );
+    const equipmentNames = profile.options
+      .filter(
+        (option) => !isSpecialUpgrade(option) && optionIds.includes(option.id),
+      )
+      .map((option) => option.name);
+
+    drafts.set(key, {
+      key,
+      optionIds,
+      quantity,
+      upgradeId: upgrade?.id ?? null,
+      name: equipmentNames.join(" + ") || "No additional equipment",
+    });
+  };
+
+  for (const upgrade of upgradeChoices) {
+    for (const choice of [undefined, ...equipment]) {
+      const ids = [upgrade?.id, choice?.id].filter(
+        (id): id is string => id !== undefined,
+      );
+      if (getEquipmentSelectionLimits(profile, ids).valid) {
+        add(ids);
+      }
+    }
+  }
+
+  // Existing entries may use a combination that is no longer generated.
+  for (const unit of existingUnits) {
+    if (unit.armyListProfileId === profile.id) {
+      add(unit.optionIds, unit.quantity);
+    }
+  }
+
+  const result = [...drafts.values()];
+  if (
+    result.length === 1 &&
+    existingUnits.length === 0 &&
+    equipment.length === 0 &&
+    upgrades.length === 0
+  ) {
+    result[0].quantity = 1;
+    result[0].name = "Standard equipment";
+  }
+  return result;
+}
