@@ -5,13 +5,7 @@ import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterUnitException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterInvariantViolationException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,22 +19,35 @@ public class RosterUnitsService {
 
   private final RosterAccess rosterAccess;
   private final RosterUnitRepository rosterUnitRepository;
+  private final FollowerLoadoutReconciler followerLoadoutReconciler;
 
   public record FollowerLoadout(int quantity, Set<String> optionIds) {}
 
-  /**
-   * Replaces the configurations for one profile in a warband within one transaction. Existing
-   * matching configurations keep their IDs and ordering. Other profiles and the leader are not
-   * modified. Any error rolls back the whole batch.
-   */
   @Transactional
   public List<RosterUnitEntity> replaceFollowerLoadouts(
       Long rosterId, Long warbandId, String armyListProfileId, List<FollowerLoadout> loadouts) {
-    if (armyListProfileId == null || armyListProfileId.isBlank() || loadouts == null) {
+
+    var desired = validateLoadouts(armyListProfileId, loadouts);
+
+    var roster = rosterAccess.requireEditable(rosterId);
+    var warband = rosterAccess.requireWarband(warbandId, rosterId);
+
+    var result = followerLoadoutReconciler.reconcile(warband, armyListProfileId, desired);
+
+    roster.touch();
+
+    return result;
+  }
+
+  private Map<Set<String>, Integer> validateLoadouts(
+      String profileId, List<FollowerLoadout> loadouts) {
+
+    if (profileId == null || profileId.isBlank() || loadouts == null) {
       throw new InvalidRosterUnitException("A profile and loadouts are required");
     }
 
     Map<Set<String>, Integer> desired = new LinkedHashMap<>();
+
     for (var loadout : loadouts) {
       if (loadout == null
           || loadout.quantity() < 1
@@ -48,64 +55,14 @@ public class RosterUnitsService {
           || loadout.optionIds().stream().anyMatch(Objects::isNull)) {
         throw new InvalidRosterUnitException("Every loadout needs a positive quantity and options");
       }
-      Set<String> optionIds = Set.copyOf(loadout.optionIds());
-      if (desired.putIfAbsent(optionIds, loadout.quantity()) != null) {
+
+      var options = Set.copyOf(loadout.optionIds());
+      if (desired.putIfAbsent(options, loadout.quantity()) != null) {
         throw new InvalidRosterUnitException("Duplicate equipment configurations are not allowed");
       }
     }
 
-    var roster = rosterAccess.requireEditable(rosterId);
-    var warband = rosterAccess.requireWarband(warbandId, rosterId);
-    var existing =
-        warband.getUnits().stream()
-            .filter(
-                unit -> !unit.isLeader() && armyListProfileId.equals(unit.getArmyListProfileId()))
-            .sorted(Comparator.comparingInt(RosterUnitEntity::getSortIndex))
-            .toList();
-
-    // Reserve exact matches before reusing an entry for a changed configuration.
-    Map<Set<String>, RosterUnitEntity> matches = new LinkedHashMap<>();
-    var spare = new ArrayList<RosterUnitEntity>();
-    for (var unit : existing) {
-      Set<String> options = Set.copyOf(unit.getOptionIds());
-      if (desired.containsKey(options) && !matches.containsKey(options)) {
-        matches.put(options, unit);
-      } else {
-        spare.add(unit);
-      }
-    }
-
-    var result = new ArrayList<RosterUnitEntity>();
-    int nextIndex =
-        warband.getUnits().stream().mapToInt(RosterUnitEntity::getSortIndex).max().orElse(-1) + 1;
-    for (var entry : desired.entrySet()) {
-      var unit = matches.get(entry.getKey());
-      if (unit == null && !spare.isEmpty()) {
-        unit = spare.remove(0);
-        unit.getOptionIds().clear();
-        unit.getOptionIds().addAll(entry.getKey());
-      }
-      if (unit == null) {
-        unit =
-            new RosterUnitEntity(warband, armyListProfileId, entry.getValue(), false, nextIndex++);
-        unit.getOptionIds().addAll(entry.getKey());
-        warband.getUnits().add(unit);
-        unit = rosterUnitRepository.save(unit);
-      } else {
-        unit.setQuantity(entry.getValue());
-      }
-      result.add(unit);
-    }
-
-    for (var removed : spare) {
-      if (roster.getGeneralUnit() != null
-          && Objects.equals(roster.getGeneralUnit().getId(), removed.getId())) {
-        roster.setGeneralUnit(null);
-      }
-      warband.getUnits().remove(removed);
-    }
-    roster.touch();
-    return result;
+    return desired;
   }
 
   @Transactional
@@ -213,10 +170,6 @@ public class RosterUnitsService {
           unitId);
       throw new RosterInvariantViolationException(
           "The warband leader cannot be deleted independently");
-    }
-
-    if (roster.getGeneralUnit() != null && roster.getGeneralUnit().getId().equals(unitId)) {
-      roster.setGeneralUnit(null);
     }
 
     unit.getWarband().getUnits().removeIf(existing -> existing.getId().equals(unitId));
