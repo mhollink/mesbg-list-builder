@@ -80,7 +80,7 @@ export function UnitLoadoutSelection({
                 />
                 <Typography
                   variant="body2"
-                  color="text.secondary"
+                  color="textSecondary"
                   sx={{ ml: 1, whiteSpace: "nowrap", flexShrink: 0 }}
                 >
                   {preselected

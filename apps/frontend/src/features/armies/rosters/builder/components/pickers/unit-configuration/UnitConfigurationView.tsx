@@ -139,7 +139,7 @@ export function UnitConfigurationView({
         {!isHero && editing && (
           <Typography
             variant="body2"
-            color="text.secondary"
+            color="textSecondary"
             sx={{ px: 2, pt: 1 }}
           >
             Editing all configurations of this warrior in the selected warband.
@@ -192,7 +192,7 @@ export function UnitConfigurationView({
         {!isHero && remainingSlots !== undefined && (
           <Typography
             variant="caption"
-            color={remainingSlots < 0 ? "error" : "text.secondary"}
+            color={remainingSlots < 0 ? "error" : "textSecondary"}
           >
             {remainingSlots < 0
               ? `${-remainingSlots} over warband capacity`
@@ -202,12 +202,12 @@ export function UnitConfigurationView({
         {!isHero && (
           <Stack direction="row" sx={{ justifyContent: "space-between" }}>
             <Typography>Models {editing ? "configured" : "to add"}</Typography>
-            <Typography fontWeight={700}>{models}</Typography>
+            <Typography sx={{ fontWeight: 700 }}>{models}</Typography>
           </Stack>
         )}
         <Stack direction="row" sx={{ justifyContent: "space-between" }}>
           <Typography>Total points</Typography>
-          <Typography fontWeight={700}>{points} pts</Typography>
+          <Typography sx={{ fontWeight: 700 }}>{points} pts</Typography>
         </Stack>
         {editing && (
           <Stack direction="row" sx={{ justifyContent: "space-between" }}>

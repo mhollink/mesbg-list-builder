@@ -51,7 +51,7 @@ export function SearchPage() {
         <SearchCategoryFilters selected={category} onChange={filter} />
         {query ? (
           <>
-            <Typography color="text.secondary">
+            <Typography color="textSecondary">
               {search.isLoading
                 ? t("loading")
                 : t("resultCount", { count: search.total })}
@@ -64,7 +64,7 @@ export function SearchPage() {
             />
           </>
         ) : (
-          <Typography color="text.secondary">{t("start")}</Typography>
+          <Typography color="textSecondary">{t("start")}</Typography>
         )}
       </Stack>
     </Container>

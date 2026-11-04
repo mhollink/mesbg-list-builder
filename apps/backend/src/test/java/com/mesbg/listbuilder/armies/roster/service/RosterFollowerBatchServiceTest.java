@@ -26,11 +26,14 @@ class RosterFollowerBatchServiceTest {
 
   @Mock private RosterAccess access;
   @Mock private RosterUnitRepository repository;
+
+  private FollowerLoadoutReconciler reconciler;
   private RosterUnitsService service;
 
   @BeforeEach
   void setUp() {
-    service = new RosterUnitsService(access, repository);
+    reconciler = new FollowerLoadoutReconciler(repository);
+    service = new RosterUnitsService(access, repository, reconciler);
   }
 
   private RosterUnitsService.FollowerLoadout loadout(int quantity, String... options) {

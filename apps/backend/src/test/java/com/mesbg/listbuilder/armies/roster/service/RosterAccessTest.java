@@ -22,6 +22,7 @@ class RosterAccessTest {
   @Mock private RosterGroupRepository rosterGroupRepository;
   @Mock private WarbandRepository warbandRepository;
   @Mock private RosterUnitRepository rosterUnitRepository;
+  @Mock private FollowerLoadoutReconciler reconciler;
 
   private RosterUnitsService unitsService;
 
@@ -43,6 +44,6 @@ class RosterAccessTest {
             rosterUnitRepository,
             rosterGroupRepository);
 
-    unitsService = new RosterUnitsService(rosterAccess, rosterUnitRepository);
+    unitsService = new RosterUnitsService(rosterAccess, rosterUnitRepository, reconciler);
   }
 }
