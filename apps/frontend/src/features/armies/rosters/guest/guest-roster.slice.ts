@@ -20,6 +20,12 @@ interface AddFollowerPayload {
   follower: GuestRosterUnit;
 }
 
+interface ReplaceFollowerLoadoutsPayload {
+  warbandId: string;
+  armyListProfileId: string;
+  loadouts: GuestRosterUnit[];
+}
+
 interface UpdateUnitPayload {
   warbandId: string;
   unitId: string;
@@ -120,6 +126,41 @@ const guestRosterSlice = createSlice({
       );
 
       warband?.followers.push(action.payload.follower);
+    },
+
+    replaceGuestFollowerLoadouts: (
+      state,
+      action: PayloadAction<ReplaceFollowerLoadoutsPayload>,
+    ) => {
+      const warband = state.roster?.warbands.find(
+        (candidate) => candidate.id === action.payload.warbandId,
+      );
+      if (!warband) return;
+
+      const profileId = action.payload.armyListProfileId;
+      const existing = warband.followers.filter(
+        (follower) => follower.armyListProfileId === profileId,
+      );
+      const changes = action.payload.loadouts;
+      const byId = new Map(changes.map((unit) => [unit.id, unit]));
+      const retainedIds = new Set(byId.keys());
+      warband.followers = [
+        ...warband.followers.flatMap((unit) => {
+          if (unit.armyListProfileId !== profileId) return [unit];
+          const updated = byId.get(unit.id);
+          return updated ? [updated] : [];
+        }),
+        ...changes.filter(
+          (unit) => !existing.some((old) => old.id === unit.id),
+        ),
+      ];
+      if (
+        state.roster?.generalUnitId &&
+        !retainedIds.has(state.roster.generalUnitId) &&
+        existing.some((unit) => unit.id === state.roster?.generalUnitId)
+      ) {
+        state.roster.generalUnitId = null;
+      }
     },
 
     updateGuestUnit: (state, action: PayloadAction<UpdateUnitPayload>) => {
@@ -252,6 +293,7 @@ export const {
   moveGuestWarband,
 
   addGuestFollower,
+  replaceGuestFollowerLoadouts,
   updateGuestUnit,
   deleteGuestUnit,
   moveGuestUnit,

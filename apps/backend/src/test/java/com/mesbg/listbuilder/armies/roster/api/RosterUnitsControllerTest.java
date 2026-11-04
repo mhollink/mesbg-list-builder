@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -85,6 +86,32 @@ class RosterUnitsControllerTest {
                     }
                     """))
         .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  void replacesFollowerLoadouts() throws Exception {
+    var entity = new RosterUnitEntity();
+    when(rosterUnitsService.replaceFollowerLoadouts(
+            ROSTER_ID,
+            WARBAND_ID,
+            "orc-warrior",
+            List.of(new RosterUnitsService.FollowerLoadout(3, Set.of("shield")))))
+        .thenReturn(List.of(entity));
+    when(rosterUnitMapper.toDto(entity)).thenReturn(unitDto(UNIT_ID, "orc-warrior"));
+
+    mockMvc
+        .perform(
+            put("/api/v1/rosters/{rosterId}/warbands/{warbandId}/followers", ROSTER_ID, WARBAND_ID)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    """
+            {
+              "armyListProfileId": "orc-warrior",
+              "loadouts": [{"quantity": 3, "optionIds": ["shield"]}]
+            }
+            """))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$[0].id").value(UNIT_ID));
   }
 
   @Test

@@ -674,6 +674,50 @@ RosterWarbandFollowers:
             schema:
               $ref: "../schemas/problem.yaml#/ApiProblem"
 
+  put:
+    tags:
+      - Roster Units
+    operationId: replaceWarbandFollowerLoadouts
+    summary: Save all loadouts for one follower profile
+    description: Atomically replaces every follower selection for the specified profile in the warband. An empty list removes all followers of that profile. Other profiles and the leader remain unchanged.
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/ReplaceFollowerLoadoutsRequest"
+    responses:
+      "200":
+        description: Saved follower selections for the profile.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../schemas/roster.yaml#/RosterUnit"
+      "400":
+        description: Invalid profile, quantity, or duplicate loadout.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+      "401":
+        description: Authentication is required.
+      "404":
+        description: Roster or warband not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+      "409":
+        description: The roster is locked.
+        content:
+          application/problem+json:
+            schema:
+              $ref: "../schemas/problem.yaml#/ApiProblem"
+
 RosterWarbandUnit:
   parameters:
     - $ref: "../schemas/roster.yaml#/RosterIdParameter"

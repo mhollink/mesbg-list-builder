@@ -5,9 +5,11 @@ import com.mesbg.listbuilder.armies.roster.service.RosterUnitsService;
 import com.mesbg.listbuilder.generated.api.RosterUnitsApi;
 import com.mesbg.listbuilder.generated.model.CreateFollowerRequest;
 import com.mesbg.listbuilder.generated.model.MoveRosterUnitRequest;
+import com.mesbg.listbuilder.generated.model.ReplaceFollowerLoadoutsRequest;
 import com.mesbg.listbuilder.generated.model.RosterUnit;
 import com.mesbg.listbuilder.generated.model.UpdateRosterUnitRequest;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +35,23 @@ public class RosterUnitsController implements RosterUnitsApi {
             Set.copyOf(request.getOptionIds()));
 
     return ResponseEntity.status(201).body(rosterUnitMapper.toDto(follower));
+  }
+
+  @Override
+  public ResponseEntity<List<RosterUnit>> replaceWarbandFollowerLoadouts(
+      Long rosterId, Long warbandId, ReplaceFollowerLoadoutsRequest request) {
+    var loadouts =
+        request.getLoadouts().stream()
+            .map(
+                loadout ->
+                    new RosterUnitsService.FollowerLoadout(
+                        loadout.getQuantity(), Set.copyOf(loadout.getOptionIds())))
+            .toList();
+
+    var saved =
+        rosterUnitsService.replaceFollowerLoadouts(
+            rosterId, warbandId, request.getArmyListProfileId(), loadouts);
+    return ResponseEntity.ok(saved.stream().map(rosterUnitMapper::toDto).toList());
   }
 
   @Override

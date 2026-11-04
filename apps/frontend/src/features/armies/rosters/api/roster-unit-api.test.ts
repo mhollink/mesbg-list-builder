@@ -11,6 +11,7 @@ import { serverApi } from "~/api/server-api.ts";
 
 const client = vi.hoisted(() => ({
   createWarbandFollower: vi.fn(),
+  replaceWarbandFollowerLoadouts: vi.fn(),
   updateWarbandUnit: vi.fn(),
   deleteWarbandUnit: vi.fn(),
   moveRosterUnit: vi.fn(),
@@ -51,6 +52,29 @@ describe("rosterUnitApi", () => {
       rosterId: 42,
       warbandId: 23,
       createFollowerRequest: request,
+    });
+    expect(result.data).toEqual(response);
+  });
+
+  it("replaces all loadouts of one profile with one request", async () => {
+    const request = {
+      armyListProfileId: "orc-warrior",
+      loadouts: [{ quantity: 5, optionIds: ["shield"] }],
+    };
+    const response = [unit({ quantity: 5, optionIds: ["shield"] })];
+    client.replaceWarbandFollowerLoadouts.mockResolvedValue(response);
+
+    const result = await createStore().dispatch(
+      rosterUnitApi.endpoints.replaceFollowerLoadouts.initiate({
+        rosterId: 42,
+        warbandId: 23,
+        request,
+      }),
+    );
+    expect(client.replaceWarbandFollowerLoadouts).toHaveBeenCalledWith({
+      rosterId: 42,
+      warbandId: 23,
+      replaceFollowerLoadoutsRequest: request,
     });
     expect(result.data).toEqual(response);
   });

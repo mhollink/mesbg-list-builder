@@ -43,7 +43,9 @@ export function UnitConfigurationHeader({
               component="h2"
               sx={{ fontWeight: 700, lineHeight: 1.2, mb: 0.5 }}
             >
-              Configure unit
+              {profile.profile.stats.type === "hero"
+                ? "Configure unit"
+                : "Configure loadouts"}
             </Typography>
             <Typography variant="body2" color="textSecondary">
               {profile.profile.name}

@@ -12,6 +12,7 @@ import {
   useCreateFollowerMutation,
   useDeleteUnitMutation,
   useMoveUnitMutation,
+  useReplaceFollowerLoadoutsMutation,
   useUpdateUnitMutation,
 } from "~/features/armies/rosters/api/roster-unit-api.ts";
 import {
@@ -30,6 +31,7 @@ export function useAuthenticatedRosterPersistence(
   const [moveWarband] = useMoveWarbandMutation();
 
   const [createFollower] = useCreateFollowerMutation();
+  const [replaceFollowerLoadouts] = useReplaceFollowerLoadoutsMutation();
   const [updateUnit] = useUpdateUnitMutation();
   const [deleteUnit] = useDeleteUnitMutation();
   const [moveUnit] = useMoveUnitMutation();
@@ -39,6 +41,20 @@ export function useAuthenticatedRosterPersistence(
   const [clearGeneral] = useClearGeneralMutation();
 
   return {
+    async replaceFollowerLoadouts(warbandId, armyListProfileId, loadouts) {
+      await replaceFollowerLoadouts({
+        rosterId,
+        warbandId: numericWarbandId(warbandId),
+        request: {
+          armyListProfileId,
+          loadouts: loadouts.map(({ quantity, optionIds }) => ({
+            quantity,
+            optionIds,
+          })),
+        },
+      }).unwrap();
+    },
+
     async createWarband(leader) {
       await createWarband({
         rosterId,

@@ -9,6 +9,13 @@ export interface UpdateBuilderUnit {
 }
 
 export interface RosterPersistence {
+  /** Atomically replace the configurations of one profile in a warband. */
+  replaceFollowerLoadouts(
+    warbandId: BuilderWarbandId,
+    armyListProfileId: string,
+    loadouts: readonly { quantity: number; optionIds: string[] }[],
+  ): Promise<void>;
+
   createWarband(leader: {
     armyListProfileId: string;
     optionIds: string[];

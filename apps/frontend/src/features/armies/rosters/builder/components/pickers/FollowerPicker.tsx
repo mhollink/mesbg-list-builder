@@ -9,10 +9,11 @@ interface FollowerPickerProps {
   profiles: readonly LocalizedArmyListProfile[];
   initialProfile?: LocalizedArmyListProfile;
   unit?: BuilderUnit;
+  existingUnits?: readonly BuilderUnit[];
   capacity?: WarbandCapacity;
   onSave: (
     profile: LocalizedArmyListProfile,
-    loadout: UnitLoadout,
+    loadouts: UnitLoadout[],
   ) => Promise<void>;
 }
 
