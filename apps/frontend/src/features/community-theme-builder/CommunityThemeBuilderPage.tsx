@@ -103,13 +103,13 @@ export function CommunityThemeBuilderPage() {
   return (
     <Stack spacing={4} sx={{ pb: 4 }}>
       <Box>
-        <Typography variant="overline" color="text.secondary">
+        <Typography variant="overline" color="textSecondary">
           Appearance · Community
         </Typography>
         <Typography component="h1" variant="h3" sx={{ fontWeight: 700 }}>
           Community Theme Builder
         </Typography>
-        <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 820 }}>
+        <Typography color="textSecondary" sx={{ mt: 1, maxWidth: 820 }}>
           Create a color theme for MESBG List Builder. Try all five brand colors
           in a live interface, then export a preset for community review. Your
           choices stay in this page and do not change your account theme.
@@ -201,7 +201,7 @@ export function CommunityThemeBuilderPage() {
                 <Typography component="h2" variant="h6">
                   Brand colors
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="textSecondary">
                   Pick a color or enter a six-digit hex value. Neutral surfaces
                   and status colors are generated automatically.
                 </Typography>
@@ -223,7 +223,7 @@ export function CommunityThemeBuilderPage() {
               <Typography component="h2" variant="h6">
                 Export your theme
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="textSecondary">
                 Download a self-contained .tsx preset that uses the same theme
                 factory as the built-in themes. Send the file to the project
                 maintainer for review. Downloading does not publish the theme.
@@ -243,7 +243,7 @@ export function CommunityThemeBuilderPage() {
                 Download .tsx theme file
               </Button>
               {canDownload && (
-                <Typography variant="caption" color="text.secondary">
+                <Typography variant="caption" color="textSecondary">
                   Filename: {getThemeSlug(draft.name)}.tsx
                 </Typography>
               )}
@@ -264,7 +264,7 @@ export function CommunityThemeBuilderPage() {
               <Typography component="h2" variant="h5">
                 Live preview
               </Typography>
-              <Typography color="text.secondary" variant="body2">
+              <Typography color="textSecondary" variant="body2">
                 Components are rendered using your generated theme.
               </Typography>
             </Box>

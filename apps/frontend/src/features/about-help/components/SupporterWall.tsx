@@ -151,7 +151,7 @@ function SupporterTierLegend() {
             }}
           />
 
-          <Typography variant="caption" color="text.secondary">
+          <Typography variant="caption" color="textSecondary">
             {tier}
           </Typography>
         </Stack>

@@ -173,7 +173,7 @@ function SupportersSection() {
           {t("supporters.title")}
         </Typography>
 
-        <Typography color="text.secondary">
+        <Typography color="textSecondary">
           {t("supporters.description")}
         </Typography>
       </Stack>

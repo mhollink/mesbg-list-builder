@@ -82,7 +82,7 @@ export function MobileRosterSummary({
               {statistics.modelCount} models
             </Typography>
 
-            <Typography variant="caption" color="text.secondary">
+            <Typography variant="caption" color="textSecondary">
               {statistics.bowCount} bows
               {" · "}
               {statistics.throwingWeaponCount} throwing weapons
@@ -100,7 +100,7 @@ export function MobileRosterSummary({
 
             <Typography
               variant="body2"
-              color={issueCount > 0 ? "warning.main" : "text.secondary"}
+              color={issueCount > 0 ? "warning.main" : "textSecondary"}
               sx={{ fontWeight: 600 }}
             >
               {formatIssueCount(issueCount)}

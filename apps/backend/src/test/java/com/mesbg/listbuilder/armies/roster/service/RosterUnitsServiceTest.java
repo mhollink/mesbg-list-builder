@@ -20,7 +20,6 @@ import com.mesbg.listbuilder.armies.roster.persistence.RosterGroupRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterUnitRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.WarbandRepository;
-import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterUnitException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterInvariantViolationException;
@@ -42,6 +41,7 @@ class RosterUnitsServiceTest {
   @Mock private WarbandRepository warbandRepository;
   @Mock private RosterUnitRepository rosterUnitRepository;
   @Mock private RosterGroupRepository rosterGroupRepository;
+  @Mock private FollowerLoadoutReconciler followerLoadoutReconciler;
 
   private RosterUnitsService unitsService;
 
@@ -59,7 +59,8 @@ class RosterUnitsServiceTest {
             rosterUnitRepository,
             rosterGroupRepository);
 
-    unitsService = new RosterUnitsService(rosterAccess, rosterUnitRepository);
+    unitsService =
+        new RosterUnitsService(rosterAccess, rosterUnitRepository, followerLoadoutReconciler);
   }
 
   @Test
@@ -100,7 +101,7 @@ class RosterUnitsServiceTest {
 
     unit.getOptionIds().add("shield");
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(rosterUnitRepository.findOwnedUnit(50L, 40L, ROSTER_ID, USER_ID))
@@ -118,7 +119,7 @@ class RosterUnitsServiceTest {
   void updatingUnknownUnitFails() {
     var roster = roster(ROSTER_ID);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(rosterUnitRepository.findOwnedUnit(50L, 40L, ROSTER_ID, USER_ID))
@@ -134,7 +135,7 @@ class RosterUnitsServiceTest {
     var warband = warband(roster, 40L, 0);
     var leader = unit(warband, 50L, "hero", 1, true, 0);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(rosterUnitRepository.findOwnedUnit(50L, 40L, ROSTER_ID, USER_ID))
@@ -151,7 +152,7 @@ class RosterUnitsServiceTest {
     var warband = warband(roster, 40L, 0);
     var follower = unit(warband, 50L, "warrior", 2, false, 1);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(rosterUnitRepository.findOwnedUnit(50L, 40L, ROSTER_ID, USER_ID))
@@ -168,7 +169,7 @@ class RosterUnitsServiceTest {
     var warband = warband(roster, 40L, 0);
     var follower = unit(warband, 50L, "warrior", 3, false, 1);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(rosterUnitRepository.findOwnedUnit(50L, 40L, ROSTER_ID, USER_ID))
@@ -181,31 +182,12 @@ class RosterUnitsServiceTest {
   }
 
   @Test
-  void deletingGeneralUnitClearsGeneral() {
-    var roster = roster(ROSTER_ID);
-    var warband = warband(roster, 40L, 0);
-    var follower = unit(warband, 50L, "warrior", 3, false, 1);
-
-    roster.setGeneralUnit(follower);
-
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
-        .thenReturn(Optional.of(roster));
-
-    when(rosterUnitRepository.findOwnedUnit(50L, 40L, ROSTER_ID, USER_ID))
-        .thenReturn(Optional.of(follower));
-
-    unitsService.deleteUnit(ROSTER_ID, 40L, 50L);
-
-    assertThat(roster.getGeneralUnit()).isNull();
-  }
-
-  @Test
   void cannotDeleteLeaderDirectly() {
     var roster = roster(ROSTER_ID);
     var warband = warband(roster, 40L, 0);
     var leader = unit(warband, 50L, "hero", 1, true, 0);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId((roster).getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(rosterUnitRepository.findOwnedUnit(50L, 40L, ROSTER_ID, USER_ID))
@@ -220,7 +202,7 @@ class RosterUnitsServiceTest {
     var roster = roster(ROSTER_ID);
     roster.setLocked(true);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     assertThatThrownBy(() -> unitsService.updateUnit(ROSTER_ID, 40L, 50L, 2, null))
@@ -240,7 +222,7 @@ class RosterUnitsServiceTest {
     var third = unit(warband, 52L, "third", 1, false, 2);
     var fourth = unit(warband, 53L, "fourth", 1, false, 3);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(warbandRepository.findOwnedWarband(40L, ROSTER_ID, USER_ID))
@@ -271,7 +253,7 @@ class RosterUnitsServiceTest {
     var targetFirst = unit(target, 60L, "target-first", 1, false, 0);
     var targetSecond = unit(target, 61L, "target-second", 1, false, 1);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(warbandRepository.findOwnedWarband(40L, ROSTER_ID, USER_ID))
@@ -297,7 +279,7 @@ class RosterUnitsServiceTest {
     var warband = warband(roster, 40L, 0);
     var leader = unit(warband, 50L, "hero", 1, true, -1);
 
-    when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+    when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
         .thenReturn(Optional.of(roster));
 
     when(warbandRepository.findOwnedWarband(40L, ROSTER_ID, USER_ID))

@@ -45,7 +45,7 @@ export function WarriorLoadoutSelection({
 
   if (drafts.length === 0) {
     return (
-      <Typography color="text.secondary" sx={{ p: 2 }}>
+      <Typography color="textSecondary" sx={{ p: 2 }}>
         No valid equipment configurations are available.
       </Typography>
     );
@@ -72,10 +72,14 @@ export function WarriorLoadoutSelection({
                   gap: 1,
                 }}
               >
-                <Typography component="h3" variant="h6" fontWeight={700}>
+                <Typography
+                  component="h3"
+                  variant="h6"
+                  sx={{ fontWeight: 700 }}
+                >
                   {upgradeName}
                 </Typography>
-                <Typography variant="caption" color="text.secondary">
+                <Typography variant="caption" color="textSecondary">
                   {upgrade
                     ? upgrade.state === "preselected"
                       ? "Included upgrade"
@@ -107,14 +111,11 @@ export function WarriorLoadoutSelection({
                   }}
                 >
                   <Stack sx={{ minWidth: 0 }}>
-                    <Typography
-                      variant="body2"
-                      fontWeight={draft.quantity > 0 ? 600 : 400}
-                    >
+                    <Typography variant="body2">
                       {quantityOnly ? "Quantity" : draft.name}
                     </Typography>
                     {!quantityOnly && (
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography variant="caption" color="textSecondary">
                         {extraCost > 0 ? "+" : ""}
                         {extraCost} pts / model
                       </Typography>
