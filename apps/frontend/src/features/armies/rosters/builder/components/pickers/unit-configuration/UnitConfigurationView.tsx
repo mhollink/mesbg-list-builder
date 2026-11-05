@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import {useRef, useState} from "react";
 import AddIcon from "@mui/icons-material/Add";
 import SaveIcon from "@mui/icons-material/Save";
 import Alert from "@mui/material/Alert";
@@ -7,11 +7,11 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { getUnitTotalCost } from "../../../domain/option-rules.ts";
-import type { BuilderUnit } from "../../../domain/roster.types.ts";
-import { UnitConfigurationHeader } from "./UnitConfigurationHeader.tsx";
-import { UnitLoadoutSelection } from "./UnitLoadoutSelection.tsx";
-import { UnitSummary } from "./UnitSummary.tsx";
+import {getUnitTotalCost} from "../../../domain/option-rules.ts";
+import type {BuilderUnit} from "../../../domain/roster.types.ts";
+import {UnitConfigurationHeader} from "./UnitConfigurationHeader.tsx";
+import {UnitLoadoutSelection} from "./UnitLoadoutSelection.tsx";
+import {UnitSummary} from "./UnitSummary.tsx";
 import {
   createWarriorDrafts,
   getEquipmentSelectionLimits,
@@ -21,9 +21,9 @@ import {
   toggleUnitOption,
   type UnitLoadout,
 } from "./unit-configuration.utils.ts";
-import { WarriorLoadoutSelection } from "./WarriorLoadoutSelection.tsx";
-import type { WarbandCapacity } from "~/features/armies/rosters/builder/domain/warband-rules.ts";
-import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
+import {WarriorLoadoutSelection} from "./WarriorLoadoutSelection.tsx";
+import type {WarbandCapacity} from "~/features/armies/rosters/builder/domain/warband-rules.ts";
+import type {LocalizedArmyListProfile} from "~/features/reference/army-lists/army-lists.types.ts";
 
 export interface UnitConfigurationViewProps {
   profile: LocalizedArmyListProfile;
@@ -38,14 +38,14 @@ export interface UnitConfigurationViewProps {
 }
 
 export function UnitConfigurationView({
-  profile,
-  unit,
-  existingUnits,
-  capacity,
-  onBack,
-  onClose,
-  onSave,
-}: UnitConfigurationViewProps) {
+                                        profile,
+                                        unit,
+                                        existingUnits,
+                                        capacity,
+                                        onBack,
+                                        onClose,
+                                        onSave,
+                                      }: UnitConfigurationViewProps) {
   const editing = unit !== undefined || existingUnits !== undefined;
   const isHero = profile.profile.stats.type === "hero";
   const previousUnits = isHero ? (unit ? [unit] : []) : (existingUnits ?? []);
@@ -61,10 +61,10 @@ export function UnitConfigurationView({
 
   const heroLimits = getEquipmentSelectionLimits(profile, heroOptionIds);
   const loadouts: UnitLoadout[] = isHero
-    ? [{ optionIds: heroOptionIds, quantity: 1 }]
+    ? [{optionIds: heroOptionIds, quantity: 1}]
     : warriorDrafts
-        .filter((draft) => draft.quantity > 0)
-        .map(({ optionIds, quantity }) => ({ optionIds, quantity }));
+      .filter((draft) => draft.quantity > 0)
+      .map(({optionIds, quantity}) => ({optionIds, quantity}));
   const models = loadouts.reduce((sum, loadout) => sum + loadout.quantity, 0);
   const points = loadouts.reduce(
     (sum, loadout) =>
@@ -93,7 +93,7 @@ export function UnitConfigurationView({
     setWarriorDrafts((previous) =>
       previous.map((draft) =>
         draft.key === key
-          ? { ...draft, quantity: Math.max(0, quantity) }
+          ? {...draft, quantity: Math.max(0, quantity)}
           : draft,
       ),
     );
@@ -121,7 +121,7 @@ export function UnitConfigurationView({
   }
 
   return (
-    <Stack sx={{ height: "100%", minHeight: 0 }}>
+    <Stack sx={{height: "100%", minHeight: 0}}>
       <UnitConfigurationHeader
         profile={profile}
         onBack={onBack}
@@ -135,12 +135,12 @@ export function UnitConfigurationView({
           pointerEvents: saving ? "none" : "auto",
         }}
       >
-        <UnitSummary profile={profile} />
+        <UnitSummary profile={profile}/>
         {!isHero && editing && (
           <Typography
             variant="body2"
             color="textSecondary"
-            sx={{ px: 2, pt: 1 }}
+            sx={{px: 2, pt: 1}}
           >
             Editing all configurations of this warrior in the selected warband.
           </Typography>
@@ -157,7 +157,7 @@ export function UnitConfigurationView({
               onChangeQuantity={() => undefined}
             />
             {!heroLimits.valid && (
-              <Alert severity="warning" sx={{ m: 2 }}>
+              <Alert severity="warning" sx={{m: 2}}>
                 {heroLimits.maximum === Number.POSITIVE_INFINITY
                   ? `Select at least ${heroLimits.minimum} equipment option(s).`
                   : `Select between ${heroLimits.minimum} and ${heroLimits.maximum} equipment option(s).`}
@@ -175,7 +175,6 @@ export function UnitConfigurationView({
       </Box>
 
       <Stack
-        spacing={1.5}
         sx={{
           p: 2,
           borderTop: 1,
@@ -189,16 +188,6 @@ export function UnitConfigurationView({
             Check the latest warband data and try again.
           </Alert>
         )}
-        {!isHero && remainingSlots !== undefined && (
-          <Typography
-            variant="caption"
-            color={remainingSlots < 0 ? "error" : "textSecondary"}
-          >
-            {remainingSlots < 0
-              ? `${-remainingSlots} over warband capacity`
-              : `${remainingSlots} free ${remainingSlots === 1 ? "slot" : "slots"} in warband`}
-          </Typography>
-        )}
         {!isHero && (
           <Stack direction="row" sx={{ justifyContent: "space-between" }}>
             <Typography>Models {editing ? "configured" : "to add"}</Typography>
@@ -207,20 +196,33 @@ export function UnitConfigurationView({
         )}
         <Stack direction="row" sx={{ justifyContent: "space-between" }}>
           <Typography>Total points</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{points} pts</Typography>
-        </Stack>
-        {editing && (
-          <Stack direction="row" sx={{ justifyContent: "space-between" }}>
-            <Typography color="textSecondary">Change</Typography>
-            <Typography color="textSecondary">
-              {points - previousPoints > 0 ? "+" : ""}
-              {points - previousPoints} pts
-            </Typography>
+          <Stack direction="row" spacing={1}>
+            {editing && points !== previousPoints && (<>
+              <Typography color="textSecondary">
+                {points - previousPoints > 0 ? "+" : ""}
+                {points - previousPoints} pts
+              </Typography>
+            </>)}
+            <Typography sx={{fontWeight: 700}}>{points} pts</Typography>
           </Stack>
+        </Stack>
+
+        {!isHero && remainingSlots !== undefined && (
+          <Typography
+            variant="caption"
+            color={remainingSlots < 0 ? "error" : "textSecondary"}
+            sx={{ textAlign: "center" }}
+          >
+            {remainingSlots < 0
+              ? `${-remainingSlots} over warband capacity`
+              : remainingSlots === 0
+                ? "Warband is full"
+                : `${remainingSlots} free slots in warband`}
+          </Typography>
         )}
         <Button
           variant="contained"
-          startIcon={editing ? <SaveIcon /> : <AddIcon />}
+          startIcon={editing ? <SaveIcon/> : <AddIcon/>}
           disabled={
             saving ||
             (isHero && !heroLimits.valid) ||
