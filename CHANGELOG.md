@@ -4,6 +4,12 @@ All notable changes to MESBG List Builder are documented in this file.
 
 The format is based on Keep a Changelog and releases follow Semantic Versioning.
 
+## \[2.0.0-alpha.28\] - 2026-11-05
+
+### Changed
+
+- Reduce size of loadout configuration footer
+
 ## \[2.0.0-alpha.27\] - 2026-11-04
 
 ### Fixed
