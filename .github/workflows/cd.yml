@@ -188,3 +188,12 @@ jobs:
           local-dir: artifacts/frontend/
           server-dir: /public_html/test/
           log-level: minimal
+
+  announce-release:
+    name: Announce tagged release
+    needs: deploy
+    permissions:
+      contents: read
+    uses: ./.github/workflows/discord-notifications.yml
+    secrets:
+      DISCORD_DEVELOPMENT_WEBHOOK: ${{ secrets.DISCORD_DEVELOPMENT_WEBHOOK }}
