@@ -61,7 +61,11 @@ public class RostersController implements RostersApi {
   public ResponseEntity<RosterSummary> updateRoster(Long rosterId, UpdateRosterRequest request) {
     var snapshot =
         rosterService.updateRoster(
-            rosterId, request.getName(), request.getPointsLimit(), request.getTags());
+            rosterId,
+            request.getName(),
+            request.getPointsLimit(),
+            request.getTags(),
+            request.getClearPointsLimit());
 
     return ResponseEntity.ok(rosterMapper.toSummary(snapshot.roster(), snapshot.statistics()));
   }

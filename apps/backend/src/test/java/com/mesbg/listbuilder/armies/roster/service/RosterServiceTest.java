@@ -177,7 +177,11 @@ class RosterServiceTest {
 
       var result =
           service.updateRoster(
-              ROSTER_ID, "Updated roster", 750, List.of(" Tournament ", "Tournament", "Friendly"));
+              ROSTER_ID,
+              "Updated roster",
+              750,
+              List.of(" Tournament ", "Tournament", "Friendly"),
+              null);
 
       assertThat(roster.getName()).isEqualTo("Updated roster");
       assertThat(roster.getPointsLimit()).isEqualTo(750);
@@ -197,10 +201,26 @@ class RosterServiceTest {
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
-      service.updateRoster(ROSTER_ID, null, null, null);
+      service.updateRoster(ROSTER_ID, null, null, null, null);
 
       assertThat(roster.getName()).isEqualTo("Roster");
       assertThat(roster.getPointsLimit()).isEqualTo(800);
+      assertThat(roster.getTags()).containsExactly("Existing");
+    }
+
+    @Test
+    void canClearPointsLimitWithoutChangingOtherMetadata() {
+      var roster = roster(ROSTER_ID);
+      roster.setPointsLimit(800);
+      roster.getTags().add("Existing");
+
+      when(rosterRepository.findByIdAndUserId(ROSTER_ID, USER_ID)).thenReturn(Optional.of(roster));
+      when(calculator.calculate(roster)).thenReturn(STATISTICS);
+
+      service.updateRoster(ROSTER_ID, null, null, null, true);
+
+      assertThat(roster.getPointsLimit()).isNull();
+      assertThat(roster.getName()).isEqualTo("Roster");
       assertThat(roster.getTags()).containsExactly("Existing");
     }
   }

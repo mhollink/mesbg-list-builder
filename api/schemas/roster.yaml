@@ -291,6 +291,10 @@ UpdateRosterRequest:
       minimum: 1
       description: Optional advisory points limit for the roster.
 
+    clearPointsLimit:
+      type: boolean
+      description: When true, removes the advisory points limit. Omit to keep the current limit unchanged.
+
     tags:
       type: array
       items:

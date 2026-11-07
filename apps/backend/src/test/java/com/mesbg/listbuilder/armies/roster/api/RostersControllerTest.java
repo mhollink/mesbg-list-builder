@@ -147,7 +147,8 @@ class RostersControllerTest {
       var snapshot = new RosterSnapshot(entity, STATISTICS);
       var dto = summary(ROSTER_ID, "Updated roster");
 
-      when(rosterService.updateRoster(ROSTER_ID, "Updated roster", 750, List.of("Tournament")))
+      when(rosterService.updateRoster(
+              ROSTER_ID, "Updated roster", 750, List.of("Tournament"), null))
           .thenReturn(snapshot);
       when(rosterMapper.toSummary(entity, STATISTICS)).thenReturn(dto);
 
@@ -174,7 +175,7 @@ class RostersControllerTest {
       var snapshot = new RosterSnapshot(entity, STATISTICS);
       var dto = summary(ROSTER_ID, "Updated");
 
-      when(rosterService.updateRoster(ROSTER_ID, "Updated", null, null)).thenReturn(snapshot);
+      when(rosterService.updateRoster(ROSTER_ID, "Updated", null, null, null)).thenReturn(snapshot);
       when(rosterMapper.toSummary(entity, STATISTICS)).thenReturn(dto);
 
       mockMvc
@@ -189,7 +190,7 @@ class RostersControllerTest {
                       """))
           .andExpect(status().isOk());
 
-      verify(rosterService).updateRoster(ROSTER_ID, "Updated", null, null);
+      verify(rosterService).updateRoster(ROSTER_ID, "Updated", null, null, null);
     }
 
     @Test
@@ -198,7 +199,7 @@ class RostersControllerTest {
       var snapshot = new RosterSnapshot(entity, STATISTICS);
       var dto = summary(ROSTER_ID, "Updated");
 
-      when(rosterService.updateRoster(ROSTER_ID, null, null, List.of())).thenReturn(snapshot);
+      when(rosterService.updateRoster(ROSTER_ID, null, null, List.of(), null)).thenReturn(snapshot);
       when(rosterMapper.toSummary(entity, STATISTICS)).thenReturn(dto);
 
       mockMvc
@@ -213,7 +214,27 @@ class RostersControllerTest {
                       """))
           .andExpect(status().isOk());
 
-      verify(rosterService).updateRoster(ROSTER_ID, null, null, List.of());
+      verify(rosterService).updateRoster(ROSTER_ID, null, null, List.of(), null);
+    }
+
+    @Test
+    void clearsPointsLimit() throws Exception {
+      var entity = rosterEntity(ROSTER_ID);
+      var snapshot = new RosterSnapshot(entity, STATISTICS);
+      when(rosterService.updateRoster(ROSTER_ID, null, null, null, true)).thenReturn(snapshot);
+      when(rosterMapper.toSummary(entity, STATISTICS)).thenReturn(summary(ROSTER_ID, "Mordor"));
+
+      mockMvc
+          .perform(
+              patch("/api/v1/rosters/{rosterId}", ROSTER_ID)
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(
+                      """
+                      {"clearPointsLimit": true}
+                      """))
+          .andExpect(status().isOk());
+
+      verify(rosterService).updateRoster(ROSTER_ID, null, null, null, true);
     }
 
     @Test
