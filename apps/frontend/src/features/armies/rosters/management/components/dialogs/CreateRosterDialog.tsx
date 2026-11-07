@@ -22,6 +22,7 @@ import {
   GuestRosterAlreadyExistsError,
   useCreateRoster,
 } from "~/features/armies/rosters/management/hooks/useCreateRoster.ts";
+import { normalizeRosterTags } from "~/features/armies/rosters/management/roster-tags.utils.ts";
 import type { LocalizedArmyList } from "~/features/reference/army-lists/army-lists.types.ts";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 
@@ -305,7 +306,7 @@ export function CreateRosterDialog({
               options={tagSuggestions}
               value={tags}
               onChange={(_, values) => {
-                setTags(normalizeTags(values));
+                setTags(normalizeRosterTags(values));
               }}
               renderInput={(params) => (
                 <TextField
@@ -340,22 +341,4 @@ export function CreateRosterDialog({
 
 function isLegacyArmyList(armyList: LocalizedArmyList) {
   return LEGACY_BOOKS.has(armyList.source.book);
-}
-
-function normalizeTags(values: string[]) {
-  const seen = new Set<string>();
-
-  return values
-    .map((value) => value.trim())
-    .filter(Boolean)
-    .filter((value) => {
-      const normalized = value.toLocaleLowerCase();
-
-      if (seen.has(normalized)) {
-        return false;
-      }
-
-      seen.add(normalized);
-      return true;
-    });
 }

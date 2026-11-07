@@ -48,6 +48,14 @@ describe("RosterGrid", () => {
     ).toBeInTheDocument();
   });
 
+  it("shows a different empty message when searching", () => {
+    renderGrid([], [], vi.fn(), true);
+    expect(screen.getByText("No rosters found")).toBeInTheDocument();
+    expect(
+      screen.getByText("Try a different search term."),
+    ).toBeInTheDocument();
+  });
+
   it("renders groups, direct counts and localized army list names", () => {
     const getRosterCount = vi.fn().mockReturnValue(2);
 
@@ -71,14 +79,17 @@ function renderGrid(
   groups: RosterGroup[],
   rosters: RosterSummary[],
   getRosterCount = vi.fn(),
+  searching = false,
 ) {
   return render(
     <RosterGrid
       groups={groups}
       rosters={rosters}
+      searching={searching}
       getRosterCount={getRosterCount}
       onRenameGroup={vi.fn()}
       onDeleteGroup={vi.fn()}
+      onEditRoster={vi.fn()}
       onMoveRoster={vi.fn()}
       onDeleteRoster={vi.fn()}
     />,

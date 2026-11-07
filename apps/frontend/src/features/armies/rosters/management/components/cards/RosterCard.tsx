@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutlined";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import DriveFileMoveOutlinedIcon from "@mui/icons-material/DriveFileMoveOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -31,12 +32,14 @@ import { useRosterMetadata } from "~/features/armies/rosters/management/hooks/us
 interface RosterCardProps {
   roster: RosterSummary;
   armyList: string;
+  onEdit: (roster: RosterSummary) => void;
   onMove: (roster: RosterSummary) => void;
   onDelete: (roster: RosterSummary) => void;
 }
 
 export function RosterCard({
   roster,
+  onEdit,
   onMove,
   onDelete,
   armyList,
@@ -255,6 +258,16 @@ export function RosterCard({
         </MenuItem>
 
         <Divider />
+
+        <MenuItem
+          onClick={() => {
+            setMenuAnchor(null);
+            onEdit(roster);
+          }}
+        >
+          <EditOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
+          Edit details
+        </MenuItem>
 
         <MenuItem
           onClick={() => {

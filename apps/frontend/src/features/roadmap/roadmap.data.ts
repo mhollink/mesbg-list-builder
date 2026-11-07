@@ -81,14 +81,14 @@ export const roadmap: readonly RoadmapFeature[] = [
       {
         id: "rosters",
         deliverables: [
-          { id: "manage", status: "inProgress" },
+          { id: "manage", status: "done" },
           { id: "organize", status: "done" },
           { id: "move", status: "done" },
           { id: "favorite", status: "done" },
           { id: "summarize", status: "done" },
           { id: "icons", status: "planned" },
-          { id: "search", status: "planned" },
-          { id: "sort", status: "planned" },
+          { id: "search", status: "done" },
+          { id: "sort", status: "done" },
           { id: "duplicate", status: "planned" },
         ],
       },

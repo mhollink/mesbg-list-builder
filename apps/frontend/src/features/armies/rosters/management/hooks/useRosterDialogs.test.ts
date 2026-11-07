@@ -31,6 +31,12 @@ describe("useRosterDialogs", () => {
     act(() => result.current.deleteRoster.close());
     expect(result.current.deleteRoster.roster).toBeNull();
 
+    act(() => result.current.editRoster.open(value));
+    expect(result.current.editRoster.roster).toBe(value);
+
+    act(() => result.current.editRoster.close());
+    expect(result.current.editRoster.roster).toBeNull();
+
     act(() => result.current.moveRoster.open(value));
     expect(result.current.moveRoster.roster).toBe(value);
 

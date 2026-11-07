@@ -15,8 +15,10 @@ interface RosterGridProps {
   getRosterCount: (groupId: number) => number;
   onRenameGroup: (group: RosterGroup) => void;
   onDeleteGroup: (group: RosterGroup) => void;
+  onEditRoster: (roster: RosterSummary) => void;
   onMoveRoster: (roster: RosterSummary) => void;
   onDeleteRoster: (roster: RosterSummary) => void;
+  searching?: boolean;
 }
 
 export function RosterGrid({
@@ -25,8 +27,10 @@ export function RosterGrid({
   getRosterCount,
   onRenameGroup,
   onDeleteGroup,
+  onEditRoster,
   onMoveRoster,
   onDeleteRoster,
+  searching = false,
 }: RosterGridProps) {
   const { armyLists } = useGameArmyLists();
   const armyListsById = useMemo(() => {
@@ -49,11 +53,13 @@ export function RosterGrid({
         }}
       >
         <Typography variant="h6" gutterBottom>
-          This group is empty
+          {searching ? "No rosters found" : "This group is empty"}
         </Typography>
 
         <Typography color="text.secondary">
-          Create a roster or another group to get started.
+          {searching
+            ? "Try a different search term."
+            : "Create a roster or another group to get started."}
         </Typography>
       </Box>
     );
@@ -85,6 +91,7 @@ export function RosterGrid({
           armyList={
             armyListsById.get(roster.armyListId)?.name ?? roster.armyListId
           }
+          onEdit={onEditRoster}
           onMove={onMoveRoster}
           onDelete={onDeleteRoster}
         />

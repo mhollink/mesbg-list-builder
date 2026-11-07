@@ -48,6 +48,10 @@ vi.mock("./hooks/useRosterDragAndDrop", () => ({
   useRosterDragAndDrop: mocks.useDnd,
 }));
 
+vi.mock("~/features/reference/army-lists/hooks/useGameArmyLists.ts", () => ({
+  useGameArmyLists: () => ({ armyLists: [{ id: "mordor", name: "Mordor" }] }),
+}));
+
 vi.mock("./components/breadcrumbs/RosterBreadcrumbs.tsx", () => ({
   RosterBreadcrumbs: ({ path }: { path: Array<{ name: string }> }) => (
     <div>breadcrumbs:{path.map((group) => group.name).join("/")}</div>
@@ -105,6 +109,12 @@ vi.mock("./components/dialogs/CreateRosterDialog", () => ({
       create-roster-dialog:{String(open)}:{String(groupId)}:
       {tagSuggestions.join(",")}
     </div>
+  ),
+}));
+
+vi.mock("./components/dialogs/EditRosterDialog.tsx", () => ({
+  EditRosterDialog: ({ roster }: { roster: { name: string } | null }) => (
+    <div>edit-roster-dialog:{roster?.name ?? "closed"}</div>
   ),
 }));
 
@@ -173,6 +183,7 @@ describe("AuthenticatedRostersPage", () => {
         close: vi.fn(),
       },
       deleteRoster: { roster: null, open: vi.fn(), close: vi.fn() },
+      editRoster: { roster: null, open: vi.fn(), close: vi.fn() },
       moveRoster: { roster: null, open: vi.fn(), close: vi.fn() },
       renameGroup: { group: null, open: vi.fn(), close: vi.fn() },
       deleteGroup: { group: null, open: vi.fn(), close: vi.fn() },
@@ -223,11 +234,48 @@ describe("AuthenticatedRostersPage", () => {
     ).toBeInTheDocument();
     expect(screen.getByText("breadcrumbs:Current group")).toBeInTheDocument();
     expect(screen.getByText("grid:Child group|Roster")).toBeInTheDocument();
+    expect(screen.getByText("edit-roster-dialog:closed")).toBeInTheDocument();
     expect(
       screen.getByText("create-roster-dialog:false:12:Event"),
     ).toBeInTheDocument();
     expect(
       screen.getByText("create-group-dialog:false:12"),
+    ).toBeInTheDocument();
+  });
+
+  it("searches across all roster groups rather than just the current one", () => {
+    mocks.useData.mockReturnValue({
+      ...mocks.useData(),
+      rosters: [
+        { id: 42, name: "Current roster", armyListId: "mordor" },
+        { id: 43, name: "Hidden roster", armyListId: "mordor" },
+      ],
+    });
+    mocks.useNavigation.mockReturnValue({
+      ...mocks.useNavigation(),
+      currentRosters: [
+        { id: 42, name: "Current roster", armyListId: "mordor" },
+      ],
+    });
+
+    render(<AuthenticatedRostersPage />);
+    expect(
+      screen.getByText("grid:Child group|Current roster"),
+    ).toBeInTheDocument();
+
+    fireEvent.change(
+      screen.getByRole("textbox", { name: "Search rosters and groups" }),
+      {
+        target: { value: "Hidden" },
+      },
+    );
+    expect(screen.getByText("grid:|Hidden roster")).toBeInTheDocument();
+
+    fireEvent.click(
+      screen.getByRole("button", { name: "Clear roster search" }),
+    );
+    expect(
+      screen.getByText("grid:Child group|Current roster"),
     ).toBeInTheDocument();
   });
 
