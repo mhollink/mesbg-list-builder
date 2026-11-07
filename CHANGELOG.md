@@ -4,6 +4,17 @@ All notable changes to MESBG List Builder are documented in this file.
 
 The format is based on Keep a Changelog and releases follow Semantic Versioning.
 
+## \[2.0.0-alpha.29\] - 2026-11-07
+
+### Added
+
+- Allow clearing roster points limit
+- Add roster search, sorting and editing
+
+### Changed
+
+- Update roadmap progress
+
 ## \[2.0.0-alpha.28\] - 2026-11-05
 
 ### Changed
