@@ -198,12 +198,10 @@ export function UnitConfigurationView({
           <Typography>Total points</Typography>
           <Stack direction="row" spacing={1}>
             {editing && points !== previousPoints && (
-              <>
-                <Typography color="textSecondary">
-                  {points - previousPoints > 0 ? "+" : ""}
-                  {points - previousPoints} pts
-                </Typography>
-              </>
+              <Typography color="textSecondary">
+                {points - previousPoints > 0 ? "+" : ""}
+                {points - previousPoints} pts
+              </Typography>
             )}
             <Typography sx={{ fontWeight: 700 }}>{points} pts</Typography>
           </Stack>

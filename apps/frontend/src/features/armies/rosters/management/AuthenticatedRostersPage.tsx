@@ -43,9 +43,12 @@ export function AuthenticatedRostersPage() {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<RosterSort>("recent");
   const searching = search.trim().length > 0;
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies(navigation.currentGroupId): CurrentGroupId intentionally triggers clearing the search when switching groups.
   useEffect(() => {
     setSearch("");
   }, [navigation.currentGroupId]);
+
   const armyListNames = useMemo(
     () =>
       armyLists.reduce(
