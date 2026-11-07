@@ -76,10 +76,17 @@ public class RosterService {
 
   @Transactional
   public RosterSnapshot updateRoster(
-      Long rosterId, String name, Integer pointsLimit, List<String> tags) {
+      Long rosterId,
+      String name,
+      Integer pointsLimit,
+      List<String> tags,
+      Boolean clearPointsLimit) {
     var roster = rosterAccess.requireRoster(rosterId);
     var nameChanged = name != null && !name.equals(roster.getName());
-    var pointsLimitChanged = pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit());
+    var removeLimit = Boolean.TRUE.equals(clearPointsLimit);
+    var pointsLimitChanged =
+        (removeLimit && roster.getPointsLimit() != null)
+            || (pointsLimit != null && !pointsLimit.equals(roster.getPointsLimit()));
     var tagsChanged = tags != null;
 
     log.debug(
@@ -92,7 +99,7 @@ public class RosterService {
     if (nameChanged) roster.setName(name);
 
     if (pointsLimitChanged) {
-      roster.setPointsLimit(pointsLimit);
+      roster.setPointsLimit(removeLimit ? null : pointsLimit);
     }
 
     if (tagsChanged) {
