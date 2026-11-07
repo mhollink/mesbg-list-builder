@@ -11,6 +11,8 @@ export function useRosterDialogs() {
     null,
   );
 
+  const [rosterToEdit, setRosterToEdit] = useState<RosterSummary | null>(null);
+
   const [rosterToMove, setRosterToMove] = useState<RosterSummary | null>(null);
 
   const [groupToRename, setGroupToRename] = useState<RosterGroup | null>(null);
@@ -34,6 +36,12 @@ export function useRosterDialogs() {
       roster: rosterToDelete,
       open: setRosterToDelete,
       close: () => setRosterToDelete(null),
+    },
+
+    editRoster: {
+      roster: rosterToEdit,
+      open: setRosterToEdit,
+      close: () => setRosterToEdit(null),
     },
 
     moveRoster: {

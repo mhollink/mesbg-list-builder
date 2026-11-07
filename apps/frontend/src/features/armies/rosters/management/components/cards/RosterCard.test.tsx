@@ -112,11 +112,21 @@ describe("RosterCard", () => {
 
   it("moves and deletes an unlocked roster", async () => {
     const user = userEvent.setup();
+    const onEdit = vi.fn();
     const onMove = vi.fn();
     const onDelete = vi.fn();
     const value = roster();
 
-    renderCard({}, onMove, onDelete);
+    renderCard({}, onMove, onDelete, onEdit);
+
+    await user.click(
+      screen.getByRole("button", {
+        name: "Actions for Mordor",
+      }),
+    );
+
+    await user.click(screen.getByRole("menuitem", { name: "Edit details" }));
+    expect(onEdit).toHaveBeenCalledWith(value);
 
     await user.click(
       screen.getByRole("button", {
@@ -171,6 +181,9 @@ describe("RosterCard", () => {
         name: "Unlock roster",
       }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("menuitem", { name: "Edit details" }),
+    ).toBeEnabled();
   });
 });
 
@@ -178,6 +191,7 @@ function renderCard(
   overrides: Partial<RosterSummary> = {},
   onMove = vi.fn(),
   onDelete = vi.fn(),
+  onEdit = vi.fn(),
 ) {
   const value = roster(overrides);
 
@@ -186,6 +200,7 @@ function renderCard(
       <RosterCard
         roster={value}
         armyList="Tournament Mordor"
+        onEdit={onEdit}
         onMove={onMove}
         onDelete={onDelete}
       />

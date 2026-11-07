@@ -205,7 +205,7 @@ Checkbox convention:
 
 ## Finding and sorting rosters
 
-- [ ] **ROS-018 - Basic roster text search** `MISSING`
+- [x] **ROS-018 - Basic roster text search** `PARITY`
     - Search at least name and army list.
 
 - [ ] **ROS-019 - Advanced roster query syntax or equivalent filtering** `MISSING`
@@ -213,18 +213,18 @@ Checkbox convention:
       Will, Fate, and tags.
     - The exact query language does not need to survive if the redesigned filters provide equivalent power.
 
-- [ ] **ROS-020 - Roster tags** `MISSING`
+- [x] **ROS-020 - Roster tags** `PARITY`
     - Tags can be stored and used to find lists.
 
-- [ ] **ROS-021 - Sort rosters by name** `MISSING`
+- [x] **ROS-021 - Sort rosters by name** `PARITY`
 
-- [ ] **ROS-022 - Sort rosters by army list** `MISSING`
+- [x] **ROS-022 - Sort rosters by army list** `PARITY`
 
-- [ ] **ROS-023 - Sort rosters by points** `MISSING`
+- [x] **ROS-023 - Sort rosters by points** `PARITY`
 
-- [ ] **ROS-024 - Sort rosters by unit count** `MISSING`
+- [x] **ROS-024 - Sort rosters by unit count** `PARITY`
 
-- [ ] **ROS-025 - Filter/sort with roster groups present** `MISSING`
+- [x] **ROS-025 - Filter/sort with roster groups present** `PARITY`
     - Grouped rosters must not disappear or become impossible to find when sorting/filtering.
 
 ## Roster groups
