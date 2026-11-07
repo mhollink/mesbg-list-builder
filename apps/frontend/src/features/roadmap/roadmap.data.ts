@@ -96,10 +96,10 @@ export const roadmap: readonly RoadmapFeature[] = [
         id: "warbands",
         deliverables: [
           { id: "create", status: "done" },
-          { id: "units", status: "inProgress" },
+          { id: "units", status: "done" },
           { id: "reorder", status: "done" },
           { id: "duplicate", status: "inProgress" },
-          { id: "edge-cases", status: "planned" },
+          { id: "edge-cases", status: "inProgress" },
         ],
       },
       {
@@ -108,7 +108,7 @@ export const roadmap: readonly RoadmapFeature[] = [
           { id: "equipment", status: "done" },
           { id: "preselected", status: "done" },
           { id: "restrictions", status: "inProgress" },
-          { id: "upgrades", status: "planned" },
+          { id: "upgrades", status: "inProgress" },
           { id: "army", status: "planned" },
           { id: "combinations", status: "planned" },
         ],
