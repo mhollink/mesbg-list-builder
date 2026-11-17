@@ -125,6 +125,33 @@ class RostersControllerTest {
     }
 
     @Test
+    void duplicatesRoster() throws Exception {
+      var entity = rosterEntity(ROSTER_ID);
+      var snapshot = new RosterSnapshot(entity, STATISTICS);
+      var dto = rosterDto(ROSTER_ID, "Mordor");
+
+      when(rosterService.duplicateRoster(11L, "Mordor (copy)", true, false)).thenReturn(snapshot);
+      when(rosterMapper.toDto(entity, STATISTICS)).thenReturn(dto);
+
+      mockMvc
+          .perform(
+              post("/api/v1/rosters/11/duplicate")
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(
+                      """
+                      {
+                        "name": "Mordor (copy)",
+                        "favorite": true,
+                        "locked": false
+                      }
+                      """))
+          .andExpect(status().isCreated())
+          .andExpect(header().string("Location", "http://localhost/api/v1/rosters/42"))
+          .andExpect(jsonPath("$.id").value(42))
+          .andExpect(jsonPath("$.name").value("Mordor"));
+    }
+
+    @Test
     void rejectsInvalidCreateRosterRequest() throws Exception {
       mockMvc
           .perform(
