@@ -99,9 +99,8 @@ public class RosterStatisticsCalculator {
         .forEach(selectedOptionIds::add);
 
     return selectedOptionIds.stream()
-        .mapToInt(
-            optionId ->
-                gameDataCatalog.getArmyListOption(roster.getArmyListId(), optionId).points())
+        .mapToInt(optionId ->
+            gameDataCatalog.getArmyListOption(roster.getArmyListId(), optionId).points())
         .sum();
   }
 
@@ -139,11 +138,10 @@ public class RosterStatisticsCalculator {
 
     return profile
         .findOption(option.optionId())
-        .orElseThrow(
-            () ->
-                new IllegalArgumentException(
-                    "Unknown canonical option '%s' for profile '%s'"
-                        .formatted(option.optionId(), profile.profile())))
+        .orElseThrow(() ->
+            new IllegalArgumentException(
+                "Unknown canonical option '%s' for profile '%s'"
+                    .formatted(option.optionId(), profile.profile())))
         .points();
   }
 

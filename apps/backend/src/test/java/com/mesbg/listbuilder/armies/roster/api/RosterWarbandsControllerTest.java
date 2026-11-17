@@ -95,10 +95,10 @@ class RosterWarbandsControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     """
-                        {
-                          "position": 1
-                        }
-                        """))
+                    {
+                      "position": 1
+                    }
+                    """))
         .andExpect(status().isNoContent());
 
     verify(rosterWarbandsService).moveWarband(ROSTER_ID, WARBAND_ID, 1);

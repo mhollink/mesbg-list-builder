@@ -50,16 +50,15 @@ class FollowerLoadoutReconciler {
         .filter(unit -> !unit.isLeader())
         .filter(unit -> profileId.equals(unit.getArmyListProfileId()))
         .sorted(Comparator.comparingInt(RosterUnitEntity::getSortIndex))
-        .forEach(
-            unit -> {
-              var options = Set.copyOf(unit.getOptionIds());
+        .forEach(unit -> {
+          var options = Set.copyOf(unit.getOptionIds());
 
-              if (desiredOptions.contains(options) && !exact.containsKey(options)) {
-                exact.put(options, unit);
-              } else {
-                reusable.addLast(unit);
-              }
-            });
+          if (desiredOptions.contains(options) && !exact.containsKey(options)) {
+            exact.put(options, unit);
+          } else {
+            reusable.addLast(unit);
+          }
+        });
 
     return new LoadoutCandidates(exact, reusable);
   }

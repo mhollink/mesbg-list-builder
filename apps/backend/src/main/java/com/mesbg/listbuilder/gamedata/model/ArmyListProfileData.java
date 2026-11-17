@@ -17,10 +17,9 @@ public record ArmyListProfileData(
     return options.stream()
         .filter(option -> option.id().equals(optionId))
         .findFirst()
-        .orElseThrow(
-            () ->
-                new IllegalArgumentException(
-                    "Unknown option '%s' for army list profile '%s'".formatted(optionId, id)));
+        .orElseThrow(() ->
+            new IllegalArgumentException(
+                "Unknown option '%s' for army list profile '%s'".formatted(optionId, id)));
   }
 
   public boolean isWarrior() {

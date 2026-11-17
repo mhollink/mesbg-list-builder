@@ -42,10 +42,9 @@ public class RosterUnitsController implements RosterUnitsApi {
       Long rosterId, Long warbandId, ReplaceFollowerLoadoutsRequest request) {
     var loadouts =
         request.getLoadouts().stream()
-            .map(
-                loadout ->
-                    new RosterUnitsService.FollowerLoadout(
-                        loadout.getQuantity(), Set.copyOf(loadout.getOptionIds())))
+            .map(loadout ->
+                new RosterUnitsService.FollowerLoadout(
+                    loadout.getQuantity(), Set.copyOf(loadout.getOptionIds())))
             .toList();
 
     var saved =

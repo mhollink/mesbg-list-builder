@@ -100,20 +100,18 @@ class RosterFollowerBatchServiceTest {
 
   @Test
   void rejectsDuplicateLoadoutsBeforeModifyingData() {
-    assertThatThrownBy(
-            () ->
-                service.replaceFollowerLoadouts(
-                    ROSTER_ID, 40L, "warrior", List.of(loadout(2, "shield"), loadout(1, "shield"))))
+    assertThatThrownBy(() ->
+            service.replaceFollowerLoadouts(
+                ROSTER_ID, 40L, "warrior", List.of(loadout(2, "shield"), loadout(1, "shield"))))
         .isInstanceOf(InvalidRosterUnitException.class);
     verifyNoInteractions(access, repository);
   }
 
   @Test
   void rejectsInvalidQuantityBeforeModifyingData() {
-    assertThatThrownBy(
-            () ->
-                service.replaceFollowerLoadouts(
-                    ROSTER_ID, 40L, "warrior", List.of(loadout(0, "shield"))))
+    assertThatThrownBy(() ->
+            service.replaceFollowerLoadouts(
+                ROSTER_ID, 40L, "warrior", List.of(loadout(0, "shield"))))
         .isInstanceOf(InvalidRosterUnitException.class);
     verifyNoInteractions(access, repository);
   }
