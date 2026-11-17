@@ -23,15 +23,14 @@ public class SecurityConfig {
         .csrf(AbstractHttpConfigurer::disable)
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests(
-            authorize ->
-                authorize
-                    .requestMatchers("/actuator/health")
-                    .permitAll()
-                    .requestMatchers("/api/**")
-                    .authenticated()
-                    .anyRequest()
-                    .denyAll())
+        .authorizeHttpRequests(authorize ->
+            authorize
+                .requestMatchers("/actuator/health")
+                .permitAll()
+                .requestMatchers("/api/**")
+                .authenticated()
+                .anyRequest()
+                .denyAll())
         .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults()));
 
     return http.build();

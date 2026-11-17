@@ -82,10 +82,10 @@ class RosterGroupsControllerTest {
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(
                       """
-                          {
-                            "name": "Events"
-                          }
-                          """))
+                      {
+                        "name": "Events"
+                      }
+                      """))
           .andExpect(status().isCreated())
           .andExpect(header().string("Location", "http://localhost/api/v1/roster-groups/42"))
           .andExpect(jsonPath("$.id").value(GROUP_ID))
@@ -109,11 +109,11 @@ class RosterGroupsControllerTest {
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(
                       """
-                          {
-                            "name": "2026",
-                            "parentGroupId": 12
-                          }
-                          """))
+                      {
+                        "name": "2026",
+                        "parentGroupId": 12
+                      }
+                      """))
           .andExpect(status().isCreated());
 
       verify(rosterGroupService).createGroup("2026", PARENT_GROUP_ID);
@@ -135,10 +135,10 @@ class RosterGroupsControllerTest {
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(
                       """
-                          {
-                            "name": ""
-                          }
-                          """))
+                      {
+                        "name": ""
+                      }
+                      """))
           .andExpect(status().isBadRequest());
     }
   }
@@ -161,10 +161,10 @@ class RosterGroupsControllerTest {
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(
                       """
-                          {
-                            "name": "New name"
-                          }
-                          """))
+                      {
+                        "name": "New name"
+                      }
+                      """))
           .andExpect(status().isOk())
           .andExpect(jsonPath("$.name").value("New name"));
 

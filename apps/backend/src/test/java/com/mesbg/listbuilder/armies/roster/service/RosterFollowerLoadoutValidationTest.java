@@ -40,27 +40,24 @@ class RosterFollowerLoadoutValidationTest {
 
   @Test
   void rejectsNullLoadoutEntryBeforeAccessingRoster() {
-    assertInvalid(
-        () ->
-            service.replaceFollowerLoadouts(
-                20L, 40L, "warrior", java.util.Collections.singletonList(null)));
+    assertInvalid(() ->
+        service.replaceFollowerLoadouts(
+            20L, 40L, "warrior", java.util.Collections.singletonList(null)));
   }
 
   @Test
   void rejectsNullOptionSetBeforeAccessingRoster() {
-    assertInvalid(
-        () ->
-            service.replaceFollowerLoadouts(
-                20L, 40L, "warrior", List.of(new RosterUnitsService.FollowerLoadout(1, null))));
+    assertInvalid(() ->
+        service.replaceFollowerLoadouts(
+            20L, 40L, "warrior", List.of(new RosterUnitsService.FollowerLoadout(1, null))));
   }
 
   @Test
   void rejectsNullOptionIdBeforeAccessingRoster() {
     var options = new HashSet<>(Arrays.asList("shield", null));
-    assertInvalid(
-        () ->
-            service.replaceFollowerLoadouts(
-                20L, 40L, "warrior", List.of(new RosterUnitsService.FollowerLoadout(1, options))));
+    assertInvalid(() ->
+        service.replaceFollowerLoadouts(
+            20L, 40L, "warrior", List.of(new RosterUnitsService.FollowerLoadout(1, options))));
   }
 
   private void assertInvalid(Runnable action) {

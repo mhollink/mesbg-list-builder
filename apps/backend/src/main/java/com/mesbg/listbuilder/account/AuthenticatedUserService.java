@@ -32,11 +32,10 @@ public class AuthenticatedUserService {
     var user =
         userRepository
             .findByKeycloakSubject(subject)
-            .orElseGet(
-                () -> {
-                  log.info("storing new user information in the database");
-                  return userRepository.save(new UserEntity(subject, email));
-                });
+            .orElseGet(() -> {
+              log.info("storing new user information in the database");
+              return userRepository.save(new UserEntity(subject, email));
+            });
 
     if (!email.equals(user.getEmail())) {
       log.debug("storing updated email in database");

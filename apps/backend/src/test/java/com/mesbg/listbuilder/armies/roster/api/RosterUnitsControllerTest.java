@@ -105,11 +105,11 @@ class RosterUnitsControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     """
-            {
-              "armyListProfileId": "orc-warrior",
-              "loadouts": [{"quantity": 3, "optionIds": ["shield"]}]
-            }
-            """))
+                    {
+                      "armyListProfileId": "orc-warrior",
+                      "loadouts": [{"quantity": 3, "optionIds": ["shield"]}]
+                    }
+                    """))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$[0].id").value(UNIT_ID));
   }
