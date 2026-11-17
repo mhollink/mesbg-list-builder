@@ -1,0 +1,106 @@
+name: Discord GitHub Activity
+
+on:
+  issues:
+    types: [opened, closed, reopened]
+  pull_request_target:
+    types: [opened, closed, reopened, ready_for_review]
+  issue_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
+  discussion:
+    types: [created, answered, unanswered]
+  discussion_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Publish repository activity
+    runs-on: ubuntu-latest
+    steps:
+      # No checkout or execution of PR content: untrusted input is display-only.
+      - name: Send GitHub event to Discord
+        uses: actions/github-script@v9
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_GITHUB_ACTIVITY_WEBHOOK }}
+        with:
+          script: |
+            if (!process.env.DISCORD_WEBHOOK_URL) {
+              throw new Error('Configure the DISCORD_GITHUB_ACTIVITY_WEBHOOK secret.');
+            }
+
+            const event = context.eventName;
+            const data = context.payload;
+            const action = data.action;
+            const actor = data.sender?.login || 'Unknown';
+            const clean = value => String(value || '')
+              .replace(/\s+/g, ' ').trim().slice(0, 300);
+
+            let title;
+            let url;
+            let description;
+
+            if (event === 'issues') {
+              const issue = data.issue;
+              title = 'Issue #' + issue.number + ' ' + action;
+              url = issue.html_url;
+              description = clean(issue.title);
+            } else if (event === 'pull_request_target') {
+              const pr = data.pull_request;
+              const status = action === 'closed' && pr.merged ? 'merged' : action.replaceAll('_', ' ');
+              title = 'Pull request #' + pr.number + ' ' + status;
+              url = pr.html_url;
+              description = clean(pr.title);
+            } else if (event === 'issue_comment') {
+              const issue = data.issue;
+              const kind = issue.pull_request ? 'PR' : 'issue';
+              title = 'New comment on ' + kind + ' #' + issue.number;
+              url = data.comment.html_url;
+              description = clean(issue.title) + '\n' + clean(data.comment.body);
+            } else if (event === 'pull_request_review') {
+              const pr = data.pull_request;
+              const state = data.review.state.replaceAll('_', ' ');
+              title = 'PR #' + pr.number + ' review: ' + state;
+              url = data.review.html_url || pr.html_url;
+              description = clean(pr.title) + (data.review.body ? '\n' + clean(data.review.body) : '');
+            } else if (event === 'pull_request_review_comment') {
+              const pr = data.pull_request;
+              title = 'New review comment on PR #' + pr.number;
+              url = data.comment.html_url;
+              description = clean(pr.title) + '\n' + clean(data.comment.body);
+            } else if (event === 'discussion') {
+              title = 'Discussion #' + data.discussion.number + ' ' + action;
+              url = data.discussion.html_url;
+              description = clean(data.discussion.title);
+            } else if (event === 'discussion_comment') {
+              title = 'New discussion comment #' + data.discussion.number;
+              url = data.comment.html_url;
+              description = clean(data.discussion.title) + '\n' + clean(data.comment.body);
+            } else {
+              return;
+            }
+
+            const response = await fetch(process.env.DISCORD_WEBHOOK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                username: 'GitKraken',
+                allowed_mentions: { parse: [] },
+                embeds: [{
+                  title: title.slice(0, 256),
+                  url,
+                  description: (description + '\nBy ' + actor).slice(0, 4000),
+                  color: 5793266,
+                  footer: { text: context.repo.owner + '/' + context.repo.repo }
+                }]
+              })
+            });
+            if (!response.ok) {
+              throw new Error('Discord webhook returned HTTP ' + response.status);
+            }
