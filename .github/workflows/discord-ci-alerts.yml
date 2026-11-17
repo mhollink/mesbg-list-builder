@@ -1,0 +1,95 @@
+name: Discord CI Alerts
+
+on:
+  workflow_run:
+    workflows: [CI, CD]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  notify:
+    name: Report main CI and release deployment health
+    # Only master push CI runs and tagged release deployments.
+    # Never checkout or run artifacts from the triggering workflow.
+    if: >-
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      (
+        (github.event.workflow_run.name == 'CI' &&
+         github.event.workflow_run.event == 'push' &&
+         github.event.workflow_run.head_branch == 'master') ||
+        (github.event.workflow_run.name == 'CD' &&
+         github.event.workflow_run.event == 'push')
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify failures and recoveries
+        uses: actions/github-script@v9
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_CI_ALERTS_WEBHOOK }}
+        with:
+          script: |
+            if (!process.env.DISCORD_WEBHOOK_URL) {
+              throw new Error('Configure the DISCORD_CI_ALERTS_WEBHOOK secret.');
+            }
+
+            const run = context.payload.workflow_run;
+            const failed = ['failure', 'timed_out', 'startup_failure'].includes(run.conclusion);
+            if (!failed && run.conclusion !== 'success') {
+              return;
+            }
+
+            // A success is only interesting if the preceding completed run failed.
+            if (!failed) {
+              const options = {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: run.workflow_id,
+                event: 'push',
+                per_page: 50
+              };
+              if (run.name === 'CI') {
+                options.branch = 'master';
+              }
+              const { data } = await github.rest.actions.listWorkflowRuns(options);
+              const prior = data.workflow_runs.find(previous =>
+                previous.id !== run.id &&
+                previous.run_number < run.run_number &&
+                previous.status === 'completed' &&
+                ['success', 'failure', 'timed_out', 'startup_failure'].includes(previous.conclusion)
+              );
+              if (!prior || !['failure', 'timed_out', 'startup_failure'].includes(prior.conclusion)) {
+                return;
+              }
+            }
+
+            const isDeployment = run.name === 'CD';
+            const label = isDeployment ? 'Release workflow' : 'Master CI';
+            const status = failed ? 'FAILED' : 'RECOVERED';
+            const reference = run.head_branch || 'release tag';
+            const response = await fetch(process.env.DISCORD_WEBHOOK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                username: 'GitKraken',
+                allowed_mentions: { parse: [] },
+                embeds: [{
+                  title: label + ' ' + status,
+                  url: run.html_url,
+                  description: [
+                    '**Workflow:** ' + run.name,
+                    '**Ref:** ' + reference,
+                    '**Commit:** ' + (run.head_sha || '').slice(0, 7),
+                    '**Result:** ' + run.conclusion,
+                    '**Triggered by:** ' + (run.triggering_actor?.login || run.actor?.login || 'Unknown')
+                  ].join('\n'),
+                  color: failed ? 15548997 : 5763719,
+                  footer: { text: 'Run #' + run.run_number }
+                }]
+              })
+            });
+            if (!response.ok) {
+              throw new Error('Discord webhook returned HTTP ' + response.status);
+            }

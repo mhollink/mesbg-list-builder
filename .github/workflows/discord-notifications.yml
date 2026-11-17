@@ -1,8 +1,8 @@
-name: Discord Development Notifications
+name: Discord Release Announcement
 on:
   workflow_call:
     secrets:
-      DISCORD_DEVELOPMENT_WEBHOOK:
+      DISCORD_ANNOUNCEMENTS_WEBHOOK:
         required: true
 
 permissions:
@@ -16,7 +16,7 @@ jobs:
       - name: Post tagged changelog section to Discord
         uses: actions/github-script@v9
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_DEVELOPMENT_WEBHOOK }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_ANNOUNCEMENTS_WEBHOOK }}
         with:
           script: |
             const { owner, repo } = context.repo;
@@ -53,7 +53,7 @@ jobs:
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                username: 'MESBG Development',
+                username: 'GitKraken',
                 allowed_mentions: { parse: [] },
                 embeds: [{
                   title: `MESBG List Builder ${tag}`,

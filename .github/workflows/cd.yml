@@ -196,4 +196,4 @@ jobs:
       contents: read
     uses: ./.github/workflows/discord-notifications.yml
     secrets:
-      DISCORD_DEVELOPMENT_WEBHOOK: ${{ secrets.DISCORD_DEVELOPMENT_WEBHOOK }}
+      DISCORD_ANNOUNCEMENTS_WEBHOOK: ${{ secrets.DISCORD_ANNOUNCEMENTS_WEBHOOK }}
