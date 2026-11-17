@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.6/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -45,11 +45,24 @@
   },
   "overrides": [
     {
+      "includes": ["**/test/render.tsx"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noComponentHookFactories": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": ["**/*.test.tsx", "**/*.test.ts"],
       "linter": {
         "rules": {
           "suspicious": {
             "noExplicitAny": "off"
+          },
+          "correctness": {
+            "noComponentHookFactories": "off"
           },
           "style": {
             "noNonNullAssertion": "off",
