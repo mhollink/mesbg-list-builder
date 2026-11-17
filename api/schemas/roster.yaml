@@ -276,6 +276,24 @@ CreateRosterRequest:
       default: [ ]
       description: Free-form labels attached to the roster.
 
+DuplicateRosterRequest:
+  type: object
+  required:
+    - name
+    - favorite
+    - locked
+  properties:
+    name:
+      type: string
+      minLength: 1
+      maxLength: 255
+    favorite:
+      type: boolean
+      default: false
+    locked:
+      type: boolean
+      default: false
+
 UpdateRosterRequest:
   type: object
   minProperties: 1

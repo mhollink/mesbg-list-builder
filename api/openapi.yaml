@@ -36,6 +36,9 @@ paths:
   /api/v1/rosters/{rosterId}:
     $ref: "./paths/rosters.yaml#/Roster"
 
+  /api/v1/rosters/{rosterId}/duplicate:
+    $ref: "./paths/rosters.yaml#/RosterDuplication"
+
   /api/v1/rosters/{rosterId}/army-options:
     $ref: "./paths/rosters.yaml#/RosterArmyOptions"
 
