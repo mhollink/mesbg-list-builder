@@ -3,10 +3,8 @@ package com.mesbg.listbuilder.armies.roster.api;
 import com.mesbg.listbuilder.armies.roster.api.mapper.RosterMapper;
 import com.mesbg.listbuilder.armies.roster.service.RosterService;
 import com.mesbg.listbuilder.generated.api.RostersApi;
-import com.mesbg.listbuilder.generated.model.CreateRosterRequest;
-import com.mesbg.listbuilder.generated.model.Roster;
-import com.mesbg.listbuilder.generated.model.RosterSummary;
-import com.mesbg.listbuilder.generated.model.UpdateRosterRequest;
+import com.mesbg.listbuilder.generated.model.*;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -68,6 +66,25 @@ public class RostersController implements RostersApi {
             request.getClearPointsLimit());
 
     return ResponseEntity.ok(rosterMapper.toSummary(snapshot.roster(), snapshot.statistics()));
+  }
+
+  @Override
+  public ResponseEntity<Roster> duplicateRoster(Long rosterId, DuplicateRosterRequest request) {
+    var snapshot = rosterService.duplicateRoster(
+        rosterId,
+        request.getName(),
+        request.getFavorite(),
+        request.getLocked()
+    );
+
+    var location = ServletUriComponentsBuilder
+        .fromCurrentContextPath()
+        .path("/api/v1/rosters/{rosterId}")
+        .buildAndExpand(snapshot.roster().getId())
+        .toUri();
+
+    return ResponseEntity.created(location)
+        .body(rosterMapper.toDto(snapshot.roster(), snapshot.statistics()));
   }
 
   @Override

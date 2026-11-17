@@ -3,15 +3,18 @@ package com.mesbg.listbuilder.armies.roster.service;
 import com.mesbg.listbuilder.account.CurrentUserContext;
 import com.mesbg.listbuilder.armies.roster.persistence.RosterRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
+import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
+import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatistics;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatisticsCalculator;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 import java.util.stream.Collectors;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -186,7 +189,7 @@ public class RosterService {
     return new RosterSnapshot(roster, statistics);
   }
 
-  public static Set<String> normalizeTags(Collection<String> tags) {
+  private Set<String> normalizeTags(Collection<String> tags) {
     if (tags == null) {
       return Set.of();
     }
@@ -196,5 +199,85 @@ public class RosterService {
         .filter(tag -> !tag.isBlank())
         .filter(tag -> tag.length() <= 64)
         .collect(Collectors.toCollection(LinkedHashSet::new));
+  }
+
+  @Transactional
+  public RosterSnapshot duplicateRoster(
+      Long rosterId,
+      String name,
+      boolean favorite,
+      boolean locked) {
+
+    var source = rosterAccess.requireRoster(rosterId);
+
+    var copy = copyRoster(name, source);
+    copy.setFavorite(favorite);
+    copy.setLocked(locked);
+    copy.getArmyOptionIds().addAll(source.getArmyOptionIds());
+
+    var copiedUnits = new HashMap<Long, RosterUnitEntity>();
+
+    copy.getWarbands().addAll(
+        source.getWarbands().stream()
+            .map(warband -> copyWarband(warband, copy, copiedUnits))
+            .toList()
+    );
+
+    var saved = rosterRepository.saveAndFlush(copy);
+
+    getGeneralUnitId(source)
+        .map(copiedUnits::get)
+        .ifPresent(saved::setGeneralUnit);
+
+    return snapshot(saved);
+  }
+
+  private RosterEntity copyRoster(String name, RosterEntity source) {
+    return new RosterEntity(
+        currentUser.getUser(),
+        name.trim(),
+        source.getArmyListId(),
+        source.getPointsLimit(),
+        new LinkedHashSet<>(source.getTags()),
+        source.getGroup()
+    );
+  }
+
+  private Optional<Long> getGeneralUnitId(RosterEntity source) {
+    return Optional.ofNullable(source.getGeneralUnit())
+        .map(RosterUnitEntity::getId);
+  }
+
+  private WarbandEntity copyWarband(
+      WarbandEntity source,
+      RosterEntity roster,
+      Map<Long, RosterUnitEntity> copiedUnits
+  ) {
+    var warband = new WarbandEntity(roster, source.getSortIndex());
+
+    for (var unit : source.getUnits()) {
+      var copiedUnit = copyUnit(unit, warband);
+      warband.getUnits().add(copiedUnit);
+      copiedUnits.put(unit.getId(), copiedUnit);
+    }
+
+    return warband;
+  }
+
+  private RosterUnitEntity copyUnit(
+      RosterUnitEntity source,
+      WarbandEntity warband
+  ) {
+    var unit = new RosterUnitEntity(
+        warband,
+        source.getArmyListProfileId(),
+        source.getQuantity(),
+        source.isLeader(),
+        source.getSortIndex()
+    );
+
+    unit.getOptionIds().addAll(source.getOptionIds());
+
+    return unit;
   }
 }
