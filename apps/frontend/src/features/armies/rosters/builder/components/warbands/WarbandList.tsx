@@ -121,72 +121,6 @@ export function WarbandList({
     }
   }
 
-  const AddWarbandButton = ({ primary }: { primary?: boolean }) => {
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-
-    const handleOpen = (event: MouseEvent<HTMLButtonElement>) => {
-      setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
-
-    return (
-      canAddWarband && (
-        <>
-          <ButtonGroup variant={primary ? "contained" : "outlined"}>
-            <Button
-              startIcon={<AddIcon />}
-              onClick={() => openCreator("single")}
-            >
-              Add warband
-            </Button>
-            <Button
-              aria-expanded={Boolean(menuAnchor)}
-              aria-label="More warband creation options"
-              aria-haspopup="menu"
-              onClick={handleOpen}
-            >
-              <ArrowDropDownIcon />
-            </Button>
-          </ButtonGroup>
-          <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-            <MenuItem onClick={() => openCreator("continuous")}>
-              Create multiple warbands
-            </MenuItem>
-          </Menu>
-        </>
-      )
-    );
-  };
-
-  const NoWarbands = () => (
-    <Paper
-      variant="outlined"
-      sx={{
-        p: 5,
-        textAlign: "center",
-        borderStyle: "dashed",
-      }}
-    >
-      <Stack
-        spacing={2}
-        sx={{
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <Typography variant="h6">No warbands yet</Typography>
-          <Typography variant="body2" color="textSecondary" sx={{ mt: 0.5 }}>
-            Add a warband to start building this roster.
-          </Typography>
-        </div>
-        <AddWarbandButton primary />
-      </Stack>
-    </Paper>
-  );
-
   return (
     <Stack spacing={2}>
       {addFailed && (
@@ -230,10 +164,18 @@ export function WarbandList({
             />
           ))}
 
-          <AddWarbandButton />
+          <AddWarbandButton
+            menuOpened={Boolean(menuAnchor)}
+            canAddWarband={canAddWarband}
+            openCreator={openCreator}
+          />
         </DragDropProvider>
       ) : (
-        <NoWarbands />
+        <NoWarbands
+          menuOpened={Boolean(menuAnchor)}
+          canAddWarband={canAddWarband}
+          openCreator={openCreator}
+        />
       )}
 
       <LeaderPicker
@@ -243,5 +185,93 @@ export function WarbandList({
         onSave={handleCreateWarband}
       />
     </Stack>
+  );
+}
+
+function NoWarbands({
+  canAddWarband,
+  openCreator,
+  menuOpened,
+}: {
+  menuOpened?: boolean;
+  canAddWarband: boolean;
+  openCreator: (mode: CreationMode) => void;
+}) {
+  return (
+    <Paper
+      variant="outlined"
+      sx={{
+        p: 5,
+        textAlign: "center",
+        borderStyle: "dashed",
+      }}
+    >
+      <Stack
+        spacing={2}
+        sx={{
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <Typography variant="h6">No warbands yet</Typography>
+          <Typography variant="body2" color="textSecondary" sx={{ mt: 0.5 }}>
+            Add a warband to start building this roster.
+          </Typography>
+        </div>
+        <AddWarbandButton
+          primary
+          menuOpened={menuOpened}
+          canAddWarband={canAddWarband}
+          openCreator={openCreator}
+        />
+      </Stack>
+    </Paper>
+  );
+}
+
+function AddWarbandButton({
+  primary,
+  canAddWarband,
+  openCreator,
+  menuOpened,
+}: {
+  primary?: boolean;
+  menuOpened?: boolean;
+  canAddWarband: boolean;
+  openCreator: (mode: CreationMode) => void;
+}) {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const handleOpen = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    canAddWarband && (
+      <>
+        <ButtonGroup variant={primary ? "contained" : "outlined"}>
+          <Button startIcon={<AddIcon />} onClick={() => openCreator("single")}>
+            Add warband
+          </Button>
+          <Button
+            aria-expanded={menuOpened}
+            aria-label="More warband creation options"
+            aria-haspopup="menu"
+            onClick={handleOpen}
+          >
+            <ArrowDropDownIcon />
+          </Button>
+        </ButtonGroup>
+        <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+          <MenuItem onClick={() => openCreator("continuous")}>
+            Create multiple warbands
+          </MenuItem>
+        </Menu>
+      </>
+    )
   );
 }
