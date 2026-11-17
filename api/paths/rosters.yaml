@@ -295,6 +295,45 @@ RosterLock:
             schema:
               $ref: "../schemas/problem.yaml#/ApiProblem"
 
+RosterDuplication:
+  parameters:
+    - $ref: "../schemas/roster.yaml#/RosterIdParameter"
+
+  post:
+    tags:
+      - Rosters
+    operationId: duplicateRoster
+    summary: Duplicate an existing roster
+    security:
+      - bearerAuth: []
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/DuplicateRosterRequest"
+
+    responses:
+      "201":
+        description: Roster duplicated.
+        headers:
+          Location:
+            description: Location of the new roster.
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/roster.yaml#/Roster"
+
+      "400":
+        description: Invalid request.
+      "401":
+        description: Authentication required.
+      "404":
+        description: Source roster not found.
+
 RosterArmyOptions:
   parameters:
     - $ref: "../schemas/roster.yaml#/RosterIdParameter"
