@@ -89,7 +89,7 @@ export const roadmap: readonly RoadmapFeature[] = [
           { id: "icons", status: "done" },
           { id: "search", status: "done" },
           { id: "sort", status: "done" },
-          { id: "duplicate", status: "planned" },
+          { id: "duplicate", status: "done" },
         ],
       },
       {
