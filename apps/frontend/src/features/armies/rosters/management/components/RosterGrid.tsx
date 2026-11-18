@@ -13,7 +13,7 @@ interface RosterGridProps {
   groups: RosterGroup[];
   rosters: RosterSummary[];
   getRosterCount: (groupId: number) => number;
-  onRenameGroup: (group: RosterGroup) => void;
+  onUpdateGroup: (group: RosterGroup) => void;
   onDeleteGroup: (group: RosterGroup) => void;
   onEditRoster: (roster: RosterSummary) => void;
   onMoveRoster: (roster: RosterSummary) => void;
@@ -25,7 +25,7 @@ export function RosterGrid({
   groups,
   rosters,
   getRosterCount,
-  onRenameGroup,
+  onUpdateGroup,
   onDeleteGroup,
   onEditRoster,
   onMoveRoster,
@@ -79,7 +79,7 @@ export function RosterGrid({
           key={group.id}
           group={group}
           rosterCount={getRosterCount(group.id)}
-          onRename={onRenameGroup}
+          onUpdate={onUpdateGroup}
           onDelete={onDeleteGroup}
         />
       ))}

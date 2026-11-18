@@ -2,7 +2,7 @@ import type { RosterGroup } from "@mlb/api-client";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { RenameRosterGroupDialog } from "./RenameRosterGroupDialog.tsx";
+import { EditRosterGroupDialog } from "./EditRosterGroupDialog.tsx";
 import { render, screen } from "~/test/render";
 
 const mocks = vi.hoisted(() => ({
@@ -15,7 +15,7 @@ vi.mock("../../../api/roster-group-api", () => ({
   useUpdateRosterGroupMutation: () => [mocks.renameGroup, mocks.state],
 }));
 
-describe("RenameRosterGroupDialog", () => {
+describe("EditRosterGroupDialog", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mocks.state = { isLoading: false, isError: false };
@@ -27,20 +27,21 @@ describe("RenameRosterGroupDialog", () => {
     const user = userEvent.setup();
     const onClose = vi.fn();
 
-    render(<RenameRosterGroupDialog group={group()} onClose={onClose} />);
+    render(<EditRosterGroupDialog group={group()} onClose={onClose} />);
 
     const input = screen.getByLabelText("Group name");
     expect(input).toHaveValue("Events");
-    expect(screen.getByRole("button", { name: "Rename" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Update" })).toBeDisabled();
 
     await user.clear(input);
     await user.type(input, "  Tournament  ");
-    await user.click(screen.getByRole("button", { name: "Rename" }));
+    await user.click(screen.getByRole("button", { name: "Update" }));
 
     expect(mocks.renameGroup).toHaveBeenCalledWith({
       groupId: 12,
       updateRosterGroupRequest: {
         name: "Tournament",
+        icon: "folder",
       },
     });
     expect(onClose).toHaveBeenCalledOnce();
@@ -49,12 +50,17 @@ describe("RenameRosterGroupDialog", () => {
   it("renders mutation errors", () => {
     mocks.state = { isLoading: false, isError: true };
 
-    render(<RenameRosterGroupDialog group={group()} onClose={vi.fn()} />);
+    render(<EditRosterGroupDialog group={group()} onClose={vi.fn()} />);
 
-    expect(screen.getByText("Could not rename the group.")).toBeInTheDocument();
+    expect(screen.getByText("Could not update the group.")).toBeInTheDocument();
   });
 });
 
 function group(): RosterGroup {
-  return { id: 12, name: "Events", children: [] } as RosterGroup;
+  return {
+    id: 12,
+    name: "Events",
+    icon: "folder",
+    children: [],
+  } as RosterGroup;
 }

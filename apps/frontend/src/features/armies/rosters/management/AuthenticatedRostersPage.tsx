@@ -19,8 +19,8 @@ import { CreateRosterGroupDialog } from "./components/dialogs/CreateRosterGroupD
 import { DeleteRosterDialog } from "./components/dialogs/DeleteRosterDialog";
 import { DeleteRosterGroupDialog } from "./components/dialogs/DeleteRosterGroupDialog";
 import { EditRosterDialog } from "./components/dialogs/EditRosterDialog.tsx";
+import { EditRosterGroupDialog } from "./components/dialogs/EditRosterGroupDialog.tsx";
 import { MoveRosterDialog } from "./components/dialogs/MoveRosterDialog";
-import { RenameRosterGroupDialog } from "./components/dialogs/RenameRosterGroupDialog";
 import { RostersSpeedDial } from "./components/RostersSpeedDial";
 import { useRosterDialogs } from "./hooks/useRosterDialogs";
 import { useRosterDragAndDrop } from "./hooks/useRosterDragAndDrop";
@@ -174,7 +174,7 @@ export function AuthenticatedRostersPage() {
             rosters={visibleRosters}
             searching={searching}
             getRosterCount={navigation.getDirectRosterCount}
-            onRenameGroup={dialogs.renameGroup.open}
+            onUpdateGroup={dialogs.updateGroup.open}
             onDeleteGroup={dialogs.deleteGroup.open}
             onEditRoster={dialogs.editRoster.open}
             onMoveRoster={dialogs.moveRoster.open}
@@ -217,9 +217,9 @@ export function AuthenticatedRostersPage() {
           onClose={dialogs.moveRoster.close}
         />
 
-        <RenameRosterGroupDialog
-          group={dialogs.renameGroup.group}
-          onClose={dialogs.renameGroup.close}
+        <EditRosterGroupDialog
+          group={dialogs.updateGroup.group}
+          onClose={dialogs.updateGroup.close}
         />
 
         <DeleteRosterGroupDialog

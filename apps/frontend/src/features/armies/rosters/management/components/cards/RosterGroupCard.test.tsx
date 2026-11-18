@@ -25,7 +25,7 @@ describe("RosterGroupCard", () => {
   });
 
   it("renders group counts and navigation", () => {
-    renderCard(group(42, "Tournament", [group(43, "Nested")]), 2);
+    renderCard(group(42, "Tournament", "folder", [group(43, "Nested")]), 2);
 
     expect(screen.getByText("Tournament")).toBeInTheDocument();
     expect(screen.getByText("2 rosters · 1 group")).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe("RosterGroupCard", () => {
 
     await user.click(
       screen.getByRole("menuitem", {
-        name: "Rename",
+        name: "Update",
       }),
     );
 
@@ -105,7 +105,7 @@ describe("RosterGroupCard", () => {
   it("blocks deletion while the group contains nested groups", async () => {
     const user = userEvent.setup();
 
-    renderCard(group(42, "Tournament", [group(43, "Nested")]), 0);
+    renderCard(group(42, "Tournament", "folder", [group(43, "Nested")]), 0);
 
     await user.click(
       screen.getByRole("button", {
@@ -136,7 +136,7 @@ function renderCard(
       <RosterGroupCard
         group={value}
         rosterCount={rosterCount}
-        onRename={onRename}
+        onUpdate={onRename}
         onDelete={onDelete}
       />
     </MemoryRouter>,
@@ -146,11 +146,13 @@ function renderCard(
 function group(
   id: number,
   name: string,
+  icon: string = "folder",
   children: RosterGroup[] = [],
 ): RosterGroup {
   return {
     id,
     name,
+    icon,
     children,
   } as RosterGroup;
 }
