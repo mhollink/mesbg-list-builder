@@ -31,6 +31,7 @@ import {
   filterRosterGroups,
   type RosterSort,
 } from "./roster-list.utils.ts";
+import { DuplicateRosterDialog } from "./components/dialogs/DuplicateRosterDialog.tsx";
 import { RosterGrid } from "~/features/armies/rosters/management/components/RosterGrid.tsx";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 
@@ -177,6 +178,7 @@ export function AuthenticatedRostersPage() {
             onUpdateGroup={dialogs.updateGroup.open}
             onDeleteGroup={dialogs.deleteGroup.open}
             onEditRoster={dialogs.editRoster.open}
+            onDuplicateRoster={dialogs.duplicateRoster.open}
             onMoveRoster={dialogs.moveRoster.open}
             onDeleteRoster={dialogs.deleteRoster.open}
           />
@@ -192,6 +194,11 @@ export function AuthenticatedRostersPage() {
           groupId={navigation.currentGroupId}
           tagSuggestions={data.tagSuggestions}
           onClose={dialogs.createRoster.close}
+        />
+
+        <DuplicateRosterDialog
+          roster={dialogs.duplicateRoster.roster}
+          onClose={dialogs.duplicateRoster.close}
         />
 
         <EditRosterDialog

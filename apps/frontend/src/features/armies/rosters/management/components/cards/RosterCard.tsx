@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutlined";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import DriveFileMoveOutlinedIcon from "@mui/icons-material/DriveFileMoveOutlined";
@@ -33,6 +34,7 @@ interface RosterCardProps {
   roster: RosterSummary;
   armyList: string;
   onEdit: (roster: RosterSummary) => void;
+  onDuplicate: (roster: RosterSummary) => void;
   onMove: (roster: RosterSummary) => void;
   onDelete: (roster: RosterSummary) => void;
 }
@@ -41,6 +43,7 @@ export function RosterCard({
   roster,
   onEdit,
   onMove,
+  onDuplicate,
   onDelete,
   armyList,
 }: RosterCardProps) {
@@ -272,12 +275,25 @@ export function RosterCard({
         <MenuItem
           onClick={() => {
             setMenuAnchor(null);
+            onDuplicate(roster);
+          }}
+        >
+          <ContentCopyOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
+          Duplicate roster
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            setMenuAnchor(null);
             onMove(roster);
           }}
         >
           <DriveFileMoveOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
           Move to group
         </MenuItem>
+
+        <Divider />
+
         <Tooltip
           title={roster.locked ? "Unlock this roster before deleting it." : ""}
           placement="left"

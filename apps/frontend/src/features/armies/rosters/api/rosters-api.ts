@@ -1,6 +1,7 @@
 import type {
   AssignRosterToGroupRequest,
   CreateRosterRequest,
+  DuplicateRosterRequest,
   Roster,
   RosterSummary,
   UpdateRosterRequest,
@@ -96,6 +97,28 @@ export const rostersApi = serverApi.injectEndpoints({
         { type: "Roster", id: rosterId },
         { type: "Roster", id: "LIST" },
       ],
+    }),
+
+    duplicateRoster: builder.mutation<
+      Roster,
+      {
+        rosterId: number;
+        request: DuplicateRosterRequest;
+      }
+    >({
+      queryFn: async ({ rosterId, request }) => {
+        try {
+          return {
+            data: await rostersClient.duplicateRoster({
+              rosterId,
+              duplicateRosterRequest: request,
+            }),
+          };
+        } catch (error) {
+          return { error: toApiError(error) };
+        }
+      },
+      invalidatesTags: [{ type: "Roster", id: "LIST" }],
     }),
 
     favoriteRoster: builder.mutation<RosterSummary, number>({
@@ -239,6 +262,7 @@ export const {
   useGetRosterQuery,
   useCreateRosterMutation,
   useUpdateRosterMutation,
+  useDuplicateRosterMutation,
   useDeleteRosterMutation,
   useFavoriteRosterMutation,
   useUnfavoriteRosterMutation,

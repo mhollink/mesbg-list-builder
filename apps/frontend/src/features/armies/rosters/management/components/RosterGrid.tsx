@@ -16,6 +16,7 @@ interface RosterGridProps {
   onUpdateGroup: (group: RosterGroup) => void;
   onDeleteGroup: (group: RosterGroup) => void;
   onEditRoster: (roster: RosterSummary) => void;
+  onDuplicateRoster: (roster: RosterSummary) => void;
   onMoveRoster: (roster: RosterSummary) => void;
   onDeleteRoster: (roster: RosterSummary) => void;
   searching?: boolean;
@@ -28,6 +29,7 @@ export function RosterGrid({
   onUpdateGroup,
   onDeleteGroup,
   onEditRoster,
+  onDuplicateRoster,
   onMoveRoster,
   onDeleteRoster,
   searching = false,
@@ -92,6 +94,7 @@ export function RosterGrid({
             armyListsById.get(roster.armyListId)?.name ?? roster.armyListId
           }
           onEdit={onEditRoster}
+          onDuplicate={onDuplicateRoster}
           onMove={onMoveRoster}
           onDelete={onDeleteRoster}
         />
