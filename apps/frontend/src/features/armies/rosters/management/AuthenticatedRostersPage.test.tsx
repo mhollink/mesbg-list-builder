@@ -124,7 +124,6 @@ vi.mock("./components/dialogs/DuplicateRosterDialog.tsx", () => ({
   ),
 }));
 
-
 vi.mock("./components/dialogs/CreateRosterGroupDialog", () => ({
   CreateRosterGroupDialog: ({
     open,

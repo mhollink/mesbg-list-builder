@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -13,7 +14,6 @@ import type { DuplicateRosterRequest, RosterSummary } from "@mlb/api-client";
 
 import Switch from "~/components/switch/StyledSwitch.tsx";
 import { useDuplicateRosterMutation } from "~/features/armies/rosters/api/rosters-api.ts";
-import { useNavigate } from "react-router";
 
 interface DuplicateRosterDialogProps {
   roster: RosterSummary | null;
@@ -54,7 +54,10 @@ export function DuplicateRosterDialog({
     };
 
     try {
-      const newRoster = await duplicateRoster({ rosterId: roster.id, request }).unwrap();
+      const newRoster = await duplicateRoster({
+        rosterId: roster.id,
+        request,
+      }).unwrap();
       onClose();
       navigate(`/armies/rosters/${newRoster.id}`);
     } catch {

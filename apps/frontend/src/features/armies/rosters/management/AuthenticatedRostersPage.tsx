@@ -18,6 +18,7 @@ import { CreateRosterDialog } from "./components/dialogs/CreateRosterDialog";
 import { CreateRosterGroupDialog } from "./components/dialogs/CreateRosterGroupDialog";
 import { DeleteRosterDialog } from "./components/dialogs/DeleteRosterDialog";
 import { DeleteRosterGroupDialog } from "./components/dialogs/DeleteRosterGroupDialog";
+import { DuplicateRosterDialog } from "./components/dialogs/DuplicateRosterDialog.tsx";
 import { EditRosterDialog } from "./components/dialogs/EditRosterDialog.tsx";
 import { EditRosterGroupDialog } from "./components/dialogs/EditRosterGroupDialog.tsx";
 import { MoveRosterDialog } from "./components/dialogs/MoveRosterDialog";
@@ -31,7 +32,6 @@ import {
   filterRosterGroups,
   type RosterSort,
 } from "./roster-list.utils.ts";
-import { DuplicateRosterDialog } from "./components/dialogs/DuplicateRosterDialog.tsx";
 import { RosterGrid } from "~/features/armies/rosters/management/components/RosterGrid.tsx";
 import { useGameArmyLists } from "~/features/reference/army-lists/hooks/useGameArmyLists.ts";
 

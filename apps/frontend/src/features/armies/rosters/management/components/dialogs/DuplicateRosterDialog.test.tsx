@@ -43,14 +43,17 @@ describe("DuplicateRosterDialog", () => {
   it("initializes the copy with a suggested name and disabled options", () => {
     renderDialog();
 
-    expect(screen.getByRole("textbox", { name: "Roster name" }))
-      .toHaveValue("Mordor (copy)");
+    expect(screen.getByRole("textbox", { name: "Roster name" })).toHaveValue(
+      "Mordor (copy)",
+    );
 
-    expect(screen.getByRole("switch", { name: "Add to favorites" }))
-      .not.toBeChecked();
+    expect(
+      screen.getByRole("switch", { name: "Add to favorites" }),
+    ).not.toBeChecked();
 
-    expect(screen.getByRole("switch", { name: "Lock new roster" }))
-      .not.toBeChecked();
+    expect(
+      screen.getByRole("switch", { name: "Lock new roster" }),
+    ).not.toBeChecked();
 
     expect(mocks.reset).toHaveBeenCalledOnce();
   });
@@ -88,13 +91,17 @@ describe("DuplicateRosterDialog", () => {
 
     renderDialog();
 
-    await user.click(screen.getByRole("switch", {
-      name: "Add to favorites",
-    }));
+    await user.click(
+      screen.getByRole("switch", {
+        name: "Add to favorites",
+      }),
+    );
 
-    await user.click(screen.getByRole("switch", {
-      name: "Lock new roster",
-    }));
+    await user.click(
+      screen.getByRole("switch", {
+        name: "Lock new roster",
+      }),
+    );
 
     await user.click(screen.getByRole("button", { name: "Duplicate roster" }));
 
@@ -144,9 +151,11 @@ describe("DuplicateRosterDialog", () => {
       "Custom name",
     );
 
-    await user.click(screen.getByRole("switch", {
-      name: "Add to favorites",
-    }));
+    await user.click(
+      screen.getByRole("switch", {
+        name: "Add to favorites",
+      }),
+    );
 
     const anotherRoster = {
       id: 43,
@@ -157,14 +166,17 @@ describe("DuplicateRosterDialog", () => {
       <DuplicateRosterDialog roster={anotherRoster} onClose={onClose} />,
     );
 
-    expect(screen.getByRole("textbox", { name: "Roster name" }))
-      .toHaveValue("Isengard (copy)");
+    expect(screen.getByRole("textbox", { name: "Roster name" })).toHaveValue(
+      "Isengard (copy)",
+    );
 
-    expect(screen.getByRole("switch", { name: "Add to favorites" }))
-      .not.toBeChecked();
+    expect(
+      screen.getByRole("switch", { name: "Add to favorites" }),
+    ).not.toBeChecked();
 
-    expect(screen.getByRole("switch", { name: "Lock new roster" }))
-      .not.toBeChecked();
+    expect(
+      screen.getByRole("switch", { name: "Lock new roster" }),
+    ).not.toBeChecked();
 
     expect(mocks.reset).toHaveBeenCalledTimes(2);
   });
@@ -189,8 +201,9 @@ describe("DuplicateRosterDialog", () => {
     mocks.state = { isLoading: false, isError: true };
     rerender(<DuplicateRosterDialog roster={roster} onClose={onClose} />);
 
-    expect(screen.getByRole("alert"))
-      .toHaveTextContent("The roster could not be duplicated");
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "The roster could not be duplicated",
+    );
 
     expect(onClose).not.toHaveBeenCalled();
     expect(mocks.navigate).not.toHaveBeenCalled();
@@ -201,11 +214,11 @@ describe("DuplicateRosterDialog", () => {
 
     renderDialog();
 
-    expect(screen.getByRole("button", { name: "Cancel" }))
-      .toBeDisabled();
+    expect(screen.getByRole("button", { name: "Cancel" })).toBeDisabled();
 
-    expect(screen.getByRole("button", { name: "Duplicate roster" }))
-      .toBeDisabled();
+    expect(
+      screen.getByRole("button", { name: "Duplicate roster" }),
+    ).toBeDisabled();
   });
 
   it("does not display the dialog without a selected roster", () => {
@@ -216,11 +229,6 @@ describe("DuplicateRosterDialog", () => {
   });
 });
 
-function renderDialog(
-  value: RosterSummary | null = roster,
-  onClose = vi.fn(),
-) {
-  return render(
-    <DuplicateRosterDialog roster={value} onClose={onClose} />,
-  );
+function renderDialog(value: RosterSummary | null = roster, onClose = vi.fn()) {
+  return render(<DuplicateRosterDialog roster={value} onClose={onClose} />);
 }
