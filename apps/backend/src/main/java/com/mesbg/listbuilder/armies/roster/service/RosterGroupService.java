@@ -36,11 +36,12 @@ public class RosterGroupService {
   }
 
   @Transactional
-  public RosterGroupEntity createGroup(String name, Long parentGroupId) {
+  public RosterGroupEntity createGroup(String name, String icon, Long parentGroupId) {
     var parent = parentGroupId == null ? null : rosterAccess.requireGroup(parentGroupId);
 
     var group =
-        rosterGroupRepository.save(new RosterGroupEntity(currentUser.getUser(), name, parent));
+        rosterGroupRepository.save(
+            new RosterGroupEntity(currentUser.getUser(), name, icon, parent));
 
     log.info("Created roster group groupId={} parentGroupId={}", group.getId(), parentGroupId);
 
@@ -48,12 +49,16 @@ public class RosterGroupService {
   }
 
   @Transactional
-  public RosterGroupEntity renameGroup(Long groupId, String name) {
+  public RosterGroupEntity updateGroup(Long groupId, String name, String icon) {
     var group = rosterAccess.requireGroup(groupId);
 
     group.setName(name);
 
-    log.info("Renamed roster group groupId={}", groupId);
+    if (icon != null) {
+      group.setIcon(icon);
+    }
+
+    log.info("Updated roster group groupId={}", groupId);
 
     return group;
   }

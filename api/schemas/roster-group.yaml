@@ -31,6 +31,12 @@ RosterGroup:
     name:
       type: string
 
+    icon:
+      type: string
+      maxLength: 64
+      default: folder
+      description: Identifier of the selected group icon.
+
     children:
       type: array
       description: Direct child groups.
@@ -48,6 +54,12 @@ CreateRosterGroupRequest:
       minLength: 1
       maxLength: 255
 
+    icon:
+      type: string
+      maxLength: 64
+      default: folder
+      description: Identifier of the selected group icon.
+
     parentGroupId:
       type: integer
       format: int64
@@ -64,3 +76,9 @@ UpdateRosterGroupRequest:
       type: string
       minLength: 1
       maxLength: 255
+      
+    icon:
+      type: string
+      maxLength: 64
+      default: folder
+      description: Identifier of the selected group icon.

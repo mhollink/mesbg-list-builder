@@ -83,7 +83,7 @@ class RosterGroupServiceTest {
       when(rosterGroupRepository.save(any(RosterGroupEntity.class)))
           .thenAnswer(invocation -> invocation.getArgument(0));
 
-      var result = service.createGroup("Events", null);
+      var result = service.createGroup("Events", "folder", null);
 
       assertThat(result.getUser()).isSameAs(user);
       assertThat(result.getName()).isEqualTo("Events");
@@ -99,7 +99,7 @@ class RosterGroupServiceTest {
       when(rosterGroupRepository.save(any(RosterGroupEntity.class)))
           .thenAnswer(invocation -> invocation.getArgument(0));
 
-      var result = service.createGroup("2026", 20L);
+      var result = service.createGroup("2026", "folder", 20L);
 
       assertThat(result.getParentGroup()).isSameAs(parent);
     }
@@ -108,7 +108,7 @@ class RosterGroupServiceTest {
     void creatingChildFailsWhenParentDoesNotExist() {
       when(rosterGroupRepository.findByIdAndUserId(20L, USER_ID)).thenReturn(Optional.empty());
 
-      assertThatThrownBy(() -> service.createGroup("2026", 20L))
+      assertThatThrownBy(() -> service.createGroup("2026", null, 20L))
           .isInstanceOf(RosterGroupNotFoundException.class);
 
       verify(rosterGroupRepository, never()).save(any());
@@ -124,7 +124,7 @@ class RosterGroupServiceTest {
 
       findGroup(group);
 
-      var result = service.renameGroup(20L, "New name");
+      var result = service.updateGroup(20L, "New name", null);
 
       assertThat(result).isSameAs(group);
       assertThat(group.getName()).isEqualTo("New name");
@@ -134,7 +134,7 @@ class RosterGroupServiceTest {
     void renamingUnknownGroupFails() {
       when(rosterGroupRepository.findByIdAndUserId(20L, USER_ID)).thenReturn(Optional.empty());
 
-      assertThatThrownBy(() -> service.renameGroup(20L, "New name"))
+      assertThatThrownBy(() -> service.updateGroup(20L, "New name", null))
           .isInstanceOf(RosterGroupNotFoundException.class);
     }
   }
@@ -255,8 +255,11 @@ class RosterGroupServiceTest {
   }
 
   private RosterGroupEntity group(long id, String name, RosterGroupEntity parent) {
+    return group(id, name, "folder", parent);
+  }
 
-    var group = new RosterGroupEntity(user, name, parent);
+  private RosterGroupEntity group(long id, String name, String icon, RosterGroupEntity parent) {
+    var group = new RosterGroupEntity(user, name, icon, parent);
 
     group.setId(id);
 
