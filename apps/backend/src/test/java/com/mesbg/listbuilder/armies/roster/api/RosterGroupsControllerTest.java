@@ -72,7 +72,7 @@ class RosterGroupsControllerTest {
       var entity = groupEntity(GROUP_ID, "Events");
       var dto = groupDto(GROUP_ID, "Events");
 
-      when(rosterGroupService.createGroup("Events", null)).thenReturn(entity);
+      when(rosterGroupService.createGroup("Events", "folder", null)).thenReturn(entity);
 
       when(rosterGroupEntryMapper.toDto(entity)).thenReturn(dto);
 
@@ -91,7 +91,7 @@ class RosterGroupsControllerTest {
           .andExpect(jsonPath("$.id").value(GROUP_ID))
           .andExpect(jsonPath("$.name").value("Events"));
 
-      verify(rosterGroupService).createGroup("Events", null);
+      verify(rosterGroupService).createGroup("Events", "folder", null);
     }
 
     @Test
@@ -99,7 +99,7 @@ class RosterGroupsControllerTest {
       var entity = groupEntity(GROUP_ID, "2026");
       var dto = groupDto(GROUP_ID, "2026");
 
-      when(rosterGroupService.createGroup("2026", PARENT_GROUP_ID)).thenReturn(entity);
+      when(rosterGroupService.createGroup("2026", "folder", PARENT_GROUP_ID)).thenReturn(entity);
 
       when(rosterGroupEntryMapper.toDto(entity)).thenReturn(dto);
 
@@ -116,7 +116,7 @@ class RosterGroupsControllerTest {
                       """))
           .andExpect(status().isCreated());
 
-      verify(rosterGroupService).createGroup("2026", PARENT_GROUP_ID);
+      verify(rosterGroupService).createGroup("2026", "folder", PARENT_GROUP_ID);
     }
 
     @Test
@@ -151,7 +151,7 @@ class RosterGroupsControllerTest {
       var entity = groupEntity(GROUP_ID, "New name");
       var dto = groupDto(GROUP_ID, "New name");
 
-      when(rosterGroupService.renameGroup(GROUP_ID, "New name")).thenReturn(entity);
+      when(rosterGroupService.updateGroup(GROUP_ID, "New name", "folder")).thenReturn(entity);
 
       when(rosterGroupEntryMapper.toDto(entity)).thenReturn(dto);
 
@@ -168,7 +168,7 @@ class RosterGroupsControllerTest {
           .andExpect(status().isOk())
           .andExpect(jsonPath("$.name").value("New name"));
 
-      verify(rosterGroupService).renameGroup(GROUP_ID, "New name");
+      verify(rosterGroupService).updateGroup(GROUP_ID, "New name", "folder");
     }
 
     @Test

@@ -30,7 +30,9 @@ public class RosterGroupsController implements RosterGroupsApi {
 
   @Override
   public ResponseEntity<RosterGroup> createRosterGroup(CreateRosterGroupRequest request) {
-    var group = rosterGroupService.createGroup(request.getName(), request.getParentGroupId());
+    var group =
+        rosterGroupService.createGroup(
+            request.getName(), request.getIcon(), request.getParentGroupId());
 
     var location =
         ServletUriComponentsBuilder.fromCurrentRequest()
@@ -45,7 +47,7 @@ public class RosterGroupsController implements RosterGroupsApi {
   public ResponseEntity<RosterGroup> updateRosterGroup(
       Long groupId, UpdateRosterGroupRequest request) {
 
-    var group = rosterGroupService.renameGroup(groupId, request.getName());
+    var group = rosterGroupService.updateGroup(groupId, request.getName(), request.getIcon());
 
     return ResponseEntity.ok(rosterGroupEntryMapper.toDto(group));
   }
