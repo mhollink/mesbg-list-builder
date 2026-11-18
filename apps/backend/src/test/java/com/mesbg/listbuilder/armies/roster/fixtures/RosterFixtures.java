@@ -31,7 +31,7 @@ public class RosterFixtures {
   }
 
   public static RosterGroupEntity group(long id) {
-    var group = new RosterGroupEntity(user(), "Group", null);
+    var group = new RosterGroupEntity(user(), "Group", "folder", null);
 
     group.setId(id);
 

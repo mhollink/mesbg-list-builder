@@ -31,7 +31,7 @@ final class RosterPersistenceTestFixture {
 
   RosterGroupEntity group(UserEntity user, String name, RosterGroupEntity parent) {
 
-    var group = new RosterGroupEntity(user, name, parent);
+    var group = new RosterGroupEntity(user, name, "folder", parent);
 
     entityManager.persist(group);
 

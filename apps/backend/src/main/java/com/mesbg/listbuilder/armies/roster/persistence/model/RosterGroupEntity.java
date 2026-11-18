@@ -39,6 +39,9 @@ public class RosterGroupEntity {
   @Column(nullable = false, length = 255)
   private String name;
 
+  @Column(nullable = false, length = 64)
+  private String icon = "folder";
+
   @CreationTimestamp
   @Column(name = "created_at", nullable = false, updatable = false)
   private Instant createdAt;
@@ -47,9 +50,11 @@ public class RosterGroupEntity {
   @Column(name = "updated_at", nullable = false)
   private Instant updatedAt;
 
-  public RosterGroupEntity(UserEntity user, String name, RosterGroupEntity parentGroup) {
+  public RosterGroupEntity(
+      UserEntity user, String name, String icon, RosterGroupEntity parentGroup) {
     this.user = user;
     this.name = name;
+    this.icon = icon;
     this.parentGroup = parentGroup;
   }
 }
