@@ -4,6 +4,20 @@ All notable changes to MESBG List Builder are documented in this file.
 
 The format is based on Keep a Changelog and releases follow Semantic Versioning.
 
+## \[2.0.0-alpha.30\] - 2026-11-18
+
+### Added
+
+- Add roster group icon field
+- Support roster group icons
+- Add roster duplication endpoint
+- Add roster duplication logic
+- Add roster duplication dialog
+
+### Changed
+
+- Update roadmap progress
+
 ## \[2.0.0-alpha.29\] - 2026-11-07
 
 ### Added
