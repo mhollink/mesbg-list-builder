@@ -118,6 +118,12 @@ vi.mock("./components/dialogs/EditRosterDialog.tsx", () => ({
   ),
 }));
 
+vi.mock("./components/dialogs/DuplicateRosterDialog.tsx", () => ({
+  DuplicateRosterDialog: ({ roster }: { roster: { name: string } | null }) => (
+    <div>duplicate-roster-dialog:{roster?.name ?? "closed"}</div>
+  ),
+}));
+
 vi.mock("./components/dialogs/CreateRosterGroupDialog", () => ({
   CreateRosterGroupDialog: ({
     open,
@@ -184,6 +190,7 @@ describe("AuthenticatedRostersPage", () => {
       },
       deleteRoster: { roster: null, open: vi.fn(), close: vi.fn() },
       editRoster: { roster: null, open: vi.fn(), close: vi.fn() },
+      duplicateRoster: { roster: null, open: vi.fn(), close: vi.fn() },
       moveRoster: { roster: null, open: vi.fn(), close: vi.fn() },
       updateGroup: { group: null, open: vi.fn(), close: vi.fn() },
       deleteGroup: { group: null, open: vi.fn(), close: vi.fn() },

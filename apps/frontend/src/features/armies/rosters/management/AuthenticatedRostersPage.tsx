@@ -18,6 +18,7 @@ import { CreateRosterDialog } from "./components/dialogs/CreateRosterDialog";
 import { CreateRosterGroupDialog } from "./components/dialogs/CreateRosterGroupDialog";
 import { DeleteRosterDialog } from "./components/dialogs/DeleteRosterDialog";
 import { DeleteRosterGroupDialog } from "./components/dialogs/DeleteRosterGroupDialog";
+import { DuplicateRosterDialog } from "./components/dialogs/DuplicateRosterDialog.tsx";
 import { EditRosterDialog } from "./components/dialogs/EditRosterDialog.tsx";
 import { EditRosterGroupDialog } from "./components/dialogs/EditRosterGroupDialog.tsx";
 import { MoveRosterDialog } from "./components/dialogs/MoveRosterDialog";
@@ -177,6 +178,7 @@ export function AuthenticatedRostersPage() {
             onUpdateGroup={dialogs.updateGroup.open}
             onDeleteGroup={dialogs.deleteGroup.open}
             onEditRoster={dialogs.editRoster.open}
+            onDuplicateRoster={dialogs.duplicateRoster.open}
             onMoveRoster={dialogs.moveRoster.open}
             onDeleteRoster={dialogs.deleteRoster.open}
           />
@@ -192,6 +194,11 @@ export function AuthenticatedRostersPage() {
           groupId={navigation.currentGroupId}
           tagSuggestions={data.tagSuggestions}
           onClose={dialogs.createRoster.close}
+        />
+
+        <DuplicateRosterDialog
+          roster={dialogs.duplicateRoster.roster}
+          onClose={dialogs.duplicateRoster.close}
         />
 
         <EditRosterDialog

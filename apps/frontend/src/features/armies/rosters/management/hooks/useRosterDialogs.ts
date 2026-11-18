@@ -13,6 +13,9 @@ export function useRosterDialogs() {
 
   const [rosterToEdit, setRosterToEdit] = useState<RosterSummary | null>(null);
 
+  const [rosterToDuplicate, setRosterToDuplicate] =
+    useState<RosterSummary | null>(null);
+
   const [rosterToMove, setRosterToMove] = useState<RosterSummary | null>(null);
 
   const [groupToUpdate, setGroupToUpdate] = useState<RosterGroup | null>(null);
@@ -42,6 +45,12 @@ export function useRosterDialogs() {
       roster: rosterToEdit,
       open: setRosterToEdit,
       close: () => setRosterToEdit(null),
+    },
+
+    duplicateRoster: {
+      roster: rosterToDuplicate,
+      open: setRosterToDuplicate,
+      close: () => setRosterToDuplicate(null),
     },
 
     moveRoster: {
