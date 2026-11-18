@@ -35,6 +35,7 @@ describe("CreateRosterGroupDialog", () => {
 
     expect(mocks.createGroup).toHaveBeenCalledWith({
       name: "Events",
+      icon: "folder",
       parentGroupId: 12,
     });
     expect(mocks.unwrap).toHaveBeenCalledOnce();
@@ -57,6 +58,7 @@ describe("CreateRosterGroupDialog", () => {
 
     expect(mocks.createGroup).toHaveBeenCalledWith({
       name: "Root",
+      icon: "folder",
       parentGroupId: undefined,
     });
   });

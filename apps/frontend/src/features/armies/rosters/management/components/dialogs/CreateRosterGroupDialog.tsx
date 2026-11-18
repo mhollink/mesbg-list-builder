@@ -6,9 +6,11 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 
 import { useCreateRosterGroupMutation } from "../../../api/roster-group-api";
+import { GroupIconPicker } from "../group-icon-picker/GroupIconPicker.tsx";
 
 interface CreateRosterGroupDialogProps {
   open: boolean;
@@ -22,12 +24,14 @@ export function CreateRosterGroupDialog({
   onClose,
 }: CreateRosterGroupDialogProps) {
   const [name, setName] = useState("");
+  const [icon, setIcon] = useState("folder");
 
   const [createGroup, { isLoading, isError }] = useCreateRosterGroupMutation();
 
   useEffect(() => {
     if (!open) {
       setName("");
+      setIcon("folder");
     }
   }, [open]);
 
@@ -43,6 +47,7 @@ export function CreateRosterGroupDialog({
     try {
       await createGroup({
         name: trimmedName,
+        icon: icon,
         parentGroupId: parentGroupId,
       }).unwrap();
 
@@ -63,19 +68,22 @@ export function CreateRosterGroupDialog({
         <DialogTitle>Create group</DialogTitle>
 
         <DialogContent>
-          {isError && (
-            <Alert severity="error" sx={{ mb: 2 }}>
-              Could not create the group.
-            </Alert>
-          )}
+          <Stack spacing={2} sx={{ pt: 1 }}>
+            {isError && (
+              <Alert severity="error" sx={{ mb: 2 }}>
+                Could not create the group.
+              </Alert>
+            )}
+            <TextField
+              autoFocus
+              fullWidth
+              label="Group name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
 
-          <TextField
-            autoFocus
-            fullWidth
-            label="Group name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
+            <GroupIconPicker value={icon} onChange={setIcon} />
+          </Stack>
         </DialogContent>
 
         <DialogActions>
