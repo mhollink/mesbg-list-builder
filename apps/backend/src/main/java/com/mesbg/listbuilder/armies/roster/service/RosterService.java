@@ -7,14 +7,10 @@ import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatistics;
 import com.mesbg.listbuilder.armies.roster.service.statistics.RosterStatisticsCalculator;
-
 import java.util.*;
 import java.util.stream.Collectors;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -203,10 +199,7 @@ public class RosterService {
 
   @Transactional
   public RosterSnapshot duplicateRoster(
-      Long rosterId,
-      String name,
-      boolean favorite,
-      boolean locked) {
+      Long rosterId, String name, boolean favorite, boolean locked) {
 
     var source = rosterAccess.requireRoster(rosterId);
 
@@ -217,17 +210,15 @@ public class RosterService {
 
     var copiedUnits = new HashMap<Long, RosterUnitEntity>();
 
-    copy.getWarbands().addAll(
-        source.getWarbands().stream()
-            .map(warband -> copyWarband(warband, copy, copiedUnits))
-            .toList()
-    );
+    copy.getWarbands()
+        .addAll(
+            source.getWarbands().stream()
+                .map(warband -> copyWarband(warband, copy, copiedUnits))
+                .toList());
 
     var saved = rosterRepository.saveAndFlush(copy);
 
-    getGeneralUnitId(source)
-        .map(copiedUnits::get)
-        .ifPresent(saved::setGeneralUnit);
+    getGeneralUnitId(source).map(copiedUnits::get).ifPresent(saved::setGeneralUnit);
 
     return snapshot(saved);
   }
@@ -239,20 +230,15 @@ public class RosterService {
         source.getArmyListId(),
         source.getPointsLimit(),
         new LinkedHashSet<>(source.getTags()),
-        source.getGroup()
-    );
+        source.getGroup());
   }
 
   private Optional<Long> getGeneralUnitId(RosterEntity source) {
-    return Optional.ofNullable(source.getGeneralUnit())
-        .map(RosterUnitEntity::getId);
+    return Optional.ofNullable(source.getGeneralUnit()).map(RosterUnitEntity::getId);
   }
 
   private WarbandEntity copyWarband(
-      WarbandEntity source,
-      RosterEntity roster,
-      Map<Long, RosterUnitEntity> copiedUnits
-  ) {
+      WarbandEntity source, RosterEntity roster, Map<Long, RosterUnitEntity> copiedUnits) {
     var warband = new WarbandEntity(roster, source.getSortIndex());
 
     for (var unit : source.getUnits()) {
@@ -264,17 +250,14 @@ public class RosterService {
     return warband;
   }
 
-  private RosterUnitEntity copyUnit(
-      RosterUnitEntity source,
-      WarbandEntity warband
-  ) {
-    var unit = new RosterUnitEntity(
-        warband,
-        source.getArmyListProfileId(),
-        source.getQuantity(),
-        source.isLeader(),
-        source.getSortIndex()
-    );
+  private RosterUnitEntity copyUnit(RosterUnitEntity source, WarbandEntity warband) {
+    var unit =
+        new RosterUnitEntity(
+            warband,
+            source.getArmyListProfileId(),
+            source.getQuantity(),
+            source.isLeader(),
+            source.getSortIndex());
 
     unit.getOptionIds().addAll(source.getOptionIds());
 

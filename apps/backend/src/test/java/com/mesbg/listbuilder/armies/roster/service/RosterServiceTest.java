@@ -90,7 +90,7 @@ class RosterServiceTest {
     void getsOwnedRosterWithStatistics() {
       var roster = roster(ROSTER_ID);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
@@ -171,7 +171,7 @@ class RosterServiceTest {
       var roster = roster(ROSTER_ID);
       roster.getTags().add("Old");
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
@@ -197,7 +197,7 @@ class RosterServiceTest {
       roster.setPointsLimit(800);
       roster.getTags().add("Existing");
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
@@ -232,7 +232,7 @@ class RosterServiceTest {
     void favoritesRoster() {
       var roster = roster(ROSTER_ID);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
@@ -247,7 +247,7 @@ class RosterServiceTest {
       var roster = roster(ROSTER_ID);
       roster.setFavorite(true);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
@@ -260,7 +260,7 @@ class RosterServiceTest {
     void locksRoster() {
       var roster = roster(ROSTER_ID);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
@@ -274,7 +274,7 @@ class RosterServiceTest {
       var roster = roster(ROSTER_ID);
       roster.setLocked(true);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
@@ -288,7 +288,7 @@ class RosterServiceTest {
       var roster = roster(ROSTER_ID);
       roster.setLocked(true);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
       when(calculator.calculate(roster)).thenReturn(STATISTICS);
 
@@ -300,13 +300,77 @@ class RosterServiceTest {
   }
 
   @Nested
+  class Duplicating {
+    @Test
+    void duplicatingRosterAndWarbands() {
+      var roster = roster(ROSTER_ID);
+      var warband = warband(roster, 1, 0);
+      var leader = unit(warband, 2, "aragorn", 1, true, 0);
+      unit(warband, 3, "legolas", 1, false, 1);
+      unit(warband, 4, "warrior", 6, false, 2);
+      roster.setGeneralUnit(leader);
+      roster.setLocked(true);
+
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
+          .thenReturn(Optional.of(roster));
+      when(rosterRepository.saveAndFlush(any(RosterEntity.class)))
+          .thenAnswer(invocation -> invocation.getArgument(0));
+
+      var result = service.duplicateRoster(ROSTER_ID, "Duplicated roster", true, false);
+      var newRoster = result.roster();
+
+      assertThat(newRoster.getName()).isEqualTo("Duplicated roster");
+      assertThat(newRoster.getPointsLimit()).isEqualTo(roster.getPointsLimit());
+      assertThat(newRoster.getTags()).containsExactlyElementsOf(roster.getTags());
+      assertThat(newRoster.getArmyListId()).isEqualTo(roster.getArmyListId());
+
+      for (int wb = 0; wb < roster.getWarbands().size(); wb++) {
+        var newWarband = newRoster.getWarbands().get(wb);
+        var oldWarband = roster.getWarbands().get(wb);
+
+        assertThat(newWarband.getId()).isNotEqualTo(oldWarband.getId());
+        assertThat(newWarband.getUnits().size()).isEqualTo(oldWarband.getUnits().size());
+
+        for (int unit = 0; unit < oldWarband.getUnits().size(); unit++) {
+          var newUnit = newWarband.getUnits().get(unit);
+          var oldUnit = oldWarband.getUnits().get(unit);
+
+          assertThat(newUnit.getId()).isNotEqualTo(oldUnit.getId());
+          assertThat(newUnit.getSortIndex()).isEqualTo(oldUnit.getSortIndex());
+          assertThat(newUnit.getArmyListProfileId()).isEqualTo(oldUnit.getArmyListProfileId());
+          assertThat(newUnit.getOptionIds()).containsExactlyElementsOf(oldUnit.getOptionIds());
+        }
+      }
+    }
+
+    @Test
+    void duplicatingEmptyRoster() {
+      var roster = roster(ROSTER_ID);
+
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
+          .thenReturn(Optional.of(roster));
+      when(rosterRepository.saveAndFlush(any(RosterEntity.class)))
+          .thenAnswer(invocation -> invocation.getArgument(0));
+
+      var result = service.duplicateRoster(ROSTER_ID, "Duplicated roster", false, false);
+      var newRoster = result.roster();
+
+      assertThat(newRoster.getName()).isEqualTo("Duplicated roster");
+      assertThat(newRoster.getPointsLimit()).isEqualTo(roster.getPointsLimit());
+      assertThat(newRoster.getTags()).containsExactlyElementsOf(roster.getTags());
+      assertThat(newRoster.getArmyListId()).isEqualTo(roster.getArmyListId());
+      assertThat(newRoster.getWarbands()).isEmpty();
+    }
+  }
+
+  @Nested
   class DeletingAndMoving {
 
     @Test
     void deletesUnlockedRoster() {
       var roster = roster(ROSTER_ID);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
 
       service.deleteRoster(ROSTER_ID);
@@ -319,7 +383,7 @@ class RosterServiceTest {
       var roster = roster(ROSTER_ID);
       roster.setLocked(true);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
 
       assertThatThrownBy(() -> service.deleteRoster(ROSTER_ID))
@@ -333,7 +397,7 @@ class RosterServiceTest {
       var roster = roster(ROSTER_ID);
       var group = group(30L);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
 
       when(rosterGroupRepository.findByIdAndUserId(30L, USER_ID)).thenReturn(Optional.of(group));
@@ -348,7 +412,7 @@ class RosterServiceTest {
       var roster = roster(ROSTER_ID);
       roster.setGroup(group(30L));
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
 
       service.removeRosterFromGroup(ROSTER_ID);
@@ -363,7 +427,7 @@ class RosterServiceTest {
 
       var group = group(30L);
 
-      when(rosterRepository.findByIdAndUserId(((RosterEntity) roster).getId(), USER_ID))
+      when(rosterRepository.findByIdAndUserId(roster.getId(), USER_ID))
           .thenReturn(Optional.of(roster));
 
       when(rosterGroupRepository.findByIdAndUserId(30L, USER_ID)).thenReturn(Optional.of(group));
