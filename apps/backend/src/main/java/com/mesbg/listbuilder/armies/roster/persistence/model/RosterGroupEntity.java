@@ -39,6 +39,9 @@ public class RosterGroupEntity {
   @Column(nullable = false, length = 255)
   private String name;
 
+  @Column(nullable = false, length = 64)
+  private String icon = "folder";
+
   @CreationTimestamp
   @Column(name = "created_at", nullable = false, updatable = false)
   private Instant createdAt;
