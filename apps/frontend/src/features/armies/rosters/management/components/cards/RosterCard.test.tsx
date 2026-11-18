@@ -192,6 +192,7 @@ function renderCard(
   onMove = vi.fn(),
   onDelete = vi.fn(),
   onEdit = vi.fn(),
+  onDuplicate = vi.fn(),
 ) {
   const value = roster(overrides);
 
@@ -201,6 +202,7 @@ function renderCard(
         roster={value}
         armyList="Tournament Mordor"
         onEdit={onEdit}
+        onDuplicate={onDuplicate}
         onMove={onMove}
         onDelete={onDelete}
       />

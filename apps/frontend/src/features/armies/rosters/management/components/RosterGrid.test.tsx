@@ -88,6 +88,7 @@ function renderGrid(
       searching={searching}
       getRosterCount={getRosterCount}
       onUpdateGroup={vi.fn()}
+      onDuplicateRoster={vi.fn()}
       onDeleteGroup={vi.fn()}
       onEditRoster={vi.fn()}
       onMoveRoster={vi.fn()}
