@@ -6,27 +6,31 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 
 import type { RosterGroup } from "@mlb/api-client";
 
 import { useUpdateRosterGroupMutation } from "../../../api/roster-group-api";
+import { GroupIconPicker } from "~/features/armies/rosters/management/components/group-icon-picker/GroupIconPicker.tsx";
 
 interface RenameRosterGroupDialogProps {
   group: RosterGroup | null;
   onClose: () => void;
 }
 
-export function RenameRosterGroupDialog({
+export function EditRosterGroupDialog({
   group,
   onClose,
 }: RenameRosterGroupDialogProps) {
   const [name, setName] = useState("");
+  const [icon, setIcon] = useState("folder");
 
-  const [renameGroup, { isLoading, isError }] = useUpdateRosterGroupMutation();
+  const [updateGroup, { isLoading, isError }] = useUpdateRosterGroupMutation();
 
   useEffect(() => {
     setName(group?.name ?? "");
+    setIcon(group?.icon ?? "");
   }, [group]);
 
   async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
@@ -37,10 +41,11 @@ export function RenameRosterGroupDialog({
     }
 
     try {
-      await renameGroup({
+      await updateGroup({
         groupId: group.id,
         updateRosterGroupRequest: {
           name: name.trim(),
+          icon: icon,
         },
       }).unwrap();
 
@@ -61,19 +66,23 @@ export function RenameRosterGroupDialog({
         <DialogTitle>Rename group</DialogTitle>
 
         <DialogContent>
-          {isError && (
-            <Alert severity="error" sx={{ mb: 2 }}>
-              Could not rename the group.
-            </Alert>
-          )}
+          <Stack spacing={2} sx={{ pt: 1 }}>
+            {isError && (
+              <Alert severity="error" sx={{ mb: 2 }}>
+                Could not update the group.
+              </Alert>
+            )}
 
-          <TextField
-            autoFocus
-            fullWidth
-            label="Group name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
+            <TextField
+              autoFocus
+              fullWidth
+              label="Group name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+
+            <GroupIconPicker value={icon} onChange={setIcon} />
+          </Stack>
         </DialogContent>
 
         <DialogActions>
@@ -82,9 +91,13 @@ export function RenameRosterGroupDialog({
           <Button
             type="submit"
             variant="contained"
-            disabled={!name.trim() || name.trim() === group?.name || isLoading}
+            disabled={
+              !name.trim() ||
+              (name.trim() === group?.name && icon === group?.icon) ||
+              isLoading
+            }
           >
-            Rename
+            Update
           </Button>
         </DialogActions>
       </Box>

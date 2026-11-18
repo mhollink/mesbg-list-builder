@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutlined";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -18,20 +17,23 @@ import Typography from "@mui/material/Typography";
 import { useDraggable, useDroppable } from "@dnd-kit/react";
 import type { RosterGroup } from "@mlb/api-client";
 
+import { getGroupIcon } from "~/features/armies/rosters/management/components/group-icon-picker/group-icons.ts";
+
 interface RosterGroupCardProps {
   group: RosterGroup;
   rosterCount: number;
-  onRename: (group: RosterGroup) => void;
+  onUpdate: (group: RosterGroup) => void;
   onDelete: (group: RosterGroup) => void;
 }
 
 export function RosterGroupCard({
   group,
   rosterCount,
-  onRename,
+  onUpdate,
   onDelete,
 }: RosterGroupCardProps) {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const { Icon: GroupIcon } = getGroupIcon(group.icon);
 
   const { ref: droppableRef, isDropTarget } = useDroppable({
     id: `group:${group.id}`,
@@ -147,7 +149,7 @@ export function RosterGroupCard({
             gap: 1,
           }}
         >
-          <FolderRoundedIcon
+          <GroupIcon
             sx={{
               fontSize: 56,
               color: isDropTarget ? "primary.main" : "text.secondary",
@@ -175,11 +177,11 @@ export function RosterGroupCard({
         <MenuItem
           onClick={() => {
             setAnchorEl(null);
-            onRename(group);
+            onUpdate(group);
           }}
         >
           <DriveFileRenameOutlineIcon fontSize="small" sx={{ mr: 1 }} />
-          Rename
+          Update
         </MenuItem>
 
         <Tooltip

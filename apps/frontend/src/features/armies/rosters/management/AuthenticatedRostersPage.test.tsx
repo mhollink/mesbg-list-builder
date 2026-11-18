@@ -140,8 +140,8 @@ vi.mock("./components/dialogs/MoveRosterDialog", () => ({
   MoveRosterDialog: () => <div>move-roster-dialog</div>,
 }));
 
-vi.mock("./components/dialogs/RenameRosterGroupDialog", () => ({
-  RenameRosterGroupDialog: () => <div>rename-group-dialog</div>,
+vi.mock("./components/dialogs/EditRosterGroupDialog", () => ({
+  EditRosterGroupDialog: () => <div>rename-group-dialog</div>,
 }));
 
 vi.mock("./components/dialogs/DeleteRosterGroupDialog", () => ({
@@ -185,7 +185,7 @@ describe("AuthenticatedRostersPage", () => {
       deleteRoster: { roster: null, open: vi.fn(), close: vi.fn() },
       editRoster: { roster: null, open: vi.fn(), close: vi.fn() },
       moveRoster: { roster: null, open: vi.fn(), close: vi.fn() },
-      renameGroup: { group: null, open: vi.fn(), close: vi.fn() },
+      updateGroup: { group: null, open: vi.fn(), close: vi.fn() },
       deleteGroup: { group: null, open: vi.fn(), close: vi.fn() },
     });
 

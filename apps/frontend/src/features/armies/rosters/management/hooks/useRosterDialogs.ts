@@ -15,7 +15,7 @@ export function useRosterDialogs() {
 
   const [rosterToMove, setRosterToMove] = useState<RosterSummary | null>(null);
 
-  const [groupToRename, setGroupToRename] = useState<RosterGroup | null>(null);
+  const [groupToUpdate, setGroupToUpdate] = useState<RosterGroup | null>(null);
 
   const [groupToDelete, setGroupToDelete] = useState<RosterGroup | null>(null);
 
@@ -50,10 +50,10 @@ export function useRosterDialogs() {
       close: () => setRosterToMove(null),
     },
 
-    renameGroup: {
-      group: groupToRename,
-      open: setGroupToRename,
-      close: () => setGroupToRename(null),
+    updateGroup: {
+      group: groupToUpdate,
+      open: setGroupToUpdate,
+      close: () => setGroupToUpdate(null),
     },
 
     deleteGroup: {

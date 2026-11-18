@@ -48,11 +48,11 @@ describe("useRosterDialogs", () => {
     const { result } = renderHook(() => useRosterDialogs());
     const value = group();
 
-    act(() => result.current.renameGroup.open(value));
-    expect(result.current.renameGroup.group).toBe(value);
+    act(() => result.current.updateGroup.open(value));
+    expect(result.current.updateGroup.group).toBe(value);
 
-    act(() => result.current.renameGroup.close());
-    expect(result.current.renameGroup.group).toBeNull();
+    act(() => result.current.updateGroup.close());
+    expect(result.current.updateGroup.group).toBeNull();
 
     act(() => result.current.deleteGroup.open(value));
     expect(result.current.deleteGroup.group).toBe(value);
