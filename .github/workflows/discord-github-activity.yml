@@ -41,6 +41,18 @@ jobs:
             const actor = data.sender?.login || 'Unknown';
             const clean = value => String(value || '')
               .replace(/\s+/g, ' ').trim().slice(0, 300);
+            // Keep colors consistent by GitHub activity type, including comments.
+            const colors = {
+              issue: 0x8957E5,       // Purple
+              pullRequest: 0xF97316, // Orange
+              discussion: 0x0EA5E9,  // Blue
+            };
+            const color = event === 'issues' ||
+              (event === 'issue_comment' && !data.issue.pull_request)
+              ? colors.issue
+              : event.startsWith('discussion')
+                ? colors.discussion
+                : colors.pullRequest;
 
             let title;
             let url;
@@ -96,7 +108,7 @@ jobs:
                   title: title.slice(0, 256),
                   url,
                   description: (description + '\nBy ' + actor).slice(0, 4000),
-                  color: 5793266,
+                  color,
                   footer: { text: context.repo.owner + '/' + context.repo.repo }
                 }]
               })
