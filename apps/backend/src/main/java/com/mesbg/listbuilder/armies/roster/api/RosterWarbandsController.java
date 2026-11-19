@@ -3,9 +3,7 @@ package com.mesbg.listbuilder.armies.roster.api;
 import com.mesbg.listbuilder.armies.roster.api.mapper.WarbandMapper;
 import com.mesbg.listbuilder.armies.roster.service.RosterWarbandsService;
 import com.mesbg.listbuilder.generated.api.RosterWarbandsApi;
-import com.mesbg.listbuilder.generated.model.CreateWarbandRequest;
-import com.mesbg.listbuilder.generated.model.MoveWarbandRequest;
-import com.mesbg.listbuilder.generated.model.Warband;
+import com.mesbg.listbuilder.generated.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,8 +31,9 @@ public class RosterWarbandsController implements RosterWarbandsApi {
   }
 
   @Override
-  public ResponseEntity<Warband> duplicateWarband(Long rosterId, Long warbandId) {
-    var warband = rosterWarbandService.duplicateWarband(rosterId, warbandId);
+  public ResponseEntity<Warband> duplicateWarband(
+      Long rosterId, Long warbandId, DuplicateWarbandRequest request) {
+    var warband = rosterWarbandService.duplicateWarband(rosterId, warbandId, request.getLeader());
 
     return ResponseEntity.status(201).body(warbandMapper.toDto(warband));
   }

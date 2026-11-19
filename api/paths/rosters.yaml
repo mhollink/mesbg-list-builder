@@ -635,6 +635,13 @@ RosterWarbandDuplication:
     summary: Duplicate a warband
     description: Duplicates the warband, its leader, and all of its followers.
 
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/roster.yaml#/DuplicateWarbandRequest"
+
     responses:
       "201":
         description: Warband duplicated.

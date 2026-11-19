@@ -71,7 +71,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("orc-warrior", "orc-warrior", "warrior", List.of());
 
       when(gameDataCatalog.getProfile("orc-warrior"))
-          .thenReturn(profile("orc-warrior", 6, null, List.of(), List.of()));
+          .thenReturn(profile("orc-warrior", 6, null, List.of(), List.of(), List.of()));
 
       var roster = roster();
 
@@ -92,7 +92,12 @@ class RosterStatisticsCalculatorTest {
       when(gameDataCatalog.getProfile("orc-warrior"))
           .thenReturn(
               profile(
-                  "orc-warrior", 6, null, List.of(), List.of(new ProfileOptionData("shield", 1))));
+                  "orc-warrior",
+                  6,
+                  null,
+                  List.of(),
+                  List.of(new ProfileOptionData("shield", 1)),
+                  List.of("warrior", "infantry")));
 
       var roster = roster();
 
@@ -110,7 +115,12 @@ class RosterStatisticsCalculatorTest {
       when(gameDataCatalog.getProfile("orc-warrior"))
           .thenReturn(
               profile(
-                  "orc-warrior", 6, null, List.of(), List.of(new ProfileOptionData("shield", 1))));
+                  "orc-warrior",
+                  6,
+                  null,
+                  List.of(),
+                  List.of(new ProfileOptionData("shield", 1)),
+                  List.of("warrior", "infantry")));
 
       var roster = roster();
 
@@ -129,7 +139,12 @@ class RosterStatisticsCalculatorTest {
       when(gameDataCatalog.getProfile("legolas"))
           .thenReturn(
               profile(
-                  "legolas", 100, "3", List.of(), List.of(new ProfileOptionData("orcrist", 10))));
+                  "legolas",
+                  100,
+                  "3",
+                  List.of(),
+                  List.of(new ProfileOptionData("orcrist", 10)),
+                  List.of("hero", "infantry")));
 
       var roster = roster();
 
@@ -151,7 +166,14 @@ class RosterStatisticsCalculatorTest {
           "grim-hammer-warrior", "grim-hammer-warrior", "warrior", List.of(upgrade));
 
       when(gameDataCatalog.getProfile("grim-hammer-warrior"))
-          .thenReturn(profile("grim-hammer-warrior", 11, null, List.of(), List.of()));
+          .thenReturn(
+              profile(
+                  "grim-hammer-warrior",
+                  11,
+                  null,
+                  List.of(),
+                  List.of(),
+                  List.of("warrior", "infantry")));
 
       var roster = roster();
 
@@ -167,7 +189,8 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("captain", "captain", "hero-of-fortitude", List.of(armour));
 
       when(gameDataCatalog.getProfile("captain"))
-          .thenReturn(profile("captain", 50, "2", List.of(), List.of()));
+          .thenReturn(
+              profile("captain", 50, "2", List.of(), List.of(), List.of("hero", "infantry")));
 
       var roster = roster();
 
@@ -183,7 +206,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("captain", "captain", "hero-of-fortitude", List.of(armour));
 
       when(gameDataCatalog.getProfile("captain"))
-          .thenReturn(profile("captain", 50, "2", List.of(), List.of()));
+          .thenReturn(profile("captain", 50, "2", List.of(), List.of(), List.of()));
 
       var roster = roster();
 
@@ -199,7 +222,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("warrior", "warrior", "warrior", List.of(unknown));
 
       when(gameDataCatalog.getProfile("warrior"))
-          .thenReturn(profile("warrior", 10, null, List.of(), List.of()));
+          .thenReturn(profile("warrior", 10, null, List.of(), List.of(), List.of()));
 
       var roster = roster();
 
@@ -271,7 +294,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("hero", "hero", "hero-of-fortitude", List.of());
 
       when(gameDataCatalog.getProfile("hero"))
-          .thenReturn(profile("hero", 100, "3", List.of(), List.of()));
+          .thenReturn(profile("hero", 100, "3", List.of(), List.of(), List.of()));
 
       var roster = roster();
 
@@ -285,7 +308,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("might-model", "might-model", "warrior", List.of());
 
       when(gameDataCatalog.getProfile("might-model"))
-          .thenReturn(profile("might-model", 20, "1", List.of(), List.of()));
+          .thenReturn(profile("might-model", 20, "1", List.of(), List.of(), List.of()));
 
       var roster = roster();
 
@@ -299,7 +322,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("warrior", "warrior", "warrior", List.of());
 
       when(gameDataCatalog.getProfile("warrior"))
-          .thenReturn(profile("warrior", 10, null, List.of(), List.of()));
+          .thenReturn(profile("warrior", 10, null, List.of(), List.of(), List.of()));
 
       var roster = roster();
 
@@ -314,7 +337,8 @@ class RosterStatisticsCalculatorTest {
 
       when(gameDataCatalog.getProfile("warrior"))
           .thenReturn(
-              new ProfileData("warrior", 10, new ProfileStatsData(null), List.of(), List.of()));
+              new ProfileData(
+                  "warrior", 10, new ProfileStatsData(null), List.of(), List.of(), List.of()));
 
       var roster = roster();
 
@@ -333,7 +357,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("archer", "archer", "warrior", List.of());
 
       when(gameDataCatalog.getProfile("archer"))
-          .thenReturn(profile("archer", 8, null, List.of(equipment), List.of()));
+          .thenReturn(profile("archer", 8, null, List.of(equipment), List.of(), List.of()));
 
       var roster = roster();
 
@@ -349,7 +373,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("warrior", "warrior", "warrior", List.of(bow));
 
       when(gameDataCatalog.getProfile("warrior"))
-          .thenReturn(profile("warrior", 7, null, List.of("sword"), List.of()));
+          .thenReturn(profile("warrior", 7, null, List.of("sword"), List.of(), List.of()));
 
       var roster = roster();
 
@@ -363,7 +387,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("ranger-hero", "ranger", "minor-hero", List.of());
 
       when(gameDataCatalog.getProfile("ranger"))
-          .thenReturn(profile("ranger", 30, "1", List.of("bow"), List.of()));
+          .thenReturn(profile("ranger", 30, "1", List.of("bow"), List.of(), List.of()));
 
       var roster = roster();
 
@@ -382,7 +406,7 @@ class RosterStatisticsCalculatorTest {
           new ArmyListProfileOverridesData(List.of("bow")));
 
       when(gameDataCatalog.getProfile("archer"))
-          .thenReturn(profile("archer", 8, null, List.of("bow"), List.of()));
+          .thenReturn(profile("archer", 8, null, List.of("bow"), List.of(), List.of()));
 
       var roster = roster();
 
@@ -398,7 +422,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("ranger-warrior", "ranger", "warrior", List.of());
 
       when(gameDataCatalog.getProfile("ranger"))
-          .thenReturn(profile("ranger", 25, "1", List.of("bow"), List.of()));
+          .thenReturn(profile("ranger", 25, "1", List.of("bow"), List.of(), List.of()));
 
       var roster = roster();
       var warband = addWarband(roster);
@@ -424,7 +448,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("warrior", "warrior", "warrior", List.of());
 
       when(gameDataCatalog.getProfile("warrior"))
-          .thenReturn(profile("warrior", 8, null, List.of(equipment), List.of()));
+          .thenReturn(profile("warrior", 8, null, List.of(equipment), List.of(), List.of()));
 
       var roster = roster();
 
@@ -441,7 +465,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("warrior", "warrior", "warrior", List.of(throwingSpears));
 
       when(gameDataCatalog.getProfile("warrior"))
-          .thenReturn(profile("warrior", 7, null, List.of(), List.of()));
+          .thenReturn(profile("warrior", 7, null, List.of(), List.of(), List.of()));
 
       var roster = roster();
 
@@ -455,7 +479,7 @@ class RosterStatisticsCalculatorTest {
       stubArmyListProfile("hero", "hero", "hero-of-fortitude", List.of());
 
       when(gameDataCatalog.getProfile("hero"))
-          .thenReturn(profile("hero", 50, "2", List.of("throwing-spears"), List.of()));
+          .thenReturn(profile("hero", 50, "2", List.of("throwing-spears"), List.of(), List.of()));
 
       var roster = roster();
 
@@ -478,13 +502,18 @@ class RosterStatisticsCalculatorTest {
     when(gameDataCatalog.getProfile("hero"))
         .thenReturn(
             profile(
-                "hero", 50, "3", List.of("sword"), List.of(new ProfileOptionData("horse", 10))));
+                "hero",
+                50,
+                "3",
+                List.of("sword"),
+                List.of(new ProfileOptionData("horse", 10)),
+                List.of()));
 
     when(gameDataCatalog.getProfile("archer"))
-        .thenReturn(profile("archer", 8, null, List.of("bow"), List.of()));
+        .thenReturn(profile("archer", 8, null, List.of("bow"), List.of(), List.of()));
 
     when(gameDataCatalog.getProfile("thrower"))
-        .thenReturn(profile("thrower", 9, null, List.of("throwing-spears"), List.of()));
+        .thenReturn(profile("thrower", 9, null, List.of("throwing-spears"), List.of(), List.of()));
 
     var roster = roster();
 
@@ -546,10 +575,20 @@ class RosterStatisticsCalculatorTest {
   }
 
   private ProfileData profile(
-      String id, int points, String might, List<String> wargear, List<ProfileOptionData> options) {
+      String id,
+      int points,
+      String might,
+      List<String> wargear,
+      List<ProfileOptionData> options,
+      List<String> unitTypes) {
 
     return new ProfileData(
-        id, points, might == null ? null : new ProfileStatsData(might), wargear, options);
+        id,
+        points,
+        might == null ? null : new ProfileStatsData(might),
+        wargear,
+        options,
+        unitTypes);
   }
 
   private RosterUnitEntity addUnit(

@@ -73,18 +73,28 @@ class RosterWarbandsControllerTest {
   void duplicatesWarband() throws Exception {
     var entity = new WarbandEntity();
     var dto = warbandDto(WARBAND_ID);
+    var input = leaderInput();
 
-    when(rosterWarbandsService.duplicateWarband(ROSTER_ID, WARBAND_ID)).thenReturn(entity);
+    when(rosterWarbandsService.duplicateWarband(ROSTER_ID, WARBAND_ID, input)).thenReturn(entity);
     when(warbandMapper.toDto(entity)).thenReturn(dto);
 
     mockMvc
         .perform(
-            post(
-                "/api/v1/rosters/{rosterId}/warbands/{warbandId}/duplicate", ROSTER_ID, WARBAND_ID))
+            post("/api/v1/rosters/{rosterId}/warbands/{warbandId}/duplicate", ROSTER_ID, WARBAND_ID)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    """
+                    {
+                      "leader": {
+                        "armyListProfileId": "aragorn-king-elessar",
+                        "optionIds": []
+                      }
+                    }
+                    """))
         .andExpect(status().isCreated())
         .andExpect(jsonPath("$.id").value(WARBAND_ID));
 
-    verify(rosterWarbandsService).duplicateWarband(ROSTER_ID, WARBAND_ID);
+    verify(rosterWarbandsService).duplicateWarband(ROSTER_ID, WARBAND_ID, input);
   }
 
   @Test

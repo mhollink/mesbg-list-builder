@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router";
 
 export type BuilderPicker =
   | { type: "warband-create"; mode: "single" | "continuous" }
+  | { type: "warband-duplicate"; warbandId: string }
   | { type: "leader-edit"; warbandId: string }
   | { type: "follower-add"; warbandId: string }
   | { type: "follower-edit"; warbandId: string; unitId: string };
@@ -25,6 +26,7 @@ function parsePicker(params: URLSearchParams): BuilderPicker | null {
         type,
         mode: params.get(MODE) === "continuous" ? "continuous" : "single",
       };
+    case "warband-duplicate":
     case "leader-edit":
     case "follower-add":
       return warbandId ? { type, warbandId } : null;

@@ -24,6 +24,7 @@ import type {
 import type { WarbandCapacity } from "../../domain/warband-rules.ts";
 import type { UnitLoadout } from "../pickers/unit-configuration/unit-configuration.utils.ts";
 import { WarbandCard } from "./WarbandCard.tsx";
+import { DuplicateWarbandDrawer } from "~/features/armies/rosters/builder/components/pickers/DuplicateWarbandDrawer.tsx";
 import { LeaderPicker } from "~/features/armies/rosters/builder/components/pickers/LeaderPicker.tsx";
 import { useBuilderPickerHistory } from "~/features/armies/rosters/builder/hooks/useBuilderPickerHistory.ts";
 import { useRosterSorting } from "~/features/armies/rosters/builder/hooks/useRosterSorting.ts";
@@ -67,6 +68,10 @@ export function WarbandList({
   const dnd = useRosterSorting(roster, actions);
   const { picker, openPicker } = useBuilderPickerHistory();
   const creationMode = picker?.type === "warband-create" ? picker.mode : null;
+  const duplicatingWarband =
+    picker?.type === "warband-duplicate"
+      ? roster.warbands.find((wb) => String(wb.id) === picker.warbandId)
+      : null;
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
   const [movingWarband, setMovingWarband] = useState(false);
   const [moveError, setMoveError] = useState(false);
@@ -91,6 +96,27 @@ export function WarbandList({
     }
 
     await actions.createWarband({
+      armyListProfileId: profile.id,
+      optionIds: loadout.optionIds,
+    });
+  }
+
+  async function handleDuplicateWarband(
+    profile: LocalizedArmyListProfile,
+    loadouts: UnitLoadout[],
+  ) {
+    const loadout = loadouts[0];
+
+    if (
+      !duplicatingWarband ||
+      loadouts.length !== 1 ||
+      !loadout ||
+      loadout.quantity !== 1
+    ) {
+      throw new Error("A warband requires exactly one leader.");
+    }
+
+    await actions.duplicateWarband(duplicatingWarband.id, {
       armyListProfileId: profile.id,
       optionIds: loadout.optionIds,
     });
@@ -183,6 +209,14 @@ export function WarbandList({
         continuous={creationMode === "continuous"}
         profiles={getAvailableLeaders()}
         onSave={handleCreateWarband}
+      />
+
+      <DuplicateWarbandDrawer
+        open={duplicatingWarband !== null}
+        sourceWarband={duplicatingWarband}
+        gameData={gameData}
+        profiles={getAvailableLeaders()}
+        onSave={handleDuplicateWarband}
       />
     </Stack>
   );

@@ -8,14 +8,20 @@ public record ProfileData(
     int points,
     ProfileStatsData stats,
     List<String> wargear,
-    List<ProfileOptionData> options) {
+    List<ProfileOptionData> options,
+    List<String> unitTypes) {
 
   public ProfileData {
     wargear = wargear == null ? List.of() : List.copyOf(wargear);
     options = options == null ? List.of() : List.copyOf(options);
+    unitTypes = unitTypes == null ? List.of() : List.copyOf(unitTypes);
   }
 
   public Optional<ProfileOptionData> findOption(String optionId) {
     return options.stream().filter(option -> option.id().equals(optionId)).findFirst();
+  }
+
+  public boolean isUnique() {
+    return unitTypes != null && unitTypes.contains("unique");
   }
 }

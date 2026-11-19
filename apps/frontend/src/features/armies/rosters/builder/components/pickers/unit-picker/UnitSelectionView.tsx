@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState } from "react";
+import { Fragment, type ReactNode, useMemo, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import Box from "@mui/material/Box";
@@ -17,14 +17,16 @@ import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/a
 
 interface UnitSelectionViewProps {
   title: string;
+  notice?: ReactNode;
   onClose: () => void;
   profiles: readonly LocalizedArmyListProfile[];
   onSelect: (profile: LocalizedArmyListProfile) => void;
-  onQuickAdd: (profile: LocalizedArmyListProfile) => Promise<void>;
+  onQuickAdd?: (profile: LocalizedArmyListProfile) => Promise<void>;
 }
 
 export function UnitSelectionView({
   title,
+  notice,
   profiles,
   onSelect,
   onQuickAdd,
@@ -51,7 +53,7 @@ export function UnitSelectionView({
   }, [profiles, search]);
 
   return (
-    <Stack sx={{ minHeight: "100%" }}>
+    <Stack sx={{ height: "100%", minHeight: 0 }}>
       <Stack
         direction="row"
         spacing={2}
@@ -103,9 +105,11 @@ export function UnitSelectionView({
       <Box
         sx={{
           flex: 1,
+          minHeight: 0,
           overflowY: "auto",
         }}
       >
+        {notice}
         {profileGroups.length === 0 ? (
           <Typography
             color="text.secondary"
@@ -143,7 +147,9 @@ export function UnitSelectionView({
                     key={profile.id}
                     profile={profile}
                     onSelect={() => onSelect(profile)}
-                    onQuickAdd={() => onQuickAdd(profile)}
+                    onQuickAdd={
+                      onQuickAdd ? () => onQuickAdd(profile) : undefined
+                    }
                   />
                 ))}
               </Fragment>

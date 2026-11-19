@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import SaveIcon from "@mui/icons-material/Save";
 import Alert from "@mui/material/Alert";
@@ -26,6 +26,11 @@ import type { WarbandCapacity } from "~/features/armies/rosters/builder/domain/w
 import type { LocalizedArmyListProfile } from "~/features/reference/army-lists/army-lists.types.ts";
 
 export interface UnitConfigurationViewProps {
+  title?: string;
+  initialOptionIds?: readonly string[];
+  notice?: ReactNode;
+  submitLabel?: string;
+  errorMessage?: string;
   profile: LocalizedArmyListProfile;
   /** Editing a hero still targets exactly one roster entry. */
   unit?: BuilderUnit;
@@ -38,23 +43,43 @@ export interface UnitConfigurationViewProps {
 }
 
 export function UnitConfigurationView({
+  title,
+  notice,
   profile,
   unit,
+  initialOptionIds,
   existingUnits,
   capacity,
   onBack,
   onClose,
+  submitLabel,
   onSave,
+  errorMessage,
 }: UnitConfigurationViewProps) {
   const editing = unit !== undefined || existingUnits !== undefined;
   const isHero = profile.profile.stats.type === "hero";
   const previousUnits = isHero ? (unit ? [unit] : []) : (existingUnits ?? []);
   const [heroOptionIds, setHeroOptionIds] = useState<string[]>(() =>
-    normalizeOptionIds(profile, unit?.optionIds ?? []),
+    normalizeOptionIds(profile, unit?.optionIds ?? initialOptionIds ?? []),
   );
+
   const [warriorDrafts, setWarriorDrafts] = useState(() =>
-    createWarriorDrafts(profile, existingUnits),
+    createWarriorDrafts(
+      profile,
+      existingUnits ??
+        (initialOptionIds
+          ? [
+              {
+                id: "duplicate-preview",
+                armyListProfileId: profile.id,
+                quantity: 1,
+                optionIds: [...initialOptionIds],
+              },
+            ]
+          : undefined),
+    ),
   );
+
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(false);
   const savingRef = useRef(false);
@@ -123,6 +148,7 @@ export function UnitConfigurationView({
   return (
     <Stack sx={{ height: "100%", minHeight: 0 }}>
       <UnitConfigurationHeader
+        title={title}
         profile={profile}
         onBack={onBack}
         onClose={onClose}
@@ -135,6 +161,7 @@ export function UnitConfigurationView({
           pointerEvents: saving ? "none" : "auto",
         }}
       >
+        {notice}
         <UnitSummary profile={profile} />
         {!isHero && editing && (
           <Typography
@@ -184,8 +211,8 @@ export function UnitConfigurationView({
       >
         {saveError && (
           <Alert severity="error" role="alert">
-            The configurations could not be saved. No changes were applied.
-            Check the latest warband data and try again.
+            {errorMessage ??
+              "The configurations could not be saved. No changes were applied. Check the latest warband data and try again."}
           </Alert>
         )}
         {!isHero && (
@@ -232,11 +259,12 @@ export function UnitConfigurationView({
         >
           {saving
             ? "Saving..."
-            : editing
-              ? "Save changes"
-              : isHero
-                ? "Add hero"
-                : `Add ${models} followers`}
+            : (submitLabel ??
+              (editing
+                ? "Save changes"
+                : isHero
+                  ? "Add hero"
+                  : `Add ${models} followers`))}
         </Button>
       </Stack>
     </Stack>

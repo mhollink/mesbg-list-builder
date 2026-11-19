@@ -23,7 +23,13 @@ export interface RosterPersistence {
 
   deleteWarband(warbandId: BuilderWarbandId): Promise<void>;
 
-  duplicateWarband(warbandId: BuilderWarbandId): Promise<void>;
+  duplicateWarband(
+    warbandId: BuilderWarbandId,
+    leader: {
+      armyListProfileId: string;
+      optionIds: string[];
+    },
+  ): Promise<void>;
 
   moveWarband(warbandId: BuilderWarbandId, position: number): Promise<void>;
 
