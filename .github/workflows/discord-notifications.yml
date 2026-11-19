@@ -56,11 +56,11 @@ jobs:
                 username: 'GitKraken',
                 allowed_mentions: { parse: [] },
                 embeds: [{
-                  title: `MESBG List Builder ${tag}`,
+                  title: `We have just released version ${tag}!`,
                   url: notesUrl,
                   description,
                   color: 5763719,
-                  footer: { text: `Published ${tag}` },
+                  footer: { text: `This version is currently available on https://test.mesbg-list-builder.com` },
                 }],
               }),
             });
