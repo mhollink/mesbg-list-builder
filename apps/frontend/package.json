@@ -23,7 +23,7 @@
     "@reduxjs/toolkit": "^2.14.0",
     "@types/culori": "^4.0.1",
     "culori": "^4.0.2",
-    "i18next": "^26.5.3",
+    "i18next": "^27.1.5",
     "i18next-browser-languagedetector": "^8.3.1",
     "i18next-http-backend": "^4.0.10",
     "i18next-resources-to-backend": "^1.2.4",
