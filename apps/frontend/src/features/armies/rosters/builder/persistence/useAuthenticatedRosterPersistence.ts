@@ -69,10 +69,11 @@ export function useAuthenticatedRosterPersistence(
       }).unwrap();
     },
 
-    async duplicateWarband(warbandId) {
+    async duplicateWarband(warbandId, leader) {
       await duplicateWarband({
         rosterId,
         warbandId: numericWarbandId(warbandId),
+        leader,
       }).unwrap();
     },
 

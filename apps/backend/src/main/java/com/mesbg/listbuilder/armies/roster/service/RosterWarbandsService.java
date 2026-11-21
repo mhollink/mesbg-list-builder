@@ -4,7 +4,9 @@ import com.mesbg.listbuilder.armies.roster.persistence.WarbandRepository;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.RosterUnitEntity;
 import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
+import com.mesbg.listbuilder.armies.roster.service.exception.InvalidRosterUnitException;
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidWarbandPositionException;
+import com.mesbg.listbuilder.gamedata.GameDataCatalog;
 import com.mesbg.listbuilder.generated.model.LeaderInput;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -21,6 +23,7 @@ public class RosterWarbandsService {
 
   private final RosterAccess rosterAccess;
   private final WarbandRepository warbandRepository;
+  private final GameDataCatalog gameDataCatalog;
 
   @Transactional
   public WarbandEntity createWarband(Long rosterId, LeaderInput leaderInput) {
@@ -73,25 +76,36 @@ public class RosterWarbandsService {
   }
 
   @Transactional
-  public WarbandEntity duplicateWarband(Long rosterId, Long warbandId) {
+  public WarbandEntity duplicateWarband(Long rosterId, Long warbandId, LeaderInput leaderInput) {
     log.debug("Duplicating warband rosterId={} sourceWarbandId={}", rosterId, warbandId);
 
     var roster = rosterAccess.requireEditable(rosterId);
     var source = rosterAccess.requireWarband(warbandId, rosterId);
 
-    var duplicated = new WarbandEntity(roster, getMaxSortIndex(roster) + 1);
+    validateDuplicateLeader(roster, leaderInput);
 
-    // TODO: Remove unique models from stream.
+    int position = source.getSortIndex() + 1;
+    makeRoomForWarband(roster, position);
+
+    var duplicate = new WarbandEntity(roster, position);
+
+    var leader = new RosterUnitEntity(duplicate, leaderInput.getArmyListProfileId(), 1, true, -1);
+
+    leader.getOptionIds().addAll(leaderInput.getOptionIds());
+    duplicate.getUnits().add(leader);
+
     // TODO: Clear upgrades/options from units coming from specific leaders.
     source.getUnits().stream()
+        .filter(unit -> !unit.isLeader())
+        .filter(unit -> !isUnique(roster, unit))
         .sorted(Comparator.comparingInt(RosterUnitEntity::getSortIndex))
-        .map(unit -> duplicateUnit(duplicated, unit))
-        .forEach(duplicated.getUnits()::add);
+        .map(unit -> duplicateUnit(duplicate, unit))
+        .forEach(duplicate.getUnits()::add);
 
-    roster.getWarbands().add(duplicated);
+    roster.getWarbands().add(duplicate);
     roster.touch();
 
-    var saved = warbandRepository.save(duplicated);
+    var saved = warbandRepository.save(duplicate);
 
     log.debug(
         "Duplicated warband rosterId={} sourceWarbandId={} warbandId={} unitCount={}",
@@ -160,5 +174,49 @@ public class RosterWarbandsService {
         warbandId,
         sourceIndex,
         targetIndex);
+  }
+
+  private void makeRoomForWarband(RosterEntity roster, int position) {
+    roster.getWarbands().stream()
+        .filter(warband -> warband.getSortIndex() >= position)
+        .forEach(warband -> warband.setSortIndex(warband.getSortIndex() + 1));
+  }
+
+  private boolean isUnique(RosterEntity roster, RosterUnitEntity unit) {
+    return gameDataCatalog
+        .getProfileForArmyListProfile(roster.getArmyListId(), unit.getArmyListProfileId())
+        .isUnique();
+  }
+
+  private void validateDuplicateLeader(RosterEntity roster, LeaderInput input) {
+    if (input == null
+        || input.getArmyListProfileId() == null
+        || input.getArmyListProfileId().isBlank()
+        || input.getOptionIds() == null) {
+      throw new InvalidRosterUnitException("A leader profile and options are required");
+    }
+
+    var armyListId = roster.getArmyListId();
+
+    var selectedProfile =
+        gameDataCatalog.getArmyListProfile(armyListId, input.getArmyListProfileId());
+
+    var profile = gameDataCatalog.getProfile(selectedProfile.profileId());
+
+    if (!profile.isUnique()) {
+      return;
+    }
+
+    var alreadyPresent =
+        roster.getWarbands().stream()
+            .flatMap(warband -> warband.getUnits().stream())
+            .map(
+                unit -> gameDataCatalog.getArmyListProfile(armyListId, unit.getArmyListProfileId()))
+            .anyMatch(existing -> existing.profileId().equals(selectedProfile.profileId()));
+
+    if (alreadyPresent) {
+      throw new InvalidRosterUnitException(
+          "The selected Unique leader already exists in this roster");
+    }
   }
 }

@@ -4,6 +4,8 @@ import type {
 } from "../domain/roster.types.ts";
 import type { RosterPersistence } from "./roster-persistence.types.ts";
 import { useAppDispatch, useAppSelector } from "~/app/store/hooks.ts";
+import { useBuilderGameData } from "~/features/armies/rosters/builder/data/useBuilderGameData.ts";
+import { isUniqueProfile } from "~/features/armies/rosters/builder/domain/profile-selection.ts";
 import { selectGuestRoster } from "~/features/armies/rosters/guest/guest-roster.selectors.ts";
 import {
   addGuestFollower,
@@ -25,8 +27,20 @@ import type {
 
 export function useGuestRosterPersistence(): RosterPersistence {
   const dispatch = useAppDispatch();
-
   const roster = useAppSelector(selectGuestRoster);
+  const gameData = useBuilderGameData(roster.armyListId);
+
+  function isUniqueArmyListProfile(armyListProfileId: string): boolean {
+    const profile = gameData?.armyListProfilesById.get(armyListProfileId);
+
+    if (!profile) {
+      throw new Error(
+        `Cannot determine uniqueness for profile "${armyListProfileId}".`,
+      );
+    }
+
+    return isUniqueProfile(profile);
+  }
 
   return {
     async replaceFollowerLoadouts(warbandId, armyListProfileId, loadouts) {
@@ -93,14 +107,21 @@ export function useGuestRosterPersistence(): RosterPersistence {
       dispatch(deleteGuestWarband(guestWarbandId(warbandId)));
     },
 
-    async duplicateWarband(warbandId) {
+    async duplicateWarband(warbandId, leader) {
       const source = findWarband(roster, guestWarbandId(warbandId));
 
       dispatch(
         addGuestWarband({
           id: crypto.randomUUID(),
-          leader: cloneUnit(source.leader),
-          followers: source.followers.map(cloneUnit),
+          leader: {
+            id: crypto.randomUUID(),
+            armyListProfileId: leader.armyListProfileId,
+            quantity: 1,
+            optionIds: [...leader.optionIds],
+          },
+          followers: source.followers
+            .filter((unit) => !isUniqueArmyListProfile(unit.armyListProfileId))
+            .map(cloneUnit),
         }),
       );
     },

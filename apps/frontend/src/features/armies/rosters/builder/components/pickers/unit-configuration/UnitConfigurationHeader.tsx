@@ -10,13 +10,14 @@ import type { UnitConfigurationViewProps } from "./UnitConfigurationView.tsx";
 
 type UnitConfigurationHeaderProps = Pick<
   UnitConfigurationViewProps,
-  "profile" | "onBack" | "onClose"
+  "profile" | "onBack" | "onClose" | "title"
 >;
 
 export function UnitConfigurationHeader({
   profile,
   onBack,
   onClose,
+  title,
 }: UnitConfigurationHeaderProps) {
   return (
     <>
@@ -43,9 +44,10 @@ export function UnitConfigurationHeader({
               component="h2"
               sx={{ fontWeight: 700, lineHeight: 1.2, mb: 0.5 }}
             >
-              {profile.profile.stats.type === "hero"
-                ? "Configure unit"
-                : "Configure loadouts"}
+              {title ??
+                (profile.profile.stats.type === "hero"
+                  ? "Configure unit"
+                  : "Configure loadouts")}
             </Typography>
             <Typography variant="body2" color="textSecondary">
               {profile.profile.name}

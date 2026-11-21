@@ -113,7 +113,10 @@ export function WarbandCard({
       void actions.deleteWarband(warband.id);
     },
     duplicateWarband: () => {
-      void actions.duplicateWarband(warband.id);
+      openPicker({
+        type: "warband-duplicate",
+        warbandId: String(warband.id),
+      });
     },
   };
 

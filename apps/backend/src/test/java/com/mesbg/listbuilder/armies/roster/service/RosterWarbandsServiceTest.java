@@ -25,6 +25,7 @@ import com.mesbg.listbuilder.armies.roster.persistence.model.WarbandEntity;
 import com.mesbg.listbuilder.armies.roster.service.exception.InvalidWarbandPositionException;
 import com.mesbg.listbuilder.armies.roster.service.exception.RosterLockedException;
 import com.mesbg.listbuilder.armies.roster.service.exception.WarbandNotFoundException;
+import com.mesbg.listbuilder.gamedata.GameDataCatalog;
 import com.mesbg.listbuilder.generated.model.LeaderInput;
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +43,7 @@ class RosterWarbandsServiceTest {
   @Mock private WarbandRepository warbandRepository;
   @Mock private RosterUnitRepository rosterUnitRepository;
   @Mock private RosterGroupRepository rosterGroupRepository;
+  @Mock private GameDataCatalog gameDataCatalog;
 
   private RosterWarbandsService warbandsService;
 
@@ -59,7 +61,7 @@ class RosterWarbandsServiceTest {
             rosterUnitRepository,
             rosterGroupRepository);
 
-    warbandsService = new RosterWarbandsService(rosterAccess, warbandRepository);
+    warbandsService = new RosterWarbandsService(rosterAccess, warbandRepository, gameDataCatalog);
   }
 
   @Test
@@ -182,7 +184,8 @@ class RosterWarbandsServiceTest {
     when(warbandRepository.save(any(WarbandEntity.class)))
         .thenAnswer(invocation -> invocation.getArgument(0));
 
-    var result = warbandsService.duplicateWarband(ROSTER_ID, 40L);
+    LeaderInput leaderInput = new LeaderInput("aragorn-king-elessar", List.of());
+    var result = warbandsService.duplicateWarband(ROSTER_ID, 40L, leaderInput);
 
     assertThat(result).isNotSameAs(source);
     assertThat(result.getSortIndex()).isEqualTo(5);

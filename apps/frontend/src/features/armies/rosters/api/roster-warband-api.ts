@@ -52,14 +52,17 @@ export const rosterWarbandApi = serverApi.injectEndpoints({
 
     duplicateWarband: builder.mutation<
       Warband,
-      { rosterId: number; warbandId: number }
+      { rosterId: number; warbandId: number; leader: LeaderInput }
     >({
-      queryFn: async ({ rosterId, warbandId }) => {
+      queryFn: async ({ rosterId, warbandId, leader }) => {
         try {
           return {
             data: await rosterWarbandsClient.duplicateWarband({
               rosterId,
               warbandId,
+              duplicateWarbandRequest: {
+                leader,
+              },
             }),
           };
         } catch (error) {
